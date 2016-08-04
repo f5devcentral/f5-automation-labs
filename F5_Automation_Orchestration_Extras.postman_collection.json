@@ -1,0 +1,410 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Z_F5 Automation & Orchestration Extras",
+		"_postman_id": "3895bbff-017a-8e9b-9d76-523d1fc62c8e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BIG-IP - Licensing with Manual Activation",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Send Base & Add-on Keys",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get Activation Status",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Install License File",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/registration",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"licenseText\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Get License Status",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/registration",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BIG-IP Licensing with Automatic Activation",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Send Base & Add-on Keys",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"isAutomaticActivation\":\"true\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get Activation Status",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Send EULA Acceptance",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"eulaText\":\"\",\n    \"isAutomaticActivation\":\"true\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Get Activation Status",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/activation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 5: Get License Status",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/shared/licensing/registration",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iWorkflow - Add a BIG-IP License Pool",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Send Pool Base Key",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/system/licensing/pool/initial-activation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"ACTIVATING_AUTOMATIC\",\n    \"name\":\"Pool1\",\n    \"regKey\":\"\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get Activation Status",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/system/licensing/pool/initial-activation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Send EULA Acceptance",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/system/licensing/pool/initial-activation/<YOUR_REGKEY_HERE>",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"eulaText\": \"\",\n      \"status\":\"ACTIVATING_AUTOMATIC_EULA_ACCEPTED\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Get License Pool UUID",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/shared/licensing/pools",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseRegKey\":\"\",\n    \"addOnKeys\":[],\n    \"automaticActivation\":false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iWorkflow - Grant License from Pool",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Grant License from Pool to BIG-IP",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}//mgmt/cm/shared/licensing/pools/{{iworkflow_pool_uuid}}/members",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceReference\": {\n        \"link\":\"https://localhost/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get License Pool Grant Status",
+					"request": {
+						"url": "https://{{iworkflow_mgmt}}//mgmt/cm/shared/licensing/pools/{{iworkflow_pool_uuid}}/members",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iworkflow_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
