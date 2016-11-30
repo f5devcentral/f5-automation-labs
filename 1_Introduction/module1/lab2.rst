@@ -140,7 +140,7 @@ Perform the following steps to complete this task:
 
    |image18|
 
-#. Click the ‘Send’ button. If you’re request is successful you should
+#. Click the ‘Send’ button. If your request is successful you should
    see a ‘200 OK’ status and a listing of the ``ltm`` Organizing
    Collection.
 
