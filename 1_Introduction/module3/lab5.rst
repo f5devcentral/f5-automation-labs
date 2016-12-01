@@ -33,7 +33,7 @@ Task 2 – Run delete\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. In the command prompt type 
-   ``python delete\_pool.py 10.1.1.4 test_pool``
+   ``python delete_pool.py 10.1.1.4 test_pool``
    and examine the output:
    
    |image72|
