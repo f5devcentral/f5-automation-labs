@@ -36,7 +36,8 @@ Perform the following steps to complete this task:
    and find the ‘transId’ attribute. Save the value of this attribute
    in the ‘transaction\_id’ environment variable. Additionally notice
    that there are timeouts for both the submission of the transaction
-   and how long it should take to execute:
+   and how long it should take to execute. Be aware that after the
+   'timeoutSeconds' value, this transId will be silently removed:
 
    |image37|
    |image38|
