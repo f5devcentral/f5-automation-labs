@@ -88,7 +88,7 @@ Perform the following steps to complete this task:
    :width: 6.37328in
    :height: 2.45058in
 
-:warning: When sending the Header ``X-F5-REST-Coordination-Id``, the
+.. warning:: When sending the Header ``X-F5-REST-Coordination-Id``, the
    system assumes you want to add an entry in the transaction
    queue. You MUST remove this header if you want to issue
    transaction queue changes (like deleting an entry from the
