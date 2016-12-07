@@ -92,7 +92,7 @@ Perform the following steps to complete this task:
    system assumes you want to add an entry in the transaction
    queue. You MUST remove this header if you want to issue
    transaction queue changes (like deleting an entry from the
-   queue, changing the order, commiting a transaction). if you
+   queue, changing the order, commiting a transaction). If you
    don't remove the header in that specific case, the system 
    will send a 400 with the following type of error:
    "message": "Transaction XXXXX operation .... is not allowed
