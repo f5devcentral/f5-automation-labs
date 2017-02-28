@@ -109,7 +109,7 @@ Perform the following steps to complete this task:
    Click ‘Send’ and review the current settings
 
 #. Click the “Step 4: Set System DNS Settings” item in the collection.
-   Modify the JSON body to add a name server with IP ‘4.2.2.2’.
+   Review the JSON body to verify the name server IPs ‘4.2.2.2’ and '8.8.8.8' are listed.
    Additionally add a search domain of ‘f5se.local’. You will modify a
    JSON array for both of these attributes. The format of a JSON array
    is:
