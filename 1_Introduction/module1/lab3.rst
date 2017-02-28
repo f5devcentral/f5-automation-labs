@@ -122,8 +122,8 @@ Perform the following steps to complete this task:
    Click ‘Send’ and review the current settings
 
 #. Click the “Step 6: Set System NTP Settings” item in the collection.
-   Modify the JSON body to add a NTP server with hostname ‘pool.ntp.org’
-   to the ‘servers’ attribute (another JSON array!)
+   Review the JSON body to verify the NTP servers with hostnames ‘0.pool.ntp.org’ and '1.pool.ntp.org' 
+   are contained in the ‘servers’ attribute (another JSON array!)
 
 #. Click the ‘Send’ button and verify the requested changes were
    successfully implemented
