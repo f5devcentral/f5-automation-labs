@@ -70,8 +70,7 @@ process is trivial on any system (Windows, Linux, Mac, etc.) that has
 Python installed.
 
 It’s important to keep in mind while going through this module that we
-are only demonstrating what is possible with the SDK from a high level
-in order to drive a conversation with your customer. For example the
+are only demonstrating what is possible with the SDK from a high level. For example the
 same scripts used in this module are designed to run from the command
 line with arguments, however, they could easily be modified to use JSON
 files as the input mechanism.
