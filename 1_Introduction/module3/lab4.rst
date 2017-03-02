@@ -10,8 +10,8 @@ Lab 3.4 – update\_pool\_member\_state.py
 
 One of the most common tasks asked for by customers is the ability to
 set a pool member’s state via a script. We have included an example of
-such a script in the lab that can be used to show customers how easy
-it’s to automate specific operational tasks.
+such a script in the lab that can be used to see how easy
+it is to automate specific operational tasks.
 
 Task 1 – Run update\_pool\_member\_state.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
