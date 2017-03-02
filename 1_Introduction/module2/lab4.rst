@@ -96,9 +96,9 @@ Perform the following steps to complete this task:
 #. Click the “Step 5: Modify TENANT Service Deployment” item in the
    collection. This request is an example of an Update operation.
    Notice that we are sending a PUT request to the URL representing
-   the service deployment. Examine the JSON body and modify the
-   ‘pool\_\_members’ table to add an additional pool member with an IP
-   of 10.1.10.12. Click the ‘Send’ button to re-deploy the service:
+   the service deployment. Examine the JSON body and note that in the
+   ‘pool\_\_members’ table there is an additional pool member with an IP
+   of 10.1.10.12 that will be added. Click the ‘Send’ button to re-deploy the service:
 
    |image63|
 
