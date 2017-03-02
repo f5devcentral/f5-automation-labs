@@ -12,7 +12,7 @@ Cloud Connectors in iWorkflow serve as the L1-3 Network and Device
 Onboarding automation component in the automation toolchain. iWorkflow
 supports Cloud Connectors for various vendor integrations (F5 vCMP, F5
 BIG-IP, Cisco APIC, vmWare NSX, etc.) In this lab we will create a
-‘BIG-IP Connector’ for the BIG-IP devices in the UDF deployment. This
+‘BIG-IP Connector’ for the BIG-IP devices in the lab deployment. This
 connector will then allow you to drive a fully automated deployment from
 the iWorkflow Service Catalog.
 
