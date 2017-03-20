@@ -1232,7 +1232,7 @@
 					"response": []
 				},
 				{
-					"name": "Step 7: View the Transaction",
+					"name": "Step 7: View the Transaction queue",
 					"request": {
 						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
 						"method": "GET",
@@ -1257,7 +1257,81 @@
 					"response": []
 				},
 				{
-					"name": "Step 8: Commit the Transaction",
+					"name": "Step 8: View queued command 4 from Transaction",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46YWRtaW4=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 9: Change Eval Order 4 ->1",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46YWRtaW4=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r   \"evalOrder\": 1\r}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 10: View the Transaction queue changes",
+					"request": {
+						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46YWRtaW4=",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},				{
+					"name": "Step 11: Commit the Transaction",
 					"request": {
 						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}",
 						"method": "PATCH",
