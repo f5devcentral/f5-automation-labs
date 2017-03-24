@@ -109,7 +109,7 @@ Perform the following steps to complete this task:
    Click ‘Send’ and review the current settings
 
 #. Click the “Step 4: Set System DNS Settings” item in the collection.
-   Modify the JSON body to add a name server with IP ‘4.2.2.2’.
+   Review the JSON body to verify the name server IPs ‘4.2.2.2’ and '8.8.8.8' are listed.
    Additionally add a search domain of ‘f5se.local’. You will modify a
    JSON array for both of these attributes. The format of a JSON array
    is:
@@ -122,8 +122,8 @@ Perform the following steps to complete this task:
    Click ‘Send’ and review the current settings
 
 #. Click the “Step 6: Set System NTP Settings” item in the collection.
-   Modify the JSON body to add a NTP server with hostname ‘pool.ntp.org’
-   to the ‘servers’ attribute (another JSON array!)
+   Review the JSON body to verify the NTP servers with hostnames ‘0.pool.ntp.org’ and '1.pool.ntp.org' 
+   are contained in the ‘servers’ attribute (another JSON array!)
 
 #. Click the ‘Send’ button and verify the requested changes were
    successfully implemented

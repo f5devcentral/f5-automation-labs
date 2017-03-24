@@ -17,9 +17,9 @@ focus of the lab is Control Plane programmability rather that Data Plane
 traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
--  2 x F5 BIG-IP VE (v12.0)
+-  2 x F5 BIG-IP VE (v12.1)
 
--  1 x F5 iWorkflow VE (v2.0.0)
+-  1 x F5 iWorkflow VE (v2.0.2)
 
 -  1 x Linux Webserver
 
