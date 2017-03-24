@@ -18,6 +18,9 @@ transaction is that either all the operations succeed or none of them
 do. This is very useful when creating a configuration that is linked
 together because it allows the roll back of operations in case one
 fails.
+All the commands issued, are queued one after one in the transaction.
+We will also review how to change the order of a queued command or remove
+a single command from the queued list before commiting.
 
 Perform the following steps to complete this task:
 
@@ -55,11 +58,32 @@ Perform the following steps to complete this task:
 
 #. Examine and click ‘Send’ on Steps 3-6 in the collection
 
-#. Click ‘Step 7: View the Transaction’. Examine the request type and
+#. Click ‘Step 7: View the Transaction queue’. Examine the request type and
    URI and click ‘Send’. This request allows you to see the current
    list of commands (ordered) that are in the transaction.
+   
+Task 2 – Modify a Transaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ‘Step 8: Commit the Transaction’ item in the collection.
+#. Click the ‘Step 8: View queued command 4 from Transaction’ item in the collection.
+   Examine the request type and URI. We will GET the queued command number 4 from
+   the transaction list.
+   |image76|
+
+#. Click the ‘Step 9: Change Eval Order 4 ->1’ item in the collection.
+   Examine the request type, URI and JSON body. We will PATCH our
+   transaction resource and change the value of the ‘evalOrder’ attribute,
+   from 4 to 1, to move at the first position of the transaction queue:
+   |image77|
+
+#. Click the ‘Step 10: View the Transaction queue changes’ item in the collection.
+   Examine that the transaction number 4 has moved into position 1 and
+   all other transactions eval order has moved accordingly.
+
+Task 3 – Commit a Transaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the ‘Step 11: Commit the Transaction’ item in the collection.
    Examine the request type, URI and JSON body. We will PATCH our
    transaction resource and change the value of the ‘state’ attribute
    to submit the transaction:
@@ -87,6 +111,13 @@ Perform the following steps to complete this task:
 .. |image40| image:: /_static/image040.png
    :width: 6.37328in
    :height: 2.45058in
+.. |image76| image:: /_static/image76.png
+   :width: 6.45in
+   :height: 4.25in
+.. |image77| image:: /_static/image77.png
+   :width: 6.45in
+   :height: 5.24in
+
 
 .. warning:: When sending the Header ``X-F5-REST-Coordination-Id``, the
    system assumes you want to add an entry in the transaction
