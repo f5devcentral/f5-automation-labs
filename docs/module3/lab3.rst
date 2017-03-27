@@ -5,86 +5,120 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 3.3 – update\_pool.py
--------------------------
+Lab |labmodule|\.\ |labnum| – Connect to the f5-super-netops Container
+----------------------------------------------------------------------
 
-In this lab we will review, line-by-line an example script that has been
-created to allow updating any attribute of a pool using the
-command-line. This script is a good example of creating generic tools
-that enable many use cases. Rather than creating a script that just
-updates a specific attribute we created one that updates ANY pool
-attribute, greatly expanding it’s potential use cases.
+In the previous lab we started the container image and were presented with a
+root command prompt.  In order to support use the container and it's associated
+tools properly you connect via SSH and/or HTTP.
 
-Task 1 – Review update\_pool.py
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 – Connect via SSH
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open update\_pool.py in Notepad++
+To connect to the image via SSH we must use the published port specified in the 
+``docker run`` command.  To review the command used to start the container was:
 
-#. We will review the code. For brevity we have removed lines that are
-   common with previous examples:
+``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
 
-.. code:: python
+This will publish the standard SSH service on ``TCP/22`` to ``TCP/2222`` on the
+Docker host.  In the case of the SSH service the following mapping applies:
 
-   pool = mgmt.tm.ltm.pools.pool.load(partition=args.partition, name=args.pool_name)
+``localhost:2222 -> f5-super-netops:22``
 
-   pp.pprint("Current: %s=%s" % (args.attribute, getattr(pool, args.attribute)))
+.. NOTE:: If you are using an F5 provided lab environment please use the SSH
+   client and connect to the 'f5-super-netops SSH' item
 
-These lines load the pool from the device and print the current
-value of the attribute specified on the the command line. The
-second line is a little bit tricky because the SDK dynamically
-populates the objects attributes based on the type of object (pool,
-virtual server, etc.). Normally we could just use something like
-‘pool.loadBalancingMode’ to get the current lb-method for the pool,
-however, since this script implements a way to change ANY attribute
-in the object we have to dynamically substitute the attribute name
-at run-time. To do this we use the getattr() python built-in
-function to resolve the mapping at runtime and return the value of
-the attribute specified on the command line.
+Additionally the container includes the ``snops`` user with a password of 
+``default``.  To connect to the container execute the following command
+or it's OS-specific equivalent:
 
-.. code:: python
+``ssh -p 2222 snops@localhost``
 
-   kwargs = {args.attribute: args.value}
+.. NOTE:: The host SSH keys are regenerated each time the container boots.  As
+   a result you may receive an error when trying to connect indicating the host
+   key has changed.  This error is safe to ignore in this case and can be
+   resolved by removing the key from ``~/.ssh/known_hosts``.  You can also
+   configure your local SSH config by adding the following to ``~/.ssh/config``:
 
-This line creates a new python dictionary with one entry specifying
-a key-value pair using the command line arguments. For example if
-you were updated the loadBalancingMode attribute to
-‘least-connections-member’ the dictionary would look like
-{“loadBalancingMode”:”least-connections-member”}
+   .. code::
 
-.. code:: python
+      Host localhost
+       Port 2222
+       StrictHostKeyChecking no
+       UserKnownHostsFile /dev/null
 
-   pool.update(**kwargs)
+Example output:
 
-The first line updates the pool we loaded previously with the new
-value for the attribute. The \*\*kwargs argument to the update()
-method triggers a special mechanism in python called ‘keyword
-unpacking’ which allows us to pass the attribute to be updated to the
-update() method.
+.. code::
 
-.. code:: python
+   $ ssh -p 2222 snops@localhost
+   Warning: Permanently added '[localhost]:2222' (ECDSA) to the list of known hosts.
+   snops@localhost's password: 
+                                   .----------.
+                                  /          /
+                                 /   ______.'
+                           _.._ /   /_
+                         .' .._/      '''--.
+                         | '  '___          `.
+                       __| |__    `'.         |
+                      |__   __|      )        |
+                         | | ......-'        /
+                         | | \          _..'`
+                         | |  '------'''
+                         | |                      _
+                         |_|                     | |
+    ___ _   _ _ __   ___ _ __          _ __   ___| |_ ___  _ __  ___
+   / __| | | | '_ \ / _ \ '__| ______ | '_ \ / _ \ __/ _ \| '_ \/ __|
+   \__ \ |_| | |_) |  __/ |   |______|| | | |  __/ || (_) | |_) \__ \
+   |___/\__,_| .__/ \___|_|           |_| |_|\___|\__\___/| .__/|___/
+             | |                                          | |
+             |_|                                          |_|
+   
+   Welcome to the f5-super-netops Container.  This container has the following
+   services running:
+   
+    SSH  tcp/22
+    HTTP tcp/80
+   
+   To access these services you may need to remap ports on your host to the
+   local container using the command:
+   
+    docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops
+   
+   From the HOST perspective, this results in:
+   
+    localhost:2222 -> f5-super-netops:22
+    localhost:8080 -> f5-super-netops:80
+   
+   You can then connect using the following:
+   
+    HTTP: http://localhost:8080
+    SSH:  ssh -p 2222 snops@localhost
+   
+   Default Credentials:
+   
+    snops/default
+    root/default
+   
+   Go forth and automate!
+   [snops@f5-super-netops] [~] $ 
 
-   pool.refresh()
-   pp.pprint("New: %s=%s" % (args.attribute, getattr(pool, args.attribute)))
+Task 2 – Connect via HTTP
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first line refreshes the data in the object from the BIG-IP
-device. The second line prints this refreshed information to the 
-console so the user can verify the update completed successfully.
+To connect to the image via HTTP we must use the published port specified in the 
+``docker run`` command.  To review the command used to start the container was:
 
-Task 2 – Run update\_pool.py
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
 
-#. In the command prompt type 
-   ``python update_pool.py 10.1.1.4 test_pool loadBalancingMode least-connections-member``
-   and examine the output:
+This will publish the standard HTTP service on ``TCP/80`` to ``TCP/8080`` on the
+Docker host.  In the case of the HTTP service the following mapping applies:
 
-   |image71|
+``localhost:8080 -> f5-super-netops:80``
 
-#. You can manually verify the load balancing method was changed via
-   TMUI or by re-running ``read_pool.py`` (it’s not required since the line
-   that prints the new value forces a refresh() )
+.. NOTE:: If you are using an F5 provided lab environment please use the browser
+   and click the 'f5-super-netops Container' bookmark.
 
-#. Experiment with changing other pool attributes
+To connect via HTTP open a web browser and enter the URL:
 
-.. |image71| image:: /_static/image071.png
-   :width: 6.41783in
-   :height: 0.45024in
+``http://localhost:8080/start``

@@ -1,12 +1,12 @@
-.. |labmodule| replace:: 3
+.. |labmodule| replace:: 5
 .. |labnum| replace:: 5
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 3.5 – delete\_pool.py
--------------------------
+Lab |labmodule|\.\ |labnum| – delete\_pool.py
+---------------------------------------------
 
 In this lab we will review, line-by-line an example script that has been
 created to allow deletion of a pool using the command-line.

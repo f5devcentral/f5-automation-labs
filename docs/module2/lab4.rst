@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 2.4 – Create an L4–7 Service Template & Deployment
-------------------------------------------------------
+Lab |labmodule|\.\ |labnum| – Create an L4–7 Service Template & Deployment
+--------------------------------------------------------------------------
 
 To drive iApp automation-based L4-7 deployments, iWorkflow includes the
 capability to create a Tenant Service Catalog via L4 – L7 Service

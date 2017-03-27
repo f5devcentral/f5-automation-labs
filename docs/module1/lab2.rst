@@ -5,9 +5,9 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 1.2 – REST API Authentication & ‘example’ Templates
--------------------------------------------------------
-
+Lab |labmodule|\.\ |labnum| – REST API Authentication & ‘example’ Templates
+---------------------------------------------------------------------------
+ 
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
 iWorkflow support two types of authentication: HTTP BASIC and Token

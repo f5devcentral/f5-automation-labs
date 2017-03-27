@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 2.2 – Discover BIG-IP Devices
----------------------------------
+Lab |labmodule|\.\ |labnum| – Discover BIG-IP Devices
+-----------------------------------------------------
 
 In order for iWorkflow to interact with a BIG-IP device it must be
 discovered by iWorkflow. The device discovery process leverages the

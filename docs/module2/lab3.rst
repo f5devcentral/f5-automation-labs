@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 2.3 – Create Local Connector
---------------------------------
+Lab |labmodule|\.\ |labnum| – Create Local Connector
+----------------------------------------------------
 
 Cloud Connectors in iWorkflow serve as the L1-3 Network and Device
 Onboarding automation component in the automation toolchain. iWorkflow

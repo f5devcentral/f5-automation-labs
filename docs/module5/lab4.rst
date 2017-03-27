@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 3
+.. |labmodule| replace:: 5
 .. |labnum| replace:: 4
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|

@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 1.6 – Build a Basic LTM Config
-----------------------------------
+Lab |labmodule|\.\ |labnum| – Build a Basic LTM Config
+------------------------------------------------------
 
 In this lab we will build a basic LTM Config using the Imperative
 automation model. While this lab may seem simple for basic

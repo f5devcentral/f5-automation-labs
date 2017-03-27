@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 1.5 – Build a BIG-IP Cluster
---------------------------------
+Lab |labmodule|\.\ |labnum| – Build a BIG-IP Cluster
+----------------------------------------------------
 
 In this lab we will build a active-standby cluster between BIG-IP-A and
 BIG-IP-B. As mentioned previously, to save time, BIG-IP-B already has

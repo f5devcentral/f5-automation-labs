@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 2.1 – iWorkflow Authentication
-----------------------------------
+Lab |labmodule|\.\ |labnum| – iWorkflow Authentication
+------------------------------------------------------
 
 iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
 BASIC, Token Based Auth). In this lab we will quickly review TBA on

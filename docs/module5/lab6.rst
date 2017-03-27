@@ -1,12 +1,12 @@
-.. |labmodule| replace:: 3
+.. |labmodule| replace:: 5
 .. |labnum| replace:: 6
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 3.6 – Create a Python Script
---------------------------------
+Lab |labmodule|\.\ |labnum| – Create a Python Script
+----------------------------------------------------
 
 In this lab we will use the ‘Generate Code’ feature of Postman to create
 a python script from a collection of requests.

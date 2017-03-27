@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab 1.3 – Review/Set Device Settings
-------------------------------------
+Lab |labmodule|\.\ |labnum| – Review/Set Device Settings
+--------------------------------------------------------
 
 Your BIG-IP-A device is already licensed, so now we can focus on
 configuring the basic infrastructure related settings to complete the
