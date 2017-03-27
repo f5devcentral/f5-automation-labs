@@ -1,2 +1,2 @@
 Sphinx>=1.4.1
-sphinx_rtd_theme
+f5_sphinx_theme
