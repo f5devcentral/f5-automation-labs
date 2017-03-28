@@ -123,8 +123,10 @@ To connect via HTTP open a web browser and enter the URL:
 
 ``http://localhost:8080/start``
 
-You should see a page like this: |image1|
+You should see a page like this:
 
-.. |image1| image:: /_static/image78.png
-   :align: center
+|image78|
+
+.. |image78| image:: /_static/image78.png
+   :align: middle
    :scale: 50%
