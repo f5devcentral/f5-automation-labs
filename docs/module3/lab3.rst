@@ -127,6 +127,6 @@ You should see a page like this:
 
 |image78|
 
-.. |image78| image:: /_static/image78.png
+.. |image78| image:: /_static/image078.png
    :align: middle
    :scale: 50%

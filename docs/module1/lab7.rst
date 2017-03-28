@@ -111,10 +111,10 @@ Task 3 – Commit a Transaction
 .. |image40| image:: /_static/image040.png
    :width: 6.37328in
    :height: 2.45058in
-.. |image76| image:: /_static/image76.png
+.. |image76| image:: /_static/image076.png
    :width: 6.45in
    :height: 4.25in
-.. |image77| image:: /_static/image77.png
+.. |image77| image:: /_static/image077.png
    :width: 6.45in
    :height: 5.24in
 
