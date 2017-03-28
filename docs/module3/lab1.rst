@@ -58,9 +58,7 @@ Example output:
 	 https://docs.docker.com/engine/userguide/
 
 
-.. note::
-
-	the *--rm* option will delete the container as soon as it stops running. 
+.. NOTE:: The *--rm* option will delete the container as soon as it stops running. 
 
 	If you see this message: *Cannot connect to the Docker daemon. Is the docker daemon running on this host?* , it is likely that you don't have enough privileges with your user, try to use sudo when executing docker commands
 
