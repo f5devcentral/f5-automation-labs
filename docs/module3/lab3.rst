@@ -122,3 +122,9 @@ Docker host.  In the case of the HTTP service the following mapping applies:
 To connect via HTTP open a web browser and enter the URL:
 
 ``http://localhost:8080/start``
+
+You should see a page like this:
+
+.. image: ../_static/image78.png
+  :align: center
+  :scale: 50%
