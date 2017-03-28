@@ -1,1 +1,2 @@
 Sphinx>=1.4.1
+git+git://github.com/f5devcentral/f5-sphinx-theme@master#egg=f5_sphinx_theme
