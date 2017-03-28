@@ -132,6 +132,7 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     # html_theme = 'sphinx_rtd_theme'
     # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     # html_style = "css/my_theme.css"
+    # if you don't have the F5 Sphinx Theme, it's available here: https://github.com/f5devcentral/f5-sphinx-theme 
     import f5_sphinx_theme
     html_theme = 'f5_sphinx_theme'
     html_theme_path = f5_sphinx_theme.get_html_theme_path()
