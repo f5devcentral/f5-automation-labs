@@ -125,6 +125,6 @@ To connect via HTTP open a web browser and enter the URL:
 
 You should see a page like this: |image1|
 
-.. |image1| image: /_static/image78.png
+.. |image1| image:: /_static/image78.png
    :align: center
    :scale: 50%
