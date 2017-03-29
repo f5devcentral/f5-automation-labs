@@ -70,5 +70,8 @@ Example output:
 
    If you want to remove the hello-world container, you can run the command 
    ``sudo docker rmi hello-world``
-
-
+   In case your container is running, you cannot remove the image. You can issue
+   the following command in that case (this will remove ALL your container instances):
+   ``sudo docker rm $(docker ps -aq)``
+   
+   
