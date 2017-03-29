@@ -132,6 +132,9 @@ todo_include_todos = True
     # html_theme = 'sphinx_rtd_theme'
     # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     # html_style = "css/my_theme.css"
+# if you don't have the F5 Sphinx Theme, it's available here: https://github.com/f5devcentral/f5-sphinx-theme 
+# You can also install the required python modules by executing python install --update -r requirements.txt 
+# from the root directory of this repository
 import f5_sphinx_theme
 html_theme = 'f5_sphinx_theme'
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
