@@ -12,6 +12,8 @@ In the previous lab we started the container image and were presented with a
 root command prompt.  In order to support use the container and it's associated
 tools properly you connect via SSH and/or HTTP.
 
+.. _lab3_3_1:
+
 Task 1 – Connect via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~
 

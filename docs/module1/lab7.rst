@@ -65,9 +65,10 @@ Perform the following steps to complete this task:
 Task 2 – Modify a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ‘Step 8: View queued command 4 from Transaction’ item in the collection.
-   Examine the request type and URI. We will GET the queued command number 4 from
-   the transaction list.
+#. Click the ‘Step 8: View queued command 4 from Transaction’ item in the 
+   collection. Examine the request type and URI. We will GET the queued command
+   number 4 from the transaction list.
+
    |image76|
 
 #. Click the ‘Step 9: Change Eval Order 4 ->1’ item in the collection.
@@ -76,9 +77,9 @@ Task 2 – Modify a Transaction
    from 4 to 1, to move at the first position of the transaction queue:
    |image77|
 
-#. Click the ‘Step 10: View the Transaction queue changes’ item in the collection.
-   Examine that the transaction number 4 has moved into position 1 and
-   all other transactions eval order has moved accordingly.
+#. Click the ‘Step 10: View the Transaction queue changes’ item in the 
+   collection. Examine that the transaction number 4 has moved into position 1
+   and all other transactions eval order has moved accordingly.
 
 Task 3 – Commit a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,6 +88,7 @@ Task 3 – Commit a Transaction
    Examine the request type, URI and JSON body. We will PATCH our
    transaction resource and change the value of the ‘state’ attribute
    to submit the transaction:
+   
    |image40|
 
 #. Click the ‘Send’ button and examine the response.
