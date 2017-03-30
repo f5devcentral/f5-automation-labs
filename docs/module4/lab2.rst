@@ -38,7 +38,7 @@ Execute the following steps to complete this task:
 #. Click Import -> Import from Link and import these collection URLs:
 
    - ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json``
-   - ``https://github.com/0xHiteshPatel/f5-postman-workflows/blob/master/collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json``
+   - ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json``
 
 #. You should now have two additional Collections in the sidebar:
 
