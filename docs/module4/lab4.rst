@@ -17,8 +17,8 @@ Task 1 - Run a f5-newman-wrapper Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Open an SSH session as described in the :ref:`previous lab <lab3_3_1>`
-#. ``cd f5-postman-workflows/local``
-#. ``cp ../workflows/Wrapper_Demo_1.json .``
+#. Run ``cd f5-postman-workflows/local``
+#. Run ``cp ../workflows/Wrapper_Demo_1.json .``
 #. Edit the ``Wrapper_Demo_1.json`` file and enter the ``10.1.1.4`` for
    the value of the ``bigip_mgmt`` variable
 
@@ -30,7 +30,7 @@ Task 1 - Run a f5-newman-wrapper Workflow
                 "bigip_password":"admin"
         },
 
-#. ``f5-newman-wrapper Wrapper_Demo_1.json``
+#. Run ``f5-newman-wrapper Wrapper_Demo_1.json``
 #. Examine the output to see how the workflow was executed.  Notice that
    the same tests that we saw when using Postman are present during this
    run.
@@ -121,9 +121,10 @@ Task 1 - Run a f5-newman-wrapper Workflow
 
    Example output:
 
-   .. code:: json
+   .. code-block:: json
+      :linenos:
+      :emphasize-lines: 29-38
 
-      [snops@f5-super-netops] [~/f5-postman-workflows/local] $ cat Wrapper_Demo_1-env.json
       {
         "id": "c0550892-36d4-4412-bf35-a1d9aa8d2efe",
         "values": [
@@ -165,7 +166,7 @@ Task 1 - Run a f5-newman-wrapper Workflow
         ]
       }
 
-   Notice that the ``bigip_version`` and ``bigip_build`` variables were
-   saved.  This file is JSON formatted and can easily be used directly
-   by other tools to drive further automation.
+Notice that the ``bigip_version`` and ``bigip_build`` variables were
+saved.  This file is JSON formatted and can easily be used directly
+by other tools to drive further automation.
 

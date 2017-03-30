@@ -28,33 +28,37 @@ To introduce the format of the workflow file we will use an example that
 recreates the simple workflow we executed manually in the previous lab.  We
 will explore the file in sections followed by showing the whole file.
 
-----
+Define Name and Description
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section defines the name and a description of the workflow that is 
-implemented in this file
-
-.. code:: json
+.. code-block:: json
+   :linenos:
 
    {
-           "name":"Wrapper_Demo_1",
-           "description":"Execute a chained workflow that authenticates to a BIG-IP and retrieves it's software version",
+        "name":"Wrapper_Demo_1",
+        "description":"Execute a chained workflow that authenticates to a BIG-IP and retrieves it's software version"
+   }
 
 
-----
+Define Global Settings for the Run
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section defines how f5-newman-wrapper will run this workflow.  The
 attrbutes are explained in the table below.
 
-.. code:: json
+.. code-block:: json
+   :linenos:
 
-           "globalEnvVars":"../framework/f5-postman-workflows.postman_globals.json",
-           "globalOptions": {
-                   "insecure":true,
-                   "reporters":["cli"]
-           },
-           "saveEnvVars":true,
-           "outputFile":"Wrapper_Demo_1-run.json",
-           "envOutputFile":"Wrapper_Demo_1-env.json",
+   {
+        "globalEnvVars":"../framework/f5-postman-workflows.postman_globals.json",
+        "globalOptions": {
+            "insecure":true,
+            "reporters":["cli"]
+        },
+        "saveEnvVars":true,
+        "outputFile":"Wrapper_Demo_1-run.json",
+        "envOutputFile":"Wrapper_Demo_1-env.json"
+    }
 
 .. list-table::
     :header-rows: 1
@@ -81,7 +85,9 @@ attrbutes are explained in the table below.
     * - ``envOutputFile``
       - The file to save the environment variables at the end of the run to.
 
-----
+
+Define Input Variables
+~~~~~~~~~~~~~~~~~~~~~~
 
 This section specifies the Input Variables for the workflow.  The name 
 ``globalVars`` conveys that the variables defined here will be present for 
@@ -91,47 +97,52 @@ perspective).  Variables can also be defined within each item in a workflow
 variable that is named identically, the local scope variable will take
 precendence.
 
-.. code::
+.. code-block:: json
+   :linenos:
 
-           "globalVars": {
-                   "bigip_mgmt": "10.1.1.4",
-                   "bigip_username":"admin",
-                   "bigip_password":"admin"
-           },
+    {
+        "globalVars": {
+            "bigip_mgmt": "10.1.1.4",
+            "bigip_username":"admin",
+            "bigip_password":"admin"
+        }
+    }
 
 
 
-----
+Define the Workflow Collections and Ordering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section defines the workflow and collections and folders that it is 
 comprised of.  The ``workflow`` attribute is an ordered array that contains
 objects defining each collecion and folder to run.
 
-.. code:: json
+.. code-block:: json
+   :linenos:
 
-           "workflow": [
-                   {
-                           "name":"Authenticate to BIG-IP",
-                           "options": {
-                                   "collection":".. /collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
-                                   "folder":"1_Authenticate"
-                           }
-                   },
-                   {
-                           "name":"Get BIG-IP Software Version",
-                           "options": {
-                                   "collection":"../collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json",
-                                   "folder":"4A_Get_BIGIP_Version"
-                           }
-                   }
-           ]
+    {
+       "workflow": [
+           {
+               "name":"Authenticate to BIG-IP",
+               "options": {
+                   "collection":".. /collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
+                   "folder":"1_Authenticate"
+               }
+           },
+           {
+               "name":"Get BIG-IP Software Version",
+               "options": {
+                   "collection":"../collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json",
+                   "folder":"4A_Get_BIGIP_Version"
+               }
+           }
+       ]
    }
-
-----
 
 Lets look at the item in the workflow that performs authentication:
 
-.. code:: json
+.. code-block:: json
+   :linenos:
 
                    {
                            "name":"Authenticate to BIG-IP",
@@ -139,7 +150,7 @@ Lets look at the item in the workflow that performs authentication:
                                    "collection":".. /collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                                    "folder":"1_Authenticate"
                            }
-                   },
+                   }
 
 The ``name`` attribute specifies the name for this item.  The ``options`` 
 object specifies the parameters used to execute this particular item.  In our
@@ -151,11 +162,11 @@ By default all output variables from a collection or folder are passed to the
 next item in the workflow.  This allows us to chain collections together as
 needed to build workflows.
 
-----
+Final Workflow JSON
+~~~~~~~~~~~~~~~~~~~
 
-The final workflow file:
-
-.. code:: json
+.. code-block:: json
+   :linenos:
 
    {
            "name":"Wrapper_Demo_1",
