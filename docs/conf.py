@@ -55,8 +55,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'F5 Automation & Orchestration - Introduction'
-copyright = u'2016, Hitesh Patel, Eric Chen, Nathan Pearce'
-author = u'Hitesh Patel, Eric Chen, Nathan Pearce'
+copyright = u'2017, F5 Networks, Inc.'
+author = u'https://github.com/f5devcentral/f5-automation-labs/graphs/contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
