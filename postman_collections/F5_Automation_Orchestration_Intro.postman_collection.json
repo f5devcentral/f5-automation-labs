@@ -407,7 +407,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.1/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.10/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
 						},
 						"description": ""
 					},
@@ -538,7 +538,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.1\",\n  \"mirrorIp\": \"10.1.10.1\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.1\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.1\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n  \"configsyncIp\": \"10.1.10.10\",\n  \"mirrorIp\": \"10.1.10.10\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.10\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.10\",\n      \"port\": 1026\n    }\n  ]\n}"
 						},
 						"description": ""
 					},
@@ -563,7 +563,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.2\",\n  \"mirrorIp\": \"10.1.10.2\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.2\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.2\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n  \"configsyncIp\": \"10.1.10.11\",\n  \"mirrorIp\": \"10.1.10.11\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.11\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.11\",\n      \"port\": 1026\n    }\n  ]\n}"
 						},
 						"description": ""
 					},
@@ -969,7 +969,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_pool\",\n    \"monitor\":\"/Common/Lab1.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.6_pool\",\n    \"monitor\":\"/Common/Lab1.6_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -1135,7 +1135,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -1673,7 +1673,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab2.4_HTTP_DEMO\",\n    \"tenantTemplateReference\":{\n        \"link\":\"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\n    },\n    \"properties\":[\n        {\n            \"id\":\"cloudConnectorReference\",\n            \"value\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iworkflow_connector_uuid}}\"\n            \n        }\n    ],\n    \"tables\":[\n        {\n            \"name\":\"pool__hosts\",\n            \"columns\":[\"name\"],\n            \"rows\":[[\"example.com\"]]\n        },\n        {\n            \"name\":\"pool__members\",\n            \"columns\":[\"addr\"],\n            \"rows\":[\n                [\"10.1.10.10\"],\n                [\"10.1.10.11\"]\n            ]\n        }\n    ],\n    \"vars\":[\n        {\n            \"name\":\"pool__addr\",\n            \"value\":\"10.1.20.50\"\n        }\n    ]\n}"
+							"raw": "{\n    \"name\":\"Lab2.4_HTTP_DEMO\",\n    \"tenantTemplateReference\":{\n        \"link\":\"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\n    },\n    \"properties\":[\n        {\n            \"id\":\"cloudConnectorReference\",\n            \"value\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iworkflow_connector_uuid}}\"\n            \n        }\n    ],\n    \"tables\":[\n        {\n            \"name\":\"pool__hosts\",\n            \"columns\":[\"name\"],\n            \"rows\":[[\"example.com\"]]\n        },\n        {\n            \"name\":\"pool__members\",\n            \"columns\":[\"addr\"],\n            \"rows\":[\n                [\"10.1.10.100\"],\n                [\"10.1.10.101\"]\n            ]\n        }\n    ],\n    \"vars\":[\n        {\n            \"name\":\"pool__addr\",\n            \"value\":\"10.1.20.50\"\n        }\n    ]\n}"
 						},
 						"description": ""
 					},
@@ -1723,7 +1723,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Lab2.4_HTTP_DEMO\",\r\n  \"tables\": [\r\n      {\r\n        \"name\": \"pool__hosts\",\r\n        \"columns\": [\"name\"],\r\n        \"rows\": [\r\n          [\"example.com\"]\r\n        ]\r\n      }, \r\n      {\r\n        \"name\": \"pool__members\",\r\n        \"columns\": [\"addr\"],\r\n        \"rows\": [\r\n          [\"10.1.10.10\"],\r\n          [\"10.1.10.11\"],\r\n          [\"10.1.10.12\"]\r\n        ]\r\n      }\r\n  ],\r\n  \"vars\": [\r\n      {\r\n        \"name\": \"pool__addr\",\r\n        \"value\": \"10.1.20.50\",\r\n        \"providerType\": \"NODE\"\r\n      }\r\n  ],\r\n  \"tenantTemplateReference\": {\r\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\r\n  },\r\n  \"tenantReference\": {\r\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant\"\r\n  },\r\n  \"properties\": [{\r\n    \"id\": \"cloudConnectorReference\",\r\n    \"isRequired\": false,\r\n    \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/1451c915-3627-4363-8afb-5c2527a3b47f\"\r\n  }],\r\n  \"selfLink\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO\"\r\n}"
+							"raw": "{\r\n  \"name\": \"Lab2.4_HTTP_DEMO\",\r\n  \"tables\": [\r\n      {\r\n        \"name\": \"pool__hosts\",\r\n        \"columns\": [\"name\"],\r\n        \"rows\": [\r\n          [\"example.com\"]\r\n        ]\r\n      }, \r\n      {\r\n        \"name\": \"pool__members\",\r\n        \"columns\": [\"addr\"],\r\n        \"rows\": [\r\n          [\"10.1.10.100\"],\r\n          [\"10.1.10.101\"],\r\n          [\"10.1.10.102\"]\r\n        ]\r\n      }\r\n  ],\r\n  \"vars\": [\r\n      {\r\n        \"name\": \"pool__addr\",\r\n        \"value\": \"10.1.20.50\",\r\n        \"providerType\": \"NODE\"\r\n      }\r\n  ],\r\n  \"tenantTemplateReference\": {\r\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\r\n  },\r\n  \"tenantReference\": {\r\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant\"\r\n  },\r\n  \"properties\": [{\r\n    \"id\": \"cloudConnectorReference\",\r\n    \"isRequired\": false,\r\n    \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/1451c915-3627-4363-8afb-5c2527a3b47f\"\r\n  }],\r\n  \"selfLink\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO\"\r\n}"
 						},
 						"description": ""
 					},
@@ -1935,7 +1935,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_pool\",\n    \"monitor\":\"/Common/Lab3.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab3.6_pool\",\n    \"monitor\":\"/Common/Lab3.6_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
 						},
 						"description": ""
 					},
