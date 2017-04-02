@@ -32,13 +32,13 @@ achieve full L1-7 automation. As mentioned above, iApps are a key
 component of this toolchain. For our purposes we will use the f5.http
 iApp to create simple examples. For more advanced use cases it’s often
 required to use a ‘Declarative’ or ‘Deployment-centric’ iApp template. A
-community-supported template of this nature called the App Services
-Integration iApp is available at
-https://github.com/0xHiteshPatel/appsvcs_integration_iapp for this
+supported template of this nature called the App Services Integration iApp is
+available at
+https://github.com/F5Networks/f5-application-services-integration-iApp for this
 purpose.
 
 .. toctree::
    :maxdepth: 1
    :glob:
-   
+
    lab*
