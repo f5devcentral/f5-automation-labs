@@ -45,7 +45,7 @@ Perform the following steps to complete this task:
    is how the connector determines the HA state of the underlying
    BIG-IP devices. Find the ‘connectorId’ of the connector and update
    your Postman environment to include the ‘connectorId’ as the value
-   of the ‘iworkflow\_connector\_uuid’ variable:
+   of the ‘iwf\_connector\_uuid’ variable:
 
    |image57|
    |image58|

@@ -23,10 +23,10 @@ The high-level procedure required to create the cluster is:
 #.  Rename the CMI ‘Self’ Device name to match the hostname of the
     Device
 
-#.  Set BIG-IP-A & BIG-IP-B CMI Parameters (Config Sync IP, Failover
+#.  Set BIGIP-A & BIGIP-B CMI Parameters (Config Sync IP, Failover
     IPs, Mirroring IP)
 
-#.  Add BIG-IP-B as a trusted peer on BIG-IP-A
+#.  Add BIG-IP-B as a trusted peer on BIGIP-A
 
 #.  Check the device\_trust\_group Sync Group Status
 

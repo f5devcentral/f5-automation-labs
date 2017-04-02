@@ -50,9 +50,9 @@ Perform the following steps to complete this task:
    **Successful:**
 
    - |image43|
-   
+
    **Unsuccessful:**
-   
+
    - |image44|
 
 #. Once you receive a 200 OK status code examine the response body. The
@@ -81,12 +81,12 @@ Perform the following steps to complete this task:
    |image47|
 
 #. Click the ‘INTRO – Automation & Orchestration Lab’ item:
-   
+
    |image48|
 
-#. Update the value for ‘iworkflow\_auth\_token’ by Pasting (Ctrl-v)
+#. Update the value for ‘iwf\_auth\_token’ by Pasting (Ctrl-v)
    in your auth token:
-   
+
    |image49|
 
 #. Click the ‘Update’ button and then close the ‘Manage Environments’

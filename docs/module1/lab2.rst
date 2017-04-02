@@ -7,7 +7,7 @@
 
 Lab |labmodule|\.\ |labnum| – REST API Authentication & ‘example’ Templates
 ---------------------------------------------------------------------------
- 
+
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
 iWorkflow support two types of authentication: HTTP BASIC and Token
@@ -118,11 +118,11 @@ Perform the following steps to complete this task:
    If the status code is 401 then check your credentials:
 
    **Successful:**
-   
+
    - |image15|
-   
+
    **Unsuccessful:**
-   
+
    - |image16|
 
 #. Once you receive a 200 OK status code examine the response body.
@@ -147,16 +147,16 @@ Perform the following steps to complete this task:
 #. We will now update your Postman environment to use this auth token
    for the remainder of the lab. Click the Environment menu in the
    top right of the Postman window and click ‘Manage Environments’:
-   
+
    |image19|
 
 #. Click the ‘INTRO – Automation & Orchestration Lab’ item:
-   
+
    |image20|
 
-#. Update the value for ``big_ip_a_auth_token`` by Pasting (Ctrl-v)
+#. Update the value for ``bigip_a_auth_token`` by Pasting (Ctrl-v)
    in your auth token:
-   
+
    |image21|
 
 #. Click the ‘Update’ button and then close the ‘Manage Environments’

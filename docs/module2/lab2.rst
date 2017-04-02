@@ -43,7 +43,7 @@ Perform the following steps to complete this task:
    |image52|
 
 #. Copy the ‘uuid’ attribute for BIGIP-A and populate the
-   ‘iworkflow\_big\_ip\_a\_uuid’ Postman environment variable with the
+   ‘iwf\_bigip\_a\_uuid’ Postman environment variable with the
    value:
 
    |image53|

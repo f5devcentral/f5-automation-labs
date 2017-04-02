@@ -76,10 +76,10 @@ Perform the following steps to complete this task:
    a PATCH request to the ``global-settings`` resource to modify the
    attributes contained within it. We will update the ``guiSetup`` and
    ``hostname`` attribute.
-   
+
    - Review the JSON body and modify the ‘hostname’ attribute to set the
      hostname to ``bigip-a.f5se.local``
-   
+
    - Also notice that we are disabling the GUI Setup Wizard as part of
      the same request:
      |image25|
@@ -122,7 +122,7 @@ Perform the following steps to complete this task:
    Click ‘Send’ and review the current settings
 
 #. Click the “Step 6: Set System NTP Settings” item in the collection.
-   Review the JSON body to verify the NTP servers with hostnames ‘0.pool.ntp.org’ and '1.pool.ntp.org' 
+   Review the JSON body to verify the NTP servers with hostnames ‘0.pool.ntp.org’ and '1.pool.ntp.org'
    are contained in the ‘servers’ attribute (another JSON array!)
 
 #. Click the ‘Send’ button and verify the requested changes were
@@ -164,7 +164,7 @@ Perform the following steps to change the **admin** user password:
 #. Notice that we a performing a PATCH operation to admin user
    Resource. Modify the JSON body to update the password to the value
    “newadmin” and click the ‘Send’ button.
-   
+
    |image27|
 
 #. You can verify the password was changed by opening an SSH session

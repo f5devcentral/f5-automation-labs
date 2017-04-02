@@ -14,7 +14,7 @@
 				{
 					"name": "Step 1: HTTP BASIC Authentication",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm",
 						"method": "GET",
 						"header": [
 							{
@@ -34,7 +34,7 @@
 				{
 					"name": "Step 2: Get Authentication Token",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/shared/authn/login",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authn/login",
 						"method": "POST",
 						"header": [
 							{
@@ -59,7 +59,7 @@
 				{
 					"name": "Setp 3: Verify Authentication Works",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm",
 						"method": "GET",
 						"header": [
 							{
@@ -79,7 +79,7 @@
 				{
 					"name": "Step 4: Set Authentication Token Timeout",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/shared/authz/tokens/{{big_ip_a_auth_token}}",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authz/tokens/{{bigip_a_auth_token}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -89,7 +89,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -104,7 +104,7 @@
 				{
 					"name": "Step 5: Get 'example' of a Pool Resource",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool/example",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool/example",
 						"method": "GET",
 						"header": [
 							{
@@ -135,12 +135,12 @@
 				{
 					"name": " Step 1: Get System Global-Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/global-settings",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/global-settings",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -160,12 +160,12 @@
 				{
 					"name": " Step 2: Set System Global-Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/global-settings",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/global-settings",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -185,12 +185,12 @@
 				{
 					"name": " Step 3: Get System DNS Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/dns",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/dns",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -210,12 +210,12 @@
 				{
 					"name": " Step 4: Set System DNS Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/dns",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/dns",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -235,12 +235,12 @@
 				{
 					"name": " Step 5: Get System NTP Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/ntp",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/ntp",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -260,12 +260,12 @@
 				{
 					"name": " Step 6: Set System NTP Settings",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/ntp",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/ntp",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -285,12 +285,12 @@
 				{
 					"name": " Step 7: Set root User Password",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/shared/authn/root",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authn/root",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -310,12 +310,12 @@
 				{
 					"name": " Step 8: Set admin User Password",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/auth/user/admin",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/auth/user/admin",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -341,12 +341,12 @@
 				{
 					"name": " Step 1: Create a VLAN",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/vlan/",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/vlan/",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -366,12 +366,12 @@
 				{
 					"name": " Step 2: Get VLANs",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/vlan/?expandSubcollections=true",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/vlan/?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -391,12 +391,12 @@
 				{
 					"name": " Step 3: Create a Self IP",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/self/",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -416,12 +416,12 @@
 				{
 					"name": " Step 4: Get Self IPs",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -441,12 +441,12 @@
 				{
 					"name": " Step 5: Create a Route",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/route",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -466,12 +466,12 @@
 				{
 					"name": " Step 6: Get Routes",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/route?expandSubcollections=true",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -497,7 +497,7 @@
 				{
 					"name": "Step 1: Rename the CMI Self Device",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/device",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device",
 						"method": "POST",
 						"header": [
 							{
@@ -507,7 +507,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -522,7 +522,7 @@
 				{
 					"name": "Step 2: Set BIGIP-A CMI Device Parameters",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/device/~Common~bigip-a.f5se.local",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device/~Common~bigip-a.f5se.local",
 						"method": "PATCH",
 						"header": [
 							{
@@ -532,7 +532,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -547,7 +547,7 @@
 				{
 					"name": "Step 3: Set BIGIP-B CMI Device Parameters",
 					"request": {
-						"url": "https://{{big_ip_b_mgmt}}/mgmt/tm/cm/device/~Common~bigip-b.f5se.local",
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/device/~Common~bigip-b.f5se.local",
 						"method": "PATCH",
 						"header": [
 							{
@@ -572,7 +572,7 @@
 				{
 					"name": "Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/add-to-trust",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/add-to-trust",
 						"method": "POST",
 						"header": [
 							{
@@ -582,13 +582,13 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{big_ip_b_mgmt}}\",\n    \"deviceName\":\"bigip-b.f5se.local\",\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{bigip_b_mgmt}}\",\n    \"deviceName\":\"bigip-b.f5se.local\",\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
 						},
 						"description": ""
 					},
@@ -597,7 +597,7 @@
 				{
 					"name": "Step 5: Check Sync Group Status",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/syncStatus",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/syncStatus",
 						"method": "GET",
 						"header": [
 							{
@@ -607,7 +607,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -622,7 +622,7 @@
 				{
 					"name": "Step 6: Create Device Group",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/device-group",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device-group",
 						"method": "POST",
 						"header": [
 							{
@@ -632,7 +632,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -647,7 +647,7 @@
 				{
 					"name": "Step 7: Check Sync Group Status",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/syncStatus",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/syncStatus",
 						"method": "GET",
 						"header": [
 							{
@@ -657,7 +657,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -672,7 +672,7 @@
 				{
 					"name": "Step 8: Manually Sync DeviceGroup1",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/config-sync",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/config-sync",
 						"method": "POST",
 						"header": [
 							{
@@ -682,7 +682,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -697,7 +697,7 @@
 				{
 					"name": "Step 9: Check Sync Group Status",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/syncStatus",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/syncStatus",
 						"method": "GET",
 						"header": [
 							{
@@ -707,7 +707,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -722,7 +722,7 @@
 				{
 					"name": "Step 10: Get Traffic Group Properties",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1",
 						"method": "GET",
 						"header": [
 							{
@@ -732,7 +732,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -747,7 +747,7 @@
 				{
 					"name": "Step 11: Change Traffic Group to use HA Order Failover",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1",
 						"method": "PATCH",
 						"header": [
 							{
@@ -757,7 +757,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -772,7 +772,7 @@
 				{
 					"name": "Step 12: Get Traffic Group Failover States",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1/stats",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1/stats",
 						"method": "GET",
 						"header": [
 							{
@@ -782,7 +782,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -797,7 +797,7 @@
 				{
 					"name": "Step 13A: BIGIP-A is ACTIVE: Manually Failover Traffic Group",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/failover",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/failover",
 						"method": "POST",
 						"header": [
 							{
@@ -822,7 +822,7 @@
 				{
 					"name": "Step 13B: BIGIP-B is ACTIVE: Manually Failover Traffic Group copy",
 					"request": {
-						"url": "https://{{big_ip_b_mgmt}}/mgmt/tm/sys/failover",
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/sys/failover",
 						"method": "POST",
 						"header": [
 							{
@@ -847,7 +847,7 @@
 				{
 					"name": "Step 14: Get Traffic Group Failover States",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1/stats",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1/stats",
 						"method": "GET",
 						"header": [
 							{
@@ -857,7 +857,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -872,12 +872,12 @@
 				{
 					"name": " Step 15: Create a Floating Self IP",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/self/",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -897,12 +897,12 @@
 				{
 					"name": " Step 16: Get Self IPs",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							},
 							{
@@ -928,7 +928,7 @@
 				{
 					"name": "Step 1: Create a HTTP Monitor",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
 						"method": "POST",
 						"header": [
 							{
@@ -938,7 +938,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -953,7 +953,7 @@
 				{
 					"name": "Step 2: Create a Pool",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool",
 						"method": "POST",
 						"header": [
 							{
@@ -963,7 +963,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -978,7 +978,7 @@
 				{
 					"name": "Step 3: Create a HTTP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/http",
 						"method": "POST",
 						"header": [
 							{
@@ -988,7 +988,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1003,7 +1003,7 @@
 				{
 					"name": "Step 4: Create a TCP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
 						"method": "POST",
 						"header": [
 							{
@@ -1013,7 +1013,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1028,7 +1028,7 @@
 				{
 					"name": "Step 5: Create a Virtual Server",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual",
 						"method": "POST",
 						"header": [
 							{
@@ -1038,7 +1038,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1059,7 +1059,7 @@
 				{
 					"name": "Step 1: Create a Transaction",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction",
 						"method": "POST",
 						"header": [
 							{
@@ -1084,7 +1084,7 @@
 				{
 					"name": "Step 2: Add To Transaction: Create a HTTP Monitor",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
 						"method": "POST",
 						"header": [
 							{
@@ -1114,7 +1114,7 @@
 				{
 					"name": "Step 3: Add to Transaction: Create a Pool",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool",
 						"method": "POST",
 						"header": [
 							{
@@ -1144,7 +1144,7 @@
 				{
 					"name": "Step 4: Add to Transaction: Create a HTTP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/http",
 						"method": "POST",
 						"header": [
 							{
@@ -1174,7 +1174,7 @@
 				{
 					"name": "Step 5: Add to Transaction: Create a TCP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
 						"method": "POST",
 						"header": [
 							{
@@ -1204,7 +1204,7 @@
 				{
 					"name": "Step 6: Add to Transaction: Create a Virtual Server",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual",
 						"method": "POST",
 						"header": [
 							{
@@ -1234,7 +1234,7 @@
 				{
 					"name": "Step 7: View the Transaction queue",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
 						"method": "GET",
 						"header": [
 							{
@@ -1259,7 +1259,7 @@
 				{
 					"name": "Step 8: View queued command 4 from Transaction",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
 						"method": "GET",
 						"header": [
 							{
@@ -1284,7 +1284,7 @@
 				{
 					"name": "Step 9: Change Eval Order 4 ->1",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1309,7 +1309,7 @@
 				{
 					"name": "Step 10: View the Transaction queue changes",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
 						"method": "GET",
 						"header": [
 							{
@@ -1333,7 +1333,7 @@
 				},				{
 					"name": "Step 11: Commit the Transaction",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1364,7 +1364,7 @@
 				{
 					"name": "Step 1: Get Authentication Token",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/authn/login",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/authn/login",
 						"method": "POST",
 						"header": [
 							{
@@ -1389,7 +1389,7 @@
 				{
 					"name": "Step 2: Verify Authentication Works",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/authz/tokens",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/authz/tokens",
 						"method": "GET",
 						"header": [
 							{
@@ -1414,7 +1414,7 @@
 				{
 					"name": "Step 3: Set Authentication Token Timeout",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/authz/tokens/{{iworkflow_auth_token}}",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/authz/tokens/{{iwf_auth_token}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1424,7 +1424,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1443,14 +1443,14 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Step 1: Discover BIG-IP-A Device",
+					"name": "Step 1: Discover BIGIP-A Device",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1461,21 +1461,21 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"address\":\"{{big_ip_a_mgmt}}\",\n    \"automaticallyUpdateFramework\":true,\n    \"properties\": {\n        \"isRestProxyEnabled\":true,\n        \"isSoapProxyEnabled\":true, \n        \"isTmshProxyEnabled\":false,\n        \"dmaConfigPathScope\":\"basic\"\n    },\n    \"rootUser\":\"root\",\n    \"userName\":\"admin\",\n    \"password\":\"admin\"\n}"
+							"raw": "{\n    \"address\":\"{{bigip_a_mgmt}}\",\n    \"automaticallyUpdateFramework\":true,\n    \"properties\": {\n        \"isRestProxyEnabled\":true,\n        \"isSoapProxyEnabled\":true, \n        \"isTmshProxyEnabled\":false,\n        \"dmaConfigPathScope\":\"basic\"\n    },\n    \"rootUser\":\"root\",\n    \"userName\":\"admin\",\n    \"password\":\"admin\"\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Step 2: Discover BIG-IP-B Device",
+					"name": "Step 2: Discover BIGIP-B Device",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1486,7 +1486,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"address\":\"{{big_ip_b_mgmt}}\",\n    \"automaticallyUpdateFramework\":true,\n    \"properties\": {\n        \"isRestProxyEnabled\":true,\n        \"isSoapProxyEnabled\":true, \n        \"isTmshProxyEnabled\":false,\n        \"dmaConfigPathScope\":\"basic\"\n    },\n    \"rootUser\":\"root\",\n    \"userName\":\"admin\",\n    \"password\":\"admin\"\n}"
+							"raw": "{\n    \"address\":\"{{bigip_b_mgmt}}\",\n    \"automaticallyUpdateFramework\":true,\n    \"properties\": {\n        \"isRestProxyEnabled\":true,\n        \"isSoapProxyEnabled\":true, \n        \"isTmshProxyEnabled\":false,\n        \"dmaConfigPathScope\":\"basic\"\n    },\n    \"rootUser\":\"root\",\n    \"userName\":\"admin\",\n    \"password\":\"admin\"\n}"
 						},
 						"description": ""
 					},
@@ -1495,12 +1495,12 @@
 				{
 					"name": "Step 3: Get Discovered Devices",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1526,12 +1526,12 @@
 				{
 					"name": "Step 1: Create a Local Connector",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/connectors/local",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/connectors/local",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1542,7 +1542,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"BIG-IP A&B Connector\",\n    \"description\":\"Local Connector for the BIG-IP A/B Cluster\",\n    \"deviceReferences\": [\n        {\"link\":\"https://localhost/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}\"}\n    ]\n}"
+							"raw": "{\n    \"name\":\"BIG-IP A&B Connector\",\n    \"description\":\"Local Connector for the BIG-IP A/B Cluster\",\n    \"deviceReferences\": [\n        {\"link\":\"https://localhost/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}\"}\n    ]\n}"
 						},
 						"description": ""
 					},
@@ -1551,12 +1551,12 @@
 				{
 					"name": "Step 2: Get Local Connectors",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/connectors/local",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/connectors/local",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1576,12 +1576,12 @@
 				{
 					"name": "Step 3: Assign Connector to Tenant",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1592,7 +1592,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cloudConnectorReferences\": [\n        {\"link\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iworkflow_connector_uuid}}\"}\n    ]\n}"
+							"raw": "{\n    \"cloudConnectorReferences\": [\n        {\"link\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"}\n    ]\n}"
 						},
 						"description": ""
 					},
@@ -1607,12 +1607,12 @@
 				{
 					"name": "Step 1: Create PROVIDER Service Catalog Template (f5.http iApp)",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/provider/templates/iapp",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/provider/templates/iapp",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1623,7 +1623,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"templateName\": \"Lab2.4_HTTP\",\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"isRequired\": true,\n      \"provider\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iworkflow_connector_uuid}}\"\n    }\n  ],\n  \"parentReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/templates/iapp/f5.http\"\n  },\n  \"overrides\": {\n    \"vars\": [\n      {\n        \"name\": \"afm__allowed_addr\",\n        \"description\": \"What IP or network addresses should be allowed to access your application?\",\n        \"displayName\": \"allowed_addr\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"afm__policy\",\n        \"description\": \"Do you want to use BIG-IP AFM to protect your application?\",\n        \"displayName\": \"policy\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__restrict_by_addr\",\n        \"description\": \"Do you want to restrict access to your application by network or IP address?\",\n        \"displayName\": \"restrict_by_addr\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__restrict_by_reputation\",\n        \"description\": \"How do you want to control access to your application from sources with a low reputation score?\",\n        \"displayName\": \"restrict_by_reputation\",\n        \"isRequired\": false,\n        \"provider\": \"accept\",\n        \"choices\": [\n          {\n            \"value\": \"accept\",\n            \"description\": \"Allow all sources regardless of reputation\"\n          },\n          {\n            \"value\": \"reject\",\n            \"description\": \"Reject access from sources with a low reputation\"\n          },\n          {\n            \"value\": \"warn\",\n            \"description\": \"Allow but log access from sources with a low reputation\"\n          }\n        ]\n      },\n      {\n        \"name\": \"afm__security_logging\",\n        \"description\": \"Which logging profile would you like to use?\",\n        \"displayName\": \"security_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__staging_policy\",\n        \"description\": \"Would you like to stage a policy for testing purposes?\",\n        \"displayName\": \"staging_policy\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"asm__security_logging\",\n        \"description\": \"Which logging profile would you like to use?\",\n        \"displayName\": \"security_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"asm__use_asm\",\n        \"description\": \"Do you want to deploy BIG-IP Application Security Manager?\",\n        \"displayName\": \"use_asm\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"client__data_retention_period\",\n        \"description\": \"For how many days should the BIG-IP system retain the data?\",\n        \"displayName\": \"data_retention_period\",\n        \"isRequired\": true,\n        \"provider\": \"30\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"client__enable_perf_monitor\",\n        \"description\": \"Do you want to use the legacy AAM performance monitor?\",\n        \"displayName\": \"enable_perf_monitor\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not enable the legacy performance monitor (recommended)\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Enable the legacy performance monitor\"\n          }\n        ]\n      },\n      {\n        \"name\": \"client__http_compression\",\n        \"description\": \"Which compression profile do you want to use?\",\n        \"displayName\": \"http_compression\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__isession_profile\",\n        \"description\": \"Create a new iSession tunnel profile or use an existing one?\",\n        \"displayName\": \"isession_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/isession\"\n      },\n      {\n        \"name\": \"client__policy\",\n        \"description\": \"Which acceleration policy do you want to use?\",\n        \"displayName\": \"policy\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/Generic Policy - Enhanced\"\n      },\n      {\n        \"name\": \"client__standard_caching_with_wa\",\n        \"description\": \"Which Web Acceleration profile do you want to use for caching?\",\n        \"displayName\": \"standard_caching_with_wa\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__standard_caching_without_wa\",\n        \"description\": \"Which Web Acceleration profile do you want to use for caching?\",\n        \"displayName\": \"standard_caching_without_wa\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__tcp_lan_opt\",\n        \"description\": \"How do you want to optimize (LAN) client-side connections?\",\n        \"displayName\": \"tcp_lan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__tcp_wan_opt\",\n        \"description\": \"How do you want to optimize (WAN) client-side connections?\",\n        \"displayName\": \"tcp_wan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__use_wa\",\n        \"description\": \"Use the BIG-IP Application Acceleration Manager?\",\n        \"displayName\": \"use_wa\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, use BIG-IP AAM (recommended)\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not use BIG-IP AAM\"\n          }\n        ]\n      },\n      {\n        \"name\": \"client__x_wa_info_header\",\n        \"description\": \"Do you want to insert the X-WA-Info header?\",\n        \"displayName\": \"x_wa_info_header\",\n        \"isRequired\": false,\n        \"provider\": \"none\",\n        \"choices\": [\n          {\n            \"value\": \"none\",\n            \"description\": \"Do not insert the header (recommended)\"\n          },\n          {\n            \"value\": \"standard\",\n            \"description\": \"Insert the Standard header\"\n          },\n          {\n            \"value\": \"debug\",\n            \"description\": \"Insert the Debug header\"\n          }\n        ]\n      },\n      {\n        \"name\": \"intro__afm_allowed\",\n        \"displayName\": \"afm_allowed\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__am_provisioned\",\n        \"description\": \"Is AM provisioned?\",\n        \"displayName\": \"am_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__analytics_provisioned\",\n        \"description\": \"Is AVR provisioned?\",\n        \"displayName\": \"analytics_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__apm_provisioned\",\n        \"description\": \"Is APM provisioned?\",\n        \"displayName\": \"apm_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__asm_policy\",\n        \"displayName\": \"asm_policy\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__asm_provisioned\",\n        \"description\": \"Is ASM provisioned?\",\n        \"displayName\": \"asm_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_admin\",\n        \"displayName\": \"is_admin\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_edge\",\n        \"description\": \"Is this an edge?\",\n        \"displayName\": \"is_edge\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_v11_4\",\n        \"displayName\": \"is_v11_4\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"irules__irules\",\n        \"description\": \"Do you want to add any custom iRules to this configuration?\",\n        \"displayName\": \"irules\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__anonymous\",\n        \"description\": \"Should the health monitor require credentials?\",\n        \"displayName\": \"anonymous\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"No, allow anonymous access\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Yes, require credentials\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__frequency\",\n        \"description\": \"How many seconds should pass between health checks?\",\n        \"displayName\": \"frequency\",\n        \"isRequired\": true,\n        \"provider\": \"30\"\n      },\n      {\n        \"name\": \"monitor__http_method\",\n        \"description\": \"What type of HTTP request should be sent to the servers?\",\n        \"displayName\": \"http_method\",\n        \"isRequired\": false,\n        \"provider\": \"GET\",\n        \"choices\": [\n          {\n            \"value\": \"GET\",\n            \"description\": \"GET\"\n          },\n          {\n            \"value\": \"POST\",\n            \"description\": \"POST\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__http_version\",\n        \"description\": \"Which HTTP version do your servers expect clients to use?\",\n        \"displayName\": \"http_version\",\n        \"isRequired\": false,\n        \"provider\": \"http11\",\n        \"choices\": [\n          {\n            \"value\": \"http10\",\n            \"description\": \"HTTP/1.0\"\n          },\n          {\n            \"value\": \"http11\",\n            \"description\": \"HTTP/1.1\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__monitor\",\n        \"description\": \"Create a new health monitor or use an existing one?\",\n        \"displayName\": \"monitor\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"monitor__post_body\",\n        \"description\": \"What HTTP POST body do you want to use for this monitor?\",\n        \"displayName\": \"post_body\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__response\",\n        \"description\": \"What is the expected response to the HTTP request?\",\n        \"displayName\": \"response\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__uri\",\n        \"description\": \"What HTTP URI should be sent to the servers?\",\n        \"displayName\": \"uri\",\n        \"isRequired\": true,\n        \"provider\": \"/\"\n      },\n      {\n        \"name\": \"monitor__user\",\n        \"description\": \"What user name should the monitor use?\",\n        \"displayName\": \"user\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"net__client_mode\",\n        \"description\": \"What type of network connects clients to the BIG-IP system?\",\n        \"displayName\": \"client_mode\",\n        \"isRequired\": false,\n        \"provider\": \"wan\"\n      },\n      {\n        \"name\": \"net__client_vlan\",\n        \"description\": \"On which VLANs should traffic be enabled or disabled?\",\n        \"displayName\": \"client_vlan\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"net__route_to_bigip\",\n        \"description\": \"How have you configured routing on your web servers?\",\n        \"displayName\": \"route_to_bigip\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Servers have a route to clients through the BIG-IP system\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Servers do not have a route to clients through the BIG-IP system\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__same_subnet\",\n        \"description\": \"Where will the virtual servers be in relation to the web servers?\",\n        \"displayName\": \"same_subnet\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"BIG-IP virtual server IP and web servers are on different subnets\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"BIG-IP virtual server IP and web servers are on the same subnet\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__server_mode\",\n        \"description\": \"What type of network connects servers to the BIG-IP system?\",\n        \"displayName\": \"server_mode\",\n        \"isRequired\": false,\n        \"provider\": \"lan\"\n      },\n      {\n        \"name\": \"net__snat_type\",\n        \"description\": \"How many connections do you expect to each web server?\",\n        \"displayName\": \"snat_type\",\n        \"isRequired\": false,\n        \"provider\": \"automap\",\n        \"choices\": [\n          {\n            \"value\": \"automap\",\n            \"description\": \"Fewer than 64,000 concurrent connections\"\n          },\n          {\n            \"value\": \"snatpool\",\n            \"description\": \"More than 64,000 concurrent connections\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__snatpool\",\n        \"description\": \"Create a new SNAT pool or use an existing one?\",\n        \"displayName\": \"snatpool\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"net__vlan_mode\",\n        \"description\": \"Do you want to restrict client traffic to specific VLANs?\",\n        \"displayName\": \"vlan_mode\",\n        \"isRequired\": false,\n        \"provider\": \"all\",\n        \"choices\": [\n          {\n            \"value\": \"all\",\n            \"description\": \"Enable traffic on all VLANs and Tunnels\"\n          },\n          {\n            \"value\": \"enabled\",\n            \"description\": \"Yes, enable traffic only on the VLANs I specify\"\n          },\n          {\n            \"value\": \"disabled\",\n            \"description\": \"Yes, disable traffic only on the VLANs I specify\"\n          }\n        ]\n      },\n      {\n        \"name\": \"optimizations__data_retention_period\",\n        \"description\": \"How many days to you want to keep AAM performance data?\",\n        \"displayName\": \"data_retention_period\",\n        \"isRequired\": true,\n        \"provider\": \"30\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"optimizations__lan_or_wan\",\n        \"description\": \"Will clients be connecting to this virtual server primarily over a LAN or a WAN?\",\n        \"displayName\": \"lan_or_wan\",\n        \"isRequired\": false,\n        \"provider\": \"WAN\",\n        \"choices\": [\n          {\n            \"value\": \"WAN\",\n            \"description\": \"WAN\"\n          },\n          {\n            \"value\": \"LAN\",\n            \"description\": \"LAN\"\n          }\n        ]\n      },\n      {\n        \"name\": \"optimizations__use_wa\",\n        \"description\": \"Do you want to use the BIG-IP AAM module to accelerate your traffic?\",\n        \"displayName\": \"use_wa\",\n        \"isRequired\": false,\n        \"provider\": \"No\",\n        \"choices\": [\n          {\n            \"value\": \"Yes\",\n            \"description\": \"Yes\"\n          },\n          {\n            \"value\": \"No\",\n            \"description\": \"No\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__addr\",\n        \"description\": \"What IP address do you want to use for the virtual server?\",\n        \"displayName\": \"addr\",\n        \"isRequired\": true,\n        \"defaultValue\": \"\",\n        \"providerType\": \"NODE\",\n        \"serverTier\": \"Servers\",\n        \"validator\": \"IpAddress\"\n      },\n      {\n        \"name\": \"pool__http\",\n        \"description\": \"Which HTTP profile do you want to use?\",\n        \"displayName\": \"http\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"pool__is_ha\",\n        \"description\": \"Are you using HA?\",\n        \"displayName\": \"is_ha\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"pool__lb_method\",\n        \"description\": \"Which load balancing method do you want to use?\",\n        \"displayName\": \"lb_method\",\n        \"isRequired\": false,\n        \"provider\": \"least-connections-member\",\n        \"choices\": [\n          {\n            \"value\": \"dynamic-ratio-member\",\n            \"description\": \"Dynamic Ratio (member)\"\n          },\n          {\n            \"value\": \"dynamic-ratio-node\",\n            \"description\": \"Dynamic Ratio (node)\"\n          },\n          {\n            \"value\": \"fastest-app-response\",\n            \"description\": \"Fastest (application)\"\n          },\n          {\n            \"value\": \"fastest-node\",\n            \"description\": \"Fastest (node)\"\n          },\n          {\n            \"value\": \"least-connections-member\",\n            \"description\": \"Least Connections (member)\"\n          },\n          {\n            \"value\": \"least-connections-node\",\n            \"description\": \"Least Connections (node)\"\n          },\n          {\n            \"value\": \"least-sessions\",\n            \"description\": \"Least Sessions\"\n          },\n          {\n            \"value\": \"observed-member\",\n            \"description\": \"Observed (member)\"\n          },\n          {\n            \"value\": \"observed-node\",\n            \"description\": \"Observed (node)\"\n          },\n          {\n            \"value\": \"predictive-member\",\n            \"description\": \"Predictive (member)\"\n          },\n          {\n            \"value\": \"predictive-node\",\n            \"description\": \"Predictive (node)\"\n          },\n          {\n            \"value\": \"round-robin\",\n            \"description\": \"Round Robin\"\n          },\n          {\n            \"value\": \"ratio-member\",\n            \"description\": \"Ratio (member)\"\n          },\n          {\n            \"value\": \"ratio-node\",\n            \"description\": \"Ratio (node)\"\n          },\n          {\n            \"value\": \"ratio-session\",\n            \"description\": \"Ratio (session)\"\n          },\n          {\n            \"value\": \"ratio-least-connections-member\",\n            \"description\": \"Ratio Least Connections (member)\"\n          },\n          {\n            \"value\": \"ratio-least-connections-node\",\n            \"description\": \"Ratio Least Connections (node)\"\n          },\n          {\n            \"value\": \"weighted-least-connections-member\",\n            \"description\": \"Weighted Least Connections (member)\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__lb_method_edge\",\n        \"description\": \"Which load balancing method do you want to use for BIG-IPs that do not have LTM provisioned?\",\n        \"displayName\": \"lb_method_edge\",\n        \"isRequired\": false,\n        \"provider\": \"round-robin\",\n        \"choices\": [\n          {\n            \"value\": \"round-robin\",\n            \"description\": \"Round Robin\"\n          },\n          {\n            \"value\": \"ratio-member\",\n            \"description\": \"Ratio (member)\"\n          },\n          {\n            \"value\": \"ratio-node\",\n            \"description\": \"Ratio (node)\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__mask\",\n        \"description\": \"If using a network virtual address, what is the IP mask?\",\n        \"displayName\": \"mask\",\n        \"isRequired\": false,\n        \"provider\": \"\",\n        \"validator\": \"IpAddress\"\n      },\n      {\n        \"name\": \"pool__min_active_members\",\n        \"description\": \"What is the minimum number of active members in a group?\",\n        \"displayName\": \"min_active_members\",\n        \"isRequired\": true,\n        \"provider\": \"0\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"pool__mirror\",\n        \"description\": \"Do you want to enable connection and persistence mirroring?\",\n        \"displayName\": \"mirror\",\n        \"isRequired\": false,\n        \"provider\": \"disabled\",\n        \"choices\": [\n          {\n            \"value\": \"disabled\",\n            \"description\": \"Do not enable connection/persistence mirroring\"\n          },\n          {\n            \"value\": \"enabled\",\n            \"description\": \"Enable connection/persistence mirroring\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__pass_thru_persist\",\n        \"description\": \"Which persistence profile do you want to use?\",\n        \"displayName\": \"pass_thru_persist\",\n        \"isRequired\": false,\n        \"provider\": \"/#source#\"\n      },\n      {\n        \"name\": \"pool__persist\",\n        \"description\": \"Which persistence profile do you want to use?\",\n        \"displayName\": \"persist\",\n        \"isRequired\": false,\n        \"provider\": \"/#cookie#\"\n      },\n      {\n        \"name\": \"pool__pool_to_use\",\n        \"description\": \"Do you want to create a new pool or use an existing one?\",\n        \"displayName\": \"pool_to_use\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"pool__pool_to_use_wom\",\n        \"description\": \"Do you want to create a new pool or use an existing one?\",\n        \"displayName\": \"pool_to_use_wom\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"pool__port\",\n        \"description\": \"What port do you want to use for the virtual server?\",\n        \"displayName\": \"port\",\n        \"isRequired\": true,\n        \"provider\": \"80\",\n        \"providerType\": \"PORT\",\n        \"serverTier\": \"Servers\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__port_secure\",\n        \"description\": \"What secure secure port do you want to use for the virtual server?\",\n        \"displayName\": \"port_secure\",\n        \"isRequired\": true,\n        \"provider\": \"443\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__redirect_port\",\n        \"description\": \"From which port should HTTP traffic be redirected?\",\n        \"displayName\": \"redirect_port\",\n        \"isRequired\": false,\n        \"provider\": \"80\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__redirect_to_https\",\n        \"description\": \"Do you want to redirect inbound HTTP traffic to HTTPS?\",\n        \"displayName\": \"redirect_to_https\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Redirect HTTP to HTTPS\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not redirect HTTP to HTTPS\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__use_pga\",\n        \"description\": \"Do you want to give priority to specific groups of servers?\",\n        \"displayName\": \"use_pga\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not use Priority Group Activation (recommended)\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Use Priority Group Activation\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__xff\",\n        \"description\": \"Should the BIG-IP system insert the X-Forwarded-For header?\",\n        \"displayName\": \"xff\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Insert X-Forwarded-For HTTP header\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not insert X-Forwarded-For HTTP header\"\n          }\n        ]\n      },\n      {\n        \"name\": \"server__ntlm\",\n        \"description\": \"Which NTLM profile do you want to use?\",\n        \"displayName\": \"ntlm\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"server__oneconnect\",\n        \"description\": \"Which OneConnect profile do you want to use?\",\n        \"displayName\": \"oneconnect\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__slow_ramp_setvalue\",\n        \"description\": \"How many seconds should Slow Ramp time last?\",\n        \"displayName\": \"slow_ramp_setvalue\",\n        \"isRequired\": true,\n        \"provider\": \"300\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_lan_opt\",\n        \"description\": \"How do you want to optimize (LAN) server-side connections?\",\n        \"displayName\": \"tcp_lan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__tcp_queue_length\",\n        \"description\": \"What is the maximum number of TCP requests for the queue?\",\n        \"displayName\": \"tcp_queue_length\",\n        \"isRequired\": true,\n        \"provider\": \"\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_queue_timeout\",\n        \"description\": \"How many milliseconds should requests stay in the queue?\",\n        \"displayName\": \"tcp_queue_timeout\",\n        \"isRequired\": true,\n        \"provider\": \"\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_req_queueing\",\n        \"description\": \"Should the BIG-IP system queue TCP requests?\",\n        \"displayName\": \"tcp_req_queueing\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, enable TCP request queuing\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not enable TCP request queuing  (recommended) \"\n          }\n        ]\n      },\n      {\n        \"name\": \"server__tcp_wan_opt\",\n        \"description\": \"How do you want to optimize (WAN) server-side connections?\",\n        \"displayName\": \"tcp_wan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__use_slow_ramp\",\n        \"description\": \"Use a Slow Ramp time for newly added servers?\",\n        \"displayName\": \"use_slow_ramp\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, use Slow Ramp  (recommended) \"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not use Slow Ramp\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl__cert\",\n        \"description\": \"Which SSL certificate do you want to use?\",\n        \"displayName\": \"cert\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/default.crt\"\n      },\n      {\n        \"name\": \"ssl__client_ssl_profile\",\n        \"description\": \"Which Client SSL profile do you want to use?\",\n        \"displayName\": \"client_ssl_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"ssl__key\",\n        \"description\": \"Which SSL private key do you want to use?\",\n        \"displayName\": \"key\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/default.key\"\n      },\n      {\n        \"name\": \"ssl__mode\",\n        \"description\": \"How should the BIG-IP system handle SSL traffic?\",\n        \"displayName\": \"mode\",\n        \"isRequired\": false,\n        \"provider\": \"no_ssl\",\n        \"choices\": [\n          {\n            \"value\": \"client_ssl\",\n            \"description\": \"Terminate SSL from clients, plaintext to servers (SSL offload)\"\n          },\n          {\n            \"value\": \"client_ssl_server_ssl\",\n            \"description\": \"Terminate SSL from clients, re-encrypt to servers (SSL bridging)\"\n          },\n          {\n            \"value\": \"pass_thru\",\n            \"description\": \"Encrypted traffic is forwarded without decryption (SSL pass-through)\"\n          },\n          {\n            \"value\": \"server_ssl\",\n            \"description\": \"Plaintext to and from clients, encrypt to servers\"\n          },\n          {\n            \"value\": \"no_ssl\",\n            \"description\": \"Plaintext to and from both clients and servers\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl__server_ssl_profile\",\n        \"description\": \"Which Server SSL profile do you want to use?\",\n        \"displayName\": \"server_ssl_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/#default#\"\n      },\n      {\n        \"name\": \"ssl__use_chain_cert\",\n        \"description\": \"Which intermediate certificate do you want to use?\",\n        \"displayName\": \"use_chain_cert\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"ssl_encryption_questions__advanced\",\n        \"description\": \"Do you want to enable advanced mode?\",\n        \"displayName\": \"advanced\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Basic - Use F5's recommended settings\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Advanced - Configure advanced options\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__help\",\n        \"description\": \"Do you want to see inline help?\",\n        \"displayName\": \"help\",\n        \"isRequired\": false,\n        \"provider\": \"hide\",\n        \"choices\": [\n          {\n            \"value\": \"max\",\n            \"description\": \"Yes, show inline help\"\n          },\n          {\n            \"value\": \"hide\",\n            \"description\": \"No, do not show inline help\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__legacy_advanced\",\n        \"description\": \"Which configuration mode do you want to use?\",\n        \"displayName\": \"legacy_advanced\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Basic - Use F5's recommended settings\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Advanced - Configure advanced options\"\n          },\n          {\n            \"value\": \"legacy\",\n            \"description\": \"Legacy - Return to the deprecated template\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__upgrade\",\n        \"description\": \"Do you want to upgrade this template?\",\n        \"displayName\": \"upgrade\",\n        \"isRequired\": false,\n        \"provider\": \"No\",\n        \"choices\": [\n          {\n            \"value\": \"Yes\",\n            \"description\": \"Yes\"\n          },\n          {\n            \"value\": \"No\",\n            \"description\": \"No\"\n          }\n        ]\n      },\n      {\n        \"name\": \"stats__analytics\",\n        \"description\": \"Do you want to enable Analytics for application statistics?\",\n        \"displayName\": \"analytics\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"stats__request_logging\",\n        \"description\": \"Which HTTP request logging profile do you want to use?\",\n        \"displayName\": \"request_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"app_stats\",\n        \"description\": \"Enable health and performance monitoring.\",\n        \"displayName\": \"app_stats\",\n        \"isRequired\": false,\n        \"provider\": \"enabled\"\n      }\n    ],\n    \"tables\": [\n      {\n        \"name\": \"net__snatpool_members\",\n        \"columns\": [\n          {\n            \"name\": \"addr\",\n            \"description\": \"IP\",\n            \"isRequired\": true,\n            \"provider\": \"\",\n            \"validator\": \"IpAddress\"\n          }\n        ],\n        \"description\": \"What are the IP addresses you want to use for the SNAT pool?\"\n      },\n      {\n        \"name\": \"pool__hosts\",\n        \"columns\": [\n          {\n            \"name\": \"name\",\n            \"description\": \"Host\",\n            \"isRequired\": true,\n            \"defaultValue\": \"\",\n            \"validator\": \"FQDN\"\n          }\n        ],\n        \"description\": \"What FQDNs will clients use to access the servers?\"\n      },\n      {\n        \"name\": \"pool__members\",\n        \"columns\": [\n          {\n            \"name\": \"addr\",\n            \"description\": \"Node/IP address\",\n            \"isRequired\": false,\n            \"defaultValue\": \"\",\n            \"providerType\": \"NODE\",\n            \"validator\": \"IpAddress\"\n          },\n          {\n            \"name\": \"connection_limit\",\n            \"description\": \"Connection limit\",\n            \"isRequired\": true,\n            \"provider\": \"0\",\n            \"validator\": \"NonNegativeNumber\"\n          },\n          {\n            \"name\": \"port\",\n            \"description\": \"Port\",\n            \"isRequired\": true,\n            \"provider\": \"80\",\n            \"providerType\": \"PORT\",\n            \"validator\": \"PortNumber\"\n          },\n          {\n            \"name\": \"port_secure\",\n            \"description\": \"Port\",\n            \"isRequired\": true,\n            \"provider\": \"443\",\n            \"validator\": \"PortNumber\"\n          },\n          {\n            \"name\": \"priority\",\n            \"description\": \"Priority\",\n            \"isRequired\": true,\n            \"provider\": \"0\",\n            \"validator\": \"NonNegativeNumber\"\n          },\n          {\n            \"name\": \"ratio\",\n            \"description\": \"Ratio\",\n            \"isRequired\": false,\n            \"provider\": \"1\",\n            \"validator\": \"NonNegativeNumber\"\n          }\n        ],\n        \"description\": \"Which web servers should be included in this pool?\",\n        \"serverTier\": \"Servers\"\n      }\n    ]\n  },\n  \"isF5Example\": false\n}"
+							"raw": "{\n  \"templateName\": \"Lab2.4_HTTP\",\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"isRequired\": true,\n      \"provider\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n    }\n  ],\n  \"parentReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/templates/iapp/f5.http\"\n  },\n  \"overrides\": {\n    \"vars\": [\n      {\n        \"name\": \"afm__allowed_addr\",\n        \"description\": \"What IP or network addresses should be allowed to access your application?\",\n        \"displayName\": \"allowed_addr\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"afm__policy\",\n        \"description\": \"Do you want to use BIG-IP AFM to protect your application?\",\n        \"displayName\": \"policy\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__restrict_by_addr\",\n        \"description\": \"Do you want to restrict access to your application by network or IP address?\",\n        \"displayName\": \"restrict_by_addr\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__restrict_by_reputation\",\n        \"description\": \"How do you want to control access to your application from sources with a low reputation score?\",\n        \"displayName\": \"restrict_by_reputation\",\n        \"isRequired\": false,\n        \"provider\": \"accept\",\n        \"choices\": [\n          {\n            \"value\": \"accept\",\n            \"description\": \"Allow all sources regardless of reputation\"\n          },\n          {\n            \"value\": \"reject\",\n            \"description\": \"Reject access from sources with a low reputation\"\n          },\n          {\n            \"value\": \"warn\",\n            \"description\": \"Allow but log access from sources with a low reputation\"\n          }\n        ]\n      },\n      {\n        \"name\": \"afm__security_logging\",\n        \"description\": \"Which logging profile would you like to use?\",\n        \"displayName\": \"security_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"afm__staging_policy\",\n        \"description\": \"Would you like to stage a policy for testing purposes?\",\n        \"displayName\": \"staging_policy\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"asm__security_logging\",\n        \"description\": \"Which logging profile would you like to use?\",\n        \"displayName\": \"security_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"asm__use_asm\",\n        \"description\": \"Do you want to deploy BIG-IP Application Security Manager?\",\n        \"displayName\": \"use_asm\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"client__data_retention_period\",\n        \"description\": \"For how many days should the BIG-IP system retain the data?\",\n        \"displayName\": \"data_retention_period\",\n        \"isRequired\": true,\n        \"provider\": \"30\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"client__enable_perf_monitor\",\n        \"description\": \"Do you want to use the legacy AAM performance monitor?\",\n        \"displayName\": \"enable_perf_monitor\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not enable the legacy performance monitor (recommended)\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Enable the legacy performance monitor\"\n          }\n        ]\n      },\n      {\n        \"name\": \"client__http_compression\",\n        \"description\": \"Which compression profile do you want to use?\",\n        \"displayName\": \"http_compression\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__isession_profile\",\n        \"description\": \"Create a new iSession tunnel profile or use an existing one?\",\n        \"displayName\": \"isession_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/isession\"\n      },\n      {\n        \"name\": \"client__policy\",\n        \"description\": \"Which acceleration policy do you want to use?\",\n        \"displayName\": \"policy\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/Generic Policy - Enhanced\"\n      },\n      {\n        \"name\": \"client__standard_caching_with_wa\",\n        \"description\": \"Which Web Acceleration profile do you want to use for caching?\",\n        \"displayName\": \"standard_caching_with_wa\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__standard_caching_without_wa\",\n        \"description\": \"Which Web Acceleration profile do you want to use for caching?\",\n        \"displayName\": \"standard_caching_without_wa\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__tcp_lan_opt\",\n        \"description\": \"How do you want to optimize (LAN) client-side connections?\",\n        \"displayName\": \"tcp_lan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__tcp_wan_opt\",\n        \"description\": \"How do you want to optimize (WAN) client-side connections?\",\n        \"displayName\": \"tcp_wan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"client__use_wa\",\n        \"description\": \"Use the BIG-IP Application Acceleration Manager?\",\n        \"displayName\": \"use_wa\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, use BIG-IP AAM (recommended)\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not use BIG-IP AAM\"\n          }\n        ]\n      },\n      {\n        \"name\": \"client__x_wa_info_header\",\n        \"description\": \"Do you want to insert the X-WA-Info header?\",\n        \"displayName\": \"x_wa_info_header\",\n        \"isRequired\": false,\n        \"provider\": \"none\",\n        \"choices\": [\n          {\n            \"value\": \"none\",\n            \"description\": \"Do not insert the header (recommended)\"\n          },\n          {\n            \"value\": \"standard\",\n            \"description\": \"Insert the Standard header\"\n          },\n          {\n            \"value\": \"debug\",\n            \"description\": \"Insert the Debug header\"\n          }\n        ]\n      },\n      {\n        \"name\": \"intro__afm_allowed\",\n        \"displayName\": \"afm_allowed\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__am_provisioned\",\n        \"description\": \"Is AM provisioned?\",\n        \"displayName\": \"am_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__analytics_provisioned\",\n        \"description\": \"Is AVR provisioned?\",\n        \"displayName\": \"analytics_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__apm_provisioned\",\n        \"description\": \"Is APM provisioned?\",\n        \"displayName\": \"apm_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__asm_policy\",\n        \"displayName\": \"asm_policy\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__asm_provisioned\",\n        \"description\": \"Is ASM provisioned?\",\n        \"displayName\": \"asm_provisioned\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_admin\",\n        \"displayName\": \"is_admin\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_edge\",\n        \"description\": \"Is this an edge?\",\n        \"displayName\": \"is_edge\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"intro__is_v11_4\",\n        \"displayName\": \"is_v11_4\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"irules__irules\",\n        \"description\": \"Do you want to add any custom iRules to this configuration?\",\n        \"displayName\": \"irules\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__anonymous\",\n        \"description\": \"Should the health monitor require credentials?\",\n        \"displayName\": \"anonymous\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"No, allow anonymous access\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Yes, require credentials\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__frequency\",\n        \"description\": \"How many seconds should pass between health checks?\",\n        \"displayName\": \"frequency\",\n        \"isRequired\": true,\n        \"provider\": \"30\"\n      },\n      {\n        \"name\": \"monitor__http_method\",\n        \"description\": \"What type of HTTP request should be sent to the servers?\",\n        \"displayName\": \"http_method\",\n        \"isRequired\": false,\n        \"provider\": \"GET\",\n        \"choices\": [\n          {\n            \"value\": \"GET\",\n            \"description\": \"GET\"\n          },\n          {\n            \"value\": \"POST\",\n            \"description\": \"POST\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__http_version\",\n        \"description\": \"Which HTTP version do your servers expect clients to use?\",\n        \"displayName\": \"http_version\",\n        \"isRequired\": false,\n        \"provider\": \"http11\",\n        \"choices\": [\n          {\n            \"value\": \"http10\",\n            \"description\": \"HTTP/1.0\"\n          },\n          {\n            \"value\": \"http11\",\n            \"description\": \"HTTP/1.1\"\n          }\n        ]\n      },\n      {\n        \"name\": \"monitor__monitor\",\n        \"description\": \"Create a new health monitor or use an existing one?\",\n        \"displayName\": \"monitor\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"monitor__post_body\",\n        \"description\": \"What HTTP POST body do you want to use for this monitor?\",\n        \"displayName\": \"post_body\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__response\",\n        \"description\": \"What is the expected response to the HTTP request?\",\n        \"displayName\": \"response\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"monitor__uri\",\n        \"description\": \"What HTTP URI should be sent to the servers?\",\n        \"displayName\": \"uri\",\n        \"isRequired\": true,\n        \"provider\": \"/\"\n      },\n      {\n        \"name\": \"monitor__user\",\n        \"description\": \"What user name should the monitor use?\",\n        \"displayName\": \"user\",\n        \"isRequired\": true,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"net__client_mode\",\n        \"description\": \"What type of network connects clients to the BIG-IP system?\",\n        \"displayName\": \"client_mode\",\n        \"isRequired\": false,\n        \"provider\": \"wan\"\n      },\n      {\n        \"name\": \"net__client_vlan\",\n        \"description\": \"On which VLANs should traffic be enabled or disabled?\",\n        \"displayName\": \"client_vlan\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"net__route_to_bigip\",\n        \"description\": \"How have you configured routing on your web servers?\",\n        \"displayName\": \"route_to_bigip\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Servers have a route to clients through the BIG-IP system\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Servers do not have a route to clients through the BIG-IP system\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__same_subnet\",\n        \"description\": \"Where will the virtual servers be in relation to the web servers?\",\n        \"displayName\": \"same_subnet\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"BIG-IP virtual server IP and web servers are on different subnets\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"BIG-IP virtual server IP and web servers are on the same subnet\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__server_mode\",\n        \"description\": \"What type of network connects servers to the BIG-IP system?\",\n        \"displayName\": \"server_mode\",\n        \"isRequired\": false,\n        \"provider\": \"lan\"\n      },\n      {\n        \"name\": \"net__snat_type\",\n        \"description\": \"How many connections do you expect to each web server?\",\n        \"displayName\": \"snat_type\",\n        \"isRequired\": false,\n        \"provider\": \"automap\",\n        \"choices\": [\n          {\n            \"value\": \"automap\",\n            \"description\": \"Fewer than 64,000 concurrent connections\"\n          },\n          {\n            \"value\": \"snatpool\",\n            \"description\": \"More than 64,000 concurrent connections\"\n          }\n        ]\n      },\n      {\n        \"name\": \"net__snatpool\",\n        \"description\": \"Create a new SNAT pool or use an existing one?\",\n        \"displayName\": \"snatpool\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"net__vlan_mode\",\n        \"description\": \"Do you want to restrict client traffic to specific VLANs?\",\n        \"displayName\": \"vlan_mode\",\n        \"isRequired\": false,\n        \"provider\": \"all\",\n        \"choices\": [\n          {\n            \"value\": \"all\",\n            \"description\": \"Enable traffic on all VLANs and Tunnels\"\n          },\n          {\n            \"value\": \"enabled\",\n            \"description\": \"Yes, enable traffic only on the VLANs I specify\"\n          },\n          {\n            \"value\": \"disabled\",\n            \"description\": \"Yes, disable traffic only on the VLANs I specify\"\n          }\n        ]\n      },\n      {\n        \"name\": \"optimizations__data_retention_period\",\n        \"description\": \"How many days to you want to keep AAM performance data?\",\n        \"displayName\": \"data_retention_period\",\n        \"isRequired\": true,\n        \"provider\": \"30\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"optimizations__lan_or_wan\",\n        \"description\": \"Will clients be connecting to this virtual server primarily over a LAN or a WAN?\",\n        \"displayName\": \"lan_or_wan\",\n        \"isRequired\": false,\n        \"provider\": \"WAN\",\n        \"choices\": [\n          {\n            \"value\": \"WAN\",\n            \"description\": \"WAN\"\n          },\n          {\n            \"value\": \"LAN\",\n            \"description\": \"LAN\"\n          }\n        ]\n      },\n      {\n        \"name\": \"optimizations__use_wa\",\n        \"description\": \"Do you want to use the BIG-IP AAM module to accelerate your traffic?\",\n        \"displayName\": \"use_wa\",\n        \"isRequired\": false,\n        \"provider\": \"No\",\n        \"choices\": [\n          {\n            \"value\": \"Yes\",\n            \"description\": \"Yes\"\n          },\n          {\n            \"value\": \"No\",\n            \"description\": \"No\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__addr\",\n        \"description\": \"What IP address do you want to use for the virtual server?\",\n        \"displayName\": \"addr\",\n        \"isRequired\": true,\n        \"defaultValue\": \"\",\n        \"providerType\": \"NODE\",\n        \"serverTier\": \"Servers\",\n        \"validator\": \"IpAddress\"\n      },\n      {\n        \"name\": \"pool__http\",\n        \"description\": \"Which HTTP profile do you want to use?\",\n        \"displayName\": \"http\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"pool__is_ha\",\n        \"description\": \"Are you using HA?\",\n        \"displayName\": \"is_ha\",\n        \"isRequired\": false,\n        \"provider\": \"\"\n      },\n      {\n        \"name\": \"pool__lb_method\",\n        \"description\": \"Which load balancing method do you want to use?\",\n        \"displayName\": \"lb_method\",\n        \"isRequired\": false,\n        \"provider\": \"least-connections-member\",\n        \"choices\": [\n          {\n            \"value\": \"dynamic-ratio-member\",\n            \"description\": \"Dynamic Ratio (member)\"\n          },\n          {\n            \"value\": \"dynamic-ratio-node\",\n            \"description\": \"Dynamic Ratio (node)\"\n          },\n          {\n            \"value\": \"fastest-app-response\",\n            \"description\": \"Fastest (application)\"\n          },\n          {\n            \"value\": \"fastest-node\",\n            \"description\": \"Fastest (node)\"\n          },\n          {\n            \"value\": \"least-connections-member\",\n            \"description\": \"Least Connections (member)\"\n          },\n          {\n            \"value\": \"least-connections-node\",\n            \"description\": \"Least Connections (node)\"\n          },\n          {\n            \"value\": \"least-sessions\",\n            \"description\": \"Least Sessions\"\n          },\n          {\n            \"value\": \"observed-member\",\n            \"description\": \"Observed (member)\"\n          },\n          {\n            \"value\": \"observed-node\",\n            \"description\": \"Observed (node)\"\n          },\n          {\n            \"value\": \"predictive-member\",\n            \"description\": \"Predictive (member)\"\n          },\n          {\n            \"value\": \"predictive-node\",\n            \"description\": \"Predictive (node)\"\n          },\n          {\n            \"value\": \"round-robin\",\n            \"description\": \"Round Robin\"\n          },\n          {\n            \"value\": \"ratio-member\",\n            \"description\": \"Ratio (member)\"\n          },\n          {\n            \"value\": \"ratio-node\",\n            \"description\": \"Ratio (node)\"\n          },\n          {\n            \"value\": \"ratio-session\",\n            \"description\": \"Ratio (session)\"\n          },\n          {\n            \"value\": \"ratio-least-connections-member\",\n            \"description\": \"Ratio Least Connections (member)\"\n          },\n          {\n            \"value\": \"ratio-least-connections-node\",\n            \"description\": \"Ratio Least Connections (node)\"\n          },\n          {\n            \"value\": \"weighted-least-connections-member\",\n            \"description\": \"Weighted Least Connections (member)\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__lb_method_edge\",\n        \"description\": \"Which load balancing method do you want to use for BIG-IPs that do not have LTM provisioned?\",\n        \"displayName\": \"lb_method_edge\",\n        \"isRequired\": false,\n        \"provider\": \"round-robin\",\n        \"choices\": [\n          {\n            \"value\": \"round-robin\",\n            \"description\": \"Round Robin\"\n          },\n          {\n            \"value\": \"ratio-member\",\n            \"description\": \"Ratio (member)\"\n          },\n          {\n            \"value\": \"ratio-node\",\n            \"description\": \"Ratio (node)\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__mask\",\n        \"description\": \"If using a network virtual address, what is the IP mask?\",\n        \"displayName\": \"mask\",\n        \"isRequired\": false,\n        \"provider\": \"\",\n        \"validator\": \"IpAddress\"\n      },\n      {\n        \"name\": \"pool__min_active_members\",\n        \"description\": \"What is the minimum number of active members in a group?\",\n        \"displayName\": \"min_active_members\",\n        \"isRequired\": true,\n        \"provider\": \"0\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"pool__mirror\",\n        \"description\": \"Do you want to enable connection and persistence mirroring?\",\n        \"displayName\": \"mirror\",\n        \"isRequired\": false,\n        \"provider\": \"disabled\",\n        \"choices\": [\n          {\n            \"value\": \"disabled\",\n            \"description\": \"Do not enable connection/persistence mirroring\"\n          },\n          {\n            \"value\": \"enabled\",\n            \"description\": \"Enable connection/persistence mirroring\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__pass_thru_persist\",\n        \"description\": \"Which persistence profile do you want to use?\",\n        \"displayName\": \"pass_thru_persist\",\n        \"isRequired\": false,\n        \"provider\": \"/#source#\"\n      },\n      {\n        \"name\": \"pool__persist\",\n        \"description\": \"Which persistence profile do you want to use?\",\n        \"displayName\": \"persist\",\n        \"isRequired\": false,\n        \"provider\": \"/#cookie#\"\n      },\n      {\n        \"name\": \"pool__pool_to_use\",\n        \"description\": \"Do you want to create a new pool or use an existing one?\",\n        \"displayName\": \"pool_to_use\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"pool__pool_to_use_wom\",\n        \"description\": \"Do you want to create a new pool or use an existing one?\",\n        \"displayName\": \"pool_to_use_wom\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"pool__port\",\n        \"description\": \"What port do you want to use for the virtual server?\",\n        \"displayName\": \"port\",\n        \"isRequired\": true,\n        \"provider\": \"80\",\n        \"providerType\": \"PORT\",\n        \"serverTier\": \"Servers\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__port_secure\",\n        \"description\": \"What secure secure port do you want to use for the virtual server?\",\n        \"displayName\": \"port_secure\",\n        \"isRequired\": true,\n        \"provider\": \"443\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__redirect_port\",\n        \"description\": \"From which port should HTTP traffic be redirected?\",\n        \"displayName\": \"redirect_port\",\n        \"isRequired\": false,\n        \"provider\": \"80\",\n        \"validator\": \"PortNumber\"\n      },\n      {\n        \"name\": \"pool__redirect_to_https\",\n        \"description\": \"Do you want to redirect inbound HTTP traffic to HTTPS?\",\n        \"displayName\": \"redirect_to_https\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Redirect HTTP to HTTPS\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not redirect HTTP to HTTPS\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__use_pga\",\n        \"description\": \"Do you want to give priority to specific groups of servers?\",\n        \"displayName\": \"use_pga\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not use Priority Group Activation (recommended)\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Use Priority Group Activation\"\n          }\n        ]\n      },\n      {\n        \"name\": \"pool__xff\",\n        \"description\": \"Should the BIG-IP system insert the X-Forwarded-For header?\",\n        \"displayName\": \"xff\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Insert X-Forwarded-For HTTP header\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"Do not insert X-Forwarded-For HTTP header\"\n          }\n        ]\n      },\n      {\n        \"name\": \"server__ntlm\",\n        \"description\": \"Which NTLM profile do you want to use?\",\n        \"displayName\": \"ntlm\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"server__oneconnect\",\n        \"description\": \"Which OneConnect profile do you want to use?\",\n        \"displayName\": \"oneconnect\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__slow_ramp_setvalue\",\n        \"description\": \"How many seconds should Slow Ramp time last?\",\n        \"displayName\": \"slow_ramp_setvalue\",\n        \"isRequired\": true,\n        \"provider\": \"300\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_lan_opt\",\n        \"description\": \"How do you want to optimize (LAN) server-side connections?\",\n        \"displayName\": \"tcp_lan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__tcp_queue_length\",\n        \"description\": \"What is the maximum number of TCP requests for the queue?\",\n        \"displayName\": \"tcp_queue_length\",\n        \"isRequired\": true,\n        \"provider\": \"\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_queue_timeout\",\n        \"description\": \"How many milliseconds should requests stay in the queue?\",\n        \"displayName\": \"tcp_queue_timeout\",\n        \"isRequired\": true,\n        \"provider\": \"\",\n        \"validator\": \"NonNegativeNumber\"\n      },\n      {\n        \"name\": \"server__tcp_req_queueing\",\n        \"description\": \"Should the BIG-IP system queue TCP requests?\",\n        \"displayName\": \"tcp_req_queueing\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, enable TCP request queuing\"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not enable TCP request queuing  (recommended) \"\n          }\n        ]\n      },\n      {\n        \"name\": \"server__tcp_wan_opt\",\n        \"description\": \"How do you want to optimize (WAN) server-side connections?\",\n        \"displayName\": \"tcp_wan_opt\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"server__use_slow_ramp\",\n        \"description\": \"Use a Slow Ramp time for newly added servers?\",\n        \"displayName\": \"use_slow_ramp\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"description\": \"Yes, use Slow Ramp  (recommended) \"\n          },\n          {\n            \"value\": \"no\",\n            \"description\": \"No, do not use Slow Ramp\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl__cert\",\n        \"description\": \"Which SSL certificate do you want to use?\",\n        \"displayName\": \"cert\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/default.crt\"\n      },\n      {\n        \"name\": \"ssl__client_ssl_profile\",\n        \"description\": \"Which Client SSL profile do you want to use?\",\n        \"displayName\": \"client_ssl_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/#create_new#\"\n      },\n      {\n        \"name\": \"ssl__key\",\n        \"description\": \"Which SSL private key do you want to use?\",\n        \"displayName\": \"key\",\n        \"isRequired\": false,\n        \"provider\": \"/Common/default.key\"\n      },\n      {\n        \"name\": \"ssl__mode\",\n        \"description\": \"How should the BIG-IP system handle SSL traffic?\",\n        \"displayName\": \"mode\",\n        \"isRequired\": false,\n        \"provider\": \"no_ssl\",\n        \"choices\": [\n          {\n            \"value\": \"client_ssl\",\n            \"description\": \"Terminate SSL from clients, plaintext to servers (SSL offload)\"\n          },\n          {\n            \"value\": \"client_ssl_server_ssl\",\n            \"description\": \"Terminate SSL from clients, re-encrypt to servers (SSL bridging)\"\n          },\n          {\n            \"value\": \"pass_thru\",\n            \"description\": \"Encrypted traffic is forwarded without decryption (SSL pass-through)\"\n          },\n          {\n            \"value\": \"server_ssl\",\n            \"description\": \"Plaintext to and from clients, encrypt to servers\"\n          },\n          {\n            \"value\": \"no_ssl\",\n            \"description\": \"Plaintext to and from both clients and servers\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl__server_ssl_profile\",\n        \"description\": \"Which Server SSL profile do you want to use?\",\n        \"displayName\": \"server_ssl_profile\",\n        \"isRequired\": false,\n        \"provider\": \"/#default#\"\n      },\n      {\n        \"name\": \"ssl__use_chain_cert\",\n        \"description\": \"Which intermediate certificate do you want to use?\",\n        \"displayName\": \"use_chain_cert\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"ssl_encryption_questions__advanced\",\n        \"description\": \"Do you want to enable advanced mode?\",\n        \"displayName\": \"advanced\",\n        \"isRequired\": false,\n        \"provider\": \"yes\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Basic - Use F5's recommended settings\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Advanced - Configure advanced options\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__help\",\n        \"description\": \"Do you want to see inline help?\",\n        \"displayName\": \"help\",\n        \"isRequired\": false,\n        \"provider\": \"hide\",\n        \"choices\": [\n          {\n            \"value\": \"max\",\n            \"description\": \"Yes, show inline help\"\n          },\n          {\n            \"value\": \"hide\",\n            \"description\": \"No, do not show inline help\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__legacy_advanced\",\n        \"description\": \"Which configuration mode do you want to use?\",\n        \"displayName\": \"legacy_advanced\",\n        \"isRequired\": false,\n        \"provider\": \"no\",\n        \"choices\": [\n          {\n            \"value\": \"no\",\n            \"description\": \"Basic - Use F5's recommended settings\"\n          },\n          {\n            \"value\": \"yes\",\n            \"description\": \"Advanced - Configure advanced options\"\n          },\n          {\n            \"value\": \"legacy\",\n            \"description\": \"Legacy - Return to the deprecated template\"\n          }\n        ]\n      },\n      {\n        \"name\": \"ssl_encryption_questions__upgrade\",\n        \"description\": \"Do you want to upgrade this template?\",\n        \"displayName\": \"upgrade\",\n        \"isRequired\": false,\n        \"provider\": \"No\",\n        \"choices\": [\n          {\n            \"value\": \"Yes\",\n            \"description\": \"Yes\"\n          },\n          {\n            \"value\": \"No\",\n            \"description\": \"No\"\n          }\n        ]\n      },\n      {\n        \"name\": \"stats__analytics\",\n        \"description\": \"Do you want to enable Analytics for application statistics?\",\n        \"displayName\": \"analytics\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"stats__request_logging\",\n        \"description\": \"Which HTTP request logging profile do you want to use?\",\n        \"displayName\": \"request_logging\",\n        \"isRequired\": false,\n        \"provider\": \"/#do_not_use#\"\n      },\n      {\n        \"name\": \"app_stats\",\n        \"description\": \"Enable health and performance monitoring.\",\n        \"displayName\": \"app_stats\",\n        \"isRequired\": false,\n        \"provider\": \"enabled\"\n      }\n    ],\n    \"tables\": [\n      {\n        \"name\": \"net__snatpool_members\",\n        \"columns\": [\n          {\n            \"name\": \"addr\",\n            \"description\": \"IP\",\n            \"isRequired\": true,\n            \"provider\": \"\",\n            \"validator\": \"IpAddress\"\n          }\n        ],\n        \"description\": \"What are the IP addresses you want to use for the SNAT pool?\"\n      },\n      {\n        \"name\": \"pool__hosts\",\n        \"columns\": [\n          {\n            \"name\": \"name\",\n            \"description\": \"Host\",\n            \"isRequired\": true,\n            \"defaultValue\": \"\",\n            \"validator\": \"FQDN\"\n          }\n        ],\n        \"description\": \"What FQDNs will clients use to access the servers?\"\n      },\n      {\n        \"name\": \"pool__members\",\n        \"columns\": [\n          {\n            \"name\": \"addr\",\n            \"description\": \"Node/IP address\",\n            \"isRequired\": false,\n            \"defaultValue\": \"\",\n            \"providerType\": \"NODE\",\n            \"validator\": \"IpAddress\"\n          },\n          {\n            \"name\": \"connection_limit\",\n            \"description\": \"Connection limit\",\n            \"isRequired\": true,\n            \"provider\": \"0\",\n            \"validator\": \"NonNegativeNumber\"\n          },\n          {\n            \"name\": \"port\",\n            \"description\": \"Port\",\n            \"isRequired\": true,\n            \"provider\": \"80\",\n            \"providerType\": \"PORT\",\n            \"validator\": \"PortNumber\"\n          },\n          {\n            \"name\": \"port_secure\",\n            \"description\": \"Port\",\n            \"isRequired\": true,\n            \"provider\": \"443\",\n            \"validator\": \"PortNumber\"\n          },\n          {\n            \"name\": \"priority\",\n            \"description\": \"Priority\",\n            \"isRequired\": true,\n            \"provider\": \"0\",\n            \"validator\": \"NonNegativeNumber\"\n          },\n          {\n            \"name\": \"ratio\",\n            \"description\": \"Ratio\",\n            \"isRequired\": false,\n            \"provider\": \"1\",\n            \"validator\": \"NonNegativeNumber\"\n          }\n        ],\n        \"description\": \"Which web servers should be included in this pool?\",\n        \"serverTier\": \"Servers\"\n      }\n    ]\n  },\n  \"isF5Example\": false\n}"
 						},
 						"description": ""
 					},
@@ -1632,7 +1632,7 @@
 				{
 					"name": "Step 2: Get TENANT Service Catalog Template",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP",
 						"method": "GET",
 						"header": [
 							{
@@ -1657,7 +1657,7 @@
 				{
 					"name": "Step 3: Create TENANT Service Deployment",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp",
 						"method": "POST",
 						"header": [
 							{
@@ -1673,7 +1673,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab2.4_HTTP_DEMO\",\n    \"tenantTemplateReference\":{\n        \"link\":\"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\n    },\n    \"properties\":[\n        {\n            \"id\":\"cloudConnectorReference\",\n            \"value\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iworkflow_connector_uuid}}\"\n            \n        }\n    ],\n    \"tables\":[\n        {\n            \"name\":\"pool__hosts\",\n            \"columns\":[\"name\"],\n            \"rows\":[[\"example.com\"]]\n        },\n        {\n            \"name\":\"pool__members\",\n            \"columns\":[\"addr\"],\n            \"rows\":[\n                [\"10.1.10.100\"],\n                [\"10.1.10.101\"]\n            ]\n        }\n    ],\n    \"vars\":[\n        {\n            \"name\":\"pool__addr\",\n            \"value\":\"10.1.20.50\"\n        }\n    ]\n}"
+							"raw": "{\n    \"name\":\"Lab2.4_HTTP_DEMO\",\n    \"tenantTemplateReference\":{\n        \"link\":\"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/Lab2.4_HTTP\"\n    },\n    \"properties\":[\n        {\n            \"id\":\"cloudConnectorReference\",\n            \"value\":\"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n            \n        }\n    ],\n    \"tables\":[\n        {\n            \"name\":\"pool__hosts\",\n            \"columns\":[\"name\"],\n            \"rows\":[[\"example.com\"]]\n        },\n        {\n            \"name\":\"pool__members\",\n            \"columns\":[\"addr\"],\n            \"rows\":[\n                [\"10.1.10.100\"],\n                [\"10.1.10.101\"]\n            ]\n        }\n    ],\n    \"vars\":[\n        {\n            \"name\":\"pool__addr\",\n            \"value\":\"10.1.20.50\"\n        }\n    ]\n}"
 						},
 						"description": ""
 					},
@@ -1682,7 +1682,7 @@
 				{
 					"name": "Step 4: Get TENANT Service Deployment",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
 						"method": "GET",
 						"header": [
 							{
@@ -1707,7 +1707,7 @@
 				{
 					"name": "Step 5: Modify TENANT Service Deployment",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
 						"method": "PUT",
 						"header": [
 							{
@@ -1732,7 +1732,7 @@
 				{
 					"name": "Step 6: Delete TENANT Service Deployment",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
+						"url": "https://{{iwf_mgmt}}/mgmt/cm/cloud/tenants/MyTenant/services/iapp/Lab2.4_HTTP_DEMO",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1763,12 +1763,12 @@
 				{
 					"name": "Step 1: Create pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1788,12 +1788,12 @@
 				{
 					"name": "Step 2: Get pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1813,12 +1813,12 @@
 				{
 					"name": "Step 3: Update pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool",
 						"method": "PATCH",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1838,12 +1838,12 @@
 				{
 					"name": "Step 4: Get pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1863,12 +1863,12 @@
 				{
 					"name": "Step 5: Delete pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iworkflow_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iworkflow_big_ip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool",
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iworkflow_auth_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							},
 							{
@@ -1894,7 +1894,7 @@
 				{
 					"name": "Step 1: Create a HTTP Monitor",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
 						"method": "POST",
 						"header": [
 							{
@@ -1919,7 +1919,7 @@
 				{
 					"name": "Step 2: Create a Pool",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool",
 						"method": "POST",
 						"header": [
 							{
@@ -1944,7 +1944,7 @@
 				{
 					"name": "Step 3: Create a HTTP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/http",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/http",
 						"method": "POST",
 						"header": [
 							{
@@ -1969,7 +1969,7 @@
 				{
 					"name": "Step 4: Create a TCP Profile",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
 						"method": "POST",
 						"header": [
 							{
@@ -1994,7 +1994,7 @@
 				{
 					"name": "Step 5: Create a Virtual Server",
 					"request": {
-						"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual",
 						"method": "POST",
 						"header": [
 							{
