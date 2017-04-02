@@ -103,11 +103,9 @@ Perform the following steps to complete this task:
    |image50|
 
 .. |image41| image:: /_static/image041.png
-   :width: 5.00278in
-   :height: 1.60117in
+   :scale: 40%
 .. |image42| image:: /_static/image042.png
-   :width: 4.85203in
-   :height: 2.09236in
+   :scale: 40%
 .. |image43| image:: /_static/image043.png
    :width: 6.21017in
    :height: 0.79167in
@@ -118,17 +116,13 @@ Perform the following steps to complete this task:
    :width: 5.16635in
    :height: 2.88907in
 .. |image46| image:: /_static/image046.png
-   :width: 5.16635in
-   :height: 1.71688in
+   :scale: 40%
 .. |image47| image:: /_static/image047.png
-   :width: 2.42051in
-   :height: 1.70218in
+   :scale: 40%
 .. |image48| image:: /_static/image048.png
    :width: 4.67051in
    :height: 1.23217in
 .. |image49| image:: /_static/image049.png
-   :width: 5.97591in
-   :height: 4.23806in
+   :scale: 40%
 .. |image50| image:: /_static/image050.png
-   :width: 5.53706in
-   :height: 2.01752in
+   :scale: 40%

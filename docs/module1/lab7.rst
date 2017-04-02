@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum| – REST API Transactions
 ---------------------------------------------------
 
-Task 1 – Create a Transaction 
+Task 1 – Create a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this lab we will create a transaction using the REST API.
@@ -51,7 +51,7 @@ Perform the following steps to complete this task:
    (POST), URI and JSON body. The difference is we add a
    ``X-F5-REST-Coordination-Id`` header with a value of the ``transId``
    attribute to add it to the transaction:
-   
+
    |image39|
 
 #. Click the ‘Send’ button and examine the response
@@ -61,11 +61,11 @@ Perform the following steps to complete this task:
 #. Click ‘Step 7: View the Transaction queue’. Examine the request type and
    URI and click ‘Send’. This request allows you to see the current
    list of commands (ordered) that are in the transaction.
-   
+
 Task 2 – Modify a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ‘Step 8: View queued command 4 from Transaction’ item in the 
+#. Click the ‘Step 8: View queued command 4 from Transaction’ item in the
    collection. Examine the request type and URI. We will GET the queued command
    number 4 from the transaction list.
 
@@ -77,7 +77,7 @@ Task 2 – Modify a Transaction
    from 4 to 1, to move at the first position of the transaction queue:
    |image77|
 
-#. Click the ‘Step 10: View the Transaction queue changes’ item in the 
+#. Click the ‘Step 10: View the Transaction queue changes’ item in the
    collection. Examine that the transaction number 4 has moved into position 1
    and all other transactions eval order has moved accordingly.
 
@@ -88,7 +88,7 @@ Task 3 – Commit a Transaction
    Examine the request type, URI and JSON body. We will PATCH our
    transaction resource and change the value of the ‘state’ attribute
    to submit the transaction:
-   
+
    |image40|
 
 #. Click the ‘Send’ button and examine the response.
@@ -99,34 +99,27 @@ Task 3 – Commit a Transaction
    :width: 4.09062in
    :height: 2.93314in
 .. |image36| image:: /_static/image036.png
-   :width: 6.32362in
-   :height: 3.01389in
+   :scale: 40%
 .. |image37| image:: /_static/image037.png
    :width: 5.66944in
    :height: 2.55359in
 .. |image38| image:: /_static/image038.png
-   :width: 6.00612in
-   :height: 5.55233in
+   :scale: 40%
 .. |image39| image:: /_static/image039.png
-   :width: 6.54134in
-   :height: 2.54167in
+   :scale: 40%
 .. |image40| image:: /_static/image040.png
-   :width: 6.37328in
-   :height: 2.45058in
+   :scale: 40%
 .. |image76| image:: /_static/image076.png
-   :width: 6.45in
-   :height: 4.25in
+   :scale: 40%
 .. |image77| image:: /_static/image077.png
-   :width: 6.45in
-   :height: 5.24in
-
+   :scale: 40%
 
 .. warning:: When sending the Header ``X-F5-REST-Coordination-Id``, the
    system assumes you want to add an entry in the transaction
    queue. You MUST remove this header if you want to issue
    transaction queue changes (like deleting an entry from the
    queue, changing the order, commiting a transaction). If you
-   don't remove the header in that specific case, the system 
+   don't remove the header in that specific case, the system
    will send a 400 with the following type of error:
    "message": "Transaction XXXXX operation .... is not allowed
    to be added to transaction."

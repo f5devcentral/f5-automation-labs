@@ -16,7 +16,46 @@ mechanisms, as consumers of the API will often make use of both types
 depending on the use case. This lab will demonstrate how to interact
 with both types of authentication.
 
-Task 1 – HTTP BASIC Authentication
+Task 1 - Import the Postman Collection & Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task you will Import a Postman Collection & Environment for this lab.
+Perform the following steps to complete this task:
+
+#. Open the Postman tool by clicking the |image8| icon of the taskbar of
+   your Windows Jumphost
+
+#. Click the 'Import' button in the top left of the Postman window
+
+   |image87|
+
+#. Click the 'Import from Link' tab.  Paste the following URL into the
+   text box and click 'Import'
+
+   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/F5_Automation_Orchestration_Intro.postman_collection.json``
+
+   |image88|
+
+#. You should now see a collection named 'F5 Automation & Orchestration Intro'
+   in your Postman Collections sidebar:
+
+   |image10|
+
+#. Import the Environment file by clicking 'Import' -> 'Import from Link' and
+   pasting the following URL and clicking 'Import':
+
+   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json``
+
+#. To assist in multi-step procedures we make heavy use of the
+   ‘Environments’ capability in Postman. This capability allows us to
+   set various global variables that are then substituted into a
+   request before it’s sent. Set your environment to
+   ‘INTRO - Automation & Orchestration Lab’ by using the menu at the top right
+   of your Postman window:
+
+   |image9|
+
+Task 2 – HTTP BASIC Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will use the Postman tool to send API requests using
@@ -35,17 +74,6 @@ TRIVIAL; as a result API calls should always be performed using HTTPS
 
 Perform the following steps to complete this task:
 
-#. Open the Postman tool by clicking the |image8| icon of the taskbar of
-   your Windows Jumphost
-
-#. To assist in multi-step procedures we make heavy use of the
-   ‘Environments’ capability in Postman. This capability allows us to
-   set various global variables that are then substituted into a
-   request before it’s sent. When you open Postman please verify that
-   your environment is set the ‘INTRO - Automation & Orchestration
-   Lab’ environment:
-
-   |image9|
 
 #. Click the ‘Collections’ tab on the left side of the screen, expand
    the ‘F5 Automation & Orchestration Intro’ collection on the left side
@@ -60,6 +88,7 @@ Perform the following steps to complete this task:
    tab changed from 1 to 2. This is because Postman automatically
    created the HTTP header and updated your request to include it.
    Click the ‘Headers’ tab and examine the HTTP header:
+
    |image11|
 
 #. Click the ‘Send’ button to send the request. If the request succeeds
@@ -71,7 +100,7 @@ Perform the following steps to complete this task:
 
    |image12|
 
-Task 2 – Token Based Authentication
+Task 3 – Token Based Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the disadvantages of BASIC Authentication is that credentials are
@@ -172,7 +201,7 @@ Perform the following steps to complete this task:
 
    |image22|
 
-Task 2 – Get a pool ‘example’ Template
+Task 4 – Get a pool ‘example’ Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to assist with REST API interactions you can request a template
@@ -202,23 +231,19 @@ Perform the following steps:
    :width: 0.46171in
    :height: 0.43269in
 .. |image9| image:: /_static/image009.png
-   :width: 3.42693in
-   :height: 2.05000in
+   :scale: 40%
 .. |image10| image:: /_static/image010.png
    :width: 3.54657in
    :height: 2.80000in
 .. |image11| image:: /_static/image011.png
-   :width: 6.43623in
-   :height: 2.97674in
+   :scale: 40%
 .. |image12| image:: /_static/image012.png
    :width: 6.41783in
    :height: 0.81396in
 .. |image13| image:: /_static/image013.png
-   :width: 5.62163in
-   :height: 1.79861in
+   :scale: 40%
 .. |image14| image:: /_static/image014.png
-   :width: 4.48654in
-   :height: 1.68654in
+   :scale: 40%
 .. |image15| image:: /_static/image015.png
    :width: 6.25116in
    :height: 0.79689in
@@ -229,8 +254,7 @@ Perform the following steps:
    :width: 6.43324in
    :height: 3.00000in
 .. |image18| image:: /_static/image018.png
-   :width: 6.00385in
-   :height: 1.31083in
+   :scale: 40%
 .. |image19| image:: /_static/image019.png
    :width: 2.42051in
    :height: 1.70218in
@@ -238,14 +262,15 @@ Perform the following steps:
    :width: 4.67051in
    :height: 1.23217in
 .. |image21| image:: /_static/image021.png
-   :width: 4.92216in
-   :height: 2.42115in
+   :scale: 40%
 .. |image22| image:: /_static/image022.png
-   :width: 4.83718in
-   :height: 5.26305in
+   :scale: 40%
 .. |image23| image:: /_static/image023.png
-   :width: 6.33450in
-   :height: 1.45261in
+   :scale: 40%
 .. |image24| image:: /_static/image024.png
    :width: 5.75466in
    :height: 4.66667in
+.. |image87| image:: /_static/image087.png
+   :scale: 40%
+.. |image88| image:: /_static/image088.png
+   :scale: 40%

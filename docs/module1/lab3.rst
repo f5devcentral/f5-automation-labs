@@ -174,11 +174,8 @@ Perform the following steps to change the **admin** user password:
 #. **Repeat the procedure above to change the password back to “admin”**
 
 .. |image25| image:: /_static/image025.png
-   :width: 6.38452in
-   :height: 2.30000in
+   :scale: 40%
 .. |image26| image:: /_static/image026.png
-   :width: 5.51744in
-   :height: 2.10192in
+   :scale: 40%
 .. |image27| image:: /_static/image027.png
-   :width: 5.67051in
-   :height: 2.12885in
+   :scale: 40%

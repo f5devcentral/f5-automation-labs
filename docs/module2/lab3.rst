@@ -57,11 +57,9 @@ Perform the following steps to complete this task:
    tenant. Click the ‘Send’ button and examine the response.
 
 .. |image56| image:: /_static/image056.png
-   :width: 5.73673in
-   :height: 2.14968in
+   :scale: 40%
 .. |image57| image:: /_static/image057.png
    :width: 5.24968in
    :height: 2.77172in
 .. |image58| image:: /_static/image058.png
-   :width: 6.29372in
-   :height: 4.79618in
+   :scale: 40%

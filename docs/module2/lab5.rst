@@ -68,5 +68,4 @@ Perform the following steps to complete this task:
    understand what is happening.
 
 .. |image65| image:: /_static/image065.png
-   :width: 6.47702in
-   :height: 2.47532in
+   :scale: 40%

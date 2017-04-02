@@ -59,17 +59,13 @@ Perform the following steps to complete this task:
    |image55|
 
 .. |image51| image:: /_static/image051.png
-   :width: 5.91635in
-   :height: 2.76696in
+   :scale: 40%
 .. |image52| image:: /_static/image052.png
    :width: 5.21233in
    :height: 2.73647in
 .. |image53| image:: /_static/image053.png
-   :width: 5.54172in
-   :height: 3.62500in
+   :scale: 40%
 .. |image54| image:: /_static/image054.png
-   :width: 5.25116in
-   :height: 4.09600in
+   :scale: 40%
 .. |image55| image:: /_static/image055.png
-   :width: 5.58302in
-   :height: 3.73925in
+   :scale: 40%

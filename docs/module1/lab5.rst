@@ -79,6 +79,7 @@ Perform the following steps to set CMI Device Parameters
    will PATCH the newly renamed object (from the previous step) and
    assign the Config Sync IP, Unicast Failover Address/Port and
    Mirroring IPs:
+
    |image28|
 
 #. Click the ‘Send’ button and examine the response to ensure the
@@ -130,6 +131,7 @@ Perform the following steps to complete this task:
 #. Click the ‘Send’ button and examine the response. The should
    indicate a color of ‘green’, that bigip-b.f5se.local is connected
    and ‘In Sync’ (please notify an instructor of any issue):
+
    |image29|
 
 Task 3 – Create a sync-failover Device Group
@@ -150,6 +152,7 @@ Perform the following steps to complete this task
    ‘sync-failover’ type. We are also setting the device-group to
    ‘autosync’ so manual syncing is not required when configuration
    changes occur:
+
    |image30|
 
 #. Click the ‘Send’ button and examine the response.
@@ -159,6 +162,7 @@ Perform the following steps to complete this task
    Check Sync Group Status’ item in the collection and click ‘Send’.
    Examine the response and take note that the system is ‘Awaiting
    Initial Sync’:
+
    |image31|
 
 #. We will now manually sync DeviceGroup1 to fulfill the need for the
@@ -166,6 +170,7 @@ Perform the following steps to complete this task
    in the collection. Examine the request type, URL and JSON body. We
    will POST the the ‘/mgmt/tm/cm/config-sync’ worker and tell it to
    ‘run’ a config-sync of BIG-IP-A ‘to-group’ DeviceGroup1:
+
    |image32|
 
 #. Click ‘Send’ to initiate the sync
@@ -201,6 +206,7 @@ Perform the following steps to complete this task:
 #. Click the “Step 12: Get Traffic Group Failover States” item in the
    collection and click the ‘Send’ button. Examine the response and
    determine which device is ‘active’ for the traffic-group:
+
    |image33|
 
 #. Click EITHER the “Step 13A” or “Step 13B” item in the collection
@@ -211,6 +217,7 @@ Perform the following steps to complete this task:
 #. Click the “Step 14: Get Traffic Group Failover States” item in the
    collection and click the ‘Send’ button. Examine the response to
    determine that the failover occurred properly:
+
    |image34|
 
 Task 5 – Create Floating Self IPs
@@ -232,20 +239,17 @@ Perform the following steps to complete this task:
    ‘Send’. Examine the response and verify the Self IP was created.
 
 .. |image28| image:: /_static/image028.png
-   :width: 5.26461in
-   :height: 2.56686in
+   :scale: 40%
 .. |image29| image:: /_static/image029.png
    :width: 6.08403in
    :height: 4.50000in
 .. |image30| image:: /_static/image030.png
-   :width: 6.30803in
-   :height: 2.60271in
+   :scale: 40%
 .. |image31| image:: /_static/image031.png
    :width: 6.16783in
    :height: 3.93018in
 .. |image32| image:: /_static/image032.png
-   :width: 5.50975in
-   :height: 2.05426in
+   :scale: 40%
 .. |image33| image:: /_static/image033.png
    :width: 6.03658in
    :height: 3.82946in
