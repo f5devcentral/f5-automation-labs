@@ -70,7 +70,7 @@
 		},
 		{
 			"name": "2_Install_on_iWorkflow",
-			"description": "This request in this folder will install the appsvcs_integration_iapp iApp template on an F5 iWorkflow device.\n\nInput Variables:\niwf_mgmt\t\tF5 iWorkflow Management Address\niwf_token\t\tREST API Authentication Token\n\nOutput Variables:\nappsvcs_name\tName of the installed template",
+			"description": "This request in this folder will install the appsvcs_integration_iapp iApp template on an F5 iWorkflow device.\n\nInput Variables:\niwf_mgmt\t\tF5 iWorkflow Management Address\niwf_auth_token\t\tREST API Authentication Token\n\nOutput Variables:\nappsvcs_name\tName of the installed template",
 			"item": [
 				{
 					"name": "Install AppSvcs Template on iWorkflow",
@@ -114,7 +114,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -129,7 +129,7 @@
 		},
 		{
 			"name": "3_iWorkflow_Service_Template_Examples",
-			"description": "Create example Service Catalog Templates on an F5 iWorkflow device\n\nInput Variables:\niwf_mgmt\t\tF5 iWorkflow Management Address\niwf_token\t\tREST API Authentication Token",
+			"description": "Create example Service Catalog Templates on an F5 iWorkflow device\n\nInput Variables:\niwf_mgmt\t\tF5 iWorkflow Management Address\niwf_auth_token\t\tREST API Authentication Token",
 			"item": [
 				{
 					"name": "f5-https-offload Template",
@@ -166,7 +166,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -214,7 +214,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -262,7 +262,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -310,7 +310,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -358,7 +358,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -406,7 +406,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -454,7 +454,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -470,7 +470,7 @@
 		},
 		{
 			"name": "4_iWorkflow_Deploy_Example_Services",
-			"description": "Create example Tenant Deployments using the Service Catalog examples through an F5 iWorkflow device\n\nInput Variables:\niwf_mgmt\t\t\t\tF5 iWorkflow Management Address\niwf_token\t\t\t\tREST API Authentication Token\nappsvcs_vip_addr\t\tVirtual Server Listening IP\nappsvcs_vip_port\t\tVirtual Server Listening Port\nappsvcs_member1_addr\tPool Member 1 IP Address\nappsvcs_member1_port\tPool Member 1 Port\nappsvcs_member2_addr\tPool Member 2 IP Address\nappsvcs_member2_port\tPool Member 2 Port\n",
+			"description": "Create example Tenant Deployments using the Service Catalog examples through an F5 iWorkflow device\n\nInput Variables:\niwf_mgmt\t\t\t\tF5 iWorkflow Management Address\niwf_auth_token\t\t\t\tREST API Authentication Token\nappsvcs_vip_addr\t\tVirtual Server Listening IP\nappsvcs_vip_port\t\tVirtual Server Listening Port\nappsvcs_member1_addr\tPool Member 1 IP Address\nappsvcs_member1_port\tPool Member 1 Port\nappsvcs_member2_addr\tPool Member 2 IP Address\nappsvcs_member2_port\tPool Member 2 Port\n",
 			"item": [
 				{
 					"name": "Deploy example-f5-http-lb Service",
@@ -507,7 +507,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -555,7 +555,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -603,7 +603,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -650,7 +650,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -698,7 +698,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -746,7 +746,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
@@ -794,7 +794,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{iwf_token}}",
+								"value": "{{iwf_auth_token}}",
 								"description": ""
 							}
 						],
