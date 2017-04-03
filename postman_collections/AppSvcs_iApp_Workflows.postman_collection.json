@@ -39,6 +39,8 @@
 									"        ",
 									"    f5_check_response(check_vals);",
 									"    f5_populate_env_vars(populate_vars);",
+									"} else {",
+									"    postman.setEnvironmentVariable('appsvcs_name', 'appsvcs_integration_v2.0.003');",
 									"}"
 								]
 							}
@@ -81,6 +83,7 @@
 								"type": "text/javascript",
 								"exec": [
 									"if(typeof postman.getGlobalVariable(\"_f5_workflow_functions\") != 'undefined') {",
+									"    eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
 									"    var check_vals = [",
 									"        {",
 									"            \"path\":\"name\",",
@@ -98,6 +101,8 @@
 									"    ",
 									"    f5_check_response(check_vals);",
 									"    f5_populate_env_vars(populate_vars);",
+									"} else {",
+									"    postman.setEnvironmentVariable('iwf_appsvcs_name', 'appsvcs_integration_v2.0.003');",
 									"}"
 								]
 							}

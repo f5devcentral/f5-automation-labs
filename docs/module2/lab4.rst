@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Create an L4–7 Service Template & Deployment
---------------------------------------------------------------------------
+Lab |labmodule|\.\ |labnum| – Deploy L4-7 Services
+--------------------------------------------------
 
 To drive iApp automation-based L4-7 deployments, iWorkflow includes the
 capability to create a Tenant Service Catalog via L4 – L7 Service
@@ -14,10 +14,43 @@ Templates. This model of deployment enables Declarative automation of F5
 L4-7 services provided the underlying iApp templates are designed with a
 declarative presentation layer in mind. To demonstrate this capability
 we will create a simple Service Catalog Template and deploy and
-application from a tenant on our BIG-IP devices.
+application from a tenant on our BIG-IP devices using the App Services iApp.
 
-Task 1 – Create L4–7 Service Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Install the App Services iApp on iWorkflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+iWorkflow serves as the Source-of-Truth for iApp templates.  As a result iApp
+templates that will be used to automate deployments on BIG-IP must be installed
+on iWorkflow first.  Once installed, iWorkflow will automatically determine
+when a template needs to be installed on BIG-IP and perform the needed actions.
+
+.. NOTE:: iApp template installation on BIG-IP devices occurs during the
+   **first** service deployment to a device.
+
+To assist in deployment of the App Services iApp template and it's associated
+sample service templates a Postman collection has been created.  We will first
+import the collection into Postman and then use it to install the template
+into iWorkflow.
+
+Perform the following steps to complete this task:
+
+#. Import the following collection URL using 'Import' -> 'Import from Link':
+
+   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/AppSvcs_iApp_Workflows.postman_collection.json``
+
+#. Expand the ``AppSvcs_iApp_Workflows`` collection.  Then open the
+   ``2_Install_on_iWorkflow`` folder and click the
+   ``Install AppSvcs Template on iWorkflow`` item.
+
+#. You can examine the Body of this request, however, understand that it
+   contains the minified code that comprises the iApp and will not be very
+   readable.  This collection uses the underlying variables that have already
+   been set (``iwf_mgmt`` and ``iwf_auth_token``) to make installation simple.
+
+#. Click the 'Send' button to install the iApp.
+
+Task 2 – Create the f5-http-lb L4–7 Service Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An L4-7 Service Deployment on iWorkflow is driven by the creation of an
 L4 – L7 Service Template. These templates allow a provider
@@ -30,31 +63,24 @@ allows the vast majority of fields to be filled in or defaulted while
 only exposing the minimal set of fields required to deploy a service.
 
 In this task we will create a Service Catalog Template that utilizes the
-f5.http iApp.
+App Services iApp you just installed.
 
 Perform the following steps to complete this task:
 
-#. Expand the “Lab 2.4 – iWorkflow Service Catalog & Service Deployment”
-   folder in the Postman collection
+#. Expand the ``3_iWorkflow_Service_Templates_Examples`` folder of the
+   ``AppSvcs_iApp_Workflows`` collection
 
-#. Click the “Step 1: Create PROVIDER Service Catalog Template” item in
-   the collection. This request is pre-built and will create a new
-   template using the f5.http iApp. Click the ‘Send’ button to create
-   the template.
+#. Click the “f5-http-lb Template” item in the collection. This request is
+   pre-built and will create a new Service Template using the App Services iApp.
+   Click the ‘Send’ button to create the template.
 
 #. Open a Chrome tab to iWorkflow (https://10.1.1.6) and login with
    admin/admin credentials. Expand the ‘Catalog’ pane and double-click
-   the “Lab2.4\_HTTP” template. Notice the cloud connector was
-   associated as part of the REST request, various defaults have been
+   the “f5-http-lb” template. Notice various defaults have been
    populated (e.g. port ‘80’ for the pool\_\_port variable) and some
    fields have been marked as ‘Tenant Editable’:
 
    |image59|
-
-#. Go back to the Postman window and select the “Step 2: Get TENANT
-   Service Catalog Template” item in the collection. Click the ‘Send’
-   button and examine the response. Notice that the TENANT definition of
-   the service only shows fields that were marked ‘Tenant Editable’
 
 Task 2 – Tenant L4-7 Service Deployment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +94,7 @@ Perform the following steps to complete this task:
    the credentials Username: tenant, Password: tenant. Expand the
    ‘Services’ pane.
 
-#. Click the “Step 3: Create TENANT Service Deployment” item in the
+#. Click the “Step 1: Create TENANT Service Deployment” item in the
    collection. Examine the URL and JSON body. We will be creating a
    new Tenant Service Deployment under ‘MyTenant’ with the properties
    marked as ‘Tenant Editable’ provided:
@@ -82,23 +108,24 @@ Perform the following steps to complete this task:
    |image61|
 
 #. Open a Chrome tab to BIGIP-A. Click on Application Services ->
-   Applications -> Lab2.4\_HTTP\_DEMO to view the config that was
+   Applications -> example-f5-http-lb to view the config that was
    deployed on BIG-IP:
 
    |image62|
 
-#. Go back to Postman and click the “Step 4: Get TENANT Service
+#. Go back to Postman and click the “Step 2: Get TENANT Service
    Deployment” item in the collection and click ‘Send’. This item is
    example of a GET of the service definition. The response should match
    what you see in the iWorkflow GUI when viewing the properties of a
    deployment.
 
-#. Click the “Step 5: Modify TENANT Service Deployment” item in the
+#. Click the “Step 3: Modify TENANT Service Deployment” item in the
    collection. This request is an example of an Update operation.
    Notice that we are sending a PUT request to the URL representing
    the service deployment. Examine the JSON body and note that in the
-   ‘pool\_\_members’ table there is an additional pool member with an IP
-   of 10.1.10.12 that will be added. Click the ‘Send’ button to re-deploy the service:
+   ‘pool\_\_Members’ table there is an additional pool member with an IP
+   of 10.1.10.102 that will be added. Click the ‘Send’ button to re-deploy
+   the service:
 
    |image63|
 
@@ -106,26 +133,21 @@ Perform the following steps to complete this task:
 
    |image64|
 
-#. Go back to Postman and click the “Step 6: Delete TENANT Service
+#. Go back to Postman and click the “Step 4: Delete TENANT Service
    Deployment” item. This item will send a DELETE request to the URL for
    the service deployment. Click ‘Send’ and verify that the deployment
    has been removed in the iWorkflow and BIG-IP GUIs.
 
 .. |image59| image:: /_static/image059.png
-   :width: 6.00141in
-   :height: 5.42733in
+   :scale: 40%
 .. |image60| image:: /_static/image060.png
-   :width: 6.55016in
-   :height: 5.67733in
+   :scale: 40%
 .. |image61| image:: /_static/image061.png
-   :width: 5.72952in
-   :height: 4.59302in
+   :scale: 40%
 .. |image62| image:: /_static/image062.png
-   :width: 6.39191in
-   :height: 3.04651in
+   :scale: 40%
 .. |image63| image:: /_static/image063.png
-   :width: 6.55009in
-   :height: 4.12209in
+   :scale: 40%
 .. |image64| image:: /_static/image064.png
-   :width: 3.93505in
-   :height: 3.92733in
+   :scale: 40%
+
