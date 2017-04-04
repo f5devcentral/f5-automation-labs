@@ -132,14 +132,17 @@ todo_include_todos = True
     # html_theme = 'sphinx_rtd_theme'
     # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     # html_style = "css/my_theme.css"
-# if you don't have the F5 Sphinx Theme, it's available here: https://github.com/f5devcentral/f5-sphinx-theme 
-# You can also install the required python modules by executing python install --update -r requirements.txt 
+# if you don't have the F5 Sphinx Theme, it's available here: https://github.com/f5devcentral/f5-sphinx-theme
+# You can also install the required python modules by executing python install --update -r requirements.txt
 # from the root directory of this repository
 import f5_sphinx_theme
 html_theme = 'f5_sphinx_theme'
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
-html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
-html_theme_options = {'site_name': 'F5 Automation/Orchestration/Super NetOps/DevOps Training'}
+html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
+html_theme_options = {
+                        'site_name': 'F5 Automation/Orchestration/Super NetOps/DevOps Training',
+                        'next_prev_link': True
+                     }
 
 # def setup(app):
 #     if on_rtd:

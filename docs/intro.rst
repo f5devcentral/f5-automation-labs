@@ -40,7 +40,7 @@ components:
       - - **Management:** 10.1.1.7
         - **Internal:** 10.1.10.254
         - **External:** 10.1.20.254
-      - Administrator/*available in instace details*
+      - Administrator/*available in instance details*
     * - BIG-IP A
       - - **Management:** 10.1.1.4
         - **Internal:** 10.1.10.10
