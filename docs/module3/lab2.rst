@@ -218,6 +218,6 @@ Re-attach the Container
 
 #. Copy the value under the ``CONTAINER ID`` column that correspond to the
    f5devcentral/f5-super-netops image.
-#. Execute ``dock attach <container_id>``
+#. Execute ``docker attach <container_id>``
 #. You may have to hit ``<Enter>`` to display the command prompt
 #. Detach the container again by entering ``<Ctrl+P+Q>``
