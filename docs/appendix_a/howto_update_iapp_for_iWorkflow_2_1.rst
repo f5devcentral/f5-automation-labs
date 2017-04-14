@@ -82,7 +82,7 @@ Complete the following steps:
 Task 3 - Import the iApp template to iWorkflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The updated iApp template is not ready to be imported to iWorkflow.
+The updated iApp template is now ready to be imported to iWorkflow.
 Instructions on how to do this can be found at:
 
 https://devcentral.f5.com/wiki/iWorkflow.iWorkflowOpsGuide_7.ashx
