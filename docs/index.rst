@@ -8,3 +8,4 @@ F5 Automation & Orchestration - Introduction
 
    intro
    module*/module*
+   appendix_a/howtos.rst
