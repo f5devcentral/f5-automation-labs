@@ -1,10 +1,10 @@
-HOWTO - Converting existing iApp templates to work with iWorkflow v2.1 
+HOWTO - Converting Existing iApp templates to Work with iWorkflow v2.1
 ----------------------------------------------------------------------
 
-This howto document describes the minimal changes required to update an
+This HOWTO document describes the minimal changes required to update an
 existing iApp template and add a version number to the template name.
 
-Adding the version number allows the iApp template to be used by 
+Adding the version number allows the iApp template to be used by
 iWorkflow v2.1 and later.  Versioning is required to enable iApp templates
 to be installed across many BIG-IP devices in a production-safe manner.
 
@@ -14,7 +14,7 @@ be overwritten leading to deployment failures and/or outages.
 Task 1 – Export the existing iApp from BIG-IP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The iApp template can be exported from a BIG-IP system where it has 
+The iApp template can be exported from a BIG-IP system where it has
 been installed.  The file has a ``.tmpl`` extension and is a plaintext,
 readable format.
 
@@ -41,7 +41,7 @@ Complete the following steps:
 
 #. Open the previously saved ``.tmpl`` file in a text editor
 #. Perform a text search for ``sys application template``
-   
+
    Example:
 
    .. code-block:: tcl
@@ -53,10 +53,8 @@ Complete the following steps:
       }
 
       sys application template my_template_name {
-
           actions {
               definition {
-
                   implementation {
 #. Modify the template name to include a version number using one of the
    formats specified at the beginning of this task.
@@ -72,10 +70,8 @@ Complete the following steps:
       }
 
       sys application template my_template_name.v1.0.0 {
-
           actions {
               definition {
-
                   implementation {
 #. Save the file
 

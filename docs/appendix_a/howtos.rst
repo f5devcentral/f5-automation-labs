@@ -7,4 +7,4 @@ This section contains useful HOWTOs
    :maxdepth: 1
    :glob:
 
-   howto*
+   HOWTO*
