@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# python virtualenv
+Include/
+Scripts/
+pip-selfcheck.json
+tcl/
