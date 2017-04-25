@@ -1,19 +1,20 @@
-Welcome to F5 ASM 140 Lab documentation!
-=========================================
+Welcome to F5 SecDevOps  Lab documentation!
+===========================================
 
 
 Introduction
 ============
 
-The purpose of this lab is to give you a practical introduction to ASM using BIG-IP v13.0.0
+This hands-on lab will demonstrate how to secure applications programmatically using REST based APIs so security professionals can build buttons instead of pushing them.
 
-After completing this course, you should know how to perform the below actions.
+Leveraging programmability to deploy security policies and/or adhere to best practices during an application’s lifecycle reduces the operational (e.g. time and money) cost of a defense in depth strategy.  Programmatic workflows can be developed and deployed for specific security use cases and integrated into the SDLC process allowing for the protection of an application to iterate in parallel with the development of said app.
 
-* Create a partent ASM policy and logging profile
-* Place ASM policy into blocking mode
-* Create a child policy that inherit's from a parent policy
-* Create a DDoS profile
-* Configure pro-active bot defense
+This course will feature the following topics.
+
+* General interaction with tmm via BIG-IPs REST APIs
+* Create, modify and asign an ASM policy
+* Create, modify and assign an AFM policy
+* Create, modify and assign an DDoS/pro-active bot defense profile
 
 
 Lab Contents:
@@ -32,30 +33,24 @@ Lab Contents:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lab 1 - ASM Policy Creation:
+   :caption: Lab 1 - BIG-IP REST APIs:
 
    lab-1/objective.rst
-   lab-1/create-application-security-policy.rst
-   lab-1/apply-application-security-policy.rst
-   lab-1/create-application-security-logging.rst
-   lab-1/apply-application-security-logging.rst
-   lab-1/test-application-security-policy.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lab 2 - ASM Policy Enhancements:
+   :caption: Lab 2 - ASM APIs:
 
    lab-2/lab-2-objective.rst
-   lab-2/update-signatures.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lab 3 - Where in the world?:
+   :caption: Lab 3 - AFM APIs:
 
    lab-3/lab-3-objective.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lab 4 - Why BOT-her?:
+   :caption: Lab 4 - DDoS APIs:
 
    lab-4/lab-4-objective.rst
