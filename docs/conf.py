@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# F5 ASM 140 Lab documentation build configuration file, created by
-# sphinx-quickstart on Mon Apr 17 12:18:24 2017.
+# F5 SecDevOps Lab documentation build configuration file, created by
+# sphinx-quickstart on Tue Apr 25 11:42:20 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -18,7 +18,6 @@
 #
 # import os
 # import sys
-import sphinx_rtd_theme
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -43,10 +42,10 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'n'
 
 # General information about the project.
-project = u'F5 ASM 140 Lab'
+project = u'F5 SecDevOps Lab'
 copyright = u'2017, Joshua Murray'
 author = u'Joshua Murray'
 
@@ -75,7 +74,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+todo_include_todos = False
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -83,18 +82,13 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = 'alabaster'
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
 # html_theme_options = {}
-
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-#
-html_logo = 'images/f5-logo.svg'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -105,7 +99,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'F5ASM140Labdoc'
+htmlhelp_basename = 'F5SecDevOpsLabdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -132,7 +126,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'F5ASM140Lab.tex', u'F5 ASM 140 Lab Documentation',
+    (master_doc, 'F5SecDevOpsLab.tex', u'F5 SecDevOps Lab Documentation',
      u'Joshua Murray', 'manual'),
 ]
 
@@ -142,7 +136,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'f5asm140lab', u'F5 ASM 140 Lab Documentation',
+    (master_doc, 'f5secdevopslab', u'F5 SecDevOps Lab Documentation',
      [author], 1)
 ]
 
@@ -153,8 +147,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'F5ASM140Lab', u'F5 ASM 140 Lab Documentation',
-     author, 'F5ASM140Lab', 'One line description of project.',
+    (master_doc, 'F5SecDevOpsLab', u'F5 SecDevOps Lab Documentation',
+     author, 'F5SecDevOpsLab', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -180,12 +174,4 @@ epub_copyright = copyright
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
-# on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-#
-# if not on_rtd:  # only import and set the theme if we're building docs locally
-#     import sphinx_rtd_theme
-#     html_theme = 'sphinx_rtd_theme'
-#     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
