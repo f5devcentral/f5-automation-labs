@@ -1256,7 +1256,7 @@
 				{
 					"name": "Step 8: View queued command 4 from Transaction",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
 						"method": "GET",
 						"header": [
 							{
