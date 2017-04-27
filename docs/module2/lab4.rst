@@ -92,7 +92,7 @@ Perform the following steps to complete this task:
 
 #. Open a new Chrome tab to iWorkflow (https://10.1.1.6) and login with
    the credentials Username: tenant, Password: tenant. Expand the
-   ‘Services’ pane.
+   ‘L4-L7 Services’ pane.
 
 #. Click the “Step 1: Create TENANT Service Deployment” item in the
    collection. Examine the URL and JSON body. We will be creating a
@@ -107,7 +107,7 @@ Perform the following steps to complete this task:
 
    |image61|
 
-#. Open a Chrome tab to BIGIP-A. Click on Application Services ->
+#. Open a Chrome tab to BIGIP-A. Click on iApps -> Application Services ->
    Applications -> example-f5-http-lb to view the config that was
    deployed on BIG-IP:
 
