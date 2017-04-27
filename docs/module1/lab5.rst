@@ -231,7 +231,7 @@ Perform the following steps to complete this task:
 #. Click the “Step 15: Create a Floating Self IP” item in the
    collection. Examine the request type, URL and JSON body. We will
    create a new resource in the ``/mgmt/tm/net/self`` collection named
-   ‘Self-Internal-Floating’ and an IP address of 10.1.10.3.
+   ‘Self-Internal-Floating’ and an IP address of 10.1.10.12.
 
 #. Click the ‘Send’ button and examine the response
 
