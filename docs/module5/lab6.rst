@@ -16,7 +16,7 @@ Task 1 – Create a simple script
 
 Perform the following steps to complete this task:
 
-#. Expand the ‘Lab 3.6 – Create a Python Script’ folder in the Postman
+#. Expand the ‘Lab 5.6 – Create a Python Script’ folder in the Postman
    collection
 
 #. Click the ‘Step 1 – Create a HTTP Monitor’ item in the collection
@@ -47,10 +47,10 @@ Perform the following steps to complete this task:
 
        response = requests.request("POST", url, data=payload, headers=headers, verify=False)
 
-   **Save the file on your Desktop as lab3\_6.py**
+   **Save the file on your Desktop as lab5\_6.py**
 
 #. Open a command prompt and run the script by typing 
-   ``python lab3_6.py``:
+   ``python lab5_6.py``:
 
    |image75|
 
@@ -67,7 +67,7 @@ multiple requests.
 Perform the following steps:
 
 #. Repeat the procedure from Task 1 with each of the items in the ‘Lab
-   3.6’ postman collection. Append each snippet of code to your existing
+   5.6’ postman collection. Append each snippet of code to your existing
    script until you have all 5 requests in the script. **You will need
    to remove the duplicate ‘import requests’ lines and update each
    request with the ‘verify=False’ option.**
