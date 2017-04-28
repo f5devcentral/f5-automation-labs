@@ -128,7 +128,7 @@ Task 2 – Run create\_pool.py
 
    |image68|
 
-#. Type ``python create_pool.py 10.1.1.4 test_pool 10.1.10.10:80,10.1.10.11:80``
+#. Type ``python create_pool.py 10.1.1.4 test_pool 10.1.10.100:80,10.1.10.101:80``
    to create a new pool:
    
    |image69|
