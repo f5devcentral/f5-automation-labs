@@ -52,7 +52,7 @@ To install the framework complete the following tasks:
 
    |image79|
 
-#. Select the ``Install/Upgrade f5-postman-workflows`` iten and click 'Send'
+#. Select the ``Install/Upgrade f5-postman-workflows`` item and click 'Send'
 #. Examine the 'Tests' again and ensure that Installation was successful:
 
    |image80|
