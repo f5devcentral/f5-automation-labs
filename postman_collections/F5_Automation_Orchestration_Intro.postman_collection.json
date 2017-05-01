@@ -885,7 +885,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Self-Internal-Floating\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.3/24\",\n   \"floating\": \"enabled\",\n   \"trafficGroup\": \"/Common/traffic-group-1\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+							"raw": "{\n   \"name\": \"Self-Internal-Floating\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.12/24\",\n   \"floating\": \"enabled\",\n   \"trafficGroup\": \"/Common/traffic-group-1\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
 						},
 						"description": ""
 					},
