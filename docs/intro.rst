@@ -37,28 +37,26 @@ components:
       - **VLAN/IP Address(es)**
       - **Credentials**
     * - Windows Jumphost
-      - - **Management:** 10.1.1.7
-        - **Internal:** 10.1.10.254
-        - **External:** 10.1.20.254
+      - - **Management:** 10.1.1.250
+        - **Internal:** 10.1.10.250
+        - **External:** 10.1.20.250
       - Administrator/*available in instance details*
     * - BIG-IP A
       - - **Management:** 10.1.1.4
-        - **Internal:** 10.1.10.10
-        - **Internal (Float):** 10.1.10.12
-        - **External:** 10.1.20.10
-        - **HA:** 10.1.30.10
+        - **Internal:** 10.1.10.1
+        - **Internal (Float):** 10.1.10.3
+        - **External:** 10.1.20.1
       - admin/admin
     * - BIG-IP B
       - - **Management:** 10.1.1.5
-        - **Internal:** 10.1.10.11
-        - **Internal (Float):** 10.1.10.12
-        - **External:** 10.1.20.11
-        - **HA:** 10.1.30.11
+        - **Internal:** 10.1.10.2
+        - **Internal (Float):** 10.1.10.3
+        - **External:** 10.1.20.2
       - admin/admin
     * - iWorkflow
       - - **Management:** 10.1.1.6
       - admin/admin
     * - Linux/Docker Server
-      - - **Management:** 10.1.1.8
-        - **Internal:** 10.1.10.100-103
+      - - **Management:** 10.1.1.7
+        - **Internal:** 10.1.10.10-13
       - root/default

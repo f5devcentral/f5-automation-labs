@@ -39,11 +39,11 @@ connectivity for BIG-IP-A:
 |           |                 |                         |
 |           |                 | Tag: 20                 |
 +-----------+-----------------+-------------------------+
-| Self IP   | Self-Internal   | Address: 10.1.10.10/24  |
+| Self IP   | Self-Internal   | Address: 10.1.10.1/24   |
 |           |                 |                         |
 |           |                 | VLAN: Internal          |
 +-----------+-----------------+-------------------------+
-| Self IP   | Self-External   | Address: 10.1.20.10/24  |
+| Self IP   | Self-External   | Address: 10.1.20.1/24   |
 |           |                 |                         |
 |           |                 | VLAN: External          |
 +-----------+-----------------+-------------------------+

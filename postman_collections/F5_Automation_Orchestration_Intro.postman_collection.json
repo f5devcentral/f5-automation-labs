@@ -404,7 +404,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.10/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.1/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
 						},
 						"description": ""
 					},
@@ -535,7 +535,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.10\",\n  \"mirrorIp\": \"10.1.10.10\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.10\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.10\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n  \"configsyncIp\": \"10.1.10.1\",\n  \"mirrorIp\": \"10.1.10.1\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.1\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.1\",\n      \"port\": 1026\n    }\n  ]\n}"
 						},
 						"description": ""
 					},
@@ -560,7 +560,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.11\",\n  \"mirrorIp\": \"10.1.10.11\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.11\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.11\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n  \"configsyncIp\": \"10.1.10.2\",\n  \"mirrorIp\": \"10.1.10.2\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.2\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.2\",\n      \"port\": 1026\n    }\n  ]\n}"
 						},
 						"description": ""
 					},
@@ -966,7 +966,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_pool\",\n    \"monitor\":\"/Common/Lab1.6_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.6_pool\",\n    \"monitor\":\"/Common/Lab1.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -1132,7 +1132,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -1256,7 +1256,7 @@
 				{
 					"name": "Step 8: View queued command 4 from Transaction",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
 						"method": "GET",
 						"header": [
 							{
@@ -1696,7 +1696,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"example-f5-http-lb\",\n  \"tenantTemplateReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb\"\n  },\n  \"vars\": [\n    {\n      \"name\": \"pool__addr\",\n      \"value\": \"10.1.20.50\"\n    },\n    {\n      \"name\": \"pool__port\",\n      \"value\": \"80\"\n    }\n  ],\n  \"tables\": [\n    {\n      \"name\": \"pool__Members\",\n      \"columns\": [\n        \"IPAddress\",\n        \"State\"\n      ],\n      \"rows\": [\n        [\n          \"10.1.10.100\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.101\",\n          \"enabled\"\n        ]\n      ]\n    }\n  ],\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n    }\n  ]\n}"
+							"raw": "{\n  \"name\": \"example-f5-http-lb\",\n  \"tenantTemplateReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb\"\n  },\n  \"vars\": [\n    {\n      \"name\": \"pool__addr\",\n      \"value\": \"10.1.20.50\"\n    },\n    {\n      \"name\": \"pool__port\",\n      \"value\": \"80\"\n    }\n  ],\n  \"tables\": [\n    {\n      \"name\": \"pool__Members\",\n      \"columns\": [\n        \"IPAddress\",\n        \"State\"\n      ],\n      \"rows\": [\n        [\n          \"10.1.10.10\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.11\",\n          \"enabled\"\n        ]\n      ]\n    }\n  ],\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n    }\n  ]\n}"
 						},
 						"description": ""
 					},
@@ -1746,7 +1746,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"example-f5-http-lb\",\n  \"tenantTemplateReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb\"\n  },\n  \"vars\": [\n    {\n      \"name\": \"pool__addr\",\n      \"value\": \"10.1.20.50\"\n    },\n    {\n      \"name\": \"pool__port\",\n      \"value\": \"80\"\n    }\n  ],\n  \"tables\": [\n    {\n      \"name\": \"pool__Members\",\n      \"columns\": [\n        \"IPAddress\",\n        \"State\"\n      ],\n      \"rows\": [\n        [\n          \"10.1.10.100\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.101\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.102\",\n          \"enabled\"\n        ]        \n      ]\n    }\n  ],\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n    }\n  ],\n  \"selfLink\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant/services/iapp/example-f5-http-lb\"  \n}\n"
+							"raw": "{\n  \"name\": \"example-f5-http-lb\",\n  \"tenantTemplateReference\": {\n    \"link\": \"https://localhost/mgmt/cm/cloud/tenant/templates/iapp/f5-http-lb\"\n  },\n  \"vars\": [\n    {\n      \"name\": \"pool__addr\",\n      \"value\": \"10.1.20.50\"\n    },\n    {\n      \"name\": \"pool__port\",\n      \"value\": \"80\"\n    }\n  ],\n  \"tables\": [\n    {\n      \"name\": \"pool__Members\",\n      \"columns\": [\n        \"IPAddress\",\n        \"State\"\n      ],\n      \"rows\": [\n        [\n          \"10.1.10.10\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.11\",\n          \"enabled\"\n        ],\n        [\n          \"10.1.10.12\",\n          \"enabled\"\n        ]        \n      ]\n    }\n  ],\n  \"properties\": [\n    {\n      \"id\": \"cloudConnectorReference\",\n      \"value\": \"https://localhost/mgmt/cm/cloud/connectors/local/{{iwf_connector_uuid}}\"\n    }\n  ],\n  \"selfLink\": \"https://localhost/mgmt/cm/cloud/tenants/MyTenant/services/iapp/example-f5-http-lb\"  \n}\n"
 						},
 						"description": ""
 					},
@@ -1933,7 +1933,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"Hello\"\n}"
+							"raw": "{\n    \"name\":\"Lab5.6_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"Hello\"\n}"
 						},
 						"description": ""
 					},
@@ -1958,7 +1958,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_pool\",\n    \"monitor\":\"/Common/Lab3.6_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab5.6_pool\",\n    \"monitor\":\"/Common/Lab5.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -1983,7 +1983,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_5.6\"\n}"
+							"raw": "{\n    \"name\":\"Lab5.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_5.6\"\n}"
 						},
 						"description": ""
 					},
@@ -2008,7 +2008,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
+							"raw": "{\n    \"name\":\"Lab5.6_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
 						},
 						"description": ""
 					},
@@ -2033,7 +2033,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_vs\",\n    \"destination\":\"10.1.20.131:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab3.6_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab3.6_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab3.6_http\"\n    ]\n}"
+							"raw": "{\n    \"name\":\"Lab5.6_vs\",\n    \"destination\":\"10.1.20.131:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab5.6_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab5.6_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab5.6_http\"\n    ]\n}"
 						},
 						"description": ""
 					},

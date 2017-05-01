@@ -128,9 +128,8 @@ Perform the following steps to complete this task:
 #. Click the ‘Step 2: Get Authentication Token’ item in the Lab 1.2
    Postman Collection
 
-#. Notice that we send a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint. Additionally, BASIC
-   Authentication is required on the initial token request:
+#. Notice that we send a POST request to the ``/mgmt/shared/authn/login``
+   endpoint.
 
    |image13|
 
