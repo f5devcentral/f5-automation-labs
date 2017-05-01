@@ -75,7 +75,7 @@ Perform the following steps to complete this task:
    Click the ‘Send’ button to create the template.
 
 #. Open a Chrome tab to iWorkflow (https://10.1.1.6) and login with
-   admin/admin credentials. Expand the ‘Catalog’ pane and double-click
+   admin/admin credentials. Expand the ‘Service Templates’ pane and double-click
    the “f5-http-lb” template. Notice various defaults have been
    populated (e.g. port ‘80’ for the pool\_\_port variable) and some
    fields have been marked as ‘Tenant Editable’:
@@ -94,7 +94,8 @@ Perform the following steps to complete this task:
    the credentials Username: tenant, Password: tenant. Expand the
    ‘L4-L7 Services’ pane.
 
-#. Click the “Step 1: Create TENANT Service Deployment” item in the
+#. Switch back to Postman and click the
+   “Step 1: Create TENANT Service Deployment” item in the
    collection. Examine the URL and JSON body. We will be creating a
    new Tenant Service Deployment under ‘MyTenant’ with the properties
    marked as ‘Tenant Editable’ provided:
