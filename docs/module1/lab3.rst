@@ -78,7 +78,7 @@ Perform the following steps to complete this task:
    ``hostname`` attribute.
 
    - Review the JSON body and modify the ‘hostname’ attribute to set the
-     hostname to ``bigip-a.f5se.local``
+     hostname to ``bigip-a.f5.local``
 
    - Also notice that we are disabling the GUI Setup Wizard as part of
      the same request:
@@ -110,7 +110,7 @@ Perform the following steps to complete this task:
 
 #. Click the “Step 4: Set System DNS Settings” item in the collection.
    Review the JSON body to verify the name server IPs ‘4.2.2.2’ and '8.8.8.8' are listed.
-   Additionally add a search domain of ‘f5se.local’. You will modify a
+   Additionally add a search domain of ‘f5.local’. You will modify a
    JSON array for both of these attributes. The format of a JSON array
    is:
    ``“myAttribute”: [ “item1”,”item2”,”item3” ]``

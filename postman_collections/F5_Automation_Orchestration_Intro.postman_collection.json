@@ -510,7 +510,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"command\":\"mv\",\n    \"name\":\"bigip1\",\n    \"target\":\"bigip-a.f5se.local\"\n}"
+							"raw": "{\n    \"command\":\"mv\",\n    \"name\":\"bigip1\",\n    \"target\":\"bigip-a.f5.local\"\n}"
 						},
 						"description": ""
 					},
@@ -519,7 +519,7 @@
 				{
 					"name": "Step 2: Set BIGIP-A CMI Device Parameters",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device/~Common~bigip-a.f5se.local",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device/~Common~bigip-a.f5.local",
 						"method": "PATCH",
 						"header": [
 							{
@@ -544,7 +544,7 @@
 				{
 					"name": "Step 3: Set BIGIP-B CMI Device Parameters",
 					"request": {
-						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/device/~Common~bigip-b.f5se.local",
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/device/~Common~bigip-b.f5.local",
 						"method": "PATCH",
 						"header": [
 							{
@@ -585,7 +585,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{bigip_b_mgmt}}\",\n    \"deviceName\":\"bigip-b.f5se.local\",\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{bigip_b_mgmt}}\",\n    \"deviceName\":\"bigip-b.f5.local\",\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
 						},
 						"description": ""
 					},
@@ -635,7 +635,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"DeviceGroup1\",\n    \"type\":\"sync-failover\",\n    \"autoSync\":\"enabled\",\n    \"devices\": [ \"bigip-a.f5se.local\",\"bigip-b.f5se.local\" ]\n}"
+							"raw": "{\n    \"name\":\"DeviceGroup1\",\n    \"type\":\"sync-failover\",\n    \"autoSync\":\"enabled\",\n    \"devices\": [ \"bigip-a.f5.local\",\"bigip-b.f5.local\" ]\n}"
 						},
 						"description": ""
 					},
@@ -760,7 +760,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"haOrder\": [\n    \"/Common/bigip-a.f5se.local\",\n    \"/Common/bigip-b.f5se.local\"\n  ]\n}"
+							"raw": "{\n  \"haOrder\": [\n    \"/Common/bigip-a.f5.local\",\n    \"/Common/bigip-b.f5.local\"\n  ]\n}"
 						},
 						"description": ""
 					},

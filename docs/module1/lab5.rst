@@ -129,7 +129,7 @@ Perform the following steps to complete this task:
    sync status for all sync groups on the system
 
 #. Click the ‘Send’ button and examine the response. The should
-   indicate a color of ‘green’, that bigip-b.f5se.local is connected
+   indicate a color of ‘green’, that bigip-b.f5.local is connected
    and ‘In Sync’ (please notify an instructor of any issue):
 
    |image29|

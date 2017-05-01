@@ -287,7 +287,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'F5AutomationOrchestration-Introduction.tex', u'F5 Automation \\& Orchestration - Introduction Documentation',
-     u'Hitesh Patel, Eric Chen, Nathan Pearce', 'manual'),
+     u'https://github.com/f5devcentral/f5-automation-labs/graphs/contributors', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

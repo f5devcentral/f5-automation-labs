@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Exploring the iControl REST API 
+Lab |labmodule|\.\ |labnum| – Exploring the iControl REST API
 -------------------------------------------------------------
 
 Task 1 – Explore the API using the TMOS Web Interface
@@ -43,11 +43,11 @@ created object with all the correct attributes already populated.
 
 #. You will now see a listing of the **Resources** that are part of the
    route-domain(s) collection. As you can see the default route domain
-   of ‘0’ is listed. You can also create new objects by clicking the
+   of ``0`` is listed. You can also create new objects by clicking the
    |image4| button. Additionally resources can be deleted using the
    |image5| button or edited using the |image6| button.
 
-#. Click the ‘0’ resource to view the attributes of route-domain 0 on
+#. Click the ``0`` resource to view the attributes of route-domain 0 on
    the device:
 
    |image7|
