@@ -12,12 +12,12 @@ In the previous lab we reviewed and ran a very simple workflow.  To support
 more complex use cases f5-newman-wrapper includes features to help build more
 complex workflows.
 
-These features allows users to:
+These features allow users to:
 
 - Create infinately nested items
 - Rename/remap variables name pre and post run of an item
-- Loading variables from a saved environment file
-- Defining variables in the global (workflow) or local (item) scope
+- Load variables from a saved environment file
+- Define variables in the global (workflow) or local (item) scope
 
 To explore all the available options currently implemented please refer to
 https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/framework/f5-newman-wrapper/workflow-schema.json
