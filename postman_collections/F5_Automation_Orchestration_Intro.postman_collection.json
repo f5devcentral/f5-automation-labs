@@ -1983,7 +1983,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab3.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_3.6\"\n}"
+							"raw": "{\n    \"name\":\"Lab3.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_5.6\"\n}"
 						},
 						"description": ""
 					},
