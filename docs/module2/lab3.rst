@@ -27,7 +27,7 @@ itself accordingly.
 
 Perform the following steps to complete this task:
 
-#. Expand the “Lab 2.3 – Create Tenant &Local Connector” folder in the Postman
+#. Expand the “Lab 2.3 – Create Tenant & Local Connector” folder in the Postman
    collection.
 
 #. Click the "Step 1: Create iWorkflow Tenant" item in the collection and click
