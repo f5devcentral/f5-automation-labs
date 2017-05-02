@@ -125,7 +125,7 @@ Perform the following steps to complete this task:
    Notice that we are sending a PUT request to the URL representing
    the service deployment. Examine the JSON body and note that in the
    ‘pool\_\_Members’ table there is an additional pool member with an IP
-   of 10.1.10.102 that will be added. Click the ‘Send’ button to re-deploy
+   of 10.1.10.12 that will be added. Click the ‘Send’ button to re-deploy
    the service:
 
    |image63|
