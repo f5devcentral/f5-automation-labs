@@ -118,7 +118,7 @@ Task 2 – Run create\_pool.py
 
 #. Open Console2 using the |image67| icon on the Windows Taskbar
 
-#. The console window automatically opens in the Desktop\\Module 3 –
+#. The console window automatically opens in the Desktop\\Module 5 –
    Python SDK directory
 
 #. Type ``set PYTHONWARNINGS=ignore`` to disable the printing of SSL/TLS
@@ -130,7 +130,7 @@ Task 2 – Run create\_pool.py
 
 #. Type ``python create_pool.py 10.1.1.4 test_pool 10.1.10.10:80,10.1.10.11:80``
    to create a new pool:
-   
+
    |image69|
 
 #. Using Chrome open a tab to BIGIP-A (https://10.1.1.4). Examine the
