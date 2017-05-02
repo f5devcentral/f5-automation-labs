@@ -94,9 +94,9 @@ Perform the following steps to complete this task:
    the credentials Username: tenant, Password: tenant. Expand the
    ‘L4-L7 Services’ pane.
 
-#. Switch back to Postman and click the
-   “Step 1: Create TENANT Service Deployment” item in the
-   collection. Examine the URL and JSON body. We will be creating a
+#. Switch back to F5 Automantion & Orchestration Intro Postman Collection and click the
+   “Step 1: Create TENANT Service Deployment” item in Lab 2.4.
+   Examine the URL and JSON body. We will be creating a
    new Tenant Service Deployment under ‘MyTenant’ with the properties
    marked as ‘Tenant Editable’ provided:
 
@@ -125,7 +125,7 @@ Perform the following steps to complete this task:
    Notice that we are sending a PUT request to the URL representing
    the service deployment. Examine the JSON body and note that in the
    ‘pool\_\_Members’ table there is an additional pool member with an IP
-   of 10.1.10.102 that will be added. Click the ‘Send’ button to re-deploy
+   of 10.1.10.12 that will be added. Click the ‘Send’ button to re-deploy
    the service:
 
    |image63|
