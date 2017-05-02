@@ -189,7 +189,7 @@ variables for each device:
 
 .. NOTE:: Another option that is available to solve this issue is to define all
    variables in the local scope for each item.  This method is not preferred 
-   because it decreases protbility and increase complexity in definition of 
+   because it decreases portability and increases complexity in definition of 
    input variables.
 
 Task 2 - Build Complex Workflow JSON
