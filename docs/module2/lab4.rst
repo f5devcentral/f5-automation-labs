@@ -94,9 +94,9 @@ Perform the following steps to complete this task:
    the credentials Username: tenant, Password: tenant. Expand the
    ‘L4-L7 Services’ pane.
 
-#. Switch back to Postman and click the
-   “Step 1: Create TENANT Service Deployment” item in the
-   collection. Examine the URL and JSON body. We will be creating a
+#. Switch back to F5 Automation & Orchestration Intro Postman Collection and click the
+   “Step 1: Create TENANT Service Deployment” item in Lab 2.4.
+   Examine the URL and JSON body. We will be creating a
    new Tenant Service Deployment under ‘MyTenant’ with the properties
    marked as ‘Tenant Editable’ provided:
 
