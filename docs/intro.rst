@@ -21,7 +21,9 @@ components have been included in your lab environment:
 
 -  1 x F5 iWorkflow VE (v2.1)
 
--  1 x Linux Webserver
+-  1 x Linux LAMP Webserver (xubuntu 14.04)
+
+-  1 x Linux Docker Server (CentOS 7)
 
 -  1 x Windows Jumphost
 
