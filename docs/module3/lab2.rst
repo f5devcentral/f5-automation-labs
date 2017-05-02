@@ -19,7 +19,7 @@ Perform the following steps to complete this task:
 #. Open a Command Prompt
 
    .. NOTE:: If you are using an F5 provided lab environment please SSH to the
-      'Linux/Docker Server' host and execute the following commands.
+      'Docker Server' host and execute the following commands.
 
 #. Execute ``docker pull f5devcentral/f5-super-netops``
 
