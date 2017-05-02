@@ -24,7 +24,7 @@ Perform the following steps to complete this task:
 
 #. Click the ‘Step 1 – Create a HTTP Monitor’ item in the collection
 
-#. Click the ‘Generate Code’ link in the Postman window:
+#. Click the ‘Code’ link in the Postman window:
 
    |image73|
 
