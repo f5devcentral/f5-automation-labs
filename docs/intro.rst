@@ -56,7 +56,10 @@ components:
     * - iWorkflow
       - - **Management:** 10.1.1.6
       - admin/admin
-    * - Linux/Docker Server
+    * - Linux Server
       - - **Management:** 10.1.1.7
         - **Internal:** 10.1.10.10-13
+      - root/default
+    * - Docker Server
+      - - **Management:** 10.1.1.8
       - root/default
