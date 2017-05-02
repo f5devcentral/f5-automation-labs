@@ -14,6 +14,9 @@ a python script from a collection of requests.
 Task 1 – Create a simple script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. NOTE::
+   Remember to have the correct environment selected in Postman
+
 Perform the following steps to complete this task:
 
 #. Expand the ‘Lab 5.6 – Create a Python Script’ folder in the Postman
@@ -22,11 +25,11 @@ Perform the following steps to complete this task:
 #. Click the ‘Step 1 – Create a HTTP Monitor’ item in the collection
 
 #. Click the ‘Generate Code’ link in the Postman window:
-   
+
    |image73|
 
 #. Select Python -> Requests from the menu on the top right of the window:
-   
+
    |image74|
 
 #. Examine the Python code that was generated. Click the ‘Copy to
@@ -39,7 +42,7 @@ Perform the following steps to complete this task:
    .. code:: python
 
        response = requests.request("POST", url, data=payload, headers=headers)
-   
+
 
    And add a verify=False option to it:
 
@@ -49,7 +52,7 @@ Perform the following steps to complete this task:
 
    **Save the file on your Desktop as lab5\_6.py**
 
-#. Open a command prompt and run the script by typing 
+#. Open a command prompt and run the script by typing
    ``python lab5_6.py``:
 
    |image75|

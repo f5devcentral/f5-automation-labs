@@ -13,7 +13,7 @@ Community Edition on your system.
 
 .. NOTE:: If you are using an F5 provided lab environment, Docker CE has already
           been installed on the host named 'Docker Server'.  Please SSH
-          to that host a execute all `docker` commands there.
+          to that host a execute all ``docker`` commands there.
 
 Task 1 – Install Docker CE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
