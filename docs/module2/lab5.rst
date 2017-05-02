@@ -63,7 +63,7 @@ Perform the following steps to complete this task:
 
 #. Click the “Send” button and examine the response.
 
-#. Repeat steps 1-3 for the remaining items in the “Lab 2.5 – iWorkflow
+#. Complete steps 2-5 for the remaining items in the “Lab 2.5 – iWorkflow
    REST Proxy” collection. Examine each request carefully so you
    understand what is happening.
 
