@@ -49,7 +49,7 @@ Perform the following steps to complete this task:
    |image53|
    |image54|
 
-#. Repeat steps 1-4 with the “Step 2: Discover BIGIP-B Device” item in
+#. Click the “Step 2: Discover BIGIP-B Device” item in
    the collection.
 
 #. Click the “Step 3: Get Discovered Devices” item in the collection.

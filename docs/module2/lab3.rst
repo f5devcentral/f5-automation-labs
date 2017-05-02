@@ -65,8 +65,7 @@ Task 2 - Create a Local Connector
    |image58|
 
 #. Click the “Step 6: Assign Connector to Tenant” item in the
-   collection. The iWorkflow device has been pre-configured with a
-   tenant named ‘MyTenant’. This request will assign this connector to
+   collection. This request will assign this connector to
    to the ‘MyTenant’ tenant allowing service deployments from that
    tenant. Click the ‘Send’ button and examine the response.
 

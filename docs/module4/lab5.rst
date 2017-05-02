@@ -12,12 +12,12 @@ In the previous lab we reviewed and ran a very simple workflow.  To support
 more complex use cases f5-newman-wrapper includes features to help build more
 complex workflows.
 
-These features allows users to:
+These features allow users to:
 
 - Create infinately nested items
 - Rename/remap variables name pre and post run of an item
-- Loading variables from a saved environment file
-- Defining variables in the global (workflow) or local (item) scope
+- Load variables from a saved environment file
+- Define variables in the global (workflow) or local (item) scope
 
 To explore all the available options currently implemented please refer to
 https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/framework/f5-newman-wrapper/workflow-schema.json
@@ -26,7 +26,7 @@ Task 1 - Explore Nested Workflows & Variable Remapping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By using the 'children' array within an item in a workflow you can create 
-nested items.  In this task we will create a more advanced version of the 
+nested items.  In this task, we will create a more advanced version of the 
 workflow we used in the previous lab.  This workflow will perform authentication
 to two BIG-IP devices and then retrieve the software version running on each.
 
@@ -48,8 +48,8 @@ diagram:
    Stop
 
 To implement this workflow we need to consider how Input Variables are passed
-to each item in the workflow.  Previously we saw the the following variables 
-are required to the the ``1_Autheticate`` folder in the 
+to each item in the workflow.  Previously, we saw that the following variables 
+are required to the the ``1_Authenticate`` folder in the 
 ``BIGIP_API_Authentication`` collection:
 
 - ``bigip_mgmt``
@@ -58,7 +58,7 @@ are required to the the ``1_Autheticate`` folder in the
 
 The issue we encounter when building this workflow is that we, at a minimum, 
 have different values for ``bigip_mgmt`` because we are trying to communicate
-with two BIG-IP devices.  To address this issue we could defined our input 
+with two BIG-IP devices.  To address this issue, we could define our input 
 variables as follows:
 
 - ``bigip_a_mgmt = 10.1.1.4``
@@ -66,12 +66,12 @@ variables as follows:
 - ``bigip_username = admin``
 - ``bigip_password = admin``
 
-This solves the problem of providing both BIG-IP management address, however, 
+This solves the problem of providing both BIG-IP management addresses, however, 
 it introduces another issue.  The ``1_Authenticate`` folder requires that the
 management IP address be passed in the ``bigip_mgmt`` input variable.  To solve
-this issue we will use variable name remapping to remap a globalVar to a
+this issue, we will use variable name remapping to remap a globalVar to a
 different name before the ``1_Authenticate`` folder is run for each BIG-IP
-device.  To illustrate this we will add more information to our diagram:
+device.  To illustrate this, we will add more information to our diagram:
 
 .. code::
 
@@ -88,7 +88,7 @@ device.  To illustrate this we will add more information to our diagram:
      |  |  | Pre-run: Remap bigip_a_mgmt -> bigip_mgmt
      |  |  |     Run: 1_Authenticate folder
      |  |
-     |  |- Run: Authenticate to BIG-IP B
+     |  |- Authenticate to BIG-IP B
      |  |  | Pre-run: Remap bigip_b_mgmt -> bigip_mgmt
      |  |  |     Run: 1_Authenticate folder
      |
@@ -99,13 +99,13 @@ device.  To illustrate this we will add more information to our diagram:
    Stop
 
 We've now addressed our issues regarding defining and passing the BIG-IP
-management address, but, have to consider one last problem.  The **output
+management address, but have to consider one last problem.  The **output
 variable** of the ``1_Authenticate`` folder is ``bigip_token``.  By default
 f5-newman-wrapper will store all output variables from one folder and
-automatically pass them to the next item.  In this case an issue occurs because
+automatically pass them to the next item.  In this case, an issue occurs because
 the ``Authenticate to BIG-IP B`` item will overwrite the ``bigip_token`` 
 variable that was outputted by the ``Authenticate to BIG-IP A`` item.  To 
-resolve this issue we can remap variables **AFTER** or post-run of an item.  We 
+resolve this issue, we can remap variables **AFTER** or post-run of an item.  We 
 can modify our diagram to handle this issue like this:
 
 .. code::
@@ -124,7 +124,7 @@ can modify our diagram to handle this issue like this:
      |  |  |      Run: 1_Authenticate folder
      |  |  | Post-run: Remap bigip_token -> bigip_a_token
      |  |
-     |  |- Run: Authenticate to BIG-IP B
+     |  |- Authenticate to BIG-IP B
      |  |  |  Pre-run: Remap bigip_b_mgmt -> bigip_mgmt
      |  |  |      Run: 1_Authenticate folder
      |  |  | Post-run: Remap bigip_token -> bigip_b_token
@@ -135,9 +135,9 @@ can modify our diagram to handle this issue like this:
      |
    Stop
 
-The last step is to perform some additional pre-run remaps to pass the correct
+The last step is to perform some additional pre-run remaping to pass the correct
 token to the ``4A_Get_BIGIP_Version`` folder to get our BIG-IP software version.
-Additionally we will perform some post-run remaps so we can save the output
+Additionally, we will perform some post-run remaps so we can save the output
 variables for each device:
 
 .. code::
@@ -156,7 +156,7 @@ variables for each device:
      |  |  |      Run: 1_Authenticate folder
      |  |  | Post-run: Remap bigip_token -> bigip_a_token
      |  |
-     |  |- Run: Authenticate to BIG-IP B
+     |  |- Authenticate to BIG-IP B
      |  |  |  Pre-run: Remap bigip_b_mgmt -> bigip_mgmt
      |  |  |      Run: 1_Authenticate folder
      |  |  | Post-run: Remap bigip_token -> bigip_b_token
@@ -223,7 +223,7 @@ Define Global Settings & Variables:
 Define Authentication Items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: As seen below we can use the ``skip: true`` attribute to signal 
+.. NOTE:: As shown below, we can use the ``skip: true`` attribute to signal 
    f5-newman-wrapper to not run that particular item.  The items ``children`` 
    will still be processed.  The ``skip`` attribute can be used to create a 
    container for similar requests.
@@ -241,7 +241,7 @@ Define Authentication Items
            {
              "name":"Authenticate to BIG-IP A",
              "options": {
-               "collection":"../collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
+               "collection":"../collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                "remapPreRun": {
                  "bigip_a_mgmt": "bigip_mgmt"
                },
@@ -254,7 +254,7 @@ Define Authentication Items
            {
              "name":"Authenticate to BIG-IP B",
              "options": {
-               "collection":"../collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
+               "collection":"../collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                "remapPreRun": {
                  "bigip_b_mgmt": "bigip_mgmt"
                },

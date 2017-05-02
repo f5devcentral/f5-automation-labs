@@ -119,7 +119,7 @@ Docker host.  In the case of the HTTP service the following mapping applies:
 ``localhost:8080 -> f5-super-netops:80``
 
 .. NOTE:: If you are using an F5 provided lab environment please use the browser
-   and click the 'f5-super-netops Container' bookmark.
+   and click the 'Super Netops Container' bookmark.
 
 To connect via HTTP open a web browser and enter the URL:
 

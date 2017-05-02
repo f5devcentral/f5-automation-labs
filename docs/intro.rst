@@ -21,7 +21,9 @@ components have been included in your lab environment:
 
 -  1 x F5 iWorkflow VE (v2.1)
 
--  1 x Linux Webserver
+-  1 x Linux LAMP Webserver (xubuntu 14.04)
+
+-  1 x Linux Docker Server (CentOS 7)
 
 -  1 x Windows Jumphost
 
@@ -56,7 +58,10 @@ components:
     * - iWorkflow
       - - **Management:** 10.1.1.6
       - admin/admin
-    * - Linux/Docker Server
+    * - Linux Server
       - - **Management:** 10.1.1.7
         - **Internal:** 10.1.10.10-13
+      - root/default
+    * - Docker Server
+      - - **Management:** 10.1.1.8
       - root/default

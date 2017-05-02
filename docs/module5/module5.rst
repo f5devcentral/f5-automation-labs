@@ -8,8 +8,8 @@ https://github.com/F5Networks/f5-common-python
 The goal of the Python SDK is to provide a simple interface that
 abstracts many of the F5-specific nuances of the iControl REST API away
 from the user. As you learned in Module 1, when interacting directly
-with the API it’s often necessary to build out requests in a very manual
-fashion. In order to provide a simpler interface the SDK was developed
+with the API, it’s often necessary to build out requests in a very manual
+fashion. In order to provide a simpler interface, the SDK was developed
 to abstract away many of the eccentricities of the API and provide a
 clean, Pythonic interface.
 
@@ -54,23 +54,23 @@ When using the Python SDK the equivalent code is:
 
 	pool.update()
 
-As you can see the code utilizing the SDK is much more condensed and far
+As you can see, the code utilizing the SDK is much more condensed and far
 easier to read. This is a result of the SDK exposing abstracted methods
 to build the URL. Additionally the SDK creates standard CURDLE (create,
 update, refresh, delete, load, exists) methods that behave correctly
-depending on REST object type (Organizing Collection, Collection,
-Resource, etc.) you are interacting with (e.g., you cannot DELETE an
-Organizing Collection, therefore a delete() method is not available).
+depending on REST object type (Organizing Collection, Resource, etc.) you 
+are interacting with (e.g., you cannot DELETE an Organizing Collection, 
+therefore a delete() method is not available).
 
 Full documentation for the API exists at `here <https://f5-sdk.readthedocs.io>`_
 
-For the purpose of this lab your Windows Jumphost has everything
+For the purpose of this lab, your Windows Jumphost has everything
 pre-installed, however, since the SDK is a standard python package the
 process is trivial on any system (Windows, Linux, Mac, etc.) that has
 Python installed.
 
-It’s important to keep in mind while going through this module that we
-are only demonstrating what is possible with the SDK from a high level. For example the
+It’s important to keep in mind, while going through this module, that we
+are only demonstrating what is possible with the SDK from a high level. For example, the
 same scripts used in this module are designed to run from the command
 line with arguments, however, they could easily be modified to use JSON
 files as the input mechanism.
