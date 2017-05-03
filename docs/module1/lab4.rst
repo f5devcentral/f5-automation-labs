@@ -55,6 +55,11 @@ connectivity for BIG-IP-A:
 Task 1 – Create VLANs
 ~~~~~~~~~~~~~~~~~~~~~
 
+.. NOTE::
+   This lab shows how to configure VLAN tags, but does not deploy tagged
+   interfaces.  To use tagged interfaces the ``tagged`` attribute needs
+   to have the value ``true``
+
 Perform the following steps to configure the VLAN objects/resources:
 
 #. Expand the “Lab 1.4 – Basic Network Connectivity” folder in the

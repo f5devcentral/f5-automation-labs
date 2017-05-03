@@ -87,8 +87,7 @@ Perform the following steps to set CMI Device Parameters
 
 #. Click the “Step 3: Set BIGIP-B CMI Device Parameters” item in the
    collection. Examine the operation (PATCH), URI and JSON body. We
-   will PATCH the newly renamed object (from the previous step) and
-   assign the Config Sync IP, Unicast Failover Address/Port and
+   will PATCH and assign the Config Sync IP, Unicast Failover Address/Port and
    Mirroring IPs.
 
    *EXTRA CREDIT: How is authentication to BIG-IP-B working if we never
