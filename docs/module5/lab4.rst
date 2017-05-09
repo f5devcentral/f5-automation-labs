@@ -17,7 +17,7 @@ Task 1 – Run update\_pool\_member\_state.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In the command prompt type 
-   ``python update_pool_member_state.py 10.1.1.4 test_pool 10.1.10.10:80 disabled``
+   ``python update_pool_member_state.py 10.1.1.4 test_pool 10.1.10.100:80 disabled``
    and examine the output.
 
 #. Verify the pool member was disabled via TMUI
