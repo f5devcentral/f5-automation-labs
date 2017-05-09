@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "F5 Automation & Orchestration Intro",
-		"_postman_id": "f28ef258-e333-ebe1-dc80-9a44fe379396",
+		"_postman_id": "8e2a63de-a5d8-c554-e224-3a8cbda6fcb6",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -68,7 +68,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -110,8 +113,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -803,8 +806,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1065,8 +1068,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1091,12 +1094,12 @@
 							},
 							{
 								"key": "X-F5-REST-Coordination-Id",
-								"value": "{{transaction_id}}",
+								"value": "{{bigip_transaction_id}}",
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1121,12 +1124,12 @@
 							},
 							{
 								"key": "X-F5-REST-Coordination-Id",
-								"value": "{{transaction_id}}",
+								"value": "{{bigip_transaction_id}}",
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1151,12 +1154,12 @@
 							},
 							{
 								"key": "X-F5-REST-Coordination-Id",
-								"value": "{{transaction_id}}",
+								"value": "{{bigip_transaction_id}}",
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1181,12 +1184,12 @@
 							},
 							{
 								"key": "X-F5-REST-Coordination-Id",
-								"value": "{{transaction_id}}",
+								"value": "{{bigip_transaction_id}}",
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1211,12 +1214,12 @@
 							},
 							{
 								"key": "X-F5-REST-Coordination-Id",
-								"value": "{{transaction_id}}",
+								"value": "{{bigip_transaction_id}}",
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1231,7 +1234,7 @@
 				{
 					"name": "Step 7: View the Transaction queue",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}/commands",
 						"method": "GET",
 						"header": [
 							{
@@ -1240,8 +1243,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1256,7 +1259,7 @@
 				{
 					"name": "Step 8: View queued command 4 from Transaction",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}/commands/4",
 						"method": "GET",
 						"header": [
 							{
@@ -1265,8 +1268,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1281,7 +1284,7 @@
 				{
 					"name": "Step 9: Change Eval Order 4 ->1",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands/4",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}/commands/4",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1290,8 +1293,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1306,7 +1309,7 @@
 				{
 					"name": "Step 10: View the Transaction queue changes",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}/commands",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}/commands",
 						"method": "GET",
 						"header": [
 							{
@@ -1315,8 +1318,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1331,7 +1334,7 @@
 				{
 					"name": "Step 11: Commit the Transaction",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{transaction_id}}",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1340,8 +1343,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1365,11 +1368,6 @@
 						"url": "https://{{iwf_mgmt}}/mgmt/shared/authn/login",
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
-								"description": ""
-							},
 							{
 								"key": "Content-Type",
 								"value": "application/json",
@@ -1926,8 +1924,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1951,8 +1949,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -1976,8 +1974,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -2001,8 +1999,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],
@@ -2026,8 +2024,8 @@
 								"description": ""
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4=",
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
 								"description": ""
 							}
 						],

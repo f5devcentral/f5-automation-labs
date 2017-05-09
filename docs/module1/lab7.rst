@@ -36,13 +36,15 @@ Perform the following steps to complete this task:
    |image36|
 
 #. Click the ‘Send’ button to send the request. Examine the response
-   and find the ‘transId’ attribute. Save the value of this attribute
-   in the ‘transaction\_id’ environment variable. Additionally notice
-   that there are timeouts for both the submission of the transaction
-   and how long it should take to execute. Be aware that after the
-   'timeoutSeconds' value, this transId will be silently removed:
+   and find the ‘transId’ attribute. 
 
    |image37|
+
+#. Save the value of this attribute in the ``bigip_transaction_id`` environment
+   variable. Additionally notice that there are timeouts for both the submission
+   of the transaction and how long it should take to execute. Be aware that
+   after the 'timeoutSeconds' value, this transId will be silently removed:
+
    |image38|
 
 #. Click the ‘Step 2: Add to Transaction: Create a HTTP Monitor’ item
@@ -104,17 +106,17 @@ Task 3 – Commit a Transaction
    :width: 5.66944in
    :height: 2.55359in
 .. |image38| image:: /_static/image038.png
-   :scale: 40%
+   :scale: 90%
 .. |image39| image:: /_static/image039.png
-   :scale: 40%
+   :scale: 100%
 .. |image40| image:: /_static/image040.png
-   :scale: 40%
+   :scale: 90%
 .. |image76| image:: /_static/image076.png
-   :scale: 40%
+   :scale: 90%
 .. |image77| image:: /_static/image077.png
-   :scale: 40%
+   :scale: 90%
 
-.. warning:: When sending the Header ``X-F5-REST-Coordination-Id``, the
+.. WARNING:: When sending the Header ``X-F5-REST-Coordination-Id``, the
    system assumes you want to add an entry in the transaction
    queue. You MUST remove this header if you want to issue
    transaction queue changes (like deleting an entry from the
