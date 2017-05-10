@@ -1,53 +1,18 @@
-.. _APL: https://devcentral.f5.com/wiki/iApp.APL.ashx
+HOWTO - Update Existing iApp templates to Work with iWorkflow v2.1
+------------------------------------------------------------------
 
-HOWTO - Configure Application Tier for Service Templates in iWorkflow 2.1
--------------------------------------------------------------------------
+This HOWTO document describes the minimal changes required to update an
+existing iApp template and add a version number to the template name.
 
-This HOWTO document describes how to configure Application Tier Information
-for iApp templates in iWorkflow 2.1.
+Adding the version number allows the iApp template to be used by
+iWorkflow v2.1 and later.  Versioning is required to enable iApp templates
+to be installed across many BIG-IP devices in a production-safe manner.
 
-.. NOTE: Some iApp templates already include this information as part of the
-   template.
+Without version information it is possible that iApp templates could
+be overwritten leading to deployment failures and/or outages.
 
-iWorkflow uses the Application Tier Information to determine how specific
-important fields are mapped into an iApp template.  Since the API interface
-for an iApp template is customizable via APL_, this  step must be completed so
-iWorkflow can correctly track important fields in the template.
-
-iWorkflow currently supports mapping for the following fields:
-
-.. list-table::
-    :widths: 40 20 40
-    :header-rows: 1
-    :stub-columns: 1
-
-    * - **iWorkflow Field Name**
-      - **Required**
-      - **iApp Template Field**
-    * - Virtual Address
-      - Yes
-      - Virtual Server IP Address
-    * - Virtual Port
-      - Yes
-      - Virtual Server Layer 4 Port
-    * - Pool
-      - Yes
-      - Pool Table
-    * - Server Address
-      - Yes
-      - Pool Member/Server IP Address
-    * - Server Port
-      - Yes
-      - Pool Member/Server Layer 4 Port
-    * - SSL Cert
-      - No
-      - SSL/TLS Certificate
-    * - SSL Key
-      - No
-      - SSL/TLS Key
-
-Task 1 – Configure App Tier Info for the f5.http iApp template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 – Export the existing iApp from BIG-IP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The iApp template can be exported from a BIG-IP system where it has
 been installed.  The file has a ``.tmpl`` extension and is a plaintext,
