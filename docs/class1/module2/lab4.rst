@@ -36,7 +36,9 @@ Perform the following steps to complete this task:
 
 #. Import the following collection URL using 'Import' -> 'Import from Link':
 
-   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/AppSvcs_iApp_Workflows.postman_collection.json``
+   .. parsed-literal::
+
+      :raw_github_url:`/postman_collections/AppSvcs_iApp_Workflows.postman_collection.json`
 
 #. Expand the ``AppSvcs_iApp_Workflows`` collection.  Then open the
    ``2_Install_on_iWorkflow`` folder and click the

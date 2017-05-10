@@ -19,9 +19,22 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
+import f5_sphinx_theme
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
+
+print "on_rtd = %s" % on_rtd
+print "on_snops = %s" % on_snops
+
+try:
+    from git import Repo
+    repo = Repo("%s/../" % os.getcwd())
+    git_branch = repo.active_branch
+except:
+    git_branch = { 'name':'master' }
+
+print "git branch: %s" % git_branch.name
 
 # -- General configuration ------------------------------------------------
 
@@ -34,7 +47,8 @@ on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.ifconfig'
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.extlinks'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -146,7 +160,11 @@ html_theme_options = {
 
 if on_rtd:
     templates_path = ['_templates']
-    
+
+extlinks = {
+    'raw_github_url':( ("https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/%s%%s" % git_branch.name), None)
+}
+
 # def setup(app):
 #     if on_rtd:
 #         app.add_stylesheet( "css/my_theme.css" )
@@ -225,7 +243,7 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #
-# html_show_sourcelink = True
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
@@ -233,7 +251,7 @@ html_static_path = ['_static']
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
-# html_show_copyright = True
+html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the

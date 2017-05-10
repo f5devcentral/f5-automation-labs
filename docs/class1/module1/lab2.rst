@@ -32,7 +32,9 @@ Perform the following steps to complete this task:
 #. Click the 'Import from Link' tab.  Paste the following URL into the
    text box and click 'Import'
 
-   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/F5_Automation_Orchestration_Intro.postman_collection.json``
+   .. parsed-literal:: 
+
+      :raw_github_url:`/postman_collections/F5_Automation_Orchestration_Intro.postman_collection.json`
 
    |image88|
 
@@ -44,7 +46,9 @@ Perform the following steps to complete this task:
 #. Import the Environment file by clicking 'Import' -> 'Import from Link' and
    pasting the following URL and clicking 'Import':
 
-   ``https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v2.0/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json``
+   .. parsed-literal:: 
+
+      :raw_github_url:`/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json`
 
 #. To assist in multi-step procedures we make heavy use of the
    ‘Environments’ capability in Postman. This capability allows us to
