@@ -27,6 +27,11 @@ on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
 print "on_rtd = %s" % on_rtd
 print "on_snops = %s" % on_snops
 
+branch_map = {
+    "stable":"master",
+    "latest":"master"
+}
+
 try:
     if not on_rtd:
         from git import Repo
@@ -38,7 +43,12 @@ try:
 except:
     git_branch_name = 'master'
 
-print "git branch: %s" % git_branch_name
+print "guessed git branch: %s" % git_branch_name
+
+if git_branch_name in branch_map:
+    git_branch_name = branch_map[git_branch_name]
+    print " remapped to git branch: %s" % git_branch_name
+
 
 # -- General configuration ------------------------------------------------
 
