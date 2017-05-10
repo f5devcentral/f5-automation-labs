@@ -28,9 +28,12 @@ print "on_rtd = %s" % on_rtd
 print "on_snops = %s" % on_snops
 
 try:
-    from git import Repo
-    repo = Repo("%s/../" % os.getcwd())
-    git_branch = repo.active_branch
+    if not on_rtd:
+        from git import Repo
+        repo = Repo("%s/../" % os.getcwd())
+        git_branch = repo.active_branch
+    else:
+        git_branch = { 'name':os.environ.get('READTHEDOCS_VERSION', None) }
 except:
     git_branch = { 'name':'master' }
 
