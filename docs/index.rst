@@ -1,5 +1,5 @@
-F5 Automation & Orchestration - Introduction
-============================================
+F5 Programmability Training - Index
+===================================
 
 .. toctree::
    :maxdepth: 2
