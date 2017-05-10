@@ -132,13 +132,8 @@ Perform the following steps to complete this task:
 #. Click the ‘Step 2: Get Authentication Token’ item in the Lab 1.2
    Postman Collection
 
-<<<<<<< HEAD:1_Introduction/module1/lab2.rst
-#. Notice that we send a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint:
-=======
 #. Notice that we send a POST request to the ``/mgmt/shared/authn/login``
    endpoint.
->>>>>>> v2.0:docs/class1/module1/lab2.rst
 
    |image13|
 
