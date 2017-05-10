@@ -91,6 +91,15 @@ Perform the following steps to complete this task:
 Task 2 – Modify DNS/NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a 
+   JSON array is:
+
+   ``myArray: [ Object0, Object1 ... ObjectX ]``
+
+   To define and array consisting of Strings the syntax is:
+
+   ``myStringArray: [ "string0", "string1" ... "stringX" ]``
+
 Much like the previous task we can update system DNS and NTP settings by
 sending a PATCH request to the correct resource in the ‘sys’ Organizing
 Collection. The relevant Resources for this task are:
@@ -111,8 +120,7 @@ Perform the following steps to complete this task:
 #. Click the “Step 4: Set System DNS Settings” item in the collection.
    Review the JSON body to verify the name server IPs ``4.2.2.2`` and
    ``8.8.8.8`` are listed. Additionally add a search domain of ‘f5.local’. You
-   will modify a JSON array for both of these attributes. The format of a JSON
-   array is: ``“myAttribute”: [ “item1”,”item2”,”item3” ]``
+   will modify a JSON array for both of these attributes.
 
 #. Click the ‘Send’ button and verify the requested changes were
    successfully implemented
