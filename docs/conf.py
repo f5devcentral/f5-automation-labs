@@ -34,7 +34,7 @@ on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.ifconfig',
+    'sphinx.ext.ifconfig'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'F5 Automation & Orchestration - Introduction'
+project = u'F5 Programmability Training'
 copyright = u'2017, F5 Networks, Inc.'
 author = u'https://github.com/f5devcentral/f5-automation-labs/graphs/contributors'
 
@@ -140,7 +140,7 @@ html_theme = 'f5_sphinx_theme'
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
 html_theme_options = {
-                        'site_name': 'F5 Automation/Orchestration/Super NetOps/DevOps Training',
+                        'site_name': 'Community Training Classes & Labs',
                         'next_prev_link': True
                      }
 
@@ -260,7 +260,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'F5AutomationOrchestration-Introductiondoc'
+htmlhelp_basename = 'F5ProgrammabilityTraining'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -286,7 +286,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'F5AutomationOrchestration-Introduction.tex', u'F5 Automation \\& Orchestration - Introduction Documentation',
+    (master_doc, 'F5ProgrammabilityTraining.tex', u'F5 Programmability Training',
      u'https://github.com/f5devcentral/f5-automation-labs/graphs/contributors', 'manual'),
 ]
 
@@ -328,7 +328,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'f5automationorchestration-introduction', u'F5 Automation & Orchestration - Introduction Documentation',
+    (master_doc, 'f5programmabilitytraining', u'F5 Programmability Training',
      [author], 1)
 ]
 
@@ -343,8 +343,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'F5AutomationOrchestration-Introduction', u'F5 Automation & Orchestration - Introduction Documentation',
-     author, 'F5AutomationOrchestration-Introduction', 'One line description of project.',
+    (master_doc, 'F5ProgrammabilityTraining', u'F5 Programmability Training',
+     author, 'F5ProgrammabilityTraining', 'F5 Programmability Training',
      'Miscellaneous'),
 ]
 

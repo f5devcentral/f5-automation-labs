@@ -7,5 +7,5 @@ F5 Automation & Orchestration - Introduction
    :glob:
 
    intro
-   module*/module*
-   appendix_a/howtos.rst
+   class*/class*
+   howtos/howtos.rst

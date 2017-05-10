@@ -1,4 +1,4 @@
-Appendix A: HOWTOs
+HOWTOs: Index
 ==================
 
 This section contains useful HOWTOs
