@@ -32,12 +32,13 @@ try:
         from git import Repo
         repo = Repo("%s/../" % os.getcwd())
         git_branch = repo.active_branch
+        git_branch_name = git_branch.name
     else:
-        git_branch = { 'name':os.environ.get('READTHEDOCS_VERSION', None) }
+        git_branch_name = os.environ.get('READTHEDOCS_VERSION', None)
 except:
-    git_branch = { 'name':'master' }
+    git_branch_name = 'master'
 
-print "git branch: %s" % git_branch.name
+print "git branch: %s" % git_branch_name
 
 # -- General configuration ------------------------------------------------
 
@@ -165,7 +166,7 @@ if on_rtd:
     templates_path = ['_templates']
 
 extlinks = {
-    'raw_github_url':( ("https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/%s%%s" % git_branch.name), None)
+    'raw_github_url':( ("https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/%s%%s" % git_branch_name), None)
 }
 
 # def setup(app):
