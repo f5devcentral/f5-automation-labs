@@ -144,6 +144,9 @@ html_theme_options = {
                         'next_prev_link': True
                      }
 
+if on_rtd:
+    templates_path = ['_templates']
+    
 # def setup(app):
 #     if on_rtd:
 #         app.add_stylesheet( "css/my_theme.css" )
