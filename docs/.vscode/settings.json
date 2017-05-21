@@ -1,0 +1,7 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "restructuredtext.builtDocumentationPath": "_build/html",
+    "restructuredtext.makefilePath": ".",
+    "restructuredtext.updateOnTextChanged": "true",
+    "python.pythonPath":"~/src/f5-secdevops-lab/bin/python"
+}
