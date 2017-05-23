@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum| – Install Docker Community Edition (CE)
 -------------------------------------------------------------------
 
-To use the f5-super-netops container you first need to install Docker
+To use the f5-super-netops-container you first need to install Docker
 Community Edition on your system.
 
 .. NOTE:: If you are using an F5 provided lab environment, Docker CE has already
