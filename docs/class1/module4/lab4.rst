@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum| – Run a workflow with f5-newman-wrapper
 -------------------------------------------------------------------
 
-In this lab we will use the f5-super-netops Container to run the workflow we
+In this lab we will use the f5-super-netops-container to run the workflow we
 reviewed in the previous lab.  The advantage of using the f5-super-netops
 Container is that all the tools, collections and frameworks are pre-installed
 and ready to use.

@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Connect to the f5-super-netops Container
-----------------------------------------------------------------------
+Lab |labmodule|\.\ |labnum| – Connect to f5-super-netops-container
+------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a
 root command prompt.  In order to support use the container and it's associated
@@ -20,15 +20,15 @@ Task 1 – Connect via SSH
 To connect to the image via SSH we must use the published port specified in the 
 ``docker run`` command.  To review the command used to start the container was:
 
-``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
+``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
 
 This will publish the standard SSH service on ``TCP/22`` to ``TCP/2222`` on the
 Docker host.  In the case of the SSH service the following mapping applies:
 
-``localhost:2222 -> f5-super-netops:22``
+``localhost:2222 -> f5-super-netops-container:22``
 
 .. NOTE:: If you are using an F5 provided lab environment please use the SSH
-   client and connect to the 'f5-super-netops SSH' item
+   client and connect to the 'f5-super-netops-container SSH' item
 
 Additionally the container includes the ``snops`` user with a password of 
 ``default``.  To connect to the container execute the following command
@@ -76,7 +76,7 @@ Example output:
              | |                                          | |
              |_|                                          |_|
    
-   Welcome to the f5-super-netops Container.  This container has the following
+   Welcome to the f5-super-netops-container.  This image has the following
    services running:
    
     SSH  tcp/22
@@ -85,12 +85,12 @@ Example output:
    To access these services you may need to remap ports on your host to the
    local container using the command:
    
-    docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops
+    docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base
    
    From the HOST perspective, this results in:
    
-    localhost:2222 -> f5-super-netops:22
-    localhost:8080 -> f5-super-netops:80
+    localhost:2222 -> f5-super-netops-container:22
+    localho   st:8080 -> f5-super-netops-container:80
    
    You can then connect using the following:
    
@@ -111,12 +111,12 @@ Task 2 – Connect via HTTP
 To connect to the image via HTTP we must use the published port specified in the 
 ``docker run`` command.  To review the command used to start the container was:
 
-``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
+``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
 
 This will publish the standard HTTP service on ``TCP/80`` to ``TCP/8080`` on the
 Docker host.  In the case of the HTTP service the following mapping applies:
 
-``localhost:8080 -> f5-super-netops:80``
+``localhost:8080 -> f5-super-netops-container:80``
 
 .. NOTE:: If you are using an F5 provided lab environment please use the browser
    and click the 'Super Netops Container' bookmark.
