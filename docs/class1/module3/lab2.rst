@@ -5,11 +5,11 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Obtain & Start the f5-super-netops Container Image
+Lab |labmodule|\.\ |labnum| – Obtain & Start the f5-super-netops-container Image
 --------------------------------------------------------------------------------
 
 In this lab we will use the ``docker`` cli tools to obtain and start the
-f5-super-netops container.
+f5-super-netops-container image.
 
 Task 1 – Obtain the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,29 +21,29 @@ Perform the following steps to complete this task:
    .. NOTE:: If you are using an F5 provided lab environment please SSH to the
       'Docker Server' host and execute the following commands.
 
-#. Execute ``docker pull f5devcentral/f5-super-netops``
+#. Execute ``docker pull f5devcentral/f5-super-netops-container:base``
 
    Example output:
 
    .. code::
 
-      $ docker pull f5devcentral/f5-super-netops
-      Using default tag: latest
-      latest: Pulling from f5devcentral/f5-super-netops
-      ec37562cf8fa: Already exists
-      065dbb94f1df: Pull complete
-      5a961c320a03: Pull complete
-      61f0cd8633f6: Pull complete
-      5c1b9a6d65a9: Pull complete
-      1760e5c24c46: Pull complete
-      47524a6e3cf7: Pull complete
-      358f2108a23a: Pull complete
-      2871a733bbc5: Pull complete
-      44a32a3b94bc: Pull complete
-      9bd70ca2b03d: Pull complete
-      da052888529f: Pull complete
-      Digest: sha256:ee4e509c43862a42b586856c809ffab9d79cbd904844c5162bbdba6fe4f637cb
-      Status: Downloaded newer image for f5devcentral/f5-super-netops:latest
+      $ docker pull f5devcentral/f5-super-netops-container:base
+      base: Pulling from f5devcentral/f5-super-netops-container
+      cfc728c1c558: Pull complete 
+      d87c258a5fa6: Pull complete 
+      c65d1b487eef: Pull complete 
+      8dbc9686aafd: Pull complete 
+      8780a91a51b1: Pull complete 
+      adf738b585dc: Pull complete 
+      03b3481bc590: Pull complete 
+      8fc57fb32b1a: Pull complete 
+      8f73f7c22240: Pull complete 
+      7d94bd4c05e6: Pull complete 
+      a0b407bf28b5: Pull complete 
+      b97bd4f3c99d: Pull complete 
+      f37519ea449c: Pull complete 
+      Digest: sha256:20f501b4c46948d3e69ffd7793cbbf08ac18da5f89c6665f36af10bc7c2a89b4
+      Status: Downloaded newer image for f5devcentral/f5-super-netops-container:base
 
 #. Execute ``docker images``
 
@@ -52,15 +52,15 @@ Perform the following steps to complete this task:
    .. code::
 
       $ docker images
-      REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
-      f5devcentral/f5-super-netops   latest              ab796eea25d9        13 minutes ago      171 MB
+      REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+      f5devcentral/f5-super-netops-container   base                7712f3d38f6b        7 days ago          206 MB
 
 Task 2 – Start the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start the container we will execute the command:
 
-``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
+``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
 
 The ``-p`` option publishes a L4 port from the container to the host.  For
 example the ``-p 8080:80`` option will redirect port ``8080`` on the host system
@@ -68,12 +68,12 @@ to port ``80`` in the container.
 
 The ``-it`` option will make the session interactive and allocate a pseudo-TTY
 
-The ``f5devcentral/f5-super-netops`` option is the name associated with the
-image we obtained in Task 1.
+The ``f5devcentral/f5-super-netops-container:base`` option is the name 
+associated with the image we obtained in Task 1.
 
 Perform the following steps to complete this task:
 
-#. Execute ``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops``
+#. Execute ``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
 
    .. NOTE:: The image requires Internet connectivity to download the latest
       versions of tools and documentation.  Please ensure you have proper
@@ -91,7 +91,7 @@ Perform the following steps to complete this task:
 
    .. code::
 
-      $ docker run -p 8080:80 -p 2222:22 --rm -it f5devcentral/f5-super-netops
+      $ docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base
       [s6-init] making user provided files available at /var/run/s6/etc...exited 0.
       [s6-init] ensuring user provided files have correct perms...exited 0.
       [fix-attrs.d] applying ownership & permissions fixes...
@@ -99,22 +99,24 @@ Perform the following steps to complete this task:
       [cont-init.d] executing container initialization scripts...
       [cont-init.d] done.
       [services.d] starting services
-      ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
       [services.d] done.
       Reticulating splines...
       Becoming self-aware...
-      [cloneGitRepos] Retrieving repository list from master
+      [cloneGitRepos] Retrieving repository list from https://github.com/f5devcentral/f5-super-netops-container.git#master
+      [updateRepos] Processing /tmp/snops-repo/images/base/fs/etc/snopsrepo.d/base.json
+      [updateRepos] Processing /tmp/user_repos.json
+      [cloneGitRepos] Loading repositories from /home/snops/repos.json
       [cloneGitRepos] Found 5 repositories to clone...
-      [cloneGitRepos][1/5] Cloning f5-sphinx-theme:master from https://github.com/f5devcentral/f5-sphinx-theme.git
-      [cloneGitRepos][1/5]  Installing f5-sphinx-theme:master...
-      [cloneGitRepos][2/5] Cloning f5-super-netops-container:master from https://github.com/f5devcentral/f5-super-netops-container.git
-      [cloneGitRepos][2/5]  Installing f5-super-netops-container:master...
-      [cloneGitRepos][3/5] Cloning f5-application-services-integration-iApp:develop from https://github.com/F5Networks/f5-application-services-integration-iApp.git
-      [cloneGitRepos][3/5]  Installing f5-application-services-integration-iApp:develop...
-      [cloneGitRepos][4/5] Cloning f5-postman-workflows:develop from https://github.com/0xHiteshPatel/f5-postman-workflows.git
-      [cloneGitRepos][4/5]  Installing f5-postman-workflows:develop...
-      [cloneGitRepos][5/5] Cloning f5-automation-labs:v2.0 from https://github.com/f5devcentral/f5-automation-labs.git
-      [cloneGitRepos][5/5]  Installing f5-automation-labs:v2.0...
+      [cloneGitRepos][1/5] Cloning f5-sphinx-theme#master from https://github.com/f5devcentral/f5-sphinx-theme.git
+      [cloneGitRepos][1/5]  Installing f5-sphinx-theme#master
+      [cloneGitRepos][2/5] Cloning f5-super-netops-container#master from https://github.com/f5devcentral/f5-super-netops-container.git
+      [cloneGitRepos][2/5]  Installing f5-super-netops-container#master
+      [cloneGitRepos][3/5] Cloning f5-application-services-integration-iApp#develop from https://github.com/F5Networks/f5-application-services-integration-iApp.git
+      [cloneGitRepos][3/5]  Installing f5-application-services-integration-iApp#develop
+      [cloneGitRepos][4/5] Cloning f5-postman-workflows#develop from https://github.com/0xHiteshPatel/f5-postman-workflows.git
+      [cloneGitRepos][4/5]  Installing f5-postman-workflows#develop
+      [cloneGitRepos][5/5] Cloning f5-automation-labs#master from https://github.com/f5devcentral/f5-automation-labs.git
+      [cloneGitRepos][5/5]  Installing f5-automation-labs#master
                                       .----------.
                                      /          /
                                     /   ______.'
@@ -135,7 +137,7 @@ Perform the following steps to complete this task:
                 | |                                          | |
                 |_|                                          |_|
 
-      Welcome to the f5-super-netops Container.  This container has the following
+      Welcome to the f5-super-netops-container.  This image has the following
       services running:
 
        SSH  tcp/22
@@ -144,12 +146,12 @@ Perform the following steps to complete this task:
       To access these services you may need to remap ports on your host to the
       local container using the command:
 
-       docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops
+       docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base
 
       From the HOST perspective, this results in:
 
-       localhost:2222 -> f5-super-netops:22
-       localhost:8080 -> f5-super-netops:80
+       localhost:2222 -> f5-super-netops-container:22
+       localhost:8080 -> f5-super-netops-container:80
 
       You can then connect using the following:
 
@@ -198,8 +200,8 @@ Detach the Container
    .. code::
 
       hostname:~ user$ docker ps
-      CONTAINER ID        IMAGE                          COMMAND             CREATED             STATUS              PORTS                                        NAMES
-      b276b38d335d        f5devcentral/f5-super-netops   "/init /start"      12 minutes ago      Up 12 minutes       0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp   hopeful_ramanujan
+      CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS              PORTS                                        NAMES
+      b8c86fe5c7f1        f5devcentral/f5-super-netops-container:base   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp   keen_ritchie
 
 Re-attach the Container
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,13 +213,13 @@ Re-attach the Container
    .. code::
 
        hostname:~ user$ docker ps
-       CONTAINER ID        IMAGE                          COMMAND             CREATED             STATUS              PORTS                                        NAMES
-       b276b38d335d        f5devcentral/f5-super-netops   "/init /start"      12 minutes ago      Up 12 minutes       0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp   hopeful_ramanujan
+       CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS              PORTS                                        NAMES
+       b8c86fe5c7f1        f5devcentral/f5-super-netops-container:base   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp   keen_ritchie
       |------------|
         ^- YOUR CONTAINER ID
 
 #. Copy the value under the ``CONTAINER ID`` column that correspond to the
-   f5devcentral/f5-super-netops image.
+   f5devcentral/f5-super-netops-container:base image.
 #. Execute ``docker attach <container_id>``
 #. You may have to hit ``<Enter>`` to display the command prompt
 #. Detach the container again by entering ``<Ctrl+P+Q>``
