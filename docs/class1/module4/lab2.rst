@@ -12,7 +12,7 @@ In this lab we will walk through how to obtain two collections that use
 the f5-postman-workflows framework and execute a simple workflow using the
 Postman GUI client.  The f5-postman-workflows GitHub repository is continually
 updated with new collections that can be used as is, or customized, to automate
-the F5 platform.  Additionally the f5-super-netops Container automatically
+the F5 platform.  Additionally the f5-super-netops-container automatically
 downloads these and other tools so users can rapidly execute workflows in their
 environments.
 
@@ -23,7 +23,7 @@ you are actually providing a **Declarative** input to an **Imperative** process.
 Collections are self-documenting and we will explore how to access the included
 documentation to assemble a workflow from start to end.  In the next lab we will
 use this base knowledge to create workflows as JSON templates that can be
-executed by the f5-newman-wrapper on the f5-super-netops Container image (or
+executed by the f5-newman-wrapper on the f5-super-netops-container image (or
 any system that has Newman installed)
 
 Task 1 - Import and Explore BIG-IP Collections
