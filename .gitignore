@@ -94,3 +94,10 @@ Scripts/
 pip-selfcheck.json
 tcl/
 bin/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
