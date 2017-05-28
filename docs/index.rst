@@ -51,6 +51,9 @@ Please use `GitHub Issues`_ to report any bugs or feature requests.
    :caption: Lab 1 - BIG-IP REST APIs:
 
    lab-1/objective.rst
+   lab-1/authentication.rst
+   lab-1/provisioning.rst
+   lab-1/building-config.rst
 
 .. toctree::
    :maxdepth: 2

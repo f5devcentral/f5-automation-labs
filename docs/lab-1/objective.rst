@@ -1,10 +1,7 @@
-LAB 1 Objectives
-================
+LAB 1 - Objectives
+==================
 
-In this lab a basic LTM configuration will be implmented using the REST based iControl API.
-
-
-
-
-
-
+* Authenticate to the BIG-IP using a username/password and token
+* Modify the authentication token timeout
+* Provision the appropriate BIG-IP module
+* Build a basic LTM configuration
