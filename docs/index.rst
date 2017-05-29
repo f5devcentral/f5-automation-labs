@@ -60,7 +60,9 @@ Please use `GitHub Issues`_ to report any bugs or feature requests.
    :hidden:
    :caption: Lab 2 - ASM APIs:
 
-   lab-2/lab-2-objective.rst
+   lab-2/objective.rst
+   lab-2/address-list.rst
+   lab-2/create-policy.rst
 
 .. toctree::
    :maxdepth: 2
