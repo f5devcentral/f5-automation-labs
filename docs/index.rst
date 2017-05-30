@@ -70,6 +70,9 @@ Please use `GitHub Issues`_ to report any bugs or feature requests.
    :caption: Lab 3 - AFM APIs:
 
    lab-3/lab-3-objective.rst
+   lab-3/explore-asm.rst
+   lab-3/create-policy.rst
+   lab-3/apply-policy.rst
 
 .. toctree::
    :maxdepth: 2
