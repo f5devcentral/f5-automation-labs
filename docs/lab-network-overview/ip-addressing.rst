@@ -5,21 +5,42 @@ Each student will have access to a Windows 7 “jumpbox”.  Information require
 
 Each student will have a BIG-IP VE environment with IP addressing as below:
 
-.. warning:: Finalize IP addressing scheme
+.. TODO:: Finalize IP addressing scheme
 
-* 10.1.1.0/24 – Management Subnet
+Lab Topology
+------------
 
-	* 10.1.1.245 – BIGIP mgmt IP
-	* 10.1.1.100 – Win7 “Jumpbox” mgmt IP
-    * 10.1.1.99 – Linux tool box mgmt IP
+The network topology implemented for this lab is very simple. Since the focus of the lab is Control Plane programmability rather that Data Plane traffic flow we can keep the data plane fairly simple. The following components have been included in your lab environment:
 
-* 10.1.10.0/24 – External Subnet
+-  1 x F5 BIG-IP VE (v13.0)
 
-	* 10.1.1.245 – BIGIP self IP
-	* 10.1.10.40 – hackazon.f5demo.com (virtual server)
-    * 10.1.10.99 – Linux tool box external IP
+-  1 x Linux LAMP Webserver (ubuntu 16.04)
 
-* 10.1.20.0/24 – Internal Subnet
+-  1 x Windows 7 Jumphost
 
-	* 10.1.20.245 – BIGIP self IP
-	* 10.1.20.99 – hackazon webserver
+The following table lists VLANS, IP Addresses and Credentials for all components:
+
+.. list-table::
+    :widths: 20 40 40
+    :header-rows: 1
+    :stub-columns: 1
+
+    * - **Component**
+      - **VLAN/IP Address(es)**
+      - **Credentials**
+    * - Windows Jumphost
+      - - **Management:** 10.1.1.250
+        - **Internal:** 10.1.10.250
+        - **External:** 10.1.20.250
+      - Administrator/*available in instance details*
+    * - BIG-IP A
+      - - **Management:** 10.1.1.4
+        - **Internal:** 10.1.10.1
+        - **Internal (Float):** 10.1.10.3
+        - **External:** 10.1.20.1
+      - admin/admin
+    * - Linux Server
+      - - **Management:** 10.1.1.7
+        - **Internal:** 10.1.10.10
+		- **External:** 10.1.20.10
+      - root/default
