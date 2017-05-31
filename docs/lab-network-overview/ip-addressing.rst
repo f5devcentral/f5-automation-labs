@@ -30,17 +30,16 @@ The following table lists VLANS, IP Addresses and Credentials for all components
       - **Credentials**
     * - Windows Jumphost
       - - **Management:** 10.1.1.250
-        - **Internal:** 10.1.10.250
-        - **External:** 10.1.20.250
+        - **External:** 10.1.10.250
+        - **Internal:** 10.1.20.250
       - Administrator/*available in instance details*
     * - BIG-IP A
-      - - **Management:** 10.1.1.4
-        - **Internal:** 10.1.10.1
-        - **Internal (Float):** 10.1.10.3
-        - **External:** 10.1.20.1
+      - - **Management:** 10.1.1.5
+        - **External:** 10.1.10.5
+        - **Internal:** 10.1.20.5
       - admin/admin
     * - Linux Server
-      - - **Management:** 10.1.1.7
-        - **Internal:** 10.1.10.10
-		- **External:** 10.1.20.10
+      - - **Management:** 10.1.1.10
+        - **External:** 10.1.10.10
+        - **Internal:** 10.1.20.10
       - root/default
