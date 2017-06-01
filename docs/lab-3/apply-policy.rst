@@ -15,7 +15,6 @@ Prior to performing this lab, the Postman environemnt should valided.  The **{{b
 
 In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
 
-
 1. Apply ASM Policy to VS
 --------------------------
 
