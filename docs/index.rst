@@ -1,14 +1,10 @@
 Welcome to F5 SecDevOps  Lab documentation!
 ===========================================
 
-.. _GitHub Issues: https://github.com/6a6d/f5-secdevops-lab/issues
+.. _GitHub: https://github.com/6a6d/f5-secdevops-lab/issues
+.. _issue: https://github.com/6a6d/f5-secdevops-lab/issues
 
-Release Version: |release|
-
-Introduction
-------------
-
-This hands-on lab will demonstrate how to secure applications programmatically using REST based APIs so security professionals can build buttons instead of pushing them.
+This hands-on lab will demonstrate how to secure applications programmatically using a BIG-IPs iControl based REST API.
 
 Leveraging programmability to deploy security policies and/or adhere to best practices during an application’s lifecycle reduces the operational (e.g. time and money) cost of a defense in depth strategy.  Programmatic workflows can be developed and deployed for specific security use cases and integrated into the SDLC process allowing for the protection of an application to iterate in parallel with the development of said app.
 
@@ -22,33 +18,33 @@ This course will feature the following topics.
 Support
 -------
 
-Please use `GitHub Issues`_ to report any bugs or feature requests.
+Bugs and enhancements can be made by opening an `issue`_ within the `GitHub`_ repository.
+
+
+Getting Started
+----------------
+
+Please follow the instructions provided by the instructor to start your lab and access your jump host.
+
+.. note:: All work for this lab will be performed exclusively from the Windows jumphost.  No installation or interaction with your local system is required.
 
 .. toctree::
    :maxdepth: 2
    :hidden:
    :caption: Lab Network Overview:
 
-   lab-network-overview/ip-addressing.rst
+   lab-overview/lab-topology.rst
 
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Lab Basics:
-
-   lab-basics/connectivity.rst
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Postman Primer:
 
    postman/postman-primer.rst
 
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Lab 1 - BIG-IP REST APIs:
+   :caption: Lab 1 - Configuring BIG-IP:
 
    lab-1/objective.rst
    lab-1/authentication.rst
@@ -58,7 +54,7 @@ Please use `GitHub Issues`_ to report any bugs or feature requests.
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Lab 2 - ASM APIs:
+   :caption: Lab 2 - Configuring AFM:
 
    lab-2/objective.rst
    lab-2/address-list.rst
@@ -67,20 +63,9 @@ Please use `GitHub Issues`_ to report any bugs or feature requests.
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Lab 3 - AFM APIs:
+   :caption: Lab 3 - Configuring ASM:
 
    lab-3/lab-3-objective.rst
    lab-3/explore-asm.rst
    lab-3/create-policy.rst
    lab-3/apply-policy.rst
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Lab 4 - DDoS APIs:
-
-   lab-4/lab-4-objective.rst
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

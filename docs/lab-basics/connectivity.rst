@@ -1,6 +1,0 @@
-Connectivity Objectives
-***********************
-
-
-
-
