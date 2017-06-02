@@ -11,8 +11,6 @@ Lab Specific Instructions
 
 Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-
-
 .. attention:: Some response content has been removed for brevity.
 
 1. List AFM policies

@@ -1,22 +1,22 @@
 LAB 3.3 - Apply ASM Policy to Virtual Server
 =============================================
 
-.. todo:: Add Overview content
-
 Overview
 ---------
 
-.. todo:: Correct Preface content
+In this lab, the previously created ASM policy will be apllied to a virtual server using the iControl REST API.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be the IP address of the BIG-IP GUI.  Ensure that you can log into the BIG-IP with the default username and password.  Follow the **Lab 1.1 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.3 - Apply ASM Policy to Virtual Server** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+.. attention:: Some response content has been removed for brevity.
 
 1. Apply ASM Policy to VS
 --------------------------
+
+An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with a body containing the name of a virtual server(s), in this case ``"virtualServers":["/Common/hackazon_vs"]``, will apply the ASM policy.
 
 **Request**
 
@@ -40,8 +40,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     }
 
 **Example Response**
-
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
 
 ::
 
@@ -299,8 +297,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
-
 ::
 
     {
@@ -542,6 +538,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 3. Remove ASM Policy from VS
 -----------------------------
 
+An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with a body removing the name of a virtual server(s), in this case ``"virtualServers":[""]``, will remove the ASM policy from the absent virtual serves.
+
 **Request**
 
 ::
@@ -564,8 +562,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     }
 
 **Example Response**
-
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
 
 ::
 
@@ -808,6 +804,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 4. Delete ASM policy
 ---------------------
 
+An HTTP DELETE to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint will delete the ASM policy from the BIG-IP.
+
 **Request**
 
 ::
@@ -822,8 +820,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
 
 ::
 
