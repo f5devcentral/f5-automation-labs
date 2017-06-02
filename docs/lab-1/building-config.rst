@@ -4,13 +4,21 @@ LAB 1.3 - Building a Basic LTM Config
 Overview
 ---------
 
+In this lab, the iControl REST API will be used to build a basic monitor, node, pool, and virtual server configuration on the BIG-IP.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
+Prior to performing the below steps, validate that the Hackazon web site is not accessible via the Windows jump box by clicking on the Hackazon bookmark in the Chrome toolbar.
 
-1. Create a HTTP Monitor
+Follow the **Lab 1.4 - Building a Basic LTM Config** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+
+.. attention:: Some response content has been removed for brevity.
+
+1. Create an HTTP Monitor
 -------------------------
+
+An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containing the monitor configuration creates a monitor.
 
 **Request**
 
@@ -68,6 +76,8 @@ Preface
 2. Create a Pool
 -----------------
 
+An HTTP POST to the ``/mgmt/tm/ltm/pool`` endpoint with a body containing the configuration creates a pool with a node(s).
+
 **Request**
 
 :: 
@@ -93,7 +103,8 @@ Preface
 
 **Example Response**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3, 20
 
     {
         "kind": "tm:ltm:pool:poolstate",
@@ -130,6 +141,8 @@ Preface
 3. Create a HTTP Profile
 -------------------------
 
+An HTTP POST to the ``/mgmt/tm/ltm/profile/http`` endpoint with a body containing the configuration creates a profile.
+
 **Request**
 
 :: 
@@ -155,7 +168,8 @@ Preface
 
 **Example Response**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3, 17, 18
 
     {
         "kind": "tm:ltm:profile:http:httpstate",
@@ -173,76 +187,14 @@ Preface
         },
         "description": "none",
         "encryptCookies": [],
-        "enforcement": {
-            "excessClientHeaders": "reject",
-            "excessServerHeaders": "reject",
-            "knownMethods": [
-            "CONNECT",
-            "DELETE",
-            "GET",
-            "HEAD",
-            "LOCK",
-            "OPTIONS",
-            "POST",
-            "PROPFIND",
-            "PUT",
-            "TRACE",
-            "UNLOCK"
-            ],
-            "maxHeaderCount": 64,
-            "maxHeaderSize": 32768,
-            "maxRequests": 0,
-            "oversizeClientHeaders": "reject",
-            "oversizeServerHeaders": "reject",
-            "pipeline": "allow",
-            "truncatedRedirects": "disabled",
-            "unknownMethod": "allow"
-        },
-        "explicitProxy": {
-            "badRequestMessage": "none",
-            "badResponseMessage": "none",
-            "connectErrorMessage": "none",
-            "defaultConnectHandling": "deny",
-            "dnsErrorMessage": "none",
-            "dnsResolver": "none",
-            "hostNames": [],
-            "routeDomain": "none",
-            "tunnelName": "none"
-        },
-        "fallbackHost": "none",
-        "fallbackStatusCodes": [],
-        "headerErase": "none",
-        "headerInsert": "none",
-        "hsts": {
-            "includeSubdomains": "enabled",
-            "maximumAge": 16070400,
-            "mode": "disabled",
-            "preload": "disabled"
-        },
         "insertXforwardedFor": "enabled",
-        "lwsSeparator": "none",
-        "lwsWidth": 80,
-        "oneconnectTransformations": "enabled",
-        "proxyType": "reverse",
-        "redirectRewrite": "none",
-        "requestChunking": "preserve",
-        "responseChunking": "selective",
-        "responseHeadersPermitted": [],
-        "serverAgentName": "hackazon",
-        "sflow": {
-            "pollInterval": 0,
-            "pollIntervalGlobal": "yes",
-            "samplingRate": 0,
-            "samplingRateGlobal": "yes"
-        },
-        "viaHostName": "none",
-        "viaRequest": "preserve",
-        "viaResponse": "preserve",
-        "xffAlternativeNames": []
+        "serverAgentName": "hackazon"
     }
 
-4. Create a HTTP Monitor
--------------------------
+4. Create a TCP profile
+------------------------
+
+An HTTP POST to the ``/mgmt/tm/ltm/profile/tcp`` endpoint with a body containing the configuration creates a TCP profile.
 
 **Request**
 
@@ -269,7 +221,8 @@ Preface
 
 **Example Response**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3, 23, 24
 
     {
         "kind": "tm:ltm:profile:tcp:tcpstate",
@@ -292,79 +245,15 @@ Preface
         "defaultsFromReference": {
             "link": "https://localhost/mgmt/tm/ltm/profile/tcp/~Common~tcp?ver=13.0.0"
         },
-        "deferredAccept": "disabled",
-        "delayWindowControl": "disabled",
-        "delayedAcks": "enabled",
-        "description": "none",
-        "dsack": "disabled",
-        "earlyRetransmit": "disabled",
-        "ecn": "disabled",
-        "enhancedLossRecovery": "disabled",
-        "fastOpen": "disabled",
-        "fastOpenCookieExpiration": 21600,
-        "finWait_2Timeout": 300,
-        "finWaitTimeout": 5,
-        "hardwareSynCookie": "enabled",
-        "idleTimeout": 300,
-        "initCwnd": 3,
-        "initRwnd": 3,
-        "ipDfMode": "pmtu",
-        "ipTosToClient": "0",
-        "ipTtlMode": "proxy",
-        "ipTtlV4": 255,
-        "ipTtlV6": 64,
         "keepAliveInterval": 1800,
-        "limitedTransmit": "enabled",
-        "linkQosToClient": "0",
-        "maxRetrans": 8,
-        "maxSegmentSize": 1460,
-        "md5Signature": "disabled",
-        "minimumRto": 1000,
-        "mptcp": "disabled",
-        "mptcpCsum": "disabled",
-        "mptcpCsumVerify": "disabled",
-        "mptcpDebug": "disabled",
-        "mptcpFallback": "reset",
-        "mptcpFastjoin": "disabled",
-        "mptcpIdleTimeout": 300,
-        "mptcpJoinMax": 5,
-        "mptcpMakeafterbreak": "disabled",
-        "mptcpNojoindssack": "disabled",
-        "mptcpRtomax": 5,
-        "mptcpRxmitmin": 1000,
-        "mptcpSubflowmax": 6,
-        "mptcpTimeout": 3600,
         "nagle": "disabled",
-        "pktLossIgnoreBurst": 0,
-        "pktLossIgnoreRate": 0,
-        "proxyBufferHigh": 49152,
-        "proxyBufferLow": 32768,
-        "proxyMss": "enabled",
-        "proxyOptions": "enabled",
-        "ratePace": "disabled",
-        "ratePaceMaxRate": 0,
-        "receiveWindowSize": 65535,
-        "resetOnTimeout": "enabled",
-        "rexmtThresh": 3,
-        "selectiveAcks": "enabled",
-        "selectiveNack": "disabled",
-        "sendBufferSize": 16000,
-        "slowStart": "enabled",
-        "synCookieEnable": "enabled",
-        "synCookieWhitelist": "disabled",
-        "synMaxRetrans": 3,
-        "synRtoBase": 3000,
-        "tailLossProbe": "disabled",
-        "tcpOptions": "none",
-        "timeWaitRecycle": "enabled",
-        "timeWaitTimeout": "2000",
-        "timestamps": "enabled",
-        "verifiedAccept": "disabled",
-        "zeroWindowTimeout": 20000
+        "sendBufferSize": 16000
     }
 
 5. Create a Virtual Server
 ---------------------------
+
+An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the configuration creates a virtual server.
 
 **Request**
 
@@ -398,7 +287,10 @@ Preface
 
 **Example Response**
 
-::
+.. note:: The profile's for this virtual server is a subcollection.  This collection can be access by performing a GET on the profiles endpoint for this specific virtual server ``https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles``.
+
+.. code-block:: rest
+    :emphasize-lines: 3, 15, 20, 30, 31, 32, 43, 44, 45, 46
 
     {
         "kind": "tm:ltm:virtual:virtualstate",
@@ -516,3 +408,8 @@ Preface
             "isSubcollection": true
         }
     }
+
+7. Validate the virtual server
+-------------------------------
+
+Click on the Hackazon bookmark in the Chrome toolbar and validate that the Hackazon web site is now accessible.
