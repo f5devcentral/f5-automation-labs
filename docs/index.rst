@@ -46,7 +46,7 @@ Please follow the instructions provided by the instructor to start your lab and 
    :hidden:
    :caption: Lab 1 - Configuring BIG-IP:
    
-   lab-1/objective.rst
+   lab-1/lab-1-objectives.rst
    lab-1/exploring-icontrol.rst
    lab-1/authentication.rst
    lab-1/provisioning.rst
@@ -57,7 +57,8 @@ Please follow the instructions provided by the instructor to start your lab and 
    :hidden:
    :caption: Lab 2 - Configuring AFM:
 
-   lab-2/objective.rst
+   lab-2/lab-2-objectives.rst
+   lab-2/provisioning-afm.rst
    lab-2/address-list.rst
    lab-2/create-policy.rst
 
@@ -66,7 +67,8 @@ Please follow the instructions provided by the instructor to start your lab and 
    :hidden:
    :caption: Lab 3 - Configuring ASM:
 
-   lab-3/lab-3-objective.rst
+   lab-3/lab-3-objectives.rst
+   lab-3/provisioning-asm.rst
    lab-3/explore-asm.rst
    lab-3/create-policy.rst
    lab-3/apply-policy.rst
