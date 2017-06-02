@@ -1,19 +1,17 @@
 LAB 3.1 - Interact with ASM
 ============================
 
-.. todo:: Add Overview content
-
 Overview
 ---------
 
-.. todo:: Correct Preface content
+In this lab, the iControl REST based API will be used to explore some of the ASM related endpoints.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be the IP address of the BIG-IP GUI.  Ensure that you can log into the BIG-IP with the default username and password.  Follow the **Lab 1.1 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+.. attention:: Some response content has been removed for brevity.
 
 1.0. Retrieve ASM resources
 ----------------------------
@@ -32,8 +30,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -72,8 +68,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
-
 ::
 
     {
@@ -106,8 +100,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-2.1. Retrieve ASM policy
--------------------------
+2.0. Retrieve ASM policies
+---------------------------
+
+A test policy named ``test_asm_policy`` has already been created on the BIG-IP for demonstration purposes.
 
 **Request**
 
@@ -124,7 +120,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
+.. note:: Copy the ASM policy hash as it appears in the ``"link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",`` line of the response and populate the **{{asm_policy_hash}}** Postman environment variable.asm_policy_hash
 
 ::
 
@@ -135,11 +131,11 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         "items": [
             {
             "plainTextProfileReference": {
-                "link": "https://localhost/mgmt/tm/asm/policies/8JuF2s3Lb26BYwLXpaHLIg/plain-text-profiles?ver=13.0.0",
+                "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",
                 "isSubCollection": true
             },
             "dataGuardReference": {
-                "link": "https://localhost/mgmt/tm/asm/policies/8JuF2s3Lb26BYwLXpaHLIg/data-guard?ver=13.0.0"
+                "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/data-guard?ver=13.0.0"
             }
         ]
     }
@@ -162,22 +158,42 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
-
 ::
 
     {
-
+        "plainTextProfileReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",
+            "isSubCollection": true
+        },
+        "dataGuardReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/data-guard?ver=13.0.0"
+        },
+        "createdDatetime": "2017-06-02T04:37:22Z",
+        "cookieSettingsReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/cookie-settings?ver=13.0.0"
+        },
+        "versionLastChange": " Security Policy /Common/test_asm_policy [add]: Type was set to Security.\nEncoding Selected was set to false.\nApplication Language was set to utf-8.\nCase Sensitivity was set to Case Sensitive.\nTemplate was set to POLICY_TEMPLATE_FUNDAMENTAL.\nActive was set to false.\nDifferentiate between HTTP and HTTPS URLs was set to Protocol Specific.\nPolicy Name was set to /Common/test_asm_policy.\nEnforcement Mode was set to Blocking. { audit: policy = /Common/test_asm_policy, username = admin, client IP = 192.168.2.111 }",
+        "name": "test_asm_policy",
+        "caseInsensitive": false,
+        "headerSettingsReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/header-settings?ver=13.0.0"
+        },
+        "versionPolicyName": "/Common/test_asm_policy",
+        "generalReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/general?ver=13.0.0"
+        }
     }
 
-3.0. Search for ASM policy
+3. Search for ASM policy
 --------------------------
+
+An HTTP GET to the ``/mgmt/tm/asm/policies`` endpoint with a parameter of ``filter=name eq test``, allows ASM policies to be searched by name.
 
 **Request**
 
 ::
 
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies?filter=name eq hackazon
+    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies?filter=name eq test
 
 **Headers**
 
@@ -188,18 +204,36 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. todo:: Include example response
-
-.. attention:: Some response content has been removed for brevity.
-
 ::
 
     {
-
+        "plainTextProfileReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",
+            "isSubCollection": true
+        },
+        "dataGuardReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/data-guard?ver=13.0.0"
+        },
+        "createdDatetime": "2017-06-02T04:37:22Z",
+        "cookieSettingsReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/cookie-settings?ver=13.0.0"
+        },
+        "versionLastChange": " Security Policy /Common/test_asm_policy [add]: Type was set to Security.\nEncoding Selected was set to false.\nApplication Language was set to utf-8.\nCase Sensitivity was set to Case Sensitive.\nTemplate was set to POLICY_TEMPLATE_FUNDAMENTAL.\nActive was set to false.\nDifferentiate between HTTP and HTTPS URLs was set to Protocol Specific.\nPolicy Name was set to /Common/test_asm_policy.\nEnforcement Mode was set to Blocking. { audit: policy = /Common/test_asm_policy, username = admin, client IP = 192.168.2.111 }",
+        "name": "test_asm_policy",
+        "caseInsensitive": false,
+        "headerSettingsReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/header-settings?ver=13.0.0"
+        },
+        "versionPolicyName": "/Common/test_asm_policy",
+        "generalReference": {
+            "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/general?ver=13.0.0"
+        }
     }
 
-3.1. Search for ASM tasks
+4.0. List ASM tasks
 --------------------------
+
+An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM related tasks that can be performed via the iControl REST API.
 
 **Request**
 
@@ -215,8 +249,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -312,7 +344,34 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-4. Retrieve ASM policy templates
+4.1. List specific ASM task
+----------------------------
+
+**Request**
+
+::
+
+    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/tasks/export-policy
+
+**Headers**
+
+:: 
+
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46YWRtaW4=
+
+**Example Response**
+
+::
+
+    {
+        "kind": "tm:asm:tasks:export-policy:export-policy-taskcollectionstate",
+        "selfLink": "https://localhost/mgmt/tm/asm/tasks/export-policy?ver=13.0.0",
+        "totalItems": 0,
+        "items": []
+    }
+
+5. Retrieve ASM policy templates
 ---------------------------------
 
 **Request**
@@ -329,8 +388,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -389,7 +446,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-5. Retrieve ASM signature sets
+6. Retrieve ASM signature sets
 -------------------------------
 
 **Request**
@@ -406,8 +463,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -467,7 +522,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-6. Retrieve ASM signature systems
+7. Retrieve ASM signature systems
 ----------------------------------
 
 **Request**
@@ -484,8 +539,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -509,7 +562,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-7. Retrieve ASM attack types
+8. Retrieve ASM attack types
 -----------------------------
 
 **Request**
@@ -526,8 +579,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -553,7 +604,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-8. Retrieve ASM policy urls
+9. Retrieve ASM policy urls
 ----------------------------
 
 **Request**
@@ -571,17 +622,135 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. todo:: Include example response
-
-.. attention:: Some response content has been removed for brevity.
-
 ::
 
     {
-
+        "kind": "tm:asm:policies:urls:urlcollectionstate",
+        "selfLink": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/urls?ver=13.0.0",
+        "totalItems": 2,
+        "items": [
+            {
+            "protocol": "http",
+            "wildcardIncludesSlash": true,
+            "lastLearnedNewEntityDatetime": "2017-06-02T04:37:25Z",
+            "html5CrossOriginRequestsEnforcement": {
+                "enforcementMode": "disabled"
+            },
+            "kind": "tm:asm:policies:urls:urlstate",
+            "selfLink": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/urls/faiefv884qtHRU3Qva2AbQ?ver=13.0.0",
+            "methodsOverrideOnUrlCheck": false,
+            "id": "faiefv884qtHRU3Qva2AbQ",
+            "isAllowed": true,
+            "metacharsOnUrlCheck": false,
+            "name": "*",
+            "lastUpdateMicros": 1496378251000000,
+            "description": "",
+            "parameterReference": {
+                "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/urls/faiefv884qtHRU3Qva2AbQ/parameters?ver=13.0.0",
+                "isSubCollection": true
+            },
+            "attackSignaturesCheck": true,
+            "signatureOverrides": [],
+            "clickjackingProtection": false,
+            "urlContentProfiles": [
+                {
+                "headerValue": "*",
+                "headerName": "*",
+                "headerOrder": "default",
+                "type": "apply-value-and-content-signatures"
+                },
+                {
+                "headerValue": "*form*",
+                "headerName": "Content-Type",
+                "headerOrder": "1",
+                "type": "form-data"
+                },
+                {
+                "contentProfileReference": {
+                    "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/json-profiles/X8FbXF48VWJ5Tecp5ATd4A?ver=13.0.0"
+                },
+                "headerValue": "*json*",
+                "headerName": "Content-Type",
+                "headerOrder": "2",
+                "type": "json"
+                },
+                {
+                "contentProfileReference": {
+                    "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/xml-profiles/jwQd_XYZPfNGYnc3l7P4Pg?ver=13.0.0"
+                },
+                "headerValue": "*xml*",
+                "headerName": "Content-Type",
+                "headerOrder": "3",
+                "type": "xml"
+                }
+            ],
+            "performStaging": true,
+            "type": "wildcard",
+            "wildcardOrder": 2
+            },
+            {
+            "protocol": "https",
+            "wildcardIncludesSlash": true,
+            "lastLearnedNewEntityDatetime": "2017-06-02T04:37:25Z",
+            "html5CrossOriginRequestsEnforcement": {
+                "enforcementMode": "disabled"
+            },
+            "kind": "tm:asm:policies:urls:urlstate",
+            "selfLink": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/urls/N_a3D1S7OKDehYEPb-mgCg?ver=13.0.0",
+            "methodsOverrideOnUrlCheck": false,
+            "id": "N_a3D1S7OKDehYEPb-mgCg",
+            "isAllowed": true,
+            "metacharsOnUrlCheck": false,
+            "name": "*",
+            "lastUpdateMicros": 1496378251000000,
+            "description": "",
+            "parameterReference": {
+                "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/urls/N_a3D1S7OKDehYEPb-mgCg/parameters?ver=13.0.0",
+                "isSubCollection": true
+            },
+            "attackSignaturesCheck": true,
+            "signatureOverrides": [],
+            "clickjackingProtection": false,
+            "urlContentProfiles": [
+                {
+                "headerValue": "*",
+                "headerName": "*",
+                "headerOrder": "default",
+                "type": "apply-value-and-content-signatures"
+                },
+                {
+                "headerValue": "*form*",
+                "headerName": "Content-Type",
+                "headerOrder": "1",
+                "type": "form-data"
+                },
+                {
+                "contentProfileReference": {
+                    "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/json-profiles/X8FbXF48VWJ5Tecp5ATd4A?ver=13.0.0"
+                },
+                "headerValue": "*json*",
+                "headerName": "Content-Type",
+                "headerOrder": "2",
+                "type": "json"
+                },
+                {
+                "contentProfileReference": {
+                    "link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/xml-profiles/jwQd_XYZPfNGYnc3l7P4Pg?ver=13.0.0"
+                },
+                "headerValue": "*xml*",
+                "headerName": "Content-Type",
+                "headerOrder": "3",
+                "type": "xml"
+                }
+            ],
+            "performStaging": true,
+            "type": "wildcard",
+            "wildcardOrder": 1
+            }
+        ]
     }
 
-9. Retrieve ASM policy signature sets
+10. Retrieve ASM policy signature sets
 --------------------------------------
 
 **Request**
@@ -599,12 +768,24 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. todo:: Include example response
-
-.. attention:: Some response content has been removed for brevity.
-
 ::
 
     {
-
+        "kind": "tm:asm:policies:signature-sets:signature-setcollectionstate",
+        "selfLink": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/signature-sets?ver=13.0.0",
+        "totalItems": 1,
+        "items": [
+            {
+            "signatureSetReference": {
+                "link": "https://localhost/mgmt/tm/asm/signature-sets/pBeUaadz6x-Z55_GkLxfsg?ver=13.0.0"
+            },
+            "lastUpdateMicros": 1496378251000000,
+            "selfLink": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/signature-sets/xMpCOKC5I4INzFCab3WEmw?ver=13.0.0",
+            "kind": "tm:asm:policies:signature-sets:signature-setstate",
+            "alarm": true,
+            "block": true,
+            "id": "xMpCOKC5I4INzFCab3WEmw",
+            "learn": true
+            }
+        ]
     }

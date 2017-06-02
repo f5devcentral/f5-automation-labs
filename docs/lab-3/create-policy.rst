@@ -1,21 +1,19 @@
 LAB 3.2 - Create ASM Policy
 ============================
 
-.. todo:: Add Overview content
-
 Overview
 ---------
 
-.. todo:: Correct Preface content
+In this lab, the iControl REST based API will be used to create both an ASM parent and child policy.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be the IP address of the BIG-IP GUI.  Ensure that you can log into the BIG-IP with the default username and password.  Follow the **Lab 1.1 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+.. attention:: Some response content has been removed for brevity.
 
-1.0. Retrieve ASM policy
+1. Retrieve ASM policy
 -------------------------
 
 **Request**
@@ -32,8 +30,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. attention:: Some response content has been removed for brevity.
 
 ::
 
@@ -53,34 +49,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-1.1. Retrieve ASM policy
--------------------------
-
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
-
-**Example Response**
-
-.. attention:: Some response content has been removed for brevity.
-
-::
-
-    {
-
-    }
-
 2.0. Create ASM parent policy
 -----------------------------
+
+An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"type":"parent"`` will create a new ASM parent policy which can then be used for inheritence when a child policy is created.
 
 **Request**
 
@@ -112,7 +84,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
+.. note:: Copy the ASM policy hash for the newly created policy and populate the {{asm_policy_hash}} Postmant environment variable.
 
 ::
 
@@ -252,8 +224,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
-
 ::
 
     {
@@ -376,6 +346,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 3.0. Create ASM child policy
 -----------------------------
+
+An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"parentPolicyName": "/Common/API_ASM_POLICY_TEST"`` will create a new child policy which inherits a base configuration from the specified parent.
 
 **Request**
 
@@ -659,8 +631,6 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
-
-.. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
 
 ::
 
