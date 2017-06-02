@@ -13,7 +13,6 @@ This course will feature the following topics.
 * General interaction with tmm via BIG-IPs REST APIs
 * Create, modify and assign an AFM policy
 * Create, modify and asign an ASM policy
-* Create, modify and assign an DDoS/pro-active bot defense profile
 
 Support
 -------
