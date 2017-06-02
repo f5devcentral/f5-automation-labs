@@ -1,13 +1,19 @@
-LAB 1.2 - BIG-IP Module Provisioning
+LAB 1.3 - BIG-IP Module Provisioning
 =====================================
 
 Overview
 ---------
 
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifially, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
+Prior to performing the below steps, validate the **{{module}}** Postman environemnt variable.  The **{{module}}** should be set to **afm**.
+
+Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+
+.. attention:: Some response content has been removed for brevity.
 
 1. Retrieve all module provision states
 ----------------------------------------
@@ -27,9 +33,10 @@ Preface
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
+.. note:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
-::
+.. code-block:: rest
+    :emphasize-lines: 13, 24
 
     {
         "kind": "tm:sys:provision:provisioncollectionstate",
@@ -78,9 +85,10 @@ Preface
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
+.. note:: The **afm** module is currently not provisioned.
 
-::
+.. code-block:: rest
+    :emphasize-lines: 9
 
     {
         "kind": "tm:sys:provision:provisionstate",
@@ -97,6 +105,8 @@ Preface
 3.1. Provision module
 ----------------------
 
+The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
+
 **Request**
 
 :: 
@@ -112,7 +122,8 @@ Preface
 
 **Body**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 2
 
     {
         "level":"nominal"
@@ -120,9 +131,10 @@ Preface
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
+.. note:: The **afm** module has been provisioned with a **level** of **nominal**.
 
-::
+.. code-block:: rest
+    :emphasize-lines: 9
 
     {
         "kind": "tm:sys:provision:provisionstate",
@@ -136,9 +148,10 @@ Preface
         "memoryRatio": 0
     }
 
-
 3.2. Deprovision module
 ------------------------
+
+This request is will serve as an example of how to deprovision a BIG-IP module.
 
 **Request**
 
@@ -163,9 +176,8 @@ Preface
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
-
-::
+.. code-block:: rest
+    :emphasize-lines: 9
 
     {
         "kind": "tm:sys:provision:provisionstate",
@@ -179,9 +191,53 @@ Preface
         "memoryRatio": 0
     }
 
+3.3. Re-provision module
+---------------------------
+
+Re-provision the **afm** module if previously deprovisioned.
+
+**Request**
+
+:: 
+
+    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+
+**Headers**
+
+:: 
+
+    Content-Type: application/json
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+
+**Body**
+
+::
+
+    {
+        "level":"nominal"
+    }
+
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 9
+
+    {
+        "kind": "tm:sys:provision:provisionstate",
+        "name": "afm",
+        "fullPath": "afm",
+        "generation": 10636,
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
+        "cpuRatio": 0,
+        "diskRatio": 0,
+        "level": "nominal",
+        "memoryRatio": 0
+    }
 
 4. Determine license state
 ---------------------------
+
+Performing a GET on the ``/mgmt/tm/sys/license`` endpoint can be used to quickly determine the license registration key used to license a BIG-IP.
 
 **Request**
 
@@ -198,9 +254,8 @@ Preface
 
 **Example Response**
 
-.. attention:: Some response content has been removed for brevity.
-
-::
+.. code-block:: rest
+    :emphasize-lines: 24
 
     {
         "kind": "tm:sys:license:licensestats",

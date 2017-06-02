@@ -31,7 +31,7 @@ Please follow the instructions provided by the instructor to start your lab and 
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Lab Network Overview:
+   :caption: Overview:
 
    lab-overview/lab-topology.rst
 
@@ -45,8 +45,9 @@ Please follow the instructions provided by the instructor to start your lab and 
    :maxdepth: 2
    :hidden:
    :caption: Lab 1 - Configuring BIG-IP:
-
+   
    lab-1/objective.rst
+   lab-1/exploring-icontrol.rst
    lab-1/authentication.rst
    lab-1/provisioning.rst
    lab-1/building-config.rst
