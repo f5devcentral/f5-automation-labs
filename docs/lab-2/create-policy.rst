@@ -1,16 +1,19 @@
-LAB 2.1 - Create AFM Address List
-==================================
+LAB 2.2 - Create AFM Policy
+============================
 
 Overview
 ---------
 
+In this lab, the iControl REST based API will be used to create a firewall policy that will leverage the previously created address list.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be the IP address of the BIG-IP GUI.  Ensure that you can log into the BIG-IP with the default username and password.  Follow the **Lab 1.1 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+
+
+.. attention:: Some response content has been removed for brevity.
 
 1. List AFM policies
 ---------------------
@@ -54,6 +57,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 2. Create AFM policy
 ---------------------
 
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body containing just a policy name creates a firewall policy.
+
 **Request**
 
 ::
@@ -77,7 +82,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-::
+.. note:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is ``~Common~global_default_deny``.
+
+.. code-block:: rest
+    :emphasize-lines: 3, 7
 
     {
         "kind": "tm:security:firewall:policy:policystate",
@@ -110,7 +118,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-::
+.. note:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
+
+.. code-block:: rest
+    :emphasize-lines: 4
 
     {
         "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
@@ -120,6 +131,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 4. Add default deny rule to policy
 -----------------------------------
+
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.
 
 **Request**
 
@@ -152,7 +165,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3-4, 7-12
 
     {
         "kind": "tm:security:firewall:policy:rules:rulesstate",
@@ -171,51 +185,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         }
     }
 
-5. List policy rules
----------------------
+5. Add address list rule to policy
+-----------------------------------
 
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
-
-**Example Response**
-
-::
-
-    {
-        "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.0.0",
-        "items": [
-            {
-                "kind": "tm:security:firewall:policy:rules:rulesstate",
-                "name": "default_deny",
-                "fullPath": "default_deny",
-                "generation": 11464,
-                "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/default_deny?ver=13.0.0",
-                "action": "drop",
-                "ipProtocol": "any",
-                "iruleSampleRate": 1,
-                "log": "no",
-                "status": "enabled",
-                "destination": {},
-                "source": {
-                    "identity": {}
-                }
-            }
-        ]
-    }
-
-6. Disable Policy
-------------------
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  The status of the rule can be specified when the POST is made.
 
 **Request**
 
@@ -252,13 +225,16 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-::
+.. note:: Copy the newly created rule name ``allow_google-dns`` and populate the {{afm_policy_rule}} Postname environment variable.
+
+.. code-block:: rest
+    :emphasize-lines: 3-4, 7-21
 
     {
         "kind": "tm:security:firewall:policy:rules:rulesstate",
         "name": "allow_google-dns",
         "fullPath": "allow_google-dns",
-        "generation": 11470,
+        "generation": 13210,
         "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.0.0",
         "action": "accept",
         "ipProtocol": "any",
@@ -271,7 +247,7 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
             ],
             "addressListsReference": [
             {
-                "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~google-dns_address_list?ver=13.0.0"
+                "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~allow_google-dns?ver=13.0.0"
             }
             ]
         },
@@ -280,8 +256,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         }
     }
 
-7. List policy rules
+6. List policy rules
 ---------------------
+
+The ``"items"`` sub collection will now be populated with the all the firewall rules when performing an HTTP GET on the rules endpoint of the **{{afm_policy}}**.
 
 **Request**
 
@@ -298,58 +276,61 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 7
 
     {
         "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
         "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.0.0",
         "items": [
             {
-                "kind": "tm:security:firewall:policy:rules:rulesstate",
-                "name": "allow_google-dns",
-                "fullPath": "allow_google-dns",
-                "generation": 11470,
-                "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.0.0",
-                "action": "accept",
-                "ipProtocol": "any",
-                "iruleSampleRate": 1,
-                "log": "no",
-                "status": "enabled",
-                "destination": {
-                    "addressLists": [
+                    "kind": "tm:security:firewall:policy:rules:rulesstate",
+                    "name": "allow_google-dns",
+                    "fullPath": "allow_google-dns",
+                    "generation": 11483,
+                    "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.0.0",
+                    "action": "accept",
+                    "ipProtocol": "any",
+                    "iruleSampleRate": 1,
+                    "log": "yes",
+                    "status": "enabled",
+                    "destination": {
+                        "addressLists": [
                         "/Common/google-dns_address_list"
-                    ],
-                    "addressListsReference": [
+                        ],
+                        "addressListsReference": [
                         {
                             "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~google-dns_address_list?ver=13.0.0"
                         }
-                    ]
+                        ]
+                    },
+                    "source": {
+                        "identity": {}
+                    }
                 },
-                "source": {
-                    "identity": {}
-                }
-            },
-            {
-                "kind": "tm:security:firewall:policy:rules:rulesstate",
-                "name": "default_deny",
-                "fullPath": "default_deny",
-                "generation": 11464,
-                "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/default_deny?ver=13.0.0",
-                "action": "drop",
-                "ipProtocol": "any",
-                "iruleSampleRate": 1,
-                "log": "no",
-                "status": "enabled",
-                "destination": {},
-                "source": {
-                    "identity": {}
+                {
+                    "kind": "tm:security:firewall:policy:rules:rulesstate",
+                    "name": "default_deny",
+                    "fullPath": "default_deny",
+                    "generation": 11464,
+                    "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/default_deny?ver=13.0.0",
+                    "action": "drop",
+                    "ipProtocol": "any",
+                    "iruleSampleRate": 1,
+                    "log": "no",
+                    "status": "enabled",
+                    "destination": {},
+                    "source": {
+                        "identity": {}
                 }
             }
         ]
     }
 
-8. Diable poilicy
-------------------
+7. Disable Policy rule
+-----------------------
+
+An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}`` endpoint with a body containing a name of an existing rule can set the ``"status": "disabled"`` to deactivate a single rule.
 
 **Request**
 
@@ -371,6 +352,53 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     {
         "status": "disabled"
     }
+
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 11
+
+    {
+        "kind": "tm:security:firewall:policy:rules:rulesstate",
+        "name": "allow_google-dns",
+        "fullPath": "allow_google-dns",
+        "generation": 11470,
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.0.0",
+        "action": "accept",
+        "ipProtocol": "any",
+        "iruleSampleRate": 1,
+        "log": "no",
+        "status": "disabled",
+        "destination": {
+            "addressLists": [
+                "/Common/google-dns_address_list"
+            ],
+            "addressListsReference": [
+                {
+                    "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~google-dns_address_list?ver=13.0.0"
+                }
+            ]
+        },
+        "source": {
+            "identity": {}
+        }
+    }
+
+8. List policy rule
+--------------------
+
+**Request**
+
+::
+
+    GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
+
+**Headers**
+
+:: 
+
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**
 

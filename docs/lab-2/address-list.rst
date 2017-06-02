@@ -4,13 +4,14 @@ LAB 2.1 - Create AFM Address List
 Overview
 ---------
 
+In this lab, the iControl REST based API will be used to creat a address list that will be used with an AFM policy in a later lab.
 
-Preface
---------
+Lab Specific Instructions
+--------------------------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be the IP address of the BIG-IP GUI.  Ensure that you can log into the BIG-IP with the default username and password.  Follow the **Lab 1.1 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+.. attention:: Some response content has been removed for brevity.
 
 1. List Firewall Policies
 --------------------------
@@ -22,6 +23,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
     GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
 
 **Example Response**
+
+.. note:: A test policy has already been created on the BIG-IP for demonstration purposes.
 
 ::
 
@@ -62,6 +65,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Response**
 
+.. note:: A test address list has already been created on the BIG-IP for demonstration purposes.
+
 ::
 
     {
@@ -84,8 +89,10 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
         ]
     }
 
-3. Create Firewall Address List
---------------------------------
+3. Create an Address List
+--------------------------
+
+An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a body containing the configuration creates an address list that can be used with a firewall policy.
 
 **Request**
 
@@ -115,7 +122,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Request**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3, 8-12
 
     {
         "kind": "tm:security:firewall:address-list:address-liststate",
@@ -168,6 +176,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 5. Update Firewall Address List
 --------------------------------
 
+An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_list}}`` endpoint with a body containing all addresses that should exist in the address list will update this collection.
+
 **Request**
 
 ::
@@ -185,6 +195,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Body**
 
+.. warning:: When patching an address list, be sure to include all addresses (e.g. existing and new) to ensure that the list does not get overwritten.
+
 ::
 
     {
@@ -200,7 +212,8 @@ In this lab, the basic authenication value is the base64-encoding of the BIG-IPs
 
 **Example Request**
 
-::
+.. code-block:: rest
+    :emphasize-lines: 3, 8-15
 
     {
         "kind": "tm:security:firewall:address-list:address-liststate",
