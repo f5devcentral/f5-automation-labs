@@ -4,9 +4,9 @@ Welcome to F5 SecDevOps  Lab documentation!
 .. _GitHub: https://github.com/6a6d/f5-secdevops-lab/issues
 .. _issue: https://github.com/6a6d/f5-secdevops-lab/issues
 
-This hands-on lab will demonstrate how to secure applications programmatically using a BIG-IPs iControl based REST API.
+This hands-on lab will demonstrate how to secure applications programmatically using a BIG-IP's iControl based REST API.
 
-Leveraging programmability to deploy security policies and/or adhere to best practices during an application’s lifecycle reduces the operational (e.g. time and money) cost of a defense in depth strategy.  Programmatic workflows can be developed and deployed for specific security use cases and integrated into the SDLC process allowing for the protection of an application to iterate in parallel with the development of said app.
+Leveraging programmability to deploy security policies and/or adhere to best practices during an application’s lifecycle reduces the operational (e.g. time and money) cost of a defense in depth strategy.  Programmatic workflows can be developed and deployed for specific security use cases, and integrated into the SDLC process, allowing for the protection of an application to iterate in parallel with the development of the application.
 
 This course will feature the following topics.
 
