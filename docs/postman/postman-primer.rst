@@ -22,7 +22,20 @@ Perform the following steps to complete this task:
 1. Open the Postman tool by clicking the icon of the taskbar of your Windows Jumphost
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
-.. attention:: Include image
+.. attention:: 
+.. image:: ./images/Environment.jpg
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
+
+   .. image:: ./docs/images/Environment2.jpg
+   :height: 100px
+   :width: 200 px
+   :scale: 50 %
+   :alt: alternate text
+   :align: right
 
 3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.1 – API Authentication** folder:
 
