@@ -24,7 +24,7 @@ Perform the following steps to complete this task:
 
 .. attention:: this is the new image
 
-   .. image:: Environment2.png
+.. image:: Environment2.png
    :height: 100px
    :width: 200 px
    :scale: 50 %
