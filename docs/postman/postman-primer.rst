@@ -24,14 +24,14 @@ Perform the following steps to complete this task:
 
 .. attention:: this is the new image
 
-.. image:: ./images/Environment.jpg
+.. image:: Environment.jpg
    :height: 100px
    :width: 200 px
    :scale: 50 %
    :alt: show test if image does not appear
    :align: right
 
-   .. image:: .\images\Environment2.jpg
+   .. image:: Environment2.jpg
    :height: 100px
    :width: 200 px
    :scale: 50 %
