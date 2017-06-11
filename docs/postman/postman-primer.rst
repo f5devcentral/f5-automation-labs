@@ -23,14 +23,14 @@ Perform the following steps to complete this task:
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
 .. attention:: this is the new image
-.. image:: ./images/Environment.jpg
+.. image:: Environment.jpg
    :height: 100px
    :width: 200 px
    :scale: 50 %
    :alt: alternate text
    :align: right
 
-   .. image:: ./docs/images/Environment2.jpg
+   .. image:: Environment2.jpg
    :height: 100px
    :width: 200 px
    :scale: 50 %
