@@ -28,7 +28,6 @@ Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the 
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
@@ -80,7 +79,6 @@ Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the 
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
@@ -249,7 +247,6 @@ Performing a GET on the ``/mgmt/tm/sys/license`` endpoint can be used to quickly
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**

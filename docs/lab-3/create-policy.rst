@@ -26,8 +26,7 @@ Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman c
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -65,7 +64,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -219,8 +218,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -360,7 +358,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -627,8 +625,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 

@@ -29,7 +29,7 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
     
 **Body**
 
@@ -292,8 +292,7 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
 
 ::
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -551,7 +550,7 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
     
 **Body**
 
@@ -816,8 +815,7 @@ An HTTP DELETE to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint wil
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 

@@ -35,7 +35,6 @@ Once successfully authenticated, the BIG-IP response will respond with an authen
 
 :: 
 
-    Content-Type: application/json
     Authorization: Basic YWRtaW46YWRtaW4=
 
 **Example Response**

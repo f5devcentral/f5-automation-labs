@@ -354,7 +354,6 @@ An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
