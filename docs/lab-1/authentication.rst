@@ -62,7 +62,7 @@ Once successfully authenticated, the BIG-IP response will respond with an authen
 2. Get Authentication Token
 ----------------------------
 
-Once successfully authenticated, the BIG-IP response will respond with an authentication token that should be copied and placed into the **{{big_ip_a_auth_token}}** Postman environemnt variable.
+Once successfully authenticated, the BIG-IP response will respond with a 200 OK and an authentication token in the response.
 
 **Request**
 
@@ -113,8 +113,14 @@ Once successfully authenticated, the BIG-IP response will respond with an authen
         }
     }
 
-3. Verify Authentication Token Works
-------------------------------------
+|image-1.2.2|
+
+Copy the token into the **{{big_ip_a_auth_token}}** Postman environemnt variable.
+
+|image-1.2.2_env|
+
+3. Verify Working Authentication Token
+---------------------------------------
 
 Ensure that the authentication token has been copied from the BIG-IP response and into the **{{big_ip_a_auth_token}}** Postman environment variable.
 
@@ -194,3 +200,6 @@ Ensure that the authentication token has been copied from the BIG-IP response an
         "kind": "shared:authz:tokens:authtokenitemstate",
         "selfLink": "https://localhost/mgmt/shared/authz/tokens/F3J4CMRAYBWVD6A74A6KBP4DGQ"
     }
+
+.. |image-1.2.2| image:: ../images/lab-1.2.2.png
+.. |image-1.2.2_env| image:: ../images/lab-1.2.2_env.png
