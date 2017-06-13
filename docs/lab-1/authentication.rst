@@ -9,7 +9,31 @@ The iControl REST API requires initial authentication in the form of a username/
 Preface
 --------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** IP address should be set to the IP address of the BIG-IP GUI.  In this case, the Postman environment variable should already be set to 10.1.1.5 for this lab.  Prior to perforing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
+Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
+
+Prior to perforing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
+
+#. Launch Chrome and click on the BIG-IP_A bookmar in the tool bar.
+
+|image-1|
+
+#. A certificate warning should be displayed.  Click on the ```ADVANCED``` link in the lower left-hand side of the warning message.
+
+|image-2|
+
+#. Accept the invalide certificate by clicking on the ```Proceed to bigipa.f5demo.com (unsafe)``` link.
+
+|image-3|
+
+#. The BIG-IP management GUI should now be displayed.
+
+|image-4|
+
+#. Log into the BIG-IP using the default user name and password.
+
+.. warning:: If you do not first log into the BIG-IP and accept the invalid certificate with Chrome, Postman will state ```could not get any response``` when sending a request to the BIG-IP.
+
+|image-5|
 
 Lab Specific Instructions
 --------------------------
@@ -201,5 +225,10 @@ Ensure that the authentication token has been copied from the BIG-IP response an
         "selfLink": "https://localhost/mgmt/shared/authz/tokens/F3J4CMRAYBWVD6A74A6KBP4DGQ"
     }
 
+.. |image-1| image:: ../images/lab-1.png
+.. |image-2| image:: ../images/lab-1_cert_warning.png
+.. |image-3| image:: ../images/lab-1_cert_warning_accept.png
+.. |image-4| image:: ../images/lab-1_big-ip.png
+.. |image-5| image:: ../images/lab-1_postman_warning.png
 .. |image-1.2.2| image:: ../images/lab-1.2.2.png
 .. |image-1.2.2_env| image:: ../images/lab-1.2.2_env.png
