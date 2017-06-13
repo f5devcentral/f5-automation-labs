@@ -26,8 +26,7 @@ Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman c
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -68,7 +67,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -111,8 +110,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -143,7 +141,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -199,7 +197,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -269,8 +267,7 @@ The ``"items"`` sub collection will now be populated with the all the firewall r
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -341,7 +338,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -395,8 +392,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 

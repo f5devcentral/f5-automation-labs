@@ -1,14 +1,14 @@
 Postman Primer
-==============
+===============
 This lab utilizes the Postman Chrome extension to facilitate the sending data to and recieving data from the iControl REST based API.
 
 REST API Authentication & ‘example’ Templates
--------------------------------------------------------
+----------------------------------------------
 One of the many basic concepts related to interaction with REST API’s is how a particular consumer is authenticated to the system. BIG-IP, BIG-IQ and iWorkflow support two types of authentication: HTTP BASIC and Token based. It’s important to understand both of these authentication mechanisms, as consumers of the API will often make use of both types depending on the use case. This lab will demonstrate how to interact with both types of authentication.
 
 
 Task 1 - Basic Authentication
------------------------------
+------------------------------
 In this task we will use the Postman tool to send API requests using HTTP BASIC authentication. As its name implies this method of authentication encodes the user credentials via the existing BASIC authentication method provided by the HTTP protocol. The mechanism this method uses is to insert an HTTP header named ‘Authorization’ with a value that is built by Base 64 encoding the string “<username>:<password>”. The resulting header takes this form:
 
 .. code-block:: rest

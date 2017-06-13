@@ -28,7 +28,6 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
@@ -80,7 +79,6 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
