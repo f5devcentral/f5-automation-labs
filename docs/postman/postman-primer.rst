@@ -56,7 +56,7 @@ Perform the following steps to complete this task:
 3. Click the ‘Body’ tab and examine the JSON that we will send to BIG-IP to provide credentials and the authentication provider:
 
 4. Modify the JSON body and add the required credentials (admin/admin). Then click the ‘Send’ button.
-5. Examine the response status code. If authentication succeeded and a token was generated the response will have a 200 OK status code. If the status code is 401 then check your credentials:
+5. Examine the response status code. If authentication succeeded and a token was generated, the response will have a 200 OK status code. If the status code is 401 then check your credentials.  View the response body to see the token that was provided:
 
 Successful:
 
