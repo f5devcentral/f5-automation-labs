@@ -22,7 +22,6 @@ The following table lists VLANS, IP Addresses and Credentials for all components
     * - Windows Jump Box
       - - **Management:** 10.1.1.250
         - **External:** 10.1.10.250
-        - **Internal:** 10.1.20.250
       - Administrator/*available in instance details*
     * - BIG-IP
       - - **Management:** 10.1.1.5
@@ -31,6 +30,5 @@ The following table lists VLANS, IP Addresses and Credentials for all components
       - admin/admin
     * - Linux Server
       - - **Management:** 10.1.1.10
-        - **External:** 10.1.10.10
         - **Internal:** 10.1.20.10
       - ubuntu/ubuntu
