@@ -51,7 +51,7 @@ One of the disadvantages of BASIC Authentication is that credentials are sent wi
 Perform the following steps to complete this task:
 
 1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.1 – API Authentication** Postman Collection
-2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Additionally, BASIC Authentication is required on the initial token request:
+2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Note that BASIC authentication is NOT required for this step. The token is provided based on the credentials located within the JSON payload:
 
 3. Click the ‘Body’ tab and examine the JSON that we will send to BIG-IP to provide credentials and the authentication provider:
 
