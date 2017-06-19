@@ -38,7 +38,7 @@ Prior to perforing any of the below steps, ensure that you can log into the BIG-
 Lab Specific Instructions
 --------------------------
 
-Follow the **Lab 1.2 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **Lab 1.2 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
 
