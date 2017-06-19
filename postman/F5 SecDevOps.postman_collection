@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Lab 1.1 - API Authentication",
+			"name": "Lab 1.2 - API Authentication",
 			"description": "",
 			"item": [
 				{
@@ -106,7 +106,7 @@
 			]
 		},
 		{
-			"name": "Lab 1.2 - Provision BIG-IP Module",
+			"name": "Lab 1.3 - Provision BIG-IP Module",
 			"description": "",
 			"item": [
 				{
@@ -262,7 +262,7 @@
 			]
 		},
 		{
-			"name": "Lab 1.3 - Build a Basic LTM Config",
+			"name": "Lab 1.4 - Build a Basic LTM Config",
 			"description": "",
 			"item": [
 				{
