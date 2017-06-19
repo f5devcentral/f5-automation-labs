@@ -1,5 +1,5 @@
-LAB 3.3 - Apply ASM Policy to Virtual Server
-=============================================
+LAB 3.3 - Apply ASM Policy to VS
+=================================
 
 Overview
 ---------
