@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Lab 1.1 - API Authentication",
+			"name": "Lab 1.2 - API Authentication",
 			"description": "",
 			"item": [
 				{
@@ -45,7 +45,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\",\n    \"loginProviderName\":\"tmos\"\n}"
+							"raw": "{\n    \"username\":\"\",\n    \"password\":\"\",\n    \"loginProviderName\":\"tmos\"\n}"
 						},
 						"description": ""
 					},
@@ -94,7 +94,7 @@
 			]
 		},
 		{
-			"name": "Lab 1.2 - Provision BIG-IP Module",
+			"name": "Lab 1.3 - BIG-IP Module Provisioning",
 			"description": "",
 			"item": [
 				{
@@ -235,7 +235,7 @@
 			]
 		},
 		{
-			"name": "Lab 1.3 - Build a Basic LTM Config",
+			"name": "Lab 1.4 - Build a Basic LTM Config",
 			"description": "",
 			"item": [
 				{
@@ -386,7 +386,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.0 - Provision AFM",
+			"name": "Lab 2.0 - Provisioning AFM",
 			"description": "",
 			"item": [
 				{
@@ -1278,7 +1278,7 @@
 			]
 		},
 		{
-			"name": "Lab 3.3 - Apply ASM Policy",
+			"name": "Lab 3.3 - Apply ASM Policy to VS",
 			"description": "",
 			"item": [
 				{
