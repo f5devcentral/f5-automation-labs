@@ -1,4 +1,4 @@
-LAB 1.3 - Building a Basic LTM Config
+LAB 1.4 - Building a Basic LTM Config
 ======================================
 
 Overview
