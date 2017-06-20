@@ -9,11 +9,11 @@ The iControl REST API requires initial authentication in the form of a username/
 Preface
 --------
 
-Prior to performing this lab, the Postman environemnt should valided.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
+Prior to performing this lab, the Postman environemnt should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
 
 Prior to perforing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
 
-#. Launch Chrome and click on the BIG-IP_A bookmar in the tool bar.
+#. Launch Chrome and click on the "BIG-IP A GUI" bookmark on the tool bar.
 
 |image-1|
 
@@ -29,7 +29,7 @@ Prior to perforing any of the below steps, ensure that you can log into the BIG-
 
 |image-4|
 
-#. Log into the BIG-IP using the default user name and password.
+#. Log into the BIG-IP using the default user name and password (admin/admin).
 
 .. warning:: If you do not first log into the BIG-IP and accept the invalid certificate with Chrome, Postman will state ```could not get any response``` when sending a request to the BIG-IP.
 
@@ -38,7 +38,7 @@ Prior to perforing any of the below steps, ensure that you can log into the BIG-
 Lab Specific Instructions
 --------------------------
 
-Follow the **Lab 1.2 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **Lab 1.2 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
 

@@ -54,13 +54,18 @@ One of the disadvantages of BASIC Authentication is that credentials are sent wi
 
 Perform the following steps to complete this task:
 
+<<<<<<< HEAD
 1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.2 – API Authentication** Postman Collection
 2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Additionally, BASIC Authentication is required on the initial token request:
+=======
+1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.1 – API Authentication** Postman Collection
+2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Note that BASIC authentication is NOT required for this step. The token is provided based on the credentials located within the JSON payload:
+>>>>>>> master
 
 3. Click the ‘Body’ tab and examine the JSON that we will send to BIG-IP to provide credentials and the authentication provider:
 
 4. Modify the JSON body and add the required credentials (admin/admin). Then click the ‘Send’ button.
-5. Examine the response status code. If authentication succeeded and a token was generated the response will have a 200 OK status code. If the status code is 401 then check your credentials:
+5. Examine the response status code. If authentication succeeded and a token was generated, the response will have a 200 OK status code. If the status code is 401 then check your credentials.  View the response body to see the token that was provided:
 
 Successful:
 
