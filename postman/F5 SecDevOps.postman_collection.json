@@ -94,7 +94,11 @@
 			]
 		},
 		{
+<<<<<<< HEAD:postman/F5 SecDevOps.postman_collection
+			"name": "Lab 1.3 - Provision BIG-IP Module",
+=======
 			"name": "Lab 1.3 - BIG-IP Module Provisioning",
+>>>>>>> master:postman/F5 SecDevOps.postman_collection.json
 			"description": "",
 			"item": [
 				{
