@@ -26,8 +26,7 @@ Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman c
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -63,8 +62,7 @@ Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman c
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -115,8 +113,7 @@ A test policy named ``test_asm_policy`` has already been created on the BIG-IP f
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -153,8 +150,7 @@ A test policy named ``test_asm_policy`` has already been created on the BIG-IP f
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -199,8 +195,7 @@ An HTTP GET to the ``/mgmt/tm/asm/policies`` endpoint with a parameter of ``filt
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -245,8 +240,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -357,8 +351,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -384,8 +377,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -459,8 +451,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -535,8 +526,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -575,8 +565,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -617,8 +606,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -763,8 +751,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 

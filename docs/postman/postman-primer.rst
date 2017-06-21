@@ -1,14 +1,18 @@
 Postman Primer
-==============
+===============
+
+.. _API-auth-lab: Lab 1.2 – API Authentication
+
+
 This lab utilizes the Postman Chrome extension to facilitate the sending data to and recieving data from the iControl REST based API.
 
 REST API Authentication & ‘example’ Templates
--------------------------------------------------------
+----------------------------------------------
 One of the many basic concepts related to interaction with REST API’s is how a particular consumer is authenticated to the system. BIG-IP, BIG-IQ and iWorkflow support two types of authentication: HTTP BASIC and Token based. It’s important to understand both of these authentication mechanisms, as consumers of the API will often make use of both types depending on the use case. This lab will demonstrate how to interact with both types of authentication.
 
 
 Task 1 - Basic Authentication
------------------------------
+------------------------------
 In this task we will use the Postman tool to send API requests using HTTP BASIC authentication. As its name implies this method of authentication encodes the user credentials via the existing BASIC authentication method provided by the HTTP protocol. The mechanism this method uses is to insert an HTTP header named ‘Authorization’ with a value that is built by Base 64 encoding the string “<username>:<password>”. The resulting header takes this form:
 
 .. code-block:: rest
@@ -31,7 +35,7 @@ Perform the following steps to complete this task:
    :alt: alternate text
    :align: right
 
-3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.1 – API Authentication** folder:
+3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.2 – API Authentication** folder:
 
 (Ignore the # of requests on the screen below versus what you might see, the # of requests will grow and change as this lab grows)
 
@@ -57,13 +61,18 @@ One of the disadvantages of BASIC Authentication is that credentials are sent wi
 
 Perform the following steps to complete this task:
 
-1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.1 – API Authentication** Postman Collection
+<<<<<<< HEAD
+1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.2 – API Authentication** Postman Collection
 2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Additionally, BASIC Authentication is required on the initial token request:
+=======
+1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.1 – API Authentication** Postman Collection
+2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Note that BASIC authentication is NOT required for this step. The token is provided based on the credentials located within the JSON payload:
+>>>>>>> master
 
 3. Click the ‘Body’ tab and examine the JSON that we will send to BIG-IP to provide credentials and the authentication provider:
 
 4. Modify the JSON body and add the required credentials (admin/admin). Then click the ‘Send’ button.
-5. Examine the response status code. If authentication succeeded and a token was generated the response will have a 200 OK status code. If the status code is 401 then check your credentials:
+5. Examine the response status code. If authentication succeeded and a token was generated, the response will have a 200 OK status code. If the status code is 401 then check your credentials.  View the response body to see the token that was provided:
 
 Successful:
 
@@ -77,7 +86,7 @@ Unsuccessful:
 
 .. attention:: Include image
 
-7. Click the **Step 3: Verify Authentication Works** item in the **Lab 1.1 – API Authentication** Postman collection. Click the ‘Headers’ tab and paste the token value copied above as the VALUE for the ‘X-F5-Auth-Token’ header. This header is required to be sent on all requests when using token based authentication.
+7. Click the **Step 3: Verify Authentication Works** item in the **Lab 1.2 – API Authentication** Postman collection. Click the ‘Headers’ tab and paste the token value copied above as the VALUE for the ‘X-F5-Auth-Token’ header. This header is required to be sent on all requests when using token based authentication.
 
 .. attention:: Include image
 
@@ -98,7 +107,7 @@ Unsuccessful:
 
 .. attention:: Include image
 
-13. Click the ‘Step 4: Set Authentication Token Timeout’ item in the **Lab 1.1 – API Authentication** Postman collection. This request will PATCH your token Resource (check the URI) and update the timeout attribute so we can complete the lab easily. Examine the request type and JSON Body and then click the ‘Send’ button. Verify that the timeout has been changed to ‘36000’ in the response:
+13. Click the ‘Step 4: Set Authentication Token Timeout’ item in the **Lab 1.2 – API Authentication** Postman collection. This request will PATCH your token Resource (check the URI) and update the timeout attribute so we can complete the lab easily. Examine the request type and JSON Body and then click the ‘Send’ button. Verify that the timeout has been changed to ‘36000’ in the response:
 
 .. attention:: Include image
 

@@ -9,7 +9,7 @@ In this lab, the iControl REST API will be used to provision a module on the BIG
 Lab Specific Instructions
 --------------------------
 
-Prior to performing the below steps, validate the **{{module}}** Postman environemnt variable.  The **{{module}}** should be set to **afm**.
+Prior to performing the below steps, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **afm**.
 
 Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
 
@@ -28,7 +28,6 @@ Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the 
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
@@ -80,7 +79,6 @@ Follow the **Lab 1.3 - BIG-IP Module Provisioning** steps in order found in the 
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
@@ -249,7 +247,6 @@ Performing a GET on the ``/mgmt/tm/sys/license`` endpoint can be used to quickly
 
 :: 
 
-    Content-Type: application/json
     X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**

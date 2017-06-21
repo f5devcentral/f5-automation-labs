@@ -22,6 +22,12 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
     GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
 
+**Headers**
+
+:: 
+
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+
 **Example Response**
 
 .. note:: A test policy has already been created on the BIG-IP for demonstration purposes.
@@ -60,8 +66,7 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Response**
 
@@ -105,7 +110,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Body**
 
@@ -152,8 +157,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 
 :: 
 
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 **Example Request**
 
@@ -189,7 +193,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
 :: 
 
     Content-Type: application/json
-    Authorization: Basic YWRtaW46YWRtaW4=
+    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
 
 .. note:: Include the contents of the address list plus the new address(es) to ensure that the contents are not overwritten.
 
