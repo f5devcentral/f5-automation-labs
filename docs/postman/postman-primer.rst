@@ -28,8 +28,13 @@ Perform the following steps to complete this task:
 
 .. attention:: this is the new image
 
-.. image:: Environment2.png
-
+.. figure:: Environment.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+    :figclass: align-center
+    
 3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.2 – API Authentication** folder:
 
 (Ignore the # of requests on the screen below versus what you might see, the # of requests will grow and change as this lab grows)
