@@ -3,16 +3,16 @@ Welcome
 
 Welcome to F5's Automation, Orchestration and Programmability Training series.
 The intended audience for these labs are Super NetOps and DevOps engineers that
-would like to leverage the various programmability tools offered by the F5 
-platform.  If you require a pre-built lab environment please contact you F5
+would like to leverage the various programmability tools offered by the F5
+platform.  If you require a pre-built lab environment please contact your F5
 account team and they can provide access to environments on an as-needed basis.
 
-The content contained here leverages a full DevOps CI/CD pipieline and is
-sourced from the following GitHub repository: 
+The content contained here leverages a full DevOps CI/CD pipeline and is
+sourced from the following GitHub repository:
 
 https://github.com/f5devcentral/f5-automation-labs/
 
-Bugs and Requests for enhancements can be made using by opening an 
+Bugs and Requests for enhancements can be made using by opening an
 `Issue <https://github.com/f5devcentral/f5-automation-labs/issues>`_ within
 the repository.
 
