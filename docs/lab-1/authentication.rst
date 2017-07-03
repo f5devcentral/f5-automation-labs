@@ -9,7 +9,7 @@ The iControl REST API requires initial authentication in the form of a username/
 Preface
 --------
 
-Prior to performing this lab, the Postman environemnt should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
+Prior to performing this lab, the Postman environment should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
 
 Prior to perforing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
 
@@ -139,7 +139,7 @@ Once successfully authenticated, the BIG-IP response will respond with a 200 OK 
 
 |image-1.2.2|
 
-Copy the token into the **{{big_ip_a_auth_token}}** Postman environemnt variable.
+Copy the token into the **{{big_ip_a_auth_token}}** Postman environment variable.
 
 |image-1.2.2_env|
 
