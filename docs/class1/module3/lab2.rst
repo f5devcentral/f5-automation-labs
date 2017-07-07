@@ -29,19 +29,19 @@ Perform the following steps to complete this task:
 
       $ docker pull f5devcentral/f5-super-netops-container:base
       base: Pulling from f5devcentral/f5-super-netops-container
-      cfc728c1c558: Pull complete 
-      d87c258a5fa6: Pull complete 
-      c65d1b487eef: Pull complete 
-      8dbc9686aafd: Pull complete 
-      8780a91a51b1: Pull complete 
-      adf738b585dc: Pull complete 
-      03b3481bc590: Pull complete 
-      8fc57fb32b1a: Pull complete 
-      8f73f7c22240: Pull complete 
-      7d94bd4c05e6: Pull complete 
-      a0b407bf28b5: Pull complete 
-      b97bd4f3c99d: Pull complete 
-      f37519ea449c: Pull complete 
+      cfc728c1c558: Pull complete
+      d87c258a5fa6: Pull complete
+      c65d1b487eef: Pull complete
+      8dbc9686aafd: Pull complete
+      8780a91a51b1: Pull complete
+      adf738b585dc: Pull complete
+      03b3481bc590: Pull complete
+      8fc57fb32b1a: Pull complete
+      8f73f7c22240: Pull complete
+      7d94bd4c05e6: Pull complete
+      a0b407bf28b5: Pull complete
+      b97bd4f3c99d: Pull complete
+      f37519ea449c: Pull complete
       Digest: sha256:20f501b4c46948d3e69ffd7793cbbf08ac18da5f89c6665f36af10bc7c2a89b4
       Status: Downloaded newer image for f5devcentral/f5-super-netops-container:base
 
@@ -68,7 +68,7 @@ to port ``80`` in the container.
 
 The ``-it`` option will make the session interactive and allocate a pseudo-TTY
 
-The ``f5devcentral/f5-super-netops-container:base`` option is the name 
+The ``f5devcentral/f5-super-netops-container:base`` option is the name
 associated with the image we obtained in Task 1.
 
 Perform the following steps to complete this task:
@@ -165,7 +165,7 @@ Perform the following steps to complete this task:
 
       Go forth and automate!
 
-      (you can now detach by using Ctrl+P+Q)
+      (you can now detach by using Ctrl+p+q)
 
       [root@f5-super-netops] [/] #
 
@@ -182,7 +182,7 @@ explained in the next lab.
 Detach the Container
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Enter ``Ctrl+P+Q`` in the running TTY.
+#. Enter ``Ctrl+p+q`` in the running TTY.
 
    Example output:
 
@@ -190,7 +190,7 @@ Detach the Container
 
       [root@f5-super-netops] [/] #
       [root@f5-super-netops] [/] #
-      [root@f5-super-netops] [/] # <enter Ctrl+P+Q>
+      [root@f5-super-netops] [/] # <enter Ctrl+p+q>
       hostname:~ user$
 
 #. Verify the container is still running by entering ``docker ps``
@@ -222,4 +222,4 @@ Re-attach the Container
    f5devcentral/f5-super-netops-container:base image.
 #. Execute ``docker attach <container_id>``
 #. You may have to hit ``<Enter>`` to display the command prompt
-#. Detach the container again by entering ``<Ctrl+P+Q>``
+#. Detach the container again by entering ``<Ctrl+p+q>``
