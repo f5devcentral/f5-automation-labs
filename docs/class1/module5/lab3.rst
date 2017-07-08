@@ -18,7 +18,7 @@ attribute, greatly expanding it’s potential use cases.
 Task 1 – Review update\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open ``update\_pool.py`` in Notepad++
+#. Open ``update_pool.py`` in Notepad++
 
 #. We will review the code. For brevity we have removed lines that are
    common with previous examples:
