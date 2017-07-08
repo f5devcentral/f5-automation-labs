@@ -21,10 +21,10 @@ Task 1 – Install Docker CE
 Please follow the instructions at https://docs.docker.com/engine/installation/
 to install Docker CE.
 
-Once you have completed installed and successfully run the ``hello_world``
+Once you have completed installed and successfully run the ``hello-world``
 test you can continue to the next lab.
 
-To test your setup with the ``hello_world`` container, you just need to run the
+To test your setup with the ``hello-world`` container, you just need to run the
 following command
 
 ``docker run hello-world``
@@ -74,5 +74,3 @@ Example output:
    You can issue the following commands in that case (this will stop ALL your container
    instances):
    ``sudo docker stop $(docker ps -aq)``
-
-

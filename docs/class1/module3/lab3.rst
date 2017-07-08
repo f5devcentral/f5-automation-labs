@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum| – Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a
-root command prompt.  In order to support use the container and it's associated
+root command prompt.  In order to support use the container and its associated
 tools properly you connect via SSH and/or HTTP.
 
 .. _lab3_3_1:
@@ -17,8 +17,8 @@ tools properly you connect via SSH and/or HTTP.
 Task 1 – Connect via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To connect to the image via SSH we must use the published port specified in the 
-``docker run`` command.  To review the command used to start the container was:
+To connect to the image via SSH we must use the published port specified in the
+``docker run`` command.  To review, the command used to start the container was:
 
 ``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
 
@@ -30,7 +30,7 @@ Docker host.  In the case of the SSH service the following mapping applies:
 .. NOTE:: If you are using an F5 provided lab environment please use the SSH
    client and connect to the 'f5-super-netops-container SSH' item
 
-Additionally the container includes the ``snops`` user with a password of 
+Additionally the container includes the ``snops`` user with a password of
 ``default``.  To connect to the container execute the following command
 or it's OS-specific equivalent:
 
@@ -55,7 +55,7 @@ Example output:
 
    $ ssh -p 2222 snops@localhost
    Warning: Permanently added '[localhost]:2222' (ECDSA) to the list of known hosts.
-   snops@localhost's password: 
+   snops@localhost's password:
                                    .----------.
                                   /          /
                                  /   ______.'
@@ -75,40 +75,40 @@ Example output:
    |___/\__,_| .__/ \___|_|           |_| |_|\___|\__\___/| .__/|___/
              | |                                          | |
              |_|                                          |_|
-   
+
    Welcome to the f5-super-netops-container.  This image has the following
    services running:
-   
+
     SSH  tcp/22
     HTTP tcp/80
-   
+
    To access these services you may need to remap ports on your host to the
    local container using the command:
-   
+
     docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base
-   
+
    From the HOST perspective, this results in:
-   
+
     localhost:2222 -> f5-super-netops-container:22
     localho   st:8080 -> f5-super-netops-container:80
-   
+
    You can then connect using the following:
-   
+
     HTTP: http://localhost:8080
     SSH:  ssh -p 2222 snops@localhost
-   
+
    Default Credentials:
-   
+
     snops/default
     root/default
-   
+
    Go forth and automate!
-   [snops@f5-super-netops] [~] $ 
+   [snops@f5-super-netops] [~] $
 
 Task 2 – Connect via HTTP
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To connect to the image via HTTP we must use the published port specified in the 
+To connect to the image via HTTP we must use the published port specified in the
 ``docker run`` command.  To review the command used to start the container was:
 
 ``docker run -p 8080:80 -p 2222:22 -it f5devcentral/f5-super-netops-container:base``
