@@ -4,7 +4,7 @@ LAB 3.3 - Apply ASM Policy to VS
 Overview
 ---------
 
-In this lab, the previously created ASM policy will be apllied to a virtual server using the iControl REST API.
+In this lab, the previously created ASM policy will be applied to a virtual server using the iControl REST API.
 
 Lab Specific Instructions
 --------------------------

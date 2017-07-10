@@ -51,7 +51,7 @@ Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman c
 2.0. Create ASM parent policy
 -----------------------------
 
-An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"type":"parent"`` will create a new ASM parent policy which can then be used for inheritence when a child policy is created.
+An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"type":"parent"`` will create a new ASM parent policy which can then be used for inheritance when a child policy is created.
 
 **Request**
 

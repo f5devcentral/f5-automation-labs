@@ -11,7 +11,7 @@ Preface
 
 Prior to performing this lab, the Postman environment should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
 
-Prior to perforing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
+Prior to performing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
 
 #. Launch Chrome and click on the "BIG-IP A GUI" bookmark on the tool bar.
 
@@ -21,7 +21,7 @@ Prior to perforing any of the below steps, ensure that you can log into the BIG-
 
 |image-2|
 
-#. Accept the invalide certificate by clicking on the ```Proceed to bigipa.f5demo.com (unsafe)``` link.
+#. Accept the invalid certificate by clicking on the ```Proceed to bigipa.f5demo.com (unsafe)``` link.
 
 |image-3|
 
@@ -40,9 +40,9 @@ Lab Specific Instructions
 
 Follow the **Lab 1.2 - API Authentication** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-In this lab, the basic authenication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
+In this lab, the basic authentication value is the base64-encoding of the BIG-IPs default username and password **admin:admin**.
 
-Once successfully authenticated, the BIG-IP response will respond with an authentication token that should be copied and placed into the **{{big_ip_a_auth_token}}** Postman environemnt variable.
+Once successfully authenticated, the BIG-IP response will respond with an authentication token that should be copied and placed into the **{{big_ip_a_auth_token}}** Postman environment variable.
 
 .. attention:: Some response content has been removed for brevity.
 

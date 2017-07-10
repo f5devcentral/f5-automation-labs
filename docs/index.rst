@@ -13,22 +13,22 @@ This course will feature the following topics.
 
 * General interaction with tmm via BIG-IPs REST APIs
 * Create, modify and assign an AFM policy
-* Create, modify and asign an ASM policy
+* Create, modify and assign an ASM policy
 
 Lab Guide
 ----------
 
-This lab is divided into three parts.  Each section of the lab, will require configuration of the BIG-IP, AFM, or ASM using the iControl REST based API.  It is recomended that each lab be executed in order.
+This lab is divided into three parts.  Each section of the lab, will require configuration of the BIG-IP, AFM, or ASM using the iControl REST based API.  It is recommended that each lab be executed in order.
 
 To perform the steps required in the lab, `Postman`_ will be used from the Windows jump box.
 
-Prior to beginning the exercises, it is recomended to review the :doc:`/lab-overview/lab-topology`.  
+Prior to beginning the exercises, it is recommended to review the :doc:`/lab-overview/lab-topology`.  
 
-If you are unfamiliar with Postman, please referance the :doc:`/postman/postman-primer` before beginning.
+If you are unfamiliar with Postman, please reference the :doc:`/postman/postman-primer` before beginning.
 
 #. Lab 1: Configuring BIG-IP
 #. Lab 2: Configuring AFM (Advanced Firewall Module)
-#. Lab 3: Configuring ASM (Application Seuciryt Module)
+#. Lab 3: Configuring ASM (Application Security Module)
 
 Support
 -------

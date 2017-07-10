@@ -4,7 +4,7 @@ LAB 3.0 - Provisioning ASM
 LAB 3.0 Overview
 -----------------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifially, the Application Security Manager (ASM) module will be provisioned for use in **LAB 3.0 - Provisioning ASM**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **LAB 3.0 - Provisioning ASM**.
 
 LAB 3.0 Specific Instructions
 ------------------------------

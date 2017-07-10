@@ -4,7 +4,7 @@ Postman Primer
 .. _API-auth-lab: Lab 1.2 – API Authentication
 
 
-This lab utilizes the Postman Chrome extension to facilitate the sending data to and recieving data from the iControl REST based API.
+This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the iControl REST based API.
 
 REST API Authentication & ‘example’ Templates
 ----------------------------------------------

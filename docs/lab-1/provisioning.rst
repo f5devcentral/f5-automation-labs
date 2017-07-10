@@ -4,7 +4,7 @@ LAB 1.3 - BIG-IP Module Provisioning
 Overview
 ---------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifially, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
 
 Lab Specific Instructions
 --------------------------
