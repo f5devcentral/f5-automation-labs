@@ -221,7 +221,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 
 **Example Response**
 
-.. note:: Copy the newly created rule name ``allow_google-dns`` and populate the {{afm_policy_rule}} Postname environment variable.
+.. note:: Copy the newly created rule name ``allow_google-dns`` and populate the {{afm_policy_rule}} Postman environment variable.
 
 .. code-block:: rest
     :emphasize-lines: 3-4, 7-21
