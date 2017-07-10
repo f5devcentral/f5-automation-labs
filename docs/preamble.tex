@@ -1,0 +1,68 @@
+%% LaTeX preamble.
+
+\usepackage{type1cm}
+\usepackage{helvet}
+\usepackage{wallpaper}
+
+% Bypass unicode character not supported errors
+\usepackage[utf8]{inputenc}
+
+\makeatletter
+\def\UTFviii@defined#1{%
+  \ifx#1\relax
+      ?%
+  \else\expandafter
+    #1%
+  \fi
+}
+\makeatother
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{f5red}{RGB}{235, 28, 35}
+
+\def\frontcoverpage{
+  \begin{titlepage}
+  \ThisURCornerWallPaper{1.0}{${frontcoverimage}}
+  \vspace*{2.5cm}
+  \hspace{4.5cm}
+  {\color{f5red} \text{\Large ${eventname}}\par}
+  \vspace{.5cm}
+  \hspace{4.5cm}
+  {\color{white} \text{\huge ${project}}\par}
+  \vspace{0.5cm}
+  \hspace{4.5cm}
+  {\color{white} \text{\large ${author}}\par}
+  \vfill
+  \end{titlepage}
+  \newpage
+}
+
+\def\backcoverpage{
+  \newpage
+  \thispagestyle{empty}
+  \phantom{100}
+  \ThisURCornerWallPaper{1.0}{${backcoverimage}}
+}
+
+\def\contentspage{
+    \tableofcontents
+}
+
+%% Disable standard title (but keep PDF info).
+\renewcommand{\maketitle}{
+  \begingroup
+  % These \defs are required to deal with multi-line authors; it
+  % changes \\ to ', ' (comma-space), making it pass muster for
+  % generating document info in the PDF file.
+  \def\\{, }
+  \def\and{and }
+  \pdfinfo{
+    /Title (${project})
+    /Author (${author})
+  }
+  \endgroup
+}
