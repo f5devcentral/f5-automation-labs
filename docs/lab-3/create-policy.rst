@@ -1,13 +1,13 @@
 LAB 3.2 - Create ASM Policy
 ============================
 
-Overview
----------
+LAB 3.2 Overview
+-----------------
 
 In this lab, the iControl REST based API will be used to create both an ASM parent and child policy.
 
-Lab Specific Instructions
---------------------------
+LAB 3.2 Specific Instructions
+------------------------------
 
 Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
