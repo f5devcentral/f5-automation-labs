@@ -9,7 +9,7 @@ In this lab, the previously created ASM policy will be apllied to a virtual serv
 Lab Specific Instructions
 --------------------------
 
-Follow the **LAB 3.3 - Apply ASM Policy to Virtual Server** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.3 - Apply ASM Policy to Virtual Server** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. attention:: Some response content has been removed for brevity.
 
