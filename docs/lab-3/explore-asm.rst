@@ -9,7 +9,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
 Lab Specific Instructions
 --------------------------
 
-Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. attention:: Some response content has been removed for brevity.
 
@@ -117,7 +117,7 @@ A test policy named ``test_asm_policy`` has already been created on the BIG-IP f
 
 **Example Response**
 
-.. note:: Copy the ASM policy hash as it appears in the ``"link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",`` line of the response and populate the **{{asm_policy_hash}}** Postman environment variable.asm_policy_hash
+.. note:: Copy the ASM policy hash as it appears in the ``"link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",`` line of the response and populate the **{{asm_policy_hash}}** Postman environment variable asm_policy_hash.
 
 ::
 
