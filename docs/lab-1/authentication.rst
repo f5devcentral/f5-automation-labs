@@ -1,8 +1,8 @@
 LAB 1.2 - API Authentication
 =============================
 
-Overview
----------
+LAB 1.2 Overview
+-----------------
 
 The iControl REST API requires initial authentication in the form of a username/password.  After authentication is successful, a token can be used to make subsequent API calls.
 
