@@ -9,9 +9,9 @@ In this lab, the iControl REST API will be used to provision a module on the BIG
 Lab Specific Instructions
 --------------------------
 
-Prior to performing the below steps, validate the **{{module}}** Postman environemnt variable.  The **{{module}}** should be set to **asm**.
+Prior to performing the steps below, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **asm**.
 
-Follow the **LAB 3.0 - Provisioning ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.0 - Provisioning ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. attention:: Some response content has been removed for brevity.
 

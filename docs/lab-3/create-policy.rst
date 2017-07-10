@@ -9,7 +9,7 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
 Lab Specific Instructions
 --------------------------
 
-Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. attention:: Some response content has been removed for brevity.
 
@@ -83,7 +83,8 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 
 **Example Response**
 
-.. note:: Copy the ASM policy hash for the newly created policy and populate the {{asm_policy_hash}} Postmant environment variable.
+.. note:: Copy the ASM policy hash for the newly created policy and populate the {{asm_policy_hash}} Postman environment variable.
+The hash in the example below is JEQPVWeJcdso_rEC7Xxo6Q
 
 ::
 
@@ -210,6 +211,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 **Example Response**
 
 .. note:: Take note of the ASM policy hash for the newly created policy.  Copy this value into your Postman's collection environmental variable for {{asm_policy_hash}}
+The hash in the example below is zD8sehzULw6Ni7GJG2XwJQ
 
 ::
 

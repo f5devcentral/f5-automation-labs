@@ -1,7 +1,7 @@
 Lab 3 - Objectives
 ==================
 
-* Provision AFM module on BIG-IP 
+* Provision ASM module on BIG-IP 
 * Interact with ASM related REST endpoints on a BIG-IP
 * Create and modify an ASM policy
-* Apply the ASM polic to a virtual server
+* Apply the ASM policy to a virtual server
