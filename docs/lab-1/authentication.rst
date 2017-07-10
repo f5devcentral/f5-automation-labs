@@ -6,8 +6,8 @@ LAB 1.2 Overview
 
 The iControl REST API requires initial authentication in the form of a username/password.  After authentication is successful, a token can be used to make subsequent API calls.
 
-Preface
---------
+LAB 1.2 Preface
+----------------
 
 Prior to performing this lab, the Postman environment should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
 

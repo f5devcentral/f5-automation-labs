@@ -1,13 +1,13 @@
 LAB 2.0 - Provisioning AFM
 ===========================
 
-Overview
----------
+LAB 2.0 Overview
+-----------------
 
 In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
 
-Lab Specific Instructions
---------------------------
+LAB 2.0 Specific Instructions
+------------------------------
 
 Prior to performing the below steps, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **afm**.
 

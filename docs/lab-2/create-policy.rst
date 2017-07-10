@@ -1,13 +1,13 @@
 LAB 2.2 - Create AFM Policy
 ============================
 
-Overview
----------
+LAB 2.2 Overview
+-----------------
 
 In this lab, the iControl REST based API will be used to create a firewall policy that will leverage the previously created address list.
 
-Lab Specific Instructions
---------------------------
+LAB 2.2 Specific Instructions
+------------------------------
 
 Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 

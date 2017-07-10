@@ -1,13 +1,13 @@
 LAB 3.1 - Interact with ASM
 ============================
 
-Overview
----------
+LAB 3.1 Overview
+-----------------
 
 In this lab, the iControl REST based API will be used to explore some of the ASM related endpoints.
 
-Lab Specific Instructions
---------------------------
+LAB 3.1 Specific Instructions
+------------------------------
 
 Follow the **LAB 3.1 - Interact with ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
