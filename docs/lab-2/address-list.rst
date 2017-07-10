@@ -4,12 +4,12 @@ LAB 2.1 - Create AFM Address List
 Overview
 ---------
 
-In this lab, the iControl REST based API will be used to creat a address list that will be used with an AFM policy in a later lab.
+In this lab, the iControl REST based API will be used to create an address list that will be used with an AFM policy in a later lab.
 
 Lab Specific Instructions
 --------------------------
 
-Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for referance.
+Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. attention:: Some response content has been removed for brevity.
 
