@@ -32,25 +32,44 @@ Perform the following steps to complete this task:
     :width: 200px
     :align: center
     :height: 100px
-    :alt: alternate text
     :figclass: align-center
     
 3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.2 – API Authentication** folder:
 
 (Ignore the # of requests on the screen below versus what you might see, the # of requests will grow and change as this lab grows)
 
-.. attention:: Include image
+.. figure:: PP-Step3.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :figclass: align-center
 
-4. Click the **Step 1: HTTP BASIC Authentication** item. Click the ‘Authorization’ tab and select ‘Basic Auth’ as the Type. Fill in the username and password (admin/admin) and click the ‘Update Request’ button. Notice that the number of Headers in the Headers tab changed from 1 to 2. This is because Postman automatically created the HTTP header and updated your request to include it. Click the ‘Headers’ tab and examine the HTTP header:
+4. Click the **Step 1: HTTP BASIC Authentication** item. Click the ‘Authorization’ tab and select ‘Basic Auth’ as the Type. Fill in the username and password (admin/admin) and click the ‘Update Request’ button. Notice that the number of Headers in the Headers tab changed from 1 to 2. This is because Postman automatically created the HTTP header and updated your request to include it. 
 
-.. attention:: Include image
+.. figure:: PP-Step4a.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :figclass: align-center
+
+Click the ‘Headers’ tab and examine the HTTP header:
+
+.. figure:: PP-Step4b.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :figclass: align-center
 
 5. Click the ‘Send’ button to send the request. If the request succeeds you should be presented with a listing of the ‘/mgmt/tm/ltm’ Organizing Collection.
 
 .. tip:: 
     Pay attention to the Status response i.e.
 
-.. attention:: Include image
+.. figure:: PP-Step5.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :figclass: align-center
 
 Task 2 - Token Based Authentication
 -----------------------------------
