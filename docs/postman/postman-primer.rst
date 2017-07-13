@@ -26,8 +26,6 @@ Perform the following steps to complete this task:
 1. Open the Postman tool by clicking the icon on the taskbar of your Windows Jumphost
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
-.. attention:: this is the new image
-
 .. figure:: Environment.png
     :width: 200px
     :align: center
