@@ -26,48 +26,28 @@ Perform the following steps to complete this task:
 1. Open the Postman tool by clicking the icon on the taskbar of your Windows Jumphost
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
-.. figure:: Environment.png
-    :width: 200px
-    :align: left
-    :height: 200px
-    :figclass: align-center
-    
+.. figure:: PP-Step1-2.png
+   
 3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.2 – API Authentication** folder:
 
 (Ignore the # of requests on the screen below versus what you might see, the # of requests will grow and change as this lab grows)
 
-.. figure:: PP-Step3.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :figclass: align-center
+.. figure:: PP-Step1-3.png
 
 4. Click the **Step 1: HTTP BASIC Authentication** item. Click the ‘Authorization’ tab and select ‘Basic Auth’ as the Type. Fill in the username and password (admin/admin) and click the ‘Update Request’ button. Notice that the number of Headers in the Headers tab changed from 1 to 2. This is because Postman automatically created the HTTP header and updated your request to include it. 
 
-.. figure:: PP-Step4a.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :figclass: align-center
+.. figure:: PP-Step1-4a.png
 
 Click the ‘Headers’ tab and examine the HTTP header:
 
-.. figure:: PP-Step4b.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :figclass: align-center
+.. figure:: PP-Step1-4b.png
 
 5. Click the ‘Send’ button to send the request. If the request succeeds you should be presented with a listing of the ‘/mgmt/tm/ltm’ Organizing Collection.
 
 .. tip:: 
     Pay attention to the Status response i.e.
 
-.. figure:: PP-Step5.png
-    :width: 200px
-    :align: center
-    :height: 100px
-    :figclass: align-center
+.. figure:: PP-Step1-5.png
 
 Task 2 - Token Based Authentication
 -----------------------------------
@@ -80,44 +60,48 @@ Perform the following steps to complete this task:
 
 1. Click the **Step 2: Get Authentication Token** item in the **Lab 1.2 – API Authentication** Postman Collection
 2. Notice that we send a POST request to the ‘/mgmt/shared/authn/login’ endpoint. Note that BASIC authentication is NOT required for this step. The token is provided based on the credentials located within the JSON payload.
+
+.. figure:: PP-Step2-2.png
+
 3. Click the ‘Body’ tab and examine the JSON that we will send to BIG-IP to provide credentials and the authentication provider:
 4. Modify the JSON body and add the required credentials (admin/admin). Then click the ‘Send’ button.
+
+.. figure:: PP-Step2-4.png
+
 5. Examine the response status code. If authentication succeeded and a token was generated, the response will have a 200 OK status code. If the status code is 401 then check your credentials.  View the response body to see the token that was provided:
 
 Successful:
 
-.. attention:: Include image
+.. figure:: PP-Step2-5-succ.png
 
 Unsuccessful:
 
-.. attention:: Include image
+.. figure:: PP-Step2-5-fail.png
 
 6. Once you receive a 200 OK status code examine the response body. The various attributes show the parameters assigned to the particular token. Find the ‘token’ attribute and copy it into your clipboard (Ctrl+c) for use in the next step:
 
-.. attention:: Include image
+.. figure:: PP-Step2-6.png
 
 7. Click the **Step 3: Verify Authentication Works** item in the **Lab 1.2 – API Authentication** Postman collection. Click the ‘Headers’ tab and paste the token value copied above as the VALUE for the ‘X-F5-Auth-Token’ header. This header is required to be sent on all requests when using token based authentication.
 
-.. attention:: Include image
+.. figure:: PP-Step2-7.png
 
 8. Click the ‘Send’ button. If you’re request is successful you should see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing Collection.
 9. We will now update your Postman environment to use this auth token for the remainder of the lab. Click the Environment menu in the top right of the Postman window and click ‘Manage Environments’:
 
-.. attention:: Include image
+.. figure:: PP-Step2-9.png
 
 10. Click the **F5 SecDevOps** item:
 
-.. attention:: Include image
+.. figure:: PP-Step2-10.png
 
 11. Update the value for ‘big_ip_a_auth_token’ by Pasting (Ctrl-v) in your auth token:
 
-.. attention:: Include image
+.. figure:: PP-Step2-11.png
 
 12. Click the ‘Update’ button and then close the ‘Manage Environments’ window. You’re subsequent requests will now automatically include the token.
 
-.. attention:: Include image
-
 13. Click the ‘Step 4: Set Authentication Token Timeout’ item in the **Lab 1.2 – API Authentication** Postman collection. This request will PATCH your token Resource (check the URI) and update the timeout attribute so we can complete the lab easily. Examine the request type and JSON Body and then click the ‘Send’ button. Verify that the timeout has been changed to ‘36000’ in the response:
 
-.. attention:: Include image
+.. figure:: PP-Step2-13.png
 
