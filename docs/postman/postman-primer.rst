@@ -1,7 +1,6 @@
 Postman Primer
 ===============
 
-.. _API-auth-lab: Lab 1.2 – API Authentication
 .. |postman-icon| image:: ../images/postman-icon.png
 .. |primer-1.2| image:: ../images/primer-1.2.png
 .. |primer-1.3| image:: ../images/primer-1.3.png
@@ -25,6 +24,11 @@ One of the many basic concepts related to interaction with REST API’s is how a
 
 Task 1 - Basic Authentication
 ------------------------------
+
+.. warning::
+
+    Prior to performing any of the below steps, ensure that you can log into the BIG-IP with Chrome after accepting the invalid certificate.  Postman relies on the Chrome certificate store and if the self-signed cert has not been accepted via Chrome, this extension will not work properly.
+
 In this task we will use the Postman tool to send API requests using HTTP BASIC authentication. As its name implies this method of authentication encodes the user credentials via the existing BASIC authentication method provided by the HTTP protocol. The mechanism this method uses is to insert an HTTP header named ‘Authorization’ with a value that is built by Base 64 encoding the string “<username>:<password>”. The resulting header takes this form:
 
 .. code-block:: rest
