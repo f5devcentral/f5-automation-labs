@@ -15,7 +15,7 @@ Postman Primer
 .. |primer-2.12| image:: ../images/primer-2.12.png
 .. |primer-2.13| image:: ../images/primer-2.13.png
 
-This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the iControl REST based API.
+This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the |icr|.
 
 REST API Authentication & ‘example’ Templates
 ----------------------------------------------
