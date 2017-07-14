@@ -5,7 +5,7 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 SecDevOps: Programmatic Defense in Depth"
+classname = "F5 SecDevOps: Programmatic Defense"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/6a6d/f5-secdevops-lab"
@@ -233,7 +233,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, '%s.tex' % cleanname, u'%s Documentation' % classname,
-     u'F5 Networks, Inc.', 'manual', True),
+     u'F5 Networks, Inc.', 'howto', True),
 ]
 
 # -- Options for manual page output ---------------------------------------
