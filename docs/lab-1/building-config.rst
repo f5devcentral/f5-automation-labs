@@ -39,7 +39,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containin
 
     {
         "name":"hackazon_monitor",
-        "send":"GET /\r\n",
+        "send":"GET /\r\n"
     }
 
 **Example Response**
