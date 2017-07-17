@@ -217,7 +217,7 @@ Ensure that the authentication token has been copied from the BIG-IP response an
 
 **Example Response**
 
-.. note:: The **timeout** value is now 360000 seconds.
+.. note:: The **timeout** value is now 36000 seconds.
 
 .. code-block:: rest
     :emphasize-lines: 6

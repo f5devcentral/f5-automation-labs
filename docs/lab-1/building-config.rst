@@ -39,8 +39,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containin
 
     {
         "name":"hackazon_monitor",
-        "send":"GET / HTTP/1.0\r\n\r\n",
-        "recv":"Hello"
+        "send":"GET /\r\n",
     }
 
 **Example Response**
@@ -64,9 +63,8 @@ An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containin
         "interval": 5,
         "ipDscp": 0,
         "manualResume": "disabled",
-        "recv": "Hello",
         "reverse": "disabled",
-        "send": "GET / HTTP/1.0\r\n\r\n",
+        "send": "GET / HTTP/\r\n",
         "timeUntilUp": 0,
         "timeout": 16,
         "transparent": "disabled",
@@ -98,7 +96,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/pool`` endpoint with a body containing the co
     {
         "name":"hackazon_pool",
         "monitor":"/Common/hackazon_monitor",
-        "members": ["10.1.20.20:80"]
+        "members": ["10.1.20.10:80"]
     }
 
 **Example Response**
@@ -274,7 +272,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the
 
     {
         "name":"hackazon_vs",
-        "destination":"10.1.10.20:80",
+        "destination":"10.1.10.10:80",
         "ipProtocol":"tcp",
         "pool":"hackazon_pool",
         "sourceAddressTranslation": { "type":"automap" },

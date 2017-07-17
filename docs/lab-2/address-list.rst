@@ -120,6 +120,9 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
         "name": "google-dns_address_list",
         "addresses": [
             {
+                "name": "8.8.8.8"
+            },
+            {
                 "name": "8.8.4.4"
             }
         ]
