@@ -117,7 +117,7 @@ A test policy named ``test_asm_policy`` has already been created on the BIG-IP f
 
 **Example Response**
 
-.. note:: Copy the ASM policy hash as it appears in the ``"link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",`` line of the response and populate the **{{asm_policy_hash}}** Postman environment variable asm_policy_hash.
+.. note:: Copy the ASM policy hash as it appears in the ``"link": "https://localhost/mgmt/tm/asm/policies/W-w3q351kYbr1A9OEaUOag/plain-text-profiles?ver=13.0.0",`` line of the response and populate the **{{asm_policy_hash}}** Postman environment variable.
 
 ::
 
