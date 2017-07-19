@@ -26,7 +26,7 @@ Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman c
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -67,7 +67,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -110,7 +110,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -141,7 +141,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -197,7 +197,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -267,7 +267,7 @@ The ``"items"`` sub collection will now be populated with the all the firewall r
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -338,7 +338,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -392,7 +392,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 

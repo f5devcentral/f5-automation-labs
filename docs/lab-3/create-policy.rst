@@ -26,7 +26,7 @@ Follow the **LAB 3.2 - Create ASM Policy** steps in order found in the Postman c
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -64,7 +64,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -149,7 +149,7 @@ The hash in the example below is JEQPVWeJcdso_rEC7Xxo6Q
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -190,7 +190,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -265,7 +265,7 @@ The hash in the example below is zD8sehzULw6Ni7GJG2XwJQ
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 

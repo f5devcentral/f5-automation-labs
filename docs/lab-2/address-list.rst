@@ -26,7 +26,7 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -66,7 +66,7 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -110,7 +110,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -160,7 +160,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Request**
 
@@ -196,7 +196,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 .. note:: Include the contents of the address list plus the new address(es) to ensure that the contents are not overwritten.
 

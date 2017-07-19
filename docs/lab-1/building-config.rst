@@ -31,7 +31,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containin
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -87,7 +87,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/pool`` endpoint with a body containing the co
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -152,7 +152,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/profile/http`` endpoint with a body containin
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -205,7 +205,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/profile/tcp`` endpoint with a body containing
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -264,7 +264,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -352,7 +352,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 

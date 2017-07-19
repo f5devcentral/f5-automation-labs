@@ -28,7 +28,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -79,7 +79,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -116,7 +116,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -162,7 +162,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -205,7 +205,7 @@ Re-provision the **afm** module if previously deprovisioned.
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
