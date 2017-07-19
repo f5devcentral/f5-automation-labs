@@ -31,7 +31,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 :: 
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
@@ -72,7 +72,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -123,7 +123,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -159,7 +159,7 @@ The **asm** module is provisioned using an HTTP PATCH with a body containing a p
 
 :: 
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 

@@ -168,7 +168,7 @@ Ensure that the authentication token has been copied from the BIG-IP response an
 
 ::
 
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
@@ -205,7 +205,7 @@ Ensure that the authentication token has been copied from the BIG-IP response an
 ::
 
     Content-Type: application/json
-    X-F5-Auth-Token: UNNTQM2S27E4RSXY7BRLQVTCSC
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Body**
 
