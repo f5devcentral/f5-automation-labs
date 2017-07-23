@@ -1,0 +1,64 @@
+{
+  "id": "730cc92b-1da7-df4f-2d76-417017206550",
+  "name": "f5-newman-environment",
+  "values": [
+    {
+      "key": "bigip_username",
+      "type": "text",
+      "value": "admin",
+      "enabled": true
+    },
+    {
+      "key": "bigip_password",
+      "type": "text",
+      "value": "admin",
+      "enabled": true
+    },
+    {
+      "key": "bigip_mgmt",
+      "type": "text",
+      "value": "10.1.1.4",
+      "enabled": true
+    },
+    {
+      "key": "bigip_partition",
+      "type": "text",
+      "value": "Common",
+      "enabled": true
+    },
+    {
+      "key": "bigip_pool_name",
+        "type": "text",
+      "value": "f5-newman-pool",
+      "enabled": true
+    },
+    {
+      "key": "bigip_pool_member",
+      "type": "text",
+      "value": "f5-newman-node",
+      "enabled": true
+    },
+    {
+      "key": "bigip_object_state",
+      "type": "text",
+      "value": "enabled",
+      "enabled": true
+    },
+    {
+      "key": "bigip_vs_name",
+      "type": "text",
+      "value": "f5-newman-virtual",
+      "enabled": true
+    },
+    {
+      "key": "bigip_node_name",
+      "type": "text",
+      "value": "f5-newman-node",
+      "enabled": true
+    }
+  ],
+  "timestamp": 1484540812076,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-01-16T04:26:55.192Z",
+  "_postman_exported_using": "Postman/4.9.2"
+}
