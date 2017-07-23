@@ -1,0 +1,142 @@
+{
+	"variables": [],
+	"info": {
+		"name": "f5-newman-build",
+		"_postman_id": "f9458642-e68e-d03b-5e85-b8cc0f90398e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Build a Basic LTM Config",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Create a HTTP Monitor",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/monitor/http",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_http_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Create a Pool",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip__token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Create a HTTP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/http",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip__token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"module_3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Create a TCP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/tcp",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 5: Create a Virtual Server",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/virtual",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_vs\",\n    \"destination\":\"10.1.20.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"module_3_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/module_3_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/module_3_http\"\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
