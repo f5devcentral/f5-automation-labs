@@ -1,0 +1,11 @@
+{
+	"repos": [
+		{
+			"name":"Local_Mapped_Repository",
+			"repo":"https://github.com/jmcalalang/f5-automation-labs.git",
+			"branch":"develop",
+			"skip":false,
+			"skipinstall":true
+		}
+	]
+}

@@ -1,0 +1,38 @@
+{
+        "name":"f5-newman-build-1",
+        "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
+        "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
+        "globalOptions": {
+                "insecure":true,
+                "reporters":["cli"]
+        },
+        "globalVars": {
+                "bigip_mgmt": "10.1.1.4",
+                "bigip_username":"admin",
+                "bigip_password":"admin",
+                "bigip_partition":"Common",
+                "bigip_pool_name":"f5-newman-pool",
+                "bigip_pool_member":"f5-newman-node",
+                "bigip_object_state":"disabled",
+                "bigip_vs_name":"f5-newman-virtual",
+                "bigip_node_name":"f5-newman-node",
+                "bigip_token":""
+        },
+        "workflow": [
+                {
+                        "name":"Authenticate to BIG-IP",
+                        "options": {
+                                "collection":"/home/snops/f5-postman-workflows/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
+                                "folder":"1_Authenticate"
+                        }
+                },
+                {
+                        "name":"Get BIG-IP Software Version",
+                        "skip":false,
+                        "options": {
+                                "collection":"/home/snops/f5-postman-workflows/BIGIP_Operational_Workflows.postman_collection.json",
+                                "folder":"4A_Get_BIGIP_Version"
+                        }
+                }
+        ]
+}
