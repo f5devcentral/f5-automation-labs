@@ -1,5 +1,5 @@
 {
-        "name":"f5-newman-build-2",
+        "name":"f5-newman-build-1",
         "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
         "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
         "globalOptions": {
@@ -26,11 +26,11 @@
                         }
                 },
                 {
-                        "name":"Get BIG-IP Software Version",
+                        "name":"f5-newman-build",
                         "skip":false,
                         "options": {
-                                "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json",
-                                "folder":"4A_Get_BIGIP_Version"
+                                "collection":"/home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build.postman_collection.json",
+                                "folder":"Add Members to LTM Config"
                         }
                 }
         ]

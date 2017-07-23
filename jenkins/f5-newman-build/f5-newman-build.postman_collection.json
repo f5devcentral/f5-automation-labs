@@ -8,6 +8,37 @@
 	},
 	"item": [
 		{
+			"name": "Add Members to LTM Config",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Create a Pool",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip__token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Build a Basic LTM Config",
 			"description": "",
 			"item": [
@@ -49,13 +80,13 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_token}}",
+								"value": "{{bigip__token}}",
 								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.200:80\"]\n}"
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -74,7 +105,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_token}}",
+								"value": "{{bigip__token}}",
 								"description": ""
 							}
 						],
