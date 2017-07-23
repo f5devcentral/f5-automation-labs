@@ -14,7 +14,7 @@
 				{
 					"name": "Step 1: Add Members to  Pool",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/module_3_pool",
 						"method": "PATCH",
 						"header": [
 							{
@@ -24,7 +24,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_token}}",
+								"value": "{{bigip__token}}",
 								"description": ""
 							}
 						],

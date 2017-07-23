@@ -29,7 +29,7 @@
                         "name":"f5-newman-build",
                         "skip":false,
                         "options": {
-                                "collection":"/home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build.postman_collection.json",
+                                "collection":"/home/snops/Local_Mapped_Repository/f5-newman-collections/jenkins/f5-newman-build.postman_collection.json",
                                 "folder":"Build a Basic LTM Config"
                         }
                 }
