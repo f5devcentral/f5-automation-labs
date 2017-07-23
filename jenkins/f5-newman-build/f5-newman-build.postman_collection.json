@@ -12,7 +12,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Step 1: Create a Pool",
+					"name": "Step 1: Add Members to  Pool",
 					"request": {
 						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
 						"method": "PATCH",
@@ -30,7 +30,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.200:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -70,6 +70,15 @@
 				{
 					"name": "Step 2: Create a Pool",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "admin",
+								"password": "password",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
 						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
 						"method": "POST",
 						"header": [
@@ -80,13 +89,19 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip__token}}",
+								"value": "ZLLTFZPDUZ2Y2ANRVIZPGED4FM",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46cGFzc3dvcmQ=",
 								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\"\n}"
 						},
 						"description": ""
 					},
@@ -105,7 +120,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip__token}}",
+								"value": "{{bigip_token}}",
 								"description": ""
 							}
 						],
