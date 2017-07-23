@@ -1,20 +1,14 @@
-We have to work from Code.
-
-
-We now have the Framework limitations of the Programmability Lab.
-
 High level workflow:
 
-Reuse Programmability Lab Module #3 and #4
+GitHub - Show off where we’ll be working from
 
-GitHub
-
-Postman
+What is the SNOPS container
 
 Newman
 
 Jenkins + Newman + Slack
+- Workflow 1-2 Builds
+- Workflow 3-4 Operations
 
-Generate the Workflow Demo
-
-new Env
+Current Testing call
+docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -v "/home/user_repos.json:/tmp/user_repos.json" -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins
