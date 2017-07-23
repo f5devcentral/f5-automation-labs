@@ -24,7 +24,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip__token}}",
+								"value": "{{bigip_token}}",
 								"description": ""
 							}
 						],
