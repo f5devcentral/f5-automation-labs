@@ -55,7 +55,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.200:80\"]\n}"
 						},
 						"description": ""
 					},
