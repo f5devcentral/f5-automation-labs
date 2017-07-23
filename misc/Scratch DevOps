@@ -11,4 +11,6 @@ Jenkins + Newman + Slack
 - Workflow 3-4 Operations
 
 Current Testing call
-docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -v "/home/user_repos.json:/tmp/user_repos.json" -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins
+
+
+docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -v "/Volumes/JC Drive/GitHub Repository/f5-automation-labs/misc/user_repos.json:/tmp/user_repos.json" -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins
