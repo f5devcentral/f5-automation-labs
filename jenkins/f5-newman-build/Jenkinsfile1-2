@@ -1,8 +1,4 @@
 node {
-   stage('Preparation') {
-      // Get some code from a GitHub repository
-      git 'https://github.com/jmcalalang/f5-automation-labs/f5-newman-build/jenkins1-2.git'
-   }
    stage('Testing') {
       //Run the tests
       //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-1"
