@@ -161,7 +161,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"10.1.10.200:80\"]\n}"
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"216.16.74.15:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -212,7 +212,7 @@
 					},
 					"response": [
 						{
-							"id": "706706f5-3699-459c-a7d5-14c61dbdde69",
+							"id": "dfa341cc-30d4-4504-acad-13d3022b9e57",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -325,7 +325,7 @@
 					},
 					"response": [
 						{
-							"id": "d85e960f-5fac-40d4-94e0-ded08de902f1",
+							"id": "070de39a-88f6-4348-80ce-8d3697230b67",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -465,13 +465,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{bigip_object_session}}\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "ed844c05-a991-47fa-af8b-11aff59e33b4",
+							"id": "eb680bcf-310e-4ee7-a54e-89e2d5b10b26",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -590,7 +590,7 @@
 					},
 					"response": [
 						{
-							"id": "02f3d929-ceeb-421c-85c4-006bca2b7c5c",
+							"id": "9fed25a3-a9d0-4c40-8d0d-c3f709118b2c",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -703,7 +703,7 @@
 					},
 					"response": [
 						{
-							"id": "63046125-6acb-4fcd-8ae2-bdf6368be3e4",
+							"id": "67ae237d-9746-4430-9ea8-9f6877ce42eb",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -843,13 +843,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{bigip_object_session}}\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "bc6711ba-6a91-44ac-8156-ac28e8d209d7",
+							"id": "541f9234-1245-44ee-a60c-0aafef2cde85",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
