@@ -3,14 +3,14 @@ node {
       //Run the tests
       //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-4"
    }
-   stage('Build') {
+   stage('Enable-Node') {
        //Run SNOPS Container Newman Package Virtual and Pool
       sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-4"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',
          color: 'good',
-         message: 'f5-newman-node is enabled!',
+         message: 'Super-NetOps Engineer just enabled a Service Node!',
          teamDomain: 'f5agilitydevops',
          token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
          )
