@@ -13,9 +13,13 @@
                 "bigip_partition":"Common",
                 "bigip_pool_name":"module_3_pool",
                 "bigip_pool_member":"10.1.10.100:80",
-                "bigip_object_state":"enabled",
+                "bigip_object_state":"disabled",
                 "bigip_vs_name":"module_3_vs",
-                "bigip_node_name":"10.1.10.100"
+                "bigip_vs_destination":"10.1.20.129:80",
+                "bigip_node_name":"10.1.10.100",
+                "bigip_http_monitor":"module_3_http_monitor",
+                "bigip_http_profile":"module_3_http",
+                "bigip_tcp_profile":"module_3_tcp_clientside"
         },
         "workflow": [
                 {

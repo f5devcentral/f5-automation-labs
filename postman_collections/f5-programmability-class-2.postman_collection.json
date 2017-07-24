@@ -30,7 +30,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_http_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
+							"raw": "{\n    \"name\":\"{{bigip_http_monitor}}\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
 						},
 						"description": ""
 					},
@@ -55,7 +55,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"monitor\":\"/Common/module_3_http_monitor\"\n}"
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"monitor\":\"/Common/{{bigip_http_monitor}}\"\n}"
 						},
 						"description": ""
 					},
@@ -80,7 +80,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"module_3\"\n}"
+							"raw": "{\n    \"name\":\"{{bigip_http_profile}}\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"module_3\"\n}"
 						},
 						"description": ""
 					},
@@ -105,7 +105,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
+							"raw": "{\n    \"name\":\"{{bigip_tcp_profile}}\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
 						},
 						"description": ""
 					},
@@ -130,7 +130,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_vs\",\n    \"destination\":\"10.1.20.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"module_3_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/module_3_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/module_3_http\"\n    ]\n}"
+							"raw": "{\n    \"name\":\"{{bigip_vs_name}}\",\n    \"destination\":\"{{bigip_vs_destination}}\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"{{bigip_pool_name}}\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/{{bigip_partition}}/{{bigip_tcp_profile}}\", \"context\":\"clientside\" },\n        { \"name\":\"/{{bigip_partition}}/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/{{bigip_partition}}/{{bigip_http_profile}}\"\n    ]\n}"
 						},
 						"description": ""
 					},
@@ -145,7 +145,7 @@
 				{
 					"name": "Step 1: Add Members to  Pool",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/module_3_pool",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/{{bigip_pool_name}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -161,7 +161,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"module_3_pool\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.200:80\"]\n}"
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"10.1.10.200:80\"]\n}"
 						},
 						"description": ""
 					},
@@ -212,7 +212,7 @@
 					},
 					"response": [
 						{
-							"id": "351845c9-0232-4f73-82cc-0c9af9d4a656",
+							"id": "706706f5-3699-459c-a7d5-14c61dbdde69",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -325,7 +325,7 @@
 					},
 					"response": [
 						{
-							"id": "05cec734-1e71-44b2-b24a-d840e89fe648",
+							"id": "d85e960f-5fac-40d4-94e0-ded08de902f1",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -465,13 +465,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"state\":\"{{_rt_member_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "f510e7f8-4254-4c4e-8969-8625b27747ed",
+							"id": "ed844c05-a991-47fa-af8b-11aff59e33b4",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -590,7 +590,7 @@
 					},
 					"response": [
 						{
-							"id": "0ce6fc9b-b113-44e1-b649-f9706c85ba6e",
+							"id": "02f3d929-ceeb-421c-85c4-006bca2b7c5c",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -703,7 +703,7 @@
 					},
 					"response": [
 						{
-							"id": "9ca4c01e-498b-41b9-993a-3717b4127579",
+							"id": "63046125-6acb-4fcd-8ae2-bdf6368be3e4",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -843,13 +843,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"state\":\"{{_rt_member_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{_rt_member_session}}\"\n}"
 						},
 						"description": ""
 					},
 					"response": [
 						{
-							"id": "ccaadb78-02ab-4b4c-a38b-510c5d9369fe",
+							"id": "bc6711ba-6a91-44ac-8156-ac28e8d209d7",
 							"name": "Example",
 							"status": "OK",
 							"code": 200,
@@ -932,7 +932,7 @@
 				{
 					"name": "Step 1: Delete a Virtual Server",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/virtual/module_3_vs",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/virtual/{{bigip_vs_name}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -957,7 +957,7 @@
 				{
 					"name": "Step 2: Delete a TCP Profile",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/tcp/module_3_tcp_clientside",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/tcp/{{bigip_tcp_profile}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -982,7 +982,7 @@
 				{
 					"name": "Step 3: Delete a HTTP Profile",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/http/module_3_http",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/http/{{bigip_http_profile}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1007,7 +1007,7 @@
 				{
 					"name": "Step 4: Delete a Pool",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/module_3_pool",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/{{bigip_pool_name}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1032,7 +1032,7 @@
 				{
 					"name": "Step 5: Delete a HTTP Monitor",
 					"request": {
-						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/monitor/http/module_3_http_monitor",
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/monitor/http/{{bigip_http_monitor}}",
 						"method": "DELETE",
 						"header": [
 							{
