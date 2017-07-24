@@ -12,7 +12,7 @@
                 "bigip_password":"admin",
                 "bigip_partition":"Common",
                 "bigip_pool_name":"module_3_pool",
-                "bigip_pool_member":"10.1.10.100",
+                "bigip_pool_member":"10.1.10.100:80",
                 "bigip_object_state":"enabled",
                 "bigip_vs_name":"module_3_vs",
                 "bigip_node_name":"10.1.10.100"
