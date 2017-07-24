@@ -11,11 +11,11 @@
                 "bigip_username":"admin",
                 "bigip_password":"admin",
                 "bigip_partition":"Common",
-                "bigip_pool_name":"f5-newman-pool",
-                "bigip_pool_member":"f5-newman-node",
-                "bigip_object_state":"disabled",
-                "bigip_vs_name":"f5-newman-virtual",
-                "bigip_node_name":"f5-newman-node"
+                "bigip_pool_name":"module_3_pool",
+                "bigip_pool_member":"10.1.10.100",
+                "bigip_object_state":"enabled",
+                "bigip_vs_name":"module_3_vs",
+                "bigip_node_name":"10.1.10.100"
         },
         "workflow": [
                 {
