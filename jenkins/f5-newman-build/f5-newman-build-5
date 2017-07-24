@@ -1,5 +1,5 @@
 {
-        "name":"f5-newman-build-4",
+        "name":"f5-newman-build-5",
         "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
         "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
         "globalOptions": {
@@ -26,11 +26,11 @@
                         }
                 },
                 {
-                        "name":"4 - Enable Node",
+                        "name":"5 - Clean Up Service",
                         "skip":false,
                         "options": {
                                 "collection":"/home/snops/Local_Mapped_Repository/postman_collections/f5-programmability-class-2.postman_collection.json",
-                                "folder":"4 - Enable Node"
+                                "folder":"5 - Clean Up Service"
                         }
                 }
         ]

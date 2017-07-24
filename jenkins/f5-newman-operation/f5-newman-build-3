@@ -26,11 +26,11 @@
                         }
                 },
                 {
-                        "name":"Get BIG-IP Software Version",
+                        "name":"3 - Disable Node",
                         "skip":false,
                         "options": {
-                                "collection":"/home/snops/Local_Mapped_Repository/f5-newman-collections/jenkins/f5-newman-build.postman_collection.json",
-                                "folder":"Disable Members in LTM Config"
+                                "collection":"/home/snops/Local_Mapped_Repository/postman_collections/f5-programmability-class-2.postman_collection.json",
+                                "folder":"3 - Disable Node"
                         }
                 }
         ]

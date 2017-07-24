@@ -26,11 +26,11 @@
                         }
                 },
                 {
-                        "name":"f5-newman-build",
+                        "name":"1 - Build a Basic LTM Config",
                         "skip":false,
                         "options": {
-                                "collection":"/home/snops/Local_Mapped_Repository/f5-newman-collections/jenkins/f5-newman-build.postman_collection.json",
-                                "folder":"Build a Basic LTM Config"
+                                "collection":"/home/snops/Local_Mapped_Repository/postman_collections/f5-programmability-class-2.postman_collection.json",
+                                "folder":"1 - Build a Basic LTM Config"
                         }
                 }
         ]
