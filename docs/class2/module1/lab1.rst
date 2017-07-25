@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 3
+.. |labmodule| replace:: 1
 .. |labnum| replace:: 1
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
@@ -74,5 +74,3 @@ Example output:
    You can issue the following commands in that case (this will stop ALL your container
    instances):
    ``sudo docker stop $(docker ps -aq)``
-
-
