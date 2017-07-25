@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – update\_pool\_member\_state.py
+Lab |labmodule|\.\ |labnum|\: update\_pool\_member\_state.py
 ------------------------------------------------------------
 
 One of the most common tasks asked for by customers is the ability to

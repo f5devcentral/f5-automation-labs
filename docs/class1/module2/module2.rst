@@ -1,5 +1,5 @@
-Module 2 – iWorkflow
-====================
+Module 2: iWorkflow
+===================
 
 In this module we will explore how to use F5’s iWorkflow platform to
 further abstract application services and deliver those services to

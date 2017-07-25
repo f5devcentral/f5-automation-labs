@@ -1,19 +1,19 @@
-LAB 3.0 - Provisioning ASM
-===========================
+Lab 3.0: Provisioning ASM
+=========================
 
-LAB 3.0 Overview
------------------
+Overview
+--------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **LAB 3.0 - Provisioning ASM**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Lab 3.0 - Provisioning ASM**.
 
-LAB 3.0 Specific Instructions
-------------------------------
+Specific Instructions
+---------------------
 
 Prior to performing the steps below, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **asm**.
 
-Follow the **LAB 3.0 - Provisioning ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the **Lab 3.0 - Provisioning ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. Deprovision AFM module
 --------------------------
@@ -76,7 +76,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 
 **Example Response**
 
-.. note:: The **asm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+.. NOTE:: The **asm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 13, 24
@@ -127,7 +127,7 @@ This request is will serve as an example of how to deprovision a BIG-IP module.
 
 **Example Response**
 
-.. note:: The **asm** module is currently not provisioned.
+.. NOTE:: The **asm** module is currently not provisioned.
 
 .. code-block:: rest
     :emphasize-lines: 9
@@ -172,7 +172,7 @@ The **asm** module is provisioned using an HTTP PATCH with a body containing a p
 
 **Example Response**
 
-.. note:: The **asm** module has been provisioned with a **level** of **nominal**.
+.. NOTE:: The **asm** module has been provisioned with a **level** of **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 9

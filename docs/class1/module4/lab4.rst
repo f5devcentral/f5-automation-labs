@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Run a workflow with f5-newman-wrapper
+Lab |labmodule|\.\ |labnum|\: Run a workflow with f5-newman-wrapper
 -------------------------------------------------------------------
 
 In this lab we will use the f5-super-netops-container to run the workflow we

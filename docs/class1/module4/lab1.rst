@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Install the f5-postman-workflows Framework
+Lab |labmodule|\.\ |labnum|\: Install the f5-postman-workflows Framework
 ------------------------------------------------------------------------
 
 In this lab you will walk through installing the f5-postman-workflows

@@ -1,5 +1,5 @@
-LAB 1.1 - Exploring iControl
-==========================================
+Lab 1.1: Exploring iControl
+===========================
 
 The iControl REST API available via TMOS can be directly accessed and endpoints explored.
 

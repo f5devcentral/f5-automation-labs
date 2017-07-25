@@ -1,17 +1,17 @@
-LAB 2.2 - Create AFM Policy
-============================
+Lab 2.2: Create AFM Policy
+==========================
 
-LAB 2.2 Overview
------------------
+Overview
+--------
 
 In this lab, the iControl REST based API will be used to create a firewall policy that will leverage the previously created address list.
 
-LAB 2.2 Specific Instructions
-------------------------------
+Specific Instructions
+---------------------
 
-Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the **Lab 2.2 - Create AFM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. List AFM policies
 ---------------------
@@ -33,7 +33,7 @@ Follow the **LAB 2.2 - Create AFM Policy** steps in order found in the Postman c
 ::
 
     {
-        "kind": "tm:security:firewall:policy:policycollectionstate",
+        "kind": "tm:security:firewall:policy:policycollectionstate",ƒ
         "selfLink": "https://localhost/mgmt/tm/security/firewall/policy?ver=13.0.0",
         "items": [
             {
@@ -79,7 +79,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 **Example Response**
 
-.. note:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is ``~Common~global_default_deny``.
+.. NOTE:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is ``~Common~global_default_deny``.
 
 .. code-block:: rest
     :emphasize-lines: 3, 7
@@ -114,7 +114,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 **Example Response**
 
-.. note:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
+.. NOTE:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
 
 .. code-block:: rest
     :emphasize-lines: 4
@@ -221,7 +221,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 
 **Example Response**
 
-.. note:: Copy the newly created rule name ``allow_google-dns`` and populate the {{afm_policy_rule}} Postman environment variable.
+.. NOTE:: Copy the newly created rule name ``allow_google-dns`` and populate the {{afm_policy_rule}} Postman environment variable.
 
 .. code-block:: rest
     :emphasize-lines: 3-4, 7-21

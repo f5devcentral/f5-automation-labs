@@ -6,7 +6,7 @@
 .. |labnameund| replace:: Lab\ |labund|
 
 
-Lab |labmodule|\.\ |labnum| – EXTRA CREDIT – Review super\_pool.py
+Lab |labmodule|\.\ |labnum|\: EXTRA CREDIT – Review super\_pool.py
 ------------------------------------------------------------------
 
 This is an open-ended exercise. Review and run the ``super_pool.py``

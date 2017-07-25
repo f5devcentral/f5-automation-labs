@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Deploy L4-7 Services
+Lab |labmodule|\.\ |labnum|\: Deploy L4-7 Services
 --------------------------------------------------
 
 To drive iApp automation-based L4-7 deployments, iWorkflow includes the

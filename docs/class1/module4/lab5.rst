@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Building Complex Workflows
+Lab |labmodule|\.\ |labnum|\: Building Complex Workflows
 --------------------------------------------------------
 
 In the previous lab we reviewed and ran a very simple workflow.  To support

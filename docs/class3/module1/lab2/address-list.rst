@@ -1,17 +1,17 @@
-LAB 2.1 - Create AFM Address List
-==================================
+Lab 2.1: Create AFM Address List
+================================
 
-LAB 2.1 Overview
------------------
+Overview
+--------
 
 In this lab, the iControl REST based API will be used to create an address list that will be used with an AFM policy in a later lab.
 
-LAB 2.1 Specific Instructions
-------------------------------
+Specific Instructions
+----------------------
 
-Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the **Lab 2.1 - Create AFM Address List** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. List Firewall Policies
 --------------------------
@@ -30,7 +30,7 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
 **Example Response**
 
-.. note:: A test policy has already been created on the BIG-IP for demonstration purposes.
+.. NOTE:: A test policy has already been created on the BIG-IP for demonstration purposes.
 
 ::
 
@@ -70,7 +70,7 @@ Follow the **LAB 2.1 - Create AFM Address List** steps in order found in the Pos
 
 **Example Response**
 
-.. note:: A test address list has already been created on the BIG-IP for demonstration purposes.
+.. NOTE:: A test address list has already been created on the BIG-IP for demonstration purposes.
 
 ::
 
@@ -198,11 +198,11 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
     Content-Type: application/json
     X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
-.. note:: Include the contents of the address list plus the new address(es) to ensure that the contents are not overwritten.
+.. NOTE:: Include the contents of the address list plus the new address(es) to ensure that the contents are not overwritten.
 
 **Body**
 
-.. warning:: When patching an address list, be sure to include all addresses (e.g. existing and new) to ensure that the list does not get overwritten.
+.. WARNING:: When patching an address list, be sure to include all addresses (e.g. existing and new) to ensure that the list does not get overwritten.
 
 ::
 

@@ -1,19 +1,19 @@
-LAB 2.0 - Provisioning AFM
-==========================
+Lab 2.0: Provisioning AFM
+=========================
 
-LAB 2.0 Overview
-----------------
+Overview
+--------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **Lab 2 - CONFIGURING AFM**.
 
-LAB 2.0 Specific Instructions
-------------------------------
+Specific Instructions
+---------------------
 
 Prior to performing the below steps, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **afm**.
 
-Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the **Lab 2 - CONFIGURING AFM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. Retrieve all module provision states
 ---------------------------------------
@@ -32,7 +32,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 **Example Response**
 
-.. note:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+.. NOTE:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 13, 24
@@ -83,7 +83,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 **Example Response**
 
-.. note:: The **afm** module should still be provisioned after performing the steps in Lab 1.
+.. NOTE:: The **afm** module should still be provisioned after performing the steps in Lab 1.
 
 .. code-block:: rest
     :emphasize-lines: 9 
@@ -103,11 +103,11 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 3.1. Provision module (OPTIONAL)
 --------------------------------
 
-.. warning:: This step is optional and should only be performed if **afm**is not provisioned.
+.. WARNING:: This step is optional and should only be performed if **afm** is not provisioned.
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
-.. note:: Performing a provision/deprovion operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
+.. NOTE:: Performing a provision/deprovion operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
 
 .. code-block:: rest
 
@@ -142,7 +142,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
 
 **Example Response**
 
-.. note:: The **afm** module has been provisioned with a **level** of **nominal**.
+.. NOTE:: The **afm** module has been provisioned with a **level** of **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 9

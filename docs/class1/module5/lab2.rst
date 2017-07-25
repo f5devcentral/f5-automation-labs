@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – read\_pool.py
+Lab |labmodule|\.\ |labnum|\: read\_pool.py
 -------------------------------------------
 
 In this lab we will review, line-by-line an example script that has been

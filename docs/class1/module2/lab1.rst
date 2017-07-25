@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – iWorkflow Authentication
+Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
 ------------------------------------------------------
 
 iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP

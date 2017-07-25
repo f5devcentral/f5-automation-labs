@@ -1,19 +1,19 @@
-LAB 1.4 - Building a Basic LTM Config
-======================================
+Lab 1.4: Building a Basic LTM Config
+====================================
 
-LAB 1.4 Overview
------------------
+Overview
+--------
 
 In this lab, the iControl REST API will be used to build a basic monitor, node, pool, and virtual server configuration on the BIG-IP.
 
-LAB 1.4 Specific Instructions
-------------------------------
+Specific Instructions
+---------------------
 
 Prior to performing the below steps, validate that the Hackazon web site is not accessible via the Windows jump box by clicking on the Hackazon bookmark in the Chrome toolbar.
 
 Follow the **Lab 1.4 - Building a Basic LTM Config** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. Create an HTTP Monitor
 --------------------------
@@ -285,7 +285,7 @@ An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the
 
 **Example Response**
 
-.. note:: The profiles for this virtual server is a subcollection.  This collection can be access by performing a GET on the profiles endpoint for this specific virtual server ``https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles``.
+.. NOTE:: The profiles for this virtual server is a subcollection.  This collection can be access by performing a GET on the profiles endpoint for this specific virtual server ``https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles``.
 
 .. code-block:: rest
     :emphasize-lines: 3, 15, 20, 30, 31, 32, 43, 44, 45, 46
