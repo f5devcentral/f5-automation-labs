@@ -94,6 +94,34 @@ cleanname = re.sub('\W+','',project)
 year = time.strftime("%Y")
 eventname = "Agility %s Hands-on Lab Guide" % (year)
 
+rst_prolog = """
+.. |classname| replace:: %s
+.. |classbold| replace:: **%s**
+.. |classitalic| replace:: *%s*
+.. |ltm| replace:: Local Traffic Manager
+.. |adc| replace:: Application Delivery Controller
+.. |gtm| replace:: Global Traffic Manager
+.. |dns| replace:: DNS
+.. |asm| replace:: Application Security Manager
+.. |afm| replace:: Advanced Firewall Manager
+.. |apm| replace:: Access Policy Manager
+.. |pem| replace:: Policy Enforcement Manager
+.. |ipi| replace:: IP Intelligence
+.. |iwf| replace:: iWorkflow
+.. |biq| replace:: BIG-IQ
+.. |bip| replace:: BIG-IP
+.. |aiq| replace:: APP-IQ
+.. |ve|  replace:: Virtual Edition
+.. |icr| replace:: iControl REST API
+.. |ics| replace:: iControl SOAP API
+.. |f5|  replace:: F5 Networks
+.. |f5i| replace:: F5 Networks, Inc.
+.. |year| replace:: %s
+""" % (classname,
+       classname,
+       classname,
+       year)
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
