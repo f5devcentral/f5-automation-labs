@@ -1,10 +1,9 @@
-Module 3 – f5-newman-wrapper + Jenkins + Slack
+Module 3 – Stitching Workflows from F5 Programmability Class 1 into new executable collections
 ===================================================
 
-In the previous modules you may have found the tasks associated with checking
-various response values and populating environment variables very tedious. In
-addition to being tedious these tasks are not fundamentally automatable due
-to the requirement for human interaction.
+In the previous modules have shown you the individual workflows (Class 1),
+and how to execute those via Rest. What we will be working on now is stitching
+together those Class 1 collection items with for use with f5-newman-wrapper.
 
 In order to assist users with automating the F5 BIG-IP platform we have
 developed a set of tools that can be used with the Postman REST Client
