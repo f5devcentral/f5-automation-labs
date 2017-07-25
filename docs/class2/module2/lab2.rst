@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 4
+.. |labmodule| replace:: 2
 .. |labnum| replace:: 2
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
@@ -48,7 +48,7 @@ Execute the following steps to complete this task:
 #. Expand the ``BIGIP_API_Authentication`` collection.  Within the
    collection you will see one folder named ``1_Authenticate``.  Folders
    are used to organize various workflows within a collection.  In this case
-   this collection performs exactly one task, authetication, therefore one
+   this collection performs exactly one task, authentication, therefore one
    folder is present.
 #. Expand the ``1_Authenticate`` folder.  Notice there are three requests
    in the folder.  These three requests will be executed in a synchronous
@@ -89,7 +89,7 @@ Execute the following steps to complete this task:
 
 #. Create a new Postman environment by clicking the Gear icon -> Manage
    Environments -> Add.
-#. Name the environment ``Lab 4.2`` and populate the following key/value
+#. Name the environment ``Lab 1.2`` and populate the following key/value
    pairs:
 
    - **bigip_mgmt**: 10.1.1.4
@@ -97,11 +97,11 @@ Execute the following steps to complete this task:
    - **bigip_password**: admin
 
 #. Click the 'Add' button, then close the 'Manage Environments' window.
-#. Select the ``Lab 4.2`` environment:
+#. Select the ``Lab 2.2`` environment:
 
    |image83|
 
-The preceeding steps configured the Input Variables required for all the folders
+The preceding steps configured the Input Variables required for all the folders
 that comprise our workflow.  We will now manually execute all the requests in
 the folders.
 

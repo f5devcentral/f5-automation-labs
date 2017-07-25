@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 4
+.. |labmodule| replace:: 1
 .. |labnum| replace:: 4
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
@@ -169,4 +169,3 @@ Task 1 - Run a f5-newman-wrapper Workflow
 Notice that the ``bigip_version`` and ``bigip_build`` variables were
 saved.  This file is JSON formatted and can easily be used directly
 by other tools to drive further automation.
-
