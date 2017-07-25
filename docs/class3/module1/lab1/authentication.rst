@@ -1,5 +1,5 @@
-LAB 1.2 - API Authentication
-=============================
+Lab 1.2: API Authentication
+===========================
 
 .. |image-1| image:: /_static/class3/lab-1.png
 .. |image-2| image:: /_static/class3/lab-1_cert_warning.png
@@ -9,13 +9,13 @@ LAB 1.2 - API Authentication
 .. |image-1.2.2| image:: /_static/class3/lab-1.2.2.png
 .. |image-1.2.2_env| image:: /_static/class3/lab-1.2.2_env.png
 
-LAB 1.2 Overview
------------------
+Overview
+--------
 
 The iControl REST API requires initial authentication in the form of a username/password.  After authentication is successful, a token can be used to make subsequent API calls.
 
-LAB 1.2 Preface
-----------------
+Preface
+-------
 
 Prior to performing this lab, the Postman environment should be validated.  The **{{big_ip_a_mgmt}}** variable should be set to the host name of the BIG-IP's management GUI.  In this case, the Postman environment variable should already be set ```bigipa.f5demo.com``` for this lab.  
 
@@ -39,7 +39,7 @@ Prior to performing any of the below steps, ensure that you can log into the BIG
 
 #. Log into the BIG-IP using the default user name and password (admin/admin).
 
-.. warning:: If you do not first log into the BIG-IP and accept the invalid certificate with Chrome, Postman will state ```could not get any response``` when sending a request to the BIG-IP.
+.. WARNING:: If you do not first log into the BIG-IP and accept the invalid certificate with Chrome, Postman will state ```could not get any response``` when sending a request to the BIG-IP.
 
 |image-5|
 
@@ -52,7 +52,7 @@ In this lab, the basic authentication value is the base64-encoding of the BIG-IP
 
 Once successfully authenticated, the BIG-IP response will respond with an authentication token that should be copied and placed into the **{{big_ip_a_auth_token}}** Postman environment variable.
 
-.. attention:: Some response content has been removed for brevity.
+.. ATTENTION:: Some response content has been removed for brevity.
 
 1. HTTP BASIC Authentication
 -----------------------------
@@ -121,7 +121,7 @@ Once successfully authenticated, the BIG-IP response will respond with a 200 OK 
 
 **Example Response**
 
-.. note::  Notice that the **timeout** value is 1200 seconds.
+.. NOTE::  Notice that the **timeout** value is 1200 seconds.
 
 .. code-block:: rest
     :emphasize-lines: 6, 10
@@ -164,7 +164,7 @@ Ensure that the authentication token has been copied from the BIG-IP response an
 
 **Header**
 
-.. attention:: The following X-F5-Auth-Token is for example only.
+.. ATTENTION:: The following X-F5-Auth-Token is for example only.
 
 ::
 
@@ -217,7 +217,7 @@ Ensure that the authentication token has been copied from the BIG-IP response an
 
 **Example Response**
 
-.. note:: The **timeout** value is now 36000 seconds.
+.. NOTE:: The **timeout** value is now 36000 seconds.
 
 .. code-block:: rest
     :emphasize-lines: 6

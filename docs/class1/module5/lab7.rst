@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – EXTRA CREDIT – Modify create\_pool.py
+Lab |labmodule|\.\ |labnum|\: EXTRA CREDIT – Modify create\_pool.py
 -------------------------------------------------------------------
 
 This is an open-ended exercise. Copy ``create_pool.py`` to ``create_vs.py``

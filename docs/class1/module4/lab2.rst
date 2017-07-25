@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Manually Execute a Workflow
+Lab |labmodule|\.\ |labnum|\: Manually Execute a Workflow
 ---------------------------------------------------------
 
 In this lab we will walk through how to obtain two collections that use

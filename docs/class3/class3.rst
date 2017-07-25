@@ -21,8 +21,7 @@ This course will feature the following topics.
 * Create, modify and assign an AFM policy
 * Create, modify and assign an ASM policy
 
-Lab Guide
-----------
+**Lab Guide**
 
 This lab is divided into three parts.  Each section of the lab, will require 
 configuration of the BIG-IP, AFM, or ASM using the iControl REST based API.  
@@ -37,13 +36,11 @@ Prior to beginning the exercises, it is recommended to review the :doc:`/class3/
 #. Lab 2: Configuring AFM (Advanced Firewall Module)
 #. Lab 3: Configuring ASM (Application Security Module)
 
-Support
--------
+**Support**
 
 Bugs and enhancements can be made by opening an `issue`_ within the `GitHub`_ repository.
 
-Getting Started
-----------------
+**Getting Started**
 
 Please follow the instructions provided by the instructor to start your lab 
 and access your jump host.

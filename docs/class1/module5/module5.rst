@@ -1,5 +1,5 @@
-Module 5 - Python SDK
-=====================
+Module 5: Python SDK
+====================
 
 This module will cover the newly released F5 Python SDK. This SDK is
 released and maintained as a public GitHub repository at

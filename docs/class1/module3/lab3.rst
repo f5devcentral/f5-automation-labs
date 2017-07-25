@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Connect to f5-super-netops-container
+Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a

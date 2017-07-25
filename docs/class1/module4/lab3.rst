@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – f5-newman-wrapper Introduction
+Lab |labmodule|\.\ |labnum|\: f5-newman-wrapper Introduction
 ------------------------------------------------------------
 
 As shown in the previous lab we can manually execute collections and folders

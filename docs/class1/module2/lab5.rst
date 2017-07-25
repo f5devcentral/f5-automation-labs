@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – iWorkflow REST Proxy
+Lab |labmodule|\.\ |labnum|\: iWorkflow REST Proxy
 --------------------------------------------------
 
 In order to enable Imperative automation use cases, iWorkflow includes a
