@@ -1,4 +1,4 @@
-Module 3 – Stitching Workflows from F5 Programmability Class 1 into new executable collections
+Module 3 – Stitching Workflows from Class 1 into new Orchestratable Collections
 ===================================================
 
 In the previous modules have shown you the individual workflows (Class 1),
@@ -20,7 +20,7 @@ developed a set of tools that can be used with the Postman REST Client
   - Allow users to easily assemble Postman collections into workflows
   - Enabled integration with third-party tools such as Ansible, Chef & Puppet
 
-The framework allows collection developers to create automable collections that
+The framework allows collection developers to create automatable collections that
 include full testing of response values, population of environment variables to
 establish chains of requests and time-based polling to allow long-lived API
 processes time to complete.
