@@ -1,13 +1,13 @@
 LAB 1.2 - API Authentication
 =============================
 
-.. |image-1| image:: ../images/lab-1.png
-.. |image-2| image:: ../images/lab-1_cert_warning.png
-.. |image-3| image:: ../images/lab-1_cert_warning_accept.png
-.. |image-4| image:: ../images/lab-1_big-ip.png
-.. |image-5| image:: ../images/lab-1_postman_warning.png
-.. |image-1.2.2| image:: ../images/lab-1.2.2.png
-.. |image-1.2.2_env| image:: ../images/lab-1.2.2_env.png
+.. |image-1| image:: /_static/class3/lab-1.png
+.. |image-2| image:: /_static/class3/lab-1_cert_warning.png
+.. |image-3| image:: /_static/class3/lab-1_cert_warning_accept.png
+.. |image-4| image:: /_static/class3/lab-1_big-ip.png
+.. |image-5| image:: /_static/class3/lab-1_postman_warning.png
+.. |image-1.2.2| image:: /_static/class3/lab-1.2.2.png
+.. |image-1.2.2_env| image:: /_static/class3/lab-1.2.2_env.png
 
 LAB 1.2 Overview
 -----------------

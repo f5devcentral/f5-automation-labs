@@ -1,19 +1,19 @@
 Postman Primer
 ===============
 
-.. |postman-icon| image:: ../images/postman-icon.png
-.. |primer-1.2| image:: ../images/primer-1.2.png
-.. |primer-1.3| image:: ../images/primer-1.3.png
-.. |primer-1.4| image:: ../images/primer-1.4.png
-.. |primer-1.5| image:: ../images/primer-1.5.png
-.. |primer-2.5-good| image:: ../images/primer-2.5-good.png
-.. |primer-2.5-bad| image:: ../images/primer-2.5-bad.png
-.. |primer-2.6| image:: ../images/primer-2.6.png
-.. |primer-2.7| image:: ../images/primer-2.7.png
-.. |primer-2.9| image:: ../images/primer-2.9.png
-.. |primer-2.10| image:: ../images/primer-2.10.png
-.. |primer-2.12| image:: ../images/primer-2.12.png
-.. |primer-2.13| image:: ../images/primer-2.13.png
+.. |postman-icon| image:: /_static/class3/postman-icon.png
+.. |primer-1.2| image:: /_static/class3/primer-1.2.png
+.. |primer-1.3| image:: /_static/class3/primer-1.3.png
+.. |primer-1.4| image:: /_static/class3/primer-1.4.png
+.. |primer-1.5| image:: /_static/class3/primer-1.5.png
+.. |primer-2.5-good| image:: /_static/class3/primer-2.5-good.png
+.. |primer-2.5-bad| image:: /_static/class3/primer-2.5-bad.png
+.. |primer-2.6| image:: /_static/class3/primer-2.6.png
+.. |primer-2.7| image:: /_static/class3/primer-2.7.png
+.. |primer-2.9| image:: /_static/class3/primer-2.9.png
+.. |primer-2.10| image:: /_static/class3/primer-2.10.png
+.. |primer-2.12| image:: /_static/class3/primer-2.12.png
+.. |primer-2.13| image:: /_static/class3/primer-2.13.png
 
 This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the |icr|.
 

@@ -1,8 +1,8 @@
 LAB 2.0 - Provisioning AFM
-===========================
+==========================
 
 LAB 2.0 Overview
------------------
+----------------
 
 In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **LAB 2 - CONFIGURING AFM**.
 
@@ -16,7 +16,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 .. attention:: Some response content has been removed for brevity.
 
 1. Retrieve all module provision states
-----------------------------------------
+---------------------------------------
 
 **Request**
 
@@ -67,7 +67,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
     }
 
 2. Retrieve single module provision state
-------------------------------------------
+-----------------------------------------
 
 **Request**
 
@@ -101,7 +101,7 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
     }
 
 3.1. Provision module (OPTIONAL)
-----------------------
+--------------------------------
 
 .. warning:: This step is optional and should only be performed if **afm**is not provisioned.
 
@@ -160,7 +160,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
     }
 
 3.2. Deprovision module
-------------------------
+-----------------------
 
 This request will serve as an example of how to deprovision a BIG-IP module.
 
@@ -203,7 +203,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
     }
 
 3.3. Re-provision module
----------------------------
+------------------------
 
 Re-provision the **afm** module if previously deprovisioned.
 
