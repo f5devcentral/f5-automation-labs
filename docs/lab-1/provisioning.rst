@@ -146,6 +146,17 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
         "memoryRatio": 0
     }
 
+.. note:: Performing a provision/deprovion operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
+
+.. code-block:: rest
+
+    {
+        "code": 400,
+        "message": "01071003:3: A previous provisioning operation is in progress. Try again when the BIGIP is active.",
+        "errorStack": [],
+        "apiError": 3
+    }
+
 3.2. Deprovision module
 ------------------------
 

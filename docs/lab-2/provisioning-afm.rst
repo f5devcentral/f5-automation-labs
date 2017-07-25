@@ -83,10 +83,10 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
 
 **Example Response**
 
-.. note:: The **afm** module is currently not provisioned.
+.. note:: The **afm** module should still be provisioned after performing the steps in Lab 1.
 
 .. code-block:: rest
-    :emphasize-lines: 9
+    :emphasize-lines: 9 
 
     {
         "kind": "tm:sys:provision:provisionstate",
@@ -100,10 +100,23 @@ Follow the **LAB 2 - CONFIGURING AFM** steps in order found in the Postman colle
         "memoryRatio": 0
     }
 
-3.1. Provision module
+3.1. Provision module (OPTIONAL)
 ----------------------
 
+.. warning:: This step is optional and should only be performed if **afm**is not provisioned.
+
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
+
+.. note:: Performing a provision/deprovion operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
+
+.. code-block:: rest
+
+    {
+        "code": 400,
+        "message": "01071003:3: A previous provisioning operation is in progress. Try again when the BIGIP is active.",
+        "errorStack": [],
+        "apiError": 3
+    }
 
 **Request**
 
@@ -149,7 +162,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
 3.2. Deprovision module
 ------------------------
 
-This request is will serve as an example of how to deprovision a BIG-IP module.
+This request will serve as an example of how to deprovision a BIG-IP module.
 
 **Request**
 
