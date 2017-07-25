@@ -138,28 +138,28 @@ You should see a page like this:
 Task 3 – Connect via Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- To connect to the image via Jenkins we must use the published port specified in the
- ``docker run`` command.  To review the command used to start the container was:
+To connect to the image via Jenkins we must use the published port specified in the
+``docker run`` command.  To review the command used to start the container was:
 
- ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
- f5devcentral/f5-super-netops-container:develop-jenkins``
+``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop
+f5devcentral/f5-super-netops-container:develop-jenkins``
 
- This will publish the standard Jenkins service on ``TCP/8080`` to ``TCP/10000`` on the
- Docker host.  In the case of the HTTP service the following mapping applies:
+This will publish the standard Jenkins service on ``TCP/8080`` to ``TCP/10000`` on the
+Docker host.  In the case of the HTTP service the following mapping applies:
 
- ``localhost:10000 -> f5-super-netops-container:8080``
+``localhost:10000 -> f5-super-netops-container:8080``
 
- .. NOTE:: There is no bookmark in your browser you may find it easier to
- reference later if you create one after connecting the first time
+.. NOTE:: There is no bookmark in your browser you may find it easier to
+reference later if you create one after connecting the first time
 
- To connect via HTTP open a web browser and enter the URL:
+To connect via HTTP open a web browser and enter the URL:
 
- ``http://localhost:10000``
+``http://localhost:10000``
 
- You should see a page like this:
+You should see a page like this:
 
 |image89|
 
- .. |image89| image:: /_static/image089.png
+.. |image89| image:: /_static/image089.png
     :align: middle
     :scale: 50%
