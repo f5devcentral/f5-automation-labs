@@ -24,8 +24,6 @@ To perform the steps required in the lab, `Postman`_ will be used from the Windo
 
 Prior to beginning the exercises, it is recommended to review the :doc:`/lab-overview/lab-topology`.  
 
-If you are unfamiliar with Postman, please reference the :doc:`/postman/postman-primer` before beginning.
-
 #. Lab 1: Configuring BIG-IP
 #. Lab 2: Configuring AFM (Advanced Firewall Module)
 #. Lab 3: Configuring ASM (Application Security Module)
@@ -53,16 +51,11 @@ Please follow the instructions provided by the instructor to start your lab and 
 .. toctree::
    :maxdepth: 2
    :hidden:
-
-   postman/postman-primer.rst
-
-.. toctree::
-   :maxdepth: 2
-   :hidden:
    :caption: Lab 1 - BIG-IP
    
    lab-1/lab-1-objectives.rst
    lab-1/exploring-icontrol.rst
+   lab-1/postman-primer.rst
    lab-1/authentication.rst
    lab-1/provisioning.rst
    lab-1/building-config.rst
