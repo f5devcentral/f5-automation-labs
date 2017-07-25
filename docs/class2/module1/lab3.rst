@@ -149,14 +149,16 @@ Task 3 – Connect via Jenkins
 
  ``localhost:10000 -> f5-super-netops-container:8080``
 
- .. NOTE:: Because we are working with a variant there is no bookmark in browser
-    you may find it easier to create one after connecting the first time
+ .. NOTE:: There is no bookmark in your browser you may find it easier to
+ reference later if you create one after connecting the first time
 
  To connect via HTTP open a web browser and enter the URL:
 
  ``http://localhost:10000``
 
  You should see a page like this:
+
+|image89|
 
  .. |image89| image:: /_static/image089.png
     :align: middle
