@@ -96,10 +96,10 @@ tcl/
 bin/
 
 # bash
-*.sh
+#*.sh
 
 # misc
-containthedocs*
+#containthedocs*
 
 # VS Code
 .vscode/*
