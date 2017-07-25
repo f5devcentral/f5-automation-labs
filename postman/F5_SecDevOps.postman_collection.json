@@ -1,0 +1,1820 @@
+{
+	"id": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+	"name": "F5 SecDevOps",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "ddeae80d-001f-93b1-6002-a615b05eb2e1",
+			"name": "Lab 1.2 - API Authentication",
+			"description": "",
+			"order": [
+				"4c80936c-bb0e-fb67-2c69-5f1004c755fc",
+				"7544982f-9f49-c0e5-67a2-0a487008b304",
+				"926bfcb0-6c50-897c-a0ba-6464a20c2363",
+				"a0384c1c-7e03-2588-1102-73c9c9493f25"
+			],
+			"owner": "1478405",
+			"collectionId": "794f0467-5900-3f7e-bde1-3b6ad682e133"
+		},
+		{
+			"id": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
+			"name": "Lab 1.3 - BIG-IP Module Provisioning",
+			"description": "",
+			"order": [
+				"e61dc558-8ed9-e2d3-4145-90bbc9f1828e",
+				"5154667c-00a3-fffa-8512-d90302379741",
+				"9c836d65-1c62-3a8b-8b7a-de95c6a4c8c6",
+				"4336a343-ca71-7e96-0d9d-3709416b4961",
+				"4cd97172-1af5-021c-984b-e2f904e8cdb9",
+				"c95912d6-6a6a-53a3-8b0d-7069dee46de1"
+			],
+			"owner": "1478405",
+			"collectionId": "794f0467-5900-3f7e-bde1-3b6ad682e133"
+		},
+		{
+			"id": "b8c6e3b9-4103-b934-477a-b667bb972ca6",
+			"name": "Lab 1.4 - Build a Basic LTM Config",
+			"description": "",
+			"order": [
+				"b74d37f5-f4a2-546c-e2b8-4626be95e5c8",
+				"e48b9d4f-0ac9-5757-2456-eaa6ffa1d987",
+				"e49f6ece-bc3e-0e63-91bc-478ceecaf480",
+				"40662a97-ab8a-f0d7-d574-e76b991a1379",
+				"45c8ac91-220b-4748-883c-ec5633a099bf",
+				"aebd1dc7-8b48-4bcc-eaaf-1dd498506cf8"
+			],
+			"owner": "1478405",
+			"collectionId": "794f0467-5900-3f7e-bde1-3b6ad682e133"
+		},
+		{
+			"id": "c94ec26b-978f-5d74-75ab-1d51bdd59068",
+			"name": "Lab 2.0 - Provisioning AFM",
+			"description": "",
+			"order": [
+				"1aa94d4b-39df-2911-f994-d150e7b2328c",
+				"391cc5f2-daef-ab9f-ef0d-0403cdcadd93",
+				"3c36b0c6-0103-e485-8ae9-f8df6169af03"
+			],
+			"owner": "1478405",
+			"collectionId": "794f0467-5900-3f7e-bde1-3b6ad682e133"
+		},
+		{
+			"id": "0efee0c6-c447-4185-824e-02058fde5d53",
+			"name": "Lab 2.1 - Create AFM Address List",
+			"description": "",
+			"order": [
+				"fff2519c-53c4-45ef-31a9-6616f9998041",
+				"043e9395-022b-d1db-b007-4f489af4697b",
+				"0bcef791-b10d-437f-d40c-7bded4893759",
+				"d830fc7d-a0c3-7649-7a00-4bf93b4674dd",
+				"4a57851a-bb69-f25b-0129-83acd5772e8e"
+			],
+			"owner": "1478405"
+		},
+		{
+			"id": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
+			"name": "Lab 2.2 - Create AFM Policy",
+			"description": "",
+			"order": [
+				"6930bd78-58f1-4ea6-2048-eed4f40f502e",
+				"dd7d848a-57be-4022-dd17-622f6ec0a133",
+				"eb72d00e-feb8-599b-9766-ac7e0504618d",
+				"63dc64b6-d263-a27b-380d-9ae9cba4d7d4",
+				"a8cefa39-c5e1-6f9c-9ea0-fbc3a2f23be2",
+				"f605f561-2f78-68ec-3665-41c2be9530f0",
+				"21f91e99-3158-93c3-360a-5843f3ed0f22",
+				"f203079f-1806-683a-4e94-42c1cf782566"
+			],
+			"owner": "1478405"
+		},
+		{
+			"id": "77fab817-fcbc-a2b9-d135-31c300e63d0e",
+			"name": "Lab 3.0 - Provision ASM",
+			"description": "",
+			"order": [
+				"b6839388-f6a8-66df-1e04-d0800edbb4ee",
+				"78798559-ac1d-43f1-14a2-abf539092aa1",
+				"b698f78a-b777-f035-52bb-1dec1fc40a4f",
+				"5ccea09f-1183-23ed-5ce8-a89710d2b4e4"
+			],
+			"owner": "1478405"
+		},
+		{
+			"id": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"name": "Lab 3.1 - Interact with ASM",
+			"description": "",
+			"order": [
+				"a91883b6-bff4-be36-ee66-71bf45330244",
+				"54376840-ba5a-2c25-6668-701783f5823a",
+				"3849cab2-97a7-ec59-7cd2-91c84235f8a5",
+				"cdd8b137-f539-d54e-70aa-736e69df25a2",
+				"5d5e36a4-3c1e-b161-31f9-bf0745029b22",
+				"7afa0222-de40-a6b0-e1c7-ed5b7978218c",
+				"dcbe89fc-0b70-1f86-2d72-41382960ab8b",
+				"e68138ea-45c0-62a0-b2b3-05b08ba36113",
+				"4d26330f-4067-d382-aa0b-9e91371f0011",
+				"4207cb22-2033-46c7-641a-f3cb2590f28a",
+				"fa4e3713-0005-79ea-0417-3cbb436cfc7d",
+				"84525537-b669-2eb0-ff63-9682e19f1130",
+				"32d61f6e-9261-0c6a-c93a-37b26d15e87d"
+			],
+			"owner": "1478405"
+		},
+		{
+			"id": "6a802c36-3c71-c22a-d57b-3843eb88d563",
+			"name": "Lab 3.2 - Create ASM Policy",
+			"description": "",
+			"order": [
+				"3e6f81d1-32f3-6c76-0c6f-b561ccd64de4",
+				"59ffd7d5-8b08-2fd2-fb97-e1b67ec06d15",
+				"d9187c35-454c-96c5-5b7b-21c8c221666d",
+				"0cabdd2d-d247-0873-6725-d3d5dcc0ec47",
+				"c7175368-41f5-3f42-c358-e367443749ba",
+				"79781ead-3110-0bc2-12cc-9fff0637e5aa"
+			],
+			"owner": "1478405"
+		},
+		{
+			"id": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
+			"name": "Lab 3.3 - Apply ASM Policy to VS",
+			"description": "",
+			"order": [
+				"0272cad9-6944-fe92-dc54-70e36832f784",
+				"df828a9b-bad2-2ec2-572d-b1982adac8bc",
+				"bf519e2d-06e3-989f-0299-b1e92ad155e2",
+				"ca153f42-fd62-0df2-bc11-6410f12bbaa7"
+			],
+			"owner": "1478405"
+		}
+	],
+	"timestamp": 0,
+	"owner": "1478405",
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "0272cad9-6944-fe92-dc54-70e36832f784",
+			"name": "1. Apply ASM Policy to VS",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n\t \"virtualServers\":[\"/Common/hackazon_vs\"]\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "043e9395-022b-d1db-b007-4f489af4697b",
+			"name": "2. List All Firewall Address Lists",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "0bcef791-b10d-437f-d40c-7bded4893759",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263005070,
+			"name": "3. Create Firewall Address List",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"google-dns_address_list\",\n  \"addresses\": [\n    {\n      \"name\": \"8.8.8.8\"\n    },\n    {\n      \"name\": \"8.8.4.4\"\n    }\n  ]\n}",
+			"folder": "0efee0c6-c447-4185-824e-02058fde5d53"
+		},
+		{
+			"id": "0cabdd2d-d247-0873-6725-d3d5dcc0ec47",
+			"name": "2.1. Retrieve ASM parent policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "1aa94d4b-39df-2911-f994-d150e7b2328c",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262965930,
+			"name": "1. Retrieve all module provision states",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "c94ec26b-978f-5d74-75ab-1d51bdd59068"
+		},
+		{
+			"id": "21f91e99-3158-93c3-360a-5843f3ed0f22",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263088013,
+			"name": "7. Disable policy rule",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n\t\"status\":\"disabled\"\n}",
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d"
+		},
+		{
+			"id": "32d61f6e-9261-0c6a-c93a-37b26d15e87d",
+			"name": "10. Retrieve ASM policy signature sets",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}/signature-sets",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "3849cab2-97a7-ec59-7cd2-91c84235f8a5",
+			"name": "2.0. Retrieve ASM policies",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "391cc5f2-daef-ab9f-ef0d-0403cdcadd93",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/afm",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262963298,
+			"name": "2. Retrieve single module provision state",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "c94ec26b-978f-5d74-75ab-1d51bdd59068"
+		},
+		{
+			"id": "3c36b0c6-0103-e485-8ae9-f8df6169af03",
+			"name": "3.1. Provision module",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/afm",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "c94ec26b-978f-5d74-75ab-1d51bdd59068",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "3e6f81d1-32f3-6c76-0c6f-b561ccd64de4",
+			"name": "1.0. Retrieve ASM policies",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "40662a97-ab8a-f0d7-d574-e76b991a1379",
+			"name": "4. Create a TCP Profile",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "POST",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"name\":\"hackazon_tcp_clientside_profile\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "4207cb22-2033-46c7-641a-f3cb2590f28a",
+			"name": "7. Retrieve ASM signature systems",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/signature-systems",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "4336a343-ca71-7e96-0d9d-3709416b4961",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262396586,
+			"name": "3.2. Deprovision module",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"level\":\"none\"\n}",
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5"
+		},
+		{
+			"id": "45c8ac91-220b-4748-883c-ec5633a099bf",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497393664064,
+			"name": "5. Create a Virtual Server",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"hackazon_vs\",\n    \"destination\":\"10.1.10.10:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"hackazon_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/hackazon_tcp_clientside_profile\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/hackazon_http_profile\"\n    ]\n}",
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6"
+		},
+		{
+			"id": "4a57851a-bb69-f25b-0129-83acd5772e8e",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262954168,
+			"name": "5. Update Firewall Address List",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"addresses\": [\n    {\n      \"name\": \"1.1.1.1\"\n    },\n    {\n      \"name\": \"2.2.2.2\"\n    },\n    {\n      \"name\": \"3.3.3.3\"\n    },\n    {\n      \"name\": \"4.4.4.4\"\n    }\n  ]\n}",
+			"folder": "0efee0c6-c447-4185-824e-02058fde5d53"
+		},
+		{
+			"id": "4c80936c-bb0e-fb67-2c69-5f1004c755fc",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497300263834,
+			"name": "1. HTTP BASIC Authentication",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\",\n    \"loginProviderName\":\"tmos\"\n}",
+			"folder": "ddeae80d-001f-93b1-6002-a615b05eb2e1"
+		},
+		{
+			"id": "4cd97172-1af5-021c-984b-e2f904e8cdb9",
+			"name": "3.3. Re-provision module",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "4d26330f-4067-d382-aa0b-9e91371f0011",
+			"name": "6. Retrieve ASM signature sets",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/signature-sets",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "5154667c-00a3-fffa-8512-d90302379741",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497261946685,
+			"name": "2. Retrieve single module provision state",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5"
+		},
+		{
+			"id": "54376840-ba5a-2c25-6668-701783f5823a",
+			"name": "1.1. Retrieve ASM server technologies",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/server-technologies",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "59ffd7d5-8b08-2fd2-fb97-e1b67ec06d15",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/web-security",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262958717,
+			"name": "1.1. Retrieve ltm ASM profile web security",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"isFromCollection": true,
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
+		},
+		{
+			"id": "5ccea09f-1183-23ed-5ce8-a89710d2b4e4",
+			"name": "4. Provision asm",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/asm",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "5d5e36a4-3c1e-b161-31f9-bf0745029b22",
+			"name": "3. Search for ASM policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"pathVariables": {},
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies?filter=name eq test",
+			"responses": [],
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "filter",
+					"value": "name eq test",
+					"equals": true,
+					"description": ""
+				}
+			],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "63dc64b6-d263-a27b-380d-9ae9cba4d7d4",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263066692,
+			"name": "4. Add default deny rule to policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"default_deny\",\n  \"fullPath\": \"default_deny\",\n  \"action\": \"drop\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"destination\": { },\n  \"place-before\": \"none\"\n}\n",
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d"
+		},
+		{
+			"id": "6930bd78-58f1-4ea6-2048-eed4f40f502e",
+			"name": "1. List policies",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "7544982f-9f49-c0e5-67a2-0a487008b304",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/shared/authn/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497615149172,
+			"name": "2. Get Authentication Token",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"username\":\"\",\n    \"password\":\"\",\n    \"loginProviderName\":\"tmos\"\n}",
+			"folder": "ddeae80d-001f-93b1-6002-a615b05eb2e1"
+		},
+		{
+			"id": "78798559-ac1d-43f1-14a2-abf539092aa1",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263106848,
+			"name": "2. Retrieve all module provision states",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e"
+		},
+		{
+			"id": "79781ead-3110-0bc2-12cc-9fff0637e5aa",
+			"name": "3.1. Retrieve ASM child policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "7afa0222-de40-a6b0-e1c7-ed5b7978218c",
+			"name": "4.0. List ASM tasks",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/tasks/",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "84525537-b669-2eb0-ff63-9682e19f1130",
+			"name": "9. Retrieve ASM policy urls",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}/urls",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "926bfcb0-6c50-897c-a0ba-6464a20c2363",
+			"name": "3. Verify Authentication Token Works",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "ddeae80d-001f-93b1-6002-a615b05eb2e1",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "9c836d65-1c62-3a8b-8b7a-de95c6a4c8c6",
+			"name": "3.1. Provision module",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "a0384c1c-7e03-2588-1102-73c9c9493f25",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/shared/authz/tokens/{{big_ip_a_auth_token}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497261918292,
+			"name": "4. Set Authentication Token Timeout",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"timeout\":\"36000\"\n}",
+			"folder": "ddeae80d-001f-93b1-6002-a615b05eb2e1"
+		},
+		{
+			"id": "a8cefa39-c5e1-6f9c-9ea0-fbc3a2f23be2",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263074555,
+			"name": "5. Add address list rule to policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"allow_google-dns\",\n  \"fullPath\": \"allow_google-dns\",\n  \"action\": \"accept\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"placeBefore\": \"default_deny\",\n  \"destination\": {\n    \"addressLists\": [\n      \"/Common/google-dns_address_list\"\n    ]\n  }\n}\n",
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d"
+		},
+		{
+			"id": "a91883b6-bff4-be36-ee66-71bf45330244",
+			"name": "1.0. Retrieve ASM resources",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "aebd1dc7-8b48-4bcc-eaaf-1dd498506cf8",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262960868,
+			"name": "6. Retrieve VS information",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6"
+		},
+		{
+			"id": "b6839388-f6a8-66df-1e04-d0800edbb4ee",
+			"name": "1. Deprovision afm",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "PATCH",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"level\":\"none\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/afm",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "b698f78a-b777-f035-52bb-1dec1fc40a4f",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/asm",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263111866,
+			"name": "3. Retrieve single module provision state",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e"
+		},
+		{
+			"id": "b74d37f5-f4a2-546c-e2b8-4626be95e5c8",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1500311921290,
+			"name": "1. Create a HTTP Monitor",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"hackazon_monitor\",\n    \"send\":\"GET /\\r\\n\"\n}",
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6"
+		},
+		{
+			"id": "bf519e2d-06e3-989f-0299-b1e92ad155e2",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263199761,
+			"name": "3. Remove ASM policy from VS",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n\t \"virtualServers\":[\"\"]\n}",
+			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d"
+		},
+		{
+			"id": "c7175368-41f5-3f42-c358-e367443749ba",
+			"headers": "Content-Type: application/javascript\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/javascript",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263186879,
+			"name": "3.0. Create ASM child policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\":\"API_ASM_POLICY_CHILD_TEST\",\n  \"description\":\"Test ASM policy\",\n  \"applicationLanguage\":\"utf-8\",\n  \"parentPolicyName\": \"/Common/API_ASM_POLICY_TEST\",\n  \"enforcementMode\":\"transparent\",\n  \"protocolIndependent\":\"true\",\n  \"learningMode\":\"automatic\",\n  \"learningSpeed\":\"slow\",\n  \"serverTechnologyName\": \"Apache Tomcat\"\n}",
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563"
+		},
+		{
+			"id": "c95912d6-6a6a-53a3-8b0d-7069dee46de1",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/license",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497262523832,
+			"name": "4. Determine license state",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5"
+		},
+		{
+			"id": "ca153f42-fd62-0df2-bc11-6410f12bbaa7",
+			"name": "4. Delete ASM policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "DELETE",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "cdd8b137-f539-d54e-70aa-736e69df25a2",
+			"name": "2.1. Retrieve ASM policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "d830fc7d-a0c3-7649-7a00-4bf93b4674dd",
+			"name": "4. List Single Firewall Address List",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "d9187c35-454c-96c5-5b7b-21c8c221666d",
+			"headers": "Content-Type: application/javascript\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/javascript",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263179408,
+			"name": "2.0. Create ASM parent policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\":\"API_ASM_POLICY_TEST\",\n  \"description\":\"Test ASM policy\",\n  \"applicationLanguage\":\"utf-8\",\n  \"type\":\"parent\",\n  \"enforcementMode\":\"transparent\",\n  \"protocolIndependent\":\"true\",\n  \"learningMode\":\"disabled\",\n  \"serverTechnologyName\": \"Unix/Linux\"\n}",
+			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563"
+		},
+		{
+			"id": "dcbe89fc-0b70-1f86-2d72-41382960ab8b",
+			"name": "4.1. List specific ASM task",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/tasks/export-policy",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "dd7d848a-57be-4022-dd17-622f6ec0a133",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497263048142,
+			"name": "2. Create policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n  \"name\": \"global_default_deny\"\n}",
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d"
+		},
+		{
+			"id": "df828a9b-bad2-2ec2-572d-b1982adac8bc",
+			"name": "2. Retrieve ASM policy",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "e48b9d4f-0ac9-5757-2456-eaa6ffa1d987",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497393647835,
+			"name": "2. Create a Pool",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"hackazon_pool\",\n    \"monitor\":\"/Common/hackazon_monitor\",\n    \"members\": [\"10.1.20.10:80\"]\n}",
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6"
+		},
+		{
+			"id": "e49f6ece-bc3e-0e63-91bc-478ceecaf480",
+			"name": "3. Create a HTTP Profile",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "POST",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "{\n    \"name\":\"hackazon_http_profile\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"hackazon\"\n}",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/http",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "e61dc558-8ed9-e2d3-4145-90bbc9f1828e",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}\n",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1497261939952,
+			"name": "1. Retrieve all module provision states",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"responses": [],
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5"
+		},
+		{
+			"id": "e68138ea-45c0-62a0-b2b3-05b08ba36113",
+			"name": "5. Retrieve ASM policy templates",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policy-templates",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "eb72d00e-feb8-599b-9766-ac7e0504618d",
+			"name": "3. List policy rules",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "f203079f-1806-683a-4e94-42c1cf782566",
+			"name": "8. List policy rule",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "f605f561-2f78-68ec-3665-41c2be9530f0",
+			"name": "6. List policy rules",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "fa4e3713-0005-79ea-0417-3cbb436cfc7d",
+			"name": "8. Retrieve ASM attack types",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/attack-types",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+			"preRequestScript": "",
+			"tests": ""
+		},
+		{
+			"id": "fff2519c-53c4-45ef-31a9-6616f9998041",
+			"name": "1. List Firewall Policies",
+			"description": "",
+			"collectionId": "415ff877-7a8d-13e9-a943-0eafb406b1de",
+			"method": "GET",
+			"headers": "X-F5-Auth-Token: {{big_ip_a_auth_token}}",
+			"data": [],
+			"rawModeData": "",
+			"url": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy",
+			"responses": [],
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{big_ip_a_auth_token}}",
+					"description": ""
+				}
+			],
+			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
+			"preRequestScript": "",
+			"tests": ""
+		}
+	]
+}
