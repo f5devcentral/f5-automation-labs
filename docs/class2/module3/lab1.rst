@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Stitching together Authentication and Operation Workflows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab |labmodule|\.\ |labnum| – Files used and locations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The f5-super-netops-container is a self contained toolkit, meaning everything we will
 be using is already on the solution, it will also always be updated (CD). All received via git clones.
@@ -25,18 +25,27 @@ Lets make sure all repositories were mapped correctly.
 
  Execute: ``cd /home/snops``
 
-The Collections we will be users are located here:
+The Collections we will be using are located here:
 
- ``/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json``
+.. code::
 
- ``/f5-postman-workflows/collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json``
+    |- /f5-automation-labs
+       |- /postman_collections
+       |  |  f5-programmability-class-2.postman_collection.json
+
+.. code::
+
+    |- /f5-postman-workflows
+      |- /collections
+      |  |  /BIG_IP
+      |  |      BIGIP_Operational_Workflows.postman_collection.json
 
 The f5-newman-wrapper configuration files are located here:
 
 .. code::
 
     |- /f5-automation-labs
-       |- /jenikins
+       |- /jenkins
        |  |  /f5-newman-build
        |  |      f5-newman-build-1
        |  |      f5-newman-build-2
@@ -44,12 +53,3 @@ The f5-newman-wrapper configuration files are located here:
        |  |  /f5-newman-operation
        |  |      f5-newman-build-3
        |  |      f5-newman-build-4
-
-
-Task 2 - Structure and stitching of Postman Collections and f5-newman-wrapper
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. NOTE::
- Even though all the lab collections have been created for you, we will walk through the contents of the files and the mapping to be further expanded on in your environment.
-
-#.
