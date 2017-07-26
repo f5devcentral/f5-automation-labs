@@ -128,7 +128,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
         ]
     }
 
-**Example Request**
+**Example Response**
 
 .. code-block:: rest
     :emphasize-lines: 3, 8-12
@@ -162,7 +162,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 
     X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
-**Example Request**
+**Example Response**
 
 ::
 
@@ -217,7 +217,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
         ]
     }
 
-**Example Request**
+**Example Response**
 
 .. code-block:: rest
     :emphasize-lines: 3, 8-15
