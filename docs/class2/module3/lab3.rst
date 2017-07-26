@@ -11,20 +11,20 @@ Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Operations**
 In the last lab we walked through creating a service framework and then updating
 the service framework in a separate call. This lab has 2 f5-newman-files also, one to
 user-down a pool member and another to user-up the same member. This could be used
-as individual calls from another toolkit (which we'll see later) or run independent
-as a single command
+as individual calls from another toolkit (which we'll see later) or run independently
+as a single commands
 
 Task 1 - Execute f5-newman-build-3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
-#. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-operation``
-#. From BIGIP A examine the pool ``module_3_pool``, you should show 2 active an Green:
+1. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+2. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-operation``
+3. From BIGIP A examine the pool ``module_3_pool``, you should show 2 active an Green:
 
   .. |image95| image:: /_static/image095.png
    :scale: 70%
 
-#. ``f5-newman-build-3`` contains calls to user-down variable node ``"bigip_pool_member":"75.67.228.133:80"``
+4. ``f5-newman-build-3`` contains calls to user-down variable node ``"bigip_pool_member":"75.67.228.133:80"``
 
 Execute: ``f5-newman-wrapper f5-newman-build-3``
 
@@ -119,7 +119,7 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A``
 
-#. From BIGIP A examine the pool ``module_3_pool``:
+5. From BIGIP A examine the pool ``module_3_pool``:
 
   .. |image96| image:: /_static/image096.png
    :scale: 70%
@@ -127,16 +127,16 @@ Output should look like:
 Task 2 - Execute f5-newman-build-4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
-#. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-operation``
-#. From BIGIP A examine the pool ``module_3_pool``, you should show only 1 Active and Green:
+1. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+2. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-operation``
+3. From BIGIP A examine the pool ``module_3_pool``, you should show only 1 Active and Green:
 
    .. |image95| image:: /_static/image095.png
     :scale: 70%
 
-#. ``f5-newman-build-3`` contains calls to user-up variable node ``"bigip_pool_member":"75.67.228.133:80"``
+4. ``f5-newman-build-3`` contains calls to user-up variable node ``"bigip_pool_member":"75.67.228.133:80"``
 
- Execute: ``f5-newman-wrapper f5-newman-build-4``
+Execute: ``f5-newman-wrapper f5-newman-build-4``
 
 Output should look like:
 
@@ -228,7 +228,7 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A``
 
-#. From BIGIP A examine Pool module_3_pool:
+5. From BIGIP A examine Pool module_3_pool:
 
   .. |image95| image:: /_static/image095.png
    :scale: 70%

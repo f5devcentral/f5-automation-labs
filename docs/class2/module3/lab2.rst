@@ -25,9 +25,9 @@ Task 1 - Examine f5-newman-build-1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. NOTE:: The contents of this folder will be used for this lab, and another coming up shortly
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
-#. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-build``
-#. Lets examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
+1. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+2. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-build``
+3. Lets examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
 .. code-block:: json
    :linenos:
@@ -75,15 +75,16 @@ Task 1 - Examine f5-newman-build-1
        ]
  }
 
-..NOTE:: From the file we can determine the variables at the top specifed which the collections can use, also toward the bottom of the file we can see the two Collections that are being refferenced and the Folders that will be run
+.. NOTE:: From the file we can determine the variables at the top specifed which the collections can use, also toward the bottom of the file we can see the two Collections that are being refferenced and the Folders that will be run
 
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers or Pools
-.. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIGIP has a self signed cert which violates Chromes security). login credentials are ``admin\admin``
+1. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers or Pools
 
-#. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesnt however include any pool members.
+.. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIGIP has a self signed cert which violates Chromes security). BIG-IP A Login credentials are ``admin\admin``
+
+2. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesnt however include any pool members.
 
 Execute: ``f5-newman-wrapper f5-newman-build-1``
 
@@ -180,12 +181,12 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A`` for the newly created framework
 
-#. From BIGIP A examine Virtual Server module_3_vs:
+3. From BIGIP A examine Virtual Server ``module_3_vs``:
 
   .. |image91| image:: /_static/image091.png
    :scale: 70%
 
-#. From BIGIP A examine Pool module_3_pool:
+4. From BIGIP A examine Pool ``module_3_pool``:
 
    .. |image92| image:: /_static/image092.png
       :scale: 70%
@@ -193,7 +194,7 @@ Output should look like:
 Task 3 - Execute the second f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. ``f5-newman-build-2`` contains calls to add pool members to the Framework of the Application Service above, this is done in dependently of the build, to show staging as a possible use case.
+1. ``f5-newman-build-2`` contains calls to add pool members to the Framework of the Application Service above, this is done independently of the build, to show staging as a possible use case.
 
 Execute: ``f5-newman-wrapper f5-newman-build-2``
 
@@ -276,12 +277,12 @@ Output should look like:
  └───────────────────────────────────────────────┘
  [f5-newman-build-2-2017-07-26-08-40-52] run completed in 4s, 328.497 ms
 
-#. From BIGIP A examine Virtual Server module_3_vs:
+2. From BIGIP A examine Virtual Server ``module_3_vs``, the Virtual Server should be healthy and Green
 
   .. |image93| image:: /_static/image093.png
    :scale: 70%
 
-#. From BIGIP A examine Pool module_3_pool:
+3. From BIGIP A examine Pool ``module_3_pool``:
 
    .. |image94| image:: /_static/image094.png
       :scale: 70%

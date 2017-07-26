@@ -17,9 +17,9 @@ be using is already on the solution, it will also always be updated (CD). All re
 Task 1 - Review the super-netops-container files and collections used
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+1. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 
-#. During the installation of the super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
+2. During the installation of the super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
 
 Lets make sure all repositories were mapped correctly.
 

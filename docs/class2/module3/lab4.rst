@@ -16,19 +16,19 @@ we will only use 1.
 Task 1 - Execute f5-newman-build-5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
-#. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-build``
-#. From BIGIP A examine the virtual server ``module_3_vs``, it should be active and Green:
+1. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+2. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-build``
+3. From BIGIP A examine the virtual server ``module_3_vs``, it should be active and Green:
 
   .. |image93| image:: /_static/image093.png
    :scale: 70%
 
-#. From BIGIP A examine the pool ``module_3_pool``, you should show 2 active members Green:
+4. From BIGIP A examine the pool ``module_3_pool``, you should show 2 active members Green:
 
   .. |image94| image:: /_static/image094.png
    :scale: 70%
 
-#. ``f5-newman-build-5`` contains calls to delete all items we've created in the last few modules
+5. ``f5-newman-build-5`` contains calls to delete all items we've created in the last few modules
 
 Execute: ``f5-newman-wrapper f5-newman-build-5``
 
@@ -126,4 +126,4 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A`` for the newly created framework
 
-#. From BIGIP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
+6. From BIGIP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
