@@ -2,8 +2,8 @@ Module 1 – f5-super-netops-container Toolkit
 ============================================
 
 In this module we will explore how to use the **f5-super-netops** container
-toolkit to easily consume various F5 Automation, Orchestration Super Netops and
-DevOps tools and frameworks.
+toolkit to easily consume various F5 Automation, Orchestration, Super Netops and
+DevOps tools, along with frameworks.
 
 The f5-super-netops-container is meant to provide a simple way for users to
 quickly duplicate a standard automation and orchestration environment in your

@@ -81,7 +81,7 @@ to port ``80`` in the container.
 
 The ``-it`` option will make the session interactive and allocate a pseudo-TTY
 
-The ``-e`` option will specify a Github Branch in this case we are pulling from develop
+The ``-e`` option will specify a Github Branch, in this case we are pulling from ``develop``
 
 The ``f5devcentral/f5-super-netops-container:develop-jenkins`` option is the name
 associated with the image we obtained in Task 1.

@@ -1,12 +1,13 @@
 Module 3 – Stitching Workflows from Class 1 into new Orchestratable Collections
 ===================================================
 
-In the previous modules have shown you the individual workflows (Class 1),
-and how to execute those via Rest. What we will be working on now is stitching
-together those Class 1 collection items with for use with f5-newman-wrapper.
+In the previous module we saw the example of stitching together the authentication
+folder and some system facts gathering; we are now going to take the created Postman
+Collection from Class 1 of this series and start stitching together with f5-newman-wrapper
+to create a more encompassing operations solution.
 
 In order to assist users with automating the F5 BIG-IP platform we have
-developed a set of tools that can be used with the Postman REST Client
+developed a Collection of calls that can be used with the Postman REST Client
 (http://getpostman.com).  The purpose of the tools are:
 
 - f5-postman-workflows
@@ -15,22 +16,19 @@ developed a set of tools that can be used with the Postman REST Client
     and populating environment variables
   - Implement a delay-based polling mechanism
 
-- f5-newman-wrapper
+- F5_Automation_Orchestration_Intro
 
-  - Allow users to easily assemble Postman collections into workflows
-  - Enabled integration with third-party tools such as Ansible, Chef & Puppet
+  - F5's training collection for **Onboarding** BIG-IP
+  - F5's training collection for **Operating** BIG-IP
 
-The framework allows collection developers to create automatable collections that
-include full testing of response values, population of environment variables to
-establish chains of requests and time-based polling to allow long-lived API
-processes time to complete.
+Stitching together the collection and worklflows allows Super-NetOps engineers
+the ability to start quickly Orchestratable calls to run Automation workflows
 
-Users can then interact with these collections via the Postman GUI client,
-run the collections with the Postman Runner or the Newman CLI client.
+Using this structure also allow you to build your own solutions to manage BIG-IP
+quickly as native REST calls are used.
 
-This lab module will walk you through using the tools.  If you are interested
-in developing collections using the f5-postman-workflows framework please visit
-the official GitHub repository at https://github.com/0xHiteshPatel/f5-postman-workflows
+From the previous labs you should already have your Super-NetOps-Container already
+running, if its not please refer to Module 1.3 on starting your service
 
 .. toctree::
    :maxdepth: 1

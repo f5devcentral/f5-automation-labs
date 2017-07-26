@@ -89,7 +89,7 @@ Execute the following steps to complete this task:
 
 #. Create a new Postman environment by clicking the Gear icon -> Manage
    Environments -> Add.
-#. Name the environment ``Lab 1.2`` and populate the following key/value
+#. Name the environment ``Lab 2.2`` and populate the following key/value
    pairs:
 
    - **bigip_mgmt**: 10.1.1.4
