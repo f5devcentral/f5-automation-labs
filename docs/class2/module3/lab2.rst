@@ -7,9 +7,11 @@
 
 Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Build**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Your environment has already been seeded with 5 f5-newman-wrapper files, these
 files will execute against the collections noted in the previous lab. This lab
 will cover the **Build** aspect, creating a Virtual Server and all pieces required
+for this demo service
 
 For a visual reference of what f5-programmability-class-2.postman_collection.json looks like:
 
@@ -78,8 +80,8 @@ Task 1 - Examine f5-newman-build-1
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers, Pools, or Nodes
-.. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you recieve a certificate warning accept and add exception (the BIGIP has a self signed cert Chrome which violates Chrome security). login credentials are ``admin\admin``
+#. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers or Pools
+.. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIGIP has a self signed cert which violates Chromes security). login credentials are ``admin\admin``
 
 #. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesnt however include any pool members.
 
@@ -178,12 +180,12 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A`` for the newly created framework
 
-#. From BIGIP A examine the new Virtual Server:
+#. From BIGIP A examine Virtual Server module_3_vs:
 
   .. |image91| image:: /_static/image091.png
    :scale: 70%
 
-#. EFrom BIGIP A examine the new Pool:
+#. From BIGIP A examine Pool module_3_pool:
 
    .. |image92| image:: /_static/image092.png
       :scale: 70%
@@ -274,12 +276,12 @@ Output should look like:
  └───────────────────────────────────────────────┘
  [f5-newman-build-2-2017-07-26-08-40-52] run completed in 4s, 328.497 ms
 
-#. From BIGIP A examine the Virtual Server:
+#. From BIGIP A examine Virtual Server module_3_vs:
 
   .. |image93| image:: /_static/image093.png
    :scale: 70%
 
-#. From BIGIP A examine the Pool:
+#. From BIGIP A examine Pool module_3_pool:
 
    .. |image94| image:: /_static/image094.png
       :scale: 70%
