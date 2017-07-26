@@ -228,7 +228,7 @@ Output should look like:
 
 .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP A``
 
-5. From BIGIP A examine Pool module_3_pool:
+5. From BIGIP A examine Pool ``module_3_pool``:
 
   .. |image95| image:: /_static/image095.png
    :scale: 70%
