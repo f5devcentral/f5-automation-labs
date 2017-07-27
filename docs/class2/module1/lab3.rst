@@ -125,7 +125,7 @@ Docker host.  In the case of the HTTP service the following mapping applies:
 
 To connect via HTTP open a web browser and enter the URL:
 
-``http://localhost:8080/start``
+``http://10.1.1.8:8080/start``
 
 You should see a page like this:
 
@@ -147,7 +147,7 @@ f5devcentral/f5-super-netops-container:develop-jenkins``
 This will publish the standard Jenkins service on ``TCP/8080`` to ``TCP/10000`` on the
 Docker host.  In the case of the Jenkins service the following mapping applies:
 
-``localhost:10000 -> f5-super-netops-container:8080``
+``10.1.1.8:10000 -> f5-super-netops-container:8080``
 
 .. NOTE:: There is no bookmark in your browser, you may find it easier to
 reference later if you create one after connecting the first time

@@ -454,7 +454,7 @@ Task 3 - Run the Workflow
 #. Open an SSH session as described in the :ref:`previous lab <lab3_3_1>`
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_2.json .``
-#. Edit the ``Wrapper_Demo_2.json`` file and enter you BIG-IP managment
+#. Edit the ``Wrapper_Demo_2.json`` file and enter you BIG-IP management
    addresses
 
    .. code-block:: json

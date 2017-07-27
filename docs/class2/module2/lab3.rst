@@ -115,7 +115,7 @@ Define the Workflow Collections and Ordering
 
 This section defines the workflow and collections and folders that it is
 comprised of.  The ``workflow`` attribute is an ordered array that contains
-objects defining each collecion and folder to run.
+objects defining each collection and folder to run.
 
 .. code-block:: json
    :linenos:

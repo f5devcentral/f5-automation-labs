@@ -21,7 +21,7 @@ developed a set of tools that can be used with the Postman REST Client
   - Allow users to easily assemble Postman collections into workflows
   - Enabled integration with third-party tools such as Ansible, Chef & Puppet
 
-The framework allows collection developers to create automable collections that
+The framework allows collection developers to create automatable collections that
 include full testing of response values, population of environment variables to
 establish chains of requests and time-based polling to allow long-lived API
 processes time to complete.

@@ -129,7 +129,7 @@ the folders.
 At this point we have successfully authenticated to our device and stored the
 authentication token in the ``bigip_token`` environment variable.  We will now
 execute a request in a different collection and folder that uses the
-``bigip_token`` variable value to autheticate and perform it's actions.
+``bigip_token`` variable value to authenticate and perform it's actions.
 
 #. Expand the ``BIGIP_Operational_Workflows`` -> ``4A_Get_BIGIP_Version``
    folder.

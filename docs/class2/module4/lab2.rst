@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Files Locations and Jenkins setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab |labmodule|\.\ |labnum| – Executing Jenkins Jobs for Creation or Modify
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have Jenkins running and have the dependent Slack Plugin installed
 we can utilize our Jenkins Pipeline Scripts to execute successfully
@@ -14,8 +14,8 @@ we can utilize our Jenkins Pipeline Scripts to execute successfully
 Task 1 - Building the Framework via Jenkins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This step is executing the f5-newman-wrapper files, but instead of having build the framework
-and add the service nodes as separate steps Jekins has a pause function looking for approval
+This step is executing the f5-newman-wrapper files. Instead of having to run the framework build
+and Pool member adds individually, Jenkins has a pause function looking for approval;
 which after approving will allow the node to be added. Jenkins will continue to update
 the class via Slack how things are progressing, the build will also keep a running console for
 logging we will review.

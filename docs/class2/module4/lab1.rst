@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Files Locations and Jenkins setup
+Lab |labmodule|\.\ |labnum| – File Locations and Jenkins setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We've been executing commands locally from Automated scripts, at this point we are
@@ -21,9 +21,9 @@ Task 1 - Locating the Jenkins files and how they are setup
 
 2. During the installation of the super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
 
-  Execute: ``cd /home/snops/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
+Execute: ``cd /home/snops/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
 
-3. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs, setup this way only out for ease of learning. You may place this tools in different structures in your environment.
+3. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs (setup this way was for ease of learning). You may place this tools in different structures in your environment.
 
  File Locations:
 
@@ -38,7 +38,7 @@ Task 1 - Locating the Jenkins files and how they are setup
        |  |      Jenkinsfile3
        |  |      Jenkinsfile4
 
-4. Lets review the first Jenkins file excute ``cat Jenkinsfile1-2``
+4. Lets review the first Jenkins file, execute ``cat Jenkinsfile1-2``
 
   File output:
 
@@ -91,11 +91,11 @@ Task 1 - Locating the Jenkins files and how they are setup
 
 - This is a Jenkins Pipeline file, which we'll be inputing into a Pipeline deployment via our Jenkins Toolkit.
 
-- The file should be human readable even without Jenkins experience, a ``stage`` can be thought of as a step in the Pipeline, right after the stage is its name, followed by some commands. Since the super-netops-container is running this Jenkins installation locally we can use local mappings to file structure.
+- The file should be human readable even without Jenkins experience, a ``stage`` can be thought of as a step in the Pipeline (or a work-center in manufacturing terms), right after the stage is its name, followed by some commands. Since the super-netops-container is running this Jenkins installation locally we can use local mappings to file structure.
 
-- In more common deployments the Jenkins file would be stored in a SCM (like Github) and called during like a polling timer, or a build/ Pull request.
+- In more common deployments the Jenkins file would be stored in a SCM (like Github) and called during like a polling timer, build/ Pull request, or some other kind of scripting launch.
 
-- Testing before executing code via tools like ``linter`` or python scripts can make sure formatting is valid and reduce errors from happing during build.
+- Testing in Pipeline before executing code with tools like ``linter`` or python scripts can make sure formatting is valid and reduce errors from happing during build.
 
 Our installation also has some Slack calls. Which we will setup next.
 
@@ -111,7 +111,7 @@ give you information when they notice something. In our case our Jenkins Pipelin
   .. |image97| image:: /_static/image097.png
    :scale: 70%
 
-2. Once you are logged into Jenkins you should it should look like below, click on Manage Jenkins
+2. Once you are logged into Jenkins it should look like below
 
   .. |image98| image:: /_static/image098.png
    :scale: 70%
@@ -126,7 +126,7 @@ give you information when they notice something. In our case our Jenkins Pipelin
   .. |image100| image:: /_static/image100.png
    :scale: 70%
 
-5. Once the Slack Notification Plugin has changed to ``Success`` tick the radio button for ``Restart Jenkins when installation is complete and no jobs are running``
+5. Once the Slack Notification Plugin has changed to ``Success``, tick the radio button for ``Restart Jenkins when installation is complete and no jobs are running``
 
   .. |image101| image:: /_static/image101.png
    :scale: 70%
