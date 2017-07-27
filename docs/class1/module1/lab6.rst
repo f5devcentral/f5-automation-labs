@@ -5,51 +5,43 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Build a Basic LTM Config
+Lab |labmodule|\.\ |labnum| – 基本的なLTM構成を構築
 ------------------------------------------------------
 
-In this lab we will build a basic LTM Config using the Imperative
-automation model. While this lab may seem simple for basic
-configurations, the complexity involved with rich L4-7 services quickly
-makes the Imperative approach untenable for advanced configurations. The
-Imperative model relies on the user having in-depth knowledge of device
-specifics such as:
+このラボでは、命令型(Imperative)オートメーションモデルを使用して基本的なLTM構成を構築します。
+このラボはシンプルに見えるかもしれませんが、高度なL4-7サービスの設定に伴う複雑さに対処する場合、この命令型アプローチは不合理になります。
+命令型モデルでは、ユーザーは次のようなデバイスの専門的な知識を持つ必要があります:
 
--  Object types and their attributes
+-  オブジェクトの種類とその属性
 
-   -  How many different objects/profiles/options do we have?
+   -  いくつの異なるオブジェクト/プロファイル/オプションがあるか?
 
--  Order of operations
+-  オペレーションの順番
 
-   -  Monitor before pool before profiles before virtual servers, etc.
+   -  仮想サーバの前にプロファイルの前にプールの前にモニターなど
 
-   -  What about L7 use cases like WAF?
+   -  WAFのようなL7ユースケースはどうなのか？
 
-      -  WAF Policy -> HTTP Policy -> Virtual Server
+      -  WAFポリシー -> HTTPポリシー -> 仮想サーバ
 
--  How does this all get deleted?
+-  オブジェクトを削除する際の手順はどうなのか？
 
-   -  You have to reverse the order of operations and ‘undo’ the whole
-      config
+   -  操作の順序を逆にして、設定全体を元に戻す必要があるか。。
 
-      -  TMOS has lots of issues here
+      -  ここでは問題が発生しやすい
 
-As a result of this it’s recommended for customers to use Imperative
-automation only for legacy environments. New environments should shift
-to a Declarative model.
+その結果、顧客はレガシー環境に対してのみ命令的な自動化を使用することが推奨されます。 
+一方で、新規に構築する環境の場合は宣言型モデルに移行することが有益です。
 
-Task 1 – Build a Basic LTM Config
+Task 1 – 基本的なLTM構成を構築
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Expand the “Lab 1.6 – Build a Basic LTM Config” folder in the Postman
-   collection
+#. Postman Collection内の“Lab 1.6 – Build a Basic LTM Config”フォルダを展開します。
 
-#. Click each Step in the folder and ‘Send’ the request. Verify each
-   component is created on the BIG-IP device using the GUI.
+#. フォルダ内の各ステップをクリックし、‘Send’をクリックします。 GUIで各コンポーネントがBIG-IPデバイス上に作成されていることを確認します。
 
-#. After the steps are completed you should be able to connect to
-   http://10.1.20.129 in your browser.
+#. 手順が完了したら、ブラウザでhttp://10.1.20.129に接続します。
 
    

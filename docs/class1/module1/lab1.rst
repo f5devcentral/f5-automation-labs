@@ -5,55 +5,38 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Exploring the iControl REST API
+Lab |labmodule|\.\ |labnum| – iControl REST APIを探る
 -------------------------------------------------------------
 
-Task 1 – Explore the API using the TMOS Web Interface
+Task 1 – TMOS Web InterfaceのAPIの紹介
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab we will explore the API using an interface that is built-in
-to TMOS. This utility is useful for understanding how TMOS objects map
-to the REST API. The interfaces implement full Create, Read, Update and
-Delete (CRUD) functionality, however, in most practical use cases it’s
-far easier to use this interface as a ‘Read’ tool rather than trying to
-Create objects directly from it. It’s usually far easier to use TMUI or
-TMSH to create the object as needed and then use this tool to view the
-created object with all the correct attributes already populated.
+このラボでは、TMOSに組み込まれたインターフェイスを使用してAPIの動作確認を行います。
+このユーティリティは、TMOSオブジェクトがREST APIにどのようにマップされるかを理解するのに役立ちます。
+これらのAPIインターフェイスはCreate、Read、Update、Delete（CRUD）機能を実装していますが、ほとんどの実用的な使用例では、
+オブジェクト作成はTMUIまたはTMSHで行って、APIインターフェイスを「読み取り」ツールとして使用する方がはるかに簡単です。　
 
-#. Open Google Chrome and navigate to the following bookmarks: BIG-IP
-   A GUI, BIG-IP B GUI and iWorkflow GUI. Bypass any SSL errors that
-   appear and ensure you see the login screen for each bookmark.
+#. Google Chromeを開き、次のブックマークに移動します: BIG-IP　A GUI、BIG-IP B GUIとiWorkflow GUI。表示される証明書の警告をスキップし、各ブックマークのログイン画面が表示されることを確認します。
 
    |image1|
 
-#. Navigate to the URL https://10.1.1.4/mgmt/toc (or click the BIG-IP A
-   REST TOC bookmark). The ‘/mgmt/toc’ path in the URL is available on
-   all TMOS versions 11.6 or newer.
+#. URL https://10.1.1.4/mgmt/tocに移動します。(またはBIG-IP A REST TOCブックマークをクリックしてください）。URLの '/ mgmt / toc'パスは、TMOSバージョン11.6以降で使用できます。
 
-#. Authenticate to the interface using the default admin/admin
-   credentials.
+#. デフォルトのadmin/adminでインターフェイスを通じて認証を行います。
 
-#. You will now be presented with a top-level list of various REST
-   resources. At the top of the page there is a search box
-   |image2|\ that can be used to find items on the page. Type ‘net’ in
-   the search box and then click on the ‘net’ link under iControl REST
-   Resources: |image3|
+#. さまざまなRESTリソースのトップレベルのリストが表示されます。 ページの上部には、検索ボックス |image2| があり、ページ上の項目を見つけるために使用できます。 検索ボックスに‘net’と入力し、iControl REST Resourcesの配下にある‘net’リンクをクリックします。
 
-#. Find the ``/mgmt/tm/net/route-domain`` **Collection** and click it.
+   |image3|
 
-#. You will now see a listing of the **Resources** that are part of the
-   route-domain(s) collection. As you can see the default route domain
-   of ``0`` is listed. You can also create new objects by clicking the
-   |image4| button. Additionally resources can be deleted using the
-   |image5| button or edited using the |image6| button.
+#. ``/mgmt/tm/net/route-domain``という**Collection**を見つけてクリックしてください。
 
-#. Click the ``0`` resource to view the attributes of route-domain 0 on
-   the device:
+#. ルートドメインコレクションの一部である**Resources**のリストが表示されます。ご覧のとおり、 ``0``のデフォルトルートドメインがリストされています。   |image4| ボタンをクリックして新しいオブジェクトを作成することもできます。さらに、 |image5| ボタンを使用してリソースを削除したり、 |image6| ボタンを使用してリソースを編集したりすることもできます。
+
+#. ``0``リソースをクリックすると、デバイス上のroute-domain 0の属性が表示されます。
 
    |image7|
 
-   Take note of the full path to the resource. Here is how the path is
-   broken down:
+   リソースへのフルパスをメモしておきます。 以下は、パスがどのように分割されているかを示しています:
 
    .. code::
 
