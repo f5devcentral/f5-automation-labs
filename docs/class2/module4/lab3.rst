@@ -21,52 +21,56 @@ is all you need.
 Task 1 - Teardown the Application via Jenkins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Return to the Jenkins Dashboard and select ``New Item``
+#. Return to the Jenkins Dashboard and select ``New Item``
 
-.. |image116| image:: /_static/image116.png
- :scale: 70%
+   |image116|
 
-2. Follow steps 2 & 3 of the last module creating the final Jenkins job
+#. Follow steps 2 & 3 of the last module creating the final Jenkins job
 
-- Pipeline Job name ``module_4_jenkinsfile_4``
+   **Pipeline Job Name:** ``module_4_jenkinsfile_4``
 
-.. code-block:: json
-   :linenos:
+   .. code-block:: groovy
+      :linenos:
 
-   node {
-      stage('Testing') {
-         //Run the tests
-         //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+      node {
+         stage('Testing') {
+            //Run the tests
+            //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+         }
+         stage('Service-Removal') {
+             //Run SNOPS Container Newman Package add Node to Pool
+            sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+            //chatops slack message that run has completed
+            slackSend(
+               channel: '#jenkins_builds',
+               color: 'good',
+               message: 'Super-NetOps Engineer is about to remove an F5 Service Framework, Approval Needed!',
+               teamDomain: 'f5agilitydevops',
+               token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
+               )
+         }
+         stage('Approval') {
+            //Gate the process and require approval
+            input 'Proceed?'
+
+         }
+         stage('Service-Deleted') {
+             //Run SNOPS Container Newman Package add Node to Pool
+            sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+            //chatops slack message that run has completed
+            slackSend(
+               channel: '#jenkins_builds',
+               color: 'good',
+               message: 'Super-NetOps Engineer removed an F5 Service successfully!',
+               teamDomain: 'f5agilitydevops',
+               token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
+               )
+         }
       }
-      stage('Service-Removal') {
-          //Run SNOPS Container Newman Package add Node to Pool
-         sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
-         //chatops slack message that run has completed
-         slackSend(
-            channel: '#jenkins_builds',
-            color: 'good',
-            message: 'Super-NetOps Engineer is about to remove an F5 Service Framework, Approval Needed!',
-            teamDomain: 'f5agilitydevops',
-            token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
-            )
-      }
-      stage('Approval') {
-         //Gate the process and require approval
-         input 'Proceed?'
 
-      }
-      stage('Service-Deleted') {
-          //Run SNOPS Container Newman Package add Node to Pool
-         sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
-         //chatops slack message that run has completed
-         slackSend(
-            channel: '#jenkins_builds',
-            color: 'good',
-            message: 'Super-NetOps Engineer removed an F5 Service successfully!',
-            teamDomain: 'f5agilitydevops',
-            token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
-            )
-      }
-   }
+#. Verify the on the BIG-IP the service has been Deleted
 
-4. Verify the on the BIG-IP the service has been Deleted
+.. |image116| image:: /_static/class2/image116.png
+   :scale: 70%
+
+
