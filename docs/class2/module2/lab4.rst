@@ -16,7 +16,7 @@ and ready to use.
 Task 1 - Run a f5-newman-wrapper Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open an SSH session as described in the :ref:`previous lab <lab3_3_1>`
+#. Open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_1.json .``
 #. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.4`` for
