@@ -36,11 +36,11 @@ Task 1 - Teardown the Application via Jenkins
    node {
       stage('Testing') {
          //Run the tests
-         //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-5"
+         //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
       }
       stage('Service-Removal') {
           //Run SNOPS Container Newman Package add Node to Pool
-         sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-5"
+         sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
          //chatops slack message that run has completed
          slackSend(
             channel: '#jenkins_builds',
@@ -57,7 +57,7 @@ Task 1 - Teardown the Application via Jenkins
       }
       stage('Service-Deleted') {
           //Run SNOPS Container Newman Package add Node to Pool
-         sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-5"
+         sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
          //chatops slack message that run has completed
          slackSend(
             channel: '#jenkins_builds',

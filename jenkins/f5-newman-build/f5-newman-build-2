@@ -34,7 +34,7 @@
                         "name":"2 - Add Members to LTM Config",
                         "skip":false,
                         "options": {
-                                "collection":"/home/snops/Local_Mapped_Repository/postman_collections/f5-programmability-class-2.postman_collection.json",
+                                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json",
                                 "folder":"2 - Add Members to LTM Config"
                         }
                 }

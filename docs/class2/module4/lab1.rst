@@ -48,12 +48,12 @@ Execute: ``cd /home/snops/f5-automation-labs/jenkins`` to access our folder cont
     node {
        stage('Testing') {
           //Run the tests
-          //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-1"
-          //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-2"
+          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
        }
        stage('Frameword-Deployment') {
            //Run SNOPS Container Newman Package Virtual and Pool
-          sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-1"
+          sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
           //chatops slack message that run has completed
           slackSend(
              channel: '#jenkins_builds',
@@ -77,7 +77,7 @@ Execute: ``cd /home/snops/f5-automation-labs/jenkins`` to access our folder cont
        }
        stage('Add-Sevice-Node') {
            //Run SNOPS Container Newman Package add Node to Pool
-          sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-2"
+          sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
           //chatops slack message that run has completed
           slackSend(
              channel: '#jenkins_builds',

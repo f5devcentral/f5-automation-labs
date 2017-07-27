@@ -43,12 +43,12 @@ logging we will review.
  node {
    stage('Testing') {
       //Run the tests
-      //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-buil                                                d/f5-newman-build-1"
-      //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-buil                                                d/f5-newman-build-2"
+      //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-buil                                                d/f5-newman-build-1"
+      //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-buil                                                d/f5-newman-build-2"
    }
    stage('Frameword-Deployment') {
        //Run SNOPS Container Newman Package Virtual and Pool
-      sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newma                                                n-build/f5-newman-build-1"
+      sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newma                                                n-build/f5-newman-build-1"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',
@@ -72,7 +72,7 @@ logging we will review.
    }
    stage('Add-Sevice-Node') {
        //Run SNOPS Container Newman Package add Node to Pool
-      sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newma                                                n-build/f5-newman-build-2"
+      sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newma                                                n-build/f5-newman-build-2"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',
@@ -151,11 +151,11 @@ These two Jenkins files were completed to show the ability of creating smaller d
  node {
    stage('Testing') {
       //Run the tests
-      //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-3"
+      //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
    }
    stage('Disable-Node') {
        //Run SNOPS Container Newman Package Virtual and Pool
-      sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-3"
+      sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',
@@ -177,11 +177,11 @@ These two Jenkins files were completed to show the ability of creating smaller d
  node {
    stage('Testing') {
       //Run the tests
-      //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-4"
+      //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
    }
    stage('Enable-Node') {
        //Run SNOPS Container Newman Package Virtual and Pool
-      sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-4"
+      sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',

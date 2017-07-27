@@ -1,11 +1,11 @@
 node {
    stage('Testing') {
       //Run the tests
-      //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-3"
+      //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
    }
    stage('Disable-Node') {
        //Run SNOPS Container Newman Package Virtual and Pool
-      sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-operation/f5-newman-build-3"
+      sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
       //chatops slack message that run has completed
       slackSend(
          channel: '#jenkins_builds',

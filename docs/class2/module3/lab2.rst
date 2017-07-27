@@ -68,7 +68,7 @@ Task 1 - Examine f5-newman-build-1
                        "name":"1 - Build a Basic LTM Config",
                        "skip":false,
                        "options": {
-                               "collection":"/home/snops/Local_Mapped_Repository/postman_collections/f5-programmability-class-2.postman_collection.json",
+                               "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json",
                                "folder":"1 - Build a Basic LTM Config"
                        }
                }
