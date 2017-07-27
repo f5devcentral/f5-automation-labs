@@ -4,7 +4,7 @@ node {
       //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-1"
       //sh "python –m /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-2"
    }
-   stage('Frameword-Deployment') {
+   stage('Framework-Deployment') {
        //Run SNOPS Container Newman Package Virtual and Pool
       sh "f5-newman-wrapper /home/snops/Local_Mapped_Repository/jenkins/f5-newman-build/f5-newman-build-1"
       //chatops slack message that run has completed
