@@ -75,7 +75,7 @@ Task 1 - Examine f5-newman-build-1
        ]
  }
 
-.. NOTE:: From the file we can determine the variables at the top specifed which the collections can use, also toward the bottom of the file we can see the two Collections that are being refferenced and the Folders that will be run
+.. NOTE:: From the file we can determine the variables utilized by the collections we specify; toward the bottom of the file we can see the two Collections that are being referenced, then in each JSON blob we see the Folders containing the calls to run.
 
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
