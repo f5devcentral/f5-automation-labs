@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Connect to f5-super-netops-container
+Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a
@@ -159,7 +159,6 @@ You should see a page like this:
 .. |image78| image:: /_static/image078.png
    :align: middle
    :scale: 50%
-
 .. |image89| image:: /_static/class2/image089.png
    :align: middle
    :scale: 50%

@@ -1,5 +1,5 @@
-Module 1 – f5-super-netops-container Toolkit
-============================================
+Module 1: f5-super-netops-container Toolkit
+===========================================
 
 In this module we will explore how to use the **f5-super-netops** container
 toolkit to easily consume various F5 Automation, Orchestration, Super Netops and

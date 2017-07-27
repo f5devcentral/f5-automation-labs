@@ -1,5 +1,5 @@
-Module 3 – Stitching Workflows from Class 1 into new Orchestratable Collections
-===============================================================================
+Module 3: Stitching Workflows from Class 1 into new Orchestratable Collections
+==============================================================================
 
 In the previous module we saw the example of stitching together the authentication
 folder and some system facts gathering; we are now going to take the created Postman

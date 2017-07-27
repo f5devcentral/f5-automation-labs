@@ -1,5 +1,5 @@
-Module 4 – Continuous Integration / Continuous Delivery
-=======================================================
+Module 4: Continuous Integration / Continuous Delivery
+======================================================
 
 This Module will continue to build up from Infrastructure to Self-Service or CI/CD goal.
 We will be building on the code that was utilized in the previous modules, though now
