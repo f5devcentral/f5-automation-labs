@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Obtain & Start the f5-super-netops-container Image
+Lab |labmodule|\.\ |labnum|\: Obtain & Start the f5-super-netops-container Image
 --------------------------------------------------------------------------------
 
 In this lab we will use the ``docker`` cli tools to obtain and start the

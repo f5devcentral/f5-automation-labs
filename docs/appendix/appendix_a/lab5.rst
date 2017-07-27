@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 5
+.. |labmodule| replace:: A
 .. |labnum| replace:: 5
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
@@ -32,10 +32,10 @@ load the pool and the we delete() it and print that we have done so.
 Task 2 – Run delete\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. In the command prompt type 
+1. In the command prompt type
    ``python delete_pool.py 10.1.1.4 test_pool``
    and examine the output:
-   
+
    |image72|
 
 2. If desired verify the pool was deleted using TMUI or the

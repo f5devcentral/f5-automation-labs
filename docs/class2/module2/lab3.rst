@@ -1,14 +1,14 @@
-.. |labmodule| replace:: 1
+.. |labmodule| replace:: 2
 .. |labnum| replace:: 3
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – f5-newman-wrapper Introduction
+Lab |labmodule|\.\ |labnum|\: f5-newman-wrapper Introduction
 ------------------------------------------------------------
 
-As shown in the previous lab we can use manually execute collections and folders
+As shown in the previous lab we can manually execute collections and folders
 using the Postman GUI to achieve some end result on BIG-IP devices.  While this
 capability is important in a test/prototyping phase we need to ensure we can
 execute these manual steps as an automated process.
@@ -62,6 +62,7 @@ attributes are explained in the table below.
 
 .. list-table::
     :header-rows: 1
+    :widths: 20 80
     :stub-columns: 1
 
     * - **Attribute**

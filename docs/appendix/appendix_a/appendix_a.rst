@@ -1,5 +1,5 @@
-Module 5: Python SDK
-====================
+Appendix A: Python SDK
+======================
 
 This module will cover the newly released F5 Python SDK. This SDK is
 released and maintained as a public GitHub repository at
@@ -58,8 +58,8 @@ As you can see, the code utilizing the SDK is much more condensed and far
 easier to read. This is a result of the SDK exposing abstracted methods
 to build the URL. Additionally the SDK creates standard CURDLE (create,
 update, refresh, delete, load, exists) methods that behave correctly
-depending on REST object type (Organizing Collection, Resource, etc.) you 
-are interacting with (e.g., you cannot DELETE an Organizing Collection, 
+depending on REST object type (Organizing Collection, Resource, etc.) you
+are interacting with (e.g., you cannot DELETE an Organizing Collection,
 therefore a delete() method is not available).
 
 Full documentation for the API exists at `here <https://f5-sdk.readthedocs.io>`_
@@ -78,5 +78,5 @@ files as the input mechanism.
 .. toctree::
    :maxdepth: 1
    :glob:
-   
+
    lab*
