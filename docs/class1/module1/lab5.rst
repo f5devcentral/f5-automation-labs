@@ -5,237 +5,168 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Build a BIG-IP Cluster
+Lab |labmodule|\.\ |labnum| – BIG-IPクラスタを構築
 ----------------------------------------------------
 
-In this lab we will build a active-standby cluster between BIG-IP-A and
-BIG-IP-B. As mentioned previously, to save time, BIG-IP-B already has
-already been licensed and had its device level settings configured. This
-lab will walk you through creating the cluster step by step. As you will
-see complex operation such as this start to become less effective using
-the **Imperative** model of automation. Clustering is one of the
-‘transition’ points for most customers to move into the **Declarative**
-model (if not already done) due to the need to abstract device/vendor
-level specifics from Automation consumers.
+このラボでは、BIG-IP-AとBIG-IP-Bの間にアクティブスタンバイクラスタを構築します。 時間を節約するため、BIG-IP-Bは既にライセンスが与えられており、デバイスレベルの設定が構成されています。
+このラボでは、手順に従ってクラスタを作成します。このような複雑な操作は、** Imperative **モデルの自動化を使用すると有効性が低下することがわかります。
+クラスタリングは、ほとんどの顧客が**Declarative**モデルに移行するためのきっかけの1つです。 これは、自動化を利用するユーザーからデバイス/ベンダーレベルの詳細を隠し、抽象化する必要があるためです。
 
-The high-level procedure required to create the cluster is:
+クラスタを作成するために大まかな手順は次のとおりです:
 
-#.  Rename the CMI ‘Self’ Device name to match the hostname of the
-    Device
+#.  CMIの‘Self’デバイス名をデバイスのホスト名と一致するように変更
 
-#.  Set BIGIP-A & BIGIP-B CMI Parameters (Config Sync IP, Failover
-    IPs, Mirroring IP)
+#.  BIGIP-AおよびBIGIP-BのCMIパラメータを設定（Config Sync IP、フェールオーバーIP、ミラーリングIP）
 
-#.  Add BIG-IP-B as a trusted peer on BIGIP-A
+#.  BIGIP-Aで信頼できるピアとしてBIG-IP-Bを追加
 
-#.  Check the device\_trust\_group Sync Group Status
+#.  device\_trust\_groupのSync Group Statusを確認
 
-#.  Create a sync-failover Device Group
+#.  sync-failover用のDevice Groupを作成
 
-#.  Check the status of the created Device Group
+#.  作成したDevice Groupの冗長化の状態を確認
 
-#.  Perform initial sync of the Device Group
+#.  Device Groupの初期同期を実行
 
-#.  Check status (again)
+#.  再度、Device Groupの冗長化の状態を確認
 
-#.  Change the Traffic Group to use HA Order failover (not required but
-    shown as an example)
+#.  HA Orderフェールオーバーを使用するようにトラフィックグループを変更
+　　　　（必須ではありませんが、例として示されています）
 
-#. Create Floating Self IPs
+#. 　Floating Self IPを作成
 
-Task 1 – Rename objects and Setup CMI Global Parameters
+
+Task 1 – オブジェクト名の変更とCMIグローバルパラメータの設定
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will complete Items 1&2 from the list high-level
-procedure at the beginning of the lab. One of the idiosyncrasies of
-BIG-IP is that when you use the GUI Setup Wizard to set the hostname of
-the device, the wizard automatically renames the CMI ‘Self’ device to
-match the hostname. Since we configured the hostname via a REST call
-earlier this action did not take place.
+このタスクでは、上記のリストから項目1と2を実施します。 
+BIG-IPの特質の1つは、GUIセットアップウィザードを使用してデバイスのホスト名を設定すると、ウィザードは自動的にCMIの‘Self’デバイスの名前を変更してホスト名と一致させます。 以前の手順ではREST呼び出しでホスト名を設定していたので、このアクションは実行されませんでした。
 
-Perform the following steps to rename the CMI ‘Self’ device:
+CMIの‘Self’デバイスの名前を変更するための手順は以下のとおりです:
 
-#. Expand the “Lab 1.5 – Build a Cluster” folder in the Postman
-   collection
+#. Postman Collection内の“Lab 1.5 – Build a Cluster”フォルダを展開します。
 
-#. Click the “Step 1: Rename the CMI Self Device’ item in the collection
+#. Collection内の“Step 1: Rename the CMI Self Device’項目をクリックします。
 
-#. Examine the URI and JSON body. We are sending a POST request to
-   execute the equivalent of a tmsh ``mv`` command to rename the
-   existing object to the ``/mgmt/tm/cm/device`` Collection.
-   The ``name`` attribute specifies the current name of the object (the
-   factory default name), while the ``target`` attribute specifies the
-   new name of the object.
+#. URIとJSONボディを確認します。
+※既存のオブジェクトの名前を ``/mgmt/tm/cm/device``Collectionに変更するために、tmsh ``mv``コマンドに相当するものを実行するPOSTリクエストを送信します。``name``属性はオブジェクトの現在の名前（工場出荷時のデフォルト名）を指定し、 ``target``属性はオブジェクトの新しい名前を指定します。
 
-#. Click the ‘Send’ button to rename the Resource.
+#. ‘Send’ボタンをクリックし、Resource名を変更します。
 
-#. Change the request type from a POST to a GET and click ‘Send’.
-   Examine the response to make sure the name was changed successfully.
+#. リクエストタイプをPOSTからGETに変更し、‘Send’をクリックします。レスポンス内の名前が正常に変更されたことを確認します。
 
-Perform the following steps to set CMI Device Parameters
+CMIデバイスパラメータを設定するための手順は以下のとおりです:
 
-#. Click the “Step 2: Set BIGIP-A CMI Device Parameters” item in the
-   collection. Examine the operation (PATCH), URI and JSON body. We
-   will PATCH the newly renamed object (from the previous step) and
-   assign the Config Sync IP, Unicast Failover Address/Port and
-   Mirroring IPs:
+#. Collection内の“Step 2: Set BIGIP-A CMI Device Parameters”項目をクリックして、操作(PATCH)、URI、およびJSONボディを確認します。
+
+   ※前の手順で新しく名前を変更したオブジェクトをパッチし、Config Sync IP、ユニキャストフェールオーバーアドレス/ポート、およびミラーリングIPを割り当てます。
 
    |image28|
 
-#. Click the ‘Send’ button and examine the response to ensure the
-   settings were changed
+#. ‘Send’ボタンをクリックし、 応答で設定が変更されたことを確認します。
 
-#. Click the “Step 3: Set BIGIP-B CMI Device Parameters” item in the
-   collection. Examine the operation (PATCH), URI and JSON body. We
-   will PATCH and assign the Config Sync IP, Unicast Failover Address/Port and
-   Mirroring IPs.
+#. Collection内の“Step 3: Set BIGIP-B CMI Device Parameters”項目をクリック、操作(PATCH)、URI、およびJSONボディを確認します。
 
-   *EXTRA CREDIT: How is authentication to BIG-IP-B working if we never
-   got an authentication token? (Hint: we cheated)*
+　　　※Config Sync IP、ユニキャストフェイルオーバーアドレス/ポート、およびミラーリングIPを割り当てるためのPATCH要求を送信します。
 
-#. Click the ‘Send’ button and examine the response to ensure the
-   settings were changed
+   *EXTRA CREDIT:認証トークンがない場合、BIG-IP-Bへの認証はどのように機能しますか？ (Hint: we cheated)*
 
-Task 2 – Add BIG-IP-B as a Trusted Peer
+#. ‘Send’ボタンをクリックして、レスポンス内の名前が正常に変更されたことを確認します。
+
+Task 2 – 信頼できるピアとしてBIG-IP-Bを追加
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The CMI subsystem relies on a PKI based device trust model to establish
-relationships between BIG-IP systems. In this task we will add BIG-IP-B
-as a trusted peer of BIG-IP-A. Establishing a trust relationship is
-automatically a bi-directional operation. As a result, when we establish
-the trust relationship, BIG-IP-B will automatically establish a trust
-relationship with BIG-IP-A. This task corresponds to items 3&4 in the
-high-level procedure.
+CMIサブシステムは、BIG-IPシステム間の関係を確立するためのPKIベースのデバイス信頼モデルに依存しています。
+このタスクでは、BIG-IP-BをBIG-IP-Aの信頼できるピアとして追加します。 信頼関係を確立することは、自動的に双方向の操作です。
+その結果、信頼関係を確立すると、BIG-IP-Bは自動的にBIG-IP-Aとの信頼関係を確立します。 このタスクは、上記のリストの項目3と4に該当します。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the “Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A” item
-   in the collection
+#. Collection内の“Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A”の項目をクリックします。
 
-#. Examine the operation (POST), URI and JSON body. We are using a
-   special REST worker to add the device to the CMI trust. Additionally
-   the JSON body must be specified in a very specific manner to ensure
-   this step completes successfully. To minimize the chance for error
-   the values have been completed for you already. You should, however,
-   review and understand this step fully before continuing.
+#. 操作(PATCH)、URI、およびJSONボディを確認します。
 
-#. Click the ‘Send’ button. The response for this request does NOT
-   indicate success, only that the command is running.
+※特別なRESTワーカーを使用し、デバイスをCMI trustに追加しています。さらに、このステップが正常に完了するように、JSONボディを非常に特殊な方法で指定する必要があります。エラーの可能性を最小限に抑えるため、値はすでに指定されています。 ただし、この手順を十分に確認して理解してから、続行することを推奨します。
 
-#. To check for success we have to check the status of the Sync Group
-   named “device\_trust\_group”. To do this click the “Step 5: Check
-   Sync Group Status” item in the collection. This request will GET the
-   sync status for all sync groups on the system
+#. ‘Send’ボタンをクリックします。
+※この要求に対する応答は成功を示すものではなく、コマンドが実行中であることのみを示します。
 
-#. Click the ‘Send’ button and examine the response. The should
-   indicate a color of ‘green’, that bigip-b.f5.local is connected
-   and ‘In Sync’ (please notify an instructor of any issue):
+#. 成功しているか否かを確認するには、 “device\_trust\_group”という名前の同期グループのステータスをチェックする必要があります。これを行うには、コレクションの“Step 5: Check　Sync Group Status”をクリックします。この要求は、システム上のすべてのsync groupの同期ステータスを取得します。
+
+#. ‘Send’ボタンをクリックし、応答を確認します。
+※同期ステータスが‘green’になると、bigip-b.f5.localが接続され、‘In Sync’であることを意味します(何らかの問題があった場合はインストラクターにお知らせください):
 
    |image29|
 
-Task 3 – Create a sync-failover Device Group
+Task 3 – Sync-Failover Device Groupを作成
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This task will create a Device Group object that will contain the two
-BIG-IP systems. The type of device-group will be a ‘sync-failover’
-group, however, ‘sync-only’ groups can also be created with the same
-procedure but different attribute values. This task corresponds to items
-5-8 in the high-level procedure.
+このタスクでは、2つのBIG-IPシステムを含むDevice Groupオブジェクトを作成します。
+Device Groupのタイプは‘sync-failover’グループになりますが、
+異なる属性値を使用して同じ手順で‘sync-only’グループを作成することもできます。
+このタスクは、上記のリストの項目5-8に該当します。
 
-Perform the following steps to complete this task
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the “Step 6: Create Device Group” item in the collection.
-   Examine the request type, URL and JSON body. We will POST to the
-   ‘/mgmt/tm/cm/device-group’ collection and create a new Resource
-   called DeviceGroup1 that includes both BIG-IP devices and is set to
-   ‘sync-failover’ type. We are also setting the device-group to
-   ‘autosync’ so manual syncing is not required when configuration
-   changes occur:
+#. Collection内の“Step 6: Create Device Group” の項目をクリックし、リクエストタイプ、URL、とJSONボディを確認します。
+※ ‘/mgmt/tm/cm/device-group’collectionにPOSTし、両方のBIG-IPデバイスを含むDeviceGroup1という新しいリソース（‘sync-failover’用）を作成します。また、デバイスグループを‘autosync’に設定すると、構成が変更されたときに手動で同期する必要はありません。
 
    |image30|
 
-#. Click the ‘Send’ button and examine the response.
+#. ‘Send’ボタンをクリックし、応答を確認します。
 
-#. To check the status of the device-group we have to check the status
-   of the underlying sync group on the system. Click the ‘Step 7:
-   Check Sync Group Status’ item in the collection and click ‘Send’.
-   Examine the response and take note that the system is ‘Awaiting
-   Initial Sync’:
+#. Device Groupのステータスをチェックするには、Sync Groupのステータスをチェックする必要があります。Collection内の‘Step 7: Check Sync Group Status’の項目をクリックし、‘Send’ボタンをクリックします。応答を確認し、デバイスの状態が‘Awaiting　Initial Sync’になっていることを確認します。
 
    |image31|
 
-#. We will now manually sync DeviceGroup1 to fulfill the need for the
-   Initial Sync. Click the ‘Step 8: Manually Sync DeviceGroup1’ item
-   in the collection. Examine the request type, URL and JSON body. We
-   will POST the the ‘/mgmt/tm/cm/config-sync’ worker and tell it to
-   ‘run’ a config-sync of BIG-IP-A ‘to-group’ DeviceGroup1:
+#. DeviceGroup1を手動で同期し、必要な初期同期(Initial Sync)を開始します。Collection内の‘Step 8: Manually Sync DeviceGroup1’の項目をクリックし、リクエストタイプ、URL、とJSONボディを確認します。‘/mgmt/tm/cm/config-sync’ワーカーにPOSTリクエストを送信し、BIG-IP-AからのDeviceGroup1へのconfig-sync(‘to-group’)を実行するように指示します。
 
    |image32|
 
-#. Click ‘Send’ to initiate the sync
+#. ‘Send’ボタンをクリックし、同期を開始します。
 
-#. Click the ‘Step 9: Check Sync Group Status’ item in the collection
-   and click the ‘Send’ button. Examine the response to make sure that
-   DeviceGroup1 is ‘In Sync’. You may have to click ‘Send’ multiple
-   times as the sync operation can take a while to complete.
+#. Collection内の‘Step 9: Check Sync Group Status’の項目をクリックし、‘Send’ボタンをクリックします。応答を確認し、DeviceGroup1の状態が‘In Sync’になっていることを確認します。
+   
+   ※同期操作が完了するまでに時間がかかることがあるため、‘Send’を何度かクリックすることがあります。
 
-Task 4 – Perform Additional Operations
+
+Task 4 – 追加の操作を実行
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The remainder of the steps show how to manipulate various common items
-related to the HA config. In this task we will change the Traffic Group
-to use the ‘HA Order’ failover method. We will then initiate a failover
-and show how to view the status of the traffic-group.
+残りの手順では、HA設定に関連するさまざまな共通項目を操作する方法を示します。
+このタスクでは、トラフィックグループを変更し、‘HA Order’フェールオーバー方式を使用します。 その後、フェールオーバーを開始し、トラフィックグループのステータスを確認する方法を示します。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the “Step 10: Get Traffic Group Properties” item in the
-   collection. Examine the URL, we will GET the attributes of the
-   ‘traffic-group-1’ resource from the traffic-group collection. Click
-   the ‘Send’ button and review the response.
+#. Collection内の“Step 10: Get Traffic Group Properties”の項目をクリックして、URLを確認します。traffic-groupのCollectionから ‘traffic-group-1’リソースの属性をGETします。‘Send’ボタンをクリックし、応答を確認します。
 
-#. Click the “Step 11: Change Traffic Group to use HA Order” item in the
-   collection. Examine the request type, URL and JSON body. We will
-   PATCH the existing resource and specify an ‘haOrder’ attribute to
-   change the traffic-group behavior.
+#. Collection内の“Step 11: Change Traffic Group to use HA Order”の項目をクリックし、リクエストタイプ、URL、とJSONボディを確認します。既存のリソースにPATCHを送信し、トラフィックグループの動作を変更するための‘haOrder’属性を指定します。
 
-#. Click the ‘Send’ button and examine the response to verify the change
-   was successful.
+#. ‘Send’ボタンをクリックし、変更が成功したか否かを確認します。
 
-#. Click the “Step 12: Get Traffic Group Failover States” item in the
-   collection and click the ‘Send’ button. Examine the response and
-   determine which device is ‘active’ for the traffic-group:
+#. Collection内の“Step 12: Get Traffic Group Failover States”の項目をクリックし、‘Send’ボタンをクリックします。応答を確認し、どのデバイスが‘active’となっているかを確認します。
 
    |image33|
 
-#. Click EITHER the “Step 13A” or “Step 13B” item in the collection
-   depending on which device is ACTIVE for the traffic group. Notice
-   that we are sending the request to the ACTIVE device for the traffic
-   group. Examine the JSON body and click the ‘Send’ button.
+#. トラフィックグループに対してどのデバイスがACTIVEであるかに応じて、Collection内の“Step 13A”または“Step 13B”のいずれかのアイテムをクリックします。
+※トラフィックグループに対してACTIVEデバイスにリクエストを送信していることに注目してください。JSONボディを確認し、‘Send’ボタンをクリックします。
 
-#. Click the “Step 14: Get Traffic Group Failover States” item in the
-   collection and click the ‘Send’ button. Examine the response to
-   determine that the failover occurred properly:
+#. Collection内の“Step 14: Get Traffic Group Failover States”の項目をクリックし、‘Send’ボタンをクリックします。応答を確認し、フェールオーバーが正常に行われたことを確認します。
 
    |image34|
 
-Task 5 – Create Floating Self IPs
+Task 5 – Floating Self IPの作成
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To complete the HA config we will now create a Floating Self IP on the
-Internal VLAN.
+HA設定を完了するために、Internal VLANでFloating Self IPを作成します。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the “Step 15: Create a Floating Self IP” item in the
-   collection. Examine the request type, URL and JSON body. We will
-   create a new resource in the ``/mgmt/tm/net/self`` collection named
-   ‘Self-Internal-Floating’ and an IP address of 10.1.10.3.
+#. Collection内の“Step 15: Create a Floating Self IP”の項目をクリックし、リクエストタイプ、URL、とJSONボディを確認します。``/mgmt/tm/net/self``のCollectionに‘Self-Internal-Floating’というリソースをIPアドレス10.1.10.3で作成します。
 
-#. Click the ‘Send’ button and examine the response
+#. ‘Send’ボタンをクリックし、応答を確認します。
 
-#. Click the “Step 16: Get Self IPs” item in the collection and click
-   ‘Send’. Examine the response and verify the Self IP was created.
+#. Collection内の“Step 16: Get Self IPs”の項目をクリックして、‘Send’ボタンをクリックします。応答を確認し、Self IPが作成されたことを確認します。
 
 .. |image28| image:: /_static/image028.png
    :scale: 40%

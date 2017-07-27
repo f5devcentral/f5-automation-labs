@@ -5,35 +5,32 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Review/Set Device Settings
+Lab |labmodule|\.\ |labnum| – デバイス設定の確認/設定
 --------------------------------------------------------
 
-Your BIG-IP-A device is already licensed, so now we can focus on
-configuring the basic infrastructure related settings to complete the
-Device Onboarding process. The remaining items include (list not
-exhaustive):
+ご利用のBIG-IP-Aデバイスは既にライセンスされていますので、ここでは、デバイスのオンボードプロセスを完了するための基本的なインフラストラクチャ関連の設定の構成に焦点を当てます。　残りの項目には、（網羅的リストではない）：
 
--  Device Settings
+-  デバイス設定
 
-   -  **NTP/DNS Settings**
+   -  **NTP/DNS設定**
 
-   -  Remote Authentication
+   -  リモート認証
 
-   -  **Hostname**
+   -  **ホスト名**
 
-   -  **Admin Credentials**
+   -  **Admin資格情報**
 
--  L1-3 Networking
+-  L1-3 ネットワーク
 
-   -  Physical Interface Settings
+   -  物理インターフェースの設定
 
-   -  L2 Connectivity (**VLAN**, VXLAN, etc.)
+   -  L2接続(**VLAN**, VXLAN, 等)
 
-   -  L3 Connectivity (**Self IPs, Routing**, etc.)
+   -  L3接続(**Self IPs, Routing**, 等)
 
--  HA Settings
+-  HA設定
 
-   -  **Global Settings**
+   -  **Global設定**
 
       -  **Config Sync IP**
 
@@ -49,60 +46,48 @@ exhaustive):
 
    -  **Floating Self IPs**
 
-We will specifically cover the items in **BOLD** above in the following
-labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of customer environments. This class is
-designed to teach enough information so that you can then apply the
-knowledge learned and help articulate and/or deliver a specific solution
-for your environment.
 
-Task 1 – Set Device Hostname & Disable GUI Setup Wizard
+以下のラボでは、**BOLD**となっている項目を設定します。 
+デバイスオンボーディングプロセスの多くの順列は、顧客環境の異なる要求のために存在します。
+このセクションでは、学習した知識を適用し、環境に特化したソリューションを提供するために十分な情報を教えるように設計されています。
+
+
+Task 1 – デバイスのホスト名の設定とGUIセットアップウィザードの無効化
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will modify the device hostname and disable the GUI
-Setup Wizard. The Resource that contains these settings is
-``/mgmt/tm/sys/global-settings``.
+このタスクでは、デバイスのホスト名を変更し、GUIセットアップウィザードを無効にします。 
+これらの設定を含むリソースは``/mgmt/tm/sys/global-settings``です。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Expand the “Lab 1.3 – Review/Set Device Settings” folder in the
-   Postman collection
+#. Postman collection内の“Lab 1.3 – Review/Set Device Settings”フォルダを展開します。
 
-#. Click the “Step 1: Get System Global-Settings” item. Click the ‘Send’
-   button and review the response body to see what the current settings
-   on the device are.
+#. “Step 1: Get System Global-Settings”項目をクリックします。‘Send’ボタンをクリックし、レスポンスボディにデバイスの現在の設定を確認します。
 
-#. Click the “Step 2: Set System Global-Settings” item. This item uses
-   a PATCH request to the ``global-settings`` resource to modify the
-   attributes contained within it. We will update the ``guiSetup`` and
-   ``hostname`` attribute.
+#. “Step 2: Set System Global-Settings”をクリックします。 この項目は、 ``global-settings``リソースに対するPATCHリクエストを使用して、その中に含まれる属性を変更します。 ``guiSetup``と ``hostname``属性を更新します。
 
-   - Review the JSON body and modify the ‘hostname’ attribute to set the
-     hostname to ``bigip-a.f5.local``
+   - JSONボディを確認後に、‘hostname’属性を変更し、ホスト名を ``bigip-a.f5.local``に設定してください。
 
-   - Also notice that we are disabling the GUI Setup Wizard as part of
-     the same request:
+   - また、同じリクエストの一部としてGUIセットアップウィザードを無効にしていることに注目してください。
+
      |image25|
 
-#. Click the ‘Send’ button and review the response body. You should see
-   that the attributes modified above have been updated. You can also
-   GET the global-settings again to verify they have been updated.
+#. ‘Send’ボタンをクリックし、レスポンスボディを確認します。 上記で変更された属性が更新されていることを確認します。 
+GETリクエストを再度送信することによりglobal-settingsが更新されていることも確認できます。
 
-Task 2 – Modify DNS/NTP Settings
+
+Task 2 – DNS/NTP設定の変更
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a 
-   JSON array is:
+.. NOTE:: このタスクでは、JSON配列を使用します。 JSON配列を定義する構文は次のとおりです：
 
    ``myArray: [ Object0, Object1 ... ObjectX ]``
 
-   To define and array consisting of Strings the syntax is:
+   文字列で構成される配列を定義する構文は次のとおりです:
 
    ``myStringArray: [ "string0", "string1" ... "stringX" ]``
 
-Much like the previous task we can update system DNS and NTP settings by
-sending a PATCH request to the correct resource in the ‘sys’ Organizing
-Collection. The relevant Resources for this task are:
+前述のタスクと同様に、‘sys’のOrganizing　Collectionの正しいリソースにPATCH要求を送信することで、システムDNSとNTP設定を更新できます。 このタスクの関連リソースは次のとおりです:
 
 +------------------------+----------------+
 | URL                    | Type           |
@@ -112,74 +97,56 @@ Collection. The relevant Resources for this task are:
 | ``/mgmt/tm/sys/ntp``   | NTP Settings   |
 +------------------------+----------------+
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the “Step 3: Get System DNS Settings” item in the collection.
-   Click ‘Send’ and review the current settings
+#. Collection内の“Step 3: Get System DNS Settings”をクリックします。‘Send’をクリックし、現在の設定を確認します。
 
-#. Click the “Step 4: Set System DNS Settings” item in the collection.
-   Review the JSON body to verify the name server IPs ``4.2.2.2`` and
-   ``8.8.8.8`` are listed. Additionally add a search domain of ‘f5.local’. You
-   will modify a JSON array for both of these attributes.
+#. Collection内の“Step 4: Set System DNS Settings”をクリックします。JSONボディを確認し、ネームサーバIP ``4.2.2.2``と``8.8.8.8``がリストされていることを確認してください。さらに、 ‘f5.local’の検索ドメインを追加します。 これらの属性の両方に対してJSON配列を変更します。
 
-#. Click the ‘Send’ button and verify the requested changes were
-   successfully implemented
+#. ‘Send’ボタンをクリックし、変更が正常に実装されたことを確認します。
 
-#. Click the “Step 5: Get System NTP Settings” item in the collection.
-   Click ‘Send’ and review the current settings
+#. Collection内の“Step 5: Get System NTP Settings”をクリックします。‘Send’をクリックし、現在の設定を確認します。
 
-#. Click the “Step 6: Set System NTP Settings” item in the collection.
-   Review the JSON body to verify the NTP servers with hostnames
-   ``0.pool.ntp.org`` and ``1.pool.ntp.org`` are contained in the ``servers``
-   attribute (another JSON array!)
+#. Collection内の“Step 6: Set System NTP Settings”をクリックします。JSONボディを確認し、ホスト名``0.pool.ntp.org`` と``1.pool.ntp.org``を持つNTPサーバが``servers``属性に含まれていることを確認してください。（別のJSON配列！）
 
-#. Click the ‘Send’ button and verify the requested changes were
-   successfully implemented
+#. ‘Send’ボタンをクリックし、変更が正常に実装されたことを確認します。
 
-Task 3 – Update default user account passwords
+
+Task 3 – デフォルトのユーザーアカウントのパスワードを更新
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will update the passwords for the ‘root’ and ‘admin’
-accounts. The process for updating the root account is different then
-other system accounts due to the special nature of the root account.
+このタスクでは、‘root’および‘admin’アカウントのパスワードを更新します。
 
-To update the root account password we will use a POST to a shared REST
-worker at ``/mgmt/shared/authn/root``
+rootアカウントを更新するプロセスは、他のシステムアカウントとは異なります。
 
-To update all other system accounts we will PATCH the
-``/mgmt/auth/user/<username>`` Resource
+rootアカウントのパスワードを更新するには、``/mgmt/shared/authn/root``でshared REST workerにPOSTリクエストを送信します。
 
-Perform the following steps to change the **root** user password:
+他のシステムアカウントを更新するには``/mgmt/auth/user/<username>``リソースに対してPATCHリクエストを送信します。
 
-#. Click the “Step 7: Set root User Password” item in the collection.
+**root**ユーザーのパスワードを変更するには、以下の手順を実行します:
 
-#. Notice that we a performing a POST operation to a shared REST
-   worker. Modify the JSON body to update the password to the value
-   “newdefault” and click the ‘Send’ button.
+#. Collection内の“Step 7: Set root User Password”をクリックします。
+
+#. shared REST　workerにPOST操作を実行していることに注目してください。JSONボディを修正後にパスワードを“newdefault”という値に更新し、‘Send’ボタンをクリックします。
 
    |image26|
 
-#. You can verify the password was changed by opening an SSH session
-   using PuTTY to BIG-IP-A.
+#. PuTTYを使用してBIG-IP-AへのSSHセッションを開くと、パスワードが変更されたことを確認できます。
 
-#. **Repeat the procedure above to change the password back to
-   “default”**
+#. **上記の手順を繰り返し、パスワードを“default”に戻します。**
 
-Perform the following steps to change the **admin** user password:
 
-#. Click the “Step 8: Set admin User Password” item in the collection.
+**admin**ユーザーのパスワードを変更するには、以下の手順を実行します:
 
-#. Notice that we a performing a PATCH operation to admin user
-   Resource. Modify the JSON body to update the password to the value
-   “newadmin” and click the ‘Send’ button.
+#. Collection内の“Step 8: Set admin User Password”をクリックします。
+
+#. admin userリソースにPATCH操作を実行していることに注目してください。JSONボディを修正後にパスワードを“newadmin”という値に更新し、‘Send’ボタンをクリックします。
 
    |image27|
 
-#. You can verify the password was changed by opening an SSH session
-   using PuTTY to BIG-IP-A OR by logging into TMUI in a Chrome browser
-   tab.
+#. PuTTYを使用してBIG-IP-AへのSSHセッションを開くか、もしくはChromeブラウザタブでTMUIにログインし、パスワードが変更されたことを確認できます。
 
-#. **Repeat the procedure above to change the password back to “admin”**
+#. **上記の手順を繰り返し、パスワードを“admin”に戻します。**
 
 .. |image25| image:: /_static/image025.png
    :scale: 40%

@@ -5,28 +5,25 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Basic Network Connectivity
+Lab |labmodule|\.\ |labnum| – 基本ネットワーク接続
 --------------------------------------------------------
 
-This lab will focus on configuration of the following items:
+このラボでは、次の項目の設定に焦点を当てます:
 
--  L1-3 Networking
+-  L1-3ネットワーク
 
-   -  Physical Interface Settings
+   -  物理インターフェイスの設定
 
-   -  L2 Connectivity (**VLAN**, VXLAN, etc.)
+   -  L2接続 (**VLAN**, VXLAN, etc.)
 
-   -  L3 Connectivity (**Self IPs, Routing**, etc.)
+   -  L3接続 (**Self IPs, Routing**, etc.)
 
-We will specifically cover the items in **BOLD** above in the following
-labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of customer environments. This class is
-designed to teach enough information so that you can then apply the
-knowledge learned and help articulate and/or deliver a specific solution
-to your customer.
+以下のラボでは、**BOLD**となっている項目を設定します。 
+デバイスオンボーディングプロセスの多くの順列は、顧客環境の異なる要求のために存在します。
+このセクションでは、学習した知識を適用し、環境に特化したソリューションを提供するために十分な情報を教えるように設計されています。
 
-The following table lists the L2-3 network information used to configure
-connectivity for BIG-IP-A:
+
+次の表に、BIG-IP-Aの接続を設定するために使用されるL2-3ネットワーク情報を示します:
 
 +-----------+-----------------+-------------------------+
 | Type      | Name            | Details                 |
@@ -52,61 +49,43 @@ connectivity for BIG-IP-A:
 |           |                 | GW: 10.1.20.254         |
 +-----------+-----------------+-------------------------+
 
-Task 1 – Create VLANs
+Task 1 – VLANの作成
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE::
-   This lab shows how to configure VLAN tags, but does not deploy tagged
-   interfaces.  To use tagged interfaces the ``tagged`` attribute needs
-   to have the value ``true``
+.. NOTE:: このラボではVLANタグを設定する方法を説明しますが、タグ付きインターフェイスは展開しません。タグ付きインターフェイスを使用するには、``tagged``属性の値を``true``にする必要があります。
 
-Perform the following steps to configure the VLAN objects/resources:
+VLANオブジェクト/リソースを設定するには、次の手順を実行します：
 
-#. Expand the “Lab 1.4 – Basic Network Connectivity” folder in the
-   Postman collection.
+#. Postman collection内の“Lab 1.4 – Basic Network Connectivity”フォルダを展開します。
 
-#. Click the “Step 1: Create a VLAN” item in the collection. Examine the
-   JSON body; the values for creating the Internal VLAN have already
-   been populated.
+#. Collection内の“Step 1: Create a VLAN”をクリックします。 JSONボディを確認し、‘Internal’のVLANを作成するための値はすでに設定されていることを確認します。
 
-#. Click the ‘Send’ button to create the VLAN
+#. VLANを作成するには、‘Send’ボタンをクリックします。
 
-#. Repeat Step 1, however, this time modify the JSON body to create the
-   External VLAN using the parameters in the table above.
+#. 手順1を繰り返します。ただし、今回はJSONボディを変更し、上記の表のパラメータを使用して‘External’のVLANを作成します。
 
-#. Click the “Step 2: Get VLANs” item in the collection. Click the
-   ‘Send’ button to GET the VLAN collection. Examine the response to
-   make sure both VLANs have been created.
+#. Collection内の“Step 2: Get VLANs”をクリックします。VLAN Collectionを取得するには‘Send’ボタンをクリックしてください。応答を確認し、両方のVLANが作成されていることを確認します。
 
-Task 2 – Create Self IPs
+Task 2 – Self IPの作成
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to configure the Self IP objects/resources:
+Self IP オブジェクト/リソースを設定するには、次の手順を実行します:
 
-#. Click the “Step 3: Create a Self IP” item in the collection. Examine
-   the JSON body; the values for creating the Self-Internal Self IP have
-   already been populated.
+#. Collection内の“Step 3: Create a Self IP”をクリックします。JSONボディを確認し、‘Self-Internal’のSelf IPを作成するための値はすでに設定されていることを確認します。
 
-#. Click the ‘Send’ button to create the Self IP
+#. Self IPを作成するには、‘Send’ボタンをクリックします。
 
-#. Repeat Step 1, however, this time modify the JSON body to create the
-   Self-External Self IP using the parameters in the table above.
+#. 手順1を繰り返します。ただし、今回はJSONボディを変更し、上記の表のパラメータを使用して‘Self-External’のSelf IPを作成します。
 
-#. Click the “Step 4: Get Self IPs” item in the collection. Click the
-   ‘Send’ button to GET the Self IP collection. Examine the response to
-   make sure both Self IPs have been created.
+#. Collection内の“Step 4: Get Self IPs”をクリックします。Self IP　Collectionを取得するには‘Send’ボタンをクリックしてください。応答を確認し、両方のSelf IPが作成されていることを確認します。
 
-Task 3 – Create Routes
+Task 3 – Route作成
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to configure the Route object/resource:
+Routeオブジェクト/リソースを設定するには、次の手順を実行します:
 
-#. Click the “Step 5: Create a Route” item in the collection. Examine
-   the JSON body; the values for creating the Default Route have already
-   been populated.
+#. Collection内の“Step 5: Create a Route”をクリックします。JSONボディを確認し、Default Routeを作成するための値はすでに設定されていることを確認します。
 
-#. Click the ‘Send’ button to create the Route
+#. Routeを作成するには、‘Send’ボタンをクリックします。
 
-#. Click the “Step 6: Get Routes” item in the collection. Click the
-   ‘Send’ button to GET the routes collection. Examine the response to
-   make sure the route has been created.
+#. Collection内の“Step 6: Get Routes”をクリックします。Routes Collectionを取得するには‘Send’ボタンをクリックしてください。応答を確認し、routeが作成されていることを確認します。

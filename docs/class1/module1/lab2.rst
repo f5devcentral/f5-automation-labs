@@ -5,32 +5,28 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – REST API Authentication & ‘example’ Templates
+Lab |labmodule|\.\ |labnum| – REST API認証と 'example'テンプレート
 ---------------------------------------------------------------------------
 
-One of the many basic concepts related to interaction with REST API’s is
-how a particular consumer is authenticated to the system. BIG-IP and
-iWorkflow support two types of authentication: HTTP BASIC and Token
-based. It’s important to understand both of these authentication
-mechanisms, as consumers of the API will often make use of both types
-depending on the use case. This lab will demonstrate how to interact
-with both types of authentication.
+REST APIインターフェイスとやり取りするときに理解する必要がある基本的な概念の1つは、ユーザーとシステム間の認証方法です。
+BIG-IPとiWorkflowは、2種類の認証をサポートしています: HTTP BASICとToken　based。 ユースケースによっては、APIのユーザーが両方のタイプを使用することが多いため、これらの認証メカニズムの両方を理解することが重要です。
+このラボでは、両方の認証方法について説明します。
 
-Task 1 - Import the Postman Collection & Environment
+Task 1 - Postmanのコレクションと環境変数をインポートする
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task you will Import a Postman Collection & Environment for this lab.
-Perform the following steps to complete this task:
+このラボで使用されるPostmanのコレクションと環境変数をインポートします。
 
-#. Open the Postman tool by clicking the |image8| icon of the taskbar of
-   your Windows Jumphost
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the 'Import' button in the top left of the Postman window
+#. Windows Jumphostのタスクバーの |image8| アイコンをクリックして、Postmanツールを開きます。
+
+
+#. Postman画面の左上にある'Import'ボタンをクリックします。
 
    |image87|
 
-#. Click the 'Import from Link' tab.  Paste the following URL into the
-   text box and click 'Import'
+#. 'Import from Link'タブをクリックします。 テキストボックスに次のURLを貼り付けて、'Import'をクリックします。
 
    .. parsed-literal:: 
 
@@ -38,116 +34,79 @@ Perform the following steps to complete this task:
 
    |image88|
 
-#. You should now see a collection named 'F5 Automation & Orchestration Intro'
-   in your Postman Collections sidebar:
+#. Postman Collectionsのサイドバーに'F5 Automation & Orchestration Intro'という名前のコレクションが表示されます。
 
    |image10|
 
-#. Import the Environment file by clicking 'Import' -> 'Import from Link' and
-   pasting the following URL and clicking 'Import':
+#. 'Import' -> 'Import from Link'をクリック、次のURLを貼り付けて'Import'をクリックして、環境ファイルをインポートします。
 
    .. parsed-literal:: 
 
       :raw_github_url:`/postman_collections/INTRO_Automation_Orchestration_Lab.postman_environment.json`
 
-#. To assist in multi-step procedures we make heavy use of the
-   ‘Environments’ capability in Postman. This capability allows us to
-   set various global variables that are then substituted into a
-   request before it’s sent. Set your environment to
-   ‘INTRO - Automation & Orchestration Lab’ by using the menu at the top right
-   of your Postman window:
+#.　Postmanの‘Environments’(環境変数)機能を使用して、複数のステップを含むプロシージャでよく使用されるグローバル変数を定義します。これらのグローバル変数は、リクエストが送信される前に置換されます。Postman画面の右上にあるプルダウンより環境を 'INTRO - Automation＆Orchestration Lab'に設定します。
 
    |image9|
 
-Task 2 – HTTP BASIC Authentication
+Task 2 – HTTP BASIC認証
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will use the Postman tool to send API requests using
-HTTP BASIC authentication. As its name implies this method of
-authentication encodes the user credentials via the existing BASIC
-authentication method provided by the HTTP protocol. The mechanism this
-method uses is to insert an HTTP header named ‘Authorization’ with a
-value that is built by Base 64 encoding the string
-``<username>:<password>``. The resulting header takes this form:
+このタスクでは、Postmanツールを使用してHTTP BASIC認証を使ったAPIリクエストを送信します。
+この認証方法は、HTTPプロトコルで提供されている既存のBASIC認証方法を使用してユーザー名とパスワードをエンコードします。
+このメカニズムは、``<username>:<password>``という文字列をBase 64でエンコードした値で ‘Authorization’という名前のHTTPヘッダを挿入します。その結果のヘッダーは次の形式になります。
 
 ``Authorization: Basic YWRtaW46YWRtaW4=``
 
-It should be noted that cracking the method of authentication is
-TRIVIAL; as a result API calls should always be performed using HTTPS
-(F5 default) rather than HTTP.
+この認証方法は簡単にクラックする可能性があるため、HTTPではなくHTTPS（F5デフォルト）を使用してAPI呼び出しを実行することを推奨します。
 
-Perform the following steps to complete this task:
+このタスクを完了するには、次の手順を実行します:
 
 
-#. Click the ‘Collections’ tab on the left side of the screen, expand
-   the ‘F5 Automation & Orchestration Intro’ collection on the left side
-   of the screen, expand the ‘Lab 1.2 – API Authentication’ folder:
+#. 画面の左側にある‘Collections’タブをクリックし、画面の左側にある‘F5 Automation & Orchestration Intro’コレクションを展開し、‘Lab 1.2 – API Authentication’フォルダを展開します。
 
    |image10|
 
-#. Click the ‘Step 1: HTTP BASIC Authentication’ item. Click the
-   ‘Authorization’ tab and select ‘Basic Auth’ as the Type. Fill in
-   the username and password (admin/admin) and click the ‘Update
-   Request’ button. Notice that the number of Headers in the Headers
-   tab changed from 1 to 2. This is because Postman automatically
-   created the HTTP header and updated your request to include it.
-   Click the ‘Headers’ tab and examine the HTTP header:
+#. ‘Step 1: HTTP BASIC Authentication’をクリックします。そして、‘Authorization’タブをクリックし、Typeとして‘Basic Auth’を選択します。資格情報(admin/admin)を入力して、‘Update Request’ボタンをクリックします。‘Headers’タブのヘッダーの数が1から2に変更されていることに注目してください。これは、Postmanが自動的にHTTPヘッダーを作成し、それを含むリクエストを更新したためです。‘Headers’タブをクリックし、HTTPヘッダーを確認します。
 
    |image11|
 
-#. Click the ‘Send’ button to send the request. If the request succeeds
-   you should be presented with a listing of the ``/mgmt/tm/ltm``
-   Organizing Collection.
+#. リクエストを送信するには‘Send’ボタンをクリックします。リクエストが成功した場合は、 ``/mgmt/tm/ltm``のOrganizing Collectionのリストが表示されます。
 
-#. Update the credentials and specify an INCORRECT password. Send the
-   request again and examine the response:
+
+#. パスワードを更新し、不正なパスワードを指定してください。. リクエストを再度送信し、レスポンスを確認します。
 
    |image12|
 
-Task 3 – Token Based Authentication
+Task 3 – トークンベースの認証
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of the disadvantages of BASIC Authentication is that credentials are
-sent with each and every request. This can result in a much greater
-attack surface being exposed unnecessarily. As a result Token Based
-Authentication (TBA) is preferred in many cases. This method only sends
-the credentials once, on the first request. The system then responds
-with a unique token for that session and the consumer then uses that
-token for all subsequent requests. Both BIG-IP and iWorkflow support
-token-based authentication that drops down to the underlying
-authentication subsystems available in TMOS. As a result the system can
-be configured to support external authentication providers (RADIUS,
-TACACS, AD, etc) and those authentication methods can flow through to
-the REST API. In this task we will demonstrate TBA using the local
-authentication database, however, authentication to external providers
-is fully supported.
+BASIC認証の欠点の1つは、各要求ごとにユーザ名とパスワードが送信されることです。これにより攻撃面が大きくなり、サイバーリスクが増加する可能性があります。その結果、多くの場合、トークンベースの認証（TBA）が優先されます。このメソッドは、最初の要求で一度だけユーザ名とパスワードを送信します。 その後、デバイスは、ユーザーが同じセッション内のすべての後続の要求に使用するユニークなトークンで応答します。
 
-For more information about external authentication providers see the
-section titled “\ **About external authentication providers with
-iControl REST**\ ” in the iControl REST API User Guide available at
-https://devcentral.f5.com
+BIG-IPとiWorkflowは、TMOSで利用可能な基盤となる認証サブシステムに到達するトークンベース認証をサポートしています。 その結果、外部認証プロバイダ（RADIUS、TACACS、ADなど）をサポートするようにシステムを構成することができ、これらの認証メソッドをREST APIに流すことができます。
 
-Perform the following steps to complete this task:
+このタスクでは、ローカル認証データベースを使用してTBAを検証しますが、外部プロバイダへの認証も完全にサポートされています。
 
-#. Click the ‘Step 2: Get Authentication Token’ item in the Lab 1.2
-   Postman Collection
+外部認証プロバイダの詳細については、 https://devcentral.f5.com の「iControl REST API User Guide」の“\ **About external authentication providers with iControl REST**\ ”をご参照ください。
 
-#. Notice that we send a POST request to the ``/mgmt/shared/authn/login``
-   endpoint.
+
+このタスクを完了するには、次の手順を実行します:
+
+#. Lab 1.2　Postman Collectionの‘Step 2: Get Authentication Token’の項目をクリックします。
+
+
+#. ``/mgmt/shared/authn/login``エンドポイントにPOSTリクエストを送信したことに注目してください。
 
    |image13|
 
-#. Click the ‘Body’ tab and examine the JSON that we will send to
-   BIG-IP to provide credentials and the authentication provider:
+#. ‘Body’タブをクリックし、資格情報と認証プロバイダを提供するためにBIG-IPに送信するJSONを確認します。
 
    |image14|
 
-#. Modify the JSON body and add the required credentials (admin/admin).
-   Then click the ‘Send’ button.
+#. JSONボディを変更し、資格情報(admin/admin)を追加します。 次に、‘Send’ボタンをクリックします。
 
-#. Examine the response status code. If authentication succeeded and
-   a token was generated the response will have a 200 OK status code.
-   If the status code is 401 then check your credentials:
+
+#. レスポンスステータスコードを確認します。 認証が成功し、トークンが生成された場合、応答は200 OKステータスコードを返します。
+   ステータスコードが401の場合は、資格情報を確認してください。
 
    **Successful:**
 
@@ -157,75 +116,50 @@ Perform the following steps to complete this task:
 
    - |image16|
 
-#. Once you receive a 200 OK status code examine the response body.
-   The various attributes show the parameters assigned to the
-   particular token. Find the ‘token’ attribute and copy it into your
-   clipboard (Ctrl+c) for use in the next step:
+#. 200 OKのステータスコードを受け取ったら、レスポンスボディをチェックして、特定のトークンに割り当てられたパラメータを示すさまざまな属性を確認します。‘token’属性を見つけてクリップボードにコピーして(Ctrl+c)、次のステップで使用します。
 
    |image17|
 
-#. Click the ‘Step 3: Verify Authentication Works’ item in the Lab
-   1.2 Postman collection. Click the ‘Headers’ tab and paste the
-   token value copied above as the VALUE for the ``X-F5-Auth-Token``
-   header. This header is required to be sent on all requests when
-   using token based authentication.
+#. Lab 1.2 Postman Collectionの‘Step 3: Verify Authentication Works’の項目をクリックします。‘Headers’タブをクリックし、``X-F5-Auth-Token``ヘッダーのVALUEとしてトークン値を貼り付けます。トークンベースの認証を使用する場合、このヘッダーはすべての要求で送信する必要があります。
 
    |image18|
 
-#. Click the ‘Send’ button. If your request is successful you should
-   see a ‘200 OK’ status and a listing of the ``ltm`` Organizing
-   Collection.
+#. ‘Send’ボタンをクリックします。 リクエストが成功すると、 ‘200 OK’ステータスと ``ltm`` Organizing Collectionのリストが表示されます。
 
-#. We will now update your Postman environment to use this auth token
-   for the remainder of the lab. Click the Environment menu in the
-   top right of the Postman window and click ‘Manage Environments’:
+
+#. ここでは、残りのラボでこの認証トークンを使用するようにPostmanの環境変数を更新します。Postman画面の右上にある‘Environment‘メニューをクリックし、‘Manage Environments’をクリックします。
 
    |image19|
 
-#. Click the ‘INTRO – Automation & Orchestration Lab’ item:
+#. ‘INTRO – Automation & Orchestration Lab’の項目をクリックしてください。
 
    |image20|
 
-#. Update the value for ``bigip_a_auth_token`` by Pasting (Ctrl-v)
-   in your auth token:
+#. Value欄に認証トークンを貼り付けて（Ctrl-v）、``bigip_a_auth_token``の値を更新します。
 
    |image21|
 
-#. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. You’re subsequent requests will now automatically include
-   the token.
+#. ‘Update’ボタンをクリックし、‘Manage Environments’ウィンドウを閉じます。後続のリクエストに自動的にトークンが追加されるようになりました。
 
-#. Click the ‘Step 4: Set Authentication Token Timeout’ item in the
-   Lab 1.2 Postman collection. This request will PATCH your token
-   Resource (check the URI) and update the timeout attribute so we
-   can complete the lab easily. Examine the request type and JSON
-   Body and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
+
+#. Lab 1.2 Postman Collectionの‘Step 4: Set Authentication Token Timeout’をクリックします。このリクエストにより、PATCH要求が送信され、トークンリソースのタイムアウト属性が更新され（URIをチェック）、ラボを簡単に完了することができます。リクエストのタイプとJSONボディを確認し、‘Send’ボタンをクリックします。 応答でタイムアウトが ‘36000’に変更されていることを確認します。
 
    |image22|
 
-Task 4 – Get a pool ‘example’ Template
+Task 4 – プール情報を取得する ‘example’ テンプレート
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to assist with REST API interactions you can request a template
-of the various attributes of a Resource type in a Collection. This
-template can then be used as the body of a POST, PUT or PATCH request as
-needed.
+REST APIのやりとりを支援するために、コレクション内のリソースタイプのさまざまな属性のテンプレートをリクエストできます。 このテンプレートは、必要に応じてPOST、PUT、またはPATCH要求のボディとして使用できます。
 
-Perform the following steps:
+このタスクを完了するには、次の手順を実行します:
 
-#. Click the ‘Step 5: Get ‘example’ of a Pool Resource’ item in the Lab
-   1.2 Postman collection
+#. Lab 1.2 Postman collectionの‘Step 5: Get ‘example’ of a Pool Resource’の項目をクリックします。
 
-#. Examine the URI. Notice the addition of example at the end of the
-   collection name:
+#. URIを確認します。 コレクション名の末尾に‘example’が追加されていることに注目してください。
 
    |image23|
 
-#. Click ‘Send’ and examine the FULL response. You will see
-   descriptions and then all the attributes for the Pool resource
-   type. The response also shows the default values for the attributes
-   if applicable:
+#. ‘Send’をクリックし、FULLレスポンスを確認します。 プールリソースタイプのdescriptionとすべての属性が表示されます。 該当する場合は、属性のデフォルト値も表示されます
 
    |image24|
 
