@@ -126,6 +126,11 @@ logging we will review.
 .. |image115| image:: /_static/image115.png
  :scale: 70%
 
+11. Verify on the BIG-IP that the pool ``module_3_vs`` has been created and the services are Green
+
+.. |image115| image:: /_static/image117.png
+ :scale: 70%
+
 Task 2 - Jenkinsfile3 and Jenkinsfile4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -162,6 +167,8 @@ These two Jenkins files were completed to show the ability of creating smaller d
    }
  }
 
+3. Verify on the BIG-IP that the pool ``module_3_pool`` has a user down node
+
 - Pipeline Job name ``module_4_jenkinsfile_3``
 
 .. code-block:: json
@@ -185,3 +192,5 @@ These two Jenkins files were completed to show the ability of creating smaller d
          )
    }
  }
+
+4. Verify on the BIG-IP that the pool ``module_3_pool`` has a user up node

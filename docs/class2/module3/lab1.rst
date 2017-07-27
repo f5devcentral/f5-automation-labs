@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum| – Files used and locations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The f5-super-netops-container is a self contained toolkit, meaning everything we will
-be using is already on the solution, it will also always be updated (CD). All received via git clones.
+be using is already in the solution, it will also always be updated (CD). All received via git clones.
 
 .. NOTE::
  If you are running in the provided training infrastructure, the super-netops-container can be accessed via Putty, all commands from this point will be run from within the super-netops-container
