@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Connect to f5-super-netops-container
+Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a
@@ -131,10 +131,6 @@ You should see a page like this:
 
 |image78|
 
-.. |image78| image:: /_static/image078.png
-   :align: middle
-   :scale: 50%
-
 Task 3 – Connect via Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,7 +146,7 @@ Docker host.  In the case of the Jenkins service the following mapping applies:
 ``10.1.1.8:10000 -> f5-super-netops-container:8080``
 
 .. NOTE:: There is no bookmark in your browser, you may find it easier to
-reference later if you create one after connecting the first time
+   reference later if you create one after connecting the first time
 
 To connect via HTTP open a web browser and enter the URL:
 
@@ -160,6 +156,9 @@ You should see a page like this:
 
 |image89|
 
-.. |image89| image:: /_static/image089.png
-    :align: middle
-    :scale: 50%
+.. |image78| image:: /_static/image078.png
+   :align: middle
+   :scale: 50%
+.. |image89| image:: /_static/class2/image089.png
+   :align: middle
+   :scale: 50%

@@ -1,5 +1,5 @@
-Module 4 – Continuous Integration / Continuous Delivery
-==============================================================
+Module 4: Continuous Integration / Continuous Delivery
+======================================================
 
 This Module will continue to build up from Infrastructure to Self-Service or CI/CD goal.
 We will be building on the code that was utilized in the previous modules, though now
@@ -28,7 +28,7 @@ Tools we will be using:
 From the previous labs you should already have your Super-NetOps-Container already
 running, if its not please refer to Module 1.3 on starting your service
 
- .. toctree::
+.. toctree::
    :maxdepth: 1
    :glob:
 

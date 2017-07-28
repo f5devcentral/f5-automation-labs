@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Install the f5-postman-workflows Framework
+Lab |labmodule|\.\ |labnum|\: Install the f5-postman-workflows Framework
 ------------------------------------------------------------------------
 
 In this lab you will walk through installing the f5-postman-workflows
@@ -20,13 +20,14 @@ from the f5-postman-workflows GitHub repository.
 
 Perform the following steps to complete this task:
 
-#. Open the Postman Client on your jumphost by clicking the |image8| icon.
+#. Open the Postman Client on your jumphost by clicking the |image8| icon
 #. Click the 'Import' button in the top left of the Postman window
 #. Click the 'Import from Link' tab.  Paste the following URL into the
    text box and click 'Import'
 
    ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/F5_Postman_Workflows.postman_collection.json``
-#. You should now see a collection named 'F5 Postman Workflows' in your
+
+#. You should now see a collection named ``F5_Postman_Workflows`` in your
    Postman Collections sidebar
 
 Task 2 - Install f5-postman-workflows into your Postman Client

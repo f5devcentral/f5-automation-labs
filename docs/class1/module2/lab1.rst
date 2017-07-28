@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – iWorkflow Authentication
+Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
 ------------------------------------------------------
 
 iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
@@ -30,8 +30,7 @@ Perform the following steps to complete this task:
    Postman Collection
 
 #. Notice that we are sending a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint. Additionally, BASIC
-   Authentication is required on the initial token request:
+   ``/mgmt/shared/authn/login`` endpoint.
 
    |image41|
 

@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Create Tenant & BIG-IP Connector
+Lab |labmodule|\.\ |labnum|\: Create Tenant & BIG-IP Connector
 --------------------------------------------------------------
 
 iWorkflow implements a Tenant/Provider interface to enable abstracted deployment

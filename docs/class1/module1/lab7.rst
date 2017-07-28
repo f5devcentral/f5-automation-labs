@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – REST API Transactions
+Lab |labmodule|\.\ |labnum|\: REST API Transactions
 ---------------------------------------------------
 
 Task 1 – Create a Transaction

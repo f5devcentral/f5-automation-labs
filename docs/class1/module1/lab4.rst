@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Basic Network Connectivity
+Lab |labmodule|\.\ |labnum|\: Basic Network Connectivity
 --------------------------------------------------------
 
 This lab will focus on configuration of the following items:

@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Building Complex Workflows
+Lab |labmodule|\.\ |labnum|\: Building Complex Workflows
 --------------------------------------------------------
 
 In the previous lab we reviewed and ran a very simple workflow.  To support
@@ -451,7 +451,7 @@ Final Workflow JSON
 Task 3 - Run the Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open an SSH session as described in the :ref:`previous lab <lab3_3_1>`
+#. Open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_2.json .``
 #. Edit the ``Wrapper_Demo_2.json`` file and enter you BIG-IP management

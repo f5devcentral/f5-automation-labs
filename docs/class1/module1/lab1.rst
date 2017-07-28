@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Exploring the iControl REST API
+Lab |labmodule|\.\ |labnum|\: Exploring the iControl REST API
 -------------------------------------------------------------
 
 Task 1 – Explore the API using the TMOS Web Interface
