@@ -1,0 +1,990 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+
+     "Description" : "This Cloud Formation Template creates a labe environment for the F5 Automation Training  or SupernNetops **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template. This template is supplied with no warranty or support.", 
+
+
+
+    "Parameters": {
+        "KeyName": {
+            "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+        },
+        "RDPSource": {
+            "Description": " The IP address range that can be used to access the Windows Jump Server using RDP.",
+            "Type": "String",
+            "MinLength": "9",
+            "MaxLength": "18",
+            "Default": "0.0.0.0/0",
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+        }
+    },
+
+
+
+    "Resources": {
+        "VPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.1.0.0/16",
+                "InstanceTenancy": "default",
+                "EnableDnsSupport": "true",
+                "EnableDnsHostnames": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsLab"
+                    }
+                ]
+            }
+        },
+        "ExternalSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.20.0/24",
+                "AvailabilityZone": "us-west-1a",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "External"
+                    }
+                ]
+            }
+
+        },
+        "Internalsubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.10.0/24",
+                "AvailabilityZone": "us-west-1a",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Internal"
+                    }
+                ]
+            }
+
+        },
+        "ManagementSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.1.0/24",
+                "AvailabilityZone": "us-west-1a",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Management"
+                    }
+                ]
+            }
+
+        },
+        "IGW": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsIGW"
+                    }
+                ]
+            }
+
+        },
+        "NATGW": {
+            "Type" : "AWS::EC2::NatGateway",
+            "Properties" : {
+            "AllocationId" : { 
+                "Fn::GetAtt" : ["NATEIP", "AllocationId"]
+                },                
+            "SubnetId" : { 
+                "Ref" : "AccessSubnet"
+                }
+            }
+        },
+        "aclc60e29a2": {
+            "Type": "AWS::EC2::NetworkAcl",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            }
+
+        },
+        "RouteTableInternal": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "InternalF5SNOpsRT"
+                    }
+                ]
+            }
+
+        },
+
+         "RouteTableExternal": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "ExternalF5SNOpsRT"
+                    }
+                ]
+            }
+        },
+
+
+        "ManagementSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "ManagementSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+
+        },
+        "InternalSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+
+        },
+        "ExternalSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+
+        },
+        "AccessSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "AccessSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableExternal"
+                }
+            }
+        },
+
+        "eipWindows": {
+            "Type": "AWS::EC2::EIP",
+            "DependsOn": [
+                "gw1"
+            ],
+            "Properties": {
+                "Domain": "vpc"
+            }
+
+        },
+        "NATEIP": {
+            "Type": "AWS::EC2::EIP",
+            "DependsOn": [
+                "gw1"
+            ],
+            "Properties": {
+                "Domain": "vpc"
+            }
+         },   
+        
+        "eni0d03a121": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.10.7",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Linux:Internal"
+                    }
+                ]
+            }
+        },
+        "enied17b5c1": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "Description": "BIG-IP B  ext",
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.20.5",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "BIG-IP B:External"
+                    }
+                ]
+            }
+        },
+        "eni9d0dafb1": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.10.4",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "BIG-IP A:Internal"
+                    }
+                ]
+            }
+        },
+        "enid709abfb": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.10.5",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "BIG-IP B: Internal"
+                    }
+                ]
+            }
+        },
+        "enie711b3cb": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "Description": "BIG-IP A External",
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.20.4",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "BIG-IP A:External"
+                    }
+                ]
+            }
+        },
+        "eni3d14b611": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "Description": "WIN:External",
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.20.250",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WIN:External"
+                    }
+                ]
+            }
+        },
+        "eni9d1ab8b1": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "SourceDestCheck": "true",
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.10.250",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInternal"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "WIN:Internal"
+                    }
+                ]
+            }
+        },
+        "F5SNOpsBIGIPA": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "DisableApiTermination": "false",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "ImageId": "ami-3f6d4b5f",
+                "InstanceType": "t2.medium",
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Monitoring": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsBIG-IPA"
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": "true",
+                        "Description": "Primary network interface",
+                        "DeviceIndex": 0,
+                        "SubnetId": {
+                            "Ref": "ManagementSubnet"
+                        },
+                        "PrivateIpAddresses": [
+                            {
+                                "PrivateIpAddress": "10.1.1.4",
+                                "Primary": "true"
+                            }
+                        ],
+                        "GroupSet": [
+                            {
+                                "Ref": "sgF5SNOpsInternal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "F5SNOpsBIGIPB": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "DisableApiTermination": "false",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "ImageId": "ami-3f6d4b5f",
+                "InstanceType": "t2.medium",
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Monitoring": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsBIG-IPB"
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": "true",
+                        "Description": "Primary network interface",
+                        "DeviceIndex": 0,
+                        "SubnetId": {
+                            "Ref": "ManagementSubnet"
+                        },
+                        "PrivateIpAddresses": [
+                            {
+                                "PrivateIpAddress": "10.1.1.5",
+                                "Primary": "true"
+                            }
+                        ],
+                        "GroupSet": [
+                            {
+                                "Ref": "sgF5SNOpsInternal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "F5SNOpsWindows": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "DisableApiTermination": "false",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "ImageId": "ami-7f2e031f",
+                "InstanceType": "c1.xlarge",
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Monitoring": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsWindows"
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": "true",
+                        "Description": "Primary network interface",
+                        "DeviceIndex": 0,
+                        "SubnetId": {
+                            "Ref": "ManagementSubnet"
+                        },
+                        "PrivateIpAddresses": [
+                            {
+                                "PrivateIpAddress": "10.1.1.250",
+                                "Primary": "true"
+                            }
+                        ],
+                        "GroupSet": [
+                            {
+                                "Ref": "sgF5SNOpsInternal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "F5SNOpsLinux": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "DisableApiTermination": "false",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "ImageId": "ami-327f5352",
+                "InstanceType": "t2.micro",
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Monitoring": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsLinux"
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": "true",
+                        "Description": "Primary network interface",
+                        "DeviceIndex": 0,
+                        "SubnetId": {
+                            "Ref": "ManagementSubnet"
+                        },
+                        "PrivateIpAddresses": [
+                            {
+                                "PrivateIpAddress": "10.1.1.7",
+                                "Primary": "true"
+                            }
+                        ],
+                        "GroupSet": [
+                            {
+                                "Ref": "sgF5SNOpsInternal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "F5SNOpsDocker": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "DisableApiTermination": "false",
+                "InstanceInitiatedShutdownBehavior": "stop",
+                "ImageId": "ami-327f5352",
+                "InstanceType": "t2.micro",
+                "KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Monitoring": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "F5SNOpsDocker"
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "DeleteOnTermination": "true",
+                        "Description": "Primary network interface",
+                        "DeviceIndex": 0,
+                        "SubnetId": {
+                            "Ref": "ManagementSubnet"
+                        },
+                        "PrivateIpAddresses": [
+                            {
+                                "PrivateIpAddress": "10.1.1.8",
+                                "Primary": "true"
+                            }
+                        ],
+                        "GroupSet": [
+                            {
+                                "Ref": "sgF5SNOpsInternal"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "sgF5SNOpsInbound": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Inbound RDP",
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            }
+        },
+        "sgF5SNOpsInternal": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Allows  internal comms  in VPC",
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            }
+        },
+        "dbsgdefault": {
+            "Type": "AWS::RDS::DBSecurityGroup",
+            "Properties": {
+                "GroupDescription": "default"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "610bd400-9f48-4acf-bdf5-95910a384e18"
+                }
+            }
+        },
+        "acl1": {
+            "Type": "AWS::EC2::NetworkAclEntry",
+            "Properties": {
+                "CidrBlock": "0.0.0.0/0",
+                "Egress": "true",
+                "Protocol": "-1",
+                "RuleAction": "allow",
+                "RuleNumber": "100",
+                "NetworkAclId": {
+                    "Ref": "aclc60e29a2"
+                }
+            }
+        },
+        "acl2": {
+            "Type": "AWS::EC2::NetworkAclEntry",
+            "Properties": {
+                "CidrBlock": "0.0.0.0/0",
+                "Protocol": "-1",
+                "RuleAction": "allow",
+                "RuleNumber": "100",
+                "NetworkAclId": {
+                    "Ref": "aclc60e29a2"
+                }
+            }
+        },
+        "subnetacl1": {
+            "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+            "Properties": {
+                "NetworkAclId": {
+                    "Ref": "aclc60e29a2"
+                },
+                "SubnetId": {
+                    "Ref": "ManagementSubnet"
+                }
+            }
+        },
+        "subnetacl2": {
+            "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+            "Properties": {
+                "NetworkAclId": {
+                    "Ref": "aclc60e29a2"
+                },
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                }
+            }
+        },
+        "subnetacl3": {
+            "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+            "Properties": {
+                "NetworkAclId": {
+                    "Ref": "aclc60e29a2"
+                },
+                "SubnetId": {
+                    "Ref": "Internalsubnet"
+                }
+            }
+        },
+        "gw1": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "InternetGatewayId": {
+                    "Ref": "IGW"
+                }
+            }
+           
+        },
+        "route1": {
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                },
+                "NatGatewayId": {
+                    "Ref": "NATGW"
+                }
+            },
+            "DependsOn": "gw1"
+          
+        },
+         "route2": {
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "RouteTableId": {
+                    "Ref": "RouteTableExternal"
+                },
+                "GatewayId": {
+                    "Ref": "IGW"
+                }
+            },
+            "DependsOn": "gw1"
+        },
+        "dchpassoc1": {
+            "Type": "AWS::EC2::VPCDHCPOptionsAssociation",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "DhcpOptionsId": "dopt-0bb8546e"
+            }
+        },
+        "assoc1": {
+            "Type": "AWS::EC2::EIPAssociation",
+            "Properties": {
+                "AllocationId": {
+                    "Fn::GetAtt": [
+                        "eipWindows",
+                        "AllocationId"
+                    ]
+                },
+                "NetworkInterfaceId": {
+                    "Ref": "EC2NI29ZQC"
+                }
+            }
+        },
+        
+        "eniattach1": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeleteOnTermination": "true",
+                "DeviceIndex": "1",
+                "NetworkInterfaceId": {
+                    "Ref": "eni9d0dafb1"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsBIGIPA"
+                }
+            }
+        },
+        "eniattach2": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeviceIndex": "2",
+                "NetworkInterfaceId": {
+                    "Ref": "enie711b3cb"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsBIGIPA"
+                }
+            }
+        },
+        "eniattach3": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeleteOnTermination": "true",
+                "DeviceIndex": "1",
+                "NetworkInterfaceId": {
+                    "Ref": "enid709abfb"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsBIGIPB"
+                }
+            }
+        },
+        "eniattach4": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeviceIndex": "2",
+                "NetworkInterfaceId": {
+                    "Ref": "enied17b5c1"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsBIGIPB"
+                }
+            }
+        },
+        "eniattach5": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeviceIndex": "2",
+                "NetworkInterfaceId": {
+                    "Ref": "eni3d14b611"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsWindows"
+                }
+            }
+        },
+        "eniattach6": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeleteOnTermination": "true",
+                "DeviceIndex": "1",
+                "NetworkInterfaceId": {
+                    "Ref": "eni9d1ab8b1"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsWindows"
+                }
+            },
+            "DependsOn": [
+                "assoc1"
+            ]
+        },
+        "eniattach7": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeleteOnTermination": "true",
+                "DeviceIndex": "1",
+                "NetworkInterfaceId": {
+                    "Ref": "eni0d03a121"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsLinux"
+                }
+            }
+        },
+        "eniattach8": {
+            "Type": "AWS::EC2::NetworkInterfaceAttachment",
+            "Properties": {
+                "DeleteOnTermination": "true",
+                "DeviceIndex": "3",
+                "NetworkInterfaceId": {
+                    "Ref": "EC2NI29ZQC"
+                },
+                "InstanceId": {
+                    "Ref": "F5SNOpsWindows"
+                }
+            },
+            "DependsOn": [
+                "assoc1"
+            ]
+        },
+        "ingress1": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInbound"
+                },
+                "IpProtocol": "tcp",
+                "FromPort": "3389",
+                "ToPort": "3389",
+                "CidrIp": {
+                    "Ref": "RDPSource"
+                }
+            }
+        },
+        "ingress2": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInternal"
+                },
+                "IpProtocol": "tcp",
+                "FromPort": "80",
+                "ToPort": "80",
+                "CidrIp": "10.1.0.0/16"
+            }
+        },
+        "ingress3": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInternal"
+                },
+                "IpProtocol": "tcp",
+                "FromPort": "22",
+                "ToPort": "22",
+                "CidrIp": "10.1.0.0/16"
+            }
+        },
+        "ingress4": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInternal"
+                },
+                "IpProtocol": "tcp",
+                "FromPort": "443",
+                "ToPort": "443",
+                "CidrIp": "10.1.0.0/16"
+            }
+        },
+        "egress1": {
+            "Type": "AWS::EC2::SecurityGroupEgress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInbound"
+                },
+                "IpProtocol": "-1",
+                "CidrIp": "0.0.0.0/0"
+            }
+        },
+        "egress2": {
+            "Type": "AWS::EC2::SecurityGroupEgress",
+            "Properties": {
+                "GroupId": {
+                    "Ref": "sgF5SNOpsInternal"
+                },
+                "IpProtocol": "-1",
+                "CidrIp": "0.0.0.0/0"
+            }
+        },
+        "AccessSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.100.0/24",
+                "AvailabilityZone": "us-west-1a",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Access"
+                    }
+                ]
+            }
+        },
+        "EC2NI29ZQC": {
+            "Type": "AWS::EC2::NetworkInterface",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "AccessSubnet"
+                },
+                "PrivateIpAddresses": [
+                    {
+                        "PrivateIpAddress": "10.1.100.250",
+                        "Primary": "true"
+                    }
+                ],
+                "GroupSet": [
+                    {
+                        "Ref": "sgF5SNOpsInbound"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Windows:Access"
+                    }
+                ]
+            }
+        }
+    },
+    
+    "Outputs": {
+        "eni9d1ab8b1ENI": {
+            "Value": {
+                "Ref": "eni9d1ab8b1"
+            }
+        }
+    },
+    
+    
+}
