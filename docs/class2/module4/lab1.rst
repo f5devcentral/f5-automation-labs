@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum| – File Locations and Jenkins setup
 We've been executing commands locally from Automated scripts, at this point we are
 now going to take the toolkits and tie them together to form a Pipeline.
 Pipelines will vary in deployments and even within solutions. Our lab
-will show you just one way it can be utilized.
+will show you just one way it could be utilized.
 
 
 Task 1 - Locating the Jenkins files and how they are setup
@@ -21,9 +21,9 @@ Task 1 - Locating the Jenkins files and how they are setup
 
 #. During the installation of the super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
 
-   Execute: ``cd /home/snops/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
+   Execute: ``cd ~/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
 
-#. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs (setup this way was for ease of learning). You may place this tools in different structures in your environment.
+#. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs (setup this way was for ease of learning). You may place tools in different structures in your environment.
 
    File Locations:
 
@@ -38,7 +38,7 @@ Task 1 - Locating the Jenkins files and how they are setup
           |  |      Jenkinsfile3
           |  |      Jenkinsfile4
 
-#. Lets review the first Jenkins file, execute ``cat Jenkinsfile1-2``
+#. Lets review the first Jenkins file, from the correct structure execute ``cat Jenkinsfile1-2``
 
    File output:
 
@@ -89,13 +89,13 @@ Task 1 - Locating the Jenkins files and how they are setup
           }
        }
 
-   - This is a Jenkins Pipeline file, which we'll be inputing into a Pipeline deployment via our Jenkins Toolkit.
+   - This is a Jenkins Pipeline file, which we will be inputing into a Pipeline deployment via our Jenkins Toolkit.
 
-   - The file should be human readable even without Jenkins experience, a ``stage`` can be thought of as a step in the Pipeline (or a work-   center in manufacturing terms), right after the stage is its name, followed by some commands. Since the super-netops-container is running    this Jenkins installation locally we can use local mappings to file structure.
+   - The file should be human readable even without Jenkins experience, a ``stage`` can be thought of as a step in the Pipeline (or a work-center in manufacturing terms); right after the stage is its name, followed by some commands. Since the super-netops-container is running this Jenkins installation locally, we can use local mappings to file structure.
 
-   - In more common deployments the Jenkins file would be stored in a SCM (like Github) and called during like a polling timer, build/ Pull    request, or some other kind of scripting launch.
+   - In more common deployments the Jenkins file would be stored in a SCM (like Github) and called during an Event (Build/Pull Request) or a Polling Timer, or even some other kind of scripting launch.
 
-   - Testing in Pipeline before executing code with tools like ``linter`` or python scripts can make sure formatting is valid and reduce errors    from happing during build.
+   - Testing in Pipeline before executing code with tools like ``linter`` or python scripts can make sure formatting is valid, reducing errors from happening during builds.
 
 Our installation also has some Slack calls. Which we will setup next.
 
@@ -104,9 +104,10 @@ Task 2 - Accessing Jenkins and Installing the Slack-Notifier Plug-in
 
 Slack is a ChatOps tool, think of Skype, Messenger or IIRC! Except Slack also has the ability to take in
 bots. slackbots are used to interact with services, they might query something for you when asked, or
-give you information when they notice something. In our case our Jenkins Pipeline file will use Slack to notify all of us when an action happens, collaborative teamwork.
+give you information when they notice something. In our case our Jenkins Pipeline file will use Slack
+to notify all of us when an action happens, collaborative teamwork.
 
-#. Access Jenkins via Chrome, if you didnt already set a bookmark to the mapped port you can access the service via ``http://localhost:10000``, the user credentials are ``admin\default``.
+#. Access Jenkins via Chrome, if you didn't set a bookmark to the mapped port you can access the service via ``http://10.1.1.8:10000``, the user credentials are ``admin\default``.
 
    |image97|
 

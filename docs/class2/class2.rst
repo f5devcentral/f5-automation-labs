@@ -1,4 +1,4 @@
-Class 2 - Building Continuous Delivery Pipelines
+Class 2: Building Continuous Delivery Pipelines
 ================================================
 
 This class covers the following topics:
