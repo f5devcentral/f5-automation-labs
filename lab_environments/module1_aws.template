@@ -1,7 +1,7 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
 
-     "Description" : "This Cloud Formation Template creates a labe environment for the F5 Automation Training  or SupernNetops **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template. This template is supplied with no warranty or support.", 
+     "Description" : "This Cloud Formation Template creates a lab environment for the F5 Programmability/Super-NetOps Training Lab **WARNING** This template creates Amazon EC2 instances. You will be billed for the AWS resources used if you create a stack from this template. This template is supplied with no warranty or support.",
 
 
 
@@ -55,7 +55,6 @@
                     }
                 ]
             }
-
         },
         "Internalsubnet": {
             "Type": "AWS::EC2::Subnet",
@@ -72,7 +71,6 @@
                     }
                 ]
             }
-
         },
         "ManagementSubnet": {
             "Type": "AWS::EC2::Subnet",
@@ -89,7 +87,6 @@
                     }
                 ]
             }
-
         },
         "IGW": {
             "Type": "AWS::EC2::InternetGateway",
@@ -101,15 +98,14 @@
                     }
                 ]
             }
-
         },
         "NATGW": {
             "Type" : "AWS::EC2::NatGateway",
             "Properties" : {
-            "AllocationId" : { 
+            "AllocationId" : {
                 "Fn::GetAtt" : ["NATEIP", "AllocationId"]
-                },                
-            "SubnetId" : { 
+                },
+            "SubnetId" : {
                 "Ref" : "AccessSubnet"
                 }
             }
@@ -121,7 +117,6 @@
                     "Ref": "VPC"
                 }
             }
-
         },
         "RouteTableInternal": {
             "Type": "AWS::EC2::RouteTable",
@@ -136,10 +131,8 @@
                     }
                 ]
             }
-
         },
-
-         "RouteTableExternal": {
+        "RouteTableExternal": {
             "Type": "AWS::EC2::RouteTable",
             "Properties": {
                 "VpcId": {
@@ -153,8 +146,6 @@
                 ]
             }
         },
-
-
         "ManagementSubnetRouteTableAssociation": {
             "Type": "AWS::EC2::SubnetRouteTableAssociation",
             "Properties": {
@@ -165,7 +156,6 @@
                     "Ref": "RouteTableInternal"
                 }
             }
-
         },
         "InternalSubnetRouteTableAssociation": {
             "Type": "AWS::EC2::SubnetRouteTableAssociation",
@@ -177,7 +167,6 @@
                     "Ref": "RouteTableInternal"
                 }
             }
-
         },
         "ExternalSubnetRouteTableAssociation": {
             "Type": "AWS::EC2::SubnetRouteTableAssociation",
@@ -189,7 +178,6 @@
                     "Ref": "RouteTableInternal"
                 }
             }
-
         },
         "AccessSubnetRouteTableAssociation": {
             "Type": "AWS::EC2::SubnetRouteTableAssociation",
@@ -202,7 +190,6 @@
                 }
             }
         },
-
         "eipWindows": {
             "Type": "AWS::EC2::EIP",
             "DependsOn": [
@@ -211,7 +198,6 @@
             "Properties": {
                 "Domain": "vpc"
             }
-
         },
         "NATEIP": {
             "Type": "AWS::EC2::EIP",
@@ -221,8 +207,7 @@
             "Properties": {
                 "Domain": "vpc"
             }
-         },   
-        
+        },
         "eni0d03a121": {
             "Type": "AWS::EC2::NetworkInterface",
             "Properties": {
@@ -490,6 +475,29 @@
         },
         "F5SNOpsWindows": {
             "Type": "AWS::EC2::Instance",
+            "Metadata": {
+                "AWS::CloudFormation::Init" : {
+                    "config": {
+                        "packages" : {
+                            "msi": {
+                                "chrome": "https://s3-us-west-1.amazonaws.com/snops-installers/googlechromestandaloneenterprise64.msi",
+                                "putty": "https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.70-installer.msi",
+                                "atom": "https://github.com/atom/atom/releases/download/v1.18.0/AtomSetup.msi"
+                            }
+                        },
+                        "files": {
+                            "C:\\Users\\Administrator\\Desktop\\postman-install.exe": {
+                                "source": "https://dl.pstmn.io/download/latest/win64"
+                            }
+                        },
+                        "commands": {
+                            "a_cmd_shortcut": { "command": "mklink \"c:\\users\\administrator\\desktop\\Command Prompt\" c:\\windows\\system32\\cmd.exe" },
+                            "b_create_putty_shortcut": { "command": "mklink c:\\users\\administrator\\desktop\\PuTTY \"c:\\Program Files\\PuTTY\\putty.exe\"" },
+                            "z_done": { "command": "echo \"DONE\" > C:\\users\\Administrator\\desktop\\READY.txt" }
+                        }
+                    }
+                }
+            },
             "Properties": {
                 "DisableApiTermination": "false",
                 "InstanceInitiatedShutdownBehavior": "stop",
@@ -525,7 +533,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
+                    "<script>\n",
+                    "cfn-init.exe -v -s ", { "Ref" : "AWS::StackId" },
+                    " -r F5SNOpsWindows",
+                    " --region ", { "Ref" : "AWS::Region" }, "\n",
+                    "</script>"
+                ]]}}
             }
         },
         "F5SNOpsLinux": {
@@ -570,6 +585,25 @@
         },
         "F5SNOpsDocker": {
             "Type": "AWS::EC2::Instance",
+            "Metadata": {
+                "AWS::CloudFormation::Init" : {
+                    "config": {
+                        "commands" : {
+                            "a_allow_pw_auth": { "command": "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config" },
+                            "b_restart_sshd": { "command": "sudo service sshd restart" },
+                            "c_add_admin_user": { "command": "sudo useradd -d /home/admin -G wheel -m -s /bin/bash admin" },
+                            "d_set_admin_pw": { "command": " sudo sh -c 'echo \"admin:admin\" | chpasswd'" },
+                            "e_yum_update": { "command": "sudo yum update -y" },
+                            "f_install_docker": { "command": "sudo yum install -y docker"},
+                            "g_start_docker": { "command": "sudo service docker start" },
+                            "h_set_perms": { "command": "sudo usermod -a -G docker ec2-user" },
+                            "i_set_perms": { "command": "sudo usermod -s /bin/bash -a -G docker admin" },
+                            "j_docker_hello": { "command": "docker run hello-world" },
+                            "k_docker_pull_snops": { "command": "docker pull f5devcentral/f5-super-netops-container:base" }
+                        }
+                    }
+                }
+            },
             "Properties": {
                 "DisableApiTermination": "false",
                 "InstanceInitiatedShutdownBehavior": "stop",
@@ -605,7 +639,17 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "UserData" : { "Fn::Base64" :
+                  { "Fn::Join" : ["", [
+                     "#!/bin/bash -xe\n",
+                     "# Install the files and packages from the metadata\n",
+                     "/opt/aws/bin/cfn-init -v ",
+                     "         --stack ", { "Ref" : "AWS::StackName" },
+                     "         --resource F5SNOpsDocker ",
+                     "         --region ", { "Ref" : "AWS::Region" }, "\n"
+                  ]]}
+                }
             }
         },
         "sgF5SNOpsInbound": {
@@ -705,7 +749,6 @@
                     "Ref": "IGW"
                 }
             }
-           
         },
         "route1": {
             "Type": "AWS::EC2::Route",
@@ -719,9 +762,8 @@
                 }
             },
             "DependsOn": "gw1"
-          
         },
-         "route2": {
+        "route2": {
             "Type": "AWS::EC2::Route",
             "Properties": {
                 "DestinationCidrBlock": "0.0.0.0/0",
@@ -740,7 +782,9 @@
                 "VpcId": {
                     "Ref": "VPC"
                 },
-                "DhcpOptionsId": "dopt-0bb8546e"
+                "DhcpOptionsId": {
+                    "Ref": "EC2DHCP1FOCR"
+                }
             }
         },
         "assoc1": {
@@ -757,7 +801,6 @@
                 }
             }
         },
-        
         "eniattach1": {
             "Type": "AWS::EC2::NetworkInterfaceAttachment",
             "Properties": {
@@ -975,16 +1018,26 @@
                     }
                 ]
             }
+        },
+        "EC2DHCP1FOCR": {
+            "Type": "AWS::EC2::DHCPOptions",
+            "Properties": {
+                "DomainName" : "f5.local",
+                "DomainNameServers" : [ "4.2.2.2","8.8.8.8" ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "46fd6693-cb22-48d7-bfe1-57cffa1be770"
+                }
+            }
         }
     },
-    
+
     "Outputs": {
         "eni9d1ab8b1ENI": {
             "Value": {
                 "Ref": "eni9d1ab8b1"
             }
         }
-    },
-    
-    
+    }
 }
