@@ -120,15 +120,14 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
         "name": "google-dns_address_list",
         "addresses": [
             {
-                "name": "8.8.8.8"
-            },
-            {
                 "name": "8.8.4.4"
             }
         ]
     }
 
 **Example Response**
+
+.. note:: Copy the **name** of the address list, highlighted below, from the response into the **afm_address_list** Postman environment variable.
 
 .. code-block:: rest
     :emphasize-lines: 3, 8-12
@@ -149,6 +148,8 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
 
 4. List Single Firewall Address List
 -------------------------------------
+
+.. note:: Ensure that the **afm_address_list** Postman environment variable has been populated with the name of the address list.
 
 **Request**
 

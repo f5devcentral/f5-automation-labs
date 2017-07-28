@@ -22,7 +22,7 @@ The following table lists VLANS, IP Addresses and Credentials for all components
     * - Windows Jump Box
       - - **Management:** 10.1.1.250
         - **External:** 10.1.10.250
-      - Administrator/*available in instance details*
+      - external_user/*available in instance details*
     * - BIG-IP
       - - **Management:** 10.1.1.5
         - **External:** 10.1.10.5
