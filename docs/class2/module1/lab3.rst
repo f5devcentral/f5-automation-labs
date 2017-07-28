@@ -150,7 +150,7 @@ Docker host.  In the case of the Jenkins service the following mapping applies:
 
 To connect via HTTP open a web browser and enter the URL:
 
-``http://localhost:10000``
+``http://10.1.1.8:10000``
 
 You should see a page like this:
 

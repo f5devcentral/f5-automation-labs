@@ -8,17 +8,17 @@
 Lab |labmodule|\.\ |labnum| – Executing Jenkins Jobs for Creation or Modify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have Jenkins running and have the dependent Slack Plugin installed
+Now that we have Jenkins running and the dependent Slack Plugin installed
 we can utilize our Jenkins Pipeline Scripts to execute successfully
 
 Task 1 - Building the Framework via Jenkins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This step is executing the f5-newman-wrapper files. Instead of having to run the framework build
-and Pool member adds individually, Jenkins has a pause function looking for approval;
-which after approving will allow the node to be added. Jenkins will continue to update
-the class via Slack how things are progressing, the build will also keep a running console for
-logging we will review.
+This step is executing the f5-newman-wrapper files. Instead of having to run the two different
+builds (Framework and Pool member add) individually, Jenkins has a pause function looking for approval.
+After approving will allow the node to be added, still using 2 f5-newman-wrapper files but in conjunction
+with a single solution (Jenkins).. Jenkins will continue to update the class via Slack as people
+are progressing. Jenkins will also keep a running console for logging, which we will also review.
 
 #. From the Jenkins Dashboard click on ``create new jobs``
 
@@ -28,7 +28,7 @@ logging we will review.
 
    |image104|
 
-#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page, scroll to the bottom while looking at the other options to deploy a Pipeline. There are options in here such as Polling an SCM for the same file we are working with, using a ``Polling`` method would be full Continuous Deployment, as Jenkins would deploy the change on a polled bases and we have an automatic testing phase for syntax in the Pipeline.
+#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but please look at the other options to deploy a Pipeline. There are options in here such as Polling an SCM for the same file we are working with; using a ``Polling`` method would be full Continuous Deployment, as Jenkins would deploy the change on a polled bases and we have an automatic testing phase for syntax in the Pipeline.
 
    |image105|
 
@@ -87,7 +87,7 @@ logging we will review.
 
    |image107|
 
-#. The Build is now running, the stages are being executed in order. On our third stage however we have a pause and an approval needed, also at the same time Slack has notified us that a new service is being deployed.
+#. The Build is now running, and the stages are being executed in order. On our third stage however we have a pause and an approval needed, also at the same time Slack has notified us that a new service is being deployed and someone needs to approve it.
 
    |image108|
 
@@ -95,17 +95,17 @@ logging we will review.
 
    |image110|
 
-#. Approve the change in Jenkins to allow the build to finish, there is also a Jenkins Slack notification for the Approval and Completion
+#. Approve the change in Jenkins to allow the build to finish, the approval and finished Slack notification has also been sent
 
    |image111|
 
    |image112|
 
-#. At the end of the complete (or failed build) there is a console output from Jenkins of the build, select the blue globe on the right to see the outputs
+#. At the end of the Build event (success or failure) there is a console output from Jenkins, select the blue globe on the left to see the outputs
 
    |image113|
 
-#. The output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting on maybe response codes.
+#. The output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
 
    |image114|
 
@@ -120,7 +120,7 @@ logging we will review.
 Task 2 - Jenkinsfile3 and Jenkinsfile4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These two Jenkins files were completed to show the ability of creating smaller deployment, in our case we will use the f5-newman-wrapper toolkit to again change the user selected state of a pool member. The different Pipelines also have different Slack Color depictions, helping quickly identify to team members an issue.
+These two Jenkins files were completed to show the ability of creating smaller deployments, in our case we will use the f5-newman-wrapper toolkit to again change the user selected state of a pool member. The different Pipelines notifications also have different Slack Color depictions, helping quickly identify to team members an issue.
 
 #. Return to the Jenkins Dashboard and select ``New Item``
 

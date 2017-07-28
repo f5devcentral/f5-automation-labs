@@ -17,8 +17,8 @@ Task 1 - Execute f5-newman-build-5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
-#. Navigate to the location containing the f5-newman-wrapper files ``cd /f5-automation-labs/jenkins/f5-newman-build``
-#. On BIGIP-A examine the virtual server ``module_3_vs``, it should be active and Green:
+#. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
+#. On BIG-IP A examine the virtual server ``module_3_vs``, it should be active and Green:
 
    |image93|
 
@@ -122,12 +122,11 @@ Task 1 - Execute f5-newman-build-5
       [f5-newman-build-5-2017-07-26-09-28-13] run completed in 4s, 267.464 ms
 
 
-   .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP-A`` for the newly created framework
+   .. NOTE:: Notice the 200 OK responses, as it completed successfully
 
-#. On BIGIP-A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
+#. On BIG-IP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
 
 .. |image93| image:: /_static/class2/image093.png
    :scale: 70%
 .. |image94| image:: /_static/class2/image094.png
    :scale: 70%
-
