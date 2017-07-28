@@ -1,5 +1,5 @@
-Module 1 – REST API Basics & Device Onboarding
-==============================================
+Module 1: REST API Basics & Device Onboarding
+=============================================
 
 In this module you will learn the basic concepts required to interact
 with the BIG-IP iControl REST API. Additionally, you will walk through a

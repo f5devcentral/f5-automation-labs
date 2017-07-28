@@ -1,5 +1,5 @@
-Class 1 - Introduction to Automation & Orchestration
-====================================================
+Class 1: Introduction to Automation & Orchestration
+===================================================
 
 This introductory class covers the following topics:
 

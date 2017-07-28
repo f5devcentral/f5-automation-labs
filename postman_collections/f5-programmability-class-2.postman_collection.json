@@ -1,0 +1,1060 @@
+{
+	"variables": [],
+	"info": {
+		"name": "f5-programmability-class-2",
+		"_postman_id": "f9458642-e68e-d03b-5e85-b8cc0f90398e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Build a Basic LTM Config",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Create a HTTP Monitor",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/monitor/http",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_http_monitor}}\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Create a Pool",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"monitor\":\"/Common/{{bigip_http_monitor}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Create a HTTP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/http",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_http_profile}}\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"module_3\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Create a TCP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/tcp",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_tcp_profile}}\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 5: Create a Virtual Server",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/virtual",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_vs_name}}\",\n    \"destination\":\"{{bigip_vs_destination}}\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"{{bigip_pool_name}}\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/{{bigip_partition}}/{{bigip_tcp_profile}}\", \"context\":\"clientside\" },\n        { \"name\":\"/{{bigip_partition}}/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/{{bigip_partition}}/{{bigip_http_profile}}\"\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2 - Add Members to LTM Config",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Add Members to  Pool",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/{{bigip_pool_name}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"216.16.74.15:80\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - Disable Node",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Check Pool Exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "dfa341cc-30d4-4504-acad-13d3022b9e57",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				},
+				{
+					"name": "Step 2: Check Pool Member Exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}/members/~{{bigip_partition}}~{{bigip_pool_member}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "070de39a-88f6-4348-80ce-8d3697230b67",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				},
+				{
+					"name": "Step 3: Change Pool Member State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var setState = postman.getEnvironmentVariable('bigip_object_state');",
+									"var newState = \"error\";",
+									"var newSession = \"error\";",
+									"",
+									"switch(setState.toLowerCase()) {",
+									"    case 'enabled':",
+									"        newState = \"user-up\";",
+									"        newSession = \"user-enabled\";",
+									"        break;",
+									"    case 'disabled':",
+									"        newState = \"user-up\";",
+									"        newSession = \"user-disabled\";",
+									"        break;",
+									"    case 'force-disabled':",
+									"        newState = \"user-down\";",
+									"        newSession = \"user-disabled\";",
+									"        break;",
+									"    default:",
+									"        postman.setNextRequest(null);",
+									"}",
+									"",
+									"postman.setEnvironmentVariable(\"_rt_member_state\", newState);",
+									"postman.setEnvironmentVariable(\"_rt_member_session\", newSession);",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}/members/~{{bigip_partition}}~{{bigip_pool_member}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{bigip_object_session}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "eb680bcf-310e-4ee7-a54e-89e2d5b10b26",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "4 - Enable Node",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Check Pool Exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "9fed25a3-a9d0-4c40-8d0d-c3f709118b2c",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				},
+				{
+					"name": "Step 2: Check Pool Member Exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}/members/~{{bigip_partition}}~{{bigip_pool_member}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "67ae237d-9746-4430-9ea8-9f6877ce42eb",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				},
+				{
+					"name": "Step 3: Change Pool Member State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var setState = postman.getEnvironmentVariable('bigip_object_state');",
+									"var newState = \"error\";",
+									"var newSession = \"error\";",
+									"",
+									"switch(setState.toLowerCase()) {",
+									"    case 'enabled':",
+									"        newState = \"user-up\";",
+									"        newSession = \"user-enabled\";",
+									"        break;",
+									"    case 'disabled':",
+									"        newState = \"user-up\";",
+									"        newSession = \"user-disabled\";",
+									"        break;",
+									"    case 'force-disabled':",
+									"        newState = \"user-down\";",
+									"        newSession = \"user-disabled\";",
+									"        break;",
+									"    default:",
+									"        postman.setNextRequest(null);",
+									"}",
+									"",
+									"postman.setEnvironmentVariable(\"_rt_member_state\", newState);",
+									"postman.setEnvironmentVariable(\"_rt_member_session\", newSession);",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": " https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_pool_name}}/members/~{{bigip_partition}}~{{bigip_pool_member}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"state\":\"{{bigip_object_state}}\",\n\t\"session\":\"{{bigip_object_session}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "541f9234-1245-44ee-a60c-0aafef2cde85",
+							"name": "Example",
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "",
+									"key": "Content-Length",
+									"name": "Content-Length",
+									"value": "710"
+								},
+								{
+									"description": "",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"description": "",
+									"key": "Date",
+									"name": "Date",
+									"value": "Mon, 19 Dec 2016 23:33:06 GMT"
+								},
+								{
+									"description": "",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "-1"
+								},
+								{
+									"description": "",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "",
+									"key": "Server",
+									"name": "Server",
+									"value": "webd"
+								},
+								{
+									"description": "",
+									"key": "X-Real-IP",
+									"name": "X-Real-IP",
+									"value": "192.168.0.20"
+								},
+								{
+									"description": "",
+									"key": "accept-encoding",
+									"name": "accept-encoding",
+									"value": "gzip, deflate"
+								}
+							],
+							"cookie": [],
+							"responseTime": 63,
+							"body": "{\"username\":\"admin\",\"loginReference\":{\"link\":\"https://localhost/mgmt/cm/system/authn/providers/local/login\"},\"loginProviderName\":\"local\",\"token\":{\"token\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"name\":\"BTKMOGLPSSAPSIXJAI76XFFCE7\",\"userName\":\"admin\",\"authProviderName\":\"local\",\"user\":{\"link\":\"https://localhost/mgmt/shared/authz/users/admin\"},\"groupReferences\":[],\"timeout\":1200,\"startTime\":\"2016-12-19T15:33:06.668-0800\",\"address\":\"192.168.0.20\",\"partition\":\"[All]\",\"generation\":1,\"lastUpdateMicros\":1482190386668185,\"expirationMicros\":1482191586668000,\"kind\":\"shared:authz:tokens:authtokenitemstate\",\"selfLink\":\"https://localhost/mgmt/shared/authz/tokens/BTKMOGLPSSAPSIXJAI76XFFCE7\"},\"generation\":0,\"lastUpdateMicros\":0}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "5 - Clean Up Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Step 1: Delete a Virtual Server",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/virtual/{{bigip_vs_name}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Delete a TCP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/tcp/{{bigip_tcp_profile}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Delete a HTTP Profile",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/profile/http/{{bigip_http_profile}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Delete a Pool",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/{{bigip_pool_name}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 5: Delete a HTTP Monitor",
+					"request": {
+						"url": "https://{{bigip_mgmt}}/mgmt/tm/ltm/monitor/http/{{bigip_http_monitor}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
