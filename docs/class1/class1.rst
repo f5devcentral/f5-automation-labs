@@ -9,7 +9,6 @@ This introductory class covers the following topics:
 
   - The f5-super-netops-container
   - Collections and the f5-postman-workflows extension to Postman
-  - Automation Workflows using f5-newman-wrapper
 
 Expected time to complete: **6 hours**
 
