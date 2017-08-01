@@ -35,7 +35,7 @@ Task 1 - Examine f5-newman-build-1
    .. code-block:: json
       :linenos:
 
-      {
+     {
             "name":"f5-newman-build-1",
             "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
             "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
@@ -66,19 +66,29 @@ Task 1 - Examine f5-newman-build-1
                                     "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
                                     "folder":"1_Authenticate"
                             }
-                    },
-                    {
-                            "name":"1 - Build a Basic LTM Config",
-                            "skip":false,
-                            "options": {
-                                    "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.   postman_collection.json",
-                                    "folder":"1 - Build a Basic LTM Config"
-                            }
-                    }
+                    }, REMOVE THIS TEXT AND ADD YOUR CODE BELOW
+
             ]
       }
 
-   .. NOTE:: From the file we can determine the variables to be utilized by the Collections we specify; toward the bottom of the file we can see the two Collections that are being referenced, then in each JSON blob we see the Folders containing the calls to run.
+
+#. The above f5-newman-wrapper file only has the ``Authenticate to BIG-IP`` Collection/Folder referenced, we will now add in the reference to another collection. You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls.
+
+  .. code-block:: json
+    :linenos:
+
+   {
+        "name":"1 - Build a Basic LTM Config",
+        "skip":false,
+        "options": {
+                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.   postman_collection.json",
+                "folder":"1 - Build a Basic LTM Config"
+        }
+    }
+
+
+
+.. NOTE:: From the final file we can determine the variables to be utilized by the Collections we specified; toward the bottom of the file we can see the two Collections that are being referenced, then in each JSON blob we see the Folders containing the calls to run.
 
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
