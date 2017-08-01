@@ -31,7 +31,7 @@ Perform the following steps to complete this task:
    collection.
 
 #. Click the "Step 1: Create iWorkflow Tenant" item in the collection and click
-   'Send'.  This request will create a tenant name ``MyTenant``.
+   'Send'.  This request will create a tenant named ``MyTenant``.
 
 #. Click the "Step 2: Create Tenant User" item in the collection and click
    'Send'.  This request will create a **tenant** user.

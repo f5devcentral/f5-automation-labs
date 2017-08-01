@@ -12,7 +12,7 @@ In this lab we will build a active-standby cluster between BIG-IP-A and
 BIG-IP-B. As mentioned previously, to save time, BIG-IP-B already has
 already been licensed and had its device level settings configured. This
 lab will walk you through creating the cluster step by step. As you will
-see complex operation such as this start to become less effective using
+see, complex operations such as this start to become less effective using
 the **Imperative** model of automation. Clustering is one of the
 ‘transition’ points for most customers to move into the **Declarative**
 model (if not already done) due to the need to abstract device/vendor
@@ -127,7 +127,7 @@ Perform the following steps to complete this task:
    Sync Group Status” item in the collection. This request will GET the
    sync status for all sync groups on the system
 
-#. Click the ‘Send’ button and examine the response. The should
+#. Click the ‘Send’ button and examine the response. The status should
    indicate a color of ‘green’, that bigip-b.f5.local is connected
    and ‘In Sync’ (please notify an instructor of any issue):
 
@@ -167,7 +167,7 @@ Perform the following steps to complete this task
 #. We will now manually sync DeviceGroup1 to fulfill the need for the
    Initial Sync. Click the ‘Step 8: Manually Sync DeviceGroup1’ item
    in the collection. Examine the request type, URL and JSON body. We
-   will POST the the ‘/mgmt/tm/cm/config-sync’ worker and tell it to
+   will POST to the ‘/mgmt/tm/cm/config-sync’ worker and tell it to
    ‘run’ a config-sync of BIG-IP-A ‘to-group’ DeviceGroup1:
 
    |image32|

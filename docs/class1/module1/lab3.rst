@@ -96,7 +96,7 @@ Task 2 – Modify DNS/NTP Settings
 
    ``myArray: [ Object0, Object1 ... ObjectX ]``
 
-   To define and array consisting of Strings the syntax is:
+   To define an array consisting of Strings the syntax is:
 
    ``myStringArray: [ "string0", "string1" ... "stringX" ]``
 

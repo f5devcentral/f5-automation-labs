@@ -13,7 +13,7 @@ capability to create a Tenant Service Catalog via L4 – L7 Service
 Templates. This model of deployment enables Declarative automation of F5
 L4-7 services provided the underlying iApp templates are designed with a
 declarative presentation layer in mind. To demonstrate this capability
-we will create a simple Service Catalog Template and deploy and
+we will create a simple Service Catalog Template and deploy an
 application from a tenant on our BIG-IP devices using the App Services iApp.
 
 Task 1 - Install the App Services iApp on iWorkflow
@@ -27,7 +27,7 @@ when a template needs to be installed on BIG-IP and perform the needed actions.
 .. NOTE:: iApp template installation on BIG-IP devices occurs during the
    **first** service deployment to a device.
 
-To assist in deployment of the App Services iApp template and it's associated
+To assist in deployment of the App Services iApp template and its associated
 sample service templates a Postman collection has been created.  We will first
 import the collection into Postman and then use it to install the template
 into iWorkflow.
@@ -60,7 +60,7 @@ L4 – L7 Service Template. These templates allow a provider
 iApp presentation layer. Additionally, the provider also defines the
 tenant interface to the service by marking which fields are ‘\ **Tenant
 Editable**\ ’ and therefore visible during service deployment from the
-tenant. You can think of a Service Catalog Template and a filter that
+tenant. You can think of a Service Catalog Template as a filter that
 allows the vast majority of fields to be filled in or defaulted while
 only exposing the minimal set of fields required to deploy a service.
 
@@ -117,8 +117,8 @@ Perform the following steps to complete this task:
    |image62|
 
 #. Go back to Postman and click the “Step 2: Get TENANT Service
-   Deployment” item in the collection and click ‘Send’. This item is
-   example of a GET of the service definition. The response should match
+   Deployment” item in the collection and click ‘Send’. This item is an
+   example of a Read operation of the service definition. The response should match
    what you see in the iWorkflow GUI when viewing the properties of a
    deployment.
 

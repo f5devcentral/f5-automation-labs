@@ -21,7 +21,7 @@ Task 1 – Install Docker CE
 Please follow the instructions at https://docs.docker.com/engine/installation/
 to install Docker CE.
 
-Once you have completed installed and successfully run the ``hello-world``
+Once you have completely installed and successfully run the ``hello-world``
 test you can continue to the next lab.
 
 To test your setup with the ``hello-world`` container, you just need to run the

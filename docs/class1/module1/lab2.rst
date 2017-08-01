@@ -192,7 +192,7 @@ Perform the following steps to complete this task:
    |image21|
 
 #. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. You’re subsequent requests will now automatically include
+   window. Your subsequent requests will now automatically include
    the token.
 
 #. Click the ‘Step 4: Set Authentication Token Timeout’ item in the
