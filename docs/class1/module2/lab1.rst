@@ -69,7 +69,7 @@ Perform the following steps to complete this task:
 
    |image46|
 
-#. Click the ‘Send’ button. If you’re request is successful you should
+#. Click the ‘Send’ button. If your request is successful you should
    see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing
    Collection.
 
@@ -89,7 +89,7 @@ Perform the following steps to complete this task:
    |image49|
 
 #. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. You’re subsequent requests will now automatically include
+   window. Your subsequent requests will now automatically include
    the token.
 
 #. Click the ‘Step 3: Set Authentication Token Timeout’ item in the

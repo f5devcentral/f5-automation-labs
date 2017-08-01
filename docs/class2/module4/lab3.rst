@@ -9,13 +9,13 @@ Lab |labmodule|\.\ |labnum| – Destroying a Service with Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the last module we will teardown the Application Service we've been working with today.
-Destruction of Application Service's is an easy to complete step that is often overlooked because
+Destruction of Application Services is an easy to complete step that is often overlooked because
 of the perceived complexity it takes to reverse engineer a new build. Utilizing Postman and
-f5-newman-wrapper this is actually a very easy step, and will be incredibly valueable
+f5-newman-wrapper, this is actually a very easy step, and will be incredibly valuable
 to teams seeking to strive for better Application Lifecycle Management. Because
-Postman and newman operate in sequential order simply reversing the order of
-creation will have have the teardown order correct, and since we're using the
-native F5 REST endpoints having the Resource with a DELETE method is all you need.
+Postman and Newman operate in sequential order, simply reversing the order of
+creation will result in the correct teardown order. Also, since we're using the
+native F5 REST endpoints, all you need is a Resource with a DELETE method.
 
 Task 1 - Teardown the Application via Jenkins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

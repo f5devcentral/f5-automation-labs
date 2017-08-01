@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
 In the previous lab we started the container image and were presented with a
-root command prompt.  In order to support use the container and it's associated
+root command prompt.  In order to use the container and its associated
 tools properly you connect via SSH and/or HTTP.
 
 .. _lab1_3_1:

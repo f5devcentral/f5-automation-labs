@@ -12,13 +12,13 @@ Task 1 – Create a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this lab we will create a transaction using the REST API.
-Transactions are very useful in cases where you would want discreet REST
+Transactions are very useful in cases where you would want discrete REST
 operations to act as a batch operation. As a result the nature of a
 transaction is that either all the operations succeed or none of them
 do. This is very useful when creating a configuration that is linked
 together because it allows the roll back of operations in case one
 fails.
-All the commands issued, are queued one after one in the transaction.
+All the commands issued are queued one after the other in the transaction.
 We will also review how to change the order of a queued command or remove
 a single command from the queued list before commiting.
 

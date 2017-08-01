@@ -30,7 +30,7 @@ Task 1 - Examine f5-newman-build-1
 
 #. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
-#. Lets examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
+#. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
    .. code-block:: json
       :linenos:
@@ -87,7 +87,7 @@ Task 2 - Execute the first f5-newman-wrapper file
 
    .. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIG-IP has a self-signed cert which violates Chrome's security). BIG-IP A Login credentials are ``admin\admin``
 
-#. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesnt however include any pool members.
+#. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesn't however include any pool members.
 
    Execute: ``f5-newman-wrapper f5-newman-build-1``
 

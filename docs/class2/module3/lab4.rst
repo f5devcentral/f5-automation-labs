@@ -9,8 +9,8 @@ Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Teardown**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get ready for the next module, we're going to execute one last f5-newman-wrapper
-directly, this file is designed to delete the framework and service we created in the
-last few labs. We used 2 f5-newman-wrapper files to create our service, for the deletion
+directly. This file is designed to delete the framework and service we created in the
+last few labs. We used 2 f5-newman-wrapper files to create our service, but for the deletion
 we will only use 1.
 
 Task 1 - Execute f5-newman-build-5
