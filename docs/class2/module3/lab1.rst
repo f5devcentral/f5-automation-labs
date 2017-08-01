@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum| – Files used and locations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``f5-super-netops-container`` is a self contained toolkit, meaning everything we will
-be using is already in the solution, it will also always be updated (CD). All received via git clones.
+be using is already in the solution.  It will also always be updated (CD) and received via git clones.
 
 .. NOTE:: If you are running in the provided training infrastructure, the ``super-netops-container`` can be accessed via Putty, all commands from this point will be run from within the super-netops-container
 
@@ -20,7 +20,7 @@ Task 1 - Review the super-netops-container files and collections used
 
 #. During the installation of the ``super-netops-container`` there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
 
-Lets make sure all repositories were mapped correctly.
+Let's make sure all repositories were mapped correctly.
 
  Execute: ``cd /home/snops``
 
