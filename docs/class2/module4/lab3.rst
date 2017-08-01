@@ -26,7 +26,7 @@ Task 1 - Teardown the Application via Jenkins
 
 #. Follow steps 2 & 3 of the last module creating the final Jenkins job
 
-   **Pipeline Job Name:** ``module_4_jenkinsfile_4``
+   **Pipeline Job Name:** ``module_4_jenkinsfile_5``
 
    .. code-block:: groovy
       :linenos:
