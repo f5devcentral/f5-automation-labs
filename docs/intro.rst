@@ -27,6 +27,50 @@ lab and access your jump host.
 	jumphost. No installation or interaction with your local system is
 	required.
 
+Lab Environments
+----------------
+
+In order to complete this series of training classes you will need to utilize
+a specific **Lab Environment**.  You can consume this training in a couple of
+ways:
+
+- Pre-built Environment using an Ravello Blueprint
+
+  - Used at official F5 events such as F5 Agility, F5 Agility Roadshows,
+    User Groups, MeetUps, etc.
+
+  - Access can be provided by your F5 Account Team
+
+- Pre-built Environment using an Amazon AWS CloudFormation Template (CFT)
+
+  - Access is on-demand and uses *your* AWS account
+
+- Self-built Environment on your own infrastructure
+
+  - Review the Topology below for details
+
+All pre-built environments implement the :ref:`lab-topology` shown below.
+
+Ravello Blueprint
+~~~~~~~~~~~~~~~~~
+
+Please follow the instructions provided by your lab instructor to access your
+lab environment.
+
+Amazon AWS CloudFormation Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. WARNING:: The AWS CFT will run in your account.  The template includes
+   components and instances that will incur a charge.  This charge will be
+   billed to your account.
+
+Click the link below to start a pre-built lab environment using a CloudFormation
+template in Amazon AWS:
+
+ :ref:`amazon-aws-lab-environment-guide`
+
+.. _lab-topology:
+
 Lab Topology
 ------------
 
