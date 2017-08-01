@@ -17,7 +17,7 @@ by different features.
 
 L1-3 Networking and Device Onboarding are delivered by ‘Cloud
 Connectors’ that are specific to the third party technology ecosystem
-(e.g. vCMP, AWS, Cisco APIC, VMware NSX, BIG-IP, etc).
+(e.g. vCMP, Cisco APIC, VMware NSX, BIG-IP, etc).
 
 L4-7 service delivery is accomplished by:
 
