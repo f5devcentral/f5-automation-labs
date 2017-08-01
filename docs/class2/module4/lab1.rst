@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum| – File Locations and Jenkins setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We've been executing commands locally from Automated scripts, at this point we are
+We've been executing commands locally from Automated scripts. At this point we are
 now going to take the toolkits and tie them together to form a Pipeline.
 Pipelines will vary in deployments and even within solutions. Our lab
 will show you just one way it could be utilized.
@@ -127,11 +127,11 @@ to notify all of us when an action happens, collaborative teamwork.
 
    |image101|
 
-#. Slack can take a few minutes to stall in the background (give it 30 seconds), once the once the ``Restarting Jenkins`` globe is grey and the status is ``Running`` go back to Jenkins Home
+#. Slack can take a few minutes to install in the background (give it 30 seconds), once the ``Restarting Jenkins`` globe is grey and the status is ``Running`` go back to Jenkins Home
 
    |image102|
 
-#. Executing a restart of Jenkins you session will be ended and you will need to log back into the system
+#. Executing a restart of Jenkins your session will be ended and you will need to log back into the system
 
    |image97|
 

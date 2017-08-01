@@ -28,7 +28,7 @@ automation by:
    -  RBAC can be implemented at iWorkflow for all devices rather on
       individual devices in the environment
 
-The rest proxy works by passing data sent to a specific URL through to
+The REST proxy works by passing data sent to a specific URL through to
 the BIG-IP device. The root URL for a particular devices REST proxy is:
 
 ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/<device\_uuid>/rest-proxy/``
@@ -41,7 +41,7 @@ Task 1 – Perform REST operations via the REST Proxy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will perform a sample CRUD operation utilizing the REST
-Proxy. The intent of this task is to show the basic mechanism use to
+Proxy. The intent of this task is to show the basic mechanism used to
 perform these tasks. Simply changing the URL to include the iWorkflow
 REST Proxy root for that device could easily change all the Imperative
 operations we have completed in this lab to use the REST Proxy.
