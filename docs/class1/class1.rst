@@ -10,7 +10,7 @@ This introductory class covers the following topics:
   - The f5-super-netops-container
   - Collections and the f5-postman-workflows extension to Postman
 
-Expected time to complete: **6 hours**
+Expected time to complete: **3 hours**
 
 .. toctree::
    :maxdepth: 1
