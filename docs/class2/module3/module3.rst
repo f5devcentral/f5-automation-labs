@@ -23,13 +23,13 @@ developed a Collection of calls that can be used with the Postman REST Client
   - F5's training collection for **Operating** BIG-IP
 
 Stitching together the collections and workflows allows Super-NetOps engineers
-the ability to start quickly Orchestrating calls to run Automation workflows
+the ability to start quickly Orchestrating calls to run Automation workflows.
 
 Using this structure also allow you to build your own solutions, to manage BIG-IP
 quickly as native REST calls are used.
 
 From the previous labs you should already have your Super-NetOps-Container already
-running, if its not please refer to Module 1.3 on starting your service
+running, if it's not please refer to Module 1.3 on starting your service.
 
 .. toctree::
    :maxdepth: 1
