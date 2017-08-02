@@ -33,7 +33,7 @@ Task 1 - Examine f5-newman-build-1
 #. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
    .. code-block:: json
-      :linenos:
+     :linenos:
 
      {
             "name":"f5-newman-build-1",
@@ -76,7 +76,7 @@ Task 1 - Examine f5-newman-build-1
 #. The above f5-newman-wrapper file only has the ``Authenticate to BIG-IP`` Collection/Folder referenced, we will now add in another collection. You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources.
 
   .. code-block:: json
-    :linenos:
+   :linenos:
 
    {
         "name":"1 - Build a Basic LTM Config",
