@@ -35,7 +35,7 @@ are progressing. Jenkins will also keep a running console for logging, which we 
 #. We need to enter the contents of the ``Jenkinsfile1-2`` into the ``Script`` section under Pipeline. After the contents are added click the ``Save`` Option.
 
 .. code-block:: groovy
-    :linenos:
+   :linenos:
 
     node {
        stage('Testing') {
