@@ -29,7 +29,7 @@ Using this structure also allow you to build your own solutions, to manage BIG-I
 quickly as native REST calls are used.
 
 From the previous labs you should already have your Super-NetOps-Container already
-running, if it's not please refer to Module 1.3 on starting your service.
+running, if it's not please refer to Class 2 Module 2 on starting your service.
 
 .. toctree::
    :maxdepth: 1

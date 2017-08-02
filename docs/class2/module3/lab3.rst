@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Operations**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the last lab we walked through creating an Application Service Framework, and then updating
-the service framework in a separate call. This lab has 2 f5-newman-files also, one to
+the service framework in a separate call. This lab has 2 f5-newman-files also, one file used to
 user-down a pool member, and another to user-up the same member. These could be used
 as individual calls from another toolkit (which we'll see later) or run independently
 as a single commands.

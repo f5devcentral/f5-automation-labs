@@ -29,14 +29,8 @@
                                 "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                                 "folder":"1_Authenticate"
                         }
-                },
-                {
-                        "name":"1 - Build a Basic LTM Config",
-                        "skip":false,
-                        "options": {
-                                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json",
-                                "folder":"1 - Build a Basic LTM Config"
-                        }
+                }, (REMOVE THIS TEXT AND ADD YOUR CODE BELOW)
+
                 }
         ]
 }

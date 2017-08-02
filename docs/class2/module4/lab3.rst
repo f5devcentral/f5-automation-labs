@@ -26,7 +26,7 @@ Task 1 - Teardown the Application via Jenkins
 
 #. Follow steps 2 & 3 of the last module creating the final Jenkins job
 
-   **Pipeline Job Name:** ``module_4_jenkinsfile_4``
+   **Pipeline Job Name:** ``module_4_jenkinsfile_5``
 
    .. code-block:: groovy
       :linenos:
@@ -36,25 +36,23 @@ Task 1 - Teardown the Application via Jenkins
             //Run the tests
             //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
          }
-         stage('Service-Removal') {
-             //Run SNOPS Container Newman Package add Node to Pool
-            sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+         stage('Removal-Notification') {
+            //Run SNOPS Container Newman Package Delete Service
             //chatops slack message that run has completed
             slackSend(
                channel: '#jenkins_builds',
-               color: 'good',
-               message: 'Super-NetOps Engineer is about to remove an F5 Service Framework, Approval Needed!',
+               color: 'bad',
+               message: 'Super-NetOps Engineer is about to remove an F5 Service!',
                teamDomain: 'f5agilitydevops',
                token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
                )
          }
          stage('Approval') {
             //Gate the process and require approval
-            input 'Proceed?'
-
+            input 'Delete?'
          }
-         stage('Service-Deleted') {
-             //Run SNOPS Container Newman Package add Node to Pool
+         stage('Service-Delete') {
+            //Run SNOPS Container Newman Package add Node to Pool
             sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
             //chatops slack message that run has completed
             slackSend(
@@ -66,6 +64,7 @@ Task 1 - Teardown the Application via Jenkins
                )
          }
       }
+
 
 #. Verify the on the BIG-IP the service has been Deleted
 
