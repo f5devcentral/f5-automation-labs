@@ -1,5 +1,12 @@
-Lab 1.1: Exploring iControl
-===========================
+.. |labmodule| replace:: 1
+.. |labnum| replace:: 1
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
+
+Lab |labmodule|\.\ |labnum|\: Exploring iControl
+================================================
 
 The iControl REST API available via TMOS can be directly accessed and endpoints explored.
 

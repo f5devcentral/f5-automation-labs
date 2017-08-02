@@ -1,5 +1,9 @@
-Lab 1.2: API Authentication
-===========================
+.. |labmodule| replace:: 1
+.. |labnum| replace:: 2
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
 
 .. |postman-icon| image:: /_static/class3/postman-icon.png
 .. |primer-1.2| image:: /_static/class3/primer-1.2.png
@@ -14,6 +18,9 @@ Lab 1.2: API Authentication
 .. |primer-2.10| image:: /_static/class3/primer-2.10.png
 .. |primer-2.12| image:: /_static/class3/primer-2.12.png
 .. |primer-2.13| image:: /_static/class3/primer-2.13.png
+
+Lab |labmodule|\.\ |labnum|\: API Authentication
+================================================
 
 This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the |icr|.
 

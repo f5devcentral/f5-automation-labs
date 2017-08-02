@@ -1,5 +1,5 @@
-Lab 2: Programmatic Control of Firewall Services
-================================================
+Module 2: Programmatic Control of Firewall Services
+===================================================
 
 * Provision AFM module on BIG-IP 
 * Interact with AFM related REST endpoints on a BIG-IP
@@ -8,8 +8,6 @@ Lab 2: Programmatic Control of Firewall Services
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :glob:
 
-   provisioning-afm.rst
-   address-list.rst
-   create-policy.rst
+   lab*
