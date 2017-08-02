@@ -1,4 +1,4 @@
-Lab 1.4: Building a Basic LTM Config
+Lab 1.3: Building a Basic LTM Config
 ====================================
 
 Overview
@@ -11,7 +11,7 @@ Specific Instructions
 
 Prior to performing the below steps, validate that the Hackazon web site is not accessible via the Windows jump box by clicking on the Hackazon bookmark in the Chrome toolbar.
 
-Follow the **Lab 1.4 - Building a Basic LTM Config** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the **Lab 1.3 - Building a Basic LTM Config** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. ATTENTION:: Some response content has been removed for brevity.
 

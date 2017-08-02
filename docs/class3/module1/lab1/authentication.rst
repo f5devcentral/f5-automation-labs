@@ -39,9 +39,7 @@ It should be noted that cracking the method of authentication is TRIVIAL; as a r
 
 Perform the following steps to complete this task:
 
-1. Open the Postman tool by clicking the icon on the taskbar of your Windows Jumphost.
-
-|postman-icon|
+1. Open the Postman Client on your jumphost by clicking the |postman-icon| icon.
 
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
