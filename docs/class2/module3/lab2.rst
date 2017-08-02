@@ -26,7 +26,7 @@ For a visual reference of what f5-programmability-class-2.postman_collection.jso
 Task 1 - Examine f5-newman-build-1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. NOTE:: The contents of this folder contain files for this lab and upcomming labs in this class
+.. NOTE:: The contents of this folder contain files for this lab and upcoming labs in this class
 
 #. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
@@ -35,7 +35,7 @@ Task 1 - Examine f5-newman-build-1
    .. code-block:: json
       :linenos:
 
-      {
+     {
             "name":"f5-newman-build-1",
             "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
             "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
@@ -66,19 +66,30 @@ Task 1 - Examine f5-newman-build-1
                                     "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
                                     "folder":"1_Authenticate"
                             }
-                    },
-                    {
-                            "name":"1 - Build a Basic LTM Config",
-                            "skip":false,
-                            "options": {
-                                    "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.   postman_collection.json",
-                                    "folder":"1 - Build a Basic LTM Config"
-                            }
-                    }
+                    }, (REMOVE THIS TEXT AND ADD YOUR CODE BELOW)
+
+                }
             ]
       }
 
-   .. NOTE:: From the file we can determine the variables to be utilized by the Collections we specify; toward the bottom of the file we can see the two Collections that are being referenced, then in each JSON blob we see the Folders containing the calls to run.
+
+#. The above f5-newman-wrapper file only has the ``Authenticate to BIG-IP`` Collection/Folder referenced, we will now add in another collection. You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources.
+
+  .. code-block:: json
+    :linenos:
+
+   {
+        "name":"1 - Build a Basic LTM Config",
+        "skip":false,
+        "options": {
+                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.   postman_collection.json",
+                "folder":"1 - Build a Basic LTM Config"
+        }
+
+
+
+
+.. NOTE:: Now that you have the full file you can see what it will look like. The environment variables will float into both Collections, and the returned Global Variables will persist during the whole run.
 
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,7 +98,7 @@ Task 2 - Execute the first f5-newman-wrapper file
 
    .. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIG-IP has a self-signed cert which violates Chrome's security). BIG-IP A Login credentials are ``admin\admin``
 
-#. ``f5-newman-build-1`` contains calls to build the Framework of an Application Service, Virtual Server, Pool and needed Profiles, it doesn't however include any pool members.
+#. ``f5-newman-build-1`` now contains the needed calls to build the Framework of an Application Service (Virtual Server, Pool and needed Profiles), it doesn't however include any pool members.
 
    Execute: ``f5-newman-wrapper f5-newman-build-1``
 
@@ -182,7 +193,7 @@ Task 2 - Execute the first f5-newman-wrapper file
       └───────────────────────────────────────────────┘
       [f5-newman-build-1-2017-07-26-08-23-00] run completed in 6s, 90.207 ms
 
-   .. NOTE:: Notice the 200 OK responses, at this point look back at ``BIGIP-A`` for the newly created framework
+   .. NOTE:: Notice the 200 OK responses, the number of requests ect, we're building in testing and logging, at this point look back at ``BIGIP-A`` for the newly created framework
 
 #. On BIG-IP A, examine Virtual Server ``module_3_vs``:
 

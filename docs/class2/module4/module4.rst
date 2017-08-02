@@ -25,8 +25,8 @@ Tools we will be using:
 
   - Jenkins is installed on the super-netops-container access via ``http://10.1.1.8:10000`` (Web) user credentials are ``admin/default``
 
-From the previous labs you should already have your Super-NetOps-Container 
-running, if its not please refer to Module 1.3 on starting your service
+From the previous labs you should already have your Super-NetOps-Container already
+running, if it's not please refer to Class 2 Module 2 on starting your service.
 
 .. toctree::
    :maxdepth: 1
