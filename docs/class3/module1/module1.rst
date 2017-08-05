@@ -1,9 +1,14 @@
-Module 1: SecDevOps: Programmatic Defense in Depth with |bip|
-=============================================================
+Module 1: |icr| Refresher
+=========================
+
+* Explore the iControl REST API on a BIG-IP
+* Use Postman to interact with the |icr|
+* Authenticate to the BIG-IP using a username/password and token
+* Modify the authentication token timeout
+* Build a basic LTM configuration
 
 .. toctree::
    :maxdepth: 1
-   
-   lab1/lab-1-objectives.rst
-   lab2/lab-2-objectives.rst
-   lab3/lab-3-objectives.rst
+   :glob:
+
+   lab*

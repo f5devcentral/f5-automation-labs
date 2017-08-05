@@ -1,5 +1,12 @@
-Lab 3.2: Create ASM Policy
-==========================
+.. |labmodule| replace:: 3
+.. |labnum| replace:: 3
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
+
+Lab |labmodule|\.\ |labnum|\: Create ASM Policy
+===============================================
 
 Overview
 --------
@@ -9,7 +16,7 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
 Specific Instructions
 ---------------------
 
-Follow the **Lab 3.2 - Create ASM Policy** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. ATTENTION:: Some response content has been removed for brevity.
 

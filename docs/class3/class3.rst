@@ -23,7 +23,7 @@ This course will feature the following topics.
 
 **Lab Guide**
 
-This lab is divided into three parts.  Each section of the lab, will require
+This lab is divided into three modules.  Each module of the lab, will require
 configuration of the BIG-IP, AFM, or ASM using the iControl REST based API.
 It is recommended that each lab be executed in order.
 
@@ -32,9 +32,9 @@ Windows jump box.
 
 Prior to beginning the exercises, it is recommended to review the :doc:`/class3/labinfo`.
 
-#. Lab 1: Configuring BIG-IP
-#. Lab 2: Configuring AFM (Advanced Firewall Module)
-#. Lab 3: Configuring ASM (Application Security Module)
+#. Module 1: Configuring BIG-IP
+#. Module 2: Configuring AFM (Advanced Firewall Module)
+#. Module 3: Configuring ASM (Application Security Module)
 
 **Support**
 
@@ -48,6 +48,8 @@ and access your jump host.
 .. NOTE:: All work for this lab will be performed exclusively from the
    Windows jumphost.  No software installation or interaction with your
    local system is required.
+
+Expected time to complete: **3 hours**
 
 .. toctree::
    :maxdepth: 2

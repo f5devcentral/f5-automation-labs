@@ -1,5 +1,9 @@
-Lab 1.2: API Authentication
-===========================
+.. |labmodule| replace:: 1
+.. |labnum| replace:: 2
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
 
 .. |postman-icon| image:: /_static/class3/postman-icon.png
 .. |primer-1.2| image:: /_static/class3/primer-1.2.png
@@ -14,6 +18,9 @@ Lab 1.2: API Authentication
 .. |primer-2.10| image:: /_static/class3/primer-2.10.png
 .. |primer-2.12| image:: /_static/class3/primer-2.12.png
 .. |primer-2.13| image:: /_static/class3/primer-2.13.png
+
+Lab |labmodule|\.\ |labnum|\: API Authentication
+================================================
 
 This lab utilizes the Postman Chrome extension to facilitate the sending data to and receiving data from the |icr|.
 
@@ -39,9 +46,7 @@ It should be noted that cracking the method of authentication is TRIVIAL; as a r
 
 Perform the following steps to complete this task:
 
-1. Open the Postman tool by clicking the icon on the taskbar of your Windows Jumphost.
-
-|postman-icon|
+1. Open the Postman Client on your jumphost by clicking the |postman-icon| icon.
 
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 

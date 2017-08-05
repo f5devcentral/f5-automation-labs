@@ -1,5 +1,12 @@
-Lab 3.3: Apply ASM Policy to VS
-===============================
+.. |labmodule| replace:: 3
+.. |labnum| replace:: 4
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
+
+Lab |labmodule|\.\ |labnum|\: Apply ASM Policy to VS
+====================================================
 
 Overview
 --------
@@ -9,7 +16,7 @@ In this lab, the previously created ASM policy will be applied to a virtual serv
 Specific Instructions
 ---------------------
 
-Follow the **Lab 3.3 - Apply ASM Policy to Virtual Server** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. ATTENTION:: Some response content has been removed for brevity.
 

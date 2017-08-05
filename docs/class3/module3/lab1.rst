@@ -1,17 +1,24 @@
-Lab 3.0: Provisioning ASM
-=========================
+.. |labmodule| replace:: 3
+.. |labnum| replace:: 1
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
+
+Lab |labmodule|\.\ |labnum|\: Provisioning ASM
+==============================================
 
 Overview
 --------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Lab 3.0 - Provisioning ASM**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Module 3: Configuring ASM (Application Security Module)**.
 
 Specific Instructions
 ---------------------
 
 Prior to performing the steps below, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **asm**.
 
-Follow the **Lab 3.0 - Provisioning ASM** steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 .. ATTENTION:: Some response content has been removed for brevity.
 
