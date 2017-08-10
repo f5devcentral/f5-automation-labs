@@ -71,36 +71,28 @@ Perform the following steps to complete this task:
 Task 2 – Start the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To start the container we will execute the command:
-
-``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
-
-The ``-p`` option publishes a L4 port from the container to the host.  For
-example the ``-p 8080:80`` option will redirect port ``8080`` on the host system
-to port ``80`` in the container.
-
-The ``-it`` option will make the session interactive and allocate a pseudo-TTY
-
-The ``-e`` option will specify a Github Branch, in this case we are pulling from ``develop``
-
-The ``f5devcentral/f5-super-netops-container:develop-jenkins`` option is the name
-associated with the image we obtained in Task 1.
-
-Perform the following steps to complete this task:
+To start using the container we will execute the command:
 
 #. Execute ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
 
-   .. NOTE:: The image requires Internet connectivity to download the latest
-      versions of tools and documentation.  Please ensure you have proper
-      connectivity from your host prior to starting the image.  If you need
-      to use a proxy please refer to the documentation at
-      https://docs.docker.com
+.. NOTE:: The image requires Internet connectivity to download the latest versions of tools and documentation.  Please ensure you have proper connectivity from your host prior to starting the image.  If you need to use a proxy please refer to the documentation at https://docs.docker.com
 
    The image will now start and load resources from the Internet.  This process
    may take a while depending on the speed of your connection.  When the startup
    process is complete you will be presented with a ``root`` user prompt.  You
    can interact with the image with standard Linux commands.  In the next lab
    we will connect to the image via SSH and HTTP.
+
+   The ``-p`` option publishes a L4 port from the container to the host.  For
+   example the ``-p 8080:80`` option will redirect port ``8080`` on the host system
+   to port ``80`` in the container.
+
+   The ``-it`` option will make the session interactive and allocate a pseudo-TTY
+
+   The ``-e`` option will specify a Github Branch, in this case we are pulling from ``develop``
+
+   The ``f5devcentral/f5-super-netops-container:develop-jenkins`` option is the name
+   associated with the image we obtained in Task 1.
 
    Example startup output:
 

@@ -18,6 +18,8 @@ Community Edition on your system.
 Task 1 – Install Docker CE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+..Note:: User Credentials to Docker Server: User ``root`` and Password ``default``
+
 Please follow the instructions at https://docs.docker.com/engine/installation/
 to install Docker CE.
 
@@ -33,7 +35,7 @@ Example output:
 
 .. code::
 
-   $ sudo docker run --rm hello-world
+   $ docker run --rm hello-world
    Unable to find image 'hello-world:latest' locally
    latest: Pulling from library/hello-world
    78445dd45222: Pull complete
@@ -50,9 +52,6 @@ Example output:
        executable that produces the output you are currently reading.
     4. The Docker daemon streamed that output to the Docker client, which sent it
        to your terminal.
-
-   To try something more ambitious, you can run an Ubuntu container with:
-    $ docker run -it ubuntu bash
 
    Share images, automate workflows, and more with a free Docker ID:
     https://cloud.docker.com/
