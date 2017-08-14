@@ -63,7 +63,7 @@ Task 1 - Examine f5-newman-build-1
                     {
                             "name":"Authenticate to BIG-IP",
                             "options": {
-                                    "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
+                                    "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                                     "folder":"1_Authenticate"
                             }
                     }, (REMOVE THIS TEXT AND ADD YOUR CODE BELOW)
