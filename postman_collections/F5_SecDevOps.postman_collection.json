@@ -148,10 +148,21 @@
 			"owner": "1478405"
 		}
 	],
+	"folders_order": [
+		"ddeae80d-001f-93b1-6002-a615b05eb2e1",
+		"1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
+		"b8c6e3b9-4103-b934-477a-b667bb972ca6",
+		"c94ec26b-978f-5d74-75ab-1d51bdd59068",
+		"0efee0c6-c447-4185-824e-02058fde5d53",
+		"20fc958b-c99d-1e8b-ff3b-1415c928266d",
+		"77fab817-fcbc-a2b9-d135-31c300e63d0e",
+		"0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
+		"6a802c36-3c71-c22a-d57b-3843eb88d563",
+		"165ca2a7-10e9-0c91-b0bb-40517319cf9d"
+	],
 	"timestamp": 0,
 	"owner": "1478405",
 	"public": false,
-	"hasRequests": true,
 	"requests": [
 		{
 			"id": "0272cad9-6944-fe92-dc54-70e36832f784",
@@ -175,7 +186,8 @@
 			],
 			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "043e9395-022b-d1db-b007-4f489af4697b",
@@ -198,7 +210,8 @@
 			],
 			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "0bcef791-b10d-437f-d40c-7bded4893759",
@@ -257,7 +270,8 @@
 			],
 			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "1aa94d4b-39df-2911-f994-d150e7b2328c",
@@ -346,7 +360,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "3849cab2-97a7-ec59-7cd2-91c84235f8a5",
@@ -369,7 +384,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "391cc5f2-daef-ab9f-ef0d-0403cdcadd93",
@@ -428,7 +444,8 @@
 			],
 			"folder": "c94ec26b-978f-5d74-75ab-1d51bdd59068",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "3e6f81d1-32f3-6c76-0c6f-b561ccd64de4",
@@ -451,7 +468,8 @@
 			],
 			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "40662a97-ab8a-f0d7-d574-e76b991a1379",
@@ -480,7 +498,8 @@
 			],
 			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "4207cb22-2033-46c7-641a-f3cb2590f28a",
@@ -503,7 +522,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "4336a343-ca71-7e96-0d9d-3709416b4961",
@@ -670,7 +690,8 @@
 			],
 			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "4d26330f-4067-d382-aa0b-9e91371f0011",
@@ -693,7 +714,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "5154667c-00a3-fffa-8512-d90302379741",
@@ -746,7 +768,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "59ffd7d5-8b08-2fd2-fb97-e1b67ec06d15",
@@ -806,7 +829,8 @@
 			],
 			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "5d5e36a4-3c1e-b161-31f9-bf0745029b22",
@@ -897,7 +921,8 @@
 			],
 			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "7544982f-9f49-c0e5-67a2-0a487008b304",
@@ -980,7 +1005,8 @@
 			],
 			"folder": "6a802c36-3c71-c22a-d57b-3843eb88d563",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "7afa0222-de40-a6b0-e1c7-ed5b7978218c",
@@ -1003,7 +1029,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "84525537-b669-2eb0-ff63-9682e19f1130",
@@ -1026,7 +1053,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "926bfcb0-6c50-897c-a0ba-6464a20c2363",
@@ -1049,7 +1077,8 @@
 			],
 			"folder": "ddeae80d-001f-93b1-6002-a615b05eb2e1",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "9c836d65-1c62-3a8b-8b7a-de95c6a4c8c6",
@@ -1078,7 +1107,8 @@
 			],
 			"folder": "1104d969-285b-f1a0-e1bf-493b4e0bf6e5",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "a0384c1c-7e03-2588-1102-73c9c9493f25",
@@ -1167,7 +1197,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "aebd1dc7-8b48-4bcc-eaaf-1dd498506cf8",
@@ -1226,7 +1257,8 @@
 			],
 			"folder": "77fab817-fcbc-a2b9-d135-31c300e63d0e",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "b698f78a-b777-f035-52bb-1dec1fc40a4f",
@@ -1417,7 +1449,8 @@
 			],
 			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "cdd8b137-f539-d54e-70aa-736e69df25a2",
@@ -1440,7 +1473,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "d830fc7d-a0c3-7649-7a00-4bf93b4674dd",
@@ -1463,7 +1497,8 @@
 			],
 			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "d9187c35-454c-96c5-5b7b-21c8c221666d",
@@ -1522,7 +1557,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "dd7d848a-57be-4022-dd17-622f6ec0a133",
@@ -1581,7 +1617,8 @@
 			],
 			"folder": "165ca2a7-10e9-0c91-b0bb-40517319cf9d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "e48b9d4f-0ac9-5757-2456-eaa6ffa1d987",
@@ -1646,7 +1683,8 @@
 			],
 			"folder": "b8c6e3b9-4103-b934-477a-b667bb972ca6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "e61dc558-8ed9-e2d3-4145-90bbc9f1828e",
@@ -1699,7 +1737,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "eb72d00e-feb8-599b-9766-ac7e0504618d",
@@ -1722,7 +1761,8 @@
 			],
 			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "f203079f-1806-683a-4e94-42c1cf782566",
@@ -1745,7 +1785,8 @@
 			],
 			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "f605f561-2f78-68ec-3665-41c2be9530f0",
@@ -1768,7 +1809,8 @@
 			],
 			"folder": "20fc958b-c99d-1e8b-ff3b-1415c928266d",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "fa4e3713-0005-79ea-0417-3cbb436cfc7d",
@@ -1791,7 +1833,8 @@
 			],
 			"folder": "0fa9d5ce-0cfd-4607-68a5-0200518a66d6",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		},
 		{
 			"id": "fff2519c-53c4-45ef-31a9-6616f9998041",
@@ -1814,7 +1857,8 @@
 			],
 			"folder": "0efee0c6-c447-4185-824e-02058fde5d53",
 			"preRequestScript": "",
-			"tests": ""
+			"tests": "",
+			"pathVariables": {}
 		}
 	]
 }
