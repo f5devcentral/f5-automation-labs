@@ -8,18 +8,18 @@
 Lab |labmodule|\.\ |labnum|\: f5-newman-wrapper Introduction
 ------------------------------------------------------------
 
-As shown in the previous lab we can manually execute collections and folders
-using the Postman GUI to achieve some end result on BIG-IP devices.  While this
-capability is important in a test/prototyping phase we need to ensure we can
+As shown in the previous lab, we can manually execute collections and folders
+using the Postman GUI to achieve end results on BIG-IP devices.  While this
+capability is important in a test/prototyping phase, we need to ensure we can
 execute these manual steps as an automated process.
 
 To achieve this goal we can use the f5-newman-wrapper tool.  This tool allows
-a user to specify a workflow in a JSON formatted file that includes Input
-Variables, the collections and folders to execute and various output options
+a user to specify a workflow in a JSON formatted file, this includes Input
+Variables, the collections and folders, and executes various output options
 to provide feedback and run details in a programmatic fashion.
 
 The core element of a workflow that can be executed by f5-newman-wrapper is a
-JSON formatted input file.  In this lab we will introduce the file format.
+``JSON formatted`` input file.  In this lab we will introduce the file format.
 
 Task 1 - Explore the workflow JSON format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

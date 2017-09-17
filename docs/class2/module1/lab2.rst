@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: Obtain & Start the f5-super-netops-container Image
 In this lab we will use the ``docker`` cli tools to obtain and start the
 f5-super-netops-container image.
 
-Task 1 – Obtain the container image
+Task 1 – Obtain and verfiy the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
@@ -21,14 +21,14 @@ Perform the following steps to complete this task:
 .. NOTE:: If you are using an F5 provided lab environment please SSH to the
       'Docker Server' host and execute the following commands.
 
-#. Execute ``docker pull f5devcentral/f5-super-netops-container:develop-jenkins``
+#. Execute ``docker pull f5devcentral/f5-super-netops-container:jenkins``
 
    Example output:
 
    .. code::
 
-      $ docker pull f5devcentral/f5-super-netops-container:develop-jenkins
-      develop-jenkins: Pulling from f5devcentral/f5-super-netops-container
+      $ docker pull f5devcentral/f5-super-netops-container:jenkins
+      jenkins: Pulling from f5devcentral/f5-super-netops-container
       019300c8a437: Pull complete
       2d6b38b56ae7: Pull complete
       5fab9174d5b4: Pull complete
@@ -56,7 +56,7 @@ Perform the following steps to complete this task:
       5bcd8c5223bb: Pull complete
       b0defdb83b82: Pull complete
       Digest: sha256:27563f98bf58c9d26eb5989acaf540a9ad7fb1806e4a4c373ad28769ebe63ef4
-      Status: Downloaded newer image for f5devcentral/f5-super-netops-container:develop-jenkins
+      Status: Downloaded newer image for f5devcentral/f5-super-netops-container:jenkins
 
 #. Execute ``docker images``
 
@@ -66,20 +66,20 @@ Perform the following steps to complete this task:
 
       $ docker images
       REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
-      f5devcentral/f5-super-netops-container   develop-jenkins     b71fc40407e4        2 weeks ago         490MB
+      f5devcentral/f5-super-netops-container   jenkins             b71fc40407e4        2 weeks ago         490MB
 
 Task 2 – Start the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start using the container we will execute the command:
 
-#. Execute ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=develop f5devcentral/f5-super-netops-container:develop-jenkins``
+#. Execute ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=master f5devcentral/f5-super-netops-container:jenkins``
 
 .. NOTE:: The image requires Internet connectivity to download the latest versions of tools and documentation.  Please ensure you have proper connectivity from your host prior to starting the image.  If you need to use a proxy please refer to the documentation at https://docs.docker.com
 
    The image will now start and load resources from the Internet.  This process
    may take a while depending on the speed of your connection.  When the startup
-   process is complete you will be presented with a ``root`` user prompt.  You
+   process is complete you will be presented in the ``root`` user prompt.  You
    can interact with the image with standard Linux commands.  In the next lab
    we will connect to the image via SSH and HTTP.
 
@@ -89,16 +89,16 @@ To start using the container we will execute the command:
 
    The ``-it`` option will make the session interactive and allocate a pseudo-TTY
 
-   The ``-e`` option will specify a Github Branch, in this case we are pulling from ``develop``
+   The ``-e`` option will specify a Github Branch, in this case we are pulling from ``master``
 
-   The ``f5devcentral/f5-super-netops-container:develop-jenkins`` option is the name
+   The ``f5devcentral/f5-super-netops-container:jenkins`` option is the name
    associated with the image we obtained in Task 1.
 
    Example startup output:
 
    .. code::
 
-      container:develop-jenkins
+      container:jenkins
       [s6-init] making user provided files available at /var/run/s6/etc...exited 0.
       [s6-init] ensuring user provided files have correct perms...exited 0.
       [fix-attrs.d] applying ownership & permissions fixes...
@@ -116,7 +116,7 @@ To start using the container we will execute the command:
       [environment] SNOPS_REVEALJS_DEV=0
       [environment] SNOPS_HOST_HTTP=8080
       [environment] SNOPS_IMAGE=jenkins
-      [environment] SNOPS_GH_BRANCH=develop
+      [environment] SNOPS_GH_BRANCH=master
       Reticulating splines...
       Becoming self-aware...
       [cloneGitRepos] Retrieving repository list from https://github.com/f5devcentral/f5-super-netops-container.git#develop
@@ -201,10 +201,14 @@ avoid this you should detach from the container once it has completed booting.
 You can still perform functions by using SSH to access the container as
 explained in the next lab.
 
+Its likely that the installation of the f5-super-netops-container will not be
+on a localhost while running in a large environment, the steps below show how
+you can leave this instance running as a background process, if needed.
+
 Detach the Container
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Enter ``Ctrl+p+q`` in the running TTY.
+#. Issue a ``Ctrl+p+q`` in the running TTY.
 
    Example output:
 
@@ -224,7 +228,7 @@ Detach the Container
       hostname:~ user$ docker ps
       $ docker ps
       CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                                                                                      NAMES
-      4cf75944bfbc        f5devcentral/f5-super-netops-container:develop-jenkins   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
+      4cf75944bfbc        f5devcentral/f5-super-netops-container:jenkins           "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
 
 Re-attach the Container
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -238,12 +242,12 @@ Re-attach the Container
        hostname:~ user$ docker ps
        $ docker ps
        CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                                                                                      NAMES
-       4cf75944bfbc        f5devcentral/f5-super-netops-container:develop-jenkins   "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
+       4cf75944bfbc        f5devcentral/f5-super-netops-container:jenkins           "/init /snopsboot/..."   2 minutes ago       Up 2 minutes        8000/tcp, 50000/tcp, 0.0.0.0:2222->22/tcp, 0.0.0.0:8080->80/tcp, 0.0.0.0:10000->8080/tcp   loving_montalcini
       |------------|
         ^- YOUR CONTAINER ID
 
 #. Copy the value under the ``CONTAINER ID`` column that correspond to the
-   f5devcentral/f5-super-netops-container:develop-jenkins image.
+   f5devcentral/f5-super-netops-container:jenkins image.
 #. Execute ``docker attach <container_id>``
-#. You may have to hit ``<Enter>`` to display the command prompt
+#. You may have to hit ``<Enter>`` twice to display the command prompt
 #. Detach the container again by entering ``<Ctrl+p+q>``

@@ -28,12 +28,13 @@ Perform the following steps to complete this task:
    ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/F5_Postman_Workflows.postman_collection.json``
 
 #. You should now see a collection named ``F5_Postman_Workflows`` in your
-   Postman Collections sidebar
+   Postman Collections sidebar, in some cases the Collections dont appear until Postman
+   has been closed an relaunched.
 
 Task 2 - Install f5-postman-workflows into your Postman Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To utilize the helper functions the framework include we must install those
+To utilize the helper functions the framework includes, we must install those
 functions into the Postman Client.  The installation helpers perform the
 following tasks:
 

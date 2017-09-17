@@ -8,17 +8,19 @@
 Lab |labmodule|\.\ |labnum| – Executing Jenkins Jobs for Creation or Modify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have Jenkins running and the dependent Slack Plugin installed
-we can utilize our Jenkins Pipeline Scripts to execute successfully.
+Now that we have Jenkins running, and the dependent Slack Plugin installed
+we can utilize our Jenkins Pipeline Scripts successfully.
 
-Task 1 - Building the Framework via Jenkins
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Task 1 - Building the Application Service Framework via Jenkins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step is executing the f5-newman-wrapper files. Instead of having to run the two different
-builds (Framework and Pool member add) individually, Jenkins has a pause function looking for approval.
-After approving, this will allow the node to be added, still using 2 f5-newman-wrapper files but in conjunction
-with a single solution (Jenkins). Jenkins will continue to update the class via Slack as people
-are progressing. Jenkins will also keep a running console for logging, which we will also review.
+builds (Application Service Framework and Pool member add) individually we'll us a pause.
+Jenkins has a pause functionality which pausing the deployment looking for an approval to
+continue. After the approving step, the node to be added, still using 2 f5-newman-wrapper
+files but in conjunction with a single solution (Jenkins). Jenkins will continue to update
+the class via Slack as people are progressing. Jenkins does also keep a running console for
+logging, which we will also review.
 
 #. From the Jenkins Dashboard click on ``create new jobs``
 
@@ -28,7 +30,7 @@ are progressing. Jenkins will also keep a running console for logging, which we 
 
    |image104|
 
-#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but please look at the other options to deploy a Pipeline. There are options in here such as Polling an SCM for the same file we are working with. The ``Polling`` method enables full Continuous Deployment, as Jenkins will deploy the change on a polled basis and we have an automatic testing phase for syntax in the Pipeline.
+#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but **please look at the other options** which can deploy a Pipeline. The different options in here are for an SCM (like GitHub), the ``Polling`` or ``Commit`` methods enable Continuous Deployment, as Jenkins will deploy the change on an event basis. Tie this with automatic testing to make sure you're not breaking the build!
 
    |image105|
 
@@ -81,16 +83,18 @@ are progressing. Jenkins will also keep a running console for logging, which we 
        }
     }
 
-   |image106|
+Contents in Pipeline:
+
+|image106|
 
 #. Once the Job is saved, you will be taken to the stage view page, from here we are going to execute our Pipeline build, choose the ``Build Now`` option.
 
    |image107|
 
-#. The Build is now running, and the stages are being executed in order. However, on our third stage we have a pause and an approval needed. Also at the same time Slack has notified us that a new service is being deployed and someone needs to approve it.
+#. The Build is now running, and the stages are being executed in order. However, on our third stage we have a **pause** and an approval **needed**. Also at the same time Slack has began to notify us that a new service is being deployed, and someone needs to approve it.
 
    |image108|
-
+   Highlight over the third Stage to prompt for the Approval
    |image109|
 
    |image110|
@@ -105,11 +109,11 @@ are progressing. Jenkins will also keep a running console for logging, which we 
 
    |image113|
 
-#. The output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
+#. The Console Output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
 
    |image114|
 
-#. Check Slack visual for completion of everything!
+#. Check Slack for the completion of everything!
 
    |image115|
 
@@ -126,7 +130,9 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
    |image116|
 
-#. Follow steps 2 & 3 of the last module creating 2 new Jenkins jobs, one for each desired user state.
+#. Repeat steps 2 & 3 of the last module, creating 2 new Jenkins jobs, one for each desired node state.
+
+#. Create and Execute ``module_4_jenkinsfile_3`` for a down node
 
    **Pipeline Job Name:** ``module_4_jenkinsfile_3``
 
@@ -152,7 +158,9 @@ These two Jenkins files were completed to show the ability of creating smaller d
         }
       }
 
-#. Verify on the BIG-IP that the pool ``module_3_pool`` has a user down node
+#. Verify on the BIG-IP that the pool ``module_3_pool`` has a down node
+
+#. Create and Execute ``module_4_jenkinsfile_4`` for an up node
 
    **Pipeline Job Name:** ``module_4_jenkinsfile_4``
 
@@ -178,7 +186,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
         }
       }
 
-#. Verify on the BIG-IP that the pool ``module_3_pool`` has a user up node
+#. Verify on the BIG-IP that the pool ``module_3_pool`` has an up node
 
 .. |image103| image:: /_static/class2/image103.png
    :scale: 70%
@@ -195,17 +203,17 @@ These two Jenkins files were completed to show the ability of creating smaller d
 .. |image109| image:: /_static/class2/image109.png
    :scale: 70%
 .. |image110| image:: /_static/class2/image110.png
-   :scale: 70%
-.. |image111| image:: /_static/class2/image110.png
-   :scale: 70%
-.. |image112| image:: /_static/class2/image110.png
-   :scale: 70%
+   :scale: 100%
+.. |image111| image:: /_static/class2/image111.png
+   :scale: 100%
+.. |image112| image:: /_static/class2/image109.png
+   :scale: 100%
 .. |image113| image:: /_static/class2/image113.png
    :scale: 70%
 .. |image114| image:: /_static/class2/image114.png
    :scale: 70%
 .. |image115| image:: /_static/class2/image115.png
-   :scale: 70%
+   :scale: 100%
 .. |image116| image:: /_static/class2/image116.png
    :scale: 70%
 .. |image117| image:: /_static/class2/image117.png
