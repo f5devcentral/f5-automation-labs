@@ -16,7 +16,7 @@ and ready to use.
 Task 1 - Run a f5-newman-wrapper Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
+#. Return to, or open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_1.json .``
 #. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.4`` for
@@ -167,5 +167,6 @@ Task 1 - Run a f5-newman-wrapper Workflow
       }
 
 Notice that the ``bigip_version`` and ``bigip_build`` variables were
-saved.  This file is JSON formatted and can easily be used directly
+saved, similar to how this was shown in the Postman GUI Environment Variables.
+This file is JSON formatted and can easily be used directly
 by other tools to drive further automation.

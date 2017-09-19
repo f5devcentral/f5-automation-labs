@@ -16,7 +16,7 @@ we will only use 1.
 Task 1 - Execute f5-newman-build-5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. On BIG-IP A examine the virtual server ``module_3_vs``, it should be active and Green:
 

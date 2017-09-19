@@ -8,11 +8,11 @@
 Lab |labmodule|\.\ |labnum|\: Manually Execute a Workflow
 ---------------------------------------------------------
 
-In this lab we will walk through how to obtain two collections that use
-the f5-postman-workflows framework and execute a simple workflow using the
+In this lab we will walk through how to obtain two collections, and then we'll use
+the f5-postman-workflows framework to execute a simple workflow using the
 Postman GUI client.  The f5-postman-workflows GitHub repository is continually
 updated with new collections that can be used as is, or customized, to automate
-the F5 platform.  Additionally the f5-super-netops-container automatically
+the F5 platform.  Additionally, the f5-super-netops-container automatically
 downloads these and other tools so users can rapidly execute workflows in their
 environments.
 
@@ -20,8 +20,8 @@ Postman collections also serve as a reference example of how various tasks can
 be accomplished using an **Imperative** process.  When executing a collection
 you are actually providing a **Declarative** input to an **Imperative** process.
 
-Collections are self-documenting and we will explore how to access the included
-documentation to assemble a workflow from start to end.  In the next lab we will
+Collections are self-documenting, and we will explore how to access the included
+documentation to assemble a workflow from beginning to end.  In the next lab we will
 use this base knowledge to create workflows as JSON templates that can be
 executed by the f5-newman-wrapper on the f5-super-netops-container image (or
 any system that has Newman installed)
@@ -29,13 +29,14 @@ any system that has Newman installed)
 Task 1 - Import and Explore BIG-IP Collections
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We will import two collections to Postman using the same steps in the previous
-labs.  The collections will allow us to perform REST API Authentication to
-BIG-IP devices and then execute Operational actions on the BIG-IP device.
+First, we will import two collections to Postman using the same steps in the previous
+labs.  The **two different** collections will allow us to perform REST **API Authentication** to
+BIG-IP devices and then execute **Operational** actions on the BIG-IP device. We are stitching
+together two **Imperative** process's.
 
 Execute the following steps to complete this task:
 
-#. Click Import -> Import from Link and import these collection URLs:
+#. Click Import -> Import from Link and import both of these collection URLs:
 
    - ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json``
    - ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/collections/BIG_IP/BIGIP_Operational_Workflows.postman_collection.json``
@@ -58,14 +59,14 @@ Execute the following steps to complete this task:
 
    |image82|
 
-#. In the following window you will see documentation explaining what the
+#. In the opened window you will see documentation explaining what the
    requests in this folder accomplish.  Additionally you will see a series
    of Input and Output variables.  Unless marked otherwise it is assumed
-   that all Input variables are required.  In this case the
+   that all Input variables **are** required.  In this case the
    ``bigip_token_timeout`` variable is optional.
 
    Folders may also contain output variables that are set to pass data
-   between requests in different collections.  In this case the output
+   between requests in different collections (A Waterfall).  In this case the output
    variable is named ``bigip_token`` and contains the authentication token
    that can be sent in the ``X-F5-Auth-Token`` HTTP header to perform
    authentication.
@@ -129,7 +130,7 @@ the folders.
 
 At this point we have successfully authenticated to our device and stored the
 authentication token in the ``bigip_token`` environment variable.  We will now
-execute a request in a different collection and folder that uses the
+execute a request in a **different** collection and folder that uses the
 ``bigip_token`` variable value to authenticate and perform its actions.
 
 #. Expand the ``BIGIP_Operational_Workflows`` -> ``4A_Get_BIGIP_Version``
@@ -149,12 +150,12 @@ execute a request in a different collection and folder that uses the
 #. Examine your environment variables and note that the ``bigip_version``
    and ``bigip_build`` variables are now populated.
 
-While the example above was simple it should show how we can chain together
+While the example above was simple, it should show how we can chain together
 different collections and folders to assemble custom workflows.  The key
 concepts to understand are:
 
-- The f5-postman-workflows framework and collection test code perform
-  unit tests on the response data and verify the request executed
+- The f5-postman-workflows framework and collection test-code performs
+  unit tests on the response data, and verifies the request executed
   successfully.
 - The framework also populates Output Variables as documented so they can
   be used in subsequent requests as Inputs to assemble a workflow

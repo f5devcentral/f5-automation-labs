@@ -5,11 +5,11 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Operations**
+Lab |labmodule|\.\ |labnum| – Execute f5-newman-wrapper for an **Operations** Workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the last lab we walked through creating an Application Service Framework, and then updating
-the service framework in a separate call. This lab has 2 f5-newman-files also, one file used to
+the Service Framework in a separate call. This lab has 2 f5-newman-files also, one used to
 user-down a pool member, and another to user-up the same member. These could be used
 as individual calls from another toolkit (which we'll see later) or run independently
 as a single commands.
@@ -17,9 +17,9 @@ as a single commands.
 Task 1 - Execute f5-newman-build-3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-operation``
-#. On BIGIP-A examine the pool ``module_3_pool``, you should see 2 active (Green) pool members:
+#. On BIGIP-A, examine the pool ``module_3_pool``, you should see 2 active (Green) pool members:
 
    |image95|
 
@@ -125,7 +125,7 @@ Task 1 - Execute f5-newman-build-3
 Task 2 - Execute f5-newman-build-4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-operation``
 #. On BIG-IP A examine the pool ``module_3_pool``, you should show only 1 Active and Green:
 
@@ -225,7 +225,7 @@ Task 2 - Execute f5-newman-build-4
 
    .. NOTE:: Notice the 200 OK responses, as it completed successfully
 
-#. On BIG-IP A examine Pool ``module_3_pool``:
+#. On BIG-IP A examine Pool ``module_3_pool`` all Nodes should be back to the beginning state:
 
    |image95|
 

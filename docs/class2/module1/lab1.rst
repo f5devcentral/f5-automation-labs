@@ -18,22 +18,24 @@ Community Edition on your system.
 Task 1 – Install Docker CE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+..Note:: User Credentials to Docker Server: User ``root`` and Password ``default``
+
 Please follow the instructions at https://docs.docker.com/engine/installation/
 to install Docker CE.
 
-Once you have completely installed and successfully run the ``hello-world``
+Once you have completely installed, and successfully run the ``hello-world``
 test you can continue to the next lab.
 
 To test your setup with the ``hello-world`` container, you just need to run the
 following command
 
-``docker run hello-world``
+``docker run --rm hello-world``
 
 Example output:
 
 .. code::
 
-   $ sudo docker run --rm hello-world
+   $ docker run --rm hello-world
    Unable to find image 'hello-world:latest' locally
    latest: Pulling from library/hello-world
    78445dd45222: Pull complete
@@ -51,9 +53,6 @@ Example output:
     4. The Docker daemon streamed that output to the Docker client, which sent it
        to your terminal.
 
-   To try something more ambitious, you can run an Ubuntu container with:
-    $ docker run -it ubuntu bash
-
    Share images, automate workflows, and more with a free Docker ID:
     https://cloud.docker.com/
 
@@ -64,9 +63,9 @@ Example output:
 .. NOTE:: The ``--rm`` option will delete the container as soon as it stops
    running.
 
-   If you see this message: *Cannot connect to the Docker daemon. Is the docker
-   daemon running on this host?* , it is likely that you don't have enough
-   privileges with your user, try to use sudo when executing docker commands.
+   If you see this message: **Cannot connect to the Docker daemon. Is the docker
+   daemon running on this host?**, it is likely that you don't have enough
+   privileges with your user, try to use **sudo** when executing docker commands.
 
    If you want to remove the hello-world container, you can run the command
    ``sudo docker rmi hello-world``

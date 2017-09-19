@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section style="text-align: left;" data-transition="convex" data-background="images/image1.png">
+					<h2>Intro to F5 Automation</h2><br>
+					Chris Adrian & Jon Calalang<br>
+					Cloud/DevOps Engineers<br>
+					Fork me @chrisadrian001 or @jmcalalang
+				</section>
+				<section style="text-align: left;" data-transition="convex", data-background="#000000">
+				 <h2> Agenda </h2><br>
+				 <li>Automation and Orchestration Concepts</li><br>
+				 <li>Imperative Automation via the BIG-IP REST API</li>
+				 <li>Lab Module 1</li><br>
+				 <li>Declarative Automation via iWorkflow</li>
+				 <li>Lab Module 2</li>
+				</section>
+				<section data-transition="convex" data-background="#000000">
+					<section data-background="images/image2.png">
+					 <h2>Automation and Orchestration Concepts</h2>
+					</section>
+					<section data-background="#000000">
+					 <h2>Orchestration enables an effective <font color="red">DevOps</font> culture</h2>
+					</section>
+					<section data-transition="slide-in fade-out" data-background="#000000">
+					 <h2>Building the Appropriate Abstraction</h2>
+					 <img class="plain" src="images/image4.png">
+				 </section>
+					 <section data-transition="fade-in slide-out" data-background="#000000">
+						<h2>Building the Appropriate Abstraction</h2>
+						<img class="plain" src="images/image5.png">
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>Source of Truth(iness)</h2>
+						<small>
+							<li>Source of Truth is defined as a system or object that contains the authoritative representation of a service.</li>
+							<li>Changes for a service should propagate (push) from the source of truth to sub-ordinate systems.</li>
+							<li>Out-of-band changes must be handled very carefully (or be totally avoided).</li>
+							<li>To address real-world challenges I prefer to call this ‘Source-of-Truthiness’:</li>
+							<li>In an automation tool chain it’s possible to create layers of ‘truth’ as long sub-ordinate systems ‘filter’ the service definition upstream.</li>
+							<li>What the northbound system doesn’t know won’t hurt it.</li>
+							<li>Changes should NEVER have to flow from sub-ordinate devices upstream.</li>
+							<li>iApp strict updates are an example of strict Source-of-Truth enforcement.</li>
+							<li>iWorkflow service catalog is an example of a Source-of-Truthiness.</li>
+						</small>
+					</section>
+				</section>
+				<section data-transition="convex" data-background="#000000">
+					<section data-background="images/image2.png">
+					 <h2>BIG-IP REST API</h2>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>Introduction to REST</h2>
+						<li>Based on HTTP and JSON</li>
+						<li>Uses HTTP verbs (GET, POST, PUT, PATCH, etc.)</li>
+						<li>Data is sent using the Javascript Object Notation format</li>
+						<small>
+							<li>{<br>
+								“attribute1”:”value1”,<br>
+  							“attribute2”:[“array”,”of”,”values”],<br>
+  							“attribute3”: [ { “nested1”:”value1”, “nested2”:”value2” }, {“nested3”:”value3”} ]<br>
+								}</li>
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>REST APIs and HTTP Verbs</h2>
+						<small>
+							<li>The following table summarizes the interpretation of HTTP methods for REST APIs.</li>
+							<li>HTTP methods (verbs) are used to create, read, update, and delete (CRUD) resources.</li>
+							<li>APIs must use HTTP verbs in a manner described in the table below.</li>
+							<li>APIs may implement a subset as required.</li>
+							<img class="plain" src="images/image6.png">
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>Response Codes</h2>
+						<small>
+							<li>APIs must make use of HTTP response codes where appropriate.</li>
+							<li>The following table describes the required success response codes.</li>
+							<img class="plain" src="images/image7.png">
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>REST API Organization</h2>
+						<img class="plain" src="images/image8.png">
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Anatomy of a REST URI</h2>
+						<img class="plain" src="images/image9.png">
+						<small>
+							NOTE: Resource names map ‘~’ to ‘/’ (e.g. ~Common~mypool is really /Common/mypool)
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>How the REST API is Implemented on TMOS</h2>
+						<img class="plain" src="images/image10.png">
+						<small>
+							<li>REST API attributes are derived from TMSH schema. (Odata Standard)</li>
+							<li>Generally, if the attribute/option is available in TMSH it’s available in REST</li>
+							<li>You can ‘follow’ the API by mapping to tmsh commands in most cases.</li>
+							<li>list ltm pool pool1 members {10.1.20.1:80}</li>
+							<li>GET: https://10.1.1.245/mgmt/tm/ltm/pool/pool1/members/~Common~10.1.20.1:80</li>
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>REST Query Parameters</h2>
+						<small>
+							<li>?$filter='<'partition'>'</li>
+							<li>Allows an OData search string to filter objects</li>
+							<li>?$filter eq MyPartition</li>
+							<br>
+							<li>?$select=attribute1,attribute2</li>
+							<li>Select specific attributes to return in the response</li>
+							<br>
+							<li>?expandSubcollections=true</li>
+							<li>Automatically expand any Sub-Collections in a resource</li>
+							<br>
+							<li>See <font color="red">REST API</font> guide for more (11.6 and 12.X)</li>
+						</small>
+					</section>
+					<section style="text-align: left;" data-background="#000000">
+						<h2>REST Chicken and the Egg</h2>
+						<small>
+							<li>Problem:  I want to create something but can’t figure out how REST wants it represented.</li>
+							<li><font color="red">https://mgt.bigip/mgmt/TOC</font></li>
+							<br>
+							<li>Solution: Create the object via GUI/TMSH and then GET the Resource to see how it’s represented.</li>
+							<li>E.g.: GET  <font color="red">https://mgt.bigip/mgmt/tm/ltm/pool/example</font></li>
+						</small>
+					</section>
+				</section>
+				<section data-transition="convex">
+					<section data-background="images/image2.png">
+						<h2>Imperative/Declarative Automation</h2>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Imperative Model</h2>
+						<small>
+							Imperative – What we’ve done for years (scripting, iRules, etc.) Imperative methodology implies that you define the flow of an operation implicitly. It also implies that domain-specific knowledge is required to interact with the system.
+							<img class="plain" src="images/image11.png">
+							What domain-specific knowledge is required to make this sandwich?
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Declarative Model</h2>
+						<small>
+							Declarative – What we’re evolving to. Declarative methodology implies that you define the desired outcome and depend on underlying mechanisms to deliver that outcome. This methodology tries to reduce or eliminate the need for domain specific knowledge.
+							<img class="plain" src="images/image12.png">
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Declarative Orchestration/DevOps</h2>
+						<img class="plain" src="images/image13.png">
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>RBAC</h2>
+						<small>
+							<li>Imperative Methodology – RBAC is necessary in most environments, however, it should be implemented upstream from BIG-IP (i.e. iWorkflow) and an API aggregator/proxy.</li>
+							<br>
+							<li>Declarative Methodology – RBAC is not necessarily required if a strict service abstraction model is implemented.  The tenant service interface should inherently implement security controls as part of the service definition.</li>
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Multi-Tenancy</h2>
+						<small>
+							<li>BIG-IP is Multi-Tenant inherently.</li>
+							<li>Route-Domains</li>
+							<li>Partitions</li>
+							<li>What about route-domain 0?</li>
+							<br>
+							<li>iWorkflow implements a Provider/Tenant model for multi-tenancy.</li>
+							<br>
+							<li>All automation code should be multi-tenant aware by nature.</li>
+							<li>It’s not that hard… always use a partition for object names.</li>
+							<li>Always use a route domain on all L3 addresses (including 0).</li>
+						</small>
+					</section>
+				</section>
+				<section data-transition="convex">
+					<section data-background="images/image2.png">
+						<h2>Lessons from the road...<h2>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>JSON Formatting</h2>
+						<small>
+							<li>JSON is a strictly defined syntax.  As a result it is very unforgiving of syntactical errors.</li>
+							<li>When defining a JSON object the last element in the object should NOT have a comma:</li>
+							<img class="plain" src="images/image14.png">
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>JSON Formatting – When you get stuck</h2>
+						<small>
+							<li>http//jsonlint.com  -- Verify Syntax, Pretty Print Ugly JSON Responses</li>
+							<li>Atom.io -	jsonlint & Prettify</li>
+							<img class="plain" src="images/image15.png" width="40%">
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>Useful Logs</h2>
+						<small>
+							<li>tail –f /var/log/restjavad.0.log | python –m json.tool  (BIG-IP & iWorkflow)</li>
+							<li>/var/log/ltm</li>
+							<li><font color="red">/var/log/audit</font></li>
+						</small>
+					</section>
+					<section style="text-align: left;"  data-background="#000000">
+						<h2>The Sledge Hammer Approach</h2>
+						<small>
+							<li>The REST API is not complete (not all modules implement REST API endpoints)
+								TMSH is not complete (<font color="red">ZebOS</font>, loading APM policy from CLI, etc.)
+								When all else fails, BASH it:
+								POST to /mgmt/tm/util/bash</li>
+							<li>JSON:</li>
+								{<br>
+								"command":"run”,<br>
+								"utilCmdArgs":"-c ‘rm –Rf /’”<br>
+								}<br>
+								<br>
+							<li>Ex: "utilCmdArgs": "-c ’mkdir -r /var/config/rest/downloads/mydir'"</li>
+								<br>
+							<li>This is a ABSOLUTE last resort, but useful nonetheless</li>
+						</small>
+					</section>
+				</section>
+				<section data-background="images/image3.png">
+				</sectoin>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
