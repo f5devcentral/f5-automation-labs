@@ -104,7 +104,7 @@ components:
       - - **Management:** 10.1.1.250
         - **Internal:** 10.1.10.250
         - **External:** 10.1.20.250
-      - Administrator/*available in instance details*
+      	- Credentials user/user
     * - BIG-IP A
       - - **Management:** 10.1.1.4
         - **Internal:** 10.1.10.1

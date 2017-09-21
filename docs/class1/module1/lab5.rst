@@ -9,8 +9,8 @@ Lab |labmodule|\.\ |labnum|\: Build a BIG-IP Cluster
 ----------------------------------------------------
 
 In this lab we will build a active-standby cluster between BIG-IP-A and
-BIG-IP-B. As mentioned previously, to save time, BIG-IP-B already has
-already been licensed and had its device level settings configured. This
+BIG-IP-B. As mentioned previously, to save time, BIG-IP-B is already licensed
+and had its device level settings configured. This
 lab will walk you through creating the cluster step by step. As you will
 see, complex operations such as this start to become less effective using
 the **Imperative** model of automation. Clustering is one of the

@@ -22,6 +22,12 @@ All the commands issued are queued one after the other in the transaction.
 We will also review how to change the order of a queued command or remove
 a single command from the queued list before commiting.
 
+.. NOTE::
+    Transactions have a timeout, by default this is 120 Seconds,
+    if you take longer then the timeout to execute the transaction it will
+    expire and you will need another.
+
+
 Perform the following steps to complete this task:
 
 #. Expand the ‘Lab 1.7 – Rest API Transactions’ folder in the Postman
@@ -36,7 +42,7 @@ Perform the following steps to complete this task:
    |image36|
 
 #. Click the ‘Send’ button to send the request. Examine the response
-   and find the ‘transId’ attribute. 
+   and find the ‘transId’ attribute.
 
    |image37|
 
