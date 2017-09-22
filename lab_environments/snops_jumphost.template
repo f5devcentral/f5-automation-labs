@@ -184,7 +184,7 @@
               "f_setup_ubuntu_password": { "command": "sudo sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
               "g_retrieve_setup_script": {"command": "sudo wget -O /home/ubuntu https://raw.githubusercontent.com/nmenant/f5-automation-labs/v3.0/lab_environments/snops_jumphost_setup.sh"},
               "h_execute_script": {"command": "sudo sh snops_jumphost_setup.sh"}
-              "h_force_restart": { "command": "sudo reboot" }
+              "i_force_restart": { "command": "sudo reboot" }
             }
           }
         }
