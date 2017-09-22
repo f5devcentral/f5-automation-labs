@@ -1,0 +1,301 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+
+  "Description": "This will deploy the Ubuntu instance to access and use the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
+
+  "Parameters": {
+    "VPC" : {
+      "Description" : "Existing VPC to use",
+      "Type" : "AWS::EC2::VPC::Id",
+      "ConstraintDescription": "must be the name of an existing VPC."
+    },
+
+    "InstanceType": {
+      "Description": "Ubuntu instance type",
+      "Type": "String",
+      "Default": "t2.medium",
+      "AllowedValues": [
+        "t2.medium",
+        "m3.medium",
+        "m3.large"
+      ],
+      "ConstraintDescription": "must be a valid EC2 instance type."
+    },
+
+    "EBSVolumeSize": {
+        "Description": "The size of the EBS volume for the instance",
+        "Type": "String",
+        "Default": "40"
+    },
+
+    "KeyName": {
+      "Description": "Name of an existing EC2 KeyPair to enable SSH to the instance",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+    },
+
+    "ManagementSubnet" : {
+      "Description" : "Existing Mgmt subnet in the VPC",
+      "Type" : "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "must be the name of an existing subnet."
+    },
+
+    "ExternalSubnet" : {
+      "Description" : "Existing External subnet in the VPC",
+      "Type" : "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "must be the name of an existing subnet."
+    },
+
+    "InternalSubnet" : {
+      "Description" : "Existing Internal subnet in the VPC",
+      "Type" : "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "must be the name of an existing subnet."
+    },
+
+    "AdminLocation": {
+      "Description": "The IPv4 address range that will be granted remote access (SSH and RDP) to the Ubuntu instance",
+      "Type": "String",
+      "MinLength": "9",
+      "MaxLength": "18",
+      "Default": "109.7.65.99/32",
+      "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+      "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+    }
+  },
+
+  "Mappings": {
+    "AWSInstanceType2Arch": {
+      "t2.medium"   : { "Arch" : "HVM64"  },
+      "m3.medium"   : { "Arch" : "HVM64"  },
+      "m3.large"    : { "Arch" : "HVM64"  }
+    },
+    "AWSRegionArch2AMI": {
+      "us-east-1"        : {"HVM64" : "ami-b391b9c8", "Note": "(N. Virginia)   Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-west-2"        : {"HVM64" : "ami-9d04e4e5", "Note": "(Oregon)        Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-west-1"        : {"HVM64" : "ami-8edbf0ee", "Note": "(N. California) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-east-2"        : {"HVM64" : "ami-a7aa8ac2", "Note": "(Ohio) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ca-central-1"     : {"HVM64" : "ami-b3cf71d7", "Note": "(Canada - Central) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-west-1"        : {"HVM64" : "ami-016f9e78", "Note": "(Ireland)       Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-west-2"        : {"HVM64" : "ami-fde6f799", "Note": "(London)       Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-central-1"     : {"HVM64" : "ami-9c1db3f3", "Note": "(Frankfurt)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-southeast-1"   : {"HVM64" : "ami-e8da418b", "Note": "(Singapore)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-northeast-1"   : {"HVM64" : "ami-aae114cc", "Note": "(Tokyo)         Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-southeast-2"   : {"HVM64" : "ami-49b3aa2a", "Note": "(Sydney)        Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "sa-east-1"        : {"HVM64" : "ami-7ad8ae16", "Note": "(Sao Paulo)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-northeast-2"   : {"HVM64" : "ami-d24e97bc", "Note": "(Seoul)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "cn-northwest-1"   : {"HVM64" : "NOT_SUPPORTED"}
+    }
+  },
+
+  "Resources": {
+    "InstanceSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "GroupDescription": "Enable remote access via port SSH (22) and RDP (3389)",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": {
+              "Ref": "AdminLocation"
+            }
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": {
+              "Ref": "AdminLocation"
+            }
+          }
+        ]
+      }
+    },
+    "eni3d14c811": {
+      "Type": "AWS::EC2::NetworkInterface",
+      "Properties": {
+        "Description": "RDP:External",
+        "SourceDestCheck": "true",
+        "SubnetId": {
+          "Ref": "ExternalSubnet"
+        },
+        "PrivateIpAddresses": [
+          {
+            "PrivateIpAddress": "10.1.20.20",
+            "Primary": "true"
+          }
+        ],
+        "GroupSet": [
+          {
+            "Ref": "InstanceSecurityGroup"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RDP:External"
+          }
+        ]
+      }
+    },
+    "eni3d14c812": {
+      "Type": "AWS::EC2::NetworkInterface",
+      "Properties": {
+        "Description": "RDP:Internal",
+        "SourceDestCheck": "true",
+        "SubnetId": {
+          "Ref": "InternalSubnet"
+        },
+        "PrivateIpAddresses": [
+          {
+            "PrivateIpAddress": "10.1.10.20",
+            "Primary": "true"
+          }
+        ],
+        "GroupSet": [
+          {
+            "Ref": "InstanceSecurityGroup"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "RDP:Internal"
+          }
+        ]
+      }
+    },
+    "F5SNOpsRDP": {
+      "Type": "AWS::EC2::Instance",
+      "Metadata": {
+        "AWS::CloudFormation::Init" : {
+          "config": {
+            "commands" : {
+              "update_etc_hosts": { "command": "sudo sh -c 'sudo echo \"10.1.1.20 ip-10-1-1-20\" >> /etc/hosts'"},
+              "a_update_apt": { "command": "sudo apt-get -y update" },
+              "b_install_ubuntu_desktop": { "command": "sudo apt-get -y install ubuntu-desktop" },
+              "c_install_xrdp": { "command": "sudo apt-get -y install xrdp" },
+              "d_install_mate_desktop": { "command": "sudo apt-get -y install mate-core mate-desktop-environment mate-notification-daemon" },
+              "e_update_xrdp_setup": { "command": "sudo sed -i.bak \"/fi/a mate-session \" /etc/xrdp/startwm.sh" },
+              "f_setup_ubuntu_password": { "command": "sudo sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
+              "i_force_restart": { "command": "sudo reboot"}
+            }
+          }
+        }
+      },
+      "Properties": {
+        "ImageId": {
+         "Fn::FindInMap": [
+           "AWSRegionArch2AMI",
+           {
+             "Ref": "AWS::Region"
+           },
+           {
+             "Fn::FindInMap": [
+               "AWSInstanceType2Arch",
+               {
+                 "Ref": "InstanceType"
+               },
+               "Arch"
+              ]
+           }
+          ]
+        },
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "BlockDeviceMappings" : [{
+                "DeviceName" : "/dev/sda1",
+                "Ebs" : {"VolumeSize" : {"Ref" : "EBSVolumeSize"}}
+        }],
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "Tags": [
+          {
+            "Key": "RDP Instance",
+            "Value": {
+              "Ref": "AWS::StackId"
+            }
+          }
+        ],
+
+        "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
+            "#!/bin/bash -xe\n",
+
+            "# Install the files and packages from the metadata\n",
+            "sudo apt-get -y update\n",
+            "sudo apt-get -y install python-setuptools\n",
+            "sudo easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
+            "sudo cfn-init -v ",
+            "         --stack ", { "Ref" : "AWS::StackName" },
+            "         --resource F5SNOpsRDP ",
+            "         --region ", { "Ref" : "AWS::Region" }, "\n"
+        ]]}},
+        "NetworkInterfaces": [
+          {
+            "GroupSet": [
+              {
+                "Ref": "InstanceSecurityGroup"
+              }
+            ],
+            "Description": "RDP:Management",
+            "AssociatePublicIpAddress": "true",
+            "DeviceIndex": "0",
+            "DeleteOnTermination": "true",
+            "SubnetId": {
+              "Ref": "ManagementSubnet"
+            },
+            "PrivateIpAddresses": [
+              {
+                "PrivateIpAddress": "10.1.1.20",
+                "Primary": "true"
+              }
+            ],
+          }
+        ]
+      }
+    },
+    "eniattach5": {
+      "Type": "AWS::EC2::NetworkInterfaceAttachment",
+      "Properties": {
+        "DeleteOnTermination": "true",
+        "DeviceIndex": "2",
+        "NetworkInterfaceId": {
+          "Ref": "eni3d14c812"
+          },
+          "InstanceId": {
+            "Ref": "F5SNOpsRDP"
+          }
+      }
+    },
+    "eniattach6": {
+      "Type": "AWS::EC2::NetworkInterfaceAttachment",
+      "Properties": {
+        "DeleteOnTermination": "true",
+        "DeviceIndex": "1",
+        "NetworkInterfaceId": {
+          "Ref": "eni3d14c811"
+        },
+        "InstanceId": {
+          "Ref": "F5SNOpsRDP"
+        }
+      }
+    }
+  },
+
+  "Outputs": {
+    "F5SNOpsRDPPublicIP" : {
+      "Description" : "RDP Ubuntu Server IP",
+      "Value" : {"Fn::GetAtt" : ["F5SNOpsRDP","PublicIp"]}
+    },
+    "region" : {
+      "Description" : "AWS Region",
+      "Value" : { "Ref" : "AWS::Region" }
+    }
+  }
+}
