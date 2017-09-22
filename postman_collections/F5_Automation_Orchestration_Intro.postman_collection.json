@@ -32,7 +32,7 @@
 					"response": []
 				},
 				{
-					"name": "Step 2: Get Authentication Token",
+					"name": "Step 2: Retrieve Authentication Token",
 					"request": {
 						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authn/login",
 						"method": "POST",
