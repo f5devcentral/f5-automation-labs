@@ -1,6 +1,9 @@
 #!/bin/bash
 
 #The purpose of this script is to setup the required components for the F5 automation lab
+#This script is processed by cfn-init and will be run as root.
+#You can monitor the progress of the packages install through /var/log/cfn-init-cmd.log. Here you will see all the different commands run from the Cloud Formation Template and through this script
+#It takes approx. 10 min to have the RDP instance fully setup
 
 #Retrieve the github repo https://github.com/f5devcentral/f5-automation-labs
 apt-get -y install git
@@ -23,6 +26,10 @@ rm postman.tar.gz
 ln -s /opt/Postman/Postman /usr/bin/postman
 sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Postman\nComment=Open Postman\nExec=/opt/Postman/Postman\nIcon=/opt/Postman/resources/app/assets/icon.png\nTerminal=false\nType=Application\nCategories=Utility;Application;\n" > /home/ubuntu/Desktop/Postman.desktop'
 chmod +x /home/ubuntu/Desktop/Postman.desktop
+
+#Things are created as root, need to transfer ownership
+chown -R ubuntu:ubuntu /home/ubuntu/Desktop
+chown -R ubuntu:ubuntu /home/ubuntu/f5-automation-labs
 
 #Install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
