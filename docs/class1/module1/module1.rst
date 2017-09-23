@@ -17,10 +17,13 @@ focus on showing an **Imperative** approach to automation.
     this lab so we are able to cover all topics in the time allotted.
 
 .. NOTE::
-    It’s beneficial to have GUI/SSH sessions open to BIG-IP and
-    iWorkflow devices while going through this lab. Feel free to verify the
-    actions taken in the lab against the GUI or SSH. You can also watch the
-    following logs:
+    In order to confirm the results of REST API calls made in this lab, it's 
+    beneficial to have GUI/SSH sessions open to BIG-IP and iWorkflow devices. 
+    By default, BIG-IP and iWorkflow will log all REST API related events locally 
+    to **restjavad.0.log** and also can be configured to log to a remote syslog server 
+    (see https://support.f5.com/csp/article/K13080). Additionally, the **ltm** 
+    log file on BIG-IP will contain log messages that pertain specifically to 
+    BIG-IP local traffic management events. These log file locations are below:
 
     - BIG-IP:
 
