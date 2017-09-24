@@ -11,6 +11,11 @@
 #
 # It takes approx. 5 min to have the instance fully setup
 
+
+echo "Match address 10.1.1.0/24" >> /etc/ssh/sshd_config
+echo "    PasswordAuthentication yes" >> /etc/ssh/sshd_config
+service ssh restart
+
 # Install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
