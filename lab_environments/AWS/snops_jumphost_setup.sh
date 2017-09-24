@@ -1,13 +1,20 @@
 #!/bin/bash
 
-#The purpose of this script is to setup the required components for the F5 automation lab
-#This script is processed by cfn-init and will be run as root.
-#You can monitor the progress of the packages install through /var/log/cfn-init-cmd.log. Here you will see all the different commands run from the Cloud Formation Template and through this script
-#It takes approx. 10-15 min to have the RDP instance fully setup
+# The purpose of this script is to setup the required components for the F5
+# automation lab Linux jumphost
+#
+# This script is processed by cfn-init and will be run as root.
+#
+# You can monitor the progress of the packages install through
+# /var/log/cfn-init-cmd.log. Here you will see all the different commands run
+# from the Cloud Formation Template and through this script
+#
+# It takes approx. 10-15 min to have the RDP instance fully setup
 
-#Retrieve the github repo https://github.com/f5devcentral/f5-automation-labs
-apt-get -y install git
-git clone https://github.com/f5devcentral/f5-automation-labs /home/ubuntu/f5-automation-labs
+apt-get -y install ubuntu-desktop
+apt-get -y install xrdp
+apt-get -y install mate-core mate-desktop-environment mate-notification-daemon
+sed -i.bak "/fi/a mate-session " /etc/xrdp/startwm.sh
 
 #Install Chrome setup and add the desktop icon
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
