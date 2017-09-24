@@ -11,6 +11,8 @@
 #
 # It takes approx. 10-15 min to have the RDP instance fully setup
 
+set -x
+
 apt-get -y install ubuntu-desktop
 apt-get -y install xrdp
 apt-get -y install mate-core mate-desktop-environment mate-notification-daemon
