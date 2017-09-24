@@ -177,15 +177,11 @@
             "commands" : {
               "update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.20 ip-10-1-1-20\" >> /etc/hosts'"},
               "a_update_apt": { "command": "apt-get -y update" },
-              "b_install_ubuntu_desktop": { "command": "apt-get -y install ubuntu-desktop" },
-              "c_install_xrdp": { "command": "apt-get -y install xrdp" },
-              "d_install_mate_desktop": { "command": "apt-get -y install mate-core mate-desktop-environment mate-notification-daemon" },
-              "e_update_xrdp_setup": { "command": "sed -i.bak \"/fi/a mate-session \" /etc/xrdp/startwm.sh" },
-              "f_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
-              "g_retrieve_setup_script": {"command": "wget -O /home/ubuntu/snops_jumphost_setup.sh https://raw.githubusercontent.com/nmenant/f5-automation-labs/v3.0/lab_environments/AWS/snops_jumphost_setup.sh"},
-              "h_execute_script": {"command": "sh /home/ubuntu/snops_jumphost_setup.sh"},
-              "i_execute_script": {"command": "rm /home/ubuntu/snops_jumphost_setup.sh"},
-              "j_force_restart": { "command": "reboot" }
+              "b_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
+              "c_retrieve_setup_script": {"command": "wget -O /home/ubuntu/snops_jumphost_setup.sh https://raw.githubusercontent.com/nmenant/f5-automation-labs/v3.0/lab_environments/AWS/snops_jumphost_setup.sh"},
+              "d_execute_script": {"command": "sh /home/ubuntu/snops_jumphost_setup.sh"},
+              "e_execute_script": {"command": "rm /home/ubuntu/snops_jumphost_setup.sh"},
+              "f_force_restart": { "command": "reboot" }
             }
           }
         }
