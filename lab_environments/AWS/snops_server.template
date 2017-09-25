@@ -1,7 +1,7 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
 
-  "Description": "This will deploy the Ubuntu instance to access and use the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
+  "Description": "This will deploy the Ubuntu HTTP server instance to use in the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
 
   "Parameters": {
     "VPC" : {
@@ -12,8 +12,9 @@
     "InstanceType": {
       "Description": "Ubuntu instance type",
       "Type": "String",
-      "Default": "t2.medium",
+      "Default": "t2.small",
       "AllowedValues": [
+        "t2.small",
         "t2.medium",
         "m3.medium",
         "m3.large"
@@ -40,37 +41,19 @@
       "Type" : "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "must be the name of an existing subnet."
     },
-    "ExternalSubnet" : {
-      "Description" : "Existing External subnet in the VPC",
+    "InternalSubnet" : {
+      "Description" : "Existing Internal subnet in the VPC",
       "Type" : "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "must be the name of an existing subnet."
-    },
-    "AccessSubnet" : {
-      "Description" : "Existing Access subnet in the VPC",
-      "Type" : "AWS::EC2::Subnet::Id",
-      "ConstraintDescription": "must be the name of an existing subnet."
-    },
-    "IngressSG" : {
-      "Description" : "Existing Ingress Security Group for the VPC",
-      "Type" : "AWS::EC2::SecurityGroup::Id",
-      "ConstraintDescription": "must be the name of an existing security group."
-    },
-    "UserIP": {
-      "Description": "The IPv4 address range that will be granted remote access (SSH and RDP) to the Ubuntu instance",
-      "Type": "String",
-      "MinLength": "9",
-      "MaxLength": "18",
-      "Default": "90.90.149.153/32",
-      "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
-      "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
     }
   },
 
   "Mappings": {
     "AWSInstanceType2Arch": {
-      "t2.medium"   : { "Arch" : "HVM64"  },
-      "m3.medium"   : { "Arch" : "HVM64"  },
-      "m3.large"    : { "Arch" : "HVM64"  },
+      "t2.small"    : { "Arch" : "HVM64" },
+      "t2.medium"   : { "Arch" : "HVM64" },
+      "m3.medium"   : { "Arch" : "HVM64" },
+      "m3.large"    : { "Arch" : "HVM64" }
     },
     "AWSRegionArch2AMI": {
       "us-east-1"        : {"HVM64" : "ami-b391b9c8", "Note": "(N. Virginia)   Ubuntu 16.04 LTS - Xenial (HVM)"},
@@ -97,96 +80,63 @@
         "VpcId": {
           "Ref": "VPC"
         },
-        "GroupDescription": "Enable remote access via port SSH (22) and RDP (3389)",
+        "GroupDescription": "Enable remote access via port SSH (22) and HTTP (80)",
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
             "FromPort": "22",
             "ToPort": "22",
-            "CidrIp": {
-              "Ref": "UserIP"
-            }
+            "CidrIp": "0.0.0.0/0"
           },
           {
             "IpProtocol": "tcp",
             "FromPort": "80",
             "ToPort": "80",
-            "CidrIp": {
-              "Ref": "UserIP"
-            }
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "eni3d14c812": {
+      "Type": "AWS::EC2::NetworkInterface",
+      "Properties": {
+        "Description": "Server:Internal",
+        "SourceDestCheck": "true",
+        "SubnetId": {
+          "Ref": "InternalSubnet"
+        },
+        "PrivateIpAddresses": [
+          {
+            "PrivateIpAddress": "10.1.10.100",
+            "Primary": "true"
           },
           {
-            "IpProtocol": "tcp",
-            "FromPort": "3389",
-            "ToPort": "3389",
-            "CidrIp": {
-              "Ref": "UserIP"
-            }
-          }
-        ]
-      }
-    },
-    "ENIExternal": {
-      "Type": "AWS::EC2::NetworkInterface",
-      "Properties": {
-        "Description": "RDP:External",
-        "SourceDestCheck": "true",
-        "SubnetId": {
-          "Ref": "ExternalSubnet"
-        },
-        "PrivateIpAddresses": [
+            "PrivateIpAddress": "10.1.10.101",
+            "Primary": "false"
+          },
           {
-            "PrivateIpAddress": "10.1.20.20",
-            "Primary": "true"
+            "PrivateIpAddress": "10.1.10.102",
+            "Primary": "false"
+          },
+          {
+            "PrivateIpAddress": "10.1.10.103",
+            "Primary": "false"
           }
         ],
         "GroupSet": [
           {
             "Ref": "InstanceSecurityGroup"
           }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "RDP:External"
-          }
         ]
       }
     },
-    "ENIManagement": {
-      "Type": "AWS::EC2::NetworkInterface",
-      "Properties": {
-        "Description": "RDP:Management",
-        "SourceDestCheck": "true",
-        "SubnetId": {
-          "Ref": "ManagementSubnet"
-        },
-        "PrivateIpAddresses": [
-          {
-            "PrivateIpAddress": "10.1.1.20",
-            "Primary": "true"
-          }
-        ],
-        "GroupSet": [
-          {
-            "Ref": "InstanceSecurityGroup"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "RDP:Management"
-          }
-        ]
-      }
-    },
-    "F5SNOpsRDP": {
+    "F5SNOpsServer": {
       "Type": "AWS::EC2::Instance",
       "Metadata": {
         "AWS::CloudFormation::Init" : {
           "config": {
             "commands" : {
-              "update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.20 ip-10-1-1-20\" >> /etc/hosts'"},
+              "update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.15 ip-10-1-1-15\" >> /etc/hosts'"},
               "a_update_apt": { "command": "apt-get -y update" },
               "b_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
               "c_install_git": { "command": "apt-get -y install git" },
@@ -205,12 +155,11 @@
                     "wget -O /home/ubuntu/snops_instance_setup.sh ",
                     "https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/",
                     { "Ref": "RepoBranch" },
-                    "/lab_environments/AWS/snops_jumphost_setup.sh" ] ]
+                    "/lab_environments/AWS/snops_server_setup.sh" ] ]
                 }
               },
               "f_execute_script": {"command": "sh /home/ubuntu/snops_instance_setup.sh"},
               "g_execute_script": {"command": "rm /home/ubuntu/snops_instance_setup.sh"},
-              "h_force_restart": { "command": "reboot" }
             }
           }
         }
@@ -245,14 +194,10 @@
         },
         "Tags": [
           {
-            "Key": "RDP Instance",
+            "Key": "Server Instance",
             "Value": {
               "Ref": "AWS::StackId"
             }
-          },
-          {
-            "Key": "Name",
-            "Value":"SNOPSJumphostå"
           }
         ],
 
@@ -265,7 +210,7 @@
             "easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
             "cfn-init -v ",
             "         --stack ", { "Ref" : "AWS::StackName" },
-            "         --resource F5SNOpsRDP ",
+            "         --resource F5SNOpsServer ",
             "         --region ", { "Ref" : "AWS::Region" }, "\n"
         ]]}},
         "NetworkInterfaces": [
@@ -275,16 +220,16 @@
                 "Ref": "InstanceSecurityGroup"
               }
             ],
-            "Description": "RDP:Management",
-            "AssociatePublicIpAddress": "true",
+            "Description": "Server:Management",
+            "AssociatePublicIpAddress": "false",
             "DeviceIndex": "0",
             "DeleteOnTermination": "true",
             "SubnetId": {
-              "Ref": "AccessSubnet"
+              "Ref": "ManagementSubnet"
             },
             "PrivateIpAddresses": [
               {
-                "PrivateIpAddress": "10.1.2.20",
+                "PrivateIpAddress": "10.1.1.15",
                 "Primary": "true"
               }
             ]
@@ -292,81 +237,22 @@
         ]
       }
     },
-    "eniattach1": {
+    "eniattach5": {
       "Type": "AWS::EC2::NetworkInterfaceAttachment",
       "Properties": {
         "DeleteOnTermination": "true",
         "DeviceIndex": "1",
         "NetworkInterfaceId": {
-          "Ref": "ENIManagement"
-        },
-        "InstanceId": {
-          "Ref": "F5SNOpsRDP"
-        }
-      }
-    },
-    "eniattach2": {
-      "Type": "AWS::EC2::NetworkInterfaceAttachment",
-      "Properties": {
-        "DeleteOnTermination": "true",
-        "DeviceIndex": "2",
-        "NetworkInterfaceId": {
-          "Ref": "ENIExternal"
+          "Ref": "eni3d14c812"
           },
           "InstanceId": {
-            "Ref": "F5SNOpsRDP"
+            "Ref": "F5SNOpsServer"
           }
       }
-    },
-    "IngressSGHttp": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "80",
-            "ToPort": "80",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
-        }
-    },
-    "IngressSGRdp": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "3389",
-            "ToPort": "3389",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
-        }
-    },
-    "IngressSGSSH": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "22",
-            "ToPort": "22",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
-        }
     }
   },
 
   "Outputs": {
-    "JumpHostPublicIP" : {
-      "Description" : "Ubuntu Jump Host Public IP",
-      "Value" : {"Fn::GetAtt" : ["F5SNOpsRDP","PublicIp"]}
-    },
     "Region" : {
       "Description" : "AWS Region",
       "Value" : { "Ref" : "AWS::Region" }
