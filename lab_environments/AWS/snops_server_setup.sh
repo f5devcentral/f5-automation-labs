@@ -11,6 +11,11 @@
 #
 # It takes approx. 5 min to have the instance fully setup
 
+ifconfig eth1 10.1.10.100 netmask 255.255.255.0
+ifconfig eth1:1 10.1.10.101 netmask 255.255.255.0
+ifconfig eth1:2 10.1.10.102 netmask 255.255.255.0
+ifconfig eth1:3 10.1.10.103 netmask 255.255.255.0
+
 
 echo "Match address 10.1.1.0/24" >> /etc/ssh/sshd_config
 echo "    PasswordAuthentication yes" >> /etc/ssh/sshd_config
