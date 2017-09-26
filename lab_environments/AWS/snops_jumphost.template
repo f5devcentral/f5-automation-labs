@@ -4,9 +4,9 @@
   "Description": "This will deploy the Ubuntu instance to access and use the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
 
   "Parameters": {
-    "VPC" : {
-      "Description" : "Existing VPC to use",
-      "Type" : "AWS::EC2::VPC::Id",
+    "VPC": {
+      "Description": "Existing VPC to use",
+      "Type": "AWS::EC2::VPC::Id",
       "ConstraintDescription": "must be the name of an existing VPC."
     },
     "InstanceType": {
@@ -22,37 +22,37 @@
     },
     "RepoBranch": {
       "Description": "The GitHub Repo branch to load setup scripts from",
-      "Type":"String",
-      "Default":"master"
+      "Type": "String",
+      "Default": "master"
     },
     "EBSVolumeSize": {
-        "Description": "The size of the EBS volume for the instance",
-        "Type": "String",
-        "Default": "40"
+      "Description": "The size of the EBS volume for the instance",
+      "Type": "String",
+      "Default": "40"
     },
     "KeyName": {
       "Description": "Name of an existing EC2 KeyPair to enable SSH to the instance",
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
     },
-    "ManagementSubnet" : {
-      "Description" : "Existing Mgmt subnet in the VPC",
-      "Type" : "AWS::EC2::Subnet::Id",
+    "ManagementSubnet": {
+      "Description": "Existing Mgmt subnet in the VPC",
+      "Type": "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "must be the name of an existing subnet."
     },
-    "ExternalSubnet" : {
-      "Description" : "Existing External subnet in the VPC",
-      "Type" : "AWS::EC2::Subnet::Id",
+    "ExternalSubnet": {
+      "Description": "Existing External subnet in the VPC",
+      "Type": "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "must be the name of an existing subnet."
     },
-    "AccessSubnet" : {
-      "Description" : "Existing Access subnet in the VPC",
-      "Type" : "AWS::EC2::Subnet::Id",
+    "AccessSubnet": {
+      "Description": "Existing Access subnet in the VPC",
+      "Type": "AWS::EC2::Subnet::Id",
       "ConstraintDescription": "must be the name of an existing subnet."
     },
-    "IngressSG" : {
-      "Description" : "Existing Ingress Security Group for the VPC",
-      "Type" : "AWS::EC2::SecurityGroup::Id",
+    "IngressSG": {
+      "Description": "Existing Ingress Security Group for the VPC",
+      "Type": "AWS::EC2::SecurityGroup::Id",
       "ConstraintDescription": "must be the name of an existing security group."
     },
     "UserIP": {
@@ -68,25 +68,72 @@
 
   "Mappings": {
     "AWSInstanceType2Arch": {
-      "t2.medium"   : { "Arch" : "HVM64"  },
-      "m3.medium"   : { "Arch" : "HVM64"  },
-      "m3.large"    : { "Arch" : "HVM64"  },
+      "t2.medium": {
+        "Arch": "HVM64"
+      },
+      "m3.medium": {
+        "Arch": "HVM64"
+      },
+      "m3.large": {
+        "Arch": "HVM64"
+      }
     },
     "AWSRegionArch2AMI": {
-      "us-east-1"        : {"HVM64" : "ami-b391b9c8", "Note": "(N. Virginia)   Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "us-west-2"        : {"HVM64" : "ami-9d04e4e5", "Note": "(Oregon)        Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "us-west-1"        : {"HVM64" : "ami-8edbf0ee", "Note": "(N. California) Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "us-east-2"        : {"HVM64" : "ami-a7aa8ac2", "Note": "(Ohio) Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "ca-central-1"     : {"HVM64" : "ami-b3cf71d7", "Note": "(Canada - Central) Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "eu-west-1"        : {"HVM64" : "ami-016f9e78", "Note": "(Ireland)       Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "eu-west-2"        : {"HVM64" : "ami-fde6f799", "Note": "(London)       Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "eu-central-1"     : {"HVM64" : "ami-9c1db3f3", "Note": "(Frankfurt)     Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "ap-southeast-1"   : {"HVM64" : "ami-e8da418b", "Note": "(Singapore)     Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "ap-northeast-1"   : {"HVM64" : "ami-aae114cc", "Note": "(Tokyo)         Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "ap-southeast-2"   : {"HVM64" : "ami-49b3aa2a", "Note": "(Sydney)        Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "sa-east-1"        : {"HVM64" : "ami-7ad8ae16", "Note": "(Sao Paulo)     Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "ap-northeast-2"   : {"HVM64" : "ami-d24e97bc", "Note": "(Seoul)     Ubuntu 16.04 LTS - Xenial (HVM)"},
-      "cn-northwest-1"   : {"HVM64" : "NOT_SUPPORTED"}
+      "us-east-1": {
+        "HVM64": "ami-b391b9c8",
+        "Note": "(N. Virginia)   Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "us-west-2": {
+        "HVM64": "ami-9d04e4e5",
+        "Note": "(Oregon)        Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "us-west-1": {
+        "HVM64": "ami-8edbf0ee",
+        "Note": "(N. California) Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "us-east-2": {
+        "HVM64": "ami-a7aa8ac2",
+        "Note": "(Ohio) Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "ca-central-1": {
+        "HVM64": "ami-b3cf71d7",
+        "Note": "(Canada - Central) Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "eu-west-1": {
+        "HVM64": "ami-016f9e78",
+        "Note": "(Ireland)       Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "eu-west-2": {
+        "HVM64": "ami-fde6f799",
+        "Note": "(London)       Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "eu-central-1": {
+        "HVM64": "ami-9c1db3f3",
+        "Note": "(Frankfurt)     Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "ap-southeast-1": {
+        "HVM64": "ami-e8da418b",
+        "Note": "(Singapore)     Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "ap-northeast-1": {
+        "HVM64": "ami-aae114cc",
+        "Note": "(Tokyo)         Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "ap-southeast-2": {
+        "HVM64": "ami-49b3aa2a",
+        "Note": "(Sydney)        Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "sa-east-1": {
+        "HVM64": "ami-7ad8ae16",
+        "Note": "(Sao Paulo)     Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "ap-northeast-2": {
+        "HVM64": "ami-d24e97bc",
+        "Note": "(Seoul)     Ubuntu 16.04 LTS - Xenial (HVM)"
+      },
+      "cn-northwest-1": {
+        "HVM64": "NOT_SUPPORTED"
+      }
     }
   },
 
@@ -99,6 +146,12 @@
         },
         "GroupDescription": "Enable remote access via port SSH (22) and RDP (3389)",
         "SecurityGroupIngress": [
+          {
+            "IpProtocol": "icmp",
+            "FromPort": "-1",
+            "ToPort": "-1",
+            "CidrIp": "0.0.0.0/0"
+          },
           {
             "IpProtocol": "tcp",
             "FromPort": "22",
@@ -134,23 +187,17 @@
         "SubnetId": {
           "Ref": "ExternalSubnet"
         },
-        "PrivateIpAddresses": [
-          {
-            "PrivateIpAddress": "10.1.20.20",
-            "Primary": "true"
-          }
-        ],
-        "GroupSet": [
-          {
-            "Ref": "InstanceSecurityGroup"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "RDP:External"
-          }
-        ]
+        "PrivateIpAddresses": [{
+          "PrivateIpAddress": "10.1.20.20",
+          "Primary": "true"
+        }],
+        "GroupSet": [{
+          "Ref": "InstanceSecurityGroup"
+        }],
+        "Tags": [{
+          "Key": "Name",
+          "Value": "RDP:External"
+        }]
       }
     },
     "ENIManagement": {
@@ -161,90 +208,86 @@
         "SubnetId": {
           "Ref": "ManagementSubnet"
         },
-        "PrivateIpAddresses": [
-          {
-            "PrivateIpAddress": "10.1.1.20",
-            "Primary": "true"
-          }
-        ],
-        "GroupSet": [
-          {
-            "Ref": "InstanceSecurityGroup"
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "RDP:Management"
-          }
-        ]
+        "PrivateIpAddresses": [{
+          "PrivateIpAddress": "10.1.1.20",
+          "Primary": "true"
+        }],
+        "GroupSet": [{
+          "Ref": "InstanceSecurityGroup"
+        }],
+        "Tags": [{
+          "Key": "Name",
+          "Value": "RDP:Management"
+        }]
       }
     },
     "F5SNOpsRDP": {
       "Type": "AWS::EC2::Instance",
       "Metadata": {
-        "AWS::CloudFormation::Init" : {
+        "AWS::CloudFormation::Init": {
           "config": {
-            "commands" : {
-              "update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.20 ip-10-1-1-20\" >> /etc/hosts'"},
-              "a_update_apt": { "command": "apt-get -y update" },
-              "b_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
-              "c_install_git": { "command": "apt-get -y install git" },
-              "d_clone_repo": { "command": {
-                "Fn::Join": [ " ", [
-                  "git clone -b",
-                  { "Ref": "RepoBranch" },
-                  "https://github.com/f5devcentral/f5-automation-labs",
-                  "/home/ubuntu/f5-automation-labs"
-                ]]
-                },
+            "commands": {
+              "a_update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.20 ip-10-1-1-20\" >> /etc/hosts'" },
+              "b_update_apt": { "command": "apt-get -y update" },
+              "c_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'" },
+              "d_install_git": { "command": "apt-get -y install git" },
+              "e_clone_repo": {
+                "command": { "Fn::Join": [" ", [
+                    "git clone -b",
+                    { "Ref": "RepoBranch" },
+                    "https://github.com/f5devcentral/f5-automation-labs",
+                    "/home/ubuntu/f5-automation-labs"
+                  ]]
+                }
               },
-              "e_retrieve_setup_script": {
-                "command": {
-                  "Fn::Join": ["", [
+              "f_retrieve_setup_script": {
+                "command": { "Fn::Join": ["", [
                     "wget -O /home/ubuntu/snops_instance_setup.sh ",
                     "https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/",
                     { "Ref": "RepoBranch" },
-                    "/lab_environments/AWS/snops_jumphost_setup.sh" ] ]
+                    "/lab_environments/AWS/snops_jumphost_setup.sh"
+                  ]]
                 }
               },
-              "f_execute_script": {"command": "sh /home/ubuntu/snops_instance_setup.sh"},
-              "g_execute_script": {"command": "rm /home/ubuntu/snops_instance_setup.sh"},
-              "h_force_restart": { "command": "reboot" }
+              "g_execute_script": { "command": "sh /home/ubuntu/snops_instance_setup.sh" },
+              "h_remove_script": { "command": "rm /home/ubuntu/snops_instance_setup.sh" }
             }
           }
         }
       },
       "Properties": {
         "ImageId": {
-         "Fn::FindInMap": [
-           "AWSRegionArch2AMI",
-           {
-             "Ref": "AWS::Region"
-           },
-           {
-             "Fn::FindInMap": [
-               "AWSInstanceType2Arch",
-               {
-                 "Ref": "InstanceType"
-               },
-               "Arch"
+          "Fn::FindInMap": [
+            "AWSRegionArch2AMI",
+            {
+              "Ref": "AWS::Region"
+            },
+            {
+              "Fn::FindInMap": [
+                "AWSInstanceType2Arch",
+                {
+                  "Ref": "InstanceType"
+                },
+                "Arch"
               ]
-           }
+            }
           ]
         },
         "InstanceType": {
           "Ref": "InstanceType"
         },
-        "BlockDeviceMappings" : [{
-                "DeviceName" : "/dev/sda1",
-                "Ebs" : {"VolumeSize" : {"Ref" : "EBSVolumeSize"}}
+        "BlockDeviceMappings": [{
+          "DeviceName": "/dev/sda1",
+          "Ebs": {
+            "VolumeSize": {
+              "Ref": "EBSVolumeSize"
+            }
+          }
         }],
         "KeyName": {
           "Ref": "KeyName"
         },
-        "Tags": [
-          {
+        "Tags": [{
             "Key": "RDP Instance",
             "Value": {
               "Ref": "AWS::StackId"
@@ -252,44 +295,69 @@
           },
           {
             "Key": "Name",
-            "Value":"SNOPSJumphostå"
+            "Value": "SNOPSJumphost"
           }
         ],
 
-        "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
-            "#!/bin/bash -xe\n",
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": ["", [
+              "#!/bin/bash -xe\n",
 
-            "# Install the files and packages from the metadata\n",
-            "apt-get -y update\n",
-            "apt-get -y install python-setuptools\n",
-            "easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
-            "cfn-init -v ",
-            "         --stack ", { "Ref" : "AWS::StackName" },
-            "         --resource F5SNOpsRDP ",
-            "         --region ", { "Ref" : "AWS::Region" }, "\n"
-        ]]}},
-        "NetworkInterfaces": [
-          {
-            "GroupSet": [
-              {
-                "Ref": "InstanceSecurityGroup"
-              }
-            ],
-            "Description": "RDP:Management",
-            "AssociatePublicIpAddress": "true",
-            "DeviceIndex": "0",
-            "DeleteOnTermination": "true",
-            "SubnetId": {
-              "Ref": "AccessSubnet"
-            },
-            "PrivateIpAddresses": [
-              {
-                "PrivateIpAddress": "10.1.2.20",
-                "Primary": "true"
-              }
-            ]
+              "# Install the files and packages from the metadata\n",
+              "apt-get -y update\n",
+              "apt-get -y install python-setuptools\n",
+              "easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
+              "cfn-init -v ",
+              "         --stack ", {
+                "Ref": "AWS::StackName"
+              },
+              "         --resource F5SNOpsRDP ",
+              "         --region ", {
+                "Ref": "AWS::Region"
+              },
+              "\n",
+              "# Signal the status from cfn-init\n",
+              "echo \"#!/bin/bash\" > /etc/rc.local",
+              "\n",
+              "echo \"/usr/local/bin/cfn-signal -e $? ",
+              "         --stack ", {
+                "Ref": "AWS::StackName"
+              },
+              "         --resource F5SNOpsRDP ",
+              "         --region ", {
+                "Ref": "AWS::Region"
+              },
+              "\" >> /etc/rc.local",
+              "\n",
+              "echo \"exit 0\" >> /etc/rc.local",
+              "\n",
+              "reboot",
+              "\n"
+            ]]
           }
-        ]
+        },
+        "NetworkInterfaces": [{
+          "GroupSet": [{
+            "Ref": "InstanceSecurityGroup"
+          }],
+          "Description": "RDP:Management",
+          "AssociatePublicIpAddress": "true",
+          "DeviceIndex": "0",
+          "DeleteOnTermination": "true",
+          "SubnetId": {
+            "Ref": "AccessSubnet"
+          },
+          "PrivateIpAddresses": [{
+            "PrivateIpAddress": "10.1.2.20",
+            "Primary": "true"
+          }]
+        }]
+      },
+      "CreationPolicy": {
+        "ResourceSignal": {
+          "Timeout": "PT30M"
+        }
       }
     },
     "eniattach1": {
@@ -312,64 +380,82 @@
         "DeviceIndex": "2",
         "NetworkInterfaceId": {
           "Ref": "ENIExternal"
-          },
-          "InstanceId": {
-            "Ref": "F5SNOpsRDP"
-          }
+        },
+        "InstanceId": {
+          "Ref": "F5SNOpsRDP"
+        }
+      }
+    },
+    "IngressSGIcmp": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "IngressSG"
+        },
+        "IpProtocol": "icmp",
+        "FromPort": "-1",
+        "ToPort": "-1",
+        "CidrIp": {
+          "Ref": "UserIP"
+        }
       }
     },
     "IngressSGHttp": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "80",
-            "ToPort": "80",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "IngressSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "80",
+        "ToPort": "80",
+        "CidrIp": {
+          "Ref": "UserIP"
         }
+      }
     },
     "IngressSGRdp": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "3389",
-            "ToPort": "3389",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "IngressSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "3389",
+        "ToPort": "3389",
+        "CidrIp": {
+          "Ref": "UserIP"
         }
+      }
     },
     "IngressSGSSH": {
-        "Type": "AWS::EC2::SecurityGroupIngress",
-        "Properties": {
-            "GroupId": {
-                "Ref": "IngressSG"
-            },
-            "IpProtocol": "tcp",
-            "FromPort": "22",
-            "ToPort": "22",
-            "CidrIp": {
-                "Ref": "UserIP"
-            }
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "GroupId": {
+          "Ref": "IngressSG"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": "22",
+        "ToPort": "22",
+        "CidrIp": {
+          "Ref": "UserIP"
         }
+      }
     }
   },
 
   "Outputs": {
-    "JumpHostPublicIP" : {
-      "Description" : "Ubuntu Jump Host Public IP",
-      "Value" : {"Fn::GetAtt" : ["F5SNOpsRDP","PublicIp"]}
+    "JumpHostPublicIP": {
+      "Description": "Ubuntu Jump Host Public IP",
+      "Value": {
+        "Fn::GetAtt": ["F5SNOpsRDP", "PublicIp"]
+      }
     },
-    "Region" : {
-      "Description" : "AWS Region",
-      "Value" : { "Ref" : "AWS::Region" }
+    "Region": {
+      "Description": "AWS Region",
+      "Value": {
+        "Ref": "AWS::Region"
+      }
     }
   }
 }

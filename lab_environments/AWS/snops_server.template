@@ -83,6 +83,12 @@
         "GroupDescription": "Enable remote access via port SSH (22) and HTTP (80)",
         "SecurityGroupIngress": [
           {
+            "IpProtocol": "icmp",
+            "FromPort": "-1",
+            "ToPort": "-1",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
             "IpProtocol": "tcp",
             "FromPort": "22",
             "ToPort": "22",
@@ -136,20 +142,20 @@
         "AWS::CloudFormation::Init" : {
           "config": {
             "commands" : {
-              "update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.15 ip-10-1-1-15\" >> /etc/hosts'"},
-              "a_update_apt": { "command": "apt-get -y update" },
-              "b_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
-              "c_install_git": { "command": "apt-get -y install git" },
-              "d_clone_repo": { "command": {
+              "a_update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.15 ip-10-1-1-15\" >> /etc/hosts'"},
+              "b_update_apt": { "command": "apt-get -y update" },
+              "c_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
+              "d_install_git": { "command": "apt-get -y install git" },
+              "e_clone_repo": { "command": {
                 "Fn::Join": [ " ", [
                   "git clone -b",
                   { "Ref": "RepoBranch" },
                   "https://github.com/f5devcentral/f5-automation-labs",
                   "/home/ubuntu/f5-automation-labs"
                 ]]
-                },
+                }
               },
-              "e_retrieve_setup_script": {
+              "f_retrieve_setup_script": {
                 "command": {
                   "Fn::Join": ["", [
                     "wget -O /home/ubuntu/snops_instance_setup.sh ",
@@ -158,8 +164,8 @@
                     "/lab_environments/AWS/snops_server_setup.sh" ] ]
                 }
               },
-              "f_execute_script": {"command": "sh /home/ubuntu/snops_instance_setup.sh"},
-              "g_execute_script": {"command": "rm /home/ubuntu/snops_instance_setup.sh"},
+              "g_execute_script": {"command": "sh /home/ubuntu/snops_instance_setup.sh"},
+              "h_remove_script": {"command": "rm /home/ubuntu/snops_instance_setup.sh"}
             }
           }
         }
@@ -198,9 +204,12 @@
             "Value": {
               "Ref": "AWS::StackId"
             }
+          },
+          {
+            "Key": "Name",
+            "Value":"SNOPSServer"
           }
         ],
-
         "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
             "#!/bin/bash -xe\n",
 
@@ -211,7 +220,14 @@
             "cfn-init -v ",
             "         --stack ", { "Ref" : "AWS::StackName" },
             "         --resource F5SNOpsServer ",
-            "         --region ", { "Ref" : "AWS::Region" }, "\n"
+            "         --region ", { "Ref" : "AWS::Region" },
+            "\n",
+            "# Signal the status from cfn-init\n",
+            "cfn-signal -e $? ",
+            "         --stack ", { "Ref": "AWS::StackName" },
+            "         --resource F5SNOpsServer ",
+            "         --region ", { "Ref": "AWS::Region" },
+            "\n"
         ]]}},
         "NetworkInterfaces": [
           {
@@ -235,6 +251,11 @@
             ]
           }
         ]
+      },
+      "CreationPolicy": {
+          "ResourceSignal": {
+              "Timeout": "PT15M"
+          }
       }
     },
     "eniattach5": {
