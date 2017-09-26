@@ -13,6 +13,9 @@
 
 set -x
 
+ifconfig eth1 10.1.1.20 netmask 255.255.255.0
+ifconfig eth2 10.1.20.20 netmask 255.255.255.0
+
 apt-get -y install ubuntu-desktop
 apt-get -y install xrdp
 apt-get -y install mate-core mate-desktop-environment mate-notification-daemon
