@@ -147,7 +147,7 @@ To update the root account password we will use a POST to a shared REST
 worker at ``/mgmt/shared/authn/root``
 
 To update all other system accounts we will PATCH the
-``/mgmt/auth/user/<username>`` Resource
+``/mgmt/tm/auth/user/<username>`` Resource
 
 Perform the following steps to change the **root** user password:
 
