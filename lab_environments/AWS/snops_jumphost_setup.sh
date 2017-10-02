@@ -21,6 +21,13 @@ apt-get -y install xrdp
 apt-get -y install mate-core mate-desktop-environment mate-notification-daemon
 sed -i.bak "/fi/a mate-session " /etc/xrdp/startwm.sh
 
+# Desktop icons
+sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Terminal\nComment=Open Terminal\nExec=mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/Terminal.desktop'
+chmod +x /home/ubuntu/Desktop/Terminal.desktop
+
+sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Root Terminal\nComment=Open Terminal\nExec=sudo mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/RootTerminal.desktop'
+chmod +x /home/ubuntu/Desktop/RootTerminal.desktop
+
 #Install Chrome setup and add the desktop icon
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
