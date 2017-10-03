@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum|\: REST API Transactions
 ---------------------------------------------------
 
-Task 1 – Create a Transaction
+Task 1 - Create a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this lab we will create a transaction using the REST API.
@@ -30,7 +30,7 @@ a single command from the queued list before commiting.
 
 Perform the following steps to complete this task:
 
-#. Expand the ‘Lab 1.7 – Rest API Transactions’ folder in the Postman
+#. Expand the ‘Lab 1.7 - Rest API Transactions’ folder in the Postman
    collection:
 
    |image35|
@@ -70,7 +70,7 @@ Perform the following steps to complete this task:
    URI and click ‘Send’. This request allows you to see the current
    list of commands (ordered) that are in the transaction.
 
-Task 2 – Modify a Transaction
+Task 2 - Modify a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the ‘Step 8: View queued command 4 from Transaction’ item in the
@@ -89,7 +89,7 @@ Task 2 – Modify a Transaction
    collection. Examine that the transaction number 4 has moved into position 1
    and all other transactions eval order has moved accordingly.
 
-Task 3 – Commit a Transaction
+Task 3 - Commit a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the ‘Step 11: Commit the Transaction’ item in the collection.
@@ -103,23 +103,23 @@ Task 3 – Commit a Transaction
 
 #. Verify the config was created using TMUI or REST requests.
 
-.. |image35| image:: /_static/image035.png
+.. |image35| image:: /_static/class1/image035.png
    :width: 4.09062in
    :height: 2.93314in
-.. |image36| image:: /_static/image036.png
+.. |image36| image:: /_static/class1/image036.png
    :scale: 40%
-.. |image37| image:: /_static/image037.png
+.. |image37| image:: /_static/class1/image037.png
    :width: 5.66944in
    :height: 2.55359in
-.. |image38| image:: /_static/image038.png
+.. |image38| image:: /_static/class1/image038.png
    :scale: 90%
-.. |image39| image:: /_static/image039.png
+.. |image39| image:: /_static/class1/image039.png
    :scale: 100%
-.. |image40| image:: /_static/image040.png
+.. |image40| image:: /_static/class1/image040.png
    :scale: 90%
-.. |image76| image:: /_static/image076.png
+.. |image76| image:: /_static/class1/image076.png
    :scale: 90%
-.. |image77| image:: /_static/image077.png
+.. |image77| image:: /_static/class1/image077.png
    :scale: 90%
 
 .. WARNING:: When sending the Header ``X-F5-REST-Coordination-Id``, the

@@ -17,7 +17,7 @@ Community Edition on your system.
           SSH to the Docker Sercer via Putty to that host a execute
           all ``docker`` commands there.
 
-Task 1 – Install Docker CE
+Task 1 - Install Docker CE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Note:: User Credentials to Docker Server: User ``root`` and Password ``default``

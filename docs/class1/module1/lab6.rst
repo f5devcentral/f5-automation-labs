@@ -38,12 +38,12 @@ As a result of this it’s recommended for customers to use Imperative
 automation only for legacy environments. New environments should shift
 to a Declarative model.
 
-Task 1 – Build a Basic LTM Config
+Task 1 - Build a Basic LTM Config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Expand the “Lab 1.6 – Build a Basic LTM Config” folder in the Postman
+#. Expand the "Lab 1.6 - Build a Basic LTM Config" folder in the Postman
    collection
 
 #. Click each Step in the folder and ‘Send’ the request. Verify each

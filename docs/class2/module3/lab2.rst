@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute f5-newman-wrapper for a **Build** Workflow
+Lab |labmodule|\.\ |labnum| - Execute f5-newman-wrapper for a **Build** Workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Your environment has already been seeded with 5 ``f5-newman-wrapper`` files, these

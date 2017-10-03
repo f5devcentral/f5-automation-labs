@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "F5 Programmability: Class 1",
-		"_postman_id": "8e2a63de-a5d8-c554-e224-3a8cbda6fcb6",
+		"_postman_id": "ba1d8e54-689c-66ee-3e5c-ee4985692efc",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -57,7 +57,7 @@
 					"response": []
 				},
 				{
-					"name": "Setp 3: Verify Authentication Works",
+					"name": "Step 3: Verify Authentication Works",
 					"request": {
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm",
 						"method": "GET",
@@ -366,7 +366,27 @@
 				{
 					"name": " Step 2: Get VLANs",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/vlan/?expandSubcollections=true",
+						"url": {
+							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/vlan/?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{bigip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"vlan",
+								""
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -389,7 +409,7 @@
 					"response": []
 				},
 				{
-					"name": " Step 3: Create a Self IP",
+					"name": "Step 3: Create Internal Self IP",
 					"request": {
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/",
 						"method": "POST",
@@ -407,16 +427,41 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.1/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.10/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/External\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": " Step 4: Get Self IPs",
+					"name": "Step 4: Create External Self IP",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Self-External\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.20.10/24\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/External\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": " Step 5: Get Self-Internal Self IP Attributes",
+					"request": {
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/~Common~Self-Internal",
 						"method": "GET",
 						"header": [
 							{
@@ -439,7 +484,97 @@
 					"response": []
 				},
 				{
-					"name": " Step 5: Create a Route",
+					"name": " Step 6: Get Self IPs",
+					"request": {
+						"url": {
+							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{bigip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"self"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": " Step 7: Get Routes",
+					"request": {
+						"url": {
+							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{bigip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"route"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": " Step 8: Create a Route",
 					"request": {
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route",
 						"method": "POST",
@@ -457,16 +592,35 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Default\",\n  \"partition\": \"Common\",\n  \"gw\": \"10.1.20.254\",\n  \"mtu\": 0,\n  \"network\": \"0.0.0.0/0\"\n}"
+							"raw": "{\n  \"name\": \"Default\",\n  \"partition\": \"Common\",\n  \"gw\": \"10.1.20.1\",\n  \"mtu\": 0,\n  \"network\": \"0.0.0.0/0\"\n}"
 						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": " Step 6: Get Routes",
+					"name": " Step 9: Get Routes",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route?expandSubcollections=true",
+						"url": {
+							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/route?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{bigip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"route"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -897,7 +1051,26 @@
 				{
 					"name": " Step 16: Get Self IPs",
 					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+						"url": {
+							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{bigip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"self"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -1809,7 +1982,35 @@
 				{
 					"name": "Step 2: Get pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+						"url": {
+							"raw": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{iwf_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"resolver",
+								"device-groups",
+								"cm-cloud-managed-devices",
+								"devices",
+								"{{iwf_bigip_a_uuid}}",
+								"rest-proxy",
+								"mgmt",
+								"tm",
+								"ltm",
+								"pool",
+								"~Common~rest_proxy_pool"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -1859,7 +2060,35 @@
 				{
 					"name": "Step 4: Get pool on BIGIP-A",
 					"request": {
-						"url": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+						"url": {
+							"raw": "https://{{iwf_mgmt}}/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/{{iwf_bigip_a_uuid}}/rest-proxy/mgmt/tm/ltm/pool/~Common~rest_proxy_pool?expandSubcollections=true",
+							"protocol": "https",
+							"host": [
+								"{{iwf_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"resolver",
+								"device-groups",
+								"cm-cloud-managed-devices",
+								"devices",
+								"{{iwf_bigip_a_uuid}}",
+								"rest-proxy",
+								"mgmt",
+								"tm",
+								"ltm",
+								"pool",
+								"~Common~rest_proxy_pool"
+							],
+							"query": [
+								{
+									"key": "expandSubcollections",
+									"value": "true"
+								}
+							],
+							"variable": []
+						},
 						"method": "GET",
 						"header": [
 							{

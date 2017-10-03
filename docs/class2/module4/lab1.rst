@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – File Locations and Jenkins setup
+Lab |labmodule|\.\ |labnum| - File Locations and Jenkins setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We've been executing all our commands locally from Automated scripts; we are
@@ -48,8 +48,8 @@ Task 1 - Locating the Jenkins files and how they are setup
        node {
           stage('Testing') {
              //Run the tests
-             //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-             //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+             //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+             //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
           }
           stage('Frameword-Deployment') {
               //Run SNOPS Container Newman Package Virtual and Pool

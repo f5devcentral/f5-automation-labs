@@ -43,7 +43,7 @@ The high-level procedure required to create the cluster is:
 
 #. Create Floating Self IPs
 
-Task 1 – Rename objects and Setup CMI Global Parameters
+Task 1 - Rename objects and Setup CMI Global Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will complete Items 1&2 from the list high-level
@@ -55,10 +55,10 @@ earlier this action did not take place.
 
 Perform the following steps to rename the CMI ‘Self’ device:
 
-#. Expand the “Lab 1.5 – Build a Cluster” folder in the Postman
+#. Expand the "Lab 1.5 - Build a Cluster" folder in the Postman
    collection
 
-#. Click the “Step 1: Rename the CMI Self Device’ item in the collection
+#. Click the "Step 1: Rename the CMI Self Device’ item in the collection
 
 #. Examine the URI and JSON body. We are sending a POST request to
    execute the equivalent of a tmsh ``mv`` command to rename the
@@ -74,7 +74,7 @@ Perform the following steps to rename the CMI ‘Self’ device:
 
 Perform the following steps to set CMI Device Parameters
 
-#. Click the “Step 2: Set BIGIP-A CMI Device Parameters” item in the
+#. Click the "Step 2: Set BIGIP-A CMI Device Parameters" item in the
    collection. Examine the operation (PATCH), URI and JSON body. We
    will PATCH the newly renamed object (from the previous step) and
    assign the Config Sync IP, Unicast Failover Address/Port and
@@ -85,7 +85,7 @@ Perform the following steps to set CMI Device Parameters
 #. Click the ‘Send’ button and examine the response to ensure the
    settings were changed
 
-#. Click the “Step 3: Set BIGIP-B CMI Device Parameters” item in the
+#. Click the "Step 3: Set BIGIP-B CMI Device Parameters" item in the
    collection. Examine the operation (PATCH), URI and JSON body. We
    will PATCH and assign the Config Sync IP, Unicast Failover Address/Port and
    Mirroring IPs.
@@ -96,7 +96,7 @@ Perform the following steps to set CMI Device Parameters
 #. Click the ‘Send’ button and examine the response to ensure the
    settings were changed
 
-Task 2 – Add BIG-IP-B as a Trusted Peer
+Task 2 - Add BIG-IP-B as a Trusted Peer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The CMI subsystem relies on a PKI based device trust model to establish
@@ -109,7 +109,7 @@ high-level procedure.
 
 Perform the following steps to complete this task:
 
-#. Click the “Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A” item
+#. Click the "Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A" item
    in the collection
 
 #. Examine the operation (POST), URI and JSON body. We are using a
@@ -123,8 +123,8 @@ Perform the following steps to complete this task:
    indicate success, only that the command is running.
 
 #. To check for success we have to check the status of the Sync Group
-   named “device\_trust\_group”. To do this click the “Step 5: Check
-   Sync Group Status” item in the collection. This request will GET the
+   named "device\_trust\_group". To do this click the "Step 5: Check
+   Sync Group Status" item in the collection. This request will GET the
    sync status for all sync groups on the system
 
 #. Click the ‘Send’ button and examine the response. The status should
@@ -133,7 +133,7 @@ Perform the following steps to complete this task:
 
    |image29|
 
-Task 3 – Create a sync-failover Device Group
+Task 3 - Create a sync-failover Device Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This task will create a Device Group object that will contain the two
@@ -144,7 +144,7 @@ procedure but different attribute values. This task corresponds to items
 
 Perform the following steps to complete this task
 
-#. Click the “Step 6: Create Device Group” item in the collection.
+#. Click the "Step 6: Create Device Group" item in the collection.
    Examine the request type, URL and JSON body. We will POST to the
    ‘/mgmt/tm/cm/device-group’ collection and create a new Resource
    called DeviceGroup1 that includes both BIG-IP devices and is set to
@@ -179,7 +179,7 @@ Perform the following steps to complete this task
    DeviceGroup1 is ‘In Sync’. You may have to click ‘Send’ multiple
    times as the sync operation can take a while to complete.
 
-Task 4 – Perform Additional Operations
+Task 4 - Perform Additional Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The remainder of the steps show how to manipulate various common items
@@ -189,12 +189,12 @@ and show how to view the status of the traffic-group.
 
 Perform the following steps to complete this task:
 
-#. Click the “Step 10: Get Traffic Group Properties” item in the
+#. Click the "Step 10: Get Traffic Group Properties" item in the
    collection. Examine the URL, we will GET the attributes of the
    ‘traffic-group-1’ resource from the traffic-group collection. Click
    the ‘Send’ button and review the response.
 
-#. Click the “Step 11: Change Traffic Group to use HA Order” item in the
+#. Click the "Step 11: Change Traffic Group to use HA Order" item in the
    collection. Examine the request type, URL and JSON body. We will
    PATCH the existing resource and specify an ‘haOrder’ attribute to
    change the traffic-group behavior.
@@ -202,24 +202,24 @@ Perform the following steps to complete this task:
 #. Click the ‘Send’ button and examine the response to verify the change
    was successful.
 
-#. Click the “Step 12: Get Traffic Group Failover States” item in the
+#. Click the "Step 12: Get Traffic Group Failover States" item in the
    collection and click the ‘Send’ button. Examine the response and
    determine which device is ‘active’ for the traffic-group:
 
    |image33|
 
-#. Click EITHER the “Step 13A” or “Step 13B” item in the collection
+#. Click EITHER the "Step 13A" or "Step 13B" item in the collection
    depending on which device is ACTIVE for the traffic group. Notice
    that we are sending the request to the ACTIVE device for the traffic
    group. Examine the JSON body and click the ‘Send’ button.
 
-#. Click the “Step 14: Get Traffic Group Failover States” item in the
+#. Click the "Step 14: Get Traffic Group Failover States" item in the
    collection and click the ‘Send’ button. Examine the response to
    determine that the failover occurred properly:
 
    |image34|
 
-Task 5 – Create Floating Self IPs
+Task 5 - Create Floating Self IPs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To complete the HA config we will now create a Floating Self IP on the
@@ -227,31 +227,31 @@ Internal VLAN.
 
 Perform the following steps to complete this task:
 
-#. Click the “Step 15: Create a Floating Self IP” item in the
+#. Click the "Step 15: Create a Floating Self IP" item in the
    collection. Examine the request type, URL and JSON body. We will
    create a new resource in the ``/mgmt/tm/net/self`` collection named
    ‘Self-Internal-Floating’ and an IP address of 10.1.10.3.
 
 #. Click the ‘Send’ button and examine the response
 
-#. Click the “Step 16: Get Self IPs” item in the collection and click
+#. Click the "Step 16: Get Self IPs" item in the collection and click
    ‘Send’. Examine the response and verify the Self IP was created.
 
-.. |image28| image:: /_static/image028.png
+.. |image28| image:: /_static/class1/image028.png
    :scale: 40%
-.. |image29| image:: /_static/image029.png
+.. |image29| image:: /_static/class1/image029.png
    :width: 6.08403in
    :height: 4.50000in
-.. |image30| image:: /_static/image030.png
+.. |image30| image:: /_static/class1/image030.png
    :scale: 40%
-.. |image31| image:: /_static/image031.png
+.. |image31| image:: /_static/class1/image031.png
    :width: 6.16783in
    :height: 3.93018in
-.. |image32| image:: /_static/image032.png
+.. |image32| image:: /_static/class1/image032.png
    :scale: 40%
-.. |image33| image:: /_static/image033.png
+.. |image33| image:: /_static/class1/image033.png
    :width: 6.03658in
    :height: 3.82946in
-.. |image34| image:: /_static/image034.png
+.. |image34| image:: /_static/class1/image034.png
    :width: 6.10321in
    :height: 4.10659in

@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute f5-newman-wrapper for an **Operations** Workflow
+Lab |labmodule|\.\ |labnum| - Execute f5-newman-wrapper for an **Operations** Workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the last lab we walked through creating an Application Service Framework, and then updating
