@@ -13,6 +13,7 @@
 
 set -x
 
+# This should not be needed - TO BE INVESTIGATED
 ifconfig eth1 10.1.1.20 netmask 255.255.255.0
 ifconfig eth2 10.1.20.20 netmask 255.255.255.0
 
@@ -21,21 +22,27 @@ apt-get -y install xrdp
 apt-get -y install mate-core mate-desktop-environment mate-notification-daemon
 sed -i.bak "/fi/a mate-session " /etc/xrdp/startwm.sh
 
-# Desktop icons
-sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Terminal\nComment=Open Terminal\nExec=mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/Terminal.desktop'
-chmod +x /home/ubuntu/Desktop/Terminal.desktop
-
-sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Root Terminal\nComment=Open Terminal\nExec=sudo mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/RootTerminal.desktop'
-chmod +x /home/ubuntu/Desktop/RootTerminal.desktop
+#Install specific fonts support
+#Japanese
+apt-get install fonts-takao-mincho
 
 #Install Chrome setup and add the desktop icon
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 apt-get -y update
 apt-get -y install google-chrome-stable
+
+# Setup Desktop icons
 mkdir /home/ubuntu/Desktop
+
 sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Chrome\nComment=Open Chrome\nExec=/opt/google/chrome/chrome\nIcon=/opt/google/chrome/product_logo_48.png\nTerminal=false\nType=Application\nCategories=Internet;Application;\n" > /home/ubuntu/Desktop/Chrome.desktop'
 chmod +x /home/ubuntu/Desktop/Chrome.desktop
+
+sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Terminal\nComment=Open Terminal\nExec=mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/Terminal.desktop'
+chmod +x /home/ubuntu/Desktop/Terminal.desktop
+
+sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Root Terminal\nComment=Open Terminal\nExec=sudo mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/RootTerminal.desktop'
+chmod +x /home/ubuntu/Desktop/RootTerminal.desktop
 
 
 #Install Postman and add the desktop icon

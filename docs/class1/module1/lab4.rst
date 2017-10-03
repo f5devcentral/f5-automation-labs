@@ -78,23 +78,43 @@ Perform the following steps to configure the VLAN objects/resources:
    ‘Send’ button to GET the VLAN collection. Examine the response to
    make sure both VLANs have been created.
 
+
 Task 2 – Create Self IPs
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to configure the Self IP objects/resources:
 
-#. Click the “Step 3: Create a Self IP” item in the collection. Examine
+#. Click the “Step 3: Create internal Self IP” item in the collection. Examine
    the JSON body; the values for creating the Self-Internal Self IP have
    already been populated.
 
 #. Click the ‘Send’ button to create the Self IP
 
-#. Repeat Step 1, however, this time modify the JSON body to create the
-   Self-External Self IP using the parameters in the table above.
+#. Click the “Step 4: Get Self IPs” item in the collection. Click the
+   ‘Send’ button to GET the Self IP collection. Examine the response to
+   make sure the Self IP has been created.
+
+#. Click the "Step 5: Create external Self IP" item in the collection.
+
+#. Click the “Step 4: Get Self IPs” Examine the response .
+  Examine the VLAN settings of the 'Self-External' Self IP.
+  The Self IP 'Self-External' belongs to the wrong VLAN. This is intentionally.
+  The reason for this is to demonstrate the required steps to change an existing object via the REST API.
+  Change the VLAN settings of 'Self-External' to "/Common/External" with the REST API.
+  Click on 'Step 5' and change the HTTP Method to PATCH.
+  Does it work? Do you know why?
+
+
+#. In order to modify an existing object via the REST API the URI path has to change.
+   Take the URI path that was used to create the Self IP and add the object name. in this case use /Self-External.
+   To see the current settings use the GET method. e.g. "GET https://{{bigip_a_mgmt}}/mgmt/tm/net/self/Self-External"
+   Copy the response.
+   To modify the VLAN settings change the request method to "PATCH" and paste the response of the GET request in the body of the PATCH request.
+   Now change the vlan setting from  '"vlan": "/Common/Internal"' to '"vlan": "/Common/External"' and click 'Send'.
 
 #. Click the “Step 4: Get Self IPs” item in the collection. Click the
    ‘Send’ button to GET the Self IP collection. Examine the response to
-   make sure both Self IPs have been created.
+   make sure both Self IPs have been created and belong to the appropriate vlan.
 
 Task 3 – Create Routes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -102,16 +122,16 @@ Task 3 – Create Routes
 Perform the following steps to configure the Route object/resource:
 
 #. Before creating the route, we double check the content of the routing table.
-   Click the “Step 6: Get Routes” item in the collection. Click the
+   Click the “Step 9: Get Routes” item in the collection. Click the
    ‘Send’ button to GET the routes collection. Examine the response to
    make sure there is no route.
    
-#. Click the “Step 5: Create a Route” item in the collection. Examine
+#. Click the “Step 8: Create a Route” item in the collection. Examine
    the JSON body; the values for creating the Default Route have already
    been populated.
 
 #. Click the ‘Send’ button to create the Route
 
-#. Click again the “Step 6: Get Routes” item in the collection. Click the
+#. Click the “Step 9: Get Routes” item in the collection again. Click the
    ‘Send’ button to GET the routes collection. Examine the response to
    make sure the route has been created.
