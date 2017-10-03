@@ -101,12 +101,17 @@ Task 3 – Create Routes
 
 Perform the following steps to configure the Route object/resource:
 
+#. Before creating the route, we double check the content of the routing table.
+   Click the “Step 6: Get Routes” item in the collection. Click the
+   ‘Send’ button to GET the routes collection. Examine the response to
+   make sure there is no route.
+   
 #. Click the “Step 5: Create a Route” item in the collection. Examine
    the JSON body; the values for creating the Default Route have already
    been populated.
 
 #. Click the ‘Send’ button to create the Route
 
-#. Click the “Step 6: Get Routes” item in the collection. Click the
+#. Click again the “Step 6: Get Routes” item in the collection. Click the
    ‘Send’ button to GET the routes collection. Examine the response to
    make sure the route has been created.
