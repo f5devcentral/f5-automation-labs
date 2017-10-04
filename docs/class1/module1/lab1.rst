@@ -59,6 +59,10 @@ all the correct attributes already populated.
 
    |image7|
 
+.. NOTE:: If you would like to learn more about the |icr| be sure to read 
+   the **Demystifying iControl REST** article series at 
+   https://devcentral.f5.com/wiki/icontrolrest.homepage.ashx
+
 .. |image1| image:: /_static/class1/image001.png
    :scale: 75%
 .. |image2| image:: /_static/class1/image002.png

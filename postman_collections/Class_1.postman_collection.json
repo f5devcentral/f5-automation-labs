@@ -645,7 +645,175 @@
 			]
 		},
 		{
-			"name": "Lab 1.5 - Build a Cluster",
+			"name": "Lab 1.5 - Building Imperative Workflows",
+			"description": "",
+			"item": [
+				{
+					"name": " Step 1: Get BIG-IP Software Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// This is a Postman post-request request test script.",
+									"//",
+									"// The Javascript code below is executed AFTER a response is ",
+									"// received by the Postman client.  This code can do all sorts",
+									"// of interesting things.",
+									"",
+									"// Parse the JSON response body and save the result in the resp variable",
+									"var resp = JSON.parse(responseBody);",
+									"",
+									"// Set an environemnt variable based on the value in the response JSON",
+									"postman.setEnvironmentVariable(\"lab1.5_sw_version\", resp.version);",
+									"",
+									"// Populate a Postman test item",
+									"tests[\"Populate SW Version\"] = 0;",
+									"if(resp.version.length > 0) {",
+									"    tests[\"Populate SW Version\"] = 1;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/software/volume/HD1.1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get BIG-IP CPU Count",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// This is a Postman post-request request test script.",
+									"//",
+									"// The Javascript code below is executed AFTER a response is ",
+									"// received by the Postman client.  This code can do all sorts",
+									"// of interesting things.",
+									"",
+									"// Parse the JSON response body and save the result in the resp variable",
+									"var resp = JSON.parse(responseBody);",
+									"",
+									"// Set an environemnt variable based on the value in the response JSON",
+									"postman.setEnvironmentVariable(\"lab1.5_cpu_count\", resp.items.length);",
+									"",
+									"// Populate a Postman test item",
+									"tests[\"Populate CPU Count\"] = 0;",
+									"if(resp.items.length > 0) {",
+									"    tests[\"Populate CPU Count\"] = 1;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cloud/sys/cpu-info-stat",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Get BIG-IP Base MAC Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// This is a Postman post-request request test script.",
+									"//",
+									"// The Javascript code below is executed AFTER a response is ",
+									"// received by the Postman client.  This code can do all sorts",
+									"// of interesting things.",
+									"",
+									"// Parse the JSON response body and save the result in the resp variable",
+									"var resp = JSON.parse(responseBody);",
+									"",
+									"// Set an environemnt variable based on the value in the response JSON",
+									"postman.setEnvironmentVariable(\"lab1.5_base_mac\", resp.items[0].baseMac);",
+									"",
+									"// Populate a Postman test item",
+									"tests[\"Populate Base MAC\"] = 0;",
+									"if(resp.items[0].baseMac.length > 0) {",
+									"    tests[\"Populate Base MAC\"] = 1;",
+									"}",
+									"",
+									"// Dump out our results",
+									"tests[\"BIG-IP SW Version: \" + postman.getEnvironmentVariable(\"lab1.5_sw_version\")] = 1;",
+									"tests[\"BIG-IP CPU Count: \" + postman.getEnvironmentVariable(\"lab1.5_cpu_count\")] = 1;",
+									"tests[\"BIG-IP Base MAC: \" + postman.getEnvironmentVariable(\"lab1.5_base_mac\")] = 1;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cloud/net/sys-device",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lab 1.6 - Build a Cluster",
 			"description": "",
 			"item": [
 				{
@@ -1095,7 +1263,7 @@
 			]
 		},
 		{
-			"name": "Lab 1.6 - Build a Basic LTM Config",
+			"name": "Lab 1.7 - Build a Basic LTM Config using Transactions",
 			"description": "",
 			"item": [
 				{
@@ -1222,13 +1390,7 @@
 						"description": ""
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Lab 1.7 - REST API Transactions",
-			"description": "",
-			"item": [
+				},
 				{
 					"name": "Step 1: Create a Transaction",
 					"request": {
@@ -1532,7 +1694,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.1 - iWorkflow Authentication",
+			"name": "Lab 3.1 - iWorkflow Authentication",
 			"description": "",
 			"item": [
 				{
@@ -1608,7 +1770,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.2 - Discover BIG-IP Devices",
+			"name": "Lab 3.2 - Discover BIG-IP Devices",
 			"description": "",
 			"item": [
 				{
@@ -1689,7 +1851,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.3 - Create Tenant & Local Connector",
+			"name": "Lab 3.3 - Create Tenant & Local Connector",
 			"description": "",
 			"item": [
 				{
@@ -1845,7 +2007,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.4 - iWorkflow Service Catalog & Service Deployment",
+			"name": "Lab 3.4 - iWorkflow Service Catalog & Service Deployment",
 			"description": "",
 			"item": [
 				{
@@ -1951,7 +2113,7 @@
 			]
 		},
 		{
-			"name": "Lab 2.5 - iWorkflow REST Proxy",
+			"name": "Lab 3.5 - iWorkflow REST Proxy",
 			"description": "",
 			"item": [
 				{
@@ -2130,137 +2292,6 @@
 						"body": {
 							"mode": "raw",
 							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Lab 5.6 - Create a Python Script",
-			"description": "",
-			"item": [
-				{
-					"name": "Step 1: Create a HTTP Monitor",
-					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab5.6_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Step 2: Create a Pool",
-					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab5.6_pool\",\n    \"monitor\":\"/Common/Lab5.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Step 3: Create a HTTP Profile",
-					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/http",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab5.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_5.6\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Step 4: Create a TCP Profile",
-					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/tcp",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab5.6_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Step 5: Create a Virtual Server",
-					"request": {
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab5.6_vs\",\n    \"destination\":\"10.1.20.131:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab5.6_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab5.6_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab5.6_http\"\n    ]\n}"
 						},
 						"description": ""
 					},
