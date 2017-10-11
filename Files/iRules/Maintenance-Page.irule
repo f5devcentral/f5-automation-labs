@@ -6,7 +6,7 @@ when HTTP_REQUEST {
          </head>
          <body>
             We are sorry, but the site you are looking for is currently under Maintenance<br>
-            If you feel you have reached this page in error, please try again. Thanks for coming [IP::client_addr]
+            If you feel you have reached this page in error, please try again. Thanks for coming
          </body>
       </html>
    }

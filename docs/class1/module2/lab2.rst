@@ -18,6 +18,8 @@ whole .tmpl file can be uploaded removing the need for encoding.
 
 ..NOTE:: This lab work will be performed from the Lab 2.2 Postman Collection
 
+|image2_7|
+
 Task 1 - View iApps Installed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -28,7 +30,8 @@ Perform the following steps to complete this task:
 |image2_3|
 
 Review the JSON response, in this task we have requested a list of installed
-iApps from the BIG-IP, it has responded empty as nothing is installed yet.
+iApps from the BIG-IP, there are currently some default iApps installed which
+come pre-installed on the BIG-IP.
 
 |image2_4|
 
@@ -47,5 +50,6 @@ sent back a response that the iApp was installed with its name.
 
 .. |image2_3| image:: /_static/class1/image2_3.png
 .. |image2_4| image:: /_static/class1/image2_4.png
-.. |image2_5| image:: /_static/class1/image2_3.png
-.. |image2_6| image:: /_static/class1/image2_4.png
+.. |image2_5| image:: /_static/class1/image2_5.png
+.. |image2_6| image:: /_static/class1/image2_6.png
+.. |image2_7| image:: /_static/class1/image2_7.png
