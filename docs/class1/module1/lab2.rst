@@ -10,14 +10,14 @@ Lab |labmodule|\.\ |labnum|\: REST API Authentication & ‘example’ Templates
 
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
-iWorkflow support two types of authentication: **HTTP BASIC** and 
+iWorkflow support two types of authentication: **HTTP BASIC** and
 **Token Based (TBA)**. It’s important to understand both of these authentication
 mechanisms, as consumers of the API will often make use of both types
 depending on the use case. This lab will demonstrate how to interact
 with both types of authentication.
 
 Throughout this and other classes in the series we will make use of the Postman
-REST API Client.  You can find more information about Postman at 
+REST API Client.  You can find more information about Postman at
 https://getpostman.com
 
 Task 1 - Import the Postman Collection & Environment
@@ -29,10 +29,14 @@ Perform the following steps to complete this task:
 #. Open the Postman tool by clicking the |image8| icon of the desktop of
    your Linux Jumphost.  The initial window may take a few moments to appear.
 
+   .. NOTE:: The Postman client receives very frequent updates.  If you are
+      prompted to update the client please click the ``Remind me later`` button
+      to skip updating the version installed in your lab environment
+
 #. By default the Postman clients requires verification of SSL/TLS Certificates
    to a public Root Certificate Authority.  By default BIG-IP, and many other,
    devices use a Self-Signed Certificate for SSL/TLS connections.  To allow
-   connections with Self-Signed Certificates we need to modify the default 
+   connections with Self-Signed Certificates we need to modify the default
    settings of Postman.
 
    - Open the Postman Settings windows by click File -> Settings:
@@ -53,7 +57,7 @@ Perform the following steps to complete this task:
 #. Click the 'Import from Link' tab.  Paste the following URL into the
    text box and click 'Import'
 
-   .. parsed-literal:: 
+   .. parsed-literal::
 
       :raw_github_url:`/postman_collections/Class_1.postman_collection.json`
 
@@ -67,7 +71,7 @@ Perform the following steps to complete this task:
 #. Import the Environment file by clicking 'Import' -> 'Import from Link' and
    pasting the following URL and clicking 'Import':
 
-   .. parsed-literal:: 
+   .. parsed-literal::
 
       :raw_github_url:`/postman_collections/Class_1.postman_environment.json`
 
@@ -101,7 +105,7 @@ Perform the following steps to complete this task:
 
 #. Click the ‘Collections’ tab on the left side of the screen, expand
    the ‘F5 Programmability: Class 1’ collection on the left side
-   of the screen, expand the 
+   of the screen, expand the
    ``Lab 1.2 - API Authentication & 'example' Templates`` folder:
 
    |image10|
@@ -113,9 +117,9 @@ Perform the following steps to complete this task:
 
    |image11|
 
-#. Notice that the number of Headers in the Headers tab changed from ``1`` 
-   to ``2``. This is because Postman automatically created the HTTP header 
-   and updated your request to include it.  Click the ‘Headers’ tab and 
+#. Notice that the number of Headers in the Headers tab changed from ``1``
+   to ``2``. This is because Postman automatically created the HTTP header
+   and updated your request to include it.  Click the ‘Headers’ tab and
    examine the HTTP header:
 
    |image91|
@@ -141,7 +145,7 @@ with a unique token for that session and the consumer then uses that
 token for all subsequent requests. BIG-IP and iWorkflow support
 token-based authentication that drops down to the underlying
 authentication subsystems available in TMOS. As a result the system can
-be configured to support external authentication providers (Active Directory, 
+be configured to support external authentication providers (Active Directory,
 RADIUS, TACACS, etc) and those authentication methods can flow through to
 the REST API. In this task we will demonstrate TBA using the local
 authentication database, however, authentication to external providers

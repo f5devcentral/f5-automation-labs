@@ -27,12 +27,12 @@ created using the iApp as the Service's template structure.
 
 Some examples of what we can use iApps to configure:
 
-  - Local Traffic Manager
-  - Advanced Firewall Manager
-  - Application Security Manager
-  - iRules
-  - Certificates
-  - Various Profiles
+- Local Traffic Manager
+- Advanced Firewall Manager
+- Application Security Manager
+- iRules
+- Certificates
+- Various Profiles
 
 .. NOTE:: ``Application Service`` in the GUI and ``Service`` in REST are the same
    objects, with just slightly abbreviated names in REST
