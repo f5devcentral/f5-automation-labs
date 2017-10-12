@@ -9,7 +9,7 @@ In order to complete this class you will need to utilize a specific
 **Lab Environment**.  You can consume this training in a couple of
 ways:
 
-- Pre-built Environment using an Ravello Blueprint
+- Pre-built Environment using a Ravello Blueprint
 
   - Used at official F5 events such as F5 Agility, F5 Agility Roadshows,
     User Groups, MeetUps, etc.
@@ -52,7 +52,7 @@ Lab Topology
 ^^^^^^^^^^^^
 
 The network topology implemented for this lab is very simple. Since the
-focus of the lab is Control Plane programmability rather that Data Plane
+focus of the lab is Control Plane programmability rather than Data Plane
 traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
