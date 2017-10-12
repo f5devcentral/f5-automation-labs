@@ -16,7 +16,7 @@ we need, though this means that the contents of the iApp must be URL encoded to
 make sure the BIG-IP reads it correctly. Using other tools like Ansible, the
 whole .tmpl file can be uploaded removing the need for encoding.
 
-..NOTE:: This lab work will be performed from the Lab 2.2 Postman Collection
+.. NOTE:: This lab work will be performed from the Lab 2.2 Postman Collection
 
 |image2_7|
 
@@ -27,13 +27,13 @@ Perform the following steps to complete this task:
 
 #. Execute Step 1 to view installed iApp's on the BIG-IP
 
-|image2_3|
+   |image2_3|
 
-Review the JSON response, in this task we have requested a list of installed
-iApps from the BIG-IP, there are currently some default iApps installed which
-come pre-installed on the BIG-IP.
+#. Review the JSON response, in this task we have requested a list of installed
+   iApps from the BIG-IP, there are currently some default iApps installed which
+   come pre-installed on the BIG-IP.
 
-|image2_4|
+   |image2_4|
 
 Task 2 - Install the App Services Integration iApp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,11 +42,11 @@ Perform the following steps to complete this task:
 
 #. Execute Step 2 to install the App Services Integration iApp
 
-|image2_5|
+   |image2_5|
 
-Review the JSON Body that was sent, and the JSON Body that responded,
-in this task we installed an iApp with an encoded method and the BIG-IP
-sent back a response that the iApp was installed with its name.
+#. Review the JSON Body that was sent, and the JSON Body that responded,
+   in this task we installed an iApp with an encoded method and the BIG-IP
+   sent back a response that the iApp was installed with its name.
 
 .. |image2_3| image:: /_static/class1/image2_3.png
 .. |image2_4| image:: /_static/class1/image2_4.png
