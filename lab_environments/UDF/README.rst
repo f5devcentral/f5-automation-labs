@@ -15,7 +15,6 @@ Things to consider when creating such UDF blueprint:
     * make sure to update the hostname on the script for each device
     * modify sys global-settings mgmt-dhcp disabled
 
-    01071ac0:3: DHCP can't be disabled with dbvar 'provision.1nic' enabled. -> modify provision.1nic value disable
 
 * BIG-IP / iWorkflow root access via ssh:
 
