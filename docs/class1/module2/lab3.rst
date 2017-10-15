@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum|\: Deploy iApp Services using the REST API
 ---------------------------------------------------------------------
 
-Now that the App Services iApp is installed on BIG-IP A, we
+Now that the App Services Integration iApp is installed on BIG-IP A, we
 can deploy a new service. The service in this lab will go through
 different iterations, we'll start with **Creating** a Basic HTTP Service, show
 **Modifying** the service by changing the node state, and then **Delete** the
@@ -36,6 +36,8 @@ Perform the following steps to complete this task:
 
 Task 2 - Deploy Basic HTTP Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Perform the following steps to complete this task:
 
 #. Execute Step 2 to **Create** the Basic HTTP Service on BIG-IP A
 
@@ -77,6 +79,8 @@ Task 2 - Deploy Basic HTTP Service
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Perform the following steps to complete this task:
+
 #. Execute Step 3 to **Modify** the Basic HTTP Service on BIG-IP A
 
    |image2_16|
@@ -98,6 +102,8 @@ Task 3 - Modify our Deployed Service
 
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Perform the following steps to complete this task:
 
 #. Execute Step 4 to **Delete** the Basic HTTP Service from BIG-IP A
 
@@ -128,7 +134,9 @@ Task 4 - Delete our Deployed Service
 Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRule
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 5 Deploy an HTTP Service with Custom Profiles and an iRule to BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 5 to deploy an HTTP Service with Custom Profiles and an iRule to BIG-IP A
 
    |image2_21|
 
@@ -163,7 +171,9 @@ Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRu
 Task 6 - Deploy an HTTPS Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 6 Deploy an HTTPS Service to BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 6 to deploy an HTTPS Service to BIG-IP A
 
    |image2_26|
 
@@ -197,7 +207,9 @@ Task 6 - Deploy an HTTPS Service
 Task 7 - Deploy an HTTPS Service with an ASM Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 7 Deploy an HTTPS Service with an ASM Policy on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 7 to deploy an HTTPS Service with an ASM Policy to BIG-IP A
 
    |image2_32|
 
@@ -230,7 +242,9 @@ Task 7 - Deploy an HTTPS Service with an ASM Policy
 Task 8 - Module 2 Clean Up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. In preparation for the next lab, please run Task 4 Step 1 to delete your service.
+Perform the following steps to complete this task:
+
+#. In preparation for the next lab, please rerun Task 4 Step 1 to delete your service.
 
 .. |image2_8| image:: /_static/class1/image2_8.png
 .. |image2_9| image:: /_static/class1/image2_9.png
