@@ -5,123 +5,55 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
-------------------------------------------------------
+Lab |labmodule|\.\ |labnum|\: Exploring iApps
+---------------------------------------------
 
-iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
-BASIC, Token Based Auth). In this lab we will quickly review TBA on
-iWorkflow.
+Task 1 - Overview of Mechanisms to install iApps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 1 – Token Based Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The BIG-IP has multiple ways to ingest an iApp onto its platform, including
+TMOS Shell (TMSH), the GUI, and the REST Interface. All different mechanisms
+are valid and, if needed, can be used in conjunction with each other.
+For instance, installing an iApp from the GUI and then deploying
+a new service via REST, or another Orchestration Engine, like Postman or Ansible.
 
-In this task we will demonstrate TBA using the local authentication
-database, however, authentication to external providers is fully
-supported.
+.. NOTE:: Redeployment of iApp templates makes use of an underlying mechanism in
+   the BIG-IP platform that allows safe changes to the configuration without
+   interrupting existing user traffic.
 
-For more information about external authentication providers see the
-section titled “\ **About external authentication providers with
-iControl REST**\ ” in the iControl REST API User Guide available at
-https://devcentral.f5.com
+F5 iApps were introduced in TMOS Version 11, they can interact within, and across
+different F5 Modules. Once an iApp is installed, a `Service` is
+created using the iApp as the Service's template structure.
 
-Perform the following steps to complete this task:
+Some examples of what we can use iApps to configure:
 
-#. Click the ‘Step 1: Get Authentication Token’ item in the Lab 2.1
-   Postman Collection
+- Local Traffic Manager
+- Advanced Firewall Manager
+- Application Security Manager
+- Access Policy Manager
+- iRules
+- Certificates
+- Various Profiles
 
-#. Notice that we are sending a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint.
+.. NOTE:: ``Application Service`` in the GUI and ``Service`` in REST are the same
+   objects, with a slightly abbreviated name in REST.
 
-   |image41|
+You can find the GUI representation of iApps on the left-hand side of the UI
+under "iApps". The slide out pane refers to **Application Services** as
+already deployed services, and **Templates** as installed iApp Templates
+on the system.
 
-#. Click the ‘Body’ tab and examine the JSON that we will send to
-   iWorkflow to provide credentials:
+- **Application Services**
 
-   |image42|
+  |image2_1|
 
-#. Modify the JSON body and add the required credentials (admin/admin).
-   Then click the ‘Send’ button.
+- **Templates**
 
-#. Examine the response status code. If authentication succeeded and a
-   token was generated the response will have a 200 OK status code. If
-   the status code is 401 then check your credentials:
+  |image2_2|
 
-   **Successful:**
+Under the BIG-IP REST interface you can find the location of deployed `Services` at the
+``/mgmt/tm/cloud/services/iapp/`` endpoint, and installed `Templates` (iApps) at
+the ``/mgmt/tm/sys/application/template`` endpoint.
 
-   - |image43|
-
-   **Unsuccessful:**
-
-   - |image44|
-
-#. Once you receive a 200 OK status code examine the response body. The
-   various attributes show the parameters assigned to the particular
-   token. Find the ‘token’ attribute and copy it into your clipboard
-   (Ctrl+c) for use in the next step:
-
-   |image45|
-
-#. Click the ‘Step 2: Verify Authentication Works’ item in the Lab
-   2.1 Postman collection. Click the ‘Headers’ tab and paste the
-   token value copied above as the VALUE for the ``X-F5-Auth-Token``
-   header. This header is required to be sent on all requests when
-   using token based authentication.
-
-   |image46|
-
-#. Click the ‘Send’ button. If your request is successful you should
-   see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing
-   Collection.
-
-#. We will now update your Postman environment to use this auth token
-   for the remainder of the lab. Click the Environment menu in the top
-   right of the Postman window and click ‘Manage Environments’:
-
-   |image47|
-
-#. Click the ‘INTRO – Automation & Orchestration Lab’ item:
-
-   |image48|
-
-#. Update the value for ‘iwf\_auth\_token’ by Pasting (Ctrl-v)
-   in your auth token:
-
-   |image49|
-
-#. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. Your subsequent requests will now automatically include
-   the token.
-
-#. Click the ‘Step 3: Set Authentication Token Timeout’ item in the
-   Lab 1.2 Postman collection. This request will PATCH your token
-   Resource (check the URI) and update the timeout attribute so we
-   can complete the lab easily. Examine the request type and JSON
-   Body and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
-
-   |image50|
-
-.. |image41| image:: /_static/image041.png
-   :scale: 40%
-.. |image42| image:: /_static/image042.png
-   :scale: 40%
-.. |image43| image:: /_static/image043.png
-   :width: 6.21017in
-   :height: 0.79167in
-.. |image44| image:: /_static/image044.png
-   :width: 6.25278in
-   :height: 0.79268in
-.. |image45| image:: /_static/image045.png
-   :width: 5.16635in
-   :height: 2.88907in
-.. |image46| image:: /_static/image046.png
-   :scale: 40%
-.. |image47| image:: /_static/image047.png
-   :scale: 40%
-.. |image48| image:: /_static/image048.png
-   :width: 4.67051in
-   :height: 1.23217in
-.. |image49| image:: /_static/image049.png
-   :scale: 40%
-.. |image50| image:: /_static/image050.png
-   :scale: 40%
+.. |image2_1| image:: /_static/class1/image2_1.png
+.. |image2_2| image:: /_static/class1/image2_2.png

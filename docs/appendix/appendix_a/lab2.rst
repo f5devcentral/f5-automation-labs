@@ -12,7 +12,7 @@ In this lab we will review, line-by-line an example script that has been
 created to view the attributes of a BIG-IP Pool directly from the
 command line.
 
-Task 1 – Review read\_pool.py
+Task 1 - Review read\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open ``read_pool.py`` in Notepad++
@@ -46,7 +46,7 @@ These lines print the human-readable pool path and then uses the
 PrettyPrint library to dump all the attributes associated with the
 pool
 
-Task 2 – Run read\_pool.py
+Task 2 - Run read\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In the command prompt type ``python read_pool.py 10.1.1.4 test_pool``
@@ -58,6 +58,6 @@ Task 2 – Run read\_pool.py
    note of the value of the ``loadBalancingMode`` attribute for the next
    lab
 
-.. |image70| image:: /_static/image070.png
+.. |image70| image:: /_static/appendix_a/image070.png
    :width: 6.33450in
    :height: 4.50574in

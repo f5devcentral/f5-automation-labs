@@ -5,67 +5,54 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Discover BIG-IP Devices
------------------------------------------------------
+Lab |labmodule|\.\ |labnum|\: Deploying iApp templates on BIG-IP
+----------------------------------------------------------------
 
-In order for iWorkflow to interact with a BIG-IP device it must be
-discovered by iWorkflow. The device discovery process leverages the
-existing CMI Device Trust infrastructure on BIG-IP. Currently there is a
-limitation that a single BIG-IP device can only be ‘discovered’ by ONE
-of iWorkflow or BIG-IQ CM at a time. In this lab will we discover the
-existing BIG-IP devices from your lab environment.
+iApps typically come in the form of a .tmpl file, which contains content defining
+how to consume the iApp on the BIG-IP; iApps can come with or without a presentation pane.
+Different toolkits will upload the file or its contents in different ways,
+we'll be using REST in its raw form, so the contents of the file is all
+we need. However, this means that the contents of the iApp must be URL encoded to
+make sure the BIG-IP reads it correctly. When using other tools like Ansible, the
+whole .tmpl file can be uploaded, removing the need for encoding.
 
-Task 1 – Discover BIG-IP Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. NOTE:: This lab work will be performed from ``Lab 2.2`` in the Postman Collection
+
+|image2_7|
+
+Task 1 - View iApps Installed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Expand the “Lab 2.2: Discover & License BIG-IP Devices” folder in the
-   Postman collection
+#. Execute Step 1 to view installed iApps on the BIG-IP
 
-#. Open a Google Chrome window/tab to your iWorkflow device
-   (https://10.1.1.6) and login with default credentials (admin/admin).
-   You can use this window to monitor actions while they are being
-   performed in Postman. Find the ‘Devices’ pane and make if viewable if
-   it isn’t already.
+   |image2_3|
 
-#. Click the “Step 1: Discover BIGIP-A Device” item in the Postman
-   collection. This will request will perform a POST to the
-   ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices``
-   worker to perform the device discovery process. Examine the JSON body
-   so you understand what data is sent to perform the discovery process:
+#. Review the JSON response. In this task we have requested a list of installed
+   iApps from the BIG-IP. Note, there are currently some default iApps installed which
+   come pre-installed on the BIG-IP.
 
-   |image51|
+   |image2_4|
 
-#. Click the ‘Send’ button. Examine the response and monitor the
-   iWorkflow Chrome window you opened previously.
+Task 2 - Install the App Services Integration iApp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   |image52|
+Perform the following steps to complete this task:
 
-#. Copy the ‘uuid’ attribute for BIGIP-A and populate the
-   ‘iwf\_bigip\_a\_uuid’ Postman environment variable with the
-   value:
+#. Execute Step 2 to install the App Services Integration iApp
 
-   |image53|
-   |image54|
+   |image2_5|
 
-#. Click the “Step 2: Discover BIGIP-B Device” item in
-   the collection.
+#. Review the JSON body that was sent, and the JSON body that responded.
+   In this task we installed the App_Svc's iApp and the BIG-IP
+   sent back a response that the iApp was installed with its name.
 
-#. Click the “Step 3: Get Discovered Devices” item in the collection.
-   We will GET the devices collection and verify that both BIG-IP
-   devices show a ‘state’ of ‘ACTIVE’:
+   |image2_38|
 
-   |image55|
-
-.. |image51| image:: /_static/image051.png
-   :scale: 40%
-.. |image52| image:: /_static/image052.png
-   :width: 5.21233in
-   :height: 2.73647in
-.. |image53| image:: /_static/image053.png
-   :scale: 40%
-.. |image54| image:: /_static/image054.png
-   :scale: 40%
-.. |image55| image:: /_static/image055.png
-   :scale: 40%
+.. |image2_3| image:: /_static/class1/image2_3.png
+.. |image2_4| image:: /_static/class1/image2_4.png
+.. |image2_5| image:: /_static/class1/image2_5.png
+.. |image2_6| image:: /_static/class1/image2_6.png
+.. |image2_7| image:: /_static/class1/image2_7.png
+.. |image2_38| image:: /_static/class1/image2_38.png

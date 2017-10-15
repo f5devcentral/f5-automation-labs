@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Destroying a Service with Jenkins
+Lab |labmodule|\.\ |labnum| - Destroying a Service with Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the last module we will teardown the Application Service we've been working with today.
@@ -36,7 +36,7 @@ Task 1 - Teardown the Application via Jenkins
       node {
          stage('Testing') {
             //Run the tests
-            //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+            //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
          }
          stage('Removal-Notification') {
             //Run SNOPS Container Newman Package Delete Service

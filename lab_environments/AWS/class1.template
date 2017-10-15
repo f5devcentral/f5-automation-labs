@@ -1,0 +1,108 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "This will deploy the Ubuntu instance to access and use the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
+  "Parameters": {
+    "KeyName": {
+      "Description": "Name of an EC2 KeyPair to enable SSH access to the instance.",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+    },
+    "UserIP": {
+      "Description": " The IP address range that can be used to access the Jump Server using RDP.",
+      "Type": "String",
+      "MinLength": "9",
+      "MaxLength": "18",
+      "Default": "0.0.0.0/0",
+      "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+      "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+    },
+    "InstanceType": {
+      "Description": "Ubuntu instance type",
+      "Type": "String",
+      "Default": "t2.medium",
+      "AllowedValues": [
+        "t2.medium",
+        "m3.medium",
+        "m3.large"
+      ],
+      "ConstraintDescription": "must be a valid EC2 instance type."
+    },
+    "Branch": {
+      "Description": "The GitHub Repo branch to load setup scripts from",
+      "Type":"String",
+      "Default":"master"
+    }
+  },
+  "Resources": {
+    "TopologyStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {
+          "UserIP": {
+            "Ref": "UserIP"
+          }
+        },
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/class1_topology.template"
+      }
+    },
+    "JumpHostStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {
+          "UserIP": { "Ref": "UserIP" },
+          "VPC": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.VpcId" ] },
+          "InstanceType": { "Ref": "InstanceType" },
+          "KeyName": { "Ref": "KeyName" },
+          "ManagementSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.ManagementSubnetId" ]},
+          "AccessSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.AccessSubnetId" ]},
+          "ExternalSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.ExternalSubnetId" ]},
+          "IngressSG": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.IngressSGId" ]},
+          "RepoBranch": { "Ref": "Branch" }
+        },
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/snops_jumphost.template"
+      }
+    },
+    "ServerStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {
+          "VPC": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.VpcId" ] },
+          "InstanceType": "t2.small",
+          "KeyName": { "Ref": "KeyName" },
+          "ManagementSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.ManagementSubnetId" ]},
+          "InternalSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.InternalSubnetId" ]},
+          "RepoBranch": { "Ref": "Branch" }
+        },
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/snops_server.template"
+      }
+    }
+  },
+  "Outputs": {
+    "VpcId" : {
+      "Description" : "VPC ID",
+      "Value" : { "Fn::GetAtt" : [ "TopologyStack", "Outputs.VpcId" ] }
+    },
+    "ManagementSubnetId" : {
+      "Description" : "Management Subnet ID",
+      "Value" : { "Fn::GetAtt" : [ "TopologyStack", "Outputs.ManagementSubnetId" ] }
+    },
+    "InternalSubnetId" : {
+      "Description" : "Internal Subnet ID",
+      "Value" : { "Fn::GetAtt" : [ "TopologyStack", "Outputs.InternalSubnetId" ]}
+    },
+    "ExternalSubnetId" : {
+      "Description" : "External Subnet ID",
+      "Value" : { "Fn::GetAtt" : [ "TopologyStack", "Outputs.ExternalSubnetId" ] }
+    },
+    "JumpHostPublicIP" : {
+      "Description" : "Jump Host Public IP (SSH & RDP)",
+      "Value" : { "Fn::GetAtt" : [ "JumpHostStack", "Outputs.JumpHostPublicIP" ] }
+    },
+    "Region": {
+      "Description": "AWS Region",
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    }
+  }
+}
