@@ -8,15 +8,15 @@
 Lab |labmodule|\.\ |labnum|\: Deploying iApp templates on BIG-IP
 ----------------------------------------------------------------
 
-iApps typically come in the form of a .tmpl file that contains content defining
-how to present the iApp on the BIG-IP. iApps can come with or without a presentation pane. 
-Different toolkits will upload the file or its contents in different ways, but
-we'll be using REST in its raw form so the contents of the file is all
+iApps typically come in the form of a .tmpl file, which contains content defining
+how to consume the iApp on the BIG-IP; iApps can come with or without a presentation pane.
+Different toolkits will upload the file or its contents in different ways,
+we'll be using REST in its raw form, so the contents of the file is all
 we need. However, this means that the contents of the iApp must be URL encoded to
 make sure the BIG-IP reads it correctly. When using other tools like Ansible, the
 whole .tmpl file can be uploaded, removing the need for encoding.
 
-.. NOTE:: This lab work will be performed from the Lab 2.2 Postman Collection
+.. NOTE:: This lab work will be performed from ``Lab 2.2`` in the Postman Collection
 
 |image2_7|
 
@@ -30,7 +30,7 @@ Perform the following steps to complete this task:
    |image2_3|
 
 #. Review the JSON response. In this task we have requested a list of installed
-   iApps from the BIG-IP. Note that there are currently some default iApps installed which
+   iApps from the BIG-IP. Note, there are currently some default iApps installed which
    come pre-installed on the BIG-IP.
 
    |image2_4|
@@ -44,12 +44,15 @@ Perform the following steps to complete this task:
 
    |image2_5|
 
-#. Review the JSON Body that was sent, and the JSON Body that responded,
-   in this task we installed an iApp with an encoded method and the BIG-IP
+#. Review the JSON body that was sent, and the JSON body that responded.
+   In this task we installed the App_Svc's iApp and the BIG-IP
    sent back a response that the iApp was installed with its name.
+
+   |image2_38|
 
 .. |image2_3| image:: /_static/class1/image2_3.png
 .. |image2_4| image:: /_static/class1/image2_4.png
 .. |image2_5| image:: /_static/class1/image2_5.png
 .. |image2_6| image:: /_static/class1/image2_6.png
 .. |image2_7| image:: /_static/class1/image2_7.png
+.. |image2_38| image:: /_static/class1/image2_38.png
