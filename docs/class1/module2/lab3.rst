@@ -8,14 +8,15 @@
 Lab |labmodule|\.\ |labnum|\: Deploy iApp Services using the REST API
 ---------------------------------------------------------------------
 
-Now that the App Services iApp is installed on BIG-IP A, we
-can deploy a Service. The Service in this Lab will go through
-different iterations, we'll start with a `Basic HTTP Service`, `Modify` the
-Services Node states and then `Delete` the whole Service. Once we've
-seen the first `Mutation` of the Service we'll introduce some more complex
-Services deployments with iRules, Custom Profiles, Certificates and an ASM Policy.
+Now that the App Services Integration iApp is installed on BIG-IP A, we
+can deploy a new service. The service in this lab will go through
+different iterations, we'll start with **Creating** a Basic HTTP Service, show
+**Modifying** the service by changing the node state, and then **Delete** the
+whole service. Once we've seen this first **Mutation** we'll introduce some more
+complex deployments options with iRules, Custom Profiles, Certificates,
+and an ASM Policy.
 
-.. NOTE:: This lab work will be performed from the Lab 2.3 Postman Collection
+.. NOTE:: This lab work will be performed from ``Lab 2.3`` in the Postman Collection
 
 |image2_8|
 
@@ -24,111 +25,129 @@ Task 1 - View Deployed Services
 
 Perform the following steps to complete this task:
 
-#. Execute Step 1 to show Services Deployed on BIG-IP A
+#. Execute Step 1 to show any services deployed on BIG-IP A
 
    |image2_9|
 
 #. Review the JSON response. In this task, we have requested a list of deployed
-   services from the BIG-IP and it has responded empty as nothing is installed yet.
+   services from the BIG-IP, it has responded empty as nothing is installed yet.
 
    |image2_10|
 
 Task 2 - Deploy Basic HTTP Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 2 to Deploy the Basic HTTP Service on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 2 to **Create** the Basic HTTP Service on BIG-IP A
 
    |image2_11|
 
-#. Review the JSON Body that was sent, and the JSON Body that responded.
-   In this task, we deployed our first Service. From the JSON body that was
-   sent we can see the variables we're requesting inserted into the iApp
-   template. Note that  `we've just progressed to ``Declarative`` instantiation`, 
-   defining the end state and letting the BIG-IP handle the order of operations and
-   configuration.
+#. Review the JSON body that was sent, and the JSON body that responded.
+   In this task, we deployed our first service. From the sent JSON body
+   we can see the variables we inserted into the iApp template.
+   Note, we've just progressed to a **Declarative** instantiation,
+   by defining the end state and letting the BIG-IP handle the order of
+   operations and configuration.
 
    |image2_12|
 
-#. Now that the Service is deployed, let's look on the BIG-IP for the new deployment.
-   You can either repeat Task 1 Step 1 via of this Lab and view via REST or you can
+#. Now that the service is deployed, let's look on the BIG-IP for the configuration.
+   You can either repeat Task 1 Step 1 of this Lab, and view via REST, or you can
    login to the BIG-IP A GUI and see the service deployed.
+
+   - **GUI**:
 
    |image2_13|
 
+   - **REST**:
+
    |image2_14|
 
-#. From the GUI examine the Virtual Server that was created from this deployment.
+#. From the GUI, examine the Virtual Server that was created from this deployment.
    It's very generic, but it does contain all the needed pieces to create an
-   active HTTP service: HTTP profile, VIP address, and a Pool with
-   members in an Active state.
+   active HTTP service (HTTP profile, VIP address, and a Pool with
+   members in an Active state).
 
    |image2_15|
 
-#. This service is up and Active, you can go to the VIP address of
-   ``http://10.1.20.120`` and see it working.
+#. The service is available and active, you can go to the VIP address of
+   ``http://10.1.20.120`` and see it respond.
 
    |image2_31|
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 3 to Modify the Basic HTTP Service on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 3 to **Modify** the Basic HTTP Service on BIG-IP A
 
    |image2_16|
 
-#. Modifying or "Reconfiguring" a Service is handled by only sending the pieces
-   of the JSON that needs updating. This is sent to the deployed Service Name. 
-   In the last two steps, we were deploying Services as a whole to the BIG-IP.
-   In a modify call, you are modifying only parts of the singular endpoint (the Service). 
-   Review the specific REST endpoint and the JSON body. This is all we need 
-   to send the new "State" Attributes and Values.
+#. Review how we specified a specific REST endpoint, and our sent JSON body.
+   In the last two steps we viewed and deployed services against the whole BIG-IP.
+   Modifying or "Reconfiguring" a service is handled by sending **only** the
+   modified JSON that needs updating, to the specific endpoint (the service).
+   What we sent was the new values for all our pool members to "disabled",
+   which forces the service offline.
 
    |image2_17|
 
-#. Back on the BIG-IP GUI, after the Service is modified we can see the new state of
-   the Pool Members reflecting the state we declared in the REST call. Now the VIP
-   is also no longer passing traffic to ``http://10.1.20.120`` 
+#. In the BIG-IP A GUI, after the service is modified we can see the new state of
+   the Pool Members reflecting the state we declared in our above call. The VIP
+   is no longer passing traffic at ``http://10.1.20.120``
 
    |image2_18|
 
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 4 to Delete the Basic HTTP Service on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 4 to **Delete** the Basic HTTP Service from BIG-IP A
 
    |image2_19|
 
-#. Like Modification, the deletion of the Service happens to the REST endpoint
-   of the Service itself. When we created the Service, we made a Declarative 
-   instantiation to build all the objects. The BIG-IP then handled the operation of 
-   creating all the objects requested in the correct order. For Deletion 
-   we request the Delete operation and the BIG-IP processes all the removal of the 
-   linked objects (ASO's) in the correct order too. This is crucial to 
-   Application Lifecycle Management as it provides the mechanism to make sure 
-   all parts of the Service are deleted without leaving behind unneeded items. 
-   Note there is no JSON body to a Delete call as the HTTP Method is defining the Action. 
-   Verify on the BIP-IP either by the REST call in Step 1 or by checking the 
-   GUI iApps > Application Services.
+#. Like modification, the deletion of a service happens to specific REST
+   endpoint. When we created the service we defined a Declarative
+   state to the BIG-IP, the BIG-IP then handled the operation of
+   creating all objects requested in the correct order. With a deletion
+   request, the BIG-IP will processes the removal of all linked objects (ASO's)
+   also in the correct order. This is crucial to Application Lifecycle Management,
+   as it provides the mechanism to make sure all parts of the service are
+   deleted successfully.
 
-   |image2_10|
+   .. NOTE:: There is no JSON body to a Delete call, as the HTTP Method is defining the action.
+
+   Verify on BIP-IP A either by repeating Task 1 Step 1, or by checking in the
+   GUI under iApps > Application Services.
+
+   - **GUI**:
 
    |image2_20|
+
+   - **REST**:
+
+   |image2_10|
 
 Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRule
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 5 Deploy the HTTP Service with Custom Profiles and an iRule on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 5 to deploy an HTTP Service with Custom Profiles and an iRule to BIG-IP A
 
    |image2_21|
 
-#. Review the JSON body, in this task we created a new Service, but it's different
-   from the original one created earlier. The App Service Integration iApp
-   contains the mechanisms within itself to Create items, and reference items
-   via a URL path. This new Service we created also created some new profiles
-   for us (Protocol, Compression, HTTP and OneConnect). We have also attached a
-   new iRule to the Virtual Server, which did not previously exist on the BIG-IP. 
-   It was fetched during the instantiation of the Service from the GitHub Repository 
-   that is housing our Lab.
+#. Review the JSON body, in this task we created a new service, but it's different
+   from the one created earlier. The App Services Integration iApp contains
+   the mechanisms within itself to **create** items, and reference items
+   via a **URL** path. This new service we created **also** created some custom
+   profiles (Protocol, Compression, HTTP and OneConnect). We then attached an
+   iRule to the Virtual Server, which did not previously exist on the BIG-IP.
+   The iRule was fetched during the instantiation of the service from the
+   GitHub Repository of this lab.
 
    - Created Profiles:
 
@@ -138,13 +157,13 @@ Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRu
 
      |image2_23|
 
-   - GUI of iRule applied to Virtual Server
+   - GUI of iRule applied to Virtual Server:
 
      |image2_24|
 
-#. Try and connect to the VIP at ``http://10.1.20.120``. The iRule that was attached 
-   to the Service contains an HTTP RESPOND, typically used for Maintenance Page
-   solutions. This can be used instead of having to configure each of the backend 
+#. Try and connect to the service at ``http://10.1.20.120``. The iRule that was attached
+   to the service contains an HTTP RESPOND, typically used for a Maintenance Page
+   solution. This can be used instead of having to configure each of the backend
    service Nodes.
 
    |image2_25|
@@ -152,51 +171,53 @@ Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRu
 Task 6 - Deploy an HTTPS Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 6 Deploy the HTTPS Service on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 6 to deploy an HTTPS Service to BIG-IP A
 
    |image2_26|
 
-#. Because iApps are a Declarative Interface, we can modify the whole deployment
-   without the need to Destroy it. This also means we can re-name objects, `if`
-   we needed too. In the above call we Declared a new state of the Service.
-   We requested that it continue to use the Created Profiles, but we removed
-   the iRule, and we had the BIG-IP fetch some SSL objects (Certs, Key and Chain).
-   Because we are moving to an SSL Service, we've also changed the Listener Port to
-   443 and applied the needed Client SSL Profile.
+#. Because iApps are a declarative interface, we can modify the whole deployment
+   without the need to destroy it (this also means we can re-name objects, **if**
+   we needed too). We requested our service continue to use the custom profiles,
+   but we removed the iRule and we had the BIG-IP fetch some SSL objects
+   (Certs, Key and Chain). Our HTTP service was moved to an HTTPS service,
+   so we've changed the service port to 443 and applied the needed Client SSL Profile.
 
    |image2_27|
 
-#. In the BIG-IP GUI, the Virtual Server has changed and the App Services Integration
-   iApp has created a Port 80 > 443 remap, as well as the 443 VIP.
+#. In the BIG-IP GUI, the Virtual Server has changed, the App Services Integration
+   iApp has created a Port 80 > 443 remap, as well as configured our defined 443 port.
 
    |image2_28|
 
-#. The configuration of the VIP now uses our new SSL Client profile, meaning this VIP 
-   is providing SSL Offload for the backend service Node.
+#. The configuration of the Virtual Server now uses a SSL Client profile containing
+   our imported SSL objects, meaning this VIP is providing SSL Offload
+   for the backend service nodes.
 
    |image2_29|
 
-#. Try accessing the Service with ``http://10.1.20.120``. It should redirect
+#. Try accessing the service with ``http://10.1.20.120``. It should redirect
    you to ``https://10.1.20.120``.
 
-   .. NOTE:: We are using self signed certificates in the lab so an ssl warning will
-      still be shown
+   .. NOTE:: We are using self signed certificates in the lab so an ssl warning will still be shown
 
    |image2_30|
 
 Task 7 - Deploy an HTTPS Service with an ASM Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Execute Step 7 Deploy the HTTPS Service with an ASM Policy on BIG-IP A
+Perform the following steps to complete this task:
+
+#. Execute Step 7 to deploy an HTTPS Service with an ASM Policy to BIG-IP A
 
    |image2_32|
 
-#. To build on the deployment of the Service in the last Task, this deployment
-   will grab an ASM policy from our GitHub repository and apply it to the
-   Virtual Server as a Policy item. This deployment recognizes the need for
-   the Security team's Policy in our environment, and lays the ground work for
-   `Continuous Improvement` as the ASM policy needs to be updated as Code. 
-   We can deploy that right back onto the Virtual Server by reconfiguring the Service.
+#. This final deployment will build upon our service by fetching an ASM policy
+   from our GitHub repository, then apply it to the Virtual Server as a Policy
+   item. This deployment recognizes the need for a Security team's presence,
+   and lays the ground work for **Continuous Improvement**
+   as the ASM policy would be updated as Code (Infrastructure as Code).
 
    - ASM Policy URL:
 
@@ -210,9 +231,9 @@ Task 7 - Deploy an HTTPS Service with an ASM Policy
 
      |image2_33|
 
-#. From the BIG-IP A GUI we can see the Layer 7 Policy Applied to the Virtual
-   Server, and from the Application Security Manager Module we can see the applied
-   policy, which is set to Blocking mode.
+#. From the BIG-IP A GUI we can see the Layer 7 policy applied to the Virtual
+   Server. From the ASM Module section, we can see the details of the policy
+   which was dynamically fetched, applied, and set to Blocking mode.
 
    |image2_36|
 
@@ -221,7 +242,9 @@ Task 7 - Deploy an HTTPS Service with an ASM Policy
 Task 8 - Module 2 Clean Up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. In preparation for the next lab, please run Task 4 and Delete your Service.
+Perform the following steps to complete this task:
+
+#. In preparation for the next lab, please rerun Task 4 Step 1 to delete your service.
 
 .. |image2_8| image:: /_static/class1/image2_8.png
 .. |image2_9| image:: /_static/class1/image2_9.png
