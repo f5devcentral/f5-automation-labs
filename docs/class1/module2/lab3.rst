@@ -133,7 +133,7 @@ Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRu
    |image2_21|
 
 #. Review the JSON body, in this task we created a new service, but it's different
-   from the one created earlier. The App Service Integration iApp contains
+   from the one created earlier. The App Services Integration iApp contains
    the mechanisms within itself to **create** items, and reference items
    via a **URL** path. This new service we created **also** created some custom
    profiles (Protocol, Compression, HTTP and OneConnect). We then attached an
@@ -176,7 +176,7 @@ Task 6 - Deploy an HTTPS Service
 
    |image2_27|
 
-#. In the BIG-IP GUI, the Virtual Server has changed, the App Service Integration
+#. In the BIG-IP GUI, the Virtual Server has changed, the App Services Integration
    iApp has created a Port 80 > 443 remap, as well as configured our defined 443 port.
 
    |image2_28|
