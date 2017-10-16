@@ -1,5 +1,5 @@
 .. |labmodule| replace:: 1
-.. |labnum| replace:: 6
+.. |labnum| replace:: 7
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
 .. |labname| replace:: Lab\ |labdot|
@@ -24,7 +24,7 @@ a single command from the queued list before commiting.
 
 Perform the following steps to complete this task:
 
-#. Expand the ‘Lab 1.6 – Rest API Transactions’ folder in the Postman
+#. Expand the ‘Lab 1.7 – Rest API Transactions’ folder in the Postman
    collection:
 
    |image35|
