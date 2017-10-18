@@ -82,7 +82,7 @@ Perform the following steps to configure the VLAN objects/resources:
 
 #. Click the ``Send`` button to create the VLAN
 
-#. Repeat Step 1, however, this time modify the JSON body to create the
+#. **Repeat Step 1**, however, this time modify the JSON body to create the
    External VLAN using the parameters in the table above.
 
 #. Click the ``Step 2: Get VLANs`` item in the collection. Click the
@@ -113,6 +113,10 @@ Perform the following steps to configure the Self IP objects/resources:
    the Resource.  As noted above the Self IP has been assigned to the wrong 
    VLAN (intentionally)
 
+   .. NOTE:: The ``Test Results`` for this request will show a failure for the
+      ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
+      and you should continue to the next section.
+
    |image92|
 
 Modify Existing Self IP Resource
@@ -131,13 +135,13 @@ The Resource URI for the ``Self-Internal`` Self IP is
 partition and object name have been added to the Collection URI to for the
 Resource URI.  
 
-#. On the open request change the request method from ``GET`` to ``PATCH``.  
-   The ``PATCH`` method is used to modify the attributes of an existing 
-   Resource. 
+#. On the open ``Step 5: Get Self-Internal Self IP Attributes`` request 
+   change the request method from ``GET`` to ``PATCH``.  The ``PATCH`` method 
+   is used to modify the attributes of an existing Resource. 
 
    |image96|
 
-#. Copy the entire JSON *RESPONSE* the previous ``GET``
+#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request
 
    |image93|
 
@@ -148,7 +152,7 @@ Resource URI.
 
    |image94|
 
-#. In the JSON body modify the ``vlan`` attribute to ``/Common/Internal`` 
+#. In the JSON body change the ``vlan`` attribute to ``/Common/Internal`` 
    and click ``Send``:
 
    |image95|
