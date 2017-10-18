@@ -68,7 +68,7 @@ Perform the following steps to complete this task:
 #. Expand the ``Lab 1.3 - Review/Set Device Settings`` folder in the
    Postman collection
 
-#. Click the ``Step 1: Get System Global-Settings`` item. Click the ``Send``
+#. Click the ``Step 1: Get System Global-Settings`` item. Click the :guilabel:`Send`
    button and review the response body to see what the current settings
    on the device are.
 
@@ -85,7 +85,7 @@ Perform the following steps to complete this task:
 
      |image25|
 
-#. Click the ``Send`` button and review the response body. You should see
+#. Click the :guilabel:`Send` button and review the response body. You should see
    that the attributes modified above have been updated. You can also
    ``GET`` the ``global-settings`` again to verify they have been updated.
 
@@ -102,7 +102,7 @@ Task 2 - Modify DNS/NTP Settings
    ``myStringArray: [ "string0", "string1" ... "stringX" ]``
 
 Much like the previous task we can update system DNS and NTP settings by
-sending a PATCH request to the correct resource in the ‘sys’ Organizing
+sending a PATCH request to the correct resource in the ``sys`` Organizing
 Collection. The relevant Resources for this task are:
 
 .. list-table::
@@ -118,25 +118,25 @@ Collection. The relevant Resources for this task are:
 Perform the following steps to complete this task:
 
 #. Click the ``Step 3: Get System DNS Settings`` item in the collection.
-   Click ``Send`` and review the current settings
+   Click :guilabel:`Send` and review the current settings
 
 #. Click the ``Step 4: Set System DNS Settings`` item in the collection.
    Review the JSON body to verify the name server IPs ``4.2.2.2`` and
    ``8.8.8.8`` are listed. Additionally, add a search domain of ``f5.local``. 
    You will modify a JSON array for both of these attributes.
 
-#. Click the ``Send`` button and verify the requested changes were
+#. Click the :guilabel:`Send` button and verify the requested changes were
    successfully implemented
 
 #. Click the ``Step 5: Get System NTP Settings`` item in the collection.
-   Click ``Send`` and review the current settings
+   Click :guilabel:`Send` and review the current settings
 
 #. Click the ``Step 6: Set System NTP Settings`` item in the collection.
    Review the JSON body to verify the NTP servers with hostnames
    ``0.pool.ntp.org`` and ``1.pool.ntp.org`` are contained in the ``servers``
    attribute (another JSON array!)
 
-#. Click the ``Send`` button and verify the requested changes were
+#. Click the :guilabel:`Send` button and verify the requested changes were
    successfully implemented
 
 Task 3 - Update default user account passwords
@@ -158,7 +158,7 @@ Perform the following steps to change the ``root`` user password:
 
 #. Notice that we a performing a POST operation to a shared REST
    worker. Modify the JSON body to update the password to the value
-   ``newdefault`` and click the ``Send`` button.
+   ``newdefault`` and click the :guilabel:`Send` button.
 
    |image26|
 
@@ -175,7 +175,7 @@ Perform the following steps to change the **admin** user password:
 
 #. Notice that we a performing a ``PATCH`` operation to admin user
    Resource. Modify the JSON body to update the password to the value
-   ``newadmin`` and click the ``Send`` button.
+   ``newadmin`` and click the :guilabel:`Send` button.
 
    |image27|
 

@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "F5 Programmability: Class 1",
-		"_postman_id": "63d7d13a-124d-0f5a-8fdc-574b1d0effbc",
+		"_postman_id": "ac130b48-0fb2-9c61-4742-9612e6c764ea",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -33,6 +33,14 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "",
+								"password": "",
+								"showPassword": false
+							}
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -42,7 +50,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\":\"\",\n    \"password\":\"\",\n    \"loginProviderName\":\"tmos\"\n}"
+							"raw": ""
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm"
 					},

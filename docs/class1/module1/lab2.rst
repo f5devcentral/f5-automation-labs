@@ -30,8 +30,8 @@ Perform the following steps to complete this task:
    your Linux Jumphost.  The initial window may take a few moments to appear.
 
    .. NOTE:: The Postman client receives very frequent updates.  If you are
-      prompted to update the client please click the ``Remind me later`` button
-      to skip updating the version installed in your lab environment
+      prompted to update the client please click the :guilabel:`Remind me later`
+      button to skip updating the version installed in your lab environment
 
 #. By default the Postman clients requires verification of SSL/TLS Certificates
    to a public Root Certificate Authority.  By default BIG-IP, and many other,
@@ -39,7 +39,7 @@ Perform the following steps to complete this task:
    connections with Self-Signed Certificates we need to modify the default 
    settings of Postman.
 
-   - Open the Postman Settings windows by click File -> Settings:
+   - Open the Postman Settings windows by click :guilabel:`File -> Settings`:
 
      |image89|
 
@@ -50,12 +50,12 @@ Perform the following steps to complete this task:
 
    - Click the **X** in the top right of the Settings window
 
-#. Click the 'Import' button in the top left of the Postman window
+#. Click the :guilabel:`Import` button in the top left of the Postman window
 
    |image87|
 
-#. Click the 'Import from Link' tab.  Paste the following URL into the
-   text box and click 'Import'
+#. Click the :guilabel:`Import from Link` tab.  Paste the following URL into the
+   text box and click :guilabel:`Import`
 
    .. parsed-literal:: 
 
@@ -68,18 +68,19 @@ Perform the following steps to complete this task:
 
    |image10|
 
-#. Import the Environment file by clicking 'Import' -> 'Import from Link' and
-   pasting the following URL and clicking 'Import':
+#. Import the Environment file by clicking 
+   :guilabel:`Import -> Import from Link` and pasting the following URL and 
+   clicking :guilabel:`Import`:
 
    .. parsed-literal:: 
 
       :raw_github_url:`/postman_collections/Class_1.postman_environment.json`
 
 #. To assist in multi-step procedures we make heavy use of the
-   ‘Environments’ capability in Postman. This capability allows us to
+   **Environments** capability in Postman. This capability allows us to
    set various global variables that are then substituted into a
    request before it’s sent. Set your environment to
-   ‘F5 Programmability: Class 1’ by using the menu at the top right
+   ``F5 Programmability: Class 1`` by using the menu at the top right
    of your Postman window:
 
    |image9|
@@ -103,35 +104,35 @@ TRIVIAL; as a result API calls should always be performed using HTTPS encryption
 
 Perform the following steps to complete this task:
 
-#. Click the ‘Collections’ tab on the left side of the screen, expand
-   the ‘F5 Programmability: Class 1’ collection on the left side
+#. Click the :guilabel:`Collections` tab on the left side of the screen, expand
+   the ``F5 Programmability: Class 1`` collection on the left side
    of the screen, expand the 
    ``Lab 1.2 - API Authentication & 'example' Templates`` folder:
 
    |image10|
 
 #. Click the ``Step 1: HTTP BASIC Authentication`` item. Click the
-   ``Authorization`` tab and select ``Basic Auth`` as the Type. Fill in
-   the username and password (``admin/admin``) and click the ``Update
-   Request`` button:
+   :guilabel:`Authorization` tab and select ``Basic Auth`` as the Type. Fill in
+   the username and password (``admin/admin``) and click the :guilabel:`Send` 
+   button:
 
    |image11|
 
 #. Notice that the number of Headers in the Headers tab changed from ``1`` 
    to ``2``. This is because Postman automatically created the HTTP header 
-   and updated your request to include it.  Click the ‘Headers’ tab and 
-   examine the HTTP header:
+   and updated your request to include it.  Click the :guilabel:`Headers` tab 
+   and examine the HTTP header:
 
    |image91|
 
-#. Click the ``Send`` button to send the request. If the request succeeds
-   you should be presented with a listing of the ``/mgmt/tm/ltm``
+#. Click the :guilabel:`Send` button to send the request. If the request 
+   succeeds you should be presented with a listing of the ``/mgmt/tm/ltm``
    Organizing Collection:
 
    |image105|
 
-#. Check the ``Test Results`` tab and ensure all the tests for this request
-   have passed:
+#. Check the :guilabel:`Test Results` tab and ensure all the tests for this
+   request have passed:
 
    |image106|
 
@@ -140,14 +141,14 @@ Perform the following steps to complete this task:
 
    |image12|
 
-#. Check the ``Test Results`` tab and notice that our *Unit Tests* for this 
-   request are now failing (as expected):
+#. Check the :guilabel:`Test Results` tab and notice that our *Unit Tests* for 
+   this request are now failing (as expected):
 
    |image107|
 
 
 .. IMPORTANT:: As you progress through this lab be sure to check the 
-   ``Test Results`` tab.  We have included *Unit Tests* where applicable
+   :guilabel:`Test Results` tab.  We have included *Unit Tests* where applicable
    to help you verify the requests being sent are succeeding.  If you notice
    a test has failed please double check your input or ask for help.
 
@@ -184,13 +185,13 @@ Perform the following steps to complete this task:
 
    |image13|
 
-#. Click the ``Body`` tab and examine the JSON that we will send to
+#. Click the :guilabel:`Body` tab and examine the JSON that we will send to
    BIG-IP to provide credentials and the authentication provider:
 
    |image14|
 
 #. Modify the JSON body and add the required credentials (``admin/admin``).
-   Then click the ``Send`` button.
+   Then click the :guilabel:`Send` button.
 
 #. Examine the response status code. If authentication succeeded and
    a token was generated the response will have a ``200 OK`` status code.
@@ -212,20 +213,20 @@ Perform the following steps to complete this task:
    |image17|
 
 #. Click the ``Step 3: Verify Authentication Works`` item in the Lab
-   1.2 Postman collection. Click the ``Headers`` tab and paste the
+   1.2 Postman collection. Click the :guilabel:`Headers` tab and paste the
    token value copied above as the VALUE for the ``X-F5-Auth-Token``
    header. This header is required to be sent on all requests when
    using token based authentication.
 
    |image18|
 
-#. Click the ``Send`` button. If your request is successful you should
+#. Click the :guilabel:`Send` button. If your request is successful you should
    see a ``200 OK`` status and a listing of the ``ltm`` Organizing
    Collection.
 
 #. We will now update your Postman environment to use this auth token
    for the remainder of the lab. Click the Environment menu in the
-   top right of the Postman window and click ``Manage Environments``:
+   top right of the Postman window and click :guilabel:`Manage Environments`:
 
    |image19|
 
@@ -238,7 +239,7 @@ Perform the following steps to complete this task:
 
    |image21|
 
-#. Click the ``Update`` button and then close the ``Manage Environments``
+#. Click the ``Update`` button and then close the :guilabel:`Manage Environments`
    window. Your subsequent requests will now automatically include
    the token.
 
@@ -246,7 +247,7 @@ Perform the following steps to complete this task:
    Lab 1.2 Postman collection. This request will ``PATCH`` your token
    Resource (check the URI) and update the timeout attribute so we
    can complete the lab easily. Examine the request type and JSON
-   Body and then click the ``Send`` button. Verify that the timeout has
+   Body and then click the :guilabel:`Send` button. Verify that the timeout has
    been changed to ``36000`` in the response:
 
    |image22|
@@ -269,7 +270,7 @@ Perform the following steps:
 
    |image23|
 
-#. Click ``Send`` and examine the FULL response. You will see
+#. Click :guilabel:`Send` and examine the FULL response. You will see
    descriptions and then all the attributes for the *Pool* resource
    type. The response also shows the default values for the attributes
    if applicable:

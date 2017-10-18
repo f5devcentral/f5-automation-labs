@@ -38,14 +38,14 @@ Task 1 - Open and Run a Collection
 #. Click the ``Lab 1.5 - Building Imperative Workflows`` folder to expand it
 
 #. Click the ``Step 1: Get BIG-IP Software Version`` request.  Click the
-   ``Tests`` tab and examine the Javascript code and comments:
+   :guilabel:`Tests` tab and examine the Javascript code and comments:
 
    |image100|
 
    The Javascript code in the Test script will populate an environment variable
    based on the response from the BIG-IP system.
 
-#. Click the ``Runner`` button at the top right of your Postman window:
+#. Click the :guilabel:`Runner` button at the top right of your Postman window:
 
    |image97|
 
@@ -59,7 +59,7 @@ Task 1 - Open and Run a Collection
 
    |image102|
 
-#. Click the ``Run Lab 1.5 - Buil...`` button
+#. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
 #. The results window will now populate.  You will see each request in the 
    folder is sent and it's associated test results are displayed on the screen.

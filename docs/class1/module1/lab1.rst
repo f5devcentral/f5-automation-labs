@@ -32,15 +32,15 @@ all the correct attributes already populated.
 
    |image1|
 
-#. Navigate to the URL https://10.1.1.10/mgmt/toc (or click the BIG-IP A
-   REST TOC bookmark). The ‘/mgmt/toc’ path in the URL is available on
+#. Navigate to the URL ``https://10.1.1.10/mgmt/toc`` (or click the BIG-IP A
+   REST TOC bookmark). The ``/mgmt/toc`` path in the URL is available on
    all TMOS versions 11.6 or newer.
 
 #. Authenticate to the interface using the default credentials (``admin/admin``)
 
 #. You will now be presented with a top-level list of various REST
    resources. At the top of the page there is a search box
-   |image2|\ that can be used to find items on the page. Type ‘net’ in
+   |image2|\ that can be used to find items on the page. Type ``net`` in
    the search box and then click on the ‘net’ link under iControl REST
    Resources: 
 

@@ -80,15 +80,14 @@ Perform the following steps to configure the VLAN objects/resources:
    JSON body; the values for creating the Internal VLAN have already
    been populated.
 
-#. Click the ``Send`` button to create the VLAN
+#. Click the :guilabel:`Send` button to create the VLAN
 
 #. **Repeat Step 1**, however, this time modify the JSON body to create the
    External VLAN using the parameters in the table above.
 
 #. Click the ``Step 2: Get VLANs`` item in the collection. Click the
-   ``Send`` button to ``GET`` the VLAN collection. Examine the response to
-   make sure both VLANs have been created.
-
+   :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response 
+   to make sure both VLANs have been created.
 
 Task 2 - Create Self IPs
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,14 +102,14 @@ Perform the following steps to configure the Self IP objects/resources:
       You will modify this value in the steps below.  Please do not change the
       value.
 
-#. Click the ``Send`` button to create the Self IP
+#. Click the :guilabel:`Send` button to create the Self IP
 
 #. Click the ``Step 4: Create External Self IP`` item in the collection and
-   click ``Send`` 
+   click :guilabel:`Send` 
 
 #. Click the ``Step 5: Get Self-Internal Self IP Attributes`` item in the
-   collection and click the ``Send`` button.     Examine the VLAN settings of 
-   the Resource.  As noted above the Self IP has been assigned to the wrong 
+   collection and click the :guilabel:`Send` button.  Examine the VLAN settings 
+   of the Resource.  As noted above the Self IP has been assigned to the wrong 
    VLAN (intentionally)
 
    .. NOTE:: The ``Test Results`` for this request will show a failure for the
