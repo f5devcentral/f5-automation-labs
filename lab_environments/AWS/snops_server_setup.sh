@@ -27,10 +27,12 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 apt-get update
 apt-get install -y docker-ce
 
-# Start the f5-demo-app container
-docker run -d -p 80:80 --rm f5devcentral/f5-demo-app:AWS
+# Start the f5-demo-httpd container
+echo "#!/bin/sh -e" > /etc/rc.local
+echo "docker run -d -p 80:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF0000 -e F5DEMO_NODENAME='Red' f5devcentral/f5-demo-httpd" >> /etc/rc.local
+echo "docker run -d -p 8000:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF8000 -e F5DEMO_NODENAME='Orange' f5devcentral/f5-demo-httpd" >> /etc/rc.local
+echo "docker run -d -p 8001:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=A0A0A0 -e F5DEMO_NODENAME='Gray' f5devcentral/f5-demo-httpd" >> /etc/rc.local
+echo "docker run -d -p 8002:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=33FF33 -e F5DEMO_NODENAME='Green' f5devcentral/f5-demo-httpd" >> /etc/rc.local
+echo "docker run -d -p 8003:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=3333FF -e F5DEMO_NODENAME='Blue' f5devcentral/f5-demo-httpd" >> /etc/rc.local
 
-docker run -d -p 8000:80 --rm f5devcentral/f5-demo-app:AWS
-docker run -d -p 8001:80 --rm f5devcentral/f5-demo-app:AWS
-docker run -d -p 8002:80 --rm f5devcentral/f5-demo-app:AWS
-docker run -d -p 8003:80 --rm f5devcentral/f5-demo-app:AWS
+sh /etc/rc.local

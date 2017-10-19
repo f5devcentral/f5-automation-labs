@@ -32,6 +32,14 @@ sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 apt-get -y update
 apt-get -y install google-chrome-stable
 
+# Disable SSH Host Key Checking for hosts in the lab
+echo "" >> /etc/ssh/ssh_config
+echo "Host 10.1.*.*" >> /etc/ssh/ssh_config
+echo "   StrictHostKeyChecking no" >> /etc/ssh/ssh_config
+echo "   UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
+echo "   LogLevel ERROR" >> /etc/ssh/ssh_config
+echo "" >> /etc/ssh/ssh_config
+
 # Setup Desktop icons
 mkdir /home/ubuntu/Desktop
 
@@ -43,7 +51,6 @@ chmod +x /home/ubuntu/Desktop/Terminal.desktop
 
 sh -c 'echo "[Desktop Entry]\nVersion=1.0\nName=Root Terminal\nComment=Open Terminal\nExec=sudo mate-terminal\nIcon=utilities-terminal\nType=Application\nCategories=System;GTK;Utility;TerminalEmulator;\n" > /home/ubuntu/Desktop/RootTerminal.desktop'
 chmod +x /home/ubuntu/Desktop/RootTerminal.desktop
-
 
 #Install Postman and add the desktop icon
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz

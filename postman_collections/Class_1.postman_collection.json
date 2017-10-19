@@ -3525,7 +3525,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.100:8000\",\"10.1.10.100:8001\"]\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool"
 					},
