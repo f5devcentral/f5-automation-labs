@@ -91,6 +91,9 @@ components:
         **Internal (Float):** 10.1.10.13
         
         **External:** 10.1.20.10
+
+        **External (VIPs):** 10.1.20.120-130
+
       - admin/admin
 
         root/default
@@ -101,6 +104,9 @@ components:
         **Internal (Float):** 10.1.10.13
         
         **External:** 10.1.20.11
+
+        **External (VIPs):** 10.1.20.120-130
+
       - admin/admin
 
         root/default

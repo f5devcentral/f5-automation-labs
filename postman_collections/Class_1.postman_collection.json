@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "F5 Programmability: Class 1",
-		"_postman_id": "58f6f74d-fbcf-82c5-e40b-3f53f88a5716",
+		"_postman_id": "15319d7b-0ef2-3686-080d-cabf910df090",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -3400,117 +3400,25 @@
 			"name": "Lab 1.7 - Build a Basic LTM Config using Transactions",
 			"item": [
 				{
-					"name": "Step 1: Create a HTTP Monitor",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 2: Create a Pool",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_pool\",\n    \"monitor\":\"/Common/Lab1.6_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 3: Create a HTTP Profile",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_http\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"Lab_1.6\"\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/http"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 4: Create a TCP Profile",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_tcp_clientside\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/profile/tcp"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 5: Create a Virtual Server",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.6_vs\",\n    \"destination\":\"10.1.20.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.6_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.6_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.6_http\"\n    ]\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual"
-					},
-					"response": []
-				},
-				{
 					"name": "Step 1: Create a Transaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var populate_vars = [",
+									"        {name:\"bigip_transaction_id\", value:\"transId\"}",
+									"    ];",
+									"    ",
+									"f5_populate_env_vars(populate_vars);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3525,7 +3433,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n}"
+							"raw": "{\n\t\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction"
 					},
@@ -3533,6 +3441,26 @@
 				},
 				{
 					"name": "Step 2: Add To Transaction: Create a HTTP Monitor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"1\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3559,6 +3487,26 @@
 				},
 				{
 					"name": "Step 3: Add to Transaction: Create a Pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"2\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3577,7 +3525,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.10:80\",\"10.1.10.11:80\"]\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_pool\",\n    \"monitor\":\"/Common/Lab1.7_monitor\",\n    \"members\": [\"10.1.10.100:80\",\"10.1.10.101:80\"]\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/pool"
 					},
@@ -3585,6 +3533,26 @@
 				},
 				{
 					"name": "Step 4: Add to Transaction: Create a HTTP Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"3\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3611,6 +3579,26 @@
 				},
 				{
 					"name": "Step 5: Add to Transaction: Create a TCP Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"4\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3637,6 +3625,26 @@
 				},
 				{
 					"name": "Step 6: Add to Transaction: Create a Virtual Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"5\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -3655,14 +3663,35 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_vs\",\n    \"destination\":\"10.1.20.130:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.7_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.7_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.7_http\"\n    ]\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_vs\",\n    \"destination\":\"10.1.20.120:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.7_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.7_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.7_http\"\n    ]\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/virtual"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 7: View the Transaction queue",
+					"name": "Step 7: View the Transaction Queue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"items\",",
+									"            \"value\":\"5\",",
+									"            \"op\":\"length\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3684,7 +3713,27 @@
 					"response": []
 				},
 				{
-					"name": "Step 8: View queued command 4 from Transaction",
+					"name": "Step 8: View Queued Command 4 from Transaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"4\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3706,7 +3755,27 @@
 					"response": []
 				},
 				{
-					"name": "Step 9: Change Eval Order 4 ->1",
+					"name": "Step 9: Change Eval Order 4 -> 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"evalOrder\",",
+									"            \"value\":\"1\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -3728,7 +3797,32 @@
 					"response": []
 				},
 				{
-					"name": "Step 10: View the Transaction queue changes",
+					"name": "Step 10: View the Transaction Queue Changes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"items\",",
+									"            \"value\":\"5\",",
+									"            \"op\":\"length\"",
+									"        },",
+									"        {",
+									"            \"path\":\"items.0.uri\",",
+									"            \"value\":\"https://localhost/mgmt/tm/ltm/profile/tcp\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3751,6 +3845,26 @@
 				},
 				{
 					"name": "Step 11: Commit the Transaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"kind\",",
+									"            \"value\":\"tm:transactionstate\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -3766,6 +3880,48 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"state\":\"VALIDATING\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Step 12: View the Transaction Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"state\",",
+									"            \"value\":\"COMPLETED\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/transaction/{{bigip_transaction_id}}"
 					},
