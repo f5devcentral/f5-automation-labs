@@ -2,7 +2,8 @@
 	"variables": [],
 	"info": {
 		"name": "F5 Programmability: Class 1",
-		"_postman_id": "ac130b48-0fb2-9c61-4742-9612e6c764ea",
+		"_postman_id": "58f6f74d-fbcf-82c5-e40b-3f53f88a5716",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -1367,29 +1368,64 @@
 			"name": "Lab 1.6 - Build a Cluster",
 			"item": [
 				{
-					"name": "Step 1: Rename the CMI Self Device",
+					"name": "[BIGIP A] Retrieve Authentication Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var populate_vars = [",
+									"        {name:\"bigip_a_auth_token\", value:\"token.token\"}",
+									"    ];",
+									"    ",
+									"f5_populate_env_vars(populate_vars);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"command\":\"mv\",\n    \"name\":\"bigip1\",\n    \"target\":\"bigip-a.f5.local\"\n}"
+							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"{{bigip_admin_password}}\",\n    \"loginProviderName\":\"tmos\"\n}"
 						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device"
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authn/login"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 2: Set BIGIP-A CMI Device Parameters",
+					"name": "[BIGIP A] Set Authentication Token Timeout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"timeout\", ",
+									"            \"value\":\"36000\" ",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -1404,14 +1440,144 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.1\",\n  \"mirrorIp\": \"10.1.10.1\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.1\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.1\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n    \"timeout\":\"36000\"\n}"
 						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device/~Common~bigip-a.f5.local"
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authz/tokens/{{bigip_a_auth_token}}"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 3: Set BIGIP-B CMI Device Parameters",
+					"name": "[Global] Create Shared JSON Objects",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									"",
+									"// DNS",
+									"postman.setEnvironmentVariable('_rt_dns_servers', JSON.stringify(environment.bigip_dns_servers.split(',')));",
+									"postman.setEnvironmentVariable('_rt_dns_search', JSON.stringify(environment.bigip_dns_search.split(',')));",
+									"",
+									"// NTP",
+									"postman.setEnvironmentVariable('_rt_ntp_servers', JSON.stringify(environment.bigip_ntp_servers.split(',')));",
+									"",
+									"//BIGIP A Network",
+									"var net_internal = environment.bigip_net_internal.split(',');",
+									"var net_external = environment.bigip_net_external.split(',');",
+									"",
+									"var ip_internal = environment.bigip_net_internal_ips.split(',');",
+									"var ip_external = environment.bigip_net_external_ips.split(',');",
+									"",
+									"postman.setEnvironmentVariable('_rt_internal_int', net_internal[0]);",
+									"postman.setEnvironmentVariable('_rt_internal_tagstate', net_internal[1]);",
+									"postman.setEnvironmentVariable('_rt_internal_tag', net_internal[2]);",
+									"",
+									"postman.setEnvironmentVariable('_rt_external_int', net_external[0]);",
+									"postman.setEnvironmentVariable('_rt_external_tagstate', net_external[1]);",
+									"postman.setEnvironmentVariable('_rt_external_tag', net_external[2]);",
+									"",
+									"postman.setEnvironmentVariable('_rt_a_internal_ip', ip_internal[0]);",
+									"postman.setEnvironmentVariable('_rt_a_internal_hostip', ip_internal[0].split('/')[0]);",
+									"postman.setEnvironmentVariable('_rt_internal_floatip', ip_internal[2]);",
+									"postman.setEnvironmentVariable('_rt_a_external_ip', ip_external[0]);",
+									"",
+									"",
+									"postman.setEnvironmentVariable('_rt_b_internal_ip', ip_internal[1]);",
+									"postman.setEnvironmentVariable('_rt_b_internal_hostip', ip_internal[1].split('/')[0]);",
+									"postman.setEnvironmentVariable('_rt_b_external_ip', ip_external[1]);",
+									"",
+									"",
+									"console.log(\"dns_servers=\" + environment._rt_dns_servers);",
+									"console.log(\"dns_search=\" + environment._rt_dns_search);",
+									"console.log(\"ntp_servers=\" + environment._rt_ntp_servers);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/echo"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Retrieve Authentication Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var populate_vars = [",
+									"        {name:\"bigip_b_auth_token\", value:\"token.token\"}",
+									"    ];",
+									"    ",
+									"f5_populate_env_vars(populate_vars);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin\",\n    \"password\":\"{{bigip_admin_password}}\",\n    \"loginProviderName\":\"tmos\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/shared/authn/login"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set Authentication Token Timeout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"timeout\", ",
+									"            \"value\":\"36000\" ",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -1420,20 +1586,105 @@
 								"value": "application/json"
 							},
 							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4="
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"configsyncIp\": \"10.1.10.2\",\n  \"mirrorIp\": \"10.1.10.2\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"10.1.10.2\",\n      \"effectivePort\": 1026,\n      \"ip\": \"10.1.10.2\",\n      \"port\": 1026\n    }\n  ]\n}"
+							"raw": "{\n    \"timeout\":\"36000\"\n}"
 						},
-						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/device/~Common~bigip-b.f5.local"
+						"url": "https://{{bigip_b_mgmt}}/mgmt/shared/authz/tokens/{{bigip_b_auth_token}}"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 4: Add BIGIP-B Device to CMI Trust on BIGIP-A",
+					"name": "[BIGIP A] Check License State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"licensedDateTime\",",
+									"            \"value\":\"/.*/i\",",
+									"            \"op\":\"regex\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"",
+									"var resp = f5_parse_json_resp();",
+									"",
+									"if(!(\"licensedDateTime\" in resp)) {",
+									"    postman.setNextRequest(\"[BIGIP A] License Device\");",
+									"} else {",
+									"    postman.setNextRequest(\"[BIGIP B] Check License State\");",
+									"}",
+									"",
+									"f5_disable_poller();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/shared/licensing/registration"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] License Device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"commandResult\",",
+									"            \"value\":\"/New license installed/i\",",
+									"            \"op\":\"regex\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"commandResult\",",
+									"            \"value\":\"/successfully loaded/i\",",
+									"            \"op\":\"regex\"",
+									"        }         ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"[BIGIP B] Check License State\");"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1448,36 +1699,1028 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{bigip_b_mgmt}}\",\n    \"deviceName\":\"bigip-b.f5.local\",\n    \"username\":\"admin\",\n    \"password\":\"admin\"\n}"
+							"raw": "{\n  \"command\":\"run\",\n  \"utilCmdArgs\":\"-c 'SOAPLicenseClient --basekey \\\"{{bigip_a_regkey}}\\\" --addkey \\\"{{bigip_a_addonkey}}\\\" --verbose'\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/util/bash"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Check License State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"licensedDateTime\",",
+									"            \"value\":\"/.*/i\",",
+									"            \"op\":\"regex\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"",
+									"var resp = f5_parse_json_resp();",
+									"",
+									"if(!(\"licensedDateTime\" in resp)) {",
+									"    postman.setNextRequest(\"[BIGIP B] License Device\");",
+									"} else {",
+									"    postman.setNextRequest(\"[BIGIP A] Check Root User Enabled\");",
+									"}",
+									"",
+									"f5_disable_poller();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/shared/licensing/registration"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] License Device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"commandResult\",",
+									"            \"value\":\"/New license installed/i\",",
+									"            \"op\":\"regex\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"commandResult\",",
+									"            \"value\":\"/successfully loaded/i\",",
+									"            \"op\":\"regex\"",
+									"        }         ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"[BIGIP A] Check Root User Enabled\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"command\":\"run\",\n  \"utilCmdArgs\":\"-c 'SOAPLicenseClient --basekey \\\"{{bigip_b_regkey}}\\\" --addkey \\\"{{bigip_b_addonkey}}\\\" --verbose'\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/util/bash"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Check Root User Enabled",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"systemauth.disablerootlogin\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"",
+									"var resp = f5_parse_json_resp();",
+									"",
+									"if(resp.value == 'true') {",
+									"    postman.setNextRequest(\"[BIGIP A] Set admin User Password\");",
+									"} else {",
+									"    postman.setNextRequest(\"[BIGIP A] Set root User Password\");",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/db/systemauth.disablerootlogin"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Set root User Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\":\"default\",\n    \"newPassword\":\"{{bigip_root_password}}\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/authn/root"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Set admin User Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"admin\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"{{bigip_admin_password}}\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/auth/user/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Set System Global-Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"hostname\",",
+									"            \"value\":environment.bigip_a_hostname",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"guiSetup\": \"disabled\",\n  \"hostname\": \"{{bigip_a_hostname}}\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/global-settings"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Set System DNS Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"nameServers\",",
+									"            \"value\":JSON.parse(environment._rt_dns_servers).length,",
+									"            \"op\":\"length\",",
+									"            \"optional\":true            ",
+									"        },",
+									"        { ",
+									"            \"path\":\"search\",",
+									"            \"value\":JSON.parse(environment._rt_dns_search).length,",
+									"            \"op\":\"length\"",
+									"        }        ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nameServers\": {{_rt_dns_servers}},\n  \"search\": {{_rt_dns_search}}\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/dns"
+					},
+					"response": []
+				},
+				{
+					"name": " [BIGIP A] Set System NTP Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"servers\",",
+									"            \"value\":JSON.parse(environment._rt_ntp_servers).length,",
+									"            \"op\":\"length\",",
+									"            \"optional\":true            ",
+									"        },",
+									"        { ",
+									"            \"path\":\"timezone\",",
+									"            \"value\":environment.bigip_timezone",
+									"        }        ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"servers\": {{_rt_ntp_servers}},\n  \"timezone\": \"{{bigip_timezone}}\"\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/ntp"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Check Root User Enabled",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"systemauth.disablerootlogin\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"",
+									"var resp = f5_parse_json_resp();",
+									"",
+									"if(resp.value == 'true') {",
+									"    postman.setNextRequest(\"[BIGIP B] Set admin User Password\");",
+									"} else {",
+									"    postman.setNextRequest(\"[BIGIP B] Set root User Password\");",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/sys/db/systemauth.disablerootlogin"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set root User Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\":\"default\",\n    \"newPassword\":\"{{bigip_root_password}}\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/shared/authn/root"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set admin User Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"admin\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"{{bigip_admin_password}}\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/auth/user/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set System Global-Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"hostname\",",
+									"            \"value\":environment.bigip_b_hostname",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"guiSetup\": \"disabled\",\n  \"hostname\": \"{{bigip_b_hostname}}\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/sys/global-settings"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set System DNS Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"nameServers\",",
+									"            \"value\":JSON.parse(environment._rt_dns_servers).length,",
+									"            \"op\":\"length\",",
+									"            \"optional\":true            ",
+									"        },",
+									"        { ",
+									"            \"path\":\"search\",",
+									"            \"value\":JSON.parse(environment._rt_dns_search).length,",
+									"            \"op\":\"length\"",
+									"        }        ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nameServers\": {{_rt_dns_servers}},\n  \"search\": {{_rt_dns_search}}\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/sys/dns"
+					},
+					"response": []
+				},
+				{
+					"name": " [BIGIP B] Set System NTP Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"servers\",",
+									"            \"value\":JSON.parse(environment._rt_ntp_servers).length,",
+									"            \"op\":\"length\",",
+									"            \"optional\":true            ",
+									"        },",
+									"        { ",
+									"            \"path\":\"timezone\",",
+									"            \"value\":environment.bigip_timezone",
+									"        }        ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"servers\": {{_rt_ntp_servers}},\n  \"timezone\": \"{{bigip_timezone}}\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/sys/ntp"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Create Internal VLAN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Internal\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Internal\",\n  \"partition\": \"Common\",\n  \"autoLasthop\": \"default\",\n  \"cmpHash\": \"default\",\n  \"mtu\": \"1500\",\n  \"tag\": \"{{_rt_internal_tag}}\",\n  \"interfaces\": \n    [ \n        {\n            \"name\":\"{{_rt_internal_int}}\",\n            \"tagged\":{{_rt_internal_tagstate}}\n        }\n    ]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/net/vlan/"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Create External VLAN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"External\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"External\",\n  \"partition\": \"Common\",\n  \"autoLasthop\": \"default\",\n  \"cmpHash\": \"default\",\n  \"mtu\": \"1500\",\n  \"tag\": \"{{_rt_external_tag}}\",\n  \"interfaces\": \n    [ \n        {\n            \"name\":\"{{_rt_external_int}}\",\n            \"tagged\":{{_rt_external_tagstate}}\n        }\n    ]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/net/vlan/"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Create Internal Self IP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Self-Internal\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Self-Internal\",\n   \"partition\": \"Common\",\n   \"address\": \"{{_rt_b_internal_ip}}\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/net/self/"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Create External Self IP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Self-External\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Self-External\",\n   \"partition\": \"Common\",\n   \"address\": \"{{_rt_b_external_ip}}\",\n   \"floating\": \"disabled\",\n   \"trafficGroup\": \"/Common/traffic-group-local-only\",\n   \"vlan\": \"/Common/External\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/net/self/"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Create Default Route",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Default\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Default\",\n  \"partition\": \"Common\",\n  \"gw\": \"{{bigip_net_defaultgw}}\",\n  \"mtu\": 0,\n  \"network\": \"0.0.0.0/0\"\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/net/route"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Set CMI Device Parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":environment.bigip_a_hostname",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"configsyncIp\": \"{{_rt_a_internal_hostip}}\",\n  \"mirrorIp\": \"{{_rt_a_internal_hostip}}\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"{{_rt_a_internal_hostip}}\",\n      \"effectivePort\": 1026,\n      \"ip\": \"{{_rt_a_internal_hostip}}\",\n      \"port\": 1026\n    }\n  ]\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device/~Common~{{bigip_a_hostname}}"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Set CMI Device Parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":environment.bigip_b_hostname",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"configsyncIp\": \"{{_rt_b_internal_hostip}}\",\n  \"mirrorIp\": \"{{_rt_b_internal_hostip}}\",\n  \"mirrorSecondaryIp\": \"any6\",\n  \"unicastAddress\": [\n    {\n      \"effectiveIp\": \"{{_rt_b_internal_hostip}}\",\n      \"effectivePort\": 1026,\n      \"ip\": \"{{_rt_b_internal_hostip}}\",\n      \"port\": 1026\n    }\n  ]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/device/~Common~{{bigip_b_hostname}}"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Add BIGIP-B Device to CMI Trust",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Root\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"command\":\"run\",\n    \"name\":\"Root\",\n    \"caDevice\":true,\n    \"device\":\"{{bigip_b_mgmt}}\",\n    \"deviceName\":\"{{bigip_b_hostname}}\",\n    \"username\":\"admin\",\n    \"password\":\"{{bigip_admin_password}}\"\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/add-to-trust"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 5: Check Sync Group Status",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
+					"name": "[BIGIP A] Initial Sync of device_trust_group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"options.0.to-group\",",
+									"            \"value\":\"device_trust_group\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"",
+									"f5_sleep(10000);"
+								]
 							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/syncStatus"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 6: Create Device Group",
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1492,14 +2735,84 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"DeviceGroup1\",\n    \"type\":\"sync-failover\",\n    \"autoSync\":\"enabled\",\n    \"devices\": [ \"bigip-a.f5.local\",\"bigip-b.f5.local\" ]\n}"
+							"raw": "{\n    \"command\":\"run\",\n    \"options\":[{\n    \t\"to-group\":\"device_trust_group\",\n    \t\"force-full-load-push\": true\n    }]\n}"
 						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device-group"
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/config-sync"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 7: Check Sync Group Status",
+					"name": "[BIGIP A] Initial Sync of datasync-global-dg",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"options.0.to-group\",",
+									"            \"value\":\"datasync-global-dg\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"command\":\"run\",\n    \"options\":[{\n    \t\"to-group\":\"datasync-global-dg\",\n    \t\"force-full-load-push\": true\n    }]\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/config-sync"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Verify Initial Sync Completed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.color.description\",",
+									"            \"value\":\"green\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.status.description\",",
+									"            \"value\":\"In Sync\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"[BIGIP A] Create Device Group\");"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1521,7 +2834,71 @@
 					"response": []
 				},
 				{
-					"name": "Step 8: Manually Sync DeviceGroup1",
+					"name": "[BIGIP A] Create Device Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"DeviceGroup1\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DeviceGroup1\",\n    \"type\":\"sync-failover\",\n    \"autoSync\":\"enabled\",\n    \"devices\": [ \"{{bigip_a_hostname}}\",\"{{bigip_b_hostname}}\" ]\n}"
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/device-group"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP A] Initial Sync of DeviceGroup1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"options.0.to-group\",",
+									"            \"value\":\"DeviceGroup1\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1543,7 +2920,38 @@
 					"response": []
 				},
 				{
-					"name": "Step 9: Check Sync Group Status",
+					"name": "[BIGIP A] Check Sync Group Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.color.description\",",
+									"            \"value\":\"green\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.mode.description\",",
+									"            \"value\":\"high-availability\"",
+									"        },        ",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.status.description\",",
+									"            \"value\":\"In Sync\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"[BIGIP A] Change Traffic Group to use HA Order Failover\");"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1565,29 +2973,33 @@
 					"response": []
 				},
 				{
-					"name": "Step 10: Get Traffic Group Properties",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
+					"name": "[BIGIP A] Change Traffic Group to use HA Order Failover",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"traffic-group-1\"",
+									"        },",
+									"        {",
+									"            \"path\":\"haOrder\",",
+									"            \"value\":\"2\",",
+									"            \"op\":\"length\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
 							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 11: Change Traffic Group to use HA Order Failover",
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -1602,14 +3014,56 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"haOrder\": [\n    \"/Common/bigip-a.f5.local\",\n    \"/Common/bigip-b.f5.local\"\n  ]\n}"
+							"raw": "{\n  \"haOrder\": [\n    \"/Common/{{bigip_a_hostname}}\",\n    \"/Common/{{bigip_b_hostname}}\"\n  ]\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/traffic-group/traffic-group-1"
 					},
 					"response": []
 				},
 				{
-					"name": "Step 12: Get Traffic Group Failover States",
+					"name": "[BIGIP A] Get Traffic Group Failover States",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var cmiBaseUri = \"https://localhost/mgmt/tm/cm/traffic-group/traffic-group-1/~Common~traffic-group-1:~Common~\";",
+									"var cmiAUri = cmiBaseUri + environment.bigip_a_hostname.replace(/\\./g,'\\\\.') + \"/stats\"",
+									"var cmiBUri = cmiBaseUri + environment.bigip_b_hostname.replace(/\\./g,'\\\\.') + \"/stats\"",
+									"",
+									"var populate_vars = [",
+									"        { ",
+									"            \"name\":\"_rt_bigip_a_failoverstate\",",
+									"            \"value\":\"entries.\" + cmiAUri + \".nestedStats.entries.failoverState.description\"",
+									"        },",
+									"        { ",
+									"            \"name\":\"_rt_bigip_b_failoverstate\",",
+									"            \"value\":\"entries.\" + cmiBUri + \".nestedStats.entries.failoverState.description\"",
+									"        }       ",
+									"    ];",
+									"    ",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"entries.\" + cmiAUri + \".nestedStats.entries.trafficGroup.description\",",
+									"            \"value\":\"/Common/traffic-group-1\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"entries.\" + cmiBUri + \".nestedStats.entries.trafficGroup.description\",",
+									"            \"value\":\"/Common/traffic-group-1\"",
+									"        }       ",
+									"    ];",
+									"",
+									"f5_populate_env_vars(populate_vars);",
+									"f5_check_response(check_vals);",
+									"",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1631,7 +3085,28 @@
 					"response": []
 				},
 				{
-					"name": "Step 13A: BIGIP-A is ACTIVE: Manually Failover Traffic Group",
+					"name": "[BIGIP B] Failover Traffic Group to BIGIP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"trafficGroup\",",
+									"            \"value\":\"traffic-group-1\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1641,29 +3116,7 @@
 							},
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"command\":\"run\",\n    \"trafficGroup\":\"traffic-group-1\",\n    \"standby\":true\n}"
-						},
-						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/failover"
-					},
-					"response": []
-				},
-				{
-					"name": "Step 13B: BIGIP-B is ACTIVE: Manually Failover Traffic Group copy",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46YWRtaW4="
+								"value": "{{bigip_b_auth_token}}"
 							}
 						],
 						"body": {
@@ -1675,7 +3128,39 @@
 					"response": []
 				},
 				{
-					"name": "Step 14: Get Traffic Group Failover States",
+					"name": "[BIGIP A] Verify Traffic Group Failover States",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var cmiBaseUri = \"https://localhost/mgmt/tm/cm/traffic-group/traffic-group-1/~Common~traffic-group-1:~Common~\";",
+									"var cmiAUri = cmiBaseUri + environment.bigip_a_hostname.replace(/\\./g,'\\\\.') + \"/stats\"",
+									"var cmiBUri = cmiBaseUri + environment.bigip_b_hostname.replace(/\\./g,'\\\\.') + \"/stats\"",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"entries.\" + cmiAUri + \".nestedStats.entries.failoverState.description\",",
+									"            \"value\":\"active\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"entries.\" + cmiBUri + \".nestedStats.entries.failoverState.description\",",
+									"            \"value\":\"standby\"",
+									"        }       ",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"[BIGIP A] Create Internal Floating Self IP\");",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1697,7 +3182,28 @@
 					"response": []
 				},
 				{
-					"name": " Step 15: Create a Floating Self IP",
+					"name": "[BIGIP A] Create Internal Floating Self IP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"name\",",
+									"            \"value\":\"Self-Internal-Floating\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1712,49 +3218,179 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"name\": \"Self-Internal-Floating\",\n   \"partition\": \"Common\",\n   \"address\": \"10.1.10.3/24\",\n   \"floating\": \"enabled\",\n   \"trafficGroup\": \"/Common/traffic-group-1\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
+							"raw": "{\n   \"name\": \"Self-Internal-Floating\",\n   \"partition\": \"Common\",\n   \"address\": \"{{_rt_internal_floatip}}\",\n   \"floating\": \"enabled\",\n   \"trafficGroup\": \"/Common/traffic-group-1\",\n   \"vlan\": \"/Common/Internal\",\n   \"allowService\": [\n     \"default\"\n   ]\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self/"
 					},
 					"response": []
 				},
 				{
-					"name": " Step 16: Get Self IPs",
+					"name": "[BIGIP A] Verify Sync Group Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_enable_poller();",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.color.description\",",
+									"            \"value\":\"green\"",
+									"        },",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.mode.description\",",
+									"            \"value\":\"high-availability\"",
+									"        },        ",
+									"        { ",
+									"            \"path\":\"entries.https://localhost/mgmt/tm/cm/sync-status/0.nestedStats.entries.status.description\",",
+									"            \"value\":\"In Sync\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									"f5_poll_until_all_tests_pass(\"Cleanup Environment\");"
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
 							{
-								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
-							},
-							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\n}"
+							"raw": ""
 						},
-						"url": {
-							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/net/self?expandSubcollections=true",
-							"protocol": "https",
-							"host": [
-								"{{bigip_a_mgmt}}"
-							],
-							"path": [
-								"mgmt",
-								"tm",
-								"net",
-								"self"
-							],
-							"query": [
-								{
-									"key": "expandSubcollections",
-									"value": "true"
-								}
-							]
+						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/cm/syncStatus"
+					},
+					"response": []
+				},
+				{
+					"name": "Cleanup Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response();",
+									"postman.setNextRequest(null);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"//f5_clear_runtime_vars(true);",
+									""
+								]
+							}
 						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "https://{{bigip_a_mgmt}}/mgmt/shared/echo"
+					},
+					"response": []
+				},
+				{
+					"name": "_F5_POLL_DELAY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"f5_poll_next();",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{_f5_poll_apiurl}}/{{_f5_poll_wait}}"
+					},
+					"response": []
+				},
+				{
+					"name": "[BIGIP B] Initial Sync of datasync-global-dg",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"options.0.from-group\",",
+									"            \"value\":\"datasync-global-dg\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{bigip_b_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"command\":\"run\",\n    \"options\":[{\n    \t\"from-group\":\"datasync-global-dg\"\n    }]\n}"
+						},
+						"url": "https://{{bigip_b_mgmt}}/mgmt/tm/cm/config-sync"
 					},
 					"response": []
 				}
