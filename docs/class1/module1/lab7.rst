@@ -8,59 +8,17 @@
 Lab |labmodule|\.\ |labnum|\: Build a Basic LTM Config using REST Transactions
 ------------------------------------------------------------------------------
 
-.. TODO:: Text below was cut/paste from old lab 1.6
-
-
--  Object types and their attributes
-
-   -  How many different objects/profiles/options do we have?
-
--  Order of operations
-
-   -  Monitor before pool before profiles before virtual servers, etc.
-
-   -  What about L7 use cases like WAF?
-
-      -  WAF Policy -> HTTP Policy -> Virtual Server
-
--  How does this all get deleted?
-
-   -  You have to reverse the order of operations and ‘undo’ the whole
-      config
-
-      -  TMOS has lots of issues here
-
-As a result of this it’s recommended for customers to use Imperative
-automation only for legacy environments. New environments should shift
-to a Declarative model.
-
-Task 1 - Build a Basic LTM Config
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Perform the following steps to complete this task:
-
-#. Expand the "Lab 1.6 - Build a Basic LTM Config" folder in the Postman
-   collection
-
-#. Click each Step in the folder and ‘Send’ the request. Verify each
-   component is created on the BIG-IP device using the GUI.
-
-#. After the steps are completed you should be able to connect to
-   http://10.1.20.129 in your browser.
-
-
-.. TODO:: Text above was cut/paste from old lab 1.6
+In this lab we will build a basic LTM Config using |icr| Transactions.
 
 Task 1 - Create a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab we will build a basic LTM Config using |icr| Transactions.
 Transactions are very useful in cases where you would want discrete REST
-operations to act as a batch operation. As a result the nature of a
+operations to act as a batch operation. As a result, the nature of a
 transaction is that either all the operations succeed or none of them
-do. This is very useful when creating a configuration that is linked
-together because it allows the roll back of operations in case one
-fails.  All the commands issued are queued one after the other in the 
+do (all-or-nothing). This is very useful when creating a configuration 
+that is linked together because it allows the roll back of operations in 
+case one fails.  All the commands issued are queued one after the other in the 
 transaction. We will also review how to change the order of a queued 
 command or remove a single command from the queued list before commiting.
 
