@@ -5,49 +5,58 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Deploying iApp templates on BIG-IP
+Lab |labmodule|\.\ |labnum|\: Deploying iApp Templates on BIG-IP
 ----------------------------------------------------------------
 
-iApps typically come in the form of a .tmpl file, which contains the content
+iApps typically come in the form of a ``.tmpl`` file, which contains the content
 needed for the BIG-IP to utilize it as a Service framework.
-Different toolkits will install iApp's or their content in different ways,
-we'll be using REST in a raw form, so the contents of the file is what
-we need. However, this means that the contents of the iApp must be URL encoded to
-make sure the BIG-IP reads it correctly. When using other tools like Ansible, the
-whole .tmpl file can be uploaded, removing the need for encoding.
+Different toolkits will install iApps in different ways, we'll be using the
+REST API in a raw form, so the contents of the file are what
+we need. As a resultwe need to ensure that the contents of the iApp are URL 
+encoded to make sure the BIG-IP reads the payload correctly. When using other 
+tools like Ansible, the whole ``.tmpl`` file can be uploaded, removing the need 
+for encoding.
 
-.. NOTE:: This lab work will be performed from ``Lab 2.2`` in the Postman Collection
+.. NOTE:: This lab work will be performed from 
+   ``Lab 2.2 - Deploying iApp Templates on BIG-IP`` folder in the Postman 
+   Collection
 
 |image2_7|
 
-Task 1 - View iApps Installed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - View Installed iApp Templates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Execute Step 1 to view installed iApps
+#. :guilabel:`Send` the ``Step 1: Get Installed iApp Templates`` request to view 
+   iApp templates installed on the BIG-IP device:
 
    |image2_3|
 
-#. Review the JSON response. In this task we have requested a list of installed
-   iApps from the BIG-IP.
-
-   .. NOTE:: These are default iApps installed on the BIG-IP
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows a 
+   iApp templates that are installed by default on the BIG-IP device:
 
    |image2_4|
 
-Task 2 - Install the App Services Integration iApp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 2 - Install the App Services iApp Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Execute Step 2 to install the App Services Integration iApp
+#. :guilabel:`Send` the ``Step 2: Install App Svcs v2.0.004 iApp Template`` 
+   request to install the iApp template:
 
    |image2_5|
 
-#. Review the JSON body that was sent, and the JSON body that responded.
-   In this task we installed the App_Svc's iApp and the BIG-IP
-   sent back a response that the iApp was installed with its name.
+#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON 
+   :guilabel:`Body`.  In this task we installed the App Services iApp Template 
+   and the BIG-IP sent back a response that the iApp was installed with its 
+   object name.
+
+   .. NOTE:: The JSON body in the **Request** portion is automatically generated
+      as part of the build process for the App Services iApp and the request 
+      in the Postman Collection was copied from a pre-built collection that 
+      ships with releases of the App Services iApp template.
 
    |image2_38|
 
