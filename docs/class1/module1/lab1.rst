@@ -16,11 +16,11 @@ to TMOS. This utility is useful for understanding how TMOS objects map
 to the REST API. The interfaces implement full Create, Read, Update and
 Delete (CRUD) functionality, however, in most practical use cases it’s
 far easier to use this interface as a ‘Read’ tool rather than trying to
-Create objects directly from it. You can use TMUI or TMSH to create the 
-object as needed and then use this tool to view the created object with 
+Create objects directly from it. You can use TMUI or TMSH to create the
+object as needed and then use this tool to view the created object with
 all the correct attributes already populated.
 
-.. NOTE:: This guide may require you to Copy/Paste information from the 
+.. NOTE:: This guide may require you to Copy/Paste information from the
    guide to your jumphost.  To make this easier you can open a copy of the
    guide by using the **Lab Guide** bookmark in Chrome.
 
@@ -42,7 +42,7 @@ all the correct attributes already populated.
    resources. At the top of the page there is a search box
    |image2|\ that can be used to find items on the page. Type ``net`` in
    the search box and then click on the ‘net’ link under iControl REST
-   Resources: 
+   Resources:
 
    |image3|
 
@@ -59,8 +59,8 @@ all the correct attributes already populated.
 
    |image7|
 
-.. NOTE:: If you would like to learn more about the |icr| be sure to read 
-   the **Demystifying iControl REST** article series at 
+.. NOTE:: If you would like to learn more about the |icr| be sure to read
+   the **Demystifying iControl REST** article series at
    https://devcentral.f5.com/wiki/icontrolrest.homepage.ashx
 
 .. |image1| image:: /_static/class1/image001.png
