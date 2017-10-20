@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: Deploying iApp templates on BIG-IP
 iApps typically come in the form of a .tmpl file, which contains the content
 needed for the BIG-IP to utilize it as a Service framework.
 Different toolkits will install iApp's or their content in different ways,
-we'll be using REST in its raw form, so the contents of the file is all
+we'll be using REST in a raw form, so the contents of the file is what
 we need. However, this means that the contents of the iApp must be URL encoded to
 make sure the BIG-IP reads it correctly. When using other tools like Ansible, the
 whole .tmpl file can be uploaded, removing the need for encoding.

@@ -14,8 +14,9 @@ Task 1 - Overview of Mechanisms to install iApps
 The BIG-IP has multiple ways to ingest an iApp onto its platform, including
 TMOS Shell (TMSH), the GUI, and the REST Interface. All different mechanisms
 are valid, and if needed can be used in conjunction with each other.
-For instance, installing an iApp from the GUI and then deploying
-a new service via REST, or another Orchestration Engine, like Postman or Ansible.
+For example, a consumer could install an iApp from the GUI and then deploy
+a new service via REST, or with another Orchestration Engine,
+like Postman or Ansible.
 
 .. NOTE:: Redeployment of iApp templates makes use of an underlying mechanism in
    the BIG-IP platform that allows safe changes to the configuration without
