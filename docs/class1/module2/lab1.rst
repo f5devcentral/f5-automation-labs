@@ -13,7 +13,7 @@ Task 1 - Overview of Mechanisms to install iApps
 
 The BIG-IP has multiple ways to ingest an iApp onto its platform, including
 TMOS Shell (TMSH), the GUI, and the REST Interface. All different mechanisms
-are valid and, if needed, can be used in conjunction with each other.
+are valid, and if needed can be used in conjunction with each other.
 For instance, installing an iApp from the GUI and then deploying
 a new service via REST, or another Orchestration Engine, like Postman or Ansible.
 
@@ -22,7 +22,7 @@ a new service via REST, or another Orchestration Engine, like Postman or Ansible
    interrupting existing user traffic.
 
 F5 iApps were introduced in TMOS Version 11, they can interact within, and across
-different F5 Modules. Once an iApp is installed, a `Service` is
+different F5 Modules. Once an iApp is installed, a **Service** can be
 created using the iApp as the Service's template structure.
 
 Some examples of what we can use iApps to configure:

@@ -10,14 +10,14 @@ Lab |labmodule|\.\ |labnum|\: REST API Authentication & ‘example’ Templates
 
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
-iWorkflow support two types of authentication: **HTTP BASIC** and 
+iWorkflow support two types of authentication: **HTTP BASIC** and
 **Token Based (TBA)**. It’s important to understand both of these authentication
 mechanisms, as consumers of the API will often make use of both types
 depending on the use case. This lab will demonstrate how to interact
 with both types of authentication.
 
 Throughout this and other classes in the series we will make use of the Postman
-REST API Client.  You can find more information about Postman at 
+REST API Client.  You can find more information about Postman at
 https://getpostman.com
 
 Task 1 - Import the Postman Collection & Environment
@@ -36,14 +36,14 @@ Perform the following steps to complete this task:
 #. By default the Postman clients requires verification of SSL/TLS Certificates
    to a public Root Certificate Authority.  By default BIG-IP, and many other,
    devices use a Self-Signed Certificate for SSL/TLS connections.  To allow
-   connections with Self-Signed Certificates we need to modify the default 
+   connections with Self-Signed Certificates we need to modify the default
    settings of Postman.
 
    - Open the Postman Settings windows by click :guilabel:`File -> Settings`:
 
      |image89|
 
-   - Verify your client is configured to allow self-signed certificates by 
+   - Verify your client is configured to allow self-signed certificates by
      setting ``SSL certificate verification`` to ``OFF``
 
      |image90|
@@ -57,7 +57,7 @@ Perform the following steps to complete this task:
 #. Click the :guilabel:`Import from Link` tab.  Paste the following URL into the
    text box and click :guilabel:`Import`
 
-   .. parsed-literal:: 
+   .. parsed-literal::
 
       :raw_github_url:`/postman_collections/Class_1.postman_collection.json`
 
@@ -68,11 +68,11 @@ Perform the following steps to complete this task:
 
    |image10|
 
-#. Import the Environment file by clicking 
-   :guilabel:`Import -> Import from Link` and pasting the following URL and 
+#. Import the Environment file by clicking
+   :guilabel:`Import -> Import from Link` and pasting the following URL and
    clicking :guilabel:`Import`:
 
-   .. parsed-literal:: 
+   .. parsed-literal::
 
       :raw_github_url:`/postman_collections/Class_1.postman_environment.json`
 
@@ -106,27 +106,27 @@ Perform the following steps to complete this task:
 
 #. Click the :guilabel:`Collections` tab on the left side of the screen, expand
    the ``F5 Programmability: Class 1`` collection on the left side
-   of the screen, expand the 
+   of the screen, expand the
    ``Lab 1.2 - API Authentication & 'example' Templates`` folder:
 
    |image10|
 
 #. Click the ``Step 1: HTTP BASIC Authentication`` item. Click the
    :guilabel:`Authorization` tab and select ``Basic Auth`` as the Type. Fill in
-   the username and password (``admin/admin``) and click the :guilabel:`Send` 
+   the username and password (``admin/admin``) and click the :guilabel:`Send`
    button:
 
    |image11|
 
-#. Notice that the number of Headers in the Headers tab changed from ``1`` 
-   to ``2``. This is because Postman automatically created the HTTP header 
-   and updated your request to include it.  Click the :guilabel:`Headers` tab 
+#. Notice that the number of Headers in the Headers tab changed from ``1``
+   to ``2``. This is because Postman automatically created the HTTP header
+   and updated your request to include it.  Click the :guilabel:`Headers` tab
    and examine the HTTP header:
 
    |image91|
 
-#. Click the :guilabel:`Send` button to send the request. If the request 
-   succeeds you should be presented with a listing of the ``/mgmt/tm/ltm``
+#. Check the :guilabel:`Body` tab, if the request succeeded you should
+   be presented with a listing of the ``/mgmt/tm/ltm``
    Organizing Collection:
 
    |image105|
@@ -141,13 +141,13 @@ Perform the following steps to complete this task:
 
    |image12|
 
-#. Check the :guilabel:`Test Results` tab and notice that our *Unit Tests* for 
+#. Check the :guilabel:`Test Results` tab and notice that our *Unit Tests* for
    this request are now failing (as expected):
 
    |image107|
 
 
-.. IMPORTANT:: As you progress through this lab be sure to check the 
+.. IMPORTANT:: As you progress through this lab be sure to check the
    :guilabel:`Test Results` tab.  We have included *Unit Tests* where applicable
    to help you verify the requests being sent are succeeding.  If you notice
    a test has failed please double check your input or ask for help.
@@ -164,7 +164,7 @@ with a unique token for that session and the consumer then uses that
 token for all subsequent requests. BIG-IP and iWorkflow support
 token-based authentication that drops down to the underlying
 authentication subsystems available in TMOS. As a result the system can
-be configured to support external authentication providers (Active Directory, 
+be configured to support external authentication providers (Active Directory,
 RADIUS, TACACS, etc) and those authentication methods can flow through to
 the REST API. In this task we will demonstrate TBA using the local
 authentication database, however, authentication to external providers

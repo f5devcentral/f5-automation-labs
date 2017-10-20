@@ -8,9 +8,9 @@
 Lab |labmodule|\.\ |labnum|\: Deploying iApp templates on BIG-IP
 ----------------------------------------------------------------
 
-iApps typically come in the form of a .tmpl file, which contains content defining
-how to consume the iApp on the BIG-IP; iApps can come with or without a presentation pane.
-Different toolkits will upload the file or its contents in different ways,
+iApps typically come in the form of a .tmpl file, which contains the content
+needed for the BIG-IP to utilize it as a Service framework.
+Different toolkits will install iApp's or their content in different ways,
 we'll be using REST in its raw form, so the contents of the file is all
 we need. However, this means that the contents of the iApp must be URL encoded to
 make sure the BIG-IP reads it correctly. When using other tools like Ansible, the
@@ -25,13 +25,14 @@ Task 1 - View iApps Installed
 
 Perform the following steps to complete this task:
 
-#. Execute Step 1 to view installed iApps on the BIG-IP
+#. Execute Step 1 to view installed iApps
 
    |image2_3|
 
 #. Review the JSON response. In this task we have requested a list of installed
-   iApps from the BIG-IP. Note, there are currently some default iApps installed which
-   come pre-installed on the BIG-IP.
+   iApps from the BIG-IP.
+
+   .. NOTE:: These are default iApps installed on the BIG-IP
 
    |image2_4|
 
