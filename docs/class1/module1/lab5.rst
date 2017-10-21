@@ -8,20 +8,20 @@
 Lab |labmodule|\.\ |labnum|\: Building Imperative Workflows with Postman Collections
 ------------------------------------------------------------------------------------
 
-As you have seen in the previous lab's we can use the Collections and Folders 
-features of the Postman client to group REST requests logically.  Additionally, 
+As you have seen in the previous lab's we can use the Collections and Folders
+features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a
-sequence of REST request to achieve some outcome. 
+sequence of REST request to achieve some outcome.
 
-In this lab we will use a feature in Postman called the **Collection Runner 
-(Runner)** to execute a sequence of REST requests.  Using the Runner we can 
+In this lab we will use a feature in Postman called the **Collection Runner
+(Runner)** to execute a sequence of REST requests.  Using the Runner we can
 rapidly prototype REST requests into an **Imperative Workflow** that can be
 executed without user intervention.
 
 The purpose of this exercise is to provide a example of how new workflows can
 be built from scratch or existing workflows can be modified.
 
-Additionally, we will use some Postman Javascript Tests to programatically 
+Additionally, we will use some Postman Javascript Tests to programmatically 
 populate environment variables with the output of our workflow.
 
 Task 1 - Open and Run a Collection
@@ -49,7 +49,7 @@ Task 1 - Open and Run a Collection
 
    |image97|
 
-#. Select the ``F5 Programmability: Class 1`` Collection then the 
+#. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
@@ -61,9 +61,9 @@ Task 1 - Open and Run a Collection
 
 #. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
-#. The results window will now populate.  You will see each request in the 
+#. The results window will now populate.  You will see each request in the
    folder is sent and it's associated test results are displayed on the screen.
-   The last request in the folder includes some Javascript code to dump the 
+   The last request in the folder includes some Javascript code to dump the
    results to the screen:
 
    |image103|
@@ -74,16 +74,16 @@ Task 1 - Open and Run a Collection
 
    |image104|
 
-In this lab we demonstrated running a simple Imperative Workflow using the 
-Postman Collection Runner.  In subsequent labs we will expand on this simple 
-use case to perform more complex functions.  As you continue through the labs 
-be sure to take time to explore the details of the requests being sent.  The 
-Postman Collection used in this class can also serve as a starting point for 
+In this lab we demonstrated running a simple Imperative Workflow using the
+Postman Collection Runner.  In subsequent labs we will expand on this simple
+use case to perform more complex functions.  As you continue through the labs
+be sure to take time to explore the details of the requests being sent.  The
+Postman Collection used in this class can also serve as a starting point for
 building your own collections or modifying existing ones.
 
 As we move through the rest of this module you will see the complexity involved
 in building Imperative Workflows.  While these types of workflows are incredibly
-powerful, they are also time consuming to build from scratch.  As we move into 
+powerful, they are also time consuming to build from scratch.  As we move into
 Module 2 you will see the importance of leveraging **Abstraction**
 and **Declarative Interfaces** to minimize the amount of time spent building
 Imperative Workflows.
@@ -96,4 +96,4 @@ Imperative Workflows.
 .. |image102| image:: /_static/class1/image102.png
 .. |image103| image:: /_static/class1/image103.png
    :scale: 65%
-.. |image104| image:: /_static/class1/image104.png   
+.. |image104| image:: /_static/class1/image104.png

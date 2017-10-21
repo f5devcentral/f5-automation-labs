@@ -16,17 +16,17 @@ Task 1 - Create a Transaction
 Transactions are very useful in cases where you would want discrete REST
 operations to act as a batch operation. As a result, the nature of a
 transaction is that either all the operations succeed or none of them
-do (all-or-nothing). This is very useful when creating a configuration 
-that is linked together because it allows the roll back of operations in 
-case one fails.  All the commands issued are queued one after the other in the 
-transaction. We will also review how to change the order of a queued 
-command or remove a single command from the queued list before commiting.
+do (all-or-nothing). This is very useful when creating a configuration
+that is linked together because it allows the roll back of operations in
+case one fails.  All the commands issued are queued one after the other in the
+transaction. We will also review how to change the order of a queued
+command or remove a single command from the queued list before committing.
 
-.. NOTE:: Transactions are essential to ensure that an Imperative process is 
-   **Atomic** in nature. 
+.. NOTE:: Transactions are essential to ensure that an Imperative process is
+   **Atomic** in nature.
 
-.. WARNING:: Transactions have a default timeout of 120 seconds.  Taking 
-   longer then the timeout to execute the transaction will result in its 
+.. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
+   longer then the timeout to execute the transaction will result in its
    automatic deletion.  To avoid having to redo the steps in this task
    please read the steps below first and then execute each one in a timely
    manner.
@@ -45,23 +45,23 @@ Perform the following steps to complete this task:
    |image36|
 
 #. Click the :guilabel:`Send` button to send the request. Examine the response
-   and find the ``transId`` attribute.  Additionally notice that there are 
-   timeouts for both the submission of the transaction and how long it should 
-   take to execute. Be aware that after the ``timeoutSeconds`` value, this 
+   and find the ``transId`` attribute.  Additionally notice that there are
+   timeouts for both the submission of the transaction and how long it should
+   take to execute. Be aware that after the ``timeoutSeconds`` value, this
    ``transId`` will be silently removed:
 
    |image37|
 
-   The ``transId`` value has been automatically populated for you in the 
+   The ``transId`` value has been automatically populated for you in the
    ``bigip_transaction_id`` environment variable:
 
    |image38|
 
 #. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` item
    in the Postman collection. This request is the same as a
-   non-transaction enabled request in terms of the ``POST`` request method, URI 
-   and JSON body. The difference is we add a ``X-F5-REST-Coordination-Id`` 
-   header with a value of the ``transId`` attribute to add it to the 
+   non-transaction enabled request in terms of the ``POST`` request method, URI
+   and JSON body. The difference is we add a ``X-F5-REST-Coordination-Id``
+   header with a value of the ``transId`` attribute to add it to the
    transaction:
 
    |image39|
@@ -78,7 +78,7 @@ Task 2 - Modify a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the ``Step 8: View Queued Command 4 from Transaction`` item in the
-   folder. Examine the request method and URI. We will ``GET`` command number 
+   folder. Examine the request method and URI. We will ``GET`` command number
    **4** from the transaction queue.
 
    |image76|
@@ -95,12 +95,12 @@ Task 2 - Modify a Transaction
       system assumes you want to **ADD** an entry in the transaction
       queue. You **MUST** remove this header if you want to issue
       transaction queue changes (like deleting an entry from the
-      queue, changing the order, commiting a transaction). If you
+      queue, changing the order, committing a transaction). If you
       don't remove the header, the system will respond with a ``400``
       HTTP error code with the following error text:
 
       ``"message": "Transaction XXXXX operation .... is not allowed
-      to be added to transaction."``      
+      to be added to transaction."``
 
    |image77|
 
@@ -123,7 +123,7 @@ Task 3 - Commit a Transaction
    check for this.
 
 #. Click the ``Step 12: View the Transaction Status`` item in the folder and
-   click the :guilabel:`Send` button.  Verify that the ``state`` of the 
+   click the :guilabel:`Send` button.  Verify that the ``state`` of the
    transaction is ``COMPLETED``
 
 #. You can verify the configuration was created on the BIG-IP device via the
@@ -140,4 +140,3 @@ Task 3 - Commit a Transaction
 .. |image40| image:: /_static/class1/image040.png
 .. |image76| image:: /_static/class1/image076.png
 .. |image77| image:: /_static/class1/image077.png
-
