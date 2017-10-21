@@ -27,7 +27,7 @@ In this task you will Import a Postman Collection & Environment for this lab.
 Perform the following steps to complete this task:
 
 #. Open the Postman tool by clicking the |image8| icon of the desktop of
-   your Linux Jumphost.  The initial window may take a few moments to appear.
+   your Linux Jumphost.  **The initial window may take a few moments to appear.**
 
    .. NOTE:: The Postman client receives very frequent updates.  If you are
       prompted to update the client please click the :guilabel:`Remind me later`

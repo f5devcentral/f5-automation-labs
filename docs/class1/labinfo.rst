@@ -26,6 +26,13 @@ ways:
 
 All pre-built environments implement the :ref:`lab-topology` shown below.
 
+F5 Unified Demo Framework (UDF)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Click the link below to see details on how to connect to the UDF environment.
+
+:ref:`udf-lab-environment-guide`
+
 Ravello Blueprint
 ^^^^^^^^^^^^^^^^^
 

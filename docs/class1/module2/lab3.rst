@@ -5,18 +5,20 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Deploy iApp Services using the REST API
----------------------------------------------------------------------
+Lab |labmodule|\.\ |labnum|\: Create iApp Deployments using the REST API
+------------------------------------------------------------------------
 
-Now that the App Services Integration iApp is installed, we
-can deploy a new service. The service in this lab will go through
-different iterations, we'll start with **Creating** a Basic HTTP Service, show
-**Modifying** the service by changing the node state, and then **Delete** the
-whole service. Once we've seen this first **Mutation** we'll introduce some more
+Now that the App Services iApp template is installed, we can deploy a new 
+Layer 4-7 Service. The service in this lab will go through different iterations, 
+we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
+service by changing the node state, and then **Delete** the whole service. 
+Once we've seen this first **Mutation** we'll introduce some more
 complex deployments options with iRules, Custom Profiles, Certificates,
 and an ASM Policy.
 
-.. NOTE:: This lab work will be performed from ``Lab 2.3`` in the Postman Collection
+.. NOTE:: This lab work will be performed from 
+   ``Lab 2.3 - Create iApp Deployments using the REST API`` folder in the 
+   Postman Collection
 
 |image2_8|
 
@@ -25,12 +27,13 @@ Task 1 - View Deployed Services
 
 Perform the following steps to complete this task:
 
-#. Execute Step 1 to show any services deployed
+#. :guilabel:`Send` the ``Step 1: Get Deployed iApp Services`` 
+   request to view current iApp deployments on the BIG-IP device:
 
    |image2_9|
 
-#. Review the JSON response. In this task, we have requested a list of deployed
-   services from the BIG-IP, it has responded empty as nothing is installed yet.
+#. Review the JSON Response :guilabel:`Body`.  The BIG-IP device does not have
+   any iApp deployments.  As a result the ``items`` array is empty (``[]``):
 
    |image2_10|
 
@@ -39,39 +42,49 @@ Task 2 - Deploy Basic HTTP Service
 
 Perform the following steps to complete this task:
 
-#. Execute Step 2 to **Create** the Basic HTTP Service
+#. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to 
+   **Create** a Basic HTTP Service:
 
    |image2_11|
 
-#. Review the JSON body that was sent, and the JSON body that responded.
-   In this task, we deployed our first service. From the sent JSON body
-   we can see the variables we inserted into the iApp template.
+#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON 
+   :guilabel:`Body`.  In this task, we deployed our first service. From the 
+   sent JSON body we can see the input we sent to the iApp template to drive
+   the deployment of the service:
 
-   .. NOTE:: We've just progressed into a **Declarative** instantiation, by defining the end state and letting the BIG-IP handle the order of operations and configuration
+   .. NOTE:: We've just progressed into a **Declarative** instantiation, by 
+      defining the end state and letting the BIG-IP handle the order of 
+      operations and configuration of the specific objects.  By doing this we
+      have drastically reduced the **Domain Specific Knowledge** requirement
+      to interact with the device.  In the next module we will combine this
+      concept with **Abstraction** to further simplify the interface.
 
    |image2_12|
 
-#. Now that the service is deployed, let's look on the BIG-IP for the configuration.
-   You can either repeat Task 1 Step 1 of this Lab and view via REST, or you can
-   login to the BIG-IP A GUI and see the service deployed.
+#. Now that the service has been deployed, let's review the BIG-IP configuration.
+   You can review via REST by sending the ``Step 1: Get Deployed iApp Services`` 
+   request again, or you can login to the BIG-IP A GUI and see the service
+   deployment via TMUI:
 
-   - **GUI**:
+   - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
-   |image2_13|
+     |image2_14|
 
-   - **REST**:
+   - **GUI**: :guilabel:`iApps -> Application Services -> Applications`
 
-   |image2_14|
+     |image2_13|
 
-#. From the GUI, examine the Virtual Server that was created from this deployment.
-   It's simple, but it does contain all the needed pieces to create an
-   active HTTP service (HTTP profile, VIP address, and a Pool with
-   members in an Active state).
+
+#. From the TMUI GUI, examine the Virtual Server that was created from 
+   this deployment by clicking :guilabel:`Local Traffic -> Virtual Servers ->
+   Virtual Server List -> Demo_vs`.  The configuration is simple, but it 
+   does contain the key components for an HTTP service (Listener, HTTP Profile
+   Pool, Monitor and Pool Members):
 
    |image2_15|
 
-#. The service is available and active, you can go to the VIP address of
-   ``http://10.1.20.121`` and see its response.
+#. The service is available and active, you can connect to the Virtual Server
+   using Chrome at ``http://10.1.20.121`` and examine its response:
 
    |image2_31|
 
@@ -80,22 +93,24 @@ Task 3 - Modify our Deployed Service
 
 Perform the following steps to complete this task:
 
-#. Execute Step 3 to **Modify** the Basic HTTP Service
+#. :guilabel:`Send` the ``Step 3: Modify Service - HTTP`` request to 
+   **Modify** the previously deployed Basic HTTP Service:
 
    |image2_16|
 
-#. Review the sent JSON body and how we specified a specific REST endpoint.
-   In the last two tasks we viewed and deployed services against a Collection.
-   Modifying or "Reconfiguring" a service is handled by sending **only** the
-   updated JSON to the specific Resource (our service).
-   What we sent was the new values for all our pool members to "disabled",
-   which forces the service offline.
+#. Review the **Request** URL and JSON :guilabel:`Body`.  Notice that we 
+   specified **Resource** URL for our deployment.  Modifying or *Redeploying* 
+   a service is handled by sending **only** the updated JSON to the specific 
+   Resource (our service) using a ``PUT`` request method.  We set the state 
+   of the pool members to ``disabled`` which forces the service offline:
 
    |image2_17|
 
-#. In the BIG-IP GUI after the service is modified we can view the new state of
-   the Pool Members, reflecting the state we declared in our call. The VIP
-   is no longer passing traffic at ``http://10.1.20.121``
+#. In the BIG-IP GUI click :guilabel:`Local Traffic -> Network Map` to view the
+   new state of the Pool Members (Black indicators reflect the disabled state).
+   The state has been updated to reflect the state we declared in our call. 
+   The Virtual Server is no longer passing traffic at ``http://10.1.20.121`` 
+   because all the Members in the Pool are disabled:
 
    |image2_18|
 
@@ -104,66 +119,81 @@ Task 4 - Delete our Deployed Service
 
 Perform the following steps to complete this task:
 
-#. Execute Step 4 to **Delete** the Basic HTTP Service
+#. :guilabel:`Send` the ``Step 4: Delete Service - HTTP`` request to 
+   **Delete** the previously deployed Basic HTTP Service:
 
    |image2_19|
 
-#. Like modification, the deletion of a service happens to a specific REST
-   endpoint. When we created the service we defined a Declarative
-   state to the BIG-IP, the BIG-IP then handled the operation of
-   creating all objects in the correct order. With a deletion
-   request, the BIG-IP will processes the removal of all linked objects (ASO's)
-   in the correct order. This is crucial to Application Lifecycle Management
-   as it provides the mechanism to make sure all parts of the service are
-   deleted successfully.
+#. Like modification, the deletion of a service is performed on the **Resource**
+   URL. When we created the service we defined a Declarative state to the 
+   iApp template.  The template then created the configuration and all the 
+   associated objects.  With a ``DELETE`` request, the BIG-IP will processes 
+   the removal of all objects linked to the ASO in the correct order. This is 
+   crucial to Application Lifecycle Management as it provides a mechanism to 
+   make sure all parts of the service are removed successfully.
 
-   .. NOTE:: There is no JSON body to a Delete call, as the HTTP Method is defining the action.
+   .. NOTE:: There is no JSON body to a ``DELETE`` call, as the HTTP Method 
+      is defining the action.
 
-   Verify the service removal on the BIP-IP by repeating Task 1 Step 1,
-   or by checking in the GUI under iApps > Application Services.
+   Now that the service has been deleted, let's review the BIG-IP configuration.
+   You can review via REST by sending the ``Step 1: Get Deployed iApp Services`` 
+   request again, or you can login to the BIG-IP A GUI and see the service
+   deployment via TMUI:
 
-   - **GUI**:
+   - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
-   |image2_20|
+     |image2_10|
 
-   - **REST**:
+   - **GUI**: :guilabel:`iApps -> Application Services -> Applications`
 
-   |image2_10|
+     |image2_20|
 
 Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRule
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Execute Step 5 to deploy an HTTP Service with Custom Profiles and an iRule
+#. :guilabel:`Send` the ``Step 5: Deploy Service - HTTP w/ iRule and 
+   Custom Profiles`` request to deploy an HTTP Service with Custom Profiles 
+   and an iRule:
 
    |image2_21|
 
-#. Review the JSON body, in this task we created a new service, but it's different
-   from the one created earlier. The App Services Integration iApp contains
-   the mechanisms within itself to **create** items, and reference items
-   via a **URL** path. This new service we created **also** created some custom
-   profiles (Protocol, Compression, HTTP and OneConnect). We also attached an
-   iRule to the Virtual Server, which did not previously exist on the BIG-IP.
-   The iRule was fetched during the instantiation of the service from the
-   GitHub Repository of this lab.
+#. The App Services iApp can *Create* or *Reference* various objects.  In this 
+   deployment we perform two actions:
 
-   - Created Profiles:
+   #. Create custom profiles on the BIG-IP device with various options
+      specified.  These profiles do not exist on the BIG-IP but are created
+      dynamically during the deployment.
+
+   #. Create an iRule on the BIG-IP device by using a **URL Reference**.  The 
+      App Services iApp downloads the iRule resource from the URL and then 
+      creates a new iRule object on the system.  The iRule object is then 
+      automatically linked to the Virtual Server
+
+      .. WARNING:: When using URL references it is important to properly secure 
+         the repository hosting the resource(s).  The example in this lab uses a 
+         publicly readable repository, however, most environments should use a 
+         private repository with appropriate access control.
+
+#. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
+   above were declared:
+
+   - **Custom Profiles:**
 
      |image2_22|
 
-   - URL Reference iRule:
+   - **URL Referenced iRule:**
 
      |image2_23|
 
-   - GUI of iRule applied to Virtual Server:
+   - **iRule linked to Virtual Server:** (:guilabel:`Local Traffic -> Network Map`)
 
      |image2_24|
 
-#. Connect to the service at ``http://10.1.20.121``. The iRule that was attached
-   to the service contains an HTTP RESPOND, typically used for a Maintenance Page
-   solution. This can be used instead of having to configure each of the backend
-   service Nodes.
+#. Open Chrome and connect to the Virtual Server at ``http://10.1.20.121``. The 
+   iRule that was attached to the service contains an ``HTTP_RESPOND`` event, 
+   which responds with a simple Maintenance Page.
 
    |image2_25|
 
@@ -172,76 +202,108 @@ Task 6 - Deploy an HTTPS Service
 
 Perform the following steps to complete this task:
 
-#. Execute Step 6 to deploy an HTTPS Service
+#. :guilabel:`Send` the ``Step 6: Deploy Service - HTTPS`` request to deploy 
+   an HTTPS Service using **URL Resources** for the SSL/TLS Key, Certificate and
+   Certificate Bundle.
 
    |image2_26|
 
-#. Because iApps are a declarative interface, we can modify the whole deployment
-   without the need to destroy it (this also means we can re-name objects, **if**
-   we needed too). We deployed this service using the same custom profiles,
-   but we removed the iRule, and we had the BIG-IP fetch some SSL objects
-   (Certs, Key and Chain). Our HTTP service was moved to an HTTPS service,
-   so we've changed the service port to 443 and applied a needed Client SSL Profile.
+#. iApps are a Declarative interface, allowing us to modify deployment without 
+   the need to delete it (this also means we can re-name objects, **if**
+   we needed too).  For this service we will:
+
+   - Use the same custom profiles
+   - Remove the iRule
+   - Change the Listener port to ``443`` (HTTPS)
+   - Use URL Resources to obtain the SSL/TLS Key, Certificate and Certificate 
+     Bundle
+
+     .. WARNING:: When using URL references it is important to properly secure 
+        the repository hosting the resource(s).  The example in this lab uses a 
+        publicly readable repository, however, most environments should use a 
+        private repository with appropriate access control.
+   
+   - Create and apply a Client SSL Profile
+
+#. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
+   above were declared:
 
    |image2_27|
 
-#. In the BIG-IP GUI, the Virtual Server has changed, the App Services Integration
-   iApp created a Port 80 > 443 mapping, and reconfigured to our defined 443 port.
+#. Review the configured Virtual Servers in the TMUI GUI.  The App Services iApp
+   created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``, 
+   and reconfigured the Virtual Server to listen on ``TCP/443``
 
    |image2_28|
 
-#. The configuration of the Virtual Server now uses an SSL Client profile containing
-   our imported SSL objects, meaning the VIP is providing SSL Offload
-   for the backend service nodes.
+#. The configuration of the Virtual Server now uses an SSL Client profile 
+   containing our imported SSL Resources.  The deployment is now providing 
+   SSL Offload for the backend compute nodes.
 
    |image2_29|
 
-#. Try accessing the service with ``http://10.1.20.121``. It should redirect
-   you to ``https://10.1.20.121``.
+#. Open Chrome and access the service with ``http://10.1.20.121``. It should 
+   redirect you to ``https://10.1.20.121``.
 
-   .. NOTE:: We are using self signed certificates in the lab so an ssl warning will still be shown
+   .. NOTE:: We are using self signed certificates in the lab so an SSL 
+      warning will be shown
 
    |image2_30|
 
-Task 7 - Deploy an HTTPS Service with an ASM Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Execute Step 7 to deploy an HTTPS Service with an ASM Policy
+#. :guilabel:`Send` the ``Step 7: Deploy Service - HTTPS w/ WAF Policy`` request 
+   to deploy an HTTPS Service using **URL Resources** for a Web Application 
+   Firewall policy that will be used with the Application Security Manager 
+   (ASM) module.
 
    |image2_32|
 
-#. This final iApp deployment will build upon our service by having the iApp fetch
-   an ASM policy from our GitHub repository, the iApp will then apply it to the
-   Virtual Server as a Policy item.
+#. This final iApp deployment will build upon our service by having the iApp 
+   load a WAF policy Resource from our repository.  The App Services iApp will 
+   then create a Layer 7 Traffic Policy and apply it to the Virtual Server.
 
-   This deployment recognizes the need for Security from the start,
-   and lays the ground work for **Continuous Improvement**
-   as the ASM policy would be updated as Code (Infrastructure as Code) to be
-   redeployed whenever requested.
+   This deployment recognizes the need for Security from the beginning of the
+   application lifecycle.  It lays the ground work for **Continuous 
+   Improvement** by having the policy reside in a repository.  This allows us
+   to treat Resources as Code leading to an Infrastructure as Code (IaC) 
+   methodlogy.  As the policy is updated in the repository additional automation
+   and orchestration can be enabled to deploy the policy into the environment.
+   The end result is an ability to rapidly build, test and iterate Layer 7 
+   security policies and guarantee deployment into the environment.
 
-   - Layer 7 Policy Rules:
+#. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
+   above were declared:
+
+   - **Layer 7 Policy Rules:**
 
      |image2_35|
 
-   - Layer 7 Policy Actions:
+   - **Layer 7 Policy Actions:**
 
      |image2_33|
 
-   - ASM Policy URL:
+   - **ASM Policy URL:**
 
      |image2_34|
 
-#. From the BIG-IP GUI we can see the Layer 7 policy applied to the Virtual
-   Server. From the ASM Module section, we can see the details of the policy
-   which was dynamically fetched, applied, and set to Blocking mode.
+#. In the TMUI GUI we can see the Layer 7 policy applied to the Virtual
+   Server. In the :guilabel:`Application Security`, we can see the details 
+   of the policy which was dynamically fetched, applied, and set to Blocking 
+   mode.
 
-   - Layer 7 Policy:
+   - **Layer 7 Policy:**
+
+     |image2_39|
+
+   - **Layer 7 Policy attached to Virtual Server:**
 
      |image2_36|
 
-   - ASM Policy URL:
+   - **ASM WAF Policy:**
 
      |image2_37|
 
@@ -276,3 +338,4 @@ Perform the following steps to complete this task:
 .. |image2_35| image:: /_static/class1/image2_35.png
 .. |image2_36| image:: /_static/class1/image2_36.png
 .. |image2_37| image:: /_static/class1/image2_37.png
+.. |image2_39| image:: /_static/class1/image2_39.png
