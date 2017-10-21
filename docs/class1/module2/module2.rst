@@ -1,15 +1,13 @@
 Module 2: Abstracting Services using iApp Templates
 ===================================================
 
-<<<<<<< Updated upstream
-In this Module we will continue working with the BIG-IP REST interface; though
-we will now introduce an F5 Declarative interface called iApps. iApps are
-commonly thought of as a wizard style deployment helper, but they provide a
-Declarative Interface (like REST Transactions).
-
-A **single** call containing the contents of a Service is processed through
-an iApp's framework, which organizes the deployment and creates the
-linkage to all objects (ASO's).
+In this Module we will continue working with the BIG-IP REST interface, however,
+we will now introduce F5 Declarative Interfaces built with F5 iApp templates. 
+iApps are commonly thought of as a Wizard style deployment helper, but they are 
+actually a Declarative Interface (like REST Transactions). A **single** call 
+declaring the desired deployment is processed on the BIG-IP in the correct order
+of operations, and all objects are associated with an Application Service Object
+(ASO) making for easy deletion.
 
 iApps are a user-customizable framework for deploying applications that enables
 you to templatize sets of functionality on your F5 devices. For example, you can
