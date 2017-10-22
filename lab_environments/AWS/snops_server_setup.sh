@@ -17,9 +17,21 @@ ifconfig eth1:2 10.1.10.102 netmask 255.255.255.0
 ifconfig eth1:3 10.1.10.103 netmask 255.255.255.0
 
 
-echo "Match address 10.1.1.0/24" >> /etc/ssh/sshd_config
-echo "    PasswordAuthentication yes" >> /etc/ssh/sshd_config
+cat << 'EOF' >> /etc/ssh/sshd_config
+Match address 10.1.1.0/24
+    PasswordAuthentication yes
+
+EOF
 service ssh restart
+
+# Install dnsmasq
+apt-get install -y dnsmasq
+cat << 'EOF' > /etc/dnsmasq.d/supernetops
+listen-address=10.1.10.100,10.1.10.101,10.1.10.102,10.1.10.103
+no-dhcp-interface=eth1,eth1:1,eth1:2,eth1:3
+EOF
+systemctl enable dnsmasq.service
+service dnsmasq start
 
 # Install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -28,11 +40,13 @@ apt-get update
 apt-get install -y docker-ce
 
 # Start the f5-demo-httpd container
-echo "#!/bin/sh -e" > /etc/rc.local
-echo "docker run -d -p 80:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF0000 -e F5DEMO_NODENAME='Red' f5devcentral/f5-demo-httpd" >> /etc/rc.local
-echo "docker run -d -p 8000:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF8000 -e F5DEMO_NODENAME='Orange' f5devcentral/f5-demo-httpd" >> /etc/rc.local
-echo "docker run -d -p 8001:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=A0A0A0 -e F5DEMO_NODENAME='Gray' f5devcentral/f5-demo-httpd" >> /etc/rc.local
-echo "docker run -d -p 8002:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=33FF33 -e F5DEMO_NODENAME='Green' f5devcentral/f5-demo-httpd" >> /etc/rc.local
-echo "docker run -d -p 8003:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=3333FF -e F5DEMO_NODENAME='Blue' f5devcentral/f5-demo-httpd" >> /etc/rc.local
+cat << 'EOF' > /etc/rc.local
+#!/bin/sh -e
+docker run -d -p 80:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF0000 -e F5DEMO_NODENAME='Red' f5devcentral/f5-demo-httpd
+docker run -d -p 8000:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=FF8000 -e F5DEMO_NODENAME='Orange' f5devcentral/f5-demo-httpd
+docker run -d -p 8001:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=A0A0A0 -e F5DEMO_NODENAME='Gray' f5devcentral/f5-demo-httpd
+docker run -d -p 8002:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=33FF33 -e F5DEMO_NODENAME='Green' f5devcentral/f5-demo-httpd
+docker run -d -p 8003:80 --restart unless-stopped -e F5DEMO_APP=website -e F5DEMO_COLOR=3333FF -e F5DEMO_NODENAME='Blue' f5devcentral/f5-demo-httpd
+EOF
 
 sh /etc/rc.local
