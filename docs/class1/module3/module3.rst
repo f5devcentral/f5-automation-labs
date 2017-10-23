@@ -21,21 +21,39 @@ Connectors’ that are specific to the third party technology ecosystem
 
 L4-7 service delivery is accomplished by:
 
--  Declarative: Consuming F5 iApp templates from BIG-IP devices and
+-  **Declarative:** Consuming F5 iApp templates from BIG-IP devices and
    creating a Service Catalog.
 
--  Imperative: Consuming the iWorkflow REST Proxy to drive API calls to
+-  **Imperative:** Consuming the iWorkflow REST Proxy to drive API calls to
    BIG-IP devices
 
 The labs in the module will focus on the high level features in place to
 achieve full L1-7 automation. As mentioned above, iApps are a key
-component of this toolchain. For our purposes we will use the f5.http
-iApp to create simple examples. For more advanced use cases it’s often
-required to use a ‘Declarative’ or ‘Deployment-centric’ iApp template. A
-supported template of this nature called the App Services Integration iApp is
-available at
-https://github.com/F5Networks/f5-application-services-integration-iApp for this
-purpose.
+component of this toolchain. 
+
+In this Module we will focus on building a **Service Catalog** using the App
+Service iApp template you learned about in Module 2.  The focus in Module 2
+was showing how to drive rich deployments, however, a large amount of F5 
+**Domain Specific Knowledge** was still required to drive the deployments.
+From a conceptual view iApp templates alone do not fully satisfy the requirement
+for a fully **Declarative** interface because while the iApp template simplies
+the underlying **Imperative** actions it does not allow the adminstrator to 
+built an **Interface** that minimizes or eliminates the need for **Domain 
+Specific Knowledge**.
+
+For example, we deployed a service that enabled HTTP Traffic Management with 
+an iRule attached and Profile Customizations.  To the F5 administrator these 
+are all very familar terms, however, to a consumer, such as an Application 
+Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign 
+concepts.  To solve this problem iWorkflow allows the adminstrator to create 
+a **Service Catalog Template** that is an **Abstraction** of the iApp templates
+input fields.  By doing this the F5 administrator can **create an interface 
+tailored to the use case and knowledge level of the CONSUMER rather than the
+ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application 
+and Security services that are tailored to business need and use case rather
+than the technical implementation.  Additionally, the **Service Abstraction**
+acheived when creating the **Service Catalog** enables the easy integration of
+F5 services with third-party tools and methodologies such as DevOps.
 
 .. toctree::
    :maxdepth: 1
