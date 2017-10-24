@@ -93,7 +93,7 @@ Task 2 - Create Self IPs
 
 Perform the following steps to configure the Self IP objects/resources:
 
-#. Click the ``Step 3: Create Internal Self IP`` item in the collection. Examine
+#. Click the ``Step 3: Create Internal Self IP`` item in the folder. Examine
    the JSON body; the values for creating the Self-Internal Self IP have
    already been populated.
 
@@ -103,11 +103,11 @@ Perform the following steps to configure the Self IP objects/resources:
 
 #. Click the :guilabel:`Send` button to create the Self IP
 
-#. Click the ``Step 4: Create External Self IP`` item in the collection and
+#. Click the ``Step 4: Create External Self IP`` item in the folder and
    click :guilabel:`Send`
 
 #. Click the ``Step 5: Get Self-Internal Self IP Attributes`` item in the
-   collection and click the :guilabel:`Send` button.  Examine the VLAN settings
+   folder and click the :guilabel:`Send` button.  Examine the VLAN settings
    of the Resource.  As noted above the Self IP has been assigned to the wrong
    VLAN (intentionally)
 
@@ -123,8 +123,8 @@ Task 3 - Modify Existing Self IP Resource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to modify an existing object via the REST API, the URI path has to
-change.  In previous examples we used a ``POST`` to create Resources under
-a Collection, therefore, the URL used was that of the Collection itself.
+be changed.  In the previous examples we used a ``POST`` to create Resources under
+a Collection, therefore, the URI used was that of the Collection itself.
 If you wish to update/modify a Resource you must refer to the Resource
 directly.
 
