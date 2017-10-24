@@ -70,14 +70,14 @@ Perform the following steps to complete this task:
 
      |image2_14|
 
-   - **GUI**: :guilabel:`iApps -> Application Services -> Applications`
+   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_13|
 
 
 #. From the TMUI GUI, examine the Virtual Server that was created from
-   this deployment by clicking :guilabel:`Local Traffic -> Virtual Servers ->
-   Virtual Server List -> Demo_vs`.  The configuration is simple, but it
+   this deployment by clicking :menuselection:`Local Traffic --> Virtual Servers 
+   --> Virtual Server List --> Demo_vs`.  The configuration is simple, but it
    does contain the key components for an HTTP service (Listener, HTTP Profile
    Pool, Monitor and Pool Members):
 
@@ -106,7 +106,7 @@ Perform the following steps to complete this task:
 
    |image2_17|
 
-#. In the BIG-IP GUI click :guilabel:`Local Traffic -> Network Map` to view the
+#. In the BIG-IP GUI click :menuselection:`Local Traffic --> Network Map` to view the
    new state of the Pool Members (Black indicators reflect the disabled state).
    The state has been updated to reflect the state we declared in our call.
    The Virtual Server is no longer passing traffic at ``http://10.1.20.121``
@@ -144,7 +144,7 @@ Perform the following steps to complete this task:
 
      |image2_10|
 
-   - **GUI**: :guilabel:`iApps -> Application Services -> Applications`
+   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_20|
 
@@ -187,7 +187,7 @@ Perform the following steps to complete this task:
 
      |image2_23|
 
-   - **iRule linked to Virtual Server:** (:guilabel:`Local Traffic -> Network Map`)
+   - **iRule linked to Virtual Server:** (:menuselection:`Local Traffic --> Network Map`)
 
      |image2_24|
 

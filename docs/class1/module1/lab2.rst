@@ -39,7 +39,7 @@ Perform the following steps to complete this task:
    connections with Self-Signed Certificates we need to modify the default
    settings of Postman.
 
-   - Open the Postman Settings windows by click :guilabel:`File -> Settings`:
+   - Open the Postman Settings windows by click :menuselection:`File --> Settings`:
 
      |image89|
 
@@ -78,7 +78,7 @@ Perform the following steps to complete this task:
    **Environments** capability in Postman. This capability allows us to
    set various global variables that are then substituted into a
    request before it’s sent. Import the Environment file by clicking
-   :guilabel:`Import -> Import from Link` and pasting the following URL and
+   :menuselection:`Import --> Import from Link` and pasting the following URL and
    clicking :guilabel:`Import`:
 
    .. parsed-literal::

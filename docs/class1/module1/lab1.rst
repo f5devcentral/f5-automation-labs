@@ -11,7 +11,8 @@ Lab |labmodule|\.\ |labnum|\: Exploring the iControl REST API
 Task 1 - Explore the API using the TMOS Web Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab, we will explore the API using an interface that is built into TMOS. This utility is useful for understanding how TMOS objects map
+In this lab, we will explore the API using an interface that is built into TMOS. 
+This utility is useful for understanding how TMOS objects map
 to the REST API. The interfaces implement full Create, Read, Update and
 Delete (CRUD) functionality, however, in most practical use cases it’s
 far easier to use this interface as a ‘Read’ tool rather than trying to
@@ -28,7 +29,12 @@ all the correct attributes already populated.
    appear and ensure you see the login screen for each bookmark.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
-   .. WARNING:: We are using self-signed certificate in this lab. In your environment you must make sure that you use certificate issued by your certificate authority for both production and lab equipments. Not doing so would make it possible for an attacker to do a man-in-the-middle attack and allow him the ability to steal passwords and tokens.
+
+   .. WARNING:: We are using self-signed certificate in this lab. In your 
+      environment you must make sure that you use certificate issued by your 
+      certificate authority for both production and lab equipments. Not doing 
+      so would make it possible for an attacker to do a man-in-the-middle 
+      attack and allow him the ability to steal passwords and tokens.
 
    |image1|
 
