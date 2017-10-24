@@ -13,22 +13,22 @@ features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a
 sequence of REST request to achieve some outcome.
 
-In this lab we will use a feature in Postman called the **Collection Runner
+In this lab, we will use a feature in Postman called the **Collection Runner
 (Runner)** to execute a sequence of REST requests.  Using the Runner we can
 rapidly prototype REST requests into an **Imperative Workflow** that can be
 executed without user intervention.
 
-The purpose of this exercise is to provide a example of how new workflows can
+The purpose of this exercise is to provide an example of how new workflows can
 be built from scratch or existing workflows can be modified.
 
-Additionally, we will use some Postman Javascript Tests to programmatically 
+Additionally, we will use some Postman Javascript Tests to programmatically
 populate environment variables with the output of our workflow.
 
 Task 1 - Open and Run a Collection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. The collection we will run in this task will populate some environment
-   variables with various data about the BIG-IP system.  First, lets examine
+   variables with various data about the BIG-IP system.  First, let's examine
    the Environment Variables that are currently set.  Click the |image99|\ icon
    in the top right of the Postman window.  Notice that there are no variables
    starting with the name ``lab1.5_``:
@@ -74,8 +74,11 @@ Task 1 - Open and Run a Collection
 
    |image104|
 
-In this lab we demonstrated running a simple Imperative Workflow using the
-Postman Collection Runner.  In subsequent labs we will expand on this simple
+.. NOTE::The values vor sw version, CPU count and obviously base MAC address
+         change from environment to environment.
+
+In this lab, we demonstrated running a simple Imperative Workflow using the
+Postman Collection Runner.  In subsequent labs, we will expand on this simple
 use case to perform more complex functions.  As you continue through the labs
 be sure to take time to explore the details of the requests being sent.  The
 Postman Collection used in this class can also serve as a starting point for
@@ -83,7 +86,7 @@ building your own collections or modifying existing ones.
 
 As we move through the rest of this module you will see the complexity involved
 in building Imperative Workflows.  While these types of workflows are incredibly
-powerful, they are also time consuming to build from scratch.  As we move into
+powerful, they are also time-consuming to build from scratch.  As we move into
 Module 2 you will see the importance of leveraging **Abstraction**
 and **Declarative Interfaces** to minimize the amount of time spent building
 Imperative Workflows.
