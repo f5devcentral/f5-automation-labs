@@ -82,7 +82,7 @@ Perform the following steps to configure the VLAN objects/resources:
 #. Click the :guilabel:`Send` button to create the VLAN
 
 #. **Repeat Step 1**, however, this time modify the JSON body to create the
-   External VLAN using the parameters in the table above. In order to do so you can replace Internal with External, 10 with 20 and the interface name 1.1 to 1.2  
+   External VLAN using the parameters in the table above. In order to do so you can replace Internal with External, 10 with 20 and the interface name 1.1 to 1.2 in the JSON body.
 
 #. Click the ``Step 2: Get VLANs`` item in the collection. Click the
    :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response
