@@ -192,14 +192,16 @@ Perform the following steps to complete this task:
    |image21|
 
 #. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. Because the subsequent requests refer to the {{bigip_a_auth_token}} variable, you will not have to set the token in the header of the following requests.
+   window. Because the subsequent requests refer to the 
+   ``{{bigip_a_auth_token}}`` variable, you will not have to set the 
+   token in the header of the following requests.
 
 #. Click the ‘Step 4: Set Authentication Token Timeout’ item in the
    Lab 1.2 Postman folder. This request will PATCH your token
    Resource (notice the URI) and update the timeout attribute so we
    can complete the lab easily. Examine the request type and JSON
-   Body (by clicking the Body icon) and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
+   :guilabel:`Body` and then click the ‘Send’ button. Verify that 
+   the timeout has been changed to ‘36000’ in the response:
 
    |image22|
 
