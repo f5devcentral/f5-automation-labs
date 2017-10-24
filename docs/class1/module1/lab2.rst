@@ -50,7 +50,7 @@ Perform the following steps to complete this task:
 
    - Click the **X** in the top right of the Settings window
 
-#. Click the :guilabel:`Import` button in the top left of the Postman window
+#. A Postman Collection lets you group individual REST requests together. This Postman collection can then be shared and imported. To import a Postman Collection, click the :guilabel:`Import` button in the top left of the Postman window
 
    |image87|
 
@@ -64,11 +64,14 @@ Perform the following steps to complete this task:
    |image88|
 
 #. You should now see a collection named ``F5 Programmability: Class 1``
-   in your Postman Collections sidebar:
+   in your Postman Collections sidebar. Postman automatically resizes its GUI depending on its window size. It might be necessary to use the short "ctrl + \" (on Windows) or click the show sidebar icon at the bottom left corner of postman if you do not see the sidebar.
 
    |image10|
 
-#. Import the Environment file by clicking
+#. To assist in multi-step procedures we make heavy use of the
+   **Environments** capability in Postman. This capability allows us to
+   set various global variables that are then substituted into a
+   request before it’s sent. Import the Environment file by clicking
    :guilabel:`Import -> Import from Link` and pasting the following URL and
    clicking :guilabel:`Import`:
 
@@ -76,10 +79,7 @@ Perform the following steps to complete this task:
 
       :raw_github_url:`/postman_collections/Class_1.postman_environment.json`
 
-#. To assist in multi-step procedures we make heavy use of the
-   **Environments** capability in Postman. This capability allows us to
-   set various global variables that are then substituted into a
-   request before it’s sent. Set your environment to
+#.  Set your environment to
    ``F5 Programmability: Class 1`` by using the menu at the top right
    of your Postman window:
 
@@ -100,7 +100,7 @@ value that is built by Base 64 encoding the string
 
 It should be noted that cracking the method of authentication is
 TRIVIAL; as a result API calls should always be performed using HTTPS encryption
-(F5 default) rather than HTTP.
+(F5 default) with a certificate signed by an authority rather than HTTP.
 
 Perform the following steps to complete this task:
 
@@ -118,20 +118,20 @@ Perform the following steps to complete this task:
 
    |image11|
 
-#. Notice that the number of Headers in the Headers tab changed from ``1``
+#. Click the :guilabel:`Headers` tab
+   and examine the HTTP header. Notice that the number of Headers in the Headers tab changed from ``1``
    to ``2``. This is because Postman automatically created the HTTP header
-   and updated your request to include it.  Click the :guilabel:`Headers` tab
-   and examine the HTTP header:
+   and updated your request to include it.
 
    |image91|
 
-#. Check the :guilabel:`Body` tab, if the request succeeded you should
+#. Click the :guilabel:`Body` tab, if the request succeeded you should
    be presented with a listing of the ``/mgmt/tm/ltm``
    Organizing Collection:
 
    |image105|
 
-#. Check the :guilabel:`Test Results` tab and ensure all the tests for this
+#. Click the :guilabel:`Test Results` tab and ensure all the tests for this
    request have passed:
 
    |image106|
@@ -178,7 +178,7 @@ is fully supported.
 Perform the following steps to complete this task:
 
 #. Click the ``Step 2: Retrieve Authentication Token`` item in the Lab 1.2
-   Postman Collection
+   Folder
 
 #. Notice that we send a ``POST`` request to the ``/mgmt/shared/authn/login``
    endpoint.
@@ -208,7 +208,7 @@ Perform the following steps to complete this task:
 #. Once you receive a ``200 OK`` status code examine the response body.
    The various attributes show the parameters assigned to the
    particular token. Find the ``token`` attribute and copy it into your
-   clipboard (``Ctrl+c``) for use in the next step:
+   clipboard (``Ctrl+c``) for use in the next step.
 
    |image17|
 
