@@ -61,8 +61,6 @@ Perform the following steps to complete this task:
 
       :raw_github_url:`/postman_collections/Class_1.postman_collection.json`
 
-  Alternative you can use this shortened URL:  https://goo.gl/CKwcKy
-
    |image88|
 
 #. You should now see a collection named ``F5 Programmability: Class 1``
