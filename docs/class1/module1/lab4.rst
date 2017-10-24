@@ -112,11 +112,7 @@ Perform the following steps to configure the Self IP objects/resources:
    of the Resource.  As noted above the Self IP has been assigned to the wrong
    VLAN (intentionally)
 
-   .. NOTE:: Postman has the ability to check the responses for specific values
-             to verify if the result of a request is what it is expected to be.
-             The ``Test Results`` for this request will show a failure for the
-      ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
-      and you should continue to the next section.
+   .. NOTE:: Postman has the ability to check the responses for specific values to verify if the result of a request is what it is expected to be. The ``Test Results`` for this request will show a failure for the ``[Check Value] vlan == /Common/Internal`` value.  This is intentional and you should continue to the next section.
 
    |image92|
 
