@@ -58,7 +58,10 @@ all the correct attributes already populated.
    route-domain(s) collection. As you can see the default route domain
    of ``0`` is listed. You can also create new objects by clicking the
    |image4| button. Additionally resources can be deleted using the
-   |image5| button or edited using the |image6| button.
+   |image5| button or edited using the |image6| button. The |image1_7|
+   is used to copy JSON formatted resource with Ctrl+C. This can be
+   useful when you want to slightly change an existing resource
+   
 
 #. Click the ``0`` resource to view the attributes of route-domain 0 on
    the device:
@@ -75,5 +78,6 @@ all the correct attributes already populated.
 .. |image3| image:: /_static/class1/image003.png
 .. |image4| image:: /_static/class1/image004.png
 .. |image5| image:: /_static/class1/image005.png
+.. |image1_7| image:: /_static/class1/image1_7.png
 .. |image6| image:: /_static/class1/image006.png
 .. |image7| image:: /_static/class1/image007.png
