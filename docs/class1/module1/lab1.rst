@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: Exploring the iControl REST API
 Task 1 - Explore the API using the TMOS Web Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab we will explore the API using an interface that is built-in
+In this lab, we will explore the API using an interface that is built-in
 to TMOS. This utility is useful for understanding how TMOS objects map
 to the REST API. The interfaces implement full Create, Read, Update and
 Delete (CRUD) functionality, however, in most practical use cases it’s

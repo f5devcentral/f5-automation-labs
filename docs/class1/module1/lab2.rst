@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: REST API Authentication & ‘example’ Templates
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
 iWorkflow support two types of authentication: **HTTP BASIC** and
-**Token Based (TBA)**. It’s important to understand both of these authentication
+**Token-Based (TBA)**. It’s important to understand both of these authentication
 mechanisms, as consumers of the API will often make use of both types
 depending on the use case. This lab will demonstrate how to interact
 with both types of authentication.
@@ -61,6 +61,8 @@ Perform the following steps to complete this task:
 
       :raw_github_url:`/postman_collections/Class_1.postman_collection.json`
 
+  Alternative you can use this shortened URL:  https://goo.gl/CKwcKy
+
    |image88|
 
 #. You should now see a collection named ``F5 Programmability: Class 1``
@@ -88,7 +90,7 @@ Perform the following steps to complete this task:
 Task 2 - HTTP BASIC Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will use the Postman client to send API requests using
+In this task, we will use the Postman client to send API requests using
 HTTP BASIC authentication. As its name implies this method of
 authentication encodes the user credentials via the existing BASIC
 authentication method provided by the HTTP protocol. The mechanism this
@@ -157,13 +159,13 @@ Task 3 - Token Based Authentication
 
 One of the disadvantages of BASIC Authentication is that credentials are
 sent with each and every request. This can result in a much greater
-attack surface being exposed unnecessarily. As a result **Token Based
+attack surface being exposed unnecessarily. As a result, **Token Based
 Authentication (TBA)** is preferred in many cases. TBA only sends
 the credentials once, on the first request. The system then responds
 with a unique token for that session and the consumer then uses that
 token for all subsequent requests. BIG-IP and iWorkflow support
 token-based authentication that drops down to the underlying
-authentication subsystems available in TMOS. As a result the system can
+authentication subsystems available in TMOS. As a result, the system can
 be configured to support external authentication providers (Active Directory,
 RADIUS, TACACS, etc) and those authentication methods can flow through to
 the REST API. In this task we will demonstrate TBA using the local
@@ -216,7 +218,7 @@ Perform the following steps to complete this task:
    1.2 Postman collection. Click the :guilabel:`Headers` tab and paste the
    token value copied above as the VALUE for the ``X-F5-Auth-Token``
    header. This header is required to be sent on all requests when
-   using token based authentication.
+   using token-based authentication.
 
    |image18|
 
@@ -255,7 +257,7 @@ Perform the following steps to complete this task:
 Task 4 - Get a pool ‘example’ Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to assist with REST API interactions you can request a template
+In order to assist with REST API interactions, you can request a template
 of the various attributes of a Resource type in a Collection. This
 template can then be used as the body of a ``POST``, ``PUT`` or ``PATCH``
 request as needed.
