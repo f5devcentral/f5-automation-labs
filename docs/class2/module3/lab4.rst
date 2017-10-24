@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Teardown**
+Lab |labmodule|\.\ |labnum| - Execute an f5-newman-wrapper for **Teardown**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get ready for the next module, we're going to execute one last f5-newman-wrapper

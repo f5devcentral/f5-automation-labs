@@ -12,7 +12,7 @@ In this lab we will review, line-by-line an example script that has been
 created to allow creation of a BIG-IP Pool with Pool Members directly
 from the command line.
 
-Task 1 – Review create\_pool.py
+Task 1 - Review create\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open Notepad++ using the |image66| located in the Windows Taskbar.
@@ -113,12 +113,12 @@ arrays)
 This for loop iterates over the elements in the list generated above and
 creates a new member in the pool.
 
-Task 2 – Run create\_pool.py
+Task 2 - Run create\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open Console2 using the |image67| icon on the Windows Taskbar
 
-#. The console window automatically opens in the Desktop\\Module 5 –
+#. The console window automatically opens in the Desktop\\Module 5 -
    Python SDK directory
 
 #. Type ``set PYTHONWARNINGS=ignore`` to disable the printing of SSL/TLS
@@ -136,15 +136,15 @@ Task 2 – Run create\_pool.py
 #. Using Chrome open a tab to BIGIP-A (https://10.1.1.4). Examine the
    pool that was created.
 
-.. |image66| image:: /_static/image066.png
+.. |image66| image:: /_static/appendix_a/image066.png
    :width: 0.28045in
    :height: 0.24306in
-.. |image67| image:: /_static/image067.png
+.. |image67| image:: /_static/appendix_a/image067.png
    :width: 0.35694in
    :height: 0.30286in
-.. |image68| image:: /_static/image068.png
+.. |image68| image:: /_static/appendix_a/image068.png
    :width: 6.33450in
    :height: 0.81372in
-.. |image69| image:: /_static/image069.png
+.. |image69| image:: /_static/appendix_a/image069.png
    :width: 6.25116in
    :height: 0.51099in

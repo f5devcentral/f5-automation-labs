@@ -21,22 +21,22 @@ without the SDK you would be required to do something like the following
 
 	import requests
 	import sys
-	base_url = “https://10.1.1.4/mgmt/tm/ltm/pool/”
+	base_url = "https://10.1.1.4/mgmt/tm/ltm/pool/"
 
 	pool_attributes = {
-		“name”: “test_pool”,
-		“partition”: “Common”,
-		“loadBalancingMode”: “least-connections-member”,
-		“minUpMembers”: 1
+		"name": "test_pool",
+		"partition": "Common",
+		"loadBalancingMode": "least-connections-member",
+		"minUpMembers": 1
 	}
 
 	s = requests.session()
-	s.auth = (“admin”, “admin”)
+	s.auth = ("admin", "admin")
 
 	resp = s.post(base_url, data=json.dumps(pool_attributes))
 
 	if resp.status_code != requests.codes.ok:
-		print “Error creating pool”
+		print "Error creating pool"
 
 	sys.exit(1)
 
@@ -46,10 +46,10 @@ When using the Python SDK the equivalent code is:
 
 	from f5.bigip import ManagementRoot
 
-	mgmt = ManagementRoot(“10.1.1.4”,”admin”,”admin”)
+	mgmt = ManagementRoot("10.1.1.4","admin","admin")
 
-	pool = mgmt.tm.ltm.pools.pool.create(partition=”Common”, name=”test_pool”)
-	pool.loadBalancingMode = “least-connections-member”
+	pool = mgmt.tm.ltm.pools.pool.create(partition="Common", name="test_pool")
+	pool.loadBalancingMode = "least-connections-member"
 	pool.minUpMembers = 1
 
 	pool.update()

@@ -14,7 +14,7 @@ tools properly we will connect via SSH and/or HTTP.
 
 .. _lab1_3_1:
 
-Task 1 – Connect via SSH
+Task 1 - Connect via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via SSH we must use the published port specified in the
@@ -106,7 +106,7 @@ Example output of connecting to the container:
    Go forth and automate!
    [snops@f5-super-netops] [~] $
 
-Task 2 – Connect via HTTP
+Task 2 - Connect via HTTP
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via HTTP we use the published port specified in the
@@ -131,7 +131,7 @@ You should see a page like this:
 
 |image78|
 
-Task 3 – Connect via Jenkins
+Task 3 - Connect via Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via Jenkins we use the published port specified in the
@@ -155,7 +155,7 @@ You should see a page like this:
 
 |image89|
 
-.. |image78| image:: /_static/image078.png
+.. |image78| image:: /_static/class1/image078.png
    :align: middle
    :scale: 50%
 .. |image89| image:: /_static/class2/image089.png

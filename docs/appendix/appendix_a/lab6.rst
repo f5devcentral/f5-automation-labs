@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: Create a Python Script
 In this lab we will use the ‘Generate Code’ feature of Postman to create
 a python script from a collection of requests.
 
-Task 1 – Create a simple script
+Task 1 - Create a simple script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE::
@@ -19,10 +19,10 @@ Task 1 – Create a simple script
 
 Perform the following steps to complete this task:
 
-#. Expand the ‘Lab 5.6 – Create a Python Script’ folder in the Postman
+#. Expand the ‘Lab 5.6 - Create a Python Script’ folder in the Postman
    collection
 
-#. Click the ‘Step 1 – Create a HTTP Monitor’ item in the collection
+#. Click the ‘Step 1 - Create a HTTP Monitor’ item in the collection
 
 #. Click the ‘Code’ link in the Postman window:
 
@@ -61,7 +61,7 @@ Perform the following steps to complete this task:
 
 #. **Delete the monitor to prepare for the next task**
 
-Task 2 – Chain together multiple requests
+Task 2 - Chain together multiple requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will repeat the process from Task 1 to chain together
@@ -79,12 +79,12 @@ Perform the following steps:
 
 #. Run the script and verify the config was created.
 
-.. |image73| image:: /_static/image073.png
+.. |image73| image:: /_static/appendix_a/image073.png
    :width: 5.53944in
    :height: 2.76389in
-.. |image74| image:: /_static/image074.png
+.. |image74| image:: /_static/appendix_a/image074.png
    :width: 4.66783in
    :height: 3.98787in
-.. |image75| image:: /_static/image075.png
+.. |image75| image:: /_static/appendix_a/image075.png
    :width: 6.58611in
    :height: 1.36241in

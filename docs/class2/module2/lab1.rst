@@ -66,15 +66,15 @@ To install the framework complete the following tasks:
 
 The f5-postman-workflows framework is now installed in your Postman client.
 
-.. |image8| image:: /_static/image008.png
+.. |image8| image:: /_static/class1/image008.png
    :width: 0.46171in
    :height: 0.43269in
 
-.. |image79| image:: /_static/image079.png
+.. |image79| image:: /_static/class1/image079.png
    :scale: 100%
 
-.. |image80| image:: /_static/image080.png
+.. |image80| image:: /_static/class1/image080.png
    :scale: 100%
 
-.. |image81| image:: /_static/image081.png
+.. |image81| image:: /_static/class1/image081.png
    :scale: 100%

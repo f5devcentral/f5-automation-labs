@@ -11,8 +11,8 @@ Lab |labmodule|\.\ |labnum|\: Obtain & Start the f5-super-netops-container Image
 In this lab we will use the ``docker`` cli tools to obtain and start the
 f5-super-netops-container image.
 
-Task 1 – Obtain and verfiy the container image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Obtain and verfiy the container image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
@@ -68,8 +68,8 @@ Perform the following steps to complete this task:
       REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
       f5devcentral/f5-super-netops-container   jenkins             b71fc40407e4        2 weeks ago         490MB
 
-Task 2 – Start the container image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 2 - Start the container image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To start using the container we will execute the command:
 
