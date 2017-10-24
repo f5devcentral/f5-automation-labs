@@ -14,7 +14,7 @@ The labs in this module will show you how to install the
 f5-super-netops-container image, start it in your local environment and access
 various tools and documentation.
 
-To install the f5-super-netops-container your system mu st
+To install the f5-super-netops-container your system must
 support running Docker Community Edition (CE).  Please refer to
 https://docs.docker.com/engine/installation/#platform-support-matrix for
 more information.
