@@ -92,7 +92,7 @@ Perform the following steps to complete this task:
 Task 2 - Modify DNS/NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a 
+.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a
    JSON array is:
 
    ``myArray: [ Object0, Object1 ... ObjectX ]``
@@ -107,7 +107,7 @@ Collection. The relevant Resources for this task are:
 
 .. list-table::
    :header-rows: 1
-    
+
    * - **URL**
      - **Type**
    * - ``/mgmt/tm/sys/dns``
@@ -122,7 +122,7 @@ Perform the following steps to complete this task:
 
 #. Click the ``Step 4: Set System DNS Settings`` item in the collection.
    Review the JSON body to verify the name server IPs ``4.2.2.2`` and
-   ``8.8.8.8`` are listed. Additionally, add a search domain of ``f5.local``. 
+   ``8.8.8.8`` are listed. Additionally, add a search domain of ``f5.local``.
    You will modify a JSON array for both of these attributes.
 
 #. Click the :guilabel:`Send` button and verify the requested changes were
@@ -163,8 +163,8 @@ Perform the following steps to change the ``root`` user password:
    |image26|
 
 #. You can verify the password was changed by opening an SSH session
-   to BIG-IP-A.  A shortcut to a terminal is included on the desktop of 
-   the Linux jumphost.  To open an SSH connection to BIG-IP A open a 
+   to BIG-IP-A.  A shortcut to a terminal is included on the desktop of
+   the Linux jumphost.  To open an SSH connection to BIG-IP A open a
    terminal window and execute ``ssh root@10.1.1.10``
 
 #. **Repeat the procedure above to change the password back to** ``default``
@@ -180,7 +180,7 @@ Perform the following steps to change the **admin** user password:
    |image27|
 
 #. You can verify the password was changed by opening an SSH session
-   to BIG-IP-A OR by logging into TMUI in a Chrome browser tab.  
+   to BIG-IP-A OR by logging into TMUI in a Chrome browser tab.
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
