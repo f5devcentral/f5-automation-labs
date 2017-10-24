@@ -16,7 +16,7 @@ If you are using a Hi Resolution Display on Windows we recommend that you either
 .. WARNING:: Do these steps BEFORE you connect via RDP.  Choose ONE.  Do not do both.
  
 **RECOMMENDED:** Resize your display (Windows 10)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Right click on your Desktop and select Display Settings.
 
@@ -31,7 +31,7 @@ Change the Resolution to "1920 x 1080".
 |apply-resolution|
 
 **Alternate:** Use RDP Zoom
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you used the previous directions, "Resize your display", continue to "Connecting to RDP".
 
