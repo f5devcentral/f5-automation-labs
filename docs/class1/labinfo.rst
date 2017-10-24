@@ -5,7 +5,7 @@ Lab Environments & Topology
    jumphost. No installation or interaction with your local system is
    required.
 
-In order to complete this class you will need to utilize a specific 
+In order to complete this class you will need to utilize a specific
 **Lab Environment**.  You can consume this training in a couple of
 ways:
 
@@ -71,7 +71,7 @@ components have been included in your lab environment:
 
 -  1 x Linux Jumphost
 
-.. TODO:: Add logical diagram of topology
+|labtopology|
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -94,9 +94,9 @@ components:
     * - BIG-IP A
       - 10.1.1.10
       - **Internal:** 10.1.10.10
-        
+
         **Internal (Float):** 10.1.10.13
-        
+
         **External:** 10.1.20.10
 
         **External (VIPs):** 10.1.20.120-130
@@ -107,9 +107,9 @@ components:
     * - BIG-IP B
       - 10.1.1.11
       - **Internal:** 10.1.10.11
-        
+
         **Internal (Float):** 10.1.10.13
-        
+
         **External:** 10.1.20.11
 
         **External (VIPs):** 10.1.20.120-130
@@ -127,3 +127,6 @@ components:
       - 10.1.1.15
       - **Internal:** 10.1.10.100-103
       - root/default
+
+
+.. |labtopology| image:: /_static/class1/labtopology.png
