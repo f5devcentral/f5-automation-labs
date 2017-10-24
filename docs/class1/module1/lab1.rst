@@ -28,6 +28,7 @@ all the correct attributes already populated.
    appear and ensure you see the login screen for each bookmark.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
+   .. WARNING:: We are using self-signed certificate in this lab. In your environment you must make sure that you use certificate issued by your certificate authority for both production and lab equipments. Not doing so would make it possible for an attacker to do a man-in-the-middle attack and allow him the ability to steal passwords and tokens.
 
    |image1|
 
