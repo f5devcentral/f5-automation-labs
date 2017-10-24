@@ -20,10 +20,9 @@ This lab will focus on configuration of the following items:
 
 We will specifically cover the items in **BOLD** above in the following
 labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of customer environments. This class is
+process exist due to the nature of different organizations. This class is
 designed to teach enough information so that you can then apply the
-knowledge learned and help articulate and/or deliver a specific solution
-to your customer.
+knowledge learned and help articulate and/or deliver a specific solution.
 
 .. TODO:: Add logical diagram
 
