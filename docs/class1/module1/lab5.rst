@@ -74,8 +74,8 @@ Task 1 - Open and Run a Collection
 
    |image104|
 
-.. NOTE::The values vor sw version, CPU count and obviously base MAC address
-         change from environment to environment.
+.. NOTE:: It is normal for the values of Software Version, CPU Count and Base 
+   MAC Address be different than the screenshot(s).  
 
 In this lab, we demonstrated running a simple Imperative Workflow using the
 Postman Collection Runner.  In subsequent labs, we will expand on this simple
