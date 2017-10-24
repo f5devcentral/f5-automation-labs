@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum|\: Review/Set Device Settings
 --------------------------------------------------------
 
-Your BIG-IP-A device is already licensed, so now we can focus on
+All devices are already licensed so we can focus on
 configuring the basic infrastructure related settings to complete the
 Device Onboarding process. The remaining items include (list not
 exhaustive):
@@ -70,14 +70,14 @@ Perform the following steps to complete this task:
 
 #. Click the ``Step 1: Get System Global-Settings`` item. Click the :guilabel:`Send`
    button and review the response body to see what the current settings
-   on the device are.
+   on the device are. Examine the resulting response to understand what settings are currently applied.
 
 #. Click the ``Step 2: Set System Global-Settings`` item. This item uses
    a ``PATCH`` request to the ``global-settings`` resource to modify the
    attributes contained within it. We will update the ``guiSetup`` and
    ``hostname`` attribute.
 
-   - Review the JSON body and modify the ``hostname`` attribute to set the
+   - Click on body. Review the JSON body and modify the ``hostname`` attribute to set the
      hostname to ``bigip-a.f5.local``
 
    - Also notice that we are disabling the GUI Setup Wizard as part of
@@ -86,8 +86,8 @@ Perform the following steps to complete this task:
      |image25|
 
 #. Click the :guilabel:`Send` button and review the response body. You should see
-   that the attributes modified above have been updated. You can also
-   ``GET`` the ``global-settings`` again to verify they have been updated.
+   that the attributes modified above have been updated by looking at the response. You can also
+   ``GET`` the ``global-settings`` by doing step 1 again to verify they have been updated.
 
 Task 2 - Modify DNS/NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,47 +117,45 @@ Collection. The relevant Resources for this task are:
 
 Perform the following steps to complete this task:
 
-#. Click the ``Step 3: Get System DNS Settings`` item in the collection.
+#. Click the ``Step 3: Get System DNS Settings`` item in the folder.
    Click :guilabel:`Send` and review the current settings
 
-#. Click the ``Step 4: Set System DNS Settings`` item in the collection.
-   Review the JSON body to verify the name server IPs ``4.2.2.2`` and
+#. Click the ``Step 4: Set System DNS Settings`` item in the folder.
+   Click body. Review the JSON body to verify the name server IPs ``4.2.2.2`` and
    ``8.8.8.8`` are listed. Additionally, add a search domain of ``f5.local``.
-   You will modify a JSON array for both of these attributes.
+   You will modify a JSON array to add a search domain.
 
 #. Click the :guilabel:`Send` button and verify the requested changes were
-   successfully implemented
+   successfully implemented by looking at the response or by running step 3 again.
 
-#. Click the ``Step 5: Get System NTP Settings`` item in the collection.
+#. Click the ``Step 5: Get System NTP Settings`` item in the folder.
    Click :guilabel:`Send` and review the current settings
 
-#. Click the ``Step 6: Set System NTP Settings`` item in the collection.
-   Review the JSON body to verify the NTP servers with hostnames
+#. Click the ``Step 6: Set System NTP Settings`` item in the folder.
+   Click body. Review the JSON body to verify the NTP servers with hostnames
    ``0.pool.ntp.org`` and ``1.pool.ntp.org`` are contained in the ``servers``
-   attribute (another JSON array!)
+   attribute (another JSON array!).
 
 #. Click the :guilabel:`Send` button and verify the requested changes were
-   successfully implemented
+   successfully implemented by looking at the response or running step 5 again.
 
 Task 3 - Update default user account passwords
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will update the passwords for the ``root`` and ``admin``
-accounts. The process for updating the root account is different then
-other system accounts due to the special nature of the account.
+accounts. The process for updating the root account is different than
+other system accounts because it is used by the linux OS.
 
-To update the root account password we will use a ``POST`` to a shared REST
-worker at ``/mgmt/shared/authn/root``
+To update the root account password we will use a ``POST`` to the ``/mgmt/shared/authn/root`` REST endpoint.
 
 To update all other system accounts we will ``PATCH`` the
 ``/mgmt/tm/auth/user/<username>`` Resource
 
 Perform the following steps to change the ``root`` user password:
 
-#. Click the ``Step 7: Set root User Password`` item in the collection.
+#. Click the ``Step 7: Set root User Password`` item in the folder.
 
-#. Notice that we a performing a POST operation to a shared REST
-   worker. Modify the JSON body to update the password to the value
+#. We are performing a POST operation to change the root user Password and have to specify the oldPassword because the REST call implementation on the Big-IP uses the underlying linux mechanism. Click body. Modify the JSON body to update the password to the value
    ``newdefault`` and click the :guilabel:`Send` button.
 
    |image26|
@@ -173,14 +171,14 @@ Perform the following steps to change the **admin** user password:
 
 #. Click the ``Step 8: Set admin User Password`` item in the collection.
 
-#. Notice that we a performing a ``PATCH`` operation to admin user
-   Resource. Modify the JSON body to update the password to the value
+#. We are performing a ``PATCH`` operation to admin user
+   Resource. Click body and modify the JSON body to update the password to the value
    ``newadmin`` and click the :guilabel:`Send` button.
 
    |image27|
 
 #. You can verify the password was changed by opening an SSH session
-   to BIG-IP-A OR by logging into TMUI in a Chrome browser tab.
+    OR by logging into TMUI (HTTP GUI) to BIG-IP-A in a Chrome browser tab.
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
