@@ -20,10 +20,10 @@ This lab will focus on configuration of the following items:
 
 We will specifically cover the items in **BOLD** above in the following
 labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of customer environments. This class is
+process exist due to the nature of different organizations. This class is
 designed to teach enough information so that you can then apply the
 knowledge learned and help articulate and/or deliver a specific solution
-to your customer.
+for your environment.
 
 .. TODO:: Add logical diagram
 
@@ -76,16 +76,18 @@ Perform the following steps to configure the VLAN objects/resources:
 #. Expand the ``Lab 1.4 - Basic Network Connectivity`` folder in the
    Postman collection.
 
-#. Click the ``Step 1: Create a VLAN`` item in the collection. Examine the
-   JSON body; the values for creating the Internal VLAN have already
-   been populated.
+#. Click the ``Step 1: Create a VLAN`` request in the folder. Click 
+   :guilabel:`Body` and examine the JSON request body; the values for 
+   creating the Internal VLAN have already been populated.
 
 #. Click the :guilabel:`Send` button to create the VLAN
 
 #. **Repeat Step 1**, however, this time modify the JSON body to create the
-   External VLAN using the parameters in the table above.
+   External VLAN using the parameters in the table above. In order to do so 
+   you can replace ``Internal`` with ``External``, ``10`` with ``20`` and 
+   the ``1.1`` to ``1.2`` in the JSON body.
 
-#. Click the ``Step 2: Get VLANs`` item in the collection. Click the
+#. Click the ``Step 2: Get VLANs`` request in the folder. Click the
    :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response
    to make sure both VLANs have been created.
 
@@ -94,7 +96,7 @@ Task 2 - Create Self IPs
 
 Perform the following steps to configure the Self IP objects/resources:
 
-#. Click the ``Step 3: Create Internal Self IP`` item in the collection. Examine
+#. Click the ``Step 3: Create Internal Self IP`` request in the folder. Examine
    the JSON body; the values for creating the Self-Internal Self IP have
    already been populated.
 
@@ -104,11 +106,11 @@ Perform the following steps to configure the Self IP objects/resources:
 
 #. Click the :guilabel:`Send` button to create the Self IP
 
-#. Click the ``Step 4: Create External Self IP`` item in the collection and
+#. Click the ``Step 4: Create External Self IP`` request in the folder and
    click :guilabel:`Send`
 
-#. Click the ``Step 5: Get Self-Internal Self IP Attributes`` item in the
-   collection and click the :guilabel:`Send` button.  Examine the VLAN settings
+#. Click the ``Step 5: Get Self-Internal Self IP Attributes`` request in the
+   folder and click the :guilabel:`Send` button.  Examine the VLAN settings
    of the Resource.  As noted above the Self IP has been assigned to the wrong
    VLAN (intentionally)
 
@@ -124,8 +126,8 @@ Task 3 - Modify Existing Self IP Resource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to modify an existing object via the REST API, the URI path has to
-change.  In previous examples we used a ``POST`` to create Resources under
-a Collection, therefore, the URL used was that of the Collection itself.
+be changed.  In the previous examples we used a ``POST`` to create Resources under
+a Collection, therefore, the URI used was that of the Collection itself.
 If you wish to update/modify a Resource you must refer to the Resource
 directly.
 
