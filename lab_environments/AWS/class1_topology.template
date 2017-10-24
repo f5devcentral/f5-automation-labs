@@ -1,0 +1,309 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+
+     "Description" : "This Cloud Formation Template creates a lab environment for the F5 Programmability/Super-NetOps Training Lab **WARNING** This template creates Amazon EC2 instances. You will be billed for the AWS resources used if you create a stack from this template. This template is supplied with no warranty or support.",
+    "Description" : "This Cloud Formation Template creates the network topology for the F5 Programmability/Super-NetOps Training Lab **WARNING** This template creates Amazon EC2 instances. You will be billed for the AWS resources used if you create a stack from this template. This template is supplied with no warranty or support.",
+    "Parameters": {
+        "UserIP": {
+            "Description": " The IP address range that can be used to access the Jump Server using RDP.",
+            "Type": "String",
+            "MinLength": "9",
+            "MaxLength": "18",
+            "Default": "0.0.0.0/0",
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+        }
+    },
+    "Resources": {
+        "VPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.1.0.0/16",
+                "InstanceTenancy": "default",
+                "EnableDnsSupport": "true",
+                "EnableDnsHostnames": "false",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSLab"
+                    }
+                ]
+            }
+        },
+        "ManagementSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.1.0/24",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "AvailabilityZone" : {
+                    "Fn::Select" : [ "0", { "Fn::GetAZs" : "" } ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSManagement"
+                    }
+                ]
+            }
+        },
+        "AccessSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.2.0/24",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "AvailabilityZone" : {
+                    "Fn::Select" : [ "0", { "Fn::GetAZs" : "" } ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSAccess"
+                    }
+                ]
+            }
+        },
+        "InternalSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.10.0/24",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "AvailabilityZone" : {
+                    "Fn::Select" : [ "0", { "Fn::GetAZs" : "" } ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSInternal"
+                    }
+                ]
+            }
+        },
+        "ExternalSubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": "10.1.20.0/24",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "AvailabilityZone" : {
+                    "Fn::Select" : [ "0", { "Fn::GetAZs" : "" } ]
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSExternal"
+                    }
+                ]
+            }
+        },
+        "RouteTableManagement": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSManagementRT"
+                    }
+                ]
+            }
+        },
+        "RouteTableInternal": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSInternalRT"
+                    }
+                ]
+            }
+        },
+        "RouteTableExternal": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSExternalRT"
+                    }
+                ]
+            }
+        },
+        "ManagementSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "ManagementSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+        },
+        "AccessSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "AccessSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableExternal"
+                }
+            }
+        },
+        "InternalSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "InternalSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+        },
+        "ExternalSubnetRouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "ExternalSubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                }
+            }
+        },
+        "NatEIP": {
+            "Type": "AWS::EC2::EIP",
+            "Properties": {
+                "Domain":"vpc"
+            }
+
+        },
+        "IGW": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSIGW"
+                    }
+                ]
+            }
+        },
+        "NatGW": {
+            "Type": "AWS::EC2::NatGateway",
+            "Properties": {
+                "AllocationId": {
+                    "Fn::GetAtt": [
+                        "NatEIP",
+                        "AllocationId"
+                    ]
+                },
+                "SubnetId": {
+                    "Ref": "AccessSubnet"
+                }
+            }
+        },
+        "IGWAttachment": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "InternetGatewayId": {
+                    "Ref": "IGW"
+                }
+            }
+        },
+        "RouteInternalDefault": {
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "RouteTableId": {
+                    "Ref": "RouteTableInternal"
+                },
+                "NatGatewayId": {
+                    "Ref": "NatGW"
+                }
+            }
+        },
+        "RouteExternalDefault": {
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "RouteTableId": {
+                    "Ref": "RouteTableExternal"
+                },
+                "GatewayId": {
+                    "Ref": "IGW"
+                }
+            },
+            "DependsOn": "IGWAttachment"
+        },
+        "VPCAcl": {
+            "Type": "AWS::EC2::NetworkAcl",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            }
+        },
+        "IngressSG": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Ingress Security Group",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "SNOPSIngressSG"
+                    }
+                ]
+            }
+        }
+    },
+    "Outputs": {
+        "VpcId" : {
+          "Description" : "VPC ID",
+          "Value" : {"Ref": "VPC"}
+        },
+        "ManagementSubnetId" : {
+          "Description" : "Management Subnet ID",
+          "Value" : {"Ref": "ManagementSubnet"}
+        },
+        "InternalSubnetId" : {
+          "Description" : "Internal Subnet ID",
+          "Value" : {"Ref": "InternalSubnet"}
+        },
+        "ExternalSubnetId" : {
+          "Description" : "External Subnet ID",
+          "Value" : {"Ref": "ExternalSubnet"}
+        },
+        "AccessSubnetId" : {
+          "Description" : "Access Subnet ID",
+          "Value" : {"Ref": "AccessSubnet"}
+        },
+        "IngressSGId" : {
+          "Description" : "Ingress Security Group ID",
+          "Value" : {"Ref": "IngressSG"}
+        }
+    }
+}

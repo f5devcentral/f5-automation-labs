@@ -5,123 +5,76 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
-------------------------------------------------------
+Lab |labmodule|\.\ |labnum|\: Exploring iApps
+---------------------------------------------
 
-iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
-BASIC, Token Based Auth). In this lab we will quickly review TBA on
-iWorkflow.
+iApp Templates & Deployments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 1 – Token Based Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A BIG-IP device has multiple ways to ingest an iApp onto its platform, including
+TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All mechanisms
+are valid and, if needed, can be used in conjunction with each other.
 
-In this task we will demonstrate TBA using the local authentication
-database, however, authentication to external providers is fully
-supported.
+For instance, you can install an iApp template from the GUI and then deploy
+a new service via iControl REST using tools like cURL, Postman and Ansible.
 
-For more information about external authentication providers see the
-section titled “\ **About external authentication providers with
-iControl REST**\ ” in the iControl REST API User Guide available at
-https://devcentral.f5.com
+.. NOTE:: Redeployment of iApp templates makes use of an underlying mechanism in
+   the BIG-IP platform that allows safe changes to the configuration without
+   interrupting existing user traffic.
 
-Perform the following steps to complete this task:
+F5 iApps were introduced in TMOS Version 11, they can interact within, and
+across different F5 modules providing full Layer 4-7 Application Service
+capability.  The **iApp Template** is used to drive and **iApp Deployment**
+that creates a configuration under an **Application Service Object (ASO)**.
 
-#. Click the ‘Step 1: Get Authentication Token’ item in the Lab 2.1
-   Postman Collection
+Some examples of the modules we can use iApp templates to configure:
 
-#. Notice that we are sending a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint.
+- Local Traffic Manager
+- Advanced Firewall Manager
+- Application Security Manager
+- Access Policy Manager
 
-   |image41|
+.. NOTE:: ``Application Service`` in the GUI and ``service`` in the REST
+   API are the same objects.  The name is slightly abbreviated in the API.
 
-#. Click the ‘Body’ tab and examine the JSON that we will send to
-   iWorkflow to provide credentials:
+You can find the GUI representation of iApps on the left-hand side of the UI
+under :guilabel:`iApps`. iApp deployments are located under
+:guilabel:`Application Services`, while iApp templates are located under
+:guilabel:`Templates` on the system.
 
-   |image42|
+- :guilabel:`Application Services` (iApp deployments)
 
-#. Modify the JSON body and add the required credentials (admin/admin).
-   Then click the ‘Send’ button.
+  |image2_1|
 
-#. Examine the response status code. If authentication succeeded and a
-   token was generated the response will have a 200 OK status code. If
-   the status code is 401 then check your credentials:
+- :guilabel:`Templates` (iApp templates)
 
-   **Successful:**
+  |image2_2|
 
-   - |image43|
+The associated REST API endpoints are:
 
-   **Unsuccessful:**
+- **iApp Deployments**: ``/mgmt/tm/cloud/services/iapp``
+- **iApp Templates**: ``/mgmt/tm/sys/application/template``
 
-   - |image44|
+iApp Deployments and Source-of-Truth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Once you receive a 200 OK status code examine the response body. The
-   various attributes show the parameters assigned to the particular
-   token. Find the ‘token’ attribute and copy it into your clipboard
-   (Ctrl+c) for use in the next step:
+By default iApp technology implements a strict source-of-truth preservation
+mechanism called **Strict Updates**.  The App Service iApp allows granular
+configuration of the underlying TMOS objects **without** disabling the Strict
+Updates mechanism, however, not all iApp templates implement this functionality.
 
-   |image45|
+In non-automated environments the impact of this can be justified, however, in
+automated environments we must always guarantee that the template inputs are the
+Source-of-Truth for an underlying deployment.  As a result **Strict Updates
+should not be disabled**.
 
-#. Click the ‘Step 2: Verify Authentication Works’ item in the Lab
-   2.1 Postman collection. Click the ‘Headers’ tab and paste the
-   token value copied above as the VALUE for the ``X-F5-Auth-Token``
-   header. This header is required to be sent on all requests when
-   using token based authentication.
+For example, creating an iApp deployment, disabling Strict Updates and then
+modifying the underlying configuration results in a Source-of-Truth violation
+because redeployment of the iApp would result in the changes made directly to
+the configuration being overwritten.  This is because the direct modification
+on the configuration moved the Source-of-Truth to the object itself, rather
+than the iApp deployment input values that automation tools are interacting
+with.
 
-   |image46|
-
-#. Click the ‘Send’ button. If your request is successful you should
-   see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing
-   Collection.
-
-#. We will now update your Postman environment to use this auth token
-   for the remainder of the lab. Click the Environment menu in the top
-   right of the Postman window and click ‘Manage Environments’:
-
-   |image47|
-
-#. Click the ‘INTRO – Automation & Orchestration Lab’ item:
-
-   |image48|
-
-#. Update the value for ‘iwf\_auth\_token’ by Pasting (Ctrl-v)
-   in your auth token:
-
-   |image49|
-
-#. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. Your subsequent requests will now automatically include
-   the token.
-
-#. Click the ‘Step 3: Set Authentication Token Timeout’ item in the
-   Lab 1.2 Postman collection. This request will PATCH your token
-   Resource (check the URI) and update the timeout attribute so we
-   can complete the lab easily. Examine the request type and JSON
-   Body and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
-
-   |image50|
-
-.. |image41| image:: /_static/image041.png
-   :scale: 40%
-.. |image42| image:: /_static/image042.png
-   :scale: 40%
-.. |image43| image:: /_static/image043.png
-   :width: 6.21017in
-   :height: 0.79167in
-.. |image44| image:: /_static/image044.png
-   :width: 6.25278in
-   :height: 0.79268in
-.. |image45| image:: /_static/image045.png
-   :width: 5.16635in
-   :height: 2.88907in
-.. |image46| image:: /_static/image046.png
-   :scale: 40%
-.. |image47| image:: /_static/image047.png
-   :scale: 40%
-.. |image48| image:: /_static/image048.png
-   :width: 4.67051in
-   :height: 1.23217in
-.. |image49| image:: /_static/image049.png
-   :scale: 40%
-.. |image50| image:: /_static/image050.png
-   :scale: 40%
+.. |image2_1| image:: /_static/class1/image2_1.png
+.. |image2_2| image:: /_static/class1/image2_2.png

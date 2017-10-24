@@ -11,7 +11,7 @@ to be installed across many BIG-IP devices in a production-safe manner.
 Without version information it is possible that iApp templates could
 be overwritten leading to deployment failures and/or outages.
 
-Task 1 – Export the existing iApp from BIG-IP
+Task 1 - Export the existing iApp from BIG-IP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The iApp template can be exported from a BIG-IP system where it has
