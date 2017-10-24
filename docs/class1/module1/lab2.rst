@@ -50,7 +50,10 @@ Perform the following steps to complete this task:
 
    - Click the **X** in the top right of the Settings window
 
-#. A Postman Collection lets you group individual REST requests together. This Postman collection can then be shared and imported. To import a Postman Collection, click the :guilabel:`Import` button in the top left of the Postman window
+#. A Postman Collection lets you group individual REST requests together.  This
+   Postman collection can then be shared and imported. To import a Postman 
+   Collection, click the :guilabel:`Import` button in the top left of the Postman 
+   window
 
    |image87|
 
@@ -64,7 +67,10 @@ Perform the following steps to complete this task:
    |image88|
 
 #. You should now see a collection named ``F5 Programmability: Class 1``
-   in your Postman Collections sidebar. Postman automatically resizes its GUI depending on its window size. It might be necessary to use the short "ctrl + \" (on Windows) or click the show sidebar icon at the bottom left corner of postman if you do not see the sidebar.
+   in your Postman Collections sidebar. Postman automatically resizes its GUI 
+   depending on its window size. It might be necessary to use the short 
+   ``Ctrl + \`` (on Windows) or click the show sidebar icon at the bottom left 
+   corner of postman if you do not see the sidebar.
 
    |image10|
 
@@ -119,9 +125,9 @@ Perform the following steps to complete this task:
    |image11|
 
 #. Click the :guilabel:`Headers` tab
-   and examine the HTTP header. Notice that the number of Headers in the Headers tab changed from ``1``
-   to ``2``. This is because Postman automatically created the HTTP header
-   and updated your request to include it.
+   and examine the HTTP header. Notice that the number of Headers in the Headers 
+   tab changed from ``1`` to ``2``. This is because Postman automatically created 
+   the HTTP header and updated your request to include it.
 
    |image91|
 
