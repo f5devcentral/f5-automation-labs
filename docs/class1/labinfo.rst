@@ -130,4 +130,4 @@ components:
 
 
 .. |labtopology| image:: /_static/class1/labtopology.png
-   :scale: 70%
+   :scale: 65%
