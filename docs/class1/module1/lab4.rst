@@ -1,12 +1,29 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 4
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.4: Basic Network Connectivity
+-----------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Basic Network Connectivity
---------------------------------------------------------
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="palegreen"]
+         globalsettings [label="Global Settings",color="palegreen"]
+         networking [label="Networking",color="steelblue1"]
+         clustering [label="Clustering"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
 
 This lab will focus on configuration of the following items:
 
@@ -25,10 +42,8 @@ designed to teach enough information so that you can then apply the
 knowledge learned and help articulate and/or deliver a specific solution
 for your environment.
 
-.. TODO:: Add logical diagram
-
-The following table lists the L2-3 network information used to configure
-connectivity for BIG-IP-A:
+The following table and diagram lists the L2-3 network information used to 
+configure connectivity for BIG-IP-A:
 
 .. list-table::
    :stub-columns: 1
@@ -62,6 +77,8 @@ connectivity for BIG-IP-A:
      - **Network:** 0.0.0.0/0
 
        **GW:** 10.1.20.1
+
+|labtopology|
 
 Task 1 - Create VLANs
 ~~~~~~~~~~~~~~~~~~~~~
@@ -192,3 +209,5 @@ Perform the following steps to configure the Route object/resource:
 .. |image94| image:: /_static/class1/image094.png
 .. |image95| image:: /_static/class1/image095.png
 .. |image96| image:: /_static/class1/image096.png
+.. |labtopology| image:: /_static/class1/labtopology.png
+   :scale: 65%

@@ -1,12 +1,29 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 2
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.2: REST API Authentication & ‘example’ Templates
+------------------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: REST API Authentication & ‘example’ Templates
----------------------------------------------------------------------------
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="steelblue1"]
+         globalsettings [label="Global Settings"]
+         networking [label="Networking"]
+         clustering [label="Clustering"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
 
 One of the many basic concepts related to interaction with REST API’s is
 how a particular consumer is authenticated to the system. BIG-IP and
@@ -85,7 +102,7 @@ Perform the following steps to complete this task:
 
       :raw_github_url:`/postman_collections/Class_1.postman_environment.json`
 
-#.  Set your environment to
+#. Set your environment to
    ``F5 Programmability: Class 1`` by using the menu at the top right
    of your Postman window:
 
@@ -151,7 +168,6 @@ Perform the following steps to complete this task:
    this request are now failing (as expected):
 
    |image107|
-
 
 .. IMPORTANT:: As you progress through this lab be sure to check the
    :guilabel:`Test Results` tab.  We have included *Unit Tests* where applicable

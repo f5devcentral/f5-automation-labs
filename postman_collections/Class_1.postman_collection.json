@@ -5262,6 +5262,49 @@
 					"response": []
 				},
 				{
+					"name": "Set Tenant Authentication Token Timeout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        { ",
+									"            \"path\":\"timeout\", ",
+									"            \"value\":\"36000\" ",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{iwf_tenant_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timeout\":\"36000\"\n}"
+						},
+						"url": "https://{{iwf_mgmt}}/mgmt/shared/authz/tokens/{{iwf_tenant_auth_token}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Deploy example-f5-http-lb Service",
 					"event": [
 						{
@@ -5690,7 +5733,28 @@
 			"name": "Lab 3.4 - iWorkflow REST Proxy",
 			"item": [
 				{
-					"name": "Step 1: Create pool on BIGIP-A",
+					"name": "Step 1: Create pool on BIG-IP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        {",
+									"            \"path\":\"name\",",
+									"            \"value\":\"rest_proxy_pool\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -5712,7 +5776,28 @@
 					"response": []
 				},
 				{
-					"name": "Step 2: Get pool on BIGIP-A",
+					"name": "Step 2: Get pool on BIG-IP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        {",
+									"            \"path\":\"name\",",
+									"            \"value\":\"rest_proxy_pool\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -5753,7 +5838,8 @@
 							"query": [
 								{
 									"key": "expandSubcollections",
-									"value": "true"
+									"value": "true",
+									"equals": true
 								}
 							]
 						}
@@ -5761,7 +5847,28 @@
 					"response": []
 				},
 				{
-					"name": "Step 3: Update pool on BIGIP-A",
+					"name": "Step 3: Update pool on BIG-IP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        {",
+									"            \"path\":\"loadBalancingMode\",",
+									"            \"value\":\"least-connections-member\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -5783,7 +5890,28 @@
 					"response": []
 				},
 				{
-					"name": "Step 4: Get pool on BIGIP-A",
+					"name": "Step 4: Get pool on BIG-IP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"var check_vals = [",
+									"        {",
+									"            \"path\":\"name\",",
+									"            \"value\":\"rest_proxy_pool\"",
+									"        }",
+									"    ];",
+									"",
+									"f5_check_response(check_vals);",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -5824,7 +5952,8 @@
 							"query": [
 								{
 									"key": "expandSubcollections",
-									"value": "true"
+									"value": "true",
+									"equals": true
 								}
 							]
 						}
@@ -5832,7 +5961,21 @@
 					"response": []
 				},
 				{
-					"name": "Step 5: Delete pool on BIGIP-A",
+					"name": "Step 5: Delete pool on BIG-IP A",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"eval(postman.getGlobalVariable(\"_f5_workflow_functions\"));",
+									"",
+									"f5_check_response_code();",
+									""
+								]
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [

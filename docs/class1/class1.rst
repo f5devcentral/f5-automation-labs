@@ -20,3 +20,4 @@ in the BIG-IP Basics section.
    labinfo
    bigipbasics
    module*/module*
+   conclusion

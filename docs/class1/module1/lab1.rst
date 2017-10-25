@@ -1,13 +1,31 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 1
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.1: Exploring the iControl REST API
+----------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Exploring the iControl REST API
--------------------------------------------------------------
+.. graphviz::
 
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="steelblue1"]
+         authentication [label="Authentication"]
+         globalsettings [label="Global Settings"]
+         networking [label="Networking"]
+         clustering [label="Clustering"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         
+      }
+   }
+   
 Task 1 - Explore the API using the TMOS Web Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

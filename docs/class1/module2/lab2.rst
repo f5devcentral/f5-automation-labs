@@ -1,12 +1,26 @@
-.. |labmodule| replace:: 2
-.. |labnum| replace:: 2
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 2.2: Deploying iApp Templates on BIG-IP
+-------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Deploying iApp Templates on BIG-IP
-----------------------------------------------------------------
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "iApp Templates & Deployments"
+         basics [label="iApp Basics",color="palegreen"]
+         templates [label="iApp Templates",color="steelblue1"]
+         deployments [label="iApp Deployments"]
+         basics -> templates -> deployments
+      }
+   }
 
 iApps typically come in the form of a ``.tmpl`` file, which contains the content
 needed for the BIG-IP to utilize it as a Service framework.

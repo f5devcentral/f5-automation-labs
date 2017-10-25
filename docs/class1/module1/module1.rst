@@ -1,6 +1,35 @@
 Module 1: Imperative Automation with the |bip| |icr|
 ====================================================
 
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Provider"
+         bigip [label="BIG-IP",color="steelblue1"]
+         iapps [label="iApp Templates&#92;n& Deployments"]
+         iwf_templates [label="Service&#92;nTemplates"]
+      }
+      subgraph cluster_tenant {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Tenant"
+         iwf_catalog [label="Service&#92;nCatalog"]
+         iwf_deploy [label="Service&#92;nDeployment"]
+      }
+      iwf_deploy -> iwf_catalog -> iwf_templates -> iapps -> bigip
+   }
+   
 In this module you will learn the basic concepts required to interact
 with the BIG-IP iControl REST API. Additionally, you will walk through a
 typical Device Onboarding workflow that results in a fully functional

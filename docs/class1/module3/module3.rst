@@ -1,5 +1,34 @@
-Module 3: iWorkflow
-===================
+Module 3: Creating Declarative Service Interfaces with iWorkflow
+================================================================
+
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Provider"
+         bigip [label="BIG-IP",color="palegreen"]
+         iapps [label="iApp Templates&#92;n& Deployments",color="palegreen"]
+         iwf_templates [label="Service&#92;nTemplates",color="steelblue1"]
+      }
+      subgraph cluster_tenant {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Tenant"
+         iwf_catalog [label="Service&#92;nCatalog",color="steelblue1"]
+         iwf_deploy [label="Service&#92;nDeployment",color="steelblue1"]
+      }
+      iwf_deploy -> iwf_catalog -> iwf_templates -> iapps -> bigip
+   }
 
 In this module we will explore how to use F5’s iWorkflow platform to
 further abstract application services and deliver those services to

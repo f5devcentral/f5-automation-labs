@@ -1,13 +1,30 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 3
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.3: Review/Set Device Settings
+-----------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Review/Set Device Settings
---------------------------------------------------------
+.. graphviz::
 
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="palegreen"]
+         globalsettings [label="Global Settings",color="steelblue1"]
+         networking [label="Networking"]
+         clustering [label="Clustering"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
+   
 All devices are already licensed so we can focus on
 configuring the basic infrastructure related settings to complete the
 Device Onboarding process. The remaining items include (list not
@@ -124,13 +141,13 @@ Perform the following steps to complete this task:
    Click :guilabel:`Send` and review the current settings
 
 #. Click the ``Step 4: Set System DNS Settings`` item in the folder.
-   Click body. Review the JSON body to verify the name server IPs ``4.2.2.2`` and
-   ``8.8.8.8`` are listed. Additionally, add a search domain of ``f5.local``.
-   You will modify a JSON array to add a search domain.
+   Click body. Review the JSON body to verify the name server IPs ``4.2.2.2`` 
+   and ``8.8.8.8`` are listed. Additionally, add a search domain of 
+   ``f5.local``. You will modify a JSON array to add a search domain.
 
 #. Click the :guilabel:`Send` button and verify the requested changes were
    successfully implemented by looking at the response or by sending the
-   ``Step 3: Get System DNS Settings``request again.
+   ``Step 3: Get System DNS Settings`` request again.
 
 #. Click the ``Step 5: Get System NTP Settings`` item in the folder.
    Click :guilabel:`Send` and review the current settings

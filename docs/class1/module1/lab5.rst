@@ -1,13 +1,30 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 5
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.5: Building Imperative Workflows with Postman Collections
+---------------------------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Building Imperative Workflows with Postman Collections
-------------------------------------------------------------------------------------
+.. graphviz::
 
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="palegreen"]
+         globalsettings [label="Global Settings",color="palegreen"]
+         networking [label="Networking",color="palegreen"]
+         clustering [label="Clustering"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
+   
 As you have seen in the previous lab's we can use the Collections and Folders
 features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a

@@ -1,12 +1,29 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 7
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.7: Build a Basic LTM Config using REST Transactions
+---------------------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Build a Basic LTM Config using REST Transactions
-------------------------------------------------------------------------------
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="palegreen"]
+         globalsettings [label="Global Settings",color="palegreen"]
+         networking [label="Networking",color="palegreen"]
+         clustering [label="Clustering",color="palegreen"]
+         transactions [label="Transactions",color="steelblue1"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
 
 In this lab we will build a basic LTM Config using |icr| Transactions.
 

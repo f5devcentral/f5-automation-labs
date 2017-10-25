@@ -1,12 +1,27 @@
-.. |labmodule| replace:: 3
-.. |labnum| replace:: 2
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 3.2: Create a Declarative Service Catalog
+---------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Create a Declarative Service Catalog
-------------------------------------------------------------------
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Service Templates, Catalog and Deployments"
+         onboarding [label="Basics",color="palegreen"]
+         templates [label="Templates",color="steelblue1"]
+         catalog [label="Catalog"]
+         deployments [label="Deployments"]
+         onboarding -> templates -> catalog -> deployments
+      }
+   }
 
 In the introduction to this module we discussed the importance of using 
 **Service Templates** to build a **Declarative Service Catalog**.  This

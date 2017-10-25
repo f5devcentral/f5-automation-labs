@@ -1,13 +1,27 @@
-.. |labmodule| replace:: 2
-.. |labnum| replace:: 3
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 2.3: Create iApp Deployments using the REST API
+---------------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Create iApp Deployments using the REST API
-------------------------------------------------------------------------
+.. graphviz::
 
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "iApp Templates & Deployments"
+         basics [label="iApp Basics",color="palegreen"]
+         templates [label="iApp Templates",color="palegreen"]
+         deployments [label="iApp Deployments",color="steelblue1"]
+         basics -> templates -> deployments
+      }
+   }
+   
 Now that the App Services iApp template is installed, we can deploy a new
 Layer 4-7 Service. The service in this lab will go through different iterations,
 we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
