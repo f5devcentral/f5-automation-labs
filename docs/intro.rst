@@ -7,8 +7,9 @@ would like to leverage the various programmability tools offered by the F5
 platform.  If you require a pre-built lab environment please contact your F5
 account team and they can provide access to environments on an as-needed basis.
 
-The content contained here leverages a full DevOps CI/CD pipeline and is
-sourced from the following GitHub repository:
+The content contained here adheres to a DevOps methodology and automation
+pipeline.  All content contained here is sourced from the following GitHub 
+repository:
 
 https://github.com/f5devcentral/f5-automation-labs/
 
