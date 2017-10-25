@@ -8,16 +8,16 @@
 Lab |labmodule|\.\ |labnum|\: Build a BIG-IP Cluster using a Collection
 -----------------------------------------------------------------------
 
-In this lab we will build a active-standby cluster between BIG-IP-A and
-BIG-IP-B. As mentioned previously, to save time, BIG-IP-B is already licensed
-and had its device level settings configured. This lab will use the the Postman
-Runner functionality introduced in the previous lab.  We will run the requests
-in a Collection Folder to build the cluster.  If you examine the
-``Lab 1.6 - Build a Cluster`` folder in the Collection you can see how complex
-**Imperative** processes can become.  Clustering is one of the *transition*
-points for most customers to move into the **Declarative**
-model (if not already done) due to the need to abstract device/vendor
-level specifics from Automation consumers.
+In this lab, we will build an active-standby cluster between BIG-IP-A and
+BIG-IP-B using the REST API. As mentioned previously, to save time, BIG-IP-B is
+already licensed and had its device-level settings configured. This lab will
+use the Postman Runner functionality introduced in the previous lab.
+We will run the requests in a Collection Folder to build the cluster.
+If you examine the ``Lab 1.6 - Build a Cluster`` folder in the Collection you
+can see how complex **Imperative** processes can become.
+Clustering is one of the *transition* points for most customers to move into the
+ **Declarative** model (if not already done) due to the need to abstract
+device/vendor level specifics from Automation consumers.
 
 The high-level procedure required to create the cluster is:
 
@@ -35,7 +35,7 @@ The high-level procedure required to create the cluster is:
 
 #. Add BIGIP-B as a trusted peer on BIGIP-A
 
-#. Check the the status of the Sync Groups
+#. Check the status of the Sync Groups
 
 #. Create a sync-failover Device Group
 
@@ -49,15 +49,15 @@ The high-level procedure required to create the cluster is:
 
 #. Create Floating Self IPs
 
-#. Failover the Traffic Group to make BIGIP-A Active
+#. Failover the Traffic Group to make BIGIP-A the Active device
 
 Task 1 - Build a Cluster using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will use the :guilabel:`Runner` to execute a series of
 requests contained in the ``Lab 1.6 - Build a Cluster`` folder.  As mentioned
-previously this folder contains the large number of REST requests required to
-build an Active/Standby cluster.  Additionally we will make use of a JavaScript
+previously this folder contains a large number of REST requests required to
+build an Active/Standby cluster.  Additionally, we will make use of a JavaScript
 framework called ``f5-postman-workflows`` that extends the Postman client to
 include common test and polling functions.
 

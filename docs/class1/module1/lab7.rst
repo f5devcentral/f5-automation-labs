@@ -26,8 +26,8 @@ command or remove a single command from the queued list before committing.
    **Atomic** in nature.
 
 .. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
-   longer then the timeout to execute the transaction will result in its
-   automatic deletion.  To avoid having to redo the steps in this task
+   longer than the timeout to execute the transaction will result in its
+   automatic deletion.  To avoid having to redo the steps in this task,
    please read the steps below first and then execute each one in a timely
    manner.
 
@@ -45,7 +45,7 @@ Perform the following steps to complete this task:
    |image36|
 
 #. Click the :guilabel:`Send` button to send the request. Examine the response
-   and find the ``transId`` attribute.  Additionally notice that there are
+   and find the ``transId`` attribute.  Additionally, notice that there are
    timeouts for both the submission of the transaction and how long it should
    take to execute. Be aware that after the ``timeoutSeconds`` value, this
    ``transId`` will be silently removed:
