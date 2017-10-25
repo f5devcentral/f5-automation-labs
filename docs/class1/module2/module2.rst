@@ -13,8 +13,10 @@ iApps are commonly thought of as a Wizard style deployment helper, but they are
 actually a Declarative Interface (like REST Transactions).
 
 When an iApp deploys, a **single** call - declaring the desired deployment -
-is processed on the BIG-IP in the correct order of operations. All created objects
-are associated with an Application Service Object (ASO) making for easy deletion.
+is processed on the BIG-IP in the correct order of operations.
+All created objects are associated with an Application Service Object (ASO).
+The ASO model identifies which objects belong to the iApp service deployment.
+Upon service deletion, all service related objects are recursively deleted.
 
 We will be using the **F5 App Services Integration iApp**
 (App Services iApp for short).
