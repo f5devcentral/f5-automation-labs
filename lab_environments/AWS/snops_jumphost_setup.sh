@@ -76,7 +76,7 @@ allow_multimon=true
 bitmap_cache=true
 bitmap_compression=true
 bulk_compression=true
-max_bpp=32
+max_bpp=16
 new_cursors=true
 use_fastpath=both
 
@@ -272,7 +272,7 @@ EOF
 
 chmod +x /home/ubuntu/Desktop/Postman.desktop
 
-#Things are created as root, need to transfer ownership
+# Things are created as root, need to transfer ownership
 chown -R ubuntu:ubuntu /home/ubuntu/Desktop
 chown -R ubuntu:ubuntu /home/ubuntu/f5-automation-labs
 
