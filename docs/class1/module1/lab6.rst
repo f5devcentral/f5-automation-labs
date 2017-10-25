@@ -49,7 +49,7 @@ The high-level procedure required to create the cluster is:
 
 #. Create Floating Self IPs
 
-#. Failover the Traffic Group to make BIGIP-A the active device
+#. Failover the Traffic Group to make BIGIP-A the Active device
 
 Task 1 - Build a Cluster using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
