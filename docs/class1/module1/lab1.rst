@@ -26,7 +26,7 @@ created object with all the correct attributes already populated.
 
    |image1|
 
-#. Navigate to the URL https://10.1.1.4/mgmt/toc (or click the BIG-IP A
+#. Navigate to the URL https://10.1.1.10/mgmt/toc (or click the BIG-IP A
    REST TOC bookmark). The ‘/mgmt/toc’ path in the URL is available on
    all TMOS versions 11.6 or newer.
 
