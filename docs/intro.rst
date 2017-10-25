@@ -12,7 +12,7 @@ sourced from the following GitHub repository:
 
 https://github.com/f5devcentral/f5-automation-labs/
 
-Bugs and Requests for enhancements can be made using by opening an
+Bugs Reports and Requests for Enhancements can be submitted by opening an
 `Issue <https://github.com/f5devcentral/f5-automation-labs/issues>`_ within
 the repository.
 
@@ -23,8 +23,8 @@ Please follow the instructions provided by the instructor to start your
 lab and access your jump host.
 
 .. NOTE::
-	All work for this lab will be performed exclusively from the Windows
-	jumphost. No installation or interaction with your local system is
+	All work for this lab will be performed exclusively from the Linux
+	jump host. No installation or interaction with your local system is
 	required.
 
 Lab Environments
@@ -34,7 +34,7 @@ In order to complete this series of training classes you will need to utilize
 a specific **Lab Environment**.  You can consume this training in a couple of
 ways:
 
-- Pre-built Environment using an Ravello Blueprint
+- Pre-built Environment using a Ravello Blueprint
 
   - Used at official F5 events such as F5 Agility, F5 Agility Roadshows,
     User Groups, MeetUps, etc.
@@ -65,7 +65,7 @@ Amazon AWS CloudFormation Template
    billed to your account.
 
 Click the link below to start a pre-built lab environment using a CloudFormation
-template in Amazon AWS:
+Template in Amazon AWS:
 
  :ref:`amazon-aws-lab-environment-guide`
 
@@ -81,13 +81,11 @@ components have been included in your lab environment:
 
 -  2 x F5 BIG-IP VE (v12.1)
 
--  1 x F5 iWorkflow VE (v2.1)
+-  1 x F5 iWorkflow VE (v2.3)
 
--  1 x Linux LAMP Webserver (xubuntu 14.04)
+-  1 x Linux Server (xubuntu 16.04)
 
--  1 x Linux Docker Server (CentOS 7)
-
--  1 x Windows Jumphost
+-  1 x Linux Jump host
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -100,30 +98,28 @@ components:
     * - **Component**
       - **VLAN/IP Address(es)**
       - **Credentials**
-    * - Windows Jumphost
-      - - **Management:** 10.1.1.250
-        - **Internal:** 10.1.10.250
-        - **External:** 10.1.20.250
+    * - Linux Jump Host
+      - - **Management:** 10.1.1.20
+        - **Internal:** 10.1.10.20
+        - **External:** 10.1.20.20
       - Administrator/*available in instance details*
     * - BIG-IP A
-      - - **Management:** 10.1.1.4
-        - **Internal:** 10.1.10.1
-        - **Internal (Float):** 10.1.10.3
-        - **External:** 10.1.20.1
+      - - **Management:** 10.1.1.10
+        - **Internal:** 10.1.10.10
+        - **Internal (Float):** 10.1.10.13
+        - **External:** 10.1.20.10
       - admin/admin
     * - BIG-IP B
-      - - **Management:** 10.1.1.5
-        - **Internal:** 10.1.10.2
+      - - **Management:** 10.1.1.11
+        - **Internal:** 10.1.10.11
         - **Internal (Float):** 10.1.10.3
-        - **External:** 10.1.20.2
+        - **External:** 10.1.20.12
       - admin/admin
     * - iWorkflow
-      - - **Management:** 10.1.1.6
+      - - **Management:** 10.1.1.12
+      - - **Internal:** 10.1.10.12
       - admin/admin
     * - Linux Server
-      - - **Management:** 10.1.1.7
-        - **Internal:** 10.1.10.10-13
-      - root/default
-    * - Docker Server
-      - - **Management:** 10.1.1.8
+      - - **Management:** 10.1.1.15
+        - **Internal:** 10.1.10.100-103
       - root/default
