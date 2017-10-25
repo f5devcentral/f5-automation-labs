@@ -36,7 +36,7 @@ at:
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**
    node in the cluster
 
-.. NOTE:: This module deploys the configurations to BIG-IP A. iApp deployments
+.. NOTE:: This module deploys the configuration to BIG-IP A. iApp deployments
    leverage the underlying config-sync mechanisms in the cluster.  Once deployed
    on BIG-IP A, the configuration will be automatically synced to BIG-IP B
 
