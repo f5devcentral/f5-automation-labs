@@ -1,9 +1,7 @@
-:orphan:
+F5 Unified Demo Framework (UDF)
+-------------------------------
 
-.. _udf-lab-environment-guide:
-
-UDF Lab Environment Guide
-=========================
+.. NOTE:: This environment is currently available for F5 employees only
 
 Determine how to start your deployment:
 
@@ -15,7 +13,7 @@ Determine how to start your deployment:
   Blueprint and :guilabel:`Start` it.
 
 Connecting to the Environment
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The lab environment provides to methods of access to the Jumphost:
 
@@ -54,9 +52,11 @@ Connect using RDP
 
 #. Open the RDP file in the Remote Desktop Client and connect.  If you have 
    any problems please ask your instructor for help
-   
+    
+#. Select how you would like to continue:
 
-#. Enjoy the class!
+   - Review: :ref:`bigipbasics`
+   - Start: :ref:`module1`
 
 Connect using an HTML5 Browser
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -75,12 +75,15 @@ Connect using an HTML5 Browser
    by the :guilabel:`Send Password` button.  You should now be connected.  If 
    you have any problems please ask your instructor for help
 
-#. Enjoy the class!
+#. Select how you would like to continue:
+
+   - Review: :ref:`bigipbasics`
+   - Start: :ref:`module1`
 
 .. _lab-udf-hidpi:
 
 Using HiDPI Displays (RDP & Windows)
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. WARNING:: Do these steps BEFORE you connect via RDP.  Choose ONE.  
    Do not do both.
@@ -106,7 +109,12 @@ Resize your display (Windows 10) - RECOMMENDED
 
    |apply-resolution|
 
-#. Connect to the RDP session and enjoy the class!
+#. Connect to the RDP session 
+
+#. Select how you would like to continue:
+
+   - Review: :ref:`bigipbasics`
+   - Start: :ref:`module1`
 
 Use RDP Zoom
 ^^^^^^^^^^^^
@@ -125,7 +133,10 @@ Use RDP Zoom
 
    |rdp-zoom|
 
-#. Enjoy the class!
+#. Select how you would like to continue:
+
+   - Review: :ref:`bigipbasics`
+   - Start: :ref:`module1`
 
 .. |display-settings| image:: /_static/display-settings.png
    :scale: 75%

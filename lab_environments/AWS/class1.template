@@ -42,7 +42,7 @@
             "Ref": "UserIP"
           }
         },
-        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/class1_topology.template"
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/supernetops-cf-templates/class1_topology.template"
       }
     },
     "JumpHostStack": {
@@ -59,7 +59,7 @@
           "IngressSG": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.IngressSGId" ]},
           "RepoBranch": { "Ref": "Branch" }
         },
-        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/snops_jumphost.template"
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/supernetops-cf-templates/snops_jumphost.template"
       }
     },
     "ServerStack": {
@@ -73,7 +73,7 @@
           "InternalSubnet": { "Fn::GetAtt" : [ "TopologyStack", "Outputs.InternalSubnetId" ]},
           "RepoBranch": { "Ref": "Branch" }
         },
-        "TemplateURL": "https://s3.us-east-2.amazonaws.com/hpatel/snops_server.template"
+        "TemplateURL": "https://s3.us-east-2.amazonaws.com/supernetops-cf-templates/snops_server.template"
       }
     }
   },

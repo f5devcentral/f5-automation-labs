@@ -2,67 +2,17 @@ Lab Environments & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: All work for this lab will be performed exclusively from the Linux
-   jumphost. No installation or interaction with your local system is
+   Jumphost. No installation or interaction with your local system is
    required.
 
-In order to complete this class you will need to utilize a specific
-**Lab Environment**.  You can consume this training in a couple of
-ways:
-
-- Pre-built Environment using a Ravello Blueprint
-
-  - Used at official F5 events such as F5 Agility, F5 Agility Roadshows,
-    User Groups, MeetUps, etc.
-
-  - Access can be provided by your F5 Account Team
-
-- Pre-built Environment using an Amazon AWS CloudFormation Template (CFT)
-
-  - Access is on-demand and uses *your* AWS account
-
-- Self-built Environment on your own infrastructure
-
-  - Review the Topology below for details
-
-All pre-built environments implement the :ref:`lab-topology` shown below.
-
-F5 Unified Demo Framework (UDF)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. NOTE:: This environment is currently available for F5 employees only
-
-Click the link below to see details about the UDF environment.
-
-:ref:`udf-lab-environment-guide`
-
-Ravello Blueprint
-^^^^^^^^^^^^^^^^^
-
-If you are taking this class at a Meetup, User Group, F5 Agility or another
-official event, access details will be provided by your instructor.
-
-If you would like to take this class using our lab environment please contact
-your F5 Account Team.
-
-Amazon AWS CloudFormation Template
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. WARNING:: The AWS CFT will run in your account.  The template includes
-   components and instances that will incur a charge.  This charge will be
-   billed to your account.
-
-.. WARNING:: The AWS CFT is currently in testing.  You can complete Modules 1
-   & 2 of this class using the template at this time.
-
-Click the link below to start a pre-built lab environment using a CloudFormation
-template in Amazon AWS:
-
-:ref:`amazon-aws-lab-environment-guide`
+All pre-built environments implement the Lab Topology shown below.  Please 
+review the topology first, then find the section matching the lab environment
+you are using for connection instructions.
 
 .. _lab-topology:
 
 Lab Topology
-^^^^^^^^^^^^
+------------
 
 The network topology implemented for this lab is very simple. Since the
 focus of the lab is Control Plane programmability rather than Data Plane
@@ -78,8 +28,6 @@ components have been included in your lab environment:
 -  1 x Linux Jumphost
 
 |labtopology|
-
-.. graphviz:: labtopology.dot
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -136,6 +84,39 @@ components:
       - **Internal:** 10.1.10.100-103
       - root/default
 
+Lab Environments
+----------------
+
+In order to complete this class you will need to utilize a specific
+**Lab Environment**.  You can consume this training in a couple of
+ways:
+
+- Pre-built Environment using a Ravello Blueprint
+
+  - Used at official F5 events such as F5 Agility, F5 Agility Roadshows,
+    User Groups, MeetUps, etc.
+
+  - Access can be provided by your F5 Account Team
+
+- Pre-built Environment using an Amazon AWS CloudFormation Template (CFT)
+
+  - Access is on-demand and uses *your* AWS account
+
+- Pre-built Environment using the F5 Unified Demo Framework (UDF)
+
+  - This environment is currently available for F5 employees only
+
+- Self-built Environment on your own infrastructure
+
+  - Review the Topology for details
+
+Select the Environment from the list below to get started:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   lab_environments/*
 
 .. |labtopology| image:: /_static/class1/labtopology.png
    :scale: 65%

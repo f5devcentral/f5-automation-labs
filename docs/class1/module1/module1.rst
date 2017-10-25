@@ -1,3 +1,5 @@
+.. _module1:
+
 Module 1: Imperative Automation with the |bip| |icr|
 ====================================================
 
