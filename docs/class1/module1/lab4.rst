@@ -131,7 +131,7 @@ Perform the following steps to configure the Self IP objects/resources:
 
 #. Click the ``Step 5: Get Self-Internal Self IP Attributes`` request in the
    folder and click the :guilabel:`Send` button.  Examine the VLAN settings
-   of the Resource.  As noted above the Self IP has been assigned to the wrong
+   of the Resource.  As noted above the Self IP has been assigned to the **wrong**
    VLAN (intentionally)
 
    .. NOTE:: Postman has the ability to check the responses for specific values 
@@ -182,7 +182,8 @@ Resource URI.
 
 #. Click the ``Step 6: Get Self IPs`` item in the collection. Click the
    ``Send`` button to GET the Self IP collection. Examine the response to
-   make sure both Self IPs have been created and belong to the appropriate vlan.
+   make sure both Self IPs have been created and associaited with the 
+   appropriate vlan.
 
 Task 4 - Create Routes
 ~~~~~~~~~~~~~~~~~~~~~~
