@@ -1,7 +1,7 @@
 Lab Environments & Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: All work for this lab will be performed exclusively from the Linux
+.. WARNING:: All work for this lab will be performed exclusively from the Linux
    Jumphost. No installation or interaction with your local system is
    required.
 
@@ -108,7 +108,7 @@ ways:
 
 - Self-built Environment on your own infrastructure
 
-  - Review the Topology for details
+  - Review the Topology and Guide below for pre-requesites
 
 Select the Environment from the list below to get started:
 
@@ -116,7 +116,11 @@ Select the Environment from the list below to get started:
    :maxdepth: 1
    :glob:
 
-   lab_environments/*
+   lab_environments/aws
+   lab_environments/ravello
+   lab_environments/udf
+   lab_environments/self_built
+
 
 .. |labtopology| image:: /_static/class1/labtopology.png
    :scale: 65%
