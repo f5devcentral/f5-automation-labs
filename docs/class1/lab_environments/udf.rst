@@ -8,7 +8,7 @@ Determine how to start your deployment:
 - **Official Events (ISC, SSE Summits):**  Please follow the
   instructions given by your instructor to join the UDF Course.
 
-- **Self-Paced/On You Own:** Login to UDF,
+- **Self-Paced/On Your Own:** Login to UDF,
   :guilabel:`Deploy` the ``Intro to Automation & Orchestion``
   Blueprint and :guilabel:`Start` it.
 
@@ -45,7 +45,6 @@ Connect using RDP
 #. If you have the official Microsoft Remote Desktop Client installed please
    install it using the instructions at
    https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
-
 
 #. .. WARNING:: If you have a HiDPI display please refer to the :ref:`lab-udf-hidpi`
       instructions below
@@ -140,18 +139,13 @@ Use RDP Zoom
 
 .. |display-settings| image:: /_static/display-settings.png
    :scale: 75%
-
 .. |advanced-display-settings| image:: /_static/advanced-display-settings.png
    :scale: 75%
-
 .. |apply-resolution| image:: /_static/apply-resolution.png
    :scale: 75%
-
 .. |edit-rdp| image:: /_static/edit-rdp.png
    :scale: 75%
-
 .. |rdp-resolution| image:: /_static/rdp-resolution.png
    :scale: 75%
-
 .. |rdp-zoom| image:: /_static/rdp-zoom.png
    :scale: 75%
