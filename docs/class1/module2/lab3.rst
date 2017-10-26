@@ -363,6 +363,7 @@ Perform the following steps to complete this task:
 .. |image2_9| image:: /_static/class1/image2_9.png
 .. |image2_10| image:: /_static/class1/image2_10.png
 .. |image2_11| image:: /_static/class1/image2_11.png
+.. |image2_11a| image:: /_static/class1/image2_11a.png
 .. |image2_12| image:: /_static/class1/image2_12.png
 .. |image2_13| image:: /_static/class1/image2_13.png
 .. |image2_14| image:: /_static/class1/image2_14.png
