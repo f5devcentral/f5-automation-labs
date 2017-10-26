@@ -33,14 +33,20 @@ HA Proxy to Big-IP Quick start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you are already familiar with HA Proxy, learning F5 Big-IP will be straightforward once you learn the F5 terminology. Here is a list of common config/terminology and their F5 equivalent
 
-==========          ==========
-HA Proxy            F5 Big-IP
-==========          ==========
-Frontend            Virtual Server (VIP)
-Backend             Pool
-Server              Member
-mode http           HTTP Profile
-default_backend     Default pool
-use_backend         LTM policy
-check port          Health monitor
-==========          ==========
++---------------------+---------------------+
+| HA Proxy            | F5 Big-IP           |
++---------------------+---------------------+
+| Frontend            | Virtual Server (VIP)|
++---------------------+---------------------+
+| Backend             | Pool                |
++---------------------+---------------------+
+| Server              | Member              |
++---------------------+---------------------+
+| mode http           | HTTP Profile        |
++---------------------+---------------------+
+| default_backend     | Default pool        |
++---------------------+---------------------+
+| use_backend         | LTM policy          |
++---------------------+---------------------+
+| check port          | Health monitor      |
++---------------------+---------------------+
