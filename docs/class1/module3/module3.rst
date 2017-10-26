@@ -65,9 +65,9 @@ Services iApp template you learned about in Module 2.  The focus in Module 2
 was showing how to drive rich deployments, however, a large amount of F5 
 **Domain Specific Knowledge** was still required to drive the deployments.
 From a conceptual view iApp templates alone do not fully satisfy the requirement
-for a fully **Declarative** interface because while the iApp template simplies
+for a fully **Declarative** interface because while the iApp template simplifies
 the underlying **Imperative** actions it does not allow the adminstrator to 
-built an **Interface** that minimizes or eliminates the need for **Domain 
+build an **Interface** that minimizes or eliminates the need for **Domain 
 Specific Knowledge**.
 
 For example, we deployed a service that enabled HTTP Traffic Management with 
