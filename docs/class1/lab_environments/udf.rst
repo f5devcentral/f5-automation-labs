@@ -9,7 +9,8 @@ Determine how to start your deployment:
   instructions given by your instructor to join the UDF Course.
 
 - **Self-Paced/On Your Own:** Login to UDF,
-  :guilabel:`Deploy` the ``Intro to Automation & Orchestration``
+  :guilabel:`Deploy` the 
+  ``Programmability Class 1: Introduction to Automation & Orchestration``
   Blueprint and :guilabel:`Start` it.
 
 Connecting to the Environment
