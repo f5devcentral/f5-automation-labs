@@ -6,8 +6,8 @@ Lab 2.3: Create iApp Deployments using the REST API
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -21,7 +21,7 @@ Lab 2.3: Create iApp Deployments using the REST API
          basics -> templates -> deployments
       }
    }
-   
+
 Now that the App Services iApp template is installed, we can deploy a new
 Layer 4-7 Service. The service in this lab will go through different iterations,
 we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
@@ -90,10 +90,10 @@ Perform the following steps to complete this task:
 
 
 #. From the TMUI GUI, examine the Virtual Server that was created from
-   this deployment by clicking :menuselection:`Local Traffic --> Virtual Servers 
+   this deployment by clicking :menuselection:`Local Traffic --> Virtual Servers
    --> Virtual Server List --> Demo_vs`.  The configuration is simple, but it
-   does contain the key components for an HTTP service (Listener, HTTP Profile
-   Pool, Monitor and Pool Members):
+   does contain the key components for an HTTP service (Listener, HTTP Profile,
+   Monitor, Pool, and Pool Members):
 
    |image2_15|
 
