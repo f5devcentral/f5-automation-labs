@@ -33,7 +33,7 @@ HA Proxy to Big-IP Quick Start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you're already familiar with HA Proxy, learning F5 BIG-IP is straightforward
-once you learn the F5 terminology. Here is a list of common HA Proxy
+once you learn the associated F5 terminology. Here is a list of common HA Proxy
 configuration terminology and its F5 equivalent:
 
 +---------------------+---------------------+
