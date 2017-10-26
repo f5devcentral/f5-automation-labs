@@ -83,7 +83,7 @@ In an automated environment, we **must** always ensure that the **iApp template 
 Source-of-Truth for an underlying deployment.  Therefore, **Strict Updates
 should not be disabled** in order to preserve the integrity of service deployments using iApp templates.
 
-For instance, after an iApp service is deployed, modifying the underlying configuration **with Strict Updates disabled** will result in Source-of-Truth violation. Changes made directly to the configuration will cause iApp conifguration objects to be overwritten. The direct modification of objects configured on BIG-IP will alter the integrity of iApp deployment input values that automation tools are interacting with, causing failures. It is therefore important to keep **Strict Updates** enabled at all times for automated deployments.
+For instance, after an iApp service is deployed, modifying the underlying configuration **with Strict Updates disabled** will result in Source-of-Truth violation. Changes made directly to the configuration will cause iApp configuration objects to be overwritten. The direct modification of objects configured on BIG-IP will alter the integrity of iApp deployment input values that automation tools are interacting with, causing failures. It is therefore important to keep **Strict Updates** enabled at all times for automated deployments.
 
 .. |image2_1| image:: /_static/class1/image2_1.png
 .. |image2_2| image:: /_static/class1/image2_2.png
