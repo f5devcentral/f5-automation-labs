@@ -48,8 +48,8 @@ all the correct attributes already populated.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
 
-   .. WARNING:: We are using self-signed certificate in this lab. In your 
-      environment you must make sure that you use certificate issued by your 
+   .. WARNING:: We are using a self-signed certificate in this lab. In your 
+      environment you must make sure that you use certificates issued by your 
       certificate authority for both production and lab equipments. Not doing 
       so would make it possible for an attacker to do a man-in-the-middle 
       attack and allow him the ability to steal passwords and tokens.
@@ -75,10 +75,10 @@ all the correct attributes already populated.
 #. You will now see a listing of the **Resources** that are part of the
    route-domain(s) collection. As you can see the default route domain
    of ``0`` is listed. You can also create new objects by clicking the
-   |image4| button. Additionally resources can be deleted using the
+   |image4| button. Additionally, resources can be deleted using the
    |image5| button or edited using the |image6| button. The |image1_7|
    is used to copy JSON formatted resource with Ctrl+C. This can be
-   useful when you want to slightly change an existing resource
+   useful when you want to slightly change an existing resource.
    
 
 #. Click the ``0`` resource to view the attributes of route-domain 0 on
