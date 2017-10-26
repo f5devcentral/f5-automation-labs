@@ -6,8 +6,8 @@ Lab 1.2: REST API Authentication & ‘example’ Templates
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -68,8 +68,8 @@ Perform the following steps to complete this task:
    - Click the **X** in the top right of the Settings window
 
 #. A Postman Collection lets you group individual REST requests together.  This
-   Postman collection can then be shared and imported. To import a Postman 
-   Collection, click the :guilabel:`Import` button in the top left of the Postman 
+   Postman collection can then be shared and imported. To import a Postman
+   Collection, click the :guilabel:`Import` button in the top left of the Postman
    window
 
    |image87|
@@ -84,9 +84,9 @@ Perform the following steps to complete this task:
    |image88|
 
 #. You should now see a collection named ``F5 Programmability: Class 1``
-   in your Postman Collections sidebar. Postman automatically resizes its GUI 
-   depending on its window size. It might be necessary to use the short 
-   ``Ctrl + \`` (on Windows) or click the show sidebar icon at the bottom left 
+   in your Postman Collections sidebar. Postman automatically resizes its GUI
+   depending on its window size. It might be necessary to use the short
+   ``Ctrl + \`` (on Windows) or click the show sidebar icon at the bottom left
    corner of postman if you do not see the sidebar.
 
    |image10|
@@ -107,6 +107,13 @@ Perform the following steps to complete this task:
    of your Postman window:
 
    |image9|
+
+   .. IMPORTANT:: In the pre-built lab environment a framework named
+      ``f5-postman-workflows`` has been pre-installed in the environment.  The
+      Collection we installed above **REQUIRES** this framework for testing and
+      polling functionality.  If you are using a Self-Built Environment **you
+      must install this framework into Postman by importing another
+      collection**. Instructions to do this can be found :ref:`here <lab-self-built>`
 
 Task 2 - HTTP BASIC Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,8 +149,8 @@ Perform the following steps to complete this task:
    |image11|
 
 #. Click the :guilabel:`Headers` tab
-   and examine the HTTP header. Notice that the number of Headers in the Headers 
-   tab changed from ``1`` to ``2``. This is because Postman automatically created 
+   and examine the HTTP header. Notice that the number of Headers in the Headers
+   tab changed from ``1`` to ``2``. This is because Postman automatically created
    the HTTP header and updated your request to include it.
 
    |image91|
@@ -262,15 +269,15 @@ Perform the following steps to complete this task:
    |image21|
 
 #. Click the ``Update`` button and then close the :guilabel:`Manage Environments`
-   window. Because the subsequent requests refer to the 
-   ``{{bigip_a_auth_token}}`` variable, you will not have to set the 
+   window. Because the subsequent requests refer to the
+   ``{{bigip_a_auth_token}}`` variable, you will not have to set the
    token in the header of the following requests.
 
 #. Click the ``Step 4: Set Authentication Token Timeout`` item in the
    Lab 1.2 Postman folder. This request will ``PATCH`` your token
    Resource (notice the URI) and update the timeout attribute so we
    can complete the lab easily. Examine the request type and JSON
-   :guilabel:`Body` and then click the :guilabel:`Send` button. Verify 
+   :guilabel:`Body` and then click the :guilabel:`Send` button. Verify
    that the timeout has been changed to ``36000`` in the response:
 
    |image22|
