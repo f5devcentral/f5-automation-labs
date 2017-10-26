@@ -30,11 +30,11 @@ In this lab we will build a basic LTM Config using |icr| Transactions.
 Task 1 - Create a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Transactions are very useful in cases where you would want discrete REST
+Transactions are very useful in cases where you would like to have discrete REST
 operations to act as a batch operation. As a result, the nature of a
 transaction is that either all the operations succeed or none of them
-do (all-or-nothing). This is very useful when creating a configuration
-that is linked together because it allows the roll back of operations in
+do (all-or-nothing). This is very useful when we are creating a configuration
+that is linked together because it allows roll back of operations in
 case one fails.  All the commands issued are queued one after the other in the
 transaction. We will also review how to change the order of a queued
 command or remove a single command from the queued list before committing.
@@ -43,10 +43,10 @@ command or remove a single command from the queued list before committing.
    **Atomic** in nature.
 
 .. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
-   longer than the timeout to execute the transaction will result in its
-   automatic deletion.  To avoid having to redo the steps in this task,
-   please read the steps below first and then execute each one in a timely
-   manner.
+   longer than the timeout period to execute a transaction will result in
+   automatic deletion of the transaction.  To avoid having to redo the steps 
+   in this task, please first read through the steps below and execute each of 
+   them in a timely manner.
 
 Perform the following steps to complete this task:
 
@@ -55,7 +55,7 @@ Perform the following steps to complete this task:
 
    |image35|
 
-#. Click the ``Step 1: Create a Transaction`` item. Examine the URL and
+#. Click the ``Step 1: Create a Transaction`` request. Examine the URL and
    JSON body. We will send a ``POST`` to the ``/mgmt/tm/transaction`` endpoint
    with an empty JSON body to create a new transaction.
 
@@ -63,9 +63,9 @@ Perform the following steps to complete this task:
 
 #. Click the :guilabel:`Send` button to send the request. Examine the response
    and find the ``transId`` attribute.  Additionally, notice that there are
-   timeouts for both the submission of the transaction and how long it should
-   take to execute. Be aware that after the ``timeoutSeconds`` value, this
-   ``transId`` will be silently removed:
+   timeouts for both the submission of the transaction and how long it would
+   take to execute. Please be aware that upon exceeding the ``timeoutSeconds`` 
+   period, the ``transId`` will be silently removed:
 
    |image37|
 
@@ -74,12 +74,11 @@ Perform the following steps to complete this task:
 
    |image38|
 
-#. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` item
-   in the Postman collection. This request is the same as a
-   non-transaction enabled request in terms of the ``POST`` request method, URI
-   and JSON body. The difference is we add a ``X-F5-REST-Coordination-Id``
-   header with a value of the ``transId`` attribute to add it to the
-   transaction:
+#. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` request in the
+   folder. This request is similar to a non-transaction enabled request  in terms
+   of the ``POST`` request method, URI and JSON body. The difference is that, a
+   header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId`` 
+   attribute is added to the transaction:
 
    |image39|
 
@@ -94,26 +93,26 @@ Perform the following steps to complete this task:
 Task 2 - Modify a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ``Step 8: View Queued Command 4 from Transaction`` item in the
+#. Click the ``Step 8: View Queued Command 4 from Transaction`` request in the
    folder. Examine the request method and URI. We will ``GET`` command number
    **4** from the transaction queue.
 
    |image76|
 
-#. Click the ``Step 9: Change Eval Order 4 -> 1`` item in the folder.
+#. Click the ``Step 9: Change Eval Order 4 -> 1`` request in the folder.
    Examine the request method, URI and JSON body. We will PATCH our
    transaction resource and change the value of the ``evalOrder`` attribute
-   from ``4`` to ``1`` to move at the first position of the transaction queue:
+   from ``4`` to ``1`` to move to the first position of the transaction queue:
 
    .. NOTE:: Requests in the ordered transaction queue must obey the order of
       operations present in the underlying BIG-IP system.
 
    .. WARNING:: When sending the Header ``X-F5-REST-Coordination-Id``, the
-      system assumes you want to **ADD** an entry in the transaction
+      system assumes that you want to **ADD** an entry in the transaction
       queue. You **MUST** remove this header if you want to issue
-      transaction queue changes (like deleting an entry from the
+      any other transaction queue changes (such as deleting an entry from the
       queue, changing the order, committing a transaction). If you
-      don't remove the header, the system will respond with a ``400``
+      fail to remove the header, the system will respond with a ``400``
       HTTP error code with the following error text:
 
       ``"message": "Transaction XXXXX operation .... is not allowed
@@ -121,14 +120,14 @@ Task 2 - Modify a Transaction
 
    |image77|
 
-#. Click the ``Step 10: View the Transaction Queue Changes`` item in the
+#. Click the ``Step 10: View the Transaction Queue Changes`` request in the
    folder. Verify that request number ``4`` has moved into position ``1``
    and the order of all other requests has been updated accordingly.
 
 Task 3 - Commit a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ``Step 11: Commit the Transaction`` item in the folder.
+#. Click the ``Step 11: Commit the Transaction`` request in the folder.
    Examine the request type, URI and JSON body. We will ``PATCH`` our
    transaction resource and change the value of the ``state`` attribute
    to submit the transaction:
@@ -136,17 +135,17 @@ Task 3 - Commit a Transaction
    |image40|
 
 #. Click the :guilabel:`Send` button and examine the response.  The ``state``
-   may already be ``COMPLETED``, however, it's good practice to explicitly
+   may already be ``COMPLETED``, however, it's a good practice to explicitly
    check for this.
 
-#. Click the ``Step 12: View the Transaction Status`` item in the folder and
+#. Click the ``Step 12: View the Transaction Status`` request in the folder and
    click the :guilabel:`Send` button.  Verify that the ``state`` of the
    transaction is ``COMPLETED``
 
 #. You can verify the configuration was created on the BIG-IP device via the
    BIG-IP A GUI at ``https://10.1.1.10``
 
-#. Verify the virtual server works by opening ``http://10.1.20.120`` in the
+#. Verify that the virtual server works by opening ``http://10.1.20.120`` in
    Chrome web browser
 
 .. |image35| image:: /_static/class1/image035.png
