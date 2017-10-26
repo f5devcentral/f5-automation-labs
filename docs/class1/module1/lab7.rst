@@ -50,7 +50,7 @@ command or remove a single command from the queued list before committing.
 
 Perform the following steps to complete this task:
 
-#. Expand the ``Lab 1.7 - Rest API Transactions`` folder in the Postman
+#. Expand the ``Lab 1.7 - Build a Basic LTM Config using Transactions`` folder in the Postman
    collection:
 
    |image35|
