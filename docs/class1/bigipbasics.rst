@@ -79,7 +79,7 @@ F5 Big-IP supports node.js through the use of iRulesLX, iControlLX and iAppsLX.
 TCL is also supported through iRules if data plane speed is required.
 
 A lot of manual configuration and scripts that needs to be done in NGINX 
-is supported more easily through config parameters in Big-IP.
+is supported more easily through config parameters and profiles in Big-IP.
 
 F5 is a proxy by design and default. In most cases there are no needs to 
 tune TCP & HTTP buffering like you would on NGINX (using proxy_buffering).
