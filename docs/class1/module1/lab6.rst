@@ -34,7 +34,7 @@ If you examine the ``Lab 1.6 - Build a Cluster`` folder in the Collection you
 can see how complex **Imperative** processes can become.
 Clustering is one of the *transition* points for most customers to move into the
 **Declarative** model (if not already done) due to the need to abstract
-device/vendor level specifics from Automation consumers.
+device/vendor level specifics from automation consumers.
 
 The high-level procedure required to create the cluster is:
 
@@ -80,7 +80,7 @@ include common test and polling functions.
 
 Perform the following steps to build the cluster:
 
-#. Click the :guilabel:`Runner` button at the top right of your Postman window:
+#. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
    |image97|
 
@@ -110,7 +110,7 @@ Perform the following steps to build the cluster:
 #. At this point you can log into BIG-IP-A using Chrome at ``https://10.1.1.10``.
    Verify that the cluster was built by navigating to 
    :menuselection:`Device Management --> Overview` using the menu in the BIG-IP 
-   TMUI GUI. Verify that the cluster and failover status indicators are all Green.
+   TMUI GUI. Verify that the cluster and failover status indicators are all green.
 
    |image31|
 
