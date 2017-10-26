@@ -645,7 +645,7 @@ Connection: close</response_header>
       <learn>true</learn>
     </signature_set>
     <enable_staging>false</enable_staging>
-    <staging_period_in_days>0</staging_period_in_days>
+    <staging_period_in_days>1</staging_period_in_days>
     <signature signature_id="200002444">
       <enabled>false</enabled>
       <in_staging>false</in_staging>
