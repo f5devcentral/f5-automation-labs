@@ -62,24 +62,21 @@ Perform the following steps to complete this task:
 
    |image2_12|
 
-#. Click ``Step 2: Deploy Service - HTTP`` and then :guilabel:`Send` to
-    **Create** a Basic HTTP Service:
+#. Click the :guilabel:`Send` button to **Create** a Basic HTTP Service:
 
-    |image2_11|
+   |image2_11|
 
-    In this task, we deployed our first service.
-    Review the **Response** JSON :guilabel:`Body` to verify if the Service has
-    been deployed.
+   In this task, we deployed our first service. Review the **Response** 
+   JSON :guilabel:`Body` to verify if the Service has been deployed.
 
-    |image2_11a|
+   |image2_11a|
 
-.. NOTE:: We've just progressed into a **Declarative** instantiation, by
-   defining the end state and letting the BIG-IP handle the order of
-   operations and configuration of the specific objects.  By doing this, we
-   have drastically reduced the **Domain Specific Knowledge** requirement
-   to interact with the device.  In the next module, we will combine this
-   concept with **Abstraction** to further simplify the interface.
-
+   .. NOTE:: We've just progressed into a **Declarative** instantiation, by
+      defining the end state and letting the BIG-IP handle the order of
+      operations and configuration of the specific objects.  By doing this, we
+      have drastically reduced the **Domain Specific Knowledge** requirement
+      to interact with the device.  In the next module, we will combine this
+      concept with **Abstraction** to further simplify the interface.
 
 #. Now that the service has been deployed let's review the BIG-IP configuration.
    Send the ``Step 1: Get Deployed iApp Services`` request again, or you can
@@ -89,7 +86,7 @@ Perform the following steps to complete this task:
 
      |image2_14|
 
-   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
+   - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_13|
 
@@ -116,7 +113,7 @@ members and bring the service down.
 Perform the following steps to complete this task:
 
 #. Click on ``Step 3: Modify Service - HTTP``. Review the **Request** URL and
-   JSON :guilabel:`Body`.  Notice that we specified **Resource** URL for our
+   JSON :guilabel:`Body`.  Notice that we specified the **Resource** URL for our
    deployment.  Modifying or *Redeploying* a service is handled by sending
    **only** the updated JSON to the specific Resource (our service) using a
    ``PUT`` request method.  We set the state of the pool members to ``disabled``
@@ -124,10 +121,10 @@ Perform the following steps to complete this task:
 
    |image2_17|
 
-#. :guilabel:`Send` the ``Step 3: Modify Service - HTTP`` request to
-    **Modify** the previously deployed Basic HTTP Service:
+#. Click the :guilabel:`Send` button to **Modify** the previously deployed 
+   Basic HTTP Service:
 
-      |image2_16|
+   |image2_16|
 
 #. In the BIG-IP GUI click :menuselection:`Local Traffic --> Network Map` to view the
    new state of the Pool Members (Black indicators reflect the disabled state).
@@ -140,7 +137,7 @@ Perform the following steps to complete this task:
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The lifecycle of a service also includes the service removal. We will now delete
+The lifecycle of a service also includes the service removal.  We will now delete
 an existing service.
 
 Perform the following steps to complete this task:
@@ -170,7 +167,7 @@ Perform the following steps to complete this task:
 
      |image2_10|
 
-   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
+   - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_20|
 
@@ -272,15 +269,17 @@ Perform the following steps to complete this task:
    redirect you to ``https://10.1.20.121``.
 
    .. NOTE:: We are using self-signed certificates in the lab so an SSL
-      warning will be shown
+      warning may be shown
 
    |image2_30|
 
 Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The strength of iApps deployments is that they can include other modules as
-well. In this task we will deploy a WAF policy with the HTTPS service.
+Another advantage of Service Deployment using iApp Templates is that they can 
+deploy advanced Layer 4-7 services from various F5 modules.  In this task we 
+will deploy a service that includes a Web Application Firewall policy with the 
+base HTTPS offload and load balancing features.
 
 Perform the following steps to complete this task:
 
@@ -298,7 +297,7 @@ Perform the following steps to complete this task:
    This deployment recognizes the need for Security from the beginning of the
    application lifecycle.  It lays the groundwork for **Continuous
    Improvement** by having the policy reside in a repository.  It allows us
-   to treat Resources as Code leading to an Infrastructure as Code (IaC)
+   to treat resources as code leading to an Infrastructure as Code (IaC)
    methodology.  As the policy is updated in the repository additional automation
    and orchestration can be enabled to deploy the policy into the environment.
    The result is an ability to rapidly build, test and iterate Layer 7
