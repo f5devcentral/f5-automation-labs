@@ -66,7 +66,7 @@ Perform the following steps to complete this task:
 
    |image2_11|
 
-   In this task, we deployed our first service. Review the **Response** 
+   In this task, we deployed our first service. Review the **Response**
    JSON :guilabel:`Body` to verify if the Service has been deployed.
 
    |image2_40|
@@ -104,7 +104,7 @@ Perform the following steps to complete this task:
    using Chrome at ``http://10.1.20.121`` and examine its response:
 
    |image2_31|
-   
+
    .. NOTE:: The colors of the text, images, and borders may vary based on which
       back-end server was selected during the load balancing process.
 
@@ -125,7 +125,7 @@ Perform the following steps to complete this task:
 
    |image2_17|
 
-#. Click the :guilabel:`Send` button to **Modify** the previously deployed 
+#. Click the :guilabel:`Send` button to **Modify** the previously deployed
    Basic HTTP Service:
 
    |image2_16|
@@ -281,12 +281,12 @@ Perform the following steps to complete this task:
       #. Chrome keeps HTTP connections open in the background to improve network
          performance
 
-      #. BIG-IP maintains a fully versioned configuration internally. 
+      #. BIG-IP maintains a fully versioned configuration internally.
          Stateful connections, like HTTP, are then pinned to a specific version
          of the configuration for the lifetime of the connection.
 
-      As a result, because Chrome has not closed the actual TCP connection, 
-      BIG-IP still processes traffic with the configuration that was present 
+      As a result, because Chrome has not closed the actual TCP connection,
+      BIG-IP still processes traffic with the configuration that was present
       when the connection was originally created.
 
       You can open an Incognito Chrome Window (Ctrl-Shift-N) and try to connect
@@ -299,9 +299,9 @@ Perform the following steps to complete this task:
 Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Another advantage of Service Deployment using iApp Templates is that they can 
-deploy advanced Layer 4-7 services from various F5 modules.  In this task we 
-will deploy a service that includes a Web Application Firewall policy with the 
+Another advantage of Service Deployment using iApp Templates is that they can
+deploy advanced Layer 4-7 services from various F5 modules.  In this task we
+will deploy a service that includes a Web Application Firewall policy with the
 base HTTPS offload and load balancing features.
 
 Perform the following steps to complete this task:
@@ -363,7 +363,6 @@ Perform the following steps to complete this task:
 .. |image2_9| image:: /_static/class1/image2_9.png
 .. |image2_10| image:: /_static/class1/image2_10.png
 .. |image2_11| image:: /_static/class1/image2_11.png
-.. |image2_11a| image:: /_static/class1/image2_11a.png
 .. |image2_12| image:: /_static/class1/image2_12.png
 .. |image2_13| image:: /_static/class1/image2_13.png
 .. |image2_14| image:: /_static/class1/image2_14.png
