@@ -104,6 +104,8 @@ Task 2 - Modify a Transaction
    transaction resource and change the value of the ``evalOrder`` attribute
    from ``4`` to ``1`` to move to the first position of the transaction queue:
 
+   |image77|   
+   
    .. NOTE:: Requests in the ordered transaction queue must obey the order of
       operations present in the underlying BIG-IP system.
 
@@ -118,7 +120,7 @@ Task 2 - Modify a Transaction
       ``"message": "Transaction XXXXX operation .... is not allowed
       to be added to transaction."``
 
-   |image77|
+
 
 #. Click the ``Step 10: View the Transaction Queue Changes`` request in the
    folder. Verify that command number ``4`` has moved into position ``1``
