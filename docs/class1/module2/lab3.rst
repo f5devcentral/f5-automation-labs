@@ -101,6 +101,9 @@ Perform the following steps to complete this task:
    using Chrome at ``http://10.1.20.121`` and examine its response:
 
    |image2_31|
+   
+   .. NOTE:: The colors of the text, images, and borders may vary based on which
+      back-end server was selected during the load balancing process.
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
