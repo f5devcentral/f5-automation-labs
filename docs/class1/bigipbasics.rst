@@ -101,8 +101,6 @@ Here is a list of common config/terminology and their F5 equivalent.
 +----------------------------------+------------------------------------------+
 | ssl_certificate                  | Done through an SSL Profile              |
 +----------------------------------+------------------------------------------+
-
-
 | return                           | Done through an LTM policy               |
 +----------------------------------+------------------------------------------+
 | proxy_set_header X-Forwarded-For | Insert X-Forwarded-For	in HTTP profile   |
@@ -111,6 +109,7 @@ Here is a list of common config/terminology and their F5 equivalent.
 +----------------------------------+------------------------------------------+
 | add_header                       | LTM Policy                               |
 +----------------------------------+------------------------------------------+
+
 | location & proxy_pass            | LTM Policy                               |
 +----------------------------------+------------------------------------------+
 | Proxy Cache                      | Web Acceleration policy                  |
