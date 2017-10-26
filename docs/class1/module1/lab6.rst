@@ -27,7 +27,7 @@ Lab 1.6: Build a BIG-IP Cluster using a Collection
 
 In this lab, we will build an active-standby cluster between BIG-IP-A and
 BIG-IP-B using the REST API. As mentioned previously, to save time, BIG-IP-B is
-already licensed and had its device-level settings configured. This lab will
+already licensed and has its device-level settings configured. This lab will
 use the Postman Runner functionality introduced in the previous lab.
 We will run the requests in a Collection Folder to build the cluster.
 If you examine the ``Lab 1.6 - Build a Cluster`` folder in the Collection you
@@ -38,19 +38,19 @@ device/vendor level specifics from Automation consumers.
 
 The high-level procedure required to create the cluster is:
 
-#. Obtain Authentication Tokens for BIGIP A & B
+#. Obtain Authentication Tokens for BIG-IP A & B
 
 #. Check that both devices are licensed and ready to configure
 
 #. Configure Device Level settings on both devices
 
-#. Configure Networking on BIGIP-B (remember this was already done in Lab 1.4
-   for BIGIP-A)
+#. Configure Networking on BIG-IP B (remember this was already done in Lab 1.4
+   for BIG-IP A)
 
-#. Set BIGIP-A & BIGIP-B CMI Parameters (Config Sync IP, Failover
+#. Set BIG-IP A & BIG-IP B CMI Parameters (Config Sync IP, Failover
    IPs, Mirroring IP)
 
-#. Add BIGIP-B as a trusted peer on BIGIP-A
+#. Add BIG-IP B as a trusted peer on BIG-IP A
 
 #. Check the status of the Sync Groups
 
@@ -66,7 +66,7 @@ The high-level procedure required to create the cluster is:
 
 #. Create Floating Self IPs
 
-#. Failover the Traffic Group to make BIGIP-A the Active device
+#. Failover the Traffic Group to make BIG-IP A the Active device
 
 Task 1 - Build a Cluster using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,23 +97,22 @@ Perform the following steps to build the cluster:
 #. Click the :guilabel:`Run Lab 1.6 - Buil...` button
 
 #. The results window will now populate.  You will see each request in the
-   folder is sent and it's associated test results are displayed on the screen.
+   folder is sent and its associated test results are displayed on the screen.
    Building the cluster can take a few minutes.  You can follow the progress
    by scrolling down the results window.
 
-#. Once the :guilabel:`Run Summary` button appears the folder has finished
+#. Once the :guilabel:`Run Summary` button appears, the folder has completed
    running.  You should have 0 failures and the last item in the request
    list should be named ``Cleanup Environment``
 
    |image30|
 
-#. At this point you can log into BIG-IP A using Chrome at ``https://10.1.1.10``
-   and verify the cluster was built by using the menu in the BIG-IP GUI to
-   navigate to :menuselection:`Device Management --> Overview` and verifying the
-   cluster and failover status indicators are all Green
+#. At this point you can log into BIG-IP-A using Chrome at ``https://10.1.1.10``.
+   Verify that the cluster was built by navigating to 
+   :menuselection:`Device Management --> Overview` using the menu in the BIG-IP 
+   TMUI GUI. Verify that the cluster and failover status indicators are all Green.
 
    |image31|
-
 
 .. |image28| image:: /_static/class1/image028.png
 .. |image29| image:: /_static/class1/image029.png
