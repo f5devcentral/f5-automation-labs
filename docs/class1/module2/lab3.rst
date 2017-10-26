@@ -69,9 +69,7 @@ Perform the following steps to complete this task:
    In this task, we deployed our first service. Review the **Response** 
    JSON :guilabel:`Body` to verify if the Service has been deployed.
 
-   |image2_11a|
-
-   |image2_12|
+   |image2_40|
 
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
       defining the end state and letting the BIG-IP handle the order of
@@ -392,3 +390,4 @@ Perform the following steps to complete this task:
 .. |image2_36| image:: /_static/class1/image2_36.png
 .. |image2_37| image:: /_static/class1/image2_37.png
 .. |image2_39| image:: /_static/class1/image2_39.png
+.. |image2_40| image:: /_static/class1/image2_40.png
