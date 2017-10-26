@@ -17,7 +17,7 @@ environment in AWS.  This guide assumes the following:
 
   - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 
-- *You are responsible for all charges incurred*
+- *You will be responsible for all charges incurred*
 
 More information about AWS can be found here:
 
@@ -52,11 +52,11 @@ Perform the following steps to complete this task:
       If you are using a personal account you should be able to 
       login using https://console.aws.amazon.com/console/home
 
-      If you are using a corporate account please contant your IT Help Desk
+      If you are using a corporate account please contact your IT Help Desk.
 
-#. Click :guilabel:`Services` and the top of the windows.  Then type ``cloud``
-   into the search box and find the :guilabel:`CloudFormation` item.  Click 
-   the :guilabel:`CloudFormation` item:
+#. Click :guilabel:`Services` at the top of the window.  Then type ``cloud``
+   into the search box and look for the :guilabel:`CloudFormation` item.  Click 
+   on the :guilabel:`CloudFormation` item:
 
    |aws_image1|
 
@@ -64,13 +64,13 @@ Perform the following steps to complete this task:
 
    |aws_image2|
 
-#. On the :guilabel:`Select Template` screen select the 
+#. On the :guilabel:`Select Template` screen, select the 
    :guilabel:`Specify an Amazon S3 template URL` option.  Copy and paste the
    URL below into the box:
 
    ``https://s3.us-east-2.amazonaws.com/supernetops-cf-templates/class1.template``
 
-   Click the :guilabel:`Next` button
+   Click on the :guilabel:`Next` button
 
    |aws_image3|
 
@@ -112,7 +112,7 @@ Perform the following steps to complete this task:
 
    |aws_image7|
 
-#. You can also go back to the page listing Stacks and monitor the progres of 
+#. You can also go back to the page listing Stacks and monitor the progress of 
    the nested templates from there:
 
    |aws_image8|
@@ -129,7 +129,7 @@ Perform the following steps to complete this task:
 #. You can now connect to the Jumphost using RDP or HTTPS:
 
    - RDP: Configure your RDP client to connect to the ``JumpHostPublicIP`` 
-   - HTTPS: Using an HTML5 browser connect to ``https://<JumpHostPublicIP>``
+   - HTTPS: Use a HTML5 browser to connect to ``https://<JumpHostPublicIP>``
 
 #. Select how you would like to continue:
 
