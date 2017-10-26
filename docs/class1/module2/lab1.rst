@@ -6,8 +6,8 @@ Lab 2.1: Exploring iApps
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -25,7 +25,7 @@ Lab 2.1: Exploring iApps
 iApp Templates & Deployments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A BIG-IP device has multiple ways to ingest an iApp onto its platform, including
+A BIG-IP device has multiple ways to install an iApp onto its platform, including
 TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All mechanisms
 are valid and, if needed, can be used in conjunction with each other.
 
@@ -40,6 +40,8 @@ F5 iApps were introduced in TMOS Version 11, they can interact within, and
 across different F5 modules providing full Layer 4-7 Application Service
 capability.  The **iApp Template** is used to drive an **iApp Deployment**
 that creates a configuration under an **Application Service Object (ASO)**.
+The ASO model identifies which objects belong to the iApp service deployment.
+Upon service deletion, all service related objects are recursively deleted.
 
 Some examples of the modules we can use iApp templates to configure:
 
@@ -72,21 +74,21 @@ The associated REST API endpoints are:
 iApp Deployments and Source-of-Truth
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default iApp technology implements a strict source-of-truth preservation
+By default, iApp technology implements a strict source-of-truth preservation
 mechanism called **Strict Updates**.  The App Service iApp allows granular
 configuration of the underlying TMOS objects **without** disabling the Strict
 Updates mechanism, however, not all iApp templates implement this functionality.
 
-In non-automated environments the impact of this can be justified, however, in
+In non-automated environments, the impact of this can be justified. However, in
 automated environments we must always guarantee that the template inputs are the
-Source-of-Truth for an underlying deployment.  As a result **Strict Updates
+Source-of-Truth for an underlying deployment.  As a result, **Strict Updates
 should not be disabled**.
 
 For example, creating an iApp deployment, disabling Strict Updates and then
 modifying the underlying configuration results in a Source-of-Truth violation
 because redeployment of the iApp would result in the changes made directly to
-the configuration being overwritten.  This is because the direct modification
-on the configuration moved the Source-of-Truth to the object itself, rather
+the configuration being overwritten.  It is because the direct modification
+of the configuration moved the Source-of-Truth to the object itself, rather
 than the iApp deployment input values that automation tools are interacting
 with.
 

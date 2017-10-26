@@ -26,7 +26,7 @@ Now that the App Services iApp template is installed, we can deploy a new
 Layer 4-7 Service. The service in this lab will go through different iterations,
 we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
 service by changing the node state, and then **Delete** the whole service.
-Once we've seen this first **Mutation** we'll introduce some more
+Once we've seen this first **Mutation**, we'll introduce some more
 complex deployments options with iRules, Custom Profiles, Certificates,
 and an ASM Policy.
 
@@ -56,23 +56,26 @@ Task 2 - Deploy Basic HTTP Service
 
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
-   **Create** a Basic HTTP Service:
-
-   |image2_11|
-
-#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON
-   :guilabel:`Body`.  In this task, we deployed our first service. From the
-   sent JSON body we can see the input we sent to the iApp template to drive
-   the deployment of the service:
+#. Click ``Step 2: Deploy Service - HTTP``. Review the **Request** JSON
+   :guilabel:`Body`. The JSON body of the POST contains the input for the iApp
+   template to drive the deployment of the service.
 
    |image2_12|
 
+#. Click the :guilabel:`Send` button to **Create** a Basic HTTP Service:
+
+   |image2_11|
+
+   In this task, we deployed our first service. Review the **Response**
+   JSON :guilabel:`Body` to verify if the Service has been deployed.
+
+   |image2_40|
+
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
       defining the end state and letting the BIG-IP handle the order of
-      operations and configuration of the specific objects.  By doing this we
+      operations and configuration of the specific objects.  By doing this, we
       have drastically reduced the **Domain Specific Knowledge** requirement
-      to interact with the device.  In the next module we will combine this
+      to interact with the device.  In the next module, we will combine this
       concept with **Abstraction** to further simplify the interface.
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
@@ -84,7 +87,7 @@ Perform the following steps to complete this task:
 
      |image2_14|
 
-   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
+   - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_13|
 
@@ -101,27 +104,31 @@ Perform the following steps to complete this task:
    using Chrome at ``http://10.1.20.121`` and examine its response:
 
    |image2_31|
-   
+
    .. NOTE:: The colors of the text, images, and borders may vary based on which
       back-end server was selected during the load balancing process.
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In this task, we will modify the existing service. We will disable all pool
+members and bring the service down.
+
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 3: Modify Service - HTTP`` request to
-   **Modify** the previously deployed Basic HTTP Service:
-
-   |image2_16|
-
-#. Review the **Request** URL and JSON :guilabel:`Body`.  Notice that we
-   specified **Resource** URL for our deployment.  Modifying or *Redeploying*
-   a service is handled by sending **only** the updated JSON to the specific
-   Resource (our service) using a ``PUT`` request method.  We set the state
-   of the pool members to ``disabled`` which forces the service offline:
+#. Click on ``Step 3: Modify Service - HTTP``. Review the **Request** URL and
+   JSON :guilabel:`Body`.  Notice that we specified the **Resource** URL for our
+   deployment.  Modifying or *Redeploying* a service is handled by sending
+   **only** the updated JSON to the specific Resource (our service) using a
+   ``PUT`` request method.  We set the state of the pool members to ``disabled``
+   which forces the service offline.
 
    |image2_17|
+
+#. Click the :guilabel:`Send` button to **Modify** the previously deployed
+   Basic HTTP Service:
+
+   |image2_16|
 
 #. In the BIG-IP GUI click :menuselection:`Local Traffic --> Network Map` to view the
    new state of the Pool Members (Black indicators reflect the disabled state).
@@ -133,6 +140,9 @@ Perform the following steps to complete this task:
 
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The lifecycle of a service also includes the service removal.  We will now delete
+an existing service.
 
 Perform the following steps to complete this task:
 
@@ -161,7 +171,7 @@ Perform the following steps to complete this task:
 
      |image2_10|
 
-   - **GUI**: :menuselection:`iApps --> Application Services --> Applications`
+   - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
      |image2_20|
 
@@ -188,10 +198,10 @@ Perform the following steps to complete this task:
       creates a new iRule object on the system.  The iRule object is then
       automatically linked to the Virtual Server
 
-      .. WARNING:: When using URL references it is important to properly secure
-         the repository hosting the resource(s).  The example in this lab uses a
-         publicly readable repository, however, most environments should use a
-         private repository with appropriate access control.
+      .. WARNING:: When using URL references, it is important to properly secure
+         the repository which hosts the resource(s).  The example in this lab
+         uses a publicly readable repository, however, most environments should
+         use a private repository with appropriate access control.
 
 #. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
    above were declared:
@@ -226,7 +236,7 @@ Perform the following steps to complete this task:
    |image2_26|
 
 #. iApps are a Declarative interface, allowing us to modify deployment without
-   the need to delete it (this also means we can re-name objects, **if**
+   the need to delete it (this also means we can re-name objects **if**
    we needed too).  For this service we will:
 
    - Use the same custom profiles
@@ -235,10 +245,10 @@ Perform the following steps to complete this task:
    - Use URL Resources to obtain the SSL/TLS Key, Certificate and Certificate
      Bundle
 
-     .. WARNING:: When using URL references it is important to properly secure
-        the repository hosting the resource(s).  The example in this lab uses a
-        publicly readable repository, however, most environments should use a
-        private repository with appropriate access control.
+     .. WARNING:: When using URL references, it is important to properly secure
+        the repository which hosts the resource(s).  The example in this lab
+        uses a publicly readable repository. However, most environments should
+        use a private repository with appropriate access control.
 
    - Create and apply a Client SSL Profile
 
@@ -248,7 +258,7 @@ Perform the following steps to complete this task:
    |image2_27|
 
 #. Review the configured Virtual Servers in the TMUI GUI.  The App Services iApp
-   created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``,
+   created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``
    and reconfigured the Virtual Server to listen on ``TCP/443``
 
    |image2_28|
@@ -271,12 +281,12 @@ Perform the following steps to complete this task:
       #. Chrome keeps HTTP connections open in the background to improve network
          performance
 
-      #. BIG-IP maintains a fully versioned configuration internally. 
+      #. BIG-IP maintains a fully versioned configuration internally.
          Stateful connections, like HTTP, are then pinned to a specific version
          of the configuration for the lifetime of the connection.
 
-      As a result, because Chrome has not closed the actual TCP connection, 
-      BIG-IP still processes traffic with the configuration that was present 
+      As a result, because Chrome has not closed the actual TCP connection,
+      BIG-IP still processes traffic with the configuration that was present
       when the connection was originally created.
 
       You can open an Incognito Chrome Window (Ctrl-Shift-N) and try to connect
@@ -288,6 +298,11 @@ Perform the following steps to complete this task:
 
 Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Another advantage of Service Deployment using iApp Templates is that they can
+deploy advanced Layer 4-7 services from various F5 modules.  In this task we
+will deploy a service that includes a Web Application Firewall policy with the
+base HTTPS offload and load balancing features.
 
 Perform the following steps to complete this task:
 
@@ -303,12 +318,12 @@ Perform the following steps to complete this task:
    then create a Layer 7 Traffic Policy and apply it to the Virtual Server.
 
    This deployment recognizes the need for Security from the beginning of the
-   application lifecycle.  It lays the ground work for **Continuous
-   Improvement** by having the policy reside in a repository.  This allows us
-   to treat Resources as Code leading to an Infrastructure as Code (IaC)
+   application lifecycle.  It lays the groundwork for **Continuous
+   Improvement** by having the policy reside in a repository.  It allows us
+   to treat resources as code leading to an Infrastructure as Code (IaC)
    methodology.  As the policy is updated in the repository additional automation
    and orchestration can be enabled to deploy the policy into the environment.
-   The end result is an ability to rapidly build, test and iterate Layer 7
+   The result is an ability to rapidly build, test and iterate Layer 7
    security policies and guarantee deployment into the environment.
 
 #. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
@@ -326,7 +341,7 @@ Perform the following steps to complete this task:
 
      |image2_34|
 
-#. In the TMUI GUI we can see the Layer 7 policy applied to the Virtual
+#. In the TMUI GUI, we can see the Layer 7 policy applied to the Virtual
    Server. In the :guilabel:`Application Security`, we can see the details
    of the policy which was dynamically fetched, applied, and set to Blocking
    mode.
@@ -375,3 +390,4 @@ Perform the following steps to complete this task:
 .. |image2_36| image:: /_static/class1/image2_36.png
 .. |image2_37| image:: /_static/class1/image2_37.png
 .. |image2_39| image:: /_static/class1/image2_39.png
+.. |image2_40| image:: /_static/class1/image2_40.png
