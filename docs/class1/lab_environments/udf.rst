@@ -9,16 +9,16 @@ Determine how to start your deployment:
   instructions given by your instructor to join the UDF Course.
 
 - **Self-Paced/On Your Own:** Login to UDF,
-  :guilabel:`Deploy` the ``Intro to Automation & Orchestion``
+  :guilabel:`Deploy` the ``Intro to Automation & Orchestration``
   Blueprint and :guilabel:`Start` it.
 
 Connecting to the Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The lab environment provides two methods of access to the Jumphost:
+The lab environment provides two access methods to the Jumphost:
 
 - RDP Connection using an RDP Client
-- HTML5 Browser based VNC Connection using noVNC
+- HTML5 Browser-based VNC Connection using noVNC
 
   - Chrome
   - Firefox
@@ -35,14 +35,14 @@ Connect using RDP
 #. Click the :guilabel:`Components` tab
 
 #. Find the ``Linux Jumphost`` Component and click the the :guilabel:`Access`
-   button.  Then click the :guilabel:`RDP` option.  An RDP file will be
+   button.  Then, click the :guilabel:`RDP` option.  An RDP file will be
    downloaded to your system.
 
    .. NOTE:: The RDP file opens the session in Full Screen mode by default.
       You may want to open the file in an RDP client and adjust these settings
       as needed to match your preference.
 
-#. If you have the official Microsoft Remote Desktop Client installed please
+#. If you do not have the official Microsoft Remote Desktop Client, please
    install it using the instructions at
    https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
 
@@ -84,12 +84,12 @@ Connect using an HTML5 Browser
 Using HiDPI Displays (RDP & Windows)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. WARNING:: Do these steps BEFORE you connect via RDP.  Choose ONE.
+.. WARNING:: Do these steps BEFORE you connect via RDP.  Choose ONE only.
    Do not do both.
 
-If you are using a Hi Resolution Display on Windows we recommend that you either:
+If you are using Hi Resolution Display on Windows, we recommend that you either:
 
-- **RECOMMENDED:** Resize your display to 1080p (1920 x 1080)
+- **RECOMMENDED:** Resize your display to 1080p (1920 x 1080) or
 - Use your RDP clients "Zoom" funcitonality to increase the size
 
 Resize your display (Windows 10) - RECOMMENDED
