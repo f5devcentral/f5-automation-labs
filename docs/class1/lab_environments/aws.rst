@@ -52,10 +52,10 @@ Perform the following steps to complete this task:
       If you are using a personal account you should be able to 
       login using https://console.aws.amazon.com/console/home
 
-      If you are using a corporate account please contact IT Help Desk.
+      If you are using a corporate account please contact your IT Help Desk.
 
-#. Click :guilabel:`Services` at the top of the windows.  Then type ``cloud``
-   into the search box and look for :guilabel:`CloudFormation` item.  Click 
+#. Click :guilabel:`Services` at the top of the window.  Then type ``cloud``
+   into the search box and look for the :guilabel:`CloudFormation` item.  Click 
    on the :guilabel:`CloudFormation` item:
 
    |aws_image1|
@@ -70,7 +70,7 @@ Perform the following steps to complete this task:
 
    ``https://s3.us-east-2.amazonaws.com/supernetops-cf-templates/class1.template``
 
-   Click on :guilabel:`Next` button
+   Click on the :guilabel:`Next` button
 
    |aws_image3|
 
@@ -113,7 +113,7 @@ Perform the following steps to complete this task:
    |aws_image7|
 
 #. You can also go back to the page listing Stacks and monitor the progress of 
-  nested templates from there:
+   the nested templates from there:
 
    |aws_image8|
 
