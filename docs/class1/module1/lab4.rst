@@ -124,7 +124,7 @@ Perform the following steps to configure the Self IP objects/resources:
       You will modify this value in the steps below.  Please do not change the
       value.
 
-#. Click the :guilabel:`Send` button to create the Self IP
+#. Click the :guilabel:`Send` button to create the Self IP. 
 
 #. Click the ``Step 4: Create External Self IP`` request in the folder and
    click :guilabel:`Send`
@@ -132,7 +132,7 @@ Perform the following steps to configure the Self IP objects/resources:
 #. Click the ``Step 5: Get Self-Internal Self IP Attributes`` request in the
    folder and click the :guilabel:`Send` button.  Examine the VLAN settings
    of the Resource.  As noted above the Self IP has been assigned to the **wrong**
-   VLAN (intentionally)
+   VLAN (intentionally). 
 
    .. NOTE:: Postman has the ability to check the responses for specific values 
       to verify if the result of a request is what it is expected to be. The 
@@ -164,14 +164,14 @@ Resource URI.
 
    |image96|
 
-#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request
+#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request. 
 
    |image93|
 
 #. Paste the text into JSON Request body:
 
    .. NOTE:: Be sure to highlight any existing text and replace it while
-      pasting
+      pasting. 
 
    |image94|
 
@@ -196,10 +196,10 @@ Perform the following steps to configure the Route object/resource:
    make sure there is no route.
 
 #. Click the ``Step 8: Create a Route`` item in the collection. Examine
-   the JSON body; the values for creating the Default Route have already
+   the JSON body; the values for creating the default route have already
    been populated.
 
-#. Click the ``Send`` button to create the Route
+#. Click the ``Send`` button to create the route. 
 
 #. Click the ``Step 9: Get Routes`` item in the collection again. Click the
    ``Send`` button to ``GET`` the routes collection. Examine the response to
