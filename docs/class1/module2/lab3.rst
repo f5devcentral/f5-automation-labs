@@ -6,8 +6,8 @@ Lab 2.3: Create iApp Deployments using the REST API
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -21,12 +21,12 @@ Lab 2.3: Create iApp Deployments using the REST API
          basics -> templates -> deployments
       }
    }
-   
+
 Now that the App Services iApp template is installed, we can deploy a new
 Layer 4-7 Service. The service in this lab will go through different iterations,
 we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
 service by changing the node state, and then **Delete** the whole service.
-Once we've seen this first **Mutation** we'll introduce some more
+Once we've seen this first **Mutation**, we'll introduce some more
 complex deployments options with iRules, Custom Profiles, Certificates,
 and an ASM Policy.
 
@@ -56,29 +56,29 @@ Task 2 - Deploy Basic HTTP Service
 
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
-   **Create** a Basic HTTP Service:
-
-   |image2_11|
-
-#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON
-   :guilabel:`Body`.  In this task, we deployed our first service. From the
-   sent JSON body we can see the input we sent to the iApp template to drive
-   the deployment of the service:
-
-   .. NOTE:: We've just progressed into a **Declarative** instantiation, by
-      defining the end state and letting the BIG-IP handle the order of
-      operations and configuration of the specific objects.  By doing this we
-      have drastically reduced the **Domain Specific Knowledge** requirement
-      to interact with the device.  In the next module we will combine this
-      concept with **Abstraction** to further simplify the interface.
+#. Click ``Step 2: Deploy Service - HTTP``. Review the **Request** JSON
+   :guilabel:`Body` and the **Response** JSON :guilabel:`Body`.
+   The JSON body of the POST contains the input for the iApp template to drive
+   the deployment of the service.
 
    |image2_12|
 
-#. Now that the service has been deployed, let's review the BIG-IP configuration.
-   You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
-   request again, or you can login to the BIG-IP A GUI and see the service
-   deployment via TMUI:
+   #. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
+      **Create** a Basic HTTP Service:
+
+      |image2_11|
+
+      .. NOTE:: We've just progressed into a **Declarative** instantiation, by
+         defining the end state and letting the BIG-IP handle the order of
+         operations and configuration of the specific objects.  By doing this, we
+         have drastically reduced the **Domain Specific Knowledge** requirement
+         to interact with the device.  In the next module, we will combine this
+         concept with **Abstraction** to further simplify the interface.
+
+
+#. Now that the service has been deployed let's review the BIG-IP configuration.
+   Send the ``Step 1: Get Deployed iApp Services`` request again, or you can
+   log in to the BIG-IP A GUI and see the service deployment via TMUI.
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
@@ -90,7 +90,7 @@ Perform the following steps to complete this task:
 
 
 #. From the TMUI GUI, examine the Virtual Server that was created from
-   this deployment by clicking :menuselection:`Local Traffic --> Virtual Servers 
+   this deployment by clicking :menuselection:`Local Traffic --> Virtual Servers
    --> Virtual Server List --> Demo_vs`.  The configuration is simple, but it
    does contain the key components for an HTTP service (Listener, HTTP Profile
    Pool, Monitor and Pool Members):
@@ -104,6 +104,10 @@ Perform the following steps to complete this task:
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After the service is deployed we want to modify it. We will disable all pool
+members and bring the service down.
+
 
 Perform the following steps to complete this task:
 

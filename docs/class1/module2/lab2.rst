@@ -6,8 +6,8 @@ Lab 2.2: Deploying iApp Templates on BIG-IP
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -24,12 +24,12 @@ Lab 2.2: Deploying iApp Templates on BIG-IP
 
 iApps typically come in the form of a ``.tmpl`` file, which contains the content
 needed for the BIG-IP to utilize it as a Service framework.
-Different toolkits will install iApps in different ways, we'll be using the
-REST API in a raw form, so the contents of the file is what
-we need. As a result we need to ensure that the contents of the iApp are URL
-encoded to make sure the BIG-IP reads the payload correctly. When using other
-tools like Ansible, the whole ``.tmpl`` file can be uploaded, removing the need
-for encoding.
+Different toolkits will install iApps in different ways.  We'll be using the
+REST API in a raw form, so the content of the file is what
+we need. As a result, we need to ensure that the content of the iApp is URL
+encoded to make sure the BIG-IP reads the payload correctly. This is specific
+for the iApp deployment over REST API. When using other tools like Ansible, the
+whole ``.tmpl`` file can be uploaded, removing the need for encoding.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 2.2 - Deploying iApp Templates on BIG-IP`` folder in the Postman

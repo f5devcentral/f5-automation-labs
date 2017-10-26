@@ -81,7 +81,7 @@ Updates mechanism, however, not all iApp templates implement this functionality.
 
 In non-automated environments, the impact of this can be justified. However, in
 automated environments we must always guarantee that the template inputs are the
-Source-of-Truth for an underlying deployment.  As a result **Strict Updates
+Source-of-Truth for an underlying deployment.  As a result, **Strict Updates
 should not be disabled**.
 
 For example, creating an iApp deployment, disabling Strict Updates and then
