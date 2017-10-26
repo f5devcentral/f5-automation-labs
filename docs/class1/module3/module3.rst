@@ -6,8 +6,8 @@ Module 3: Creating Declarative Service Interfaces with iWorkflow
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -30,25 +30,59 @@ Module 3: Creating Declarative Service Interfaces with iWorkflow
       iwf_deploy -> iwf_catalog -> iwf_templates -> iapps -> bigip
    }
 
+Overview
+--------
+
 In this module we will explore how to use F5’s iWorkflow platform to
-further abstract application services and deliver those services to
-tenants. iWorkflow has two main purposes in the Automation &
-Orchestration toolchain:
-
--  Provide simplified but customizable Device Onboarding workflows
-
--  Provide a tenant/provider interface for L4 - L7 service delivery
+further abstract Application Services and deliver those services, with
+a **Declarative** interface to Consumers.
 
 When moving to an iWorkflow based toolchain it’s important to understand
 that L1-3 Automation (Device Onboarding, Networking, etc) and L4-7
 (Deployment of Virtual Servers, Pools, etc) are separated and delivered
 by different features.
 
-L1-3 Networking and Device Onboarding are delivered by **Cloud
-Connectors** that provide an abstracted interface to BIG-IP Onboarding
-in different environments.
+Layer 1-3 Networking and Device Onboarding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-L4-7 service delivery is accomplished by:
+L1-3 Networking and Device Onboarding are highly specific to the particular
+environment the BIG-IP instances are deployed on.  The onboarding process for
+various platforms and ecosystems is very different due to differences in the
+L1-3 capabilities and APIs of each platform.  As a result F5 publishes specific
+documentation and guidance for each of these environments:
+
+- Public Cloud:
+
+  - **AWS/Azure/GCP/etc.:** http://clouddocs.f5.com/cloud/public/v1/
+
+- Private Cloud:
+
+  - **OpenStack:** http://clouddocs.f5.com/cloud/openstack/
+
+  - **VMware:** https://f5.com/solutions/technology-alliances/vmware
+
+iWorkflow enables generic functionality in all of these environments by using
+a **BIG-IP Cloud Connector**.  This connector allows iWorkflow to utilize
+BIG-IP devices running on any of these environments.
+
+.. NOTE:: F5 BIG-IP also supports integration with Container Ecosystems,
+   however, in these environments iWorkflow may use may not be required.  For
+   more information you can refer to:
+
+   - Container Ecosystems:
+
+     - **Cloud Foundry:** http://clouddocs.f5.com/containers/latest/cloudfoundry/
+
+     - **Kubernetes:** http://clouddocs.f5.com/containers/latest/kubernetes
+
+     - **Mesos Marathon:** http://clouddocs.f5.com/containers/latest/marathon
+
+     - **RedHat OpenShift:** http://clouddocs.f5.com/containers/latest/openshift/
+
+Layer 4-7 Application Service Delivery
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+L4-7 Application Service Delivery is accomplished by:
 
 -  **Declarative:** Consuming F5 iApp templates from BIG-IP devices and
    creating a Service Catalog.
@@ -57,28 +91,30 @@ L4-7 service delivery is accomplished by:
    BIG-IP devices
 
 The labs in the module will focus on the high level features in place to
-achieve full L1-7 automation. As mentioned above, iApps are a key
-component of this toolchain. 
+achieve full L4-7 automation. As mentioned above, iApp Templates are a key
+component of the chain of linked tools (toolchain) we are building.
 
 In this Module we will focus on building a **Service Catalog** using the App
 Services iApp template you learned about in Module 2.  The focus in Module 2
-was showing how to drive rich deployments, however, a large amount of F5 
+was showing how to drive rich deployments, however, a large amount of F5
 **Domain Specific Knowledge** was still required to drive the deployments.
 From a conceptual view iApp templates alone do not fully satisfy the requirement
 for a fully **Declarative** interface because while the iApp template simplifies
-the underlying **Imperative** actions it does not allow the adminstrator to 
-build an **Interface** that minimizes or eliminates the need for **Domain 
+the underlying **Imperative** actions it does not allow the adminstrator to
+build an **Interface** that minimizes or eliminates the need for **Domain
 Specific Knowledge**.
 
-For example, we deployed a service that enabled HTTP Traffic Management with 
-an iRule attached and Profile Customizations.  To the F5 administrator these 
-are all very familar terms, however, to a consumer, such as an Application 
-Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign 
-concepts.  To solve this problem iWorkflow allows the adminstrator to create 
-a **Service Catalog Template** that is an **Abstraction** of the iApp templates
-input fields.  By doing this the F5 administrator can **create an interface 
+For example, we deployed a service that enabled HTTP Traffic Management with
+an iRule attached and Profile Customizations.  To the F5 administrator these
+are all very familar terms, however, to a consumer, such as an Application
+Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign
+concepts.
+
+To solve this problem iWorkflow allows the adminstrator to create a
+**Service Catalog Template** that is an **Abstraction** of the iApp templates
+input fields.  By doing this the F5 administrator can **create an interface
 tailored to the use case and knowledge level of the CONSUMER rather than the
-ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application 
+ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application
 and Security services that are tailored to business need and use case rather
 than the technical implementation.  Additionally, the **Service Abstraction**
 acheived when creating the **Service Catalog** enables the easy integration of
