@@ -25,7 +25,7 @@ Lab 2.1: Exploring iApps
 iApp Templates & Deployments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are multiple ways to an iApp on BIG-IP. These includes using
+There are multiple ways to install an iApp on BIG-IP. These includes using
 TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All the abovementioned mechanisms
 are supported and, if required, can be used in conjunction with each other.
 
