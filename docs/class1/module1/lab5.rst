@@ -79,7 +79,7 @@ Task 1 - Open and Run a Collection
 #. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
 #. The results window will now populate.  You will see each request in the
-   folder is sent and it's associated test results are displayed on the screen.
+   folder is sent and its associated test results are displayed on the screen.
    The last request in the folder includes some Javascript code to dump the
    results to the screen:
 
@@ -92,11 +92,11 @@ Task 1 - Open and Run a Collection
    |image104|
 
 .. NOTE:: It is normal for the values of Software Version, CPU Count and Base 
-   MAC Address be different than the screenshot(s).  
+   MAC Address to be different from the screenshot(s).  
 
 In this lab, we demonstrated running a simple Imperative Workflow using the
 Postman Collection Runner.  In subsequent labs, we will expand on this simple
-use case to perform more complex functions.  As you continue through the labs
+use case to perform more complex functions.  As you continue through the labs,
 be sure to take time to explore the details of the requests being sent.  The
 Postman Collection used in this class can also serve as a starting point for
 building your own collections or modifying existing ones.
@@ -105,7 +105,7 @@ As we move through the rest of this module you will see the complexity involved
 in building Imperative Workflows.  While these types of workflows are incredibly
 powerful, they are also time-consuming to build from scratch.  As we move into
 Module 2 you will see the importance of leveraging **Abstraction**
-and **Declarative Interfaces** to minimize the amount of time spent building
+and **Declarative Interfaces** to minimize the amount of time spent on building
 Imperative Workflows.
 
 .. |image97| image:: /_static/class1/image097.png
