@@ -71,7 +71,7 @@ Perform the following steps to complete this task:
 Task 2 - Explore the f5-http-lb-v1.0 Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we've created our Templates lets one of them in depth.
+Now that we've created our Templates let's review one of them in depth.
 
 Perform the following steps to complete this task:
 
@@ -79,7 +79,7 @@ Perform the following steps to complete this task:
 
    |image46|
 
-#. Lets examine the :guilabel:`Properties` pane.  
+#. Let's examine the :guilabel:`Properties` pane.  
 
 #. Select :guilabel:`All` in the :guilabel:`Displayed Parameters` section:
 
@@ -94,7 +94,7 @@ Perform the following steps to complete this task:
 
    |image48|
 
-#. In the :guilabel:`Sections` portion of the pane find the 
+#. In the :guilabel:`Sections` portion of the pane, find the 
    :guilabel:`Virtual Server Listener & Pool Configuration` section.  Click the
    triangle to expand the section:
 
@@ -112,7 +112,7 @@ Perform the following steps to complete this task:
    - Setting a default value for the field
 
      - If the field is NOT ``Tenant Editable`` the default value is sent 
-       during a Service Deployment, however, the Tenant cannot see of modify
+       during a Service Deployment, however, the Tenant cannot see or modify
        the value
 
      - If the field is ``Tenant Editable`` the default value is populated
@@ -189,7 +189,7 @@ Perform the following steps to complete this task:
 #. The preview window shows how the Tenant UI would present the Service
    Template.  As you can see the interface is vastly simplified and only
    :guilabel:`Tenant Editable` fields are shown.  Because the true deployment
-   details are filtered from the Tenant the Service Deployment requires much 
+   details are filtered from the Tenant, the Service Deployment requires much 
    less **Domain Specific Knowledge**.  Keep in mind that while the Tenant
    interface may be simple, you can leverage advanced functionality in the 
    Service Template.
