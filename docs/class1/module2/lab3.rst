@@ -24,9 +24,9 @@ Lab 2.3: Create iApp Deployments using the REST API
 
 Now that the App Services iApp template is installed, we can deploy a new
 Layer 4-7 Service. The service in this lab will go through different iterations,
-we'll start with **Creating** a Basic HTTP Service, show **Modifying** the
-service by changing the node state, and then **Delete** the whole service.
-Once we've seen this first **Mutation**, we'll introduce some more
+we'll start with **Creating** a Basic HTTP Service, demonstrate **Modifying** the
+service by changing the node state, and finally **Delete** the whole service.
+Once we've seen this first **Mutation**, we'll introduce more
 complex deployments options with iRules, Custom Profiles, Certificates,
 and an ASM Policy.
 
@@ -58,7 +58,7 @@ Perform the following steps to complete this task:
 
 #. Click ``Step 2: Deploy Service - HTTP``. Review the **Request** JSON
    :guilabel:`Body`. The JSON body of the POST contains the input for the iApp
-   template to drive the deployment of the service.
+   template to execute the deployment of the service.
 
    |image2_12|
 
@@ -66,21 +66,21 @@ Perform the following steps to complete this task:
 
    |image2_11|
 
-   In this task, we deployed our first service. Review the **Response**
+   In this task, we will deploy our first service. Review the **Response**
    JSON :guilabel:`Body` to verify if the Service has been deployed.
 
    |image2_40|
 
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
-      defining the end state and letting the BIG-IP handle the order of
-      operations and configuration of the specific objects.  By doing this, we
-      have drastically reduced the **Domain Specific Knowledge** requirement
+      defining the end state and relying on the iApp templates to handle the 
+      order of operations and configuration of specific objects.  By doing this, 
+      we have drastically reduced the **Domain Specific Knowledge** requirement
       to interact with the device.  In the next module, we will combine this
       concept with **Abstraction** to further simplify the interface.
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
    You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
-   request again, or you can login to the BIG-IP A GUI and see the service
+   request again. Alternatively, you can login to BIG-IP A GUI to observe the service
    deployment via TMUI:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
@@ -101,12 +101,12 @@ Perform the following steps to complete this task:
    |image2_15|
 
 #. The service is available and active, you can connect to the Virtual Server
-   using Chrome at ``http://10.1.20.121`` and examine its response:
+   using Chrome web browser at ``http://10.1.20.121`` and examine its responses:
 
    |image2_31|
 
-   .. NOTE:: The colors of the text, images, and borders may vary based on which
-      back-end server was selected during the load balancing process.
+   .. NOTE:: The colors of the text, images, and borders may vary depending on the
+      back-end server selected during the load balancing process.
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -121,7 +121,7 @@ Perform the following steps to complete this task:
    deployment.  Modifying or *Redeploying* a service is handled by sending
    **only** the updated JSON to the specific Resource (our service) using a
    ``PUT`` request method.  We set the state of the pool members to ``disabled``
-   which forces the service offline.
+   which forces the service to go offline.
 
    |image2_17|
 
@@ -134,7 +134,7 @@ Perform the following steps to complete this task:
    new state of the Pool Members (Black indicators reflect the disabled state).
    The state has been updated to reflect the state we declared in our call.
    The Virtual Server is no longer passing traffic at ``http://10.1.20.121``
-   because all the Members in the Pool are disabled:
+   because all the Members in the Pool have been disabled:
 
    |image2_18|
 
@@ -151,11 +151,11 @@ Perform the following steps to complete this task:
 
    |image2_19|
 
-#. Like modification, the deletion of a service is performed on the **Resource**
-   URL. When we created the service we defined a Declarative state to the
-   iApp template.  The template then created the configuration and all the
-   associated objects.  With a ``DELETE`` request, the BIG-IP will processes
-   the removal of all objects linked to the ASO in the correct order. This is
+#. Similar to modification process, the deletion of a service is performed on 
+   the **Resource** URL. When we created the service, we defined a Declarative 
+   state to the iApp template.  The template then created the configuration and 
+   all of its associated objects.  With a ``DELETE`` request, BIG-IP will process
+   the removal of all objects linked to the ASO in a recursive manner. This is
    crucial to Application Lifecycle Management as it provides a mechanism to
    make sure all parts of the service are removed successfully.
 
@@ -164,7 +164,7 @@ Perform the following steps to complete this task:
 
    Now that the service has been deleted, let's review the BIG-IP configuration.
    You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
-   request again, or you can login to the BIG-IP A GUI and see the service
+   request again, or you can login to the BIG-IP A GUI to observe the service
    deployment via TMUI:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
@@ -321,7 +321,7 @@ Perform the following steps to complete this task:
    application lifecycle.  It lays the groundwork for **Continuous
    Improvement** by having the policy reside in a repository.  It allows us
    to treat resources as code leading to an Infrastructure as Code (IaC)
-   methodology.  As the policy is updated in the repository additional automation
+   methodology.  As the policy is updated in the repository, additional automation
    and orchestration can be enabled to deploy the policy into the environment.
    The result is an ability to rapidly build, test and iterate Layer 7
    security policies and guarantee deployment into the environment.
@@ -341,10 +341,9 @@ Perform the following steps to complete this task:
 
      |image2_34|
 
-#. In the TMUI GUI, we can see the Layer 7 policy applied to the Virtual
-   Server. In the :guilabel:`Application Security`, we can see the details
-   of the policy which was dynamically fetched, applied, and set to Blocking
-   mode.
+#. In the TMUI GUI, you will notice a Layer 7 policy has been applied to the Virtual
+   Server. In :guilabel:`Application Security`, we will be able to observe that the
+   policy is being dynamically fetched, applied, and set to Blocking mode.
 
    - **Layer 7 Policy:**
 
@@ -357,7 +356,6 @@ Perform the following steps to complete this task:
    - **ASM WAF Policy:**
 
      |image2_37|
-
 
 .. |image2_8| image:: /_static/class1/image2_8.png
 .. |image2_9| image:: /_static/class1/image2_9.png
