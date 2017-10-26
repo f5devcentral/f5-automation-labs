@@ -50,13 +50,13 @@ Perform the following steps to complete this task:
       prompted to update the client please click the :guilabel:`Remind me later`
       button to skip updating the version installed in your lab environment
 
-#. By default the Postman clients requires verification of SSL/TLS Certificates
-   to a public Root Certificate Authority.  By default BIG-IP, and many other,
-   devices use a Self-Signed Certificate for SSL/TLS connections.  To allow
-   connections with Self-Signed Certificates we need to modify the default
+#. By default, the Postman client requires verification of SSL/TLS Certificates
+   to a public Root Certificate Authority.  However, by default, BIG-IP and many other
+   devices use a self-signed certificate for SSL/TLS connections.  To allow
+   connections with self-signed certificates we need to modify the default
    settings of Postman.
 
-   - Open the Postman Settings windows by click :menuselection:`File --> Settings`:
+   - Open the Postman Settings windows by clicking :menuselection:`File --> Settings`:
 
      |image89|
 
@@ -121,7 +121,7 @@ value that is built by Base 64 encoding the string
 
 ``Authorization: Basic YWRtaW46YWRtaW4=``
 
-It should be noted that cracking the method of authentication is
+It should be noted that cracking this method of authentication is
 TRIVIAL; as a result API calls should always be performed using HTTPS encryption
 (F5 default) with a certificate signed by an authority rather than HTTP.
 
@@ -200,7 +200,7 @@ is fully supported.
 Perform the following steps to complete this task:
 
 #. Click the ``Step 2: Retrieve Authentication Token`` item in the Lab 1.2
-   Folder
+   Folder.
 
 #. Notice that we send a ``POST`` request to the ``/mgmt/shared/authn/login``
    endpoint.
@@ -286,7 +286,7 @@ request as needed.
 Perform the following steps:
 
 #. Click the ``Step 5: Get ‘example’ of a Pool Resource`` item in the Lab
-   1.2 Postman collection
+   1.2 Postman collection.
 
 #. Examine the URI. Notice the addition of ``example`` at the end of the
    collection name:
