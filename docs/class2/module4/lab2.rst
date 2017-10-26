@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Executing Jenkins Jobs for Creation or Modify
+Lab |labmodule|\.\ |labnum| - Executing Jenkins Jobs for Creation or Modify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have Jenkins running, and the dependent Slack Plugin installed
@@ -42,8 +42,8 @@ logging, which we will also review.
     node {
        stage('Testing') {
           //Run the tests
-          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
        }
        stage('Frameword-Deployment') {
            //Run SNOPS Container Newman Package Virtual and Pool
@@ -142,7 +142,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
       node {
         stage('Testing') {
            //Run the tests
-           //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
+           //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
         }
         stage('Disable-Node') {
             //Run SNOPS Container Newman Package Virtual and Pool
@@ -170,7 +170,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
       node {
         stage('Testing') {
            //Run the tests
-           //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
+           //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
         }
         stage('Enable-Node') {
             //Run SNOPS Container Newman Package Virtual and Pool

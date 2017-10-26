@@ -1,71 +1,82 @@
-.. |labmodule| replace:: 2
-.. |labnum| replace:: 2
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 2.2: Deploying iApp Templates on BIG-IP
+-------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Discover BIG-IP Devices
------------------------------------------------------
+.. graphviz::
 
-In order for iWorkflow to interact with a BIG-IP device it must be
-discovered by iWorkflow. The device discovery process leverages the
-existing CMI Device Trust infrastructure on BIG-IP. Currently there is a
-limitation that a single BIG-IP device can only be ‘discovered’ by ONE
-of iWorkflow or BIG-IQ CM at a time. In this lab will we discover the
-existing BIG-IP devices from your lab environment.
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "iApp Templates & Deployments"
+         basics [label="iApp Basics",color="palegreen"]
+         templates [label="iApp Templates",color="steelblue1"]
+         deployments [label="iApp Deployments"]
+         basics -> templates -> deployments
+      }
+   }
 
-Task 1 – Discover BIG-IP Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iApps typically come in the form of a ``.tmpl`` file, which contains the content
+needed for the BIG-IP to utilize it as a Service framework.
+Different toolkits will install iApps in different ways, we'll be using the
+REST API in a raw form, so the contents of the file is what
+we need. As a result we need to ensure that the contents of the iApp are URL
+encoded to make sure the BIG-IP reads the payload correctly. When using other
+tools like Ansible, the whole ``.tmpl`` file can be uploaded, removing the need
+for encoding.
+
+.. NOTE:: This lab work will be performed from
+   ``Lab 2.2 - Deploying iApp Templates on BIG-IP`` folder in the Postman
+   Collection
+
+|image2_7|
+
+Task 1 - View Installed iApp Templates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. Expand the “Lab 2.2: Discover & License BIG-IP Devices” folder in the
-   Postman collection
+#. :guilabel:`Send` the ``Step 1: Get Installed iApp Templates`` request to view
+   iApp templates installed on the BIG-IP device:
 
-#. Open a Google Chrome window/tab to your iWorkflow device
-   (https://10.1.1.6) and login with default credentials (admin/admin).
-   You can use this window to monitor actions while they are being
-   performed in Postman. Find the ‘Devices’ pane and make if viewable if
-   it isn’t already.
+   |image2_3|
 
-#. Click the “Step 1: Discover BIGIP-A Device” item in the Postman
-   collection. This will request will perform a POST to the
-   ``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices``
-   worker to perform the device discovery process. Examine the JSON body
-   so you understand what data is sent to perform the discovery process:
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows a
+   iApp templates that are installed by default on the BIG-IP device:
 
-   |image51|
+   |image2_4|
 
-#. Click the ‘Send’ button. Examine the response and monitor the
-   iWorkflow Chrome window you opened previously.
+Task 2 - Install the App Services iApp Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   |image52|
+Perform the following steps to complete this task:
 
-#. Copy the ‘uuid’ attribute for BIGIP-A and populate the
-   ‘iwf\_bigip\_a\_uuid’ Postman environment variable with the
-   value:
+#. :guilabel:`Send` the ``Step 2: Install App Svcs v2.0.004 iApp Template``
+   request to install the iApp template:
 
-   |image53|
-   |image54|
+   |image2_5|
 
-#. Click the “Step 2: Discover BIGIP-B Device” item in
-   the collection.
+#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON
+   :guilabel:`Body`.  In this task we installed the App Services iApp Template
+   and the BIG-IP sent back a response that the iApp was installed with its
+   object name.
 
-#. Click the “Step 3: Get Discovered Devices” item in the collection.
-   We will GET the devices collection and verify that both BIG-IP
-   devices show a ‘state’ of ‘ACTIVE’:
+   .. NOTE:: The JSON body in the **Request** portion is automatically generated
+      as part of the build process for the App Services iApp and the request
+      in the Postman Collection was copied from a pre-built collection that
+      ships with releases of the App Services iApp template.
 
-   |image55|
+   |image2_38|
 
-.. |image51| image:: /_static/image051.png
-   :scale: 40%
-.. |image52| image:: /_static/image052.png
-   :width: 5.21233in
-   :height: 2.73647in
-.. |image53| image:: /_static/image053.png
-   :scale: 40%
-.. |image54| image:: /_static/image054.png
-   :scale: 40%
-.. |image55| image:: /_static/image055.png
-   :scale: 40%
+.. |image2_3| image:: /_static/class1/image2_3.png
+.. |image2_4| image:: /_static/class1/image2_4.png
+.. |image2_5| image:: /_static/class1/image2_5.png
+.. |image2_6| image:: /_static/class1/image2_6.png
+.. |image2_7| image:: /_static/class1/image2_7.png
+.. |image2_38| image:: /_static/class1/image2_38.png

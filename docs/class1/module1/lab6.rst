@@ -1,55 +1,124 @@
-.. |labmodule| replace:: 1
-.. |labnum| replace:: 6
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 1.6: Build a BIG-IP Cluster using a Collection
+--------------------------------------------------
 
-Lab |labmodule|\.\ |labnum|\: Build a Basic LTM Config
-------------------------------------------------------
+.. graphviz::
 
-In this lab we will build a basic LTM Config using the Imperative
-automation model. While this lab may seem simple for basic
-configurations, the complexity involved with rich L4-7 services quickly
-makes the Imperative approach untenable for advanced configurations. The
-Imperative model relies on the user having in-depth knowledge of device
-specifics such as:
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
+      fontname = "arial-bold" 
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "BIG-IP"
+         basics [label="REST Basics",color="palegreen"]
+         authentication [label="Authentication",color="palegreen"]
+         globalsettings [label="Global Settings",color="palegreen"]
+         networking [label="Networking",color="palegreen"]
+         clustering [label="Clustering",color="steelblue1"]
+         transactions [label="Transactions"]
+         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+      }
+   }
 
--  Object types and their attributes
+In this lab, we will build an active-standby cluster between BIG-IP-A and
+BIG-IP-B using the REST API. As mentioned previously, to save time, BIG-IP-B is
+already licensed and had its device-level settings configured. This lab will
+use the Postman Runner functionality introduced in the previous lab.
+We will run the requests in a Collection Folder to build the cluster.
+If you examine the ``Lab 1.6 - Build a Cluster`` folder in the Collection you
+can see how complex **Imperative** processes can become.
+Clustering is one of the *transition* points for most customers to move into the
+**Declarative** model (if not already done) due to the need to abstract
+device/vendor level specifics from Automation consumers.
 
-   -  How many different objects/profiles/options do we have?
+The high-level procedure required to create the cluster is:
 
--  Order of operations
+#. Obtain Authentication Tokens for BIGIP A & B
 
-   -  Monitor before pool before profiles before virtual servers, etc.
+#. Check that both devices are licensed and ready to configure
 
-   -  What about L7 use cases like WAF?
+#. Configure Device Level settings on both devices
 
-      -  WAF Policy -> HTTP Policy -> Virtual Server
+#. Configure Networking on BIGIP-B (remember this was already done in Lab 1.4
+   for BIGIP-A)
 
--  How does this all get deleted?
+#. Set BIGIP-A & BIGIP-B CMI Parameters (Config Sync IP, Failover
+   IPs, Mirroring IP)
 
-   -  You have to reverse the order of operations and ‘undo’ the whole
-      config
+#. Add BIGIP-B as a trusted peer on BIGIP-A
 
-      -  TMOS has lots of issues here
+#. Check the status of the Sync Groups
 
-As a result of this it’s recommended for customers to use Imperative
-automation only for legacy environments. New environments should shift
-to a Declarative model.
+#. Create a sync-failover Device Group
 
-Task 1 – Build a Basic LTM Config
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Check the status of the created Device Group
 
-Perform the following steps to complete this task:
+#. Perform initial sync of the Device Group
 
-#. Expand the “Lab 1.6 – Build a Basic LTM Config” folder in the Postman
-   collection
+#. Check status (again)
 
-#. Click each Step in the folder and ‘Send’ the request. Verify each
-   component is created on the BIG-IP device using the GUI.
+#. Change the Traffic Group to use HA Order failover
 
-#. After the steps are completed you should be able to connect to
-   http://10.1.20.129 in your browser.
+#. Create Floating Self IPs
 
-   
+#. Failover the Traffic Group to make BIGIP-A the Active device
+
+Task 1 - Build a Cluster using Runner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will use the :guilabel:`Runner` to execute a series of
+requests contained in the ``Lab 1.6 - Build a Cluster`` folder.  As mentioned
+previously this folder contains a large number of REST requests required to
+build an Active/Standby cluster.  Additionally, we will make use of a JavaScript
+framework called ``f5-postman-workflows`` that extends the Postman client to
+include common test and polling functions.
+
+Perform the following steps to build the cluster:
+
+#. Click the :guilabel:`Runner` button at the top right of your Postman window:
+
+   |image97|
+
+#. Select the ``F5 Programmability: Class 1`` Collection then the
+   ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
+   environment is set to ``F5 Programmability: Class 1``:
+
+   |image28|
+
+   Your Runner window should look like:
+
+   |image29|
+
+#. Click the :guilabel:`Run Lab 1.6 - Buil...` button
+
+#. The results window will now populate.  You will see each request in the
+   folder is sent and it's associated test results are displayed on the screen.
+   Building the cluster can take a few minutes.  You can follow the progress
+   by scrolling down the results window.
+
+#. Once the :guilabel:`Run Summary` button appears the folder has finished
+   running.  You should have 0 failures and the last item in the request
+   list should be named ``Cleanup Environment``
+
+   |image30|
+
+#. At this point you can log into BIG-IP A using Chrome at ``https://10.1.1.10``
+   and verify the cluster was built by using the menu in the BIG-IP GUI to
+   navigate to :menuselection:`Device Management --> Overview` and verifying the
+   cluster and failover status indicators are all Green
+
+   |image31|
+
+
+.. |image28| image:: /_static/class1/image028.png
+.. |image29| image:: /_static/class1/image029.png
+.. |image30| image:: /_static/class1/image030.png
+   :scale: 80%
+.. |image31| image:: /_static/class1/image031.png
+   :scale: 80%
+.. |image97| image:: /_static/class1/image097.png

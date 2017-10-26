@@ -1,0 +1,282 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+
+  "Description": "This will deploy the Ubuntu HTTP server instance to use in the f5-automation lab. The instance deployed is a Ubuntu 16.04 LTS - Xenial HVM; please MAKE SURE YOU ACCEPTED THE TERMS FOR THIS INSTANCE BEFORE LAUNCHING THIS STACK ",
+
+  "Parameters": {
+    "VPC" : {
+      "Description" : "Existing VPC to use",
+      "Type" : "AWS::EC2::VPC::Id",
+      "ConstraintDescription": "must be the name of an existing VPC."
+    },
+    "InstanceType": {
+      "Description": "Ubuntu instance type",
+      "Type": "String",
+      "Default": "t2.small",
+      "AllowedValues": [
+        "t2.small",
+        "t2.medium",
+        "m3.medium",
+        "m3.large"
+      ],
+      "ConstraintDescription": "must be a valid EC2 instance type."
+    },
+    "RepoBranch": {
+      "Description": "The GitHub Repo branch to load setup scripts from",
+      "Type":"String",
+      "Default":"master"
+    },
+    "EBSVolumeSize": {
+        "Description": "The size of the EBS volume for the instance",
+        "Type": "String",
+        "Default": "40"
+    },
+    "KeyName": {
+      "Description": "Name of an existing EC2 KeyPair to enable SSH to the instance",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+    },
+    "ManagementSubnet" : {
+      "Description" : "Existing Mgmt subnet in the VPC",
+      "Type" : "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "must be the name of an existing subnet."
+    },
+    "InternalSubnet" : {
+      "Description" : "Existing Internal subnet in the VPC",
+      "Type" : "AWS::EC2::Subnet::Id",
+      "ConstraintDescription": "must be the name of an existing subnet."
+    }
+  },
+
+  "Mappings": {
+    "AWSInstanceType2Arch": {
+      "t2.small"    : { "Arch" : "HVM64" },
+      "t2.medium"   : { "Arch" : "HVM64" },
+      "m3.medium"   : { "Arch" : "HVM64" },
+      "m3.large"    : { "Arch" : "HVM64" }
+    },
+    "AWSRegionArch2AMI": {
+      "us-east-1"        : {"HVM64" : "ami-b391b9c8", "Note": "(N. Virginia)   Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-west-2"        : {"HVM64" : "ami-9d04e4e5", "Note": "(Oregon)        Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-west-1"        : {"HVM64" : "ami-8edbf0ee", "Note": "(N. California) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "us-east-2"        : {"HVM64" : "ami-a7aa8ac2", "Note": "(Ohio) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ca-central-1"     : {"HVM64" : "ami-b3cf71d7", "Note": "(Canada - Central) Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-west-1"        : {"HVM64" : "ami-016f9e78", "Note": "(Ireland)       Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-west-2"        : {"HVM64" : "ami-fde6f799", "Note": "(London)       Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "eu-central-1"     : {"HVM64" : "ami-9c1db3f3", "Note": "(Frankfurt)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-southeast-1"   : {"HVM64" : "ami-e8da418b", "Note": "(Singapore)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-northeast-1"   : {"HVM64" : "ami-aae114cc", "Note": "(Tokyo)         Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-southeast-2"   : {"HVM64" : "ami-49b3aa2a", "Note": "(Sydney)        Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "sa-east-1"        : {"HVM64" : "ami-7ad8ae16", "Note": "(Sao Paulo)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "ap-northeast-2"   : {"HVM64" : "ami-d24e97bc", "Note": "(Seoul)     Ubuntu 16.04 LTS - Xenial (HVM)"},
+      "cn-northwest-1"   : {"HVM64" : "NOT_SUPPORTED"}
+    }
+  },
+
+  "Resources": {
+    "InstanceSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "GroupDescription": "Enable remote access via port SSH (22) and HTTP (80)",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "icmp",
+            "FromPort": "-1",
+            "ToPort": "-1",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "22",
+            "ToPort": "22",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "eni3d14c812": {
+      "Type": "AWS::EC2::NetworkInterface",
+      "Properties": {
+        "Description": "Server:Internal",
+        "SourceDestCheck": "true",
+        "SubnetId": {
+          "Ref": "InternalSubnet"
+        },
+        "PrivateIpAddresses": [
+          {
+            "PrivateIpAddress": "10.1.10.100",
+            "Primary": "true"
+          },
+          {
+            "PrivateIpAddress": "10.1.10.101",
+            "Primary": "false"
+          },
+          {
+            "PrivateIpAddress": "10.1.10.102",
+            "Primary": "false"
+          },
+          {
+            "PrivateIpAddress": "10.1.10.103",
+            "Primary": "false"
+          }
+        ],
+        "GroupSet": [
+          {
+            "Ref": "InstanceSecurityGroup"
+          }
+        ]
+      }
+    },
+    "F5SNOpsServer": {
+      "Type": "AWS::EC2::Instance",
+      "Metadata": {
+        "AWS::CloudFormation::Init" : {
+          "config": {
+            "commands" : {
+              "a_update_etc_hosts": { "command": "sh -c 'sudo echo \"10.1.1.15 ip-10-1-1-15\" >> /etc/hosts'"},
+              "b_update_apt": { "command": "apt-get -y update" },
+              "c_setup_ubuntu_password": { "command": "sh -c 'echo \"ubuntu:supernetops\" | chpasswd'"},
+              "d_install_git": { "command": "apt-get -y install git" },
+              "e_clone_repo": { "command": {
+                "Fn::Join": [ " ", [
+                  "git clone -b",
+                  { "Ref": "RepoBranch" },
+                  "https://github.com/f5devcentral/f5-automation-labs",
+                  "/home/ubuntu/f5-automation-labs"
+                ]]
+                }
+              },
+              "f_retrieve_setup_script": {
+                "command": {
+                  "Fn::Join": ["", [
+                    "wget -O /home/ubuntu/snops_instance_setup.sh ",
+                    "https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/",
+                    { "Ref": "RepoBranch" },
+                    "/lab_environments/AWS/snops_server_setup.sh" ] ]
+                }
+              },
+              "g_execute_script": {"command": "sh /home/ubuntu/snops_instance_setup.sh"},
+              "h_remove_script": {"command": "rm /home/ubuntu/snops_instance_setup.sh"}
+            }
+          }
+        }
+      },
+      "Properties": {
+        "ImageId": {
+         "Fn::FindInMap": [
+           "AWSRegionArch2AMI",
+           {
+             "Ref": "AWS::Region"
+           },
+           {
+             "Fn::FindInMap": [
+               "AWSInstanceType2Arch",
+               {
+                 "Ref": "InstanceType"
+               },
+               "Arch"
+              ]
+           }
+          ]
+        },
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "BlockDeviceMappings" : [{
+                "DeviceName" : "/dev/sda1",
+                "Ebs" : {"VolumeSize" : {"Ref" : "EBSVolumeSize"}}
+        }],
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "Tags": [
+          {
+            "Key": "Server Instance",
+            "Value": {
+              "Ref": "AWS::StackId"
+            }
+          },
+          {
+            "Key": "Name",
+            "Value":"SNOPSServer"
+          }
+        ],
+        "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
+            "#!/bin/bash -xe\n",
+
+            "# Install the files and packages from the metadata\n",
+            "apt-get -y update\n",
+            "apt-get -y install python-setuptools\n",
+            "easy_install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
+            "cfn-init -v ",
+            "         --stack ", { "Ref" : "AWS::StackName" },
+            "         --resource F5SNOpsServer ",
+            "         --region ", { "Ref" : "AWS::Region" },
+            "\n",
+            "# Signal the status from cfn-init\n",
+            "cfn-signal -e $? ",
+            "         --stack ", { "Ref": "AWS::StackName" },
+            "         --resource F5SNOpsServer ",
+            "         --region ", { "Ref": "AWS::Region" },
+            "\n"
+        ]]}},
+        "NetworkInterfaces": [
+          {
+            "GroupSet": [
+              {
+                "Ref": "InstanceSecurityGroup"
+              }
+            ],
+            "Description": "Server:Management",
+            "AssociatePublicIpAddress": "false",
+            "DeviceIndex": "0",
+            "DeleteOnTermination": "true",
+            "SubnetId": {
+              "Ref": "ManagementSubnet"
+            },
+            "PrivateIpAddresses": [
+              {
+                "PrivateIpAddress": "10.1.1.15",
+                "Primary": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "CreationPolicy": {
+          "ResourceSignal": {
+              "Timeout": "PT15M"
+          }
+      }
+    },
+    "eniattach5": {
+      "Type": "AWS::EC2::NetworkInterfaceAttachment",
+      "Properties": {
+        "DeleteOnTermination": "true",
+        "DeviceIndex": "1",
+        "NetworkInterfaceId": {
+          "Ref": "eni3d14c812"
+          },
+          "InstanceId": {
+            "Ref": "F5SNOpsServer"
+          }
+      }
+    }
+  },
+
+  "Outputs": {
+    "Region" : {
+      "Description" : "AWS Region",
+      "Value" : { "Ref" : "AWS::Region" }
+    }
+  }
+}

@@ -163,17 +163,17 @@ concepts to understand are:
 Next, we will explore how to use this base knowledge to assemble various
 collections and folders into workflows using Newman and the f5-newman-wrapper.
 
-.. |image82| image:: /_static/image082.png
+.. |image82| image:: /_static/class1/image082.png
    :scale: 100%
 
-.. |image83| image:: /_static/image083.png
+.. |image83| image:: /_static/class1/image083.png
    :scale: 100%
 
-.. |image84| image:: /_static/image084.png
+.. |image84| image:: /_static/class1/image084.png
    :scale: 100%
 
-.. |image85| image:: /_static/image085.png
+.. |image85| image:: /_static/class1/image085.png
    :scale: 100%
 
-.. |image86| image:: /_static/image086.png
+.. |image86| image:: /_static/class1/image086.png
    :scale: 100%
