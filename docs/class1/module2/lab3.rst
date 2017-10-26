@@ -72,15 +72,15 @@ Perform the following steps to complete this task:
    |image2_40|
 
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
-      defining the end state and handing over to BIG-IP to handle the order of
-      operations and configuration of specific objects.  By doing this, we
-      have drastically reduced the **Domain Specific Knowledge** requirement
+      defining the end state and relying on the iApp templates to handle the 
+      order of operations and configuration of specific objects.  By doing this, 
+      we have drastically reduced the **Domain Specific Knowledge** requirement
       to interact with the device.  In the next module, we will combine this
       concept with **Abstraction** to further simplify the interface.
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
    You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
-   request again. Alternatively, you can login to BIG-IP-A GUI to observe the service
+   request again. Alternatively, you can login to BIG-IP A GUI to observe the service
    deployment via TMUI:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
@@ -151,11 +151,11 @@ Perform the following steps to complete this task:
 
    |image2_19|
 
-#. Similar to modification process, the deletion of a service is performed on the **Resource**
-   URL. When we created the service, we defined a Declarative state to the
-   iApp template.  The template then created the configuration and all its
-   associated objects.  With a ``DELETE`` request, BIG-IP will process
-   the removal of all objects linked to the ASO in a sequential order. This is
+#. Similar to modification process, the deletion of a service is performed on 
+   the **Resource** URL. When we created the service, we defined a Declarative 
+   state to the iApp template.  The template then created the configuration and 
+   all of its associated objects.  With a ``DELETE`` request, BIG-IP will process
+   the removal of all objects linked to the ASO in a recursive manner. This is
    crucial to Application Lifecycle Management as it provides a mechanism to
    make sure all parts of the service are removed successfully.
 
@@ -164,7 +164,7 @@ Perform the following steps to complete this task:
 
    Now that the service has been deleted, let's review the BIG-IP configuration.
    You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
-   request again, or you can login to the BIG-IP-A GUI to observe the service
+   request again, or you can login to the BIG-IP A GUI to observe the service
    deployment via TMUI:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
@@ -341,10 +341,9 @@ Perform the following steps to complete this task:
 
      |image2_34|
 
-#. In the TMUI GUI, you will notice the Layer 7 policy being applied to the Virtual
-   Server. In the :guilabel:`Application Security`, we will be able to observe that the details
-   of the policy is being dynamically fetched, applied, and set to Blocking
-   mode.
+#. In the TMUI GUI, you will notice a Layer 7 policy has been applied to the Virtual
+   Server. In :guilabel:`Application Security`, we will be able to observe that the
+   policy is being dynamically fetched, applied, and set to Blocking mode.
 
    - **Layer 7 Policy:**
 
@@ -357,7 +356,6 @@ Perform the following steps to complete this task:
    - **ASM WAF Policy:**
 
      |image2_37|
-
 
 .. |image2_8| image:: /_static/class1/image2_8.png
 .. |image2_9| image:: /_static/class1/image2_9.png
