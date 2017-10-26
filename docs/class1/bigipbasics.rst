@@ -29,10 +29,19 @@ F5 DevCentral BIG-IP Basics Articles
 
 BIG-IP Basics Articles: https://devcentral.f5.com/articles?tag=devcentral+basics
 
+<<<<<<< HEAD
 HA Proxy to Big-IP Quick start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you are already familiar with HA Proxy, learning F5 Big-IP will be
 straightforward once you learn the F5 terminology. Here is a list of common config/terminology and their F5 equivalent
+=======
+HA Proxy to BIG-IP Quick Start
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you're already familiar with HA Proxy, learning F5 BIG-IP is straightforward
+once you learn the associated F5 terminology. Here is a list of common HA Proxy
+configuration terminology and its F5 equivalent:
+>>>>>>> 7b1d5e444c788aacb818b1a7e431b568cc8da99e
 
 +---------------------+---------------------+
 | **HA Proxy**        | **F5 Big-IP**       |
