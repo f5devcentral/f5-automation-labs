@@ -57,23 +57,27 @@ Task 2 - Deploy Basic HTTP Service
 Perform the following steps to complete this task:
 
 #. Click ``Step 2: Deploy Service - HTTP``. Review the **Request** JSON
-   :guilabel:`Body` and the **Response** JSON :guilabel:`Body`.
-   The JSON body of the POST contains the input for the iApp template to drive
-   the deployment of the service.
+   :guilabel:`Body`. The JSON body of the POST contains the input for the iApp
+   template to drive the deployment of the service.
 
    |image2_12|
 
-   #. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
-      **Create** a Basic HTTP Service:
+#. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
+    **Create** a Basic HTTP Service:
 
       |image2_11|
 
-      .. NOTE:: We've just progressed into a **Declarative** instantiation, by
-         defining the end state and letting the BIG-IP handle the order of
-         operations and configuration of the specific objects.  By doing this, we
-         have drastically reduced the **Domain Specific Knowledge** requirement
-         to interact with the device.  In the next module, we will combine this
-         concept with **Abstraction** to further simplify the interface.
+    In this task, we deployed our first service. Review the **Response** JSON
+    :guilabel:`Body` to verify if the Service has been deployed.
+
+    |image2_11a|
+
+.. NOTE:: We've just progressed into a **Declarative** instantiation, by
+   defining the end state and letting the BIG-IP handle the order of
+   operations and configuration of the specific objects.  By doing this, we
+   have drastically reduced the **Domain Specific Knowledge** requirement
+   to interact with the device.  In the next module, we will combine this
+   concept with **Abstraction** to further simplify the interface.
 
 
 #. Now that the service has been deployed let's review the BIG-IP configuration.
