@@ -62,13 +62,14 @@ Perform the following steps to complete this task:
 
    |image2_12|
 
-#. :guilabel:`Send` the ``Step 2: Deploy Service - HTTP`` request to
-    **Create** a Basic HTTP Service:
+#. Click ``Step 2: Deploy Service - HTTP`` and then :guilabel:`Send` to
+**Create** a Basic HTTP Service:
 
       |image2_11|
 
-    In this task, we deployed our first service. Review the **Response** JSON
-    :guilabel:`Body` to verify if the Service has been deployed.
+    In this task, we deployed our first service.
+    Review the **Response** JSON :guilabel:`Body` to verify if the Service has
+    been deployed.
 
     |image2_11a|
 
@@ -109,24 +110,24 @@ Perform the following steps to complete this task:
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After the service is deployed we want to modify it. We will disable all pool
+In this task, we will modify the existing service. We will disable all pool
 members and bring the service down.
-
 
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 3: Modify Service - HTTP`` request to
-   **Modify** the previously deployed Basic HTTP Service:
-
-   |image2_16|
-
-#. Review the **Request** URL and JSON :guilabel:`Body`.  Notice that we
-   specified **Resource** URL for our deployment.  Modifying or *Redeploying*
-   a service is handled by sending **only** the updated JSON to the specific
-   Resource (our service) using a ``PUT`` request method.  We set the state
-   of the pool members to ``disabled`` which forces the service offline:
+#. Click on ``Step 3: Modify Service - HTTP``. Review the **Request** URL and
+   JSON :guilabel:`Body`.  Notice that we specified **Resource** URL for our
+   deployment.  Modifying or *Redeploying* a service is handled by sending
+   **only** the updated JSON to the specific Resource (our service) using a
+   ``PUT`` request method.  We set the state of the pool members to ``disabled``
+   which forces the service offline.
 
    |image2_17|
+
+#. :guilabel:`Send` the ``Step 3: Modify Service - HTTP`` request to
+    **Modify** the previously deployed Basic HTTP Service:
+
+      |image2_16|
 
 #. In the BIG-IP GUI click :menuselection:`Local Traffic --> Network Map` to view the
    new state of the Pool Members (Black indicators reflect the disabled state).
@@ -138,6 +139,9 @@ Perform the following steps to complete this task:
 
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The lifecycle of a service also includes the service removal. We will now delete
+an existing service.
 
 Perform the following steps to complete this task:
 
@@ -193,10 +197,10 @@ Perform the following steps to complete this task:
       creates a new iRule object on the system.  The iRule object is then
       automatically linked to the Virtual Server
 
-      .. WARNING:: When using URL references it is important to properly secure
-         the repository hosting the resource(s).  The example in this lab uses a
-         publicly readable repository, however, most environments should use a
-         private repository with appropriate access control.
+      .. WARNING:: When using URL references, it is important to properly secure
+         the repository which hosts the resource(s).  The example in this lab
+         uses a publicly readable repository, however, most environments should
+         use a private repository with appropriate access control.
 
 #. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
    above were declared:
@@ -231,7 +235,7 @@ Perform the following steps to complete this task:
    |image2_26|
 
 #. iApps are a Declarative interface, allowing us to modify deployment without
-   the need to delete it (this also means we can re-name objects, **if**
+   the need to delete it (this also means we can re-name objects **if**
    we needed too).  For this service we will:
 
    - Use the same custom profiles
@@ -240,10 +244,10 @@ Perform the following steps to complete this task:
    - Use URL Resources to obtain the SSL/TLS Key, Certificate and Certificate
      Bundle
 
-     .. WARNING:: When using URL references it is important to properly secure
-        the repository hosting the resource(s).  The example in this lab uses a
-        publicly readable repository, however, most environments should use a
-        private repository with appropriate access control.
+     .. WARNING:: When using URL references, it is important to properly secure
+        the repository which hosts the resource(s).  The example in this lab
+        uses a publicly readable repository. However, most environments should
+        use a private repository with appropriate access control.
 
    - Create and apply a Client SSL Profile
 
@@ -253,7 +257,7 @@ Perform the following steps to complete this task:
    |image2_27|
 
 #. Review the configured Virtual Servers in the TMUI GUI.  The App Services iApp
-   created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``,
+   created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``
    and reconfigured the Virtual Server to listen on ``TCP/443``
 
    |image2_28|
@@ -267,13 +271,16 @@ Perform the following steps to complete this task:
 #. Open Chrome and access the service with ``http://10.1.20.121``. It should
    redirect you to ``https://10.1.20.121``.
 
-   .. NOTE:: We are using self signed certificates in the lab so an SSL
+   .. NOTE:: We are using self-signed certificates in the lab so an SSL
       warning will be shown
 
    |image2_30|
 
 Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The strength of iApps deployments is that they can include other modules as
+well. In this task we will deploy a WAF policy with the HTTPS service.
 
 Perform the following steps to complete this task:
 
@@ -289,12 +296,12 @@ Perform the following steps to complete this task:
    then create a Layer 7 Traffic Policy and apply it to the Virtual Server.
 
    This deployment recognizes the need for Security from the beginning of the
-   application lifecycle.  It lays the ground work for **Continuous
-   Improvement** by having the policy reside in a repository.  This allows us
+   application lifecycle.  It lays the groundwork for **Continuous
+   Improvement** by having the policy reside in a repository.  It allows us
    to treat Resources as Code leading to an Infrastructure as Code (IaC)
    methodology.  As the policy is updated in the repository additional automation
    and orchestration can be enabled to deploy the policy into the environment.
-   The end result is an ability to rapidly build, test and iterate Layer 7
+   The result is an ability to rapidly build, test and iterate Layer 7
    security policies and guarantee deployment into the environment.
 
 #. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
@@ -312,7 +319,7 @@ Perform the following steps to complete this task:
 
      |image2_34|
 
-#. In the TMUI GUI we can see the Layer 7 policy applied to the Virtual
+#. In the TMUI GUI, we can see the Layer 7 policy applied to the Virtual
    Server. In the :guilabel:`Application Security`, we can see the details
    of the policy which was dynamically fetched, applied, and set to Blocking
    mode.
