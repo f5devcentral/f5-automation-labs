@@ -23,9 +23,9 @@ Lab 3.4: iWorkflow REST Proxy
       }
    }
 
-While the focus of so far has been on building **Declarative Interfaces**
-with iWorkflow it's highlight that, when needed, iWorkflow can help simplify 
-**Imperative** operations to BIG-IP devices.
+While the focus so far has been on building **Declarative Interfaces**
+with iWorkflow, it's important to note iWorkflow can also help simplify 
+**Imperative** operations to BIG-IP devices when needed.
 
 iWorkflow includes a REST proxy that allows pass-through of REST requests to 
 devices discoverd on iWorkflow. The REST proxy feature allows customers to 
@@ -43,7 +43,7 @@ simplify **Imperative** Automation by:
 
 -  Simplified RBAC
 
-   -  RBAC can be implemented at iWorkflow for all devices rather on
+   -  RBAC can be implemented at iWorkflow for all devices rather than on
       individual devices in the environment
 
 The REST proxy works by passing data sent to a specific URL through to
