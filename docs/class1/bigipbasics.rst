@@ -28,3 +28,28 @@ F5 DevCentral BIG-IP Basics Articles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 BIG-IP Basics Articles: https://devcentral.f5.com/articles?tag=devcentral+basics
+
+HA Proxy to BIG-IP Quick Start
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you're already familiar with HA Proxy, learning F5 BIG-IP is straightforward
+once you learn the associated F5 terminology. Here is a list of common HA Proxy
+configuration terminology and its F5 equivalent:
+
++---------------------+---------------------+
+| **HA Proxy**        | **F5 Big-IP**       |
++---------------------+---------------------+
+| Frontend            | Virtual Server (VIP)|
++---------------------+---------------------+
+| Backend             | Pool                |
++---------------------+---------------------+
+| Server              | Member              |
++---------------------+---------------------+
+| mode http           | HTTP Profile        |
++---------------------+---------------------+
+| default_backend     | Default pool        |
++---------------------+---------------------+
+| use_backend         | LTM policy          |
++---------------------+---------------------+
+| check port          | Health monitor      |
++---------------------+---------------------+
