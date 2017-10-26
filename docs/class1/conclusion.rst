@@ -53,17 +53,17 @@ Conclusion
 In this class we learned the base concepts and skills required to effectively
 automate the F5 |bip| platform.  The diagram above shows a high-level view of
 the different components to this base level of knowledge. In subsequent classes 
-we will expand on the core concepts and knowledge learnedin this class. 
+we will expand on the core concepts and knowledge learned in this class. 
 
-This content has been created with developed with a DevOps methodology and 
-fully Continuous Toolchain.  All content contained here is sourced from the 
-following GitHub repository:
+This content has been created with a DevOps methodology and fully Continuous
+Toolchain.  All content contained here is sourced from the following GitHub
+repository:
 
 https://github.com/f5devcentral/f5-automation-labs/
 
-Bugs and Requests for Enhancements are handled in two ways:
+Bug Reports and Requests for Enhancement are handled in two ways:
 
-- Fork the Github Repo, fix or enhance as required and submit a Pull Request
+- Fork the Github Repo, fix or enhance as required, and submit a Pull Request
   
   - https://help.github.com/articles/creating-a-pull-request-from-a-fork/
 
@@ -72,7 +72,7 @@ Bugs and Requests for Enhancements are handled in two ways:
   the repository.
 
 Lastly, this content would not be possible without the contributions from many
-F5 Employees, Partners and Customers.  A full list of contributors to this 
+F5 Employees, Partners, and Customers.  A full list of contributors to this 
 content can be found at:
 
 https://github.com/f5devcentral/f5-automation-labs/graphs/contributors
