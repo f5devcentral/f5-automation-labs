@@ -26,22 +26,23 @@ iApp Templates & Deployments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are multiple ways to install an iApp on BIG-IP. These includes using
-TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All the abovementioned mechanisms
+TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All of these mechanisms
 are supported and, if required, can be used in conjunction with each other.
 
 For instance, you can install an iApp template from BIG-IP GUI and then deploy
 a new service via iControl REST using tools such as cURL, Postman and Ansible.
 
 .. NOTE:: Redeployment of iApp templates is facilitated/protected by a mechanism in
-   BIG-IP platform to ensure safe changes to the configurations without
-   disrupting existing user traffic.
+   BIG-IP platform to ensure safe changes to the configurations without disrupting 
+   existing user traffic.
 
-F5 iApps was introduced since TMOS Version 11. They can interact within and
+F5 iApps was introduced in TMOS Version 11. They can interact within and
 across different F5 modules to provide full Layer 4-7 Application Services
 capabilities.  The **iApp Template** is used to execute an **iApp Deployment**
-that generates a series of configurations grouped under an **Application Service Object (ASO)**.
-The ASO model earmarks objects belonging to the iApp service deployment.
-Upon deletion of a specific iApp service, all the associated objects will be deleted (recursively).
+that generates a series of configuration object grouped under an 
+**Application Service Object (ASO)**.  The ASO model houses objects belonging
+to the iApp service deployment.  Upon deletion of a specific iApp service, all 
+the associated objects will be recursively deleted.
 
 Below are some of the modules that can be configured using iApp templates:
 
@@ -79,11 +80,18 @@ mechanism called **Strict Updates**.  The App Services iApp does allow granular
 configuration of underlying TMOS objects **without** disabling the Strict
 Updates mechanism. However, not all iApp templates supports this functionality.
 
-In an automated environment, we **must** always ensure that the **iApp template inputs** are being referered as the
-Source-of-Truth for an underlying deployment.  Therefore, **Strict Updates
-should not be disabled** in order to preserve the integrity of service deployments using iApp templates.
+In an automated environment, we **must** always ensure that the
+**iApp template inputs** are being referered as the Source-of-Truth for an
+underlying deployment.  Therefore, **Strict Updates should not be disabled** in
+order to preserve the integrity of service deployments using iApp templates.
 
-For instance, after an iApp service is deployed, modifying the underlying configuration **with Strict Updates disabled** will result in Source-of-Truth violation. Changes made directly to the configuration will cause iApp configuration objects to be overwritten. The direct modification of objects configured on BIG-IP will alter the integrity of iApp deployment input values that automation tools are interacting with, causing failures. It is therefore important to keep **Strict Updates** enabled at all times for automated deployments.
+For instance, after an iApp service is deployed, modifying the underlying
+configuration **with Strict Updates disabled** will result in Source-of-Truth
+violation. Changes made directly to the configuration will cause iApp
+configuration objects to be overwritten. The direct modification of objects
+configured on BIG-IP will alter the integrity of iApp deployment input values
+that automation tools are interacting with, causing failures. It is therefore
+important to keep **Strict Updates** enabled at all times for automated deployments.
 
 .. |image2_1| image:: /_static/class1/image2_1.png
 .. |image2_2| image:: /_static/class1/image2_2.png
