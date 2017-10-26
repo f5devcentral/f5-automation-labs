@@ -39,20 +39,20 @@ BIG-IP Active/Standby pair. It’s important to note that this module will
 focus on demonstrating an **Imperative** approach to automation.
 
 .. NOTE:: The Lab Deployment for this lab includes two BIG-IP devices.
-   For most of the labs, we will only be configuring the BIG-IP-A
+   For most of the labs, we will only be configuring the BIG-IP A
    device (management IP configuration and licensing has been completed).
-   BIG-IP-B will have some minimal configuration pre-loaded. In real-world
+   BIG-IP B will have some minimal configuration pre-loaded. In real-world
    scenario, it would be necessary to perform Device Onboarding functions
-   on ALL BIG-IP devices. In this lab exercise, we chose to perform it only on a single device
-   due to lab time allocation constraints.
+   on ALL BIG-IP devices. In this lab exercise, we chose to perform it only 
+   on a single device due to lab time allocation constraints.
 
 .. NOTE:: In order to confirm the results of REST API calls made in this lab, it's 
    recommended to keep GUI/SSH sessions to BIG-IP and iWorkflow devices open. 
    By default, BIG-IP and iWorkflow will log all the REST API related events locally 
    to **restjavad.0.log** . These logs can also be directed to a remote syslog server 
-   (see https://support.f5.com/csp/article/K13080). On a side note, the following **ltm** 
-   log files listed below contains log messages specific to 
-   BIG-IP local traffic management events. 
+   (see https://support.f5.com/csp/article/K13080). On a side note, the **ltm** 
+   log files listed below contains log messages specific to  BIG-IP local 
+   traffic management events. 
 
    - BIG-IP:
 
