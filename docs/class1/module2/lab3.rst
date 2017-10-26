@@ -66,14 +66,14 @@ Perform the following steps to complete this task:
    sent JSON body we can see the input we sent to the iApp template to drive
    the deployment of the service:
 
+   |image2_12|
+
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
       defining the end state and letting the BIG-IP handle the order of
       operations and configuration of the specific objects.  By doing this we
       have drastically reduced the **Domain Specific Knowledge** requirement
       to interact with the device.  In the next module we will combine this
       concept with **Abstraction** to further simplify the interface.
-
-   |image2_12|
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
    You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
@@ -263,7 +263,26 @@ Perform the following steps to complete this task:
    redirect you to ``https://10.1.20.121``.
 
    .. NOTE:: We are using self signed certificates in the lab so an SSL
-      warning will be shown
+      warning will be shown.
+
+   .. WARNING:: When you open this page you may continue to keep the Maintence
+      Page from the previous Task.  This occurs because of two reasons:
+
+      #. Chrome keeps HTTP connections open in the background to improve network
+         performance
+
+      #. BIG-IP maintains a fully versioned configuration internally. 
+         Stateful connections, like HTTP, are then pinned to a specific version
+         of the configuration for the lifetime of the connection.
+
+      As a result, because Chrome has not closed the actual TCP connection, 
+      BIG-IP still processes traffic with the configuration that was present 
+      when the connection was originally created.
+
+      You can open an Incognito Chrome Window (Ctrl-Shift-N) and try to connect
+      to ``http://10.1.20.121`` again.  The connection in the Incognito window
+      should behave as expected because it's a new connection and therefore uses
+      the most recent configuration.
 
    |image2_30|
 
