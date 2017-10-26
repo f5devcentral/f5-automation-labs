@@ -37,16 +37,10 @@ If you are already familiar with HA Proxy, learning F5 Big-IP will be straightfo
 HA Proxy            F5 Big-IP
 ==========          ==========
 Frontend            Virtual Server (VIP)
-==========          ==========
 Backend             Pool
-==========          ==========
 Server              Member
-==========          ==========
 mode http           HTTP Profile
-==========          ==========
 default_backend     Default pool
-==========          ==========
 use_backend         LTM policy
-==========          ==========
 check port          Health monitor
 ==========          ==========
