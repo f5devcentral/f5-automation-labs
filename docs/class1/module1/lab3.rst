@@ -83,7 +83,7 @@ Setup Wizard. The Resource that contains these settings is
 Perform the following steps to complete this task:
 
 #. Expand the ``Lab 1.3 - Review/Set Device Settings`` folder in the
-   Postman collection
+   Postman collection.
 
 #. Click the ``Step 1: Get System Global-Settings`` request. Click the :guilabel:`Send`
    button and review the response body to see what the current settings
@@ -138,7 +138,7 @@ Collection. The relevant Resources for this task are:
 Perform the following steps to complete this task:
 
 #. Click the ``Step 3: Get System DNS Settings`` item in the folder.
-   Click :guilabel:`Send` and review the current settings
+   Click :guilabel:`Send` and review the current settings. 
 
 #. Click the ``Step 4: Set System DNS Settings`` item in the folder.
    Click body. Review the JSON body to verify the name server IPs ``4.2.2.2`` 
@@ -150,7 +150,7 @@ Perform the following steps to complete this task:
    ``Step 3: Get System DNS Settings`` request again.
 
 #. Click the ``Step 5: Get System NTP Settings`` item in the folder.
-   Click :guilabel:`Send` and review the current settings
+   Click :guilabel:`Send` and review the current settings. 
 
 #. Click the ``Step 6: Set System NTP Settings`` item in the folder.
    Click :guilabel:`Body`. Review the JSON body to verify the NTP servers 
@@ -172,7 +172,7 @@ To update the root account password we will use a ``POST`` to the
 ``/mgmt/shared/authn/root`` REST endpoint.
 
 To update all other system accounts we will ``PATCH`` the
-``/mgmt/tm/auth/user/<username>`` Resource
+``/mgmt/tm/auth/user/<username>`` Resource. 
 
 Perform the following steps to change the ``root`` user password:
 
