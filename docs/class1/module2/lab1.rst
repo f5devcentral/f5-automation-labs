@@ -38,7 +38,7 @@ a new service via iControl REST using tools like cURL, Postman and Ansible.
 
 F5 iApps were introduced in TMOS Version 11, they can interact within, and
 across different F5 modules providing full Layer 4-7 Application Service
-capability.  The **iApp Template** is used to drive and **iApp deployment**
+capability.  The **iApp Template** is used to drive and **iApp Deployment**
 that creates a configuration under an **Application Service Object (ASO)**.
 The ASO model identifies which objects belong to the iApp service deployment.
 Upon service deletion, all service related objects are recursively deleted.
