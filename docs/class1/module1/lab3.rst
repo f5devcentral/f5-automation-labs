@@ -188,7 +188,7 @@ Perform the following steps to change the ``root`` user password:
 
 #. You can verify the password has been changed by opening an SSH session
    to BIG-IP-A.  A shortcut to a terminal is included on the desktop of
-   the Linux jumphost.  To open an SSH connection to BIG-IP-A, open a
+   the Linux jumphost.  To open an SSH connection to BIG-IP A, open a
    terminal window and execute ``ssh root@10.1.1.10``
 
 #. **Repeat the procedure above to change the password back to** ``default``
