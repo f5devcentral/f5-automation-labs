@@ -32,7 +32,7 @@ Task 1 - Examine f5-newman-build-1
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
-   .. code-block:: json
+   .. code-block:: console
      :linenos:
 
      {
