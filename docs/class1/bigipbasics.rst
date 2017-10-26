@@ -29,6 +29,29 @@ F5 DevCentral BIG-IP Basics Articles
 
 BIG-IP Basics Articles: https://devcentral.f5.com/articles?tag=devcentral+basics
 
+Using F5 in Various Environments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Public Cloud:
+
+  - **AWS/Azure/GCP/etc.:** http://clouddocs.f5.com/cloud/public/v1/
+
+- Private Cloud:
+
+  - **OpenStack:** http://clouddocs.f5.com/cloud/openstack/
+
+  - **VMware:** https://f5.com/solutions/technology-alliances/vmware
+
+- Container Ecosystems:
+
+  - **Cloud Foundry:** http://clouddocs.f5.com/containers/latest/cloudfoundry/
+
+  - **Kubernetes:** http://clouddocs.f5.com/containers/latest/kubernetes
+
+  - **Mesos Marathon:** http://clouddocs.f5.com/containers/latest/marathon
+
+  - **RedHat OpenShift:** http://clouddocs.f5.com/containers/latest/openshift/
+
 HA Proxy to BIG-IP Quick Start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
