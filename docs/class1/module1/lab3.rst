@@ -91,7 +91,7 @@ Perform the following steps to complete this task:
 Task 2 – Modify DNS/NTP Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a 
+.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a
    JSON array is:
 
    ``myArray: [ Object0, Object1 ... ObjectX ]``
@@ -171,7 +171,7 @@ Perform the following steps to change the **admin** user password:
 
 #. Notice that we a performing a PATCH operation to admin user
    Resource. Modify the JSON body to update the password to the value
-   “newadmin” and click the ‘Send’ button.
+   “Newadmin” and click the ‘Send’ button.
 
    |image27|
 
