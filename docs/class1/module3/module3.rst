@@ -44,9 +44,9 @@ that L1-3 Automation (Device Onboarding, Networking, etc) and L4-7
 (Deployment of Virtual Servers, Pools, etc) are separated and delivered
 by different features.
 
-L1-3 Networking and Device Onboarding are delivered by ‘Cloud
-Connectors’ that are specific to the third party technology ecosystem
-(e.g. vCMP, Cisco APIC, VMware NSX, BIG-IP, etc).
+L1-3 Networking and Device Onboarding are delivered by **Cloud
+Connectors** that provide an abstracted interface to BIG-IP Onboarding
+in different environments.
 
 L4-7 service delivery is accomplished by:
 
