@@ -195,7 +195,7 @@ is fully supported.
 .. NOTE:: For more information about external authentication providers see the
    section titled **About external authentication providers with
    iControl REST** in the iControl REST API User Guide available at
-   https://devcentral.f5.com
+   https://devcentral.f5.com/d/icontrolr-rest-api-user-guide-version-1300-241 (v13)
 
 Perform the following steps to complete this task:
 
