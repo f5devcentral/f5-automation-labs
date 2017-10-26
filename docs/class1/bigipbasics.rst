@@ -31,16 +31,11 @@ BIG-IP Basics Articles: https://devcentral.f5.com/articles?tag=devcentral+basics
 
 HA Proxy to Big-IP Quick start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. list-table::
-    :widths: 15 15
-    :header-rows: 1
-    :stub-columns: 1
-	
-	* - **HA Proxy**
-      - **F5 Big-IP**
-	  
-	* - Frontend
-      - Virtual Server (VIP)
-	
-	* - 
-	  - 
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
