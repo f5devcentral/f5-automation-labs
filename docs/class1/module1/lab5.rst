@@ -25,7 +25,7 @@ Lab 1.5: Building Imperative Workflows with Postman Collections
       }
    }
    
-As you have seen in the previous lab's we can use the Collections and Folders
+As you have seen in the previous labs, we can use the Collections and Folders
 features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a
 sequence of REST request to achieve some outcome.
@@ -62,7 +62,7 @@ Task 1 - Open and Run a Collection
    The Javascript code in the Test script will populate an environment variable
    based on the response from the BIG-IP system.
 
-#. Click the :guilabel:`Runner` button at the top right of your Postman window:
+#. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
    |image97|
 
@@ -87,7 +87,8 @@ Task 1 - Open and Run a Collection
 
 #. Next, switch back to the main Postman window.  Click the |image99|\ button
    again and examine the environment variables.  Notice that three new variables
-   starting with the name ``lab1.5_`` have been populated:
+   starting with the name ``lab1.5_`` have been populated. You may need to scroll
+   down to see these variables:
 
    |image104|
 

@@ -44,9 +44,9 @@ command or remove a single command from the queued list before committing.
 
 .. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
    longer than the timeout period to execute a transaction will result in
-   automatic deletion of the transaction.  To avoid having to redo the steps 
+   automatic deletion of the transaction.  **To avoid having to redo the steps 
    in this task, please first read through the steps below and execute each of 
-   them in a timely manner.
+   them in a timely manner.**
 
 Perform the following steps to complete this task:
 
@@ -82,9 +82,9 @@ Perform the following steps to complete this task:
 
    |image39|
 
-#. Click the :guilabel:`Send` button and examine the response
+#. Click the :guilabel:`Send` button and examine the response. 
 
-#. Examine and click :guilabel:`Send` on **Steps 3-6** in the folder
+#. Examine and click :guilabel:`Send` on **Steps 3-6** in the folder. 
 
 #. Click ``Step 7: View the Transaction Queue``. Examine the request type and
    URI and click :guilabel:`Send`. This request allows you to see the current
@@ -111,7 +111,7 @@ Task 2 - Modify a Transaction
       system assumes that you want to **ADD** an entry in the transaction
       queue. You **MUST** remove this header if you want to issue
       any other transaction queue changes (such as deleting an entry from the
-      queue, changing the order, committing a transaction). If you
+      queue, changing the order, or committing a transaction). If you
       fail to remove the header, the system will respond with a ``400``
       HTTP error code with the following error text:
 
@@ -121,8 +121,8 @@ Task 2 - Modify a Transaction
    |image77|
 
 #. Click the ``Step 10: View the Transaction Queue Changes`` request in the
-   folder. Verify that request number ``4`` has moved into position ``1``
-   and the order of all other requests has been updated accordingly.
+   folder. Verify that command number ``4`` has moved into position ``1``
+   and the order of all other commands has been updated accordingly.
 
 Task 3 - Commit a Transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
