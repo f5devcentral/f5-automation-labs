@@ -26,7 +26,7 @@ Lab 1.6: Build a BIG-IP Cluster using a Collection
    }
 
 In this lab, we will build an active-standby cluster between BIG-IP-A and
-BIG-IP-B using REST API. As mentioned previously, to save time, BIG-IP-B is
+BIG-IP-B using the REST API. As mentioned previously, to save time, BIG-IP-B is
 already licensed and has its device-level settings configured. This lab will
 use the Postman Runner functionality introduced in the previous lab.
 We will run the requests in a Collection Folder to build the cluster.
@@ -44,13 +44,13 @@ The high-level procedure required to create the cluster is:
 
 #. Configure Device Level settings on both devices
 
-#. Configure Networking on BIG-IP-B (remember this was already done in Lab 1.4
-   for BIG-IP-A)
+#. Configure Networking on BIG-IP B (remember this was already done in Lab 1.4
+   for BIG-IP A)
 
-#. Set BIG-IP-A & BIG-IP-B CMI Parameters (Config Sync IP, Failover
+#. Set BIG-IP A & BIG-IP B CMI Parameters (Config Sync IP, Failover
    IPs, Mirroring IP)
 
-#. Add BIG-IP-B as a trusted peer on BIG-IP-A
+#. Add BIG-IP B as a trusted peer on BIG-IP A
 
 #. Check the status of the Sync Groups
 
@@ -66,7 +66,7 @@ The high-level procedure required to create the cluster is:
 
 #. Create Floating Self IPs
 
-#. Failover the Traffic Group to make BIG-IP-A the Active device
+#. Failover the Traffic Group to make BIG-IP A the Active device
 
 Task 1 - Build a Cluster using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,12 +108,11 @@ Perform the following steps to build the cluster:
    |image30|
 
 #. At this point you can log into BIG-IP-A using Chrome at ``https://10.1.1.10``.
-   Verify that the cluster was built by navigating to :menuselection:`Device Management --> Overview` 
-   using the menu in the  BIG-IP GUI. Verify that the
-   cluster and failover status indicators are all Green.
+   Verify that the cluster was built by navigating to 
+   :menuselection:`Device Management --> Overview` using the menu in the BIG-IP 
+   TMUI GUI. Verify that the cluster and failover status indicators are all Green.
 
    |image31|
-
 
 .. |image28| image:: /_static/class1/image028.png
 .. |image29| image:: /_static/class1/image029.png
