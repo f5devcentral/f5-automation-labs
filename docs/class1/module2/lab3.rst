@@ -63,9 +63,9 @@ Perform the following steps to complete this task:
    |image2_12|
 
 #. Click ``Step 2: Deploy Service - HTTP`` and then :guilabel:`Send` to
-**Create** a Basic HTTP Service:
+    **Create** a Basic HTTP Service:
 
-      |image2_11|
+    |image2_11|
 
     In this task, we deployed our first service.
     Review the **Response** JSON :guilabel:`Body` to verify if the Service has
