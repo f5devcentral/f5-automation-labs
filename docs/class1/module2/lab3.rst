@@ -71,6 +71,8 @@ Perform the following steps to complete this task:
 
    |image2_11a|
 
+   |image2_12|
+
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
       defining the end state and letting the BIG-IP handle the order of
       operations and configuration of the specific objects.  By doing this, we
@@ -78,9 +80,10 @@ Perform the following steps to complete this task:
       to interact with the device.  In the next module, we will combine this
       concept with **Abstraction** to further simplify the interface.
 
-#. Now that the service has been deployed let's review the BIG-IP configuration.
-   Send the ``Step 1: Get Deployed iApp Services`` request again, or you can
-   log in to the BIG-IP A GUI and see the service deployment via TMUI.
+#. Now that the service has been deployed, let's review the BIG-IP configuration.
+   You can review via REST by sending the ``Step 1: Get Deployed iApp Services``
+   request again, or you can login to the BIG-IP A GUI and see the service
+   deployment via TMUI:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
@@ -103,6 +106,9 @@ Perform the following steps to complete this task:
    using Chrome at ``http://10.1.20.121`` and examine its response:
 
    |image2_31|
+   
+   .. NOTE:: The colors of the text, images, and borders may vary based on which
+      back-end server was selected during the load balancing process.
 
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -268,8 +274,27 @@ Perform the following steps to complete this task:
 #. Open Chrome and access the service with ``http://10.1.20.121``. It should
    redirect you to ``https://10.1.20.121``.
 
-   .. NOTE:: We are using self-signed certificates in the lab so an SSL
-      warning may be shown
+   .. NOTE:: We are using self signed certificates in the lab so an SSL
+      warning will be shown.
+
+   .. WARNING:: When you open this page you may continue to keep the Maintence
+      Page from the previous Task.  This occurs because of two reasons:
+
+      #. Chrome keeps HTTP connections open in the background to improve network
+         performance
+
+      #. BIG-IP maintains a fully versioned configuration internally. 
+         Stateful connections, like HTTP, are then pinned to a specific version
+         of the configuration for the lifetime of the connection.
+
+      As a result, because Chrome has not closed the actual TCP connection, 
+      BIG-IP still processes traffic with the configuration that was present 
+      when the connection was originally created.
+
+      You can open an Incognito Chrome Window (Ctrl-Shift-N) and try to connect
+      to ``http://10.1.20.121`` again.  The connection in the Incognito window
+      should behave as expected because it's a new connection and therefore uses
+      the most recent configuration.
 
    |image2_30|
 

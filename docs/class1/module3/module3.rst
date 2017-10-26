@@ -44,9 +44,9 @@ that L1-3 Automation (Device Onboarding, Networking, etc) and L4-7
 (Deployment of Virtual Servers, Pools, etc) are separated and delivered
 by different features.
 
-L1-3 Networking and Device Onboarding are delivered by ‘Cloud
-Connectors’ that are specific to the third party technology ecosystem
-(e.g. vCMP, Cisco APIC, VMware NSX, BIG-IP, etc).
+L1-3 Networking and Device Onboarding are delivered by **Cloud
+Connectors** that provide an abstracted interface to BIG-IP Onboarding
+in different environments.
 
 L4-7 service delivery is accomplished by:
 
@@ -65,9 +65,9 @@ Services iApp template you learned about in Module 2.  The focus in Module 2
 was showing how to drive rich deployments, however, a large amount of F5 
 **Domain Specific Knowledge** was still required to drive the deployments.
 From a conceptual view iApp templates alone do not fully satisfy the requirement
-for a fully **Declarative** interface because while the iApp template simplies
+for a fully **Declarative** interface because while the iApp template simplifies
 the underlying **Imperative** actions it does not allow the adminstrator to 
-built an **Interface** that minimizes or eliminates the need for **Domain 
+build an **Interface** that minimizes or eliminates the need for **Domain 
 Specific Knowledge**.
 
 For example, we deployed a service that enabled HTTP Traffic Management with 

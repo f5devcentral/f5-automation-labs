@@ -29,22 +29,22 @@ a Declarative, Abstracted Service Deployment using the iWorkflow Tenant Service
 Catalog, Tenant API and optionally the built-in Tenant GUI.
 
 As we did in the previous lab we will explore the first deployment in depth
-so you can implement a full Service Lifecycle Create, Read, Update and Delete 
+so you can implement a full Service Lifecycle: Create, Read, Update and Delete 
 (CRUD) operations.  For the remaining deployments you can just repeat the steps 
 used with the first example.
 
 Tenant Overview
 ^^^^^^^^^^^^^^^
 
-iWorkflow Tenants allow Consumers to perform Service Lifecycle operations in a 
+iWorkflow Tenants allow Consumers to perform Service Lifecycle operations in an 
 isolated environment.  All actions performed prior to this lab have been in
-whats called the ``Provider`` space and, by nature, are masked from Tenants
+what's called the ``Provider`` space and, by nature, are masked from Tenants
 unless specifically exposed.  As a result of the Tenant isolation, each Tenant 
 maintains its own set of Users and Roles associated with those users, allowing
 each Tenant full control of the actions Tenant Users can perform.
 
 During our iWorkflow Onboarding process in Lab 3.1 we created a 
-:guilabel:`Tenant` name ``MyTenant`` and an associated :guilabel:`Tenant User`
+:guilabel:`Tenant` named ``MyTenant`` and an associated :guilabel:`Tenant User`
 with a username of ``tenant``.  Additionally we gave ``MyTenant`` access to
 the :guilabel:`BIG-IP Connector` named ``BIG-IP A&B Connector``:
 
@@ -84,7 +84,7 @@ Task 2 - Authenticate to the iWorkflow Tenant API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As described above, the Tenant interfaces to iWorkflow maintain their own 
-access control mechanisms.  As a result, when performed operations via the 
+access control mechanisms.  As a result, when performing operations via the 
 Tenant API you must authenticate with a Tenant User (``tenant`` in this case).
 
 Perform the following steps to complete this task:
