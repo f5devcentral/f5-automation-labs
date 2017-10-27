@@ -9,5 +9,5 @@ when HTTP_REQUEST {
             If you feel you have reached this page in error, please try again. Thanks for coming
          </body>
       </html>
-   }
+   } noserver Cache-Control no-cache Connection Close
 }

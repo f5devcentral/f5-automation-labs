@@ -35,14 +35,15 @@ we will now introduce F5 Declarative Interfaces built with F5 iApp templates.
 
 iApps are a user-customizable framework for deploying applications that enables
 you to templatize sets of functionality on your F5 devices. For example, you can
-automate the process of adding virtual servers or build a custom iApp to manage
-your iRules inventory.
+automate the process of adding virtual servers or manage your iRules inventory
+through the use of a custom iApp.
 
 iApps are commonly thought of as a Wizard style deployment helper, but they are
-actually a Declarative Interface (like REST Transactions).
+actually a Declarative Interface.
 
 When an iApp deploys, a **single** call - declaring the desired deployment -
 is processed on the BIG-IP in the correct order of operations.
+If the deployment were to fail the iApp would *automatically* rollback.
 All created objects are associated with an Application Service Object (ASO).
 The ASO model identifies which objects belong to the iApp service deployment.
 Upon service deletion, all service related objects are recursively deleted.
@@ -63,11 +64,14 @@ at:
 
 .. NOTE:: This module requires the underlying network configuration that was
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**
-   node in the cluster
+   node in the cluster. When login into the GUI of Big-IP A it should say
+   ONLINE (ACTIVE) in the upper left corner.
 
 .. NOTE:: This module deploys the configuration to BIG-IP A. iApp deployments
    leverage the underlying config-sync mechanisms in the cluster.  Once deployed
-   on BIG-IP A, the configuration will be automatically synced to BIG-IP B
+   on BIG-IP A, the configuration will be automatically synced to BIG-IP B.
+   To learn more about clustering please use this link: 
+   https://www.youtube.com/watch?v=RAQ1qaYnjZo
 
 .. toctree::
    :maxdepth: 1

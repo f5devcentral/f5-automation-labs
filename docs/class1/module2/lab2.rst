@@ -47,8 +47,8 @@ Perform the following steps to complete this task:
 
    |image2_3|
 
-#. Review the JSON response :guilabel:`Body`.  The JSON payload shows a
-   iApp templates that are installed by default on the BIG-IP device:
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows 
+   iApp templates that are installed on the BIG-IP device:
 
    |image2_4|
 
@@ -58,7 +58,7 @@ Task 2 - Install the App Services iApp Template
 Perform the following steps to complete this task:
 
 #. :guilabel:`Send` the ``Step 2: Install App Svcs v2.0.004 iApp Template``
-   request to install the iApp template:
+   request to install the App Services iApp template:
 
    |image2_5|
 

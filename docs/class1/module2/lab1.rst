@@ -26,8 +26,9 @@ iApp Templates & Deployments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are multiple ways to install an iApp on BIG-IP. These includes using
-TMOS Shell (TMSH), the GUI (TMUI), and the REST Interface. All of these mechanisms
-are supported and, if required, can be used in conjunction with each other.
+TMOS Shell (TMSH through SSH), the GUI (TMUI), and the REST Interface. All
+of these mechanisms are supported and, if required, can be used in 
+conjunction with each other.
 
 For instance, you can install an iApp template from BIG-IP GUI and then deploy
 a new service via iControl REST using tools such as cURL, Postman and Ansible.
@@ -36,13 +37,14 @@ a new service via iControl REST using tools such as cURL, Postman and Ansible.
    BIG-IP platform to ensure safe changes to the configurations without disrupting 
    existing user traffic.
 
-F5 iApps was introduced in TMOS Version 11. They can interact within and
-across different F5 modules to provide full Layer 4-7 Application Services
-capabilities.  The **iApp Template** is used to execute an **iApp Deployment**
+F5 iApps was introduced in TMOS (Big-IP operating system) Version 11.
+They can interact within and across different F5 modules to provide 
+full Layer 4-7 Application Services capabilities. 
+The **iApp Template** is used to execute an **iApp Deployment**
 that generates a series of configuration object grouped under an 
 **Application Service Object (ASO)**.  The ASO model houses objects belonging
-to the iApp service deployment.  Upon deletion of a specific iApp service, all 
-the associated objects will be recursively deleted.
+to the iApp service deployment.  Upon deletion of a specific iApp service deployment, 
+all the associated objects will be recursively deleted.
 
 Below are some of the modules that can be configured using iApp templates:
 
