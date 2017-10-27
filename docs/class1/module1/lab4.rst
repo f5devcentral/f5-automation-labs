@@ -6,8 +6,8 @@ Lab 1.4: Basic Network Connectivity
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -42,8 +42,8 @@ designed to teach enough information so that you can then apply the
 knowledge learned and help articulate and/or deliver a specific solution
 for your environment.
 
-The following table and diagram lists the L2-3 network information used to 
-configure connectivity for BIG-IP-A:
+The following table and diagram lists the L2-3 network information used to
+configure connectivity for BIG-IP A:
 
 .. list-table::
    :stub-columns: 1
@@ -93,8 +93,8 @@ Perform the following steps to configure the VLAN objects/resources:
 #. Expand the ``Lab 1.4 - Basic Network Connectivity`` folder in the
    Postman collection.
 
-#. Click the ``Step 1: Create a VLAN`` request in the folder. Click 
-   :guilabel:`Body` and examine the JSON request body; the values for 
+#. Click the ``Step 1: Create a VLAN`` request in the folder. Click
+   :guilabel:`Body` and examine the JSON request body; the values for
    creating the Internal VLAN have already been populated.
 
 #. Click the :guilabel:`Send` button to create the VLAN
@@ -106,6 +106,8 @@ Perform the following steps to configure the VLAN objects/resources:
    - ``name``: ``Internal`` --> ``External``
    - ``tag``: ``10`` --> ``20``
    - ``interfaces[] --> name``: ``1.1`` --> ``1.2``
+
+   |image111|
 
 #. Click the ``Step 2: Get VLANs`` request in the folder. Click the
    :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response
@@ -124,7 +126,7 @@ Perform the following steps to configure the Self IP objects/resources:
       You will modify this value in the steps below.  Please do not change the
       value.
 
-#. Click the :guilabel:`Send` button to create the Self IP. 
+#. Click the :guilabel:`Send` button to create the Self IP.
 
 #. Click the ``Step 4: Create External Self IP`` request in the folder and
    click :guilabel:`Send`
@@ -132,12 +134,12 @@ Perform the following steps to configure the Self IP objects/resources:
 #. Click the ``Step 5: Get Self-Internal Self IP Attributes`` request in the
    folder and click the :guilabel:`Send` button.  Examine the VLAN settings
    of the Resource.  As noted above the Self IP has been assigned to the **wrong**
-   VLAN (intentionally). 
+   VLAN (intentionally).
 
-   .. NOTE:: Postman has the ability to check the responses for specific values 
-      to verify if the result of a request is what it is expected to be. The 
-      :guilabel:``Test Results`` for this request will show a failure for the 
-      ``[Check Value] vlan == /Common/Internal`` value.  This is intentional 
+   .. NOTE:: Postman has the ability to check the responses for specific values
+      to verify if the result of a request is what it is expected to be. The
+      :guilabel:``Test Results`` for this request will show a failure for the
+      ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
       and you should continue to the next section.
 
    |image92|
@@ -164,14 +166,14 @@ Resource URI.
 
    |image96|
 
-#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request. 
+#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request.
 
    |image93|
 
 #. Paste the text into JSON Request body:
 
    .. NOTE:: Be sure to highlight any existing text and replace it while
-      pasting. 
+      pasting.
 
    |image94|
 
@@ -182,7 +184,7 @@ Resource URI.
 
 #. Click the ``Step 6: Get Self IPs`` item in the collection. Click the
    ``Send`` button to GET the Self IP collection. Examine the response to
-   make sure both Self IPs have been created and associaited with the 
+   make sure both Self IPs have been created and associaited with the
    appropriate vlan.
 
 Task 4 - Create Routes
@@ -199,7 +201,7 @@ Perform the following steps to configure the Route object/resource:
    the JSON body; the values for creating the default route have already
    been populated.
 
-#. Click the ``Send`` button to create the route. 
+#. Click the ``Send`` button to create the route.
 
 #. Click the ``Step 9: Get Routes`` item in the collection again. Click the
    ``Send`` button to ``GET`` the routes collection. Examine the response to
@@ -210,5 +212,6 @@ Perform the following steps to configure the Route object/resource:
 .. |image94| image:: /_static/class1/image094.png
 .. |image95| image:: /_static/class1/image095.png
 .. |image96| image:: /_static/class1/image096.png
+.. |image111| image:: /_static/class1/image111.png
 .. |labtopology| image:: /_static/class1/labtopology.png
    :scale: 65%

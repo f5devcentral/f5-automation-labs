@@ -189,9 +189,11 @@ Perform the following steps to change the ``root`` user password:
    |image26|
 
 #. You can verify the password has been changed by opening an SSH session
-   to BIG-IP-A.  A shortcut to a terminal is included on the desktop of
-   the Linux jumphost.  To open an SSH connection to BIG-IP A, open a
-   terminal window and execute ``ssh root@10.1.1.10``
+   to BIG-IP A.  A shortcut to a terminal is included on the desktop of
+   the Linux jumphost.  Open a Terminal window and then open an SSH connection
+   to BIG-IP A using the command ``ssh root@10.1.1.10``:
+
+   |image110|
 
 #. **Repeat the procedure above to change the password back to** ``default``
 
@@ -206,7 +208,7 @@ Perform the following steps to change the **admin** user password:
    |image27|
 
 #. You can verify the password has been changed by opening an SSH session
-    OR by logging into TMUI (HTTP GUI) to BIG-IP-A in a Chrome browser tab.
+    OR by logging into TMUI (HTTP GUI) to BIG-IP A in a Chrome browser tab.
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
@@ -214,3 +216,4 @@ Perform the following steps to change the **admin** user password:
 .. |image26| image:: /_static/class1/image026.png
 .. |image27| image:: /_static/class1/image027.png
 .. |image109| image:: /_static/class1/image109.png
+.. |image110| image:: /_static/class1/image110.png
