@@ -24,11 +24,10 @@ Lab 2.3: Create iApp Deployments using the REST API
 
 Now that the App Services iApp template is installed, we can deploy a new
 Layer 4 to 7 Service. We will start with **Creating** a Basic HTTP Service,
- demonstrate **Modifying** the service by changing the node state, 
- and finally **Delete** the whole service.
-Once we've experimented with those tasks, we'll introduce more
-complex deployments options with iRules, Custom Profiles, Certificates,
-and an ASM Policy.
+demonstrate **Modifying/Mutate** the service by changing the node state,
+and finally **Delete** the whole service. Once we've demonstrated with these
+tasks, we'll introduce more complex deployments options with iRules, Custom
+Profiles, Certificates, and an ASM Policy.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 2.3 - Create iApp Deployments using the REST API`` folder in the
@@ -72,12 +71,12 @@ Perform the following steps to complete this task:
    |image2_40|
 
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
-      defining the end state and relying on the iApp templates to handle the 
-      order of operations and configuration of specific objects.  By doing this, 
-      we have drastically reduced the **Domain Specific Knowledge** required
-      to interact with the device.  In the next module, we will combine this
-      concept with **Abstraction** to further simplify the interface the 
-	  service consumer has to interact with.
+      defining the end state and relying on the iApp templates to handle the
+      order of operations and configuration of specific objects.  By doing this,
+      we have drastically reduced the amount of **Domain Specific Knowledge**
+      required to interact with the device.  In the next module, we will combine
+      this concept with **Abstraction** to further simplify the interface the 
+      service consumer has to interact with.
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
    You can validate by sending the ``Step 1: Get Deployed iApp Services``
@@ -154,7 +153,7 @@ Perform the following steps to complete this task:
 
 #. Similar to modification process, the deletion of a service is performed on 
    the **Resource** URL. When we created the service, we defined a Declarative 
-   state to the iApp template which then created the configuration and 
+   state to the iApp template which subsequently created the configuration and 
    all of its associated objects.  With a ``DELETE`` request, BIG-IP will process
    the removal of all objects linked to the ASO in a recursive manner. This is
    crucial to Application Lifecycle Management as it provides a mechanism to
@@ -278,11 +277,10 @@ Perform the following steps to complete this task:
 
    .. IMPORTANT:: RFC2616 (HTTP/1.1) allows for a TCP session to stay open.
       Had we not included "noserver Cache-Control no-cache *Connection Close*"
-	  in the iRule the following would have happened.
+      in the iRule the following would have happened:
    
       When you would have refreshed the page, the maintenance page would still 
-	  appear.
-      This would have occured because of two reasons:
+      appear because of two reasons:
 
       #. Chrome keeps HTTP connections open in the background to improve network
          performance
@@ -293,7 +291,9 @@ Perform the following steps to complete this task:
 
       As a result, because Chrome has not closed the actual TCP connection,
       BIG-IP still processes traffic with the configuration that was present
-      when the connection was originally created.
+      when the connection was originally created.  That *stale* connection 
+      was still using the verison of the configuration with the iRule attached
+      to the Virtual Service resulting in the maintenance page being shown.
 
    |image2_30|
 
