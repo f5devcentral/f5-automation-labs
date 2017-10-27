@@ -76,7 +76,11 @@ Task 1 - Open and Run a Collection
 
    |image102|
     
-    As you can see from the screenshot or your own Collection Runner screen, we will be deploying 3 task (Step 1,2,3 in Lab 1.5) and run the Test JavaScripts consecutively using Collection Runner. This will execute the 3 different steps of commands in one go. 
+   As you can see from the screenshot or your own Collection Runner screen, we 
+   will be sending 3 requests (Steps 1-3 in Lab 1.5).  Each request has a 
+   *unit test* implemented in JavaScript to ensure it's ok to continue to the
+   next request when using the Collection Runner. The Runner will step through
+   each request unless one of the tests fails.
     
 #. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
