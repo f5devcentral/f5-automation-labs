@@ -37,7 +37,7 @@ a new service via iControl REST using tools such as cURL, Postman and Ansible.
    BIG-IP platform to ensure safe changes to the configurations without disrupting 
    existing user traffic.
 
-F5 iApps was introduced in TMOS (Big-IP operating system) Version 11.
+F5 iApps was introduced in TMOS (BIG-IP operating system) Version 11.
 They can interact within and across different F5 modules to provide 
 full Layer 4-7 Application Services capabilities. 
 The **iApp Template** is used to execute an **iApp Deployment**
