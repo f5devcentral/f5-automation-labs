@@ -66,8 +66,11 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
-    'sphinx.ext.graphviz'
+    'sphinx.ext.graphviz',
+    'sphinxcontrib.spelling'
 ]
+
+spelling_word_list_filename = "../wordlist"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

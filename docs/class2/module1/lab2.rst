@@ -11,7 +11,7 @@ Lab |labmodule|\.\ |labnum|\: Obtain & Start the f5-super-netops-container Image
 In this lab we will use the ``docker`` cli tools to obtain and start the
 f5-super-netops-container image.
 
-Task 1 - Obtain and verfiy the container image
+Task 1 - Obtain and verify the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:

@@ -81,7 +81,7 @@ configuration of underlying TMOS objects **without** disabling the Strict
 Updates mechanism. However, not all iApp templates supports this functionality.
 
 In an automated environment, we **must** always ensure that the
-**iApp template inputs** are being referered as the Source-of-Truth for an
+**iApp template inputs** are being used as the Source-of-Truth for an
 underlying deployment.  Therefore, **Strict Updates should not be disabled** in
 order to preserve the integrity of service deployments using iApp templates.
 

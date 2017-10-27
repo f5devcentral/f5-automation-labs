@@ -108,7 +108,7 @@ ways:
 
 - Self-built Environment on your own infrastructure
 
-  - Review the Topology and Guide below for pre-requesites
+  - Review the Topology and Guide below for prerequisites
 
 Select the Environment from the list below to get started:
 

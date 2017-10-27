@@ -3,7 +3,7 @@
 BIG-IP Basics (optional)
 ------------------------
 
-Just in case you're new to the F5 BIG-IP platform (or need a refesher) we've
+Just in case you're new to the F5 BIG-IP platform (or need a refresher) we've
 included some links and videos below that will help get you started.  
 
 What is BIG-IP
@@ -102,9 +102,9 @@ F5 BIG-IP supports control-plane and data-plane programmability with:
 A lot of the manual configuration and scripting steps that are required with NGINX 
 are supported more easily through various config parameters and profiles in BIG-IP.
 By leveraging the control-plane programmability features this class covers you can
-acheive full automation of your services with the BIG-IP platform.
+achieve full automation of your services with the BIG-IP platform.
 
-F5 BIG-IP is designed to be a full proxy by defaulft.  In most cases there is no
+F5 BIG-IP is designed to be a full proxy by default.  In most cases there is no
 need to tune TCP & HTTP buffering like you would on NGINX (i.e. using 
 ``proxy_buffering``).  This is because the default settings have been optimized
 and can adapt to most situations.

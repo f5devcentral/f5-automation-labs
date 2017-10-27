@@ -100,24 +100,24 @@ was showing how to drive rich deployments, however, a large amount of F5
 **Domain Specific Knowledge** was still required to drive the deployments.
 From a conceptual view iApp templates alone do not fully satisfy the requirement
 for a fully **Declarative** interface because while the iApp template simplifies
-the underlying **Imperative** actions it does not allow the adminstrator to
+the underlying **Imperative** actions it does not allow the administrator to
 build an **Interface** that minimizes or eliminates the need for **Domain
 Specific Knowledge**.
 
 For example, we deployed a service that enabled HTTP Traffic Management with
 an iRule attached and Profile Customizations.  To the F5 administrator these
-are all very familar terms, however, to a consumer, such as an Application
+are all very familiar terms, however, to a consumer, such as an Application
 Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign
 concepts.
 
-To solve this problem iWorkflow allows the adminstrator to create a
+To solve this problem iWorkflow allows the administrator to create a
 **Service Catalog Template** that is an **Abstraction** of the iApp templates
 input fields.  By doing this the F5 administrator can **create an interface
 tailored to the use case and knowledge level of the CONSUMER rather than the
 ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application
 and Security services that are tailored to business need and use case rather
 than the technical implementation.  Additionally, the **Service Abstraction**
-acheived when creating the **Service Catalog** enables the easy integration of
+achieved when creating the **Service Catalog** enables the easy integration of
 F5 services with third-party tools and methodologies such as DevOps.
 
 .. toctree::

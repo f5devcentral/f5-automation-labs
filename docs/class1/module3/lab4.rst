@@ -28,7 +28,7 @@ with iWorkflow, it's important to note iWorkflow can also help simplify
 **Imperative** operations to BIG-IP devices when needed.
 
 iWorkflow includes a REST proxy that allows pass-through of REST requests to
-devices discoverd on iWorkflow. The REST proxy feature allows customers to
+devices discovered on iWorkflow. The REST proxy feature allows customers to
 simplify **Imperative** Automation by:
 
 -  Providing a centralized API endpoint for BIG-IP infrastructure

@@ -90,7 +90,7 @@ Perform the following steps to complete this task:
    - iApp Template Name & Version the Service Template is using
    - The Connectors/Clouds that may use this template
    - A control that toggles which Parameters are displayed in the pane
-   - The input Sections and Fields (collapsed in screeshot) for the iApp Template
+   - The input Sections and Fields (collapsed in screenshot) for the iApp Template
 
    |image48|
 

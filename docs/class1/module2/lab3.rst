@@ -275,7 +275,7 @@ Perform the following steps to complete this task:
    .. NOTE:: We are using self signed certificates in the lab so an SSL
       warning will be shown.
 
-   .. WARNING:: When you open this page you may continue to keep the Maintence
+   .. WARNING:: When you open this page you may continue to keep the Maintenance
       Page from the previous Task.  This occurs because of two reasons:
 
       #. Chrome keeps HTTP connections open in the background to improve network

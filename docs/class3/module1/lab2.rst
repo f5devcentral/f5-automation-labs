@@ -108,7 +108,7 @@ Unsuccessful:
 |primer-2.10|
 
 11. Update the value for ‘big_ip_a_auth_token’ by Pasting (Ctrl-v) in your auth token:
-12. Click the ‘Update’ button and then close the ‘Manage Environments’ window. You’re subsequent requests will now automatically substitue the token's value where the **{{big_ip_a_auth_token}}** environmental variable is used.
+12. Click the ‘Update’ button and then close the ‘Manage Environments’ window. You’re subsequent requests will now automatically substitute the token's value where the **{{big_ip_a_auth_token}}** environmental variable is used.
 
 |primer-2.12|
 
