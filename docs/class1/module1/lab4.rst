@@ -166,11 +166,12 @@ Resource URI.
 
    |image96|
 
-#. Copy the entire JSON **RESPONSE** from the previous ``GET`` request.
+#. Copy ``(Ctrl+c)`` the entire JSON **RESPONSE** from the previous ``GET``
+   request.
 
    |image93|
 
-#. Paste the text into JSON Request body:
+#. Paste ``(Ctrl+v)`` the text into JSON Request body:
 
    .. NOTE:: Be sure to highlight any existing text and replace it while
       pasting.
