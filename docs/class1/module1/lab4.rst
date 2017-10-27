@@ -117,8 +117,8 @@ Task 2 - Create Self IPs
 Perform the following steps to configure the Self IP objects/resources:
 
 #. Click the ``Step 3: Create Internal Self IP`` request in the folder. Click 
-   :guilabel:`Body` and examine the JSON body; the values for creating the Self-Internal Self IP have
-   already been populated.
+   :guilabel:`Body` and examine the JSON body; the values for creating the 
+   Self-Internal Self IP have already been populated.
 
    .. NOTE:: The JSON body sets the VLAN to ``/Common/External`` on purpose.
       You will modify this value in the steps below.  Please do not change the
