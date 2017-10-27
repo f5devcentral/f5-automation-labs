@@ -108,7 +108,8 @@ Perform the following steps to build the cluster:
    |image30|
    
 .. NOTE::
-   If you are facing authentication token issue after running the Lab 1.6 collection. Please return to Lab 1.3, Step 8 in POSTMAN to set your admin password to "admin".
+   If you are have an issue with your authentication token issue please return to 
+   Lab 1.3, Step 8 in Postman to set your admin password to ``admin``.
    
 Task 2 - Verify the Built Cluster in BIG-IP GUI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
