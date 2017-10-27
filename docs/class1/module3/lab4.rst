@@ -6,8 +6,8 @@ Lab 3.4: iWorkflow REST Proxy
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -24,11 +24,11 @@ Lab 3.4: iWorkflow REST Proxy
    }
 
 While the focus so far has been on building **Declarative Interfaces**
-with iWorkflow, it's important to note iWorkflow can also help simplify 
+with iWorkflow, it's important to note iWorkflow can also help simplify
 **Imperative** operations to BIG-IP devices when needed.
 
-iWorkflow includes a REST proxy that allows pass-through of REST requests to 
-devices discoverd on iWorkflow. The REST proxy feature allows customers to 
+iWorkflow includes a REST proxy that allows pass-through of REST requests to
+devices discoverd on iWorkflow. The REST proxy feature allows customers to
 simplify **Imperative** Automation by:
 
 -  Providing a centralized API endpoint for BIG-IP infrastructure
@@ -81,8 +81,8 @@ Perform the following steps to complete this task:
 
 #. Click the :guilabel:`Send` button and examine the response.
 
-#. Complete Steps 2-5 for the remaining items in the 
-   ``Lab 2.5 - iWorkflow REST Proxy`` collection. Examine each request 
+#. Complete Steps 2-5 for the remaining items in the
+   ``Lab 2.5 - iWorkflow REST Proxy`` collection. Examine each request
    carefully so you understand what is happening.
 
 .. |image65| image:: /_static/class1/image066.png

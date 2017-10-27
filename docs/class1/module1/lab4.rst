@@ -118,8 +118,8 @@ Task 2 - Create Self IPs
 
 Perform the following steps to configure the Self IP objects/resources:
 
-#. Click the ``Step 3: Create Internal Self IP`` request in the folder. Click 
-   :guilabel:`Body` and examine the JSON body; the values for creating the 
+#. Click the ``Step 3: Create Internal Self IP`` request in the folder. Click
+   :guilabel:`Body` and examine the JSON body; the values for creating the
    Self-Internal Self IP have already been populated.
 
    .. NOTE:: The JSON body sets the VLAN to ``/Common/External`` on purpose.
@@ -198,9 +198,9 @@ Perform the following steps to configure the Route object/resource:
    ``Send`` button to ``GET`` the routes collection. Examine the response to
    make sure there is no route.
 
-#. Click the ``Step 8: Create a Route`` item in the collection. Examine
-   the JSON body; the values for creating the default route have already
-   been populated.
+#. Click the ``Step 8: Create a Route`` item in the collection. Click
+   :guilabel:`Body` and examine the JSON body; the values for creating the
+   default route have already been populated.
 
 #. Click the ``Send`` button to create the route.
 

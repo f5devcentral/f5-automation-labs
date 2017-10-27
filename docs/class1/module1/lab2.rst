@@ -219,8 +219,8 @@ Perform the following steps to complete this task:
 
    |image14|
 
-#. Modify the JSON body and add the required credentials (``admin/admin``).
-   Then click the :guilabel:`Send` button.
+#. Modify the JSON :guilabel:`Body` and add the required credentials
+   (``admin/admin``).  Then click the :guilabel:`Send` button.
 
 #. Examine the response status code. If authentication succeeded and
    a token was generated the response will have a ``200 OK`` status code.
@@ -234,8 +234,8 @@ Perform the following steps to complete this task:
 
      |image16|
 
-#. Once you receive a ``200 OK`` status code examine the response body.
-   The various attributes show the parameters assigned to the
+#. Once you receive a ``200 OK`` status code examine the Response
+   :guilabel:`Body`.  The various attributes show the parameters assigned to the
    particular token. Find the ``token`` attribute and copy it into your
    clipboard (``Ctrl+c``) for use in the next step.
 

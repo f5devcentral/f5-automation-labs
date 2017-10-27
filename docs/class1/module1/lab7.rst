@@ -6,8 +6,8 @@ Lab 1.7: Build a Basic LTM Config using REST Transactions
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -44,8 +44,8 @@ command or remove a single command from the queued list before committing.
 
 .. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
    longer than the timeout period to execute a transaction will result in
-   automatic deletion of the transaction.  **To avoid having to redo the steps 
-   in this task, please first read through the steps below and execute each of 
+   automatic deletion of the transaction.  **To avoid having to redo the steps
+   in this task, please first read through the steps below and execute each of
    them in a timely manner.**
 
 Perform the following steps to complete this task:
@@ -56,15 +56,16 @@ Perform the following steps to complete this task:
    |image35|
 
 #. Click the ``Step 1: Create a Transaction`` request. Examine the URL and
-   JSON body. We will send a ``POST`` to the ``/mgmt/tm/transaction`` endpoint
-   with an empty JSON body to create a new transaction.
+   JSON :guilabel:`Body`. We will send a ``POST`` to the
+   ``/mgmt/tm/transaction`` endpoint with an empty JSON body to create a new
+   transaction.
 
    |image36|
 
 #. Click the :guilabel:`Send` button to send the request. Examine the response
    and find the ``transId`` attribute.  Additionally, notice that there are
    timeouts for both the submission of the transaction and how long it would
-   take to execute. Please be aware that upon exceeding the ``timeoutSeconds`` 
+   take to execute. Please be aware that upon exceeding the ``timeoutSeconds``
    period, the ``transId`` will be silently removed:
 
    |image37|
@@ -77,14 +78,14 @@ Perform the following steps to complete this task:
 #. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` request in the
    folder. This request is similar to a non-transaction enabled request  in terms
    of the ``POST`` request method, URI and JSON body. The difference is that, a
-   header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId`` 
+   header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId``
    attribute is added to the transaction:
 
    |image39|
 
-#. Click the :guilabel:`Send` button and examine the response. 
+#. Click the :guilabel:`Send` button and examine the response.
 
-#. Examine and click :guilabel:`Send` on **Steps 3-6** in the folder. 
+#. Examine and click :guilabel:`Send` on **Steps 3-6** in the folder.
 
 #. Click ``Step 7: View the Transaction Queue``. Examine the request type and
    URI and click :guilabel:`Send`. This request allows you to see the current
@@ -104,8 +105,8 @@ Task 2 - Modify a Transaction
    transaction resource and change the value of the ``evalOrder`` attribute
    from ``4`` to ``1`` to move to the first position of the transaction queue:
 
-   |image77|   
-   
+   |image77|
+
    .. NOTE:: Requests in the ordered transaction queue must obey the order of
       operations present in the underlying BIG-IP system.
 
