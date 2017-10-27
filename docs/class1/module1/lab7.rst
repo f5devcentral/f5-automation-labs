@@ -101,9 +101,9 @@ Task 2 - Modify a Transaction
    |image76|
 
 #. Click the ``Step 9: Change Eval Order 4 -> 1`` request in the folder.
-   Examine the request method, URI and JSON body. We will PATCH our
-   transaction resource and change the value of the ``evalOrder`` attribute
-   from ``4`` to ``1`` to move to the first position of the transaction queue:
+   Examine the request method, URI, JSON body, then click :guilabel:`Send`.
+   We will PATCH our transaction resource and change the value of the ``evalOrder``
+   attribute from ``4`` to ``1`` to move to the first position of the transaction queue:
 
    |image77|
 
