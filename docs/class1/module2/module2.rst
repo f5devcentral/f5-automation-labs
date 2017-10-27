@@ -31,21 +31,24 @@ Module 2: Abstracting Services using iApp Templates
    }
 
 In this Module, we will continue working with the BIG-IP REST interface. However,
-we will now introduce F5 Declarative Interfaces built with F5 iApp templates.
+we will now introduce F5 Declarative Interfaces built with F5 iApp Templates.
 
-iApps are a user-customizable framework for deploying applications that enables
+iApps is a user-customizable framework for deploying applications that enables
 you to templatize sets of functionality on your F5 devices. For example, you can
-automate the process of adding virtual servers or build a custom iApp to manage
-your iRules inventory.
+automate the process of adding Virtual Servers or manage your iRules inventory
+through the use of a custom iApp Template.
 
 iApps are commonly thought of as a Wizard style deployment helper, but they are
-actually a Declarative Interface (like REST Transactions).
+actually a Declarative Interface.  When iApp Templates are created they can be
+written to accodomodate API centric use cases.
 
 When an iApp deploys, a **single** call - declaring the desired deployment -
-is processed on the BIG-IP in the correct order of operations.
-All created objects are associated with an Application Service Object (ASO).
-The ASO model identifies which objects belong to the iApp service deployment.
-Upon service deletion, all service related objects are recursively deleted.
+is processed on the BIG-IP with the correct order of operations.
+If the deployment were to fail the iApp would *automatically* rollback the
+transaction and leave the configuration unchanged. All created objects are
+associated with an Application Service Object (ASO). The ASO model identifies
+which objects belong to the iApp service deployment.  Upon service deletion,
+all service related objects are recursively deleted.
 
 We will be using the **F5 App Services Integration iApp**
 (App Services iApp for short).
@@ -63,11 +66,16 @@ at:
 
 .. NOTE:: This module requires the underlying network configuration that was
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**
-   node in the cluster
+   node in the cluster.  When viewing the BIG-IP A GUI it should say 
+   ``ONLINE (ACTIVE)`` in the upper left corner of the interface.
 
 .. NOTE:: This module deploys the configuration to BIG-IP A. iApp deployments
    leverage the underlying config-sync mechanisms in the cluster.  Once deployed
-   on BIG-IP A, the configuration will be automatically synced to BIG-IP B
+   on BIG-IP A, the configuration will be automatically synced to BIG-IP B.
+   
+   You can learn more about clustering features in this video:
+   
+   https://www.youtube.com/watch?v=RAQ1qaYnjZo
 
 .. toctree::
    :maxdepth: 1
