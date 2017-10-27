@@ -6,8 +6,8 @@ Lab 1.1: Exploring the iControl REST API
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -22,14 +22,14 @@ Lab 1.1: Exploring the iControl REST API
          clustering [label="Clustering"]
          transactions [label="Transactions"]
          basics -> authentication -> globalsettings -> networking -> clustering -> transactions
-         
+
       }
    }
-   
+
 Task 1 - Explore the API using the TMOS Web Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab, we will explore the API using an interface that is built into TMOS. 
+In this lab, we will explore the API using an interface that is built into TMOS.
 This utility is useful for understanding how TMOS objects map
 to the REST API. The interfaces implement full Create, Read, Update and
 Delete (CRUD) functionality, however, in most practical use cases it’s
@@ -48,10 +48,10 @@ all the correct attributes already populated.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
 
-   .. WARNING:: We are using a self-signed certificate in this lab. In your 
-      environment you must make sure that you use certificates issued by your 
-      certificate authority for both production and lab equipments. Not doing 
-      so would make it possible for an attacker to do a man-in-the-middle 
+   .. WARNING:: We are using a self-signed certificate in this lab. In your
+      environment you must make sure that you use certificates issued by your
+      certificate authority for both production and lab equipments. Not doing
+      so would make it possible for an attacker to do a man-in-the-middle
       attack and allow him the ability to steal passwords and tokens.
 
    |image1|
@@ -79,10 +79,15 @@ all the correct attributes already populated.
    |image5| button or edited using the |image6| button. The |image1_7|
    is used to copy JSON formatted resource with Ctrl+C. This can be
    useful when you want to slightly change an existing resource.
-   
+
 
 #. Click the ``0`` resource to view the attributes of route-domain 0 on
    the device:
+
+   |image108|
+
+#. You can now see the properties of the route-domain 0 Resource.  The
+   components of the URI have been labeled in the screenshot below:
 
    |image7|
 
@@ -99,3 +104,4 @@ all the correct attributes already populated.
 .. |image1_7| image:: /_static/class1/image1_7.png
 .. |image6| image:: /_static/class1/image006.png
 .. |image7| image:: /_static/class1/image007.png
+.. |image108| image:: /_static/class1/image108.png
