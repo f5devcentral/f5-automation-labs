@@ -2,7 +2,7 @@ sudo: false
 language: python
 before_install:
     - sudo apt-get -qq update
-    - sudo apt-get install -y graphviz
+    - sudo apt-get install -y graphviz enchant
 python:
     - '2.7'
 install:
