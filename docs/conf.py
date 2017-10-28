@@ -68,13 +68,22 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.graphviz',
     'sphinxcontrib.spelling',
-    'sphinxcontrib.googleanalytics'
+    'sphinxcontrib.addmetahtml'
 ]
 
 spelling_word_list_filename = "../wordlist"
 
-googleanalytics_id = 'UA-85156643-6'
-googleanalytics_enabled = True
+#googleanalytics_id = 'UA-85156643-6'
+#googleanalytics_enabled = True
+addmetahtml_content = """<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85156643-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-85156643-6');
+</script>
+"""
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
