@@ -6,8 +6,8 @@ Lab 1.5: Building Imperative Workflows with Postman Collections
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -24,7 +24,7 @@ Lab 1.5: Building Imperative Workflows with Postman Collections
          basics -> authentication -> globalsettings -> networking -> clustering -> transactions
       }
    }
-   
+
 As you have seen in the previous labs, we can use the Collections and Folders
 features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a
@@ -75,13 +75,13 @@ Task 1 - Open and Run a Collection
    Your Runner window should look like:
 
    |image102|
-    
-   As you can see from the screenshot or your own Collection Runner screen, we 
-   will be sending 3 requests (Steps 1-3 in Lab 1.5).  Each request has a 
+
+   As you can see from the screenshot or your own Collection Runner screen, we
+   will be sending 3 requests (Steps 1-3 in Lab 1.5).  Each request has a
    *unit test* implemented in JavaScript to ensure it's ok to continue to the
    next request when using the Collection Runner. The Runner will step through
    each request unless one of the tests fails.
-    
+
 #. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
 #. The results window will now populate.  You will see each request in the
@@ -98,8 +98,8 @@ Task 1 - Open and Run a Collection
 
    |image104|
 
-.. NOTE:: It is normal for the values of Software Version, CPU Count and Base 
-   MAC Address to be different from the screenshot(s).  
+.. NOTE:: It is normal for the values of Software Version, CPU Count and Base
+   MAC Address to be different from the screenshot(s).
 
 In this lab, we demonstrated running a simple Imperative Workflow using the
 Postman Collection Runner.  In subsequent labs, we will expand on this simple

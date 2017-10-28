@@ -75,7 +75,7 @@ Perform the following steps to complete this task:
       order of operations and configuration of specific objects.  By doing this,
       we have drastically reduced the amount of **Domain Specific Knowledge**
       required to interact with the device.  In the next module, we will combine
-      this concept with **Abstraction** to further simplify the interface the 
+      this concept with **Abstraction** to further simplify the interface the
       service consumer has to interact with.
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
@@ -151,9 +151,9 @@ Perform the following steps to complete this task:
 
    |image2_19|
 
-#. Similar to modification process, the deletion of a service is performed on 
-   the **Resource** URL. When we created the service, we defined a Declarative 
-   state to the iApp template which subsequently created the configuration and 
+#. Similar to modification process, the deletion of a service is performed on
+   the **Resource** URL. When we created the service, we defined a Declarative
+   state to the iApp template which subsequently created the configuration and
    all of its associated objects.  With a ``DELETE`` request, BIG-IP will process
    the removal of all objects linked to the ASO in a recursive manner. This is
    crucial to Application Lifecycle Management as it provides a mechanism to
@@ -278,8 +278,8 @@ Perform the following steps to complete this task:
    .. IMPORTANT:: RFC2616 (HTTP/1.1) allows for a TCP session to stay open.
       Had we not included "noserver Cache-Control no-cache *Connection Close*"
       in the iRule the following would have happened:
-   
-      When you would have refreshed the page, the maintenance page would still 
+
+      When you would have refreshed the page, the maintenance page would still
       appear because of two reasons:
 
       #. Chrome keeps HTTP connections open in the background to improve network
@@ -291,8 +291,8 @@ Perform the following steps to complete this task:
 
       As a result, because Chrome has not closed the actual TCP connection,
       BIG-IP still processes traffic with the configuration that was present
-      when the connection was originally created.  That *stale* connection 
-      was still using the verison of the configuration with the iRule attached
+      when the connection was originally created.  That *stale* connection
+      was still using the version of the configuration with the iRule attached
       to the Virtual Service resulting in the maintenance page being shown.
 
    |image2_30|

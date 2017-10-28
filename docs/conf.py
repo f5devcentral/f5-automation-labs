@@ -67,10 +67,14 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
     'sphinx.ext.graphviz',
-    'sphinxcontrib.spelling'
+    'sphinxcontrib.spelling',
+    'sphinxcontrib.googleanalytics'
 ]
 
 spelling_word_list_filename = "../wordlist"
+
+googleanalytics_id = 'UA-85156643-6'
+googleanalytics_enabled = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -6,8 +6,8 @@ Module 2: Abstracting Services using iApp Templates
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -40,7 +40,7 @@ through the use of a custom iApp Template.
 
 iApps are commonly thought of as a Wizard style deployment helper, but they are
 actually a Declarative Interface.  When iApp Templates are created they can be
-written to accodomodate API centric use cases.
+written to accomodate API centric use cases.
 
 When an iApp deploys, a **single** call - declaring the desired deployment -
 is processed on the BIG-IP with the correct order of operations.
@@ -66,15 +66,15 @@ at:
 
 .. NOTE:: This module requires the underlying network configuration that was
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**
-   node in the cluster.  When viewing the BIG-IP A GUI it should say 
+   node in the cluster.  When viewing the BIG-IP A GUI it should say
    ``ONLINE (ACTIVE)`` in the upper left corner of the interface.
 
 .. NOTE:: This module deploys the configuration to BIG-IP A. iApp deployments
    leverage the underlying config-sync mechanisms in the cluster.  Once deployed
    on BIG-IP A, the configuration will be automatically synced to BIG-IP B.
-   
+
    You can learn more about clustering features in this video:
-   
+
    https://www.youtube.com/watch?v=RAQ1qaYnjZo
 
 .. toctree::

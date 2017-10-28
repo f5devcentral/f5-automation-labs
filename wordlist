@@ -124,10 +124,12 @@ loadBalancingMode
 localhost
 ltm
 mgmt
+noserver
 netops
 newman
 noVNC
 offline
+ok
 onboarding
 plaintext
 pre
