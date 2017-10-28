@@ -111,7 +111,7 @@ Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign
 concepts.
 
 To solve this problem iWorkflow allows the administrator to create a
-**Service Catalog Template** that is an **Abstraction** of the iApp templates
+**Service Template** that is an **Abstraction** of the iApp templates
 input fields.  By doing this the F5 administrator can **create an interface
 tailored to the use case and knowledge level of the CONSUMER rather than the
 ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application
