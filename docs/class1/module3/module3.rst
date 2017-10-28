@@ -38,8 +38,8 @@ further abstract Application Services and deliver those services, with
 a **Declarative** interface to Consumers.
 
 When moving to an iWorkflow based toolchain it’s important to understand
-that L1-3 Automation (Device Onboarding, Networking, etc) and L4-7
-(Deployment of Virtual Servers, Pools, etc) are separated and delivered
+that automation in L1-3 (Device Onboarding, Networking, etc) and L4-7
+(Deployment of Virtual Servers, Pools, etc) is separated and delivered
 by different features.
 
 Layer 1-3 Networking and Device Onboarding
@@ -65,9 +65,9 @@ iWorkflow enables generic functionality in all of these environments by using
 a **BIG-IP Cloud Connector**.  This connector allows iWorkflow to utilize
 BIG-IP devices running on any of these environments.
 
-.. NOTE:: F5 BIG-IP also supports integration with Container Ecosystems,
-   however, in these environments iWorkflow may use may not be required.  For
-   more information you can refer to:
+.. NOTE:: F5 BIG-IP also supports integration with Container Ecosystems.
+   However, in these environments iWorkflow may not be required.  For more
+   information you can refer to:
 
    - Container Ecosystems:
 
@@ -84,11 +84,11 @@ Layer 4-7 Application Service Delivery
 
 L4-7 Application Service Delivery is accomplished by:
 
--  **Declarative:** Consuming F5 iApp templates from BIG-IP devices and
+-  **Declarative:** Consuming F5 iApp templates on BIG-IP devices and
    creating a Service Catalog.
 
 -  **Imperative:** Consuming the iWorkflow REST Proxy to drive API calls to
-   BIG-IP devices
+   BIG-IP devices.
 
 The labs in the module will focus on the high level features in place to
 achieve full L4-7 automation. As mentioned above, iApp Templates are a key
@@ -96,11 +96,11 @@ component of the chain of linked tools (toolchain) we are building.
 
 In this Module we will focus on building a **Service Catalog** using the App
 Services iApp template you learned about in Module 2.  The focus in Module 2
-was showing how to drive rich deployments, however, a large amount of F5
-**Domain Specific Knowledge** was still required to drive the deployments.
-From a conceptual view iApp templates alone do not fully satisfy the requirement
+was to show how to deploy advanced configurations. However, a large amount of F5
+**Domain Specific Knowledge** was still required to build each deployment.
+From a conceptual point of view, iApp templates alone do not fully satisfy the requirement
 for a fully **Declarative** interface because while the iApp template simplifies
-the underlying **Imperative** actions it does not allow the administrator to
+the underlying **Imperative** actions, it does not allow the administrator to
 build an **Interface** that minimizes or eliminates the need for **Domain
 Specific Knowledge**.
 

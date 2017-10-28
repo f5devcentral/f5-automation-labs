@@ -90,7 +90,7 @@ Tenant API you must authenticate with a Tenant User (``tenant`` in this case).
 Perform the following steps to complete this task:
 
 #. In Postman expand the ``Lab 3.3 - Deploy L4-7 Services`` folder in the
-   collection
+   collection.
 
 #. Click the ``Authenticate and Obtain Token for Tenant User`` request and 
    examine the JSON request :guilabel:`Body`.  Notice that we are sending the
@@ -168,7 +168,7 @@ Perform the following steps to complete this task:
 
    |image60|
 
-#. Click the :guilabel:`Send` button to **Update** the Service Deployment
+#. Click the :guilabel:`Send` button to **Update** the Service Deployment.
 
 #. Update the iWorkflow Tenant UI and notice that the Service has been updated:
 
@@ -189,7 +189,7 @@ Perform the following steps to complete this task:
 #. We will send a ``GET`` request to the Resource URI for the existing 
    deployment.
 
-#. Click the :guilabel:`Send` button to **Read** the Service Deployment
+#. Click the :guilabel:`Send` button to **Read** the Service Deployment.
 
 #. Examine the JSON Response :guilabel:`Body` to see the state of the current
    Service Deployment:
@@ -206,7 +206,7 @@ Perform the following steps to complete this task:
 #. We will send a ``DELETE`` request to the Resource URI for the existing 
    deployment.
 
-#. Click the :guilabel:`Send` button to **Delete** the Service Deployment
+#. Click the :guilabel:`Send` button to **Delete** the Service Deployment.
 
 #. Update the iWorkflow Tenant UI and verify that the Service has been deleted:
 
@@ -240,7 +240,7 @@ modifying the requests as needed.
       - HTTPS Offload and Load Balancing to a Single Pool
     * - ``f5-fasthttp-lb``
       - Performance-enhanced HTTP Load Balancing to a Single Pool
-    * - ``f5-fastl4-udp-lb``
+    * - ``f5-fastl4-tcp-lb``
       - Generic L4 TCP Load Balancing to a Single Pool
     * - ``f5-fastl4-udp-lb``
       - Generic L4 UDP Load Balancing to a Single Pool
