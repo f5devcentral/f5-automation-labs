@@ -182,7 +182,7 @@ Perform the following steps to complete this task:
 
 #. Finally, to assist in designing a Tenant interface, iWorkflow allows you to
    preview what the Tenant UI would look like for a Service Template.  To view
-   preview, click the :guilabel:`Tenant Preview` button:
+   the preview, click the :guilabel:`Tenant Preview` button:
 
    |image52|
 
