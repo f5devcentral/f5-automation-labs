@@ -66,8 +66,8 @@ a **BIG-IP Cloud Connector**.  This connector allows iWorkflow to utilize
 BIG-IP devices running on any of these environments.
 
 .. NOTE:: F5 BIG-IP also supports integration with Container Ecosystems.
-   However, in these environments iWorkflow may use may not be required.  For
-   more information you can refer to:
+   However, in these environments iWorkflow may not be required.  For more
+   information you can refer to:
 
    - Container Ecosystems:
 
