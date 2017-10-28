@@ -47,8 +47,8 @@ existing BIG-IP devices from your lab environment.
 Tenants & Connectors
 ^^^^^^^^^^^^^^^^^^^^
 
-iWorkflow implements a Tenant/Provider interface to enable abstracted deployment
-of L4-7 into various environment.  In conjunction iWorkflow Connectors serve as
+iWorkflow implements a Tenant/Provider interface to enable abstracted deployments
+of L4-7 into various environments.  In conjunction, iWorkflow Connectors serve as
 the L1-3 Network and Device Onboarding automation component in the automation
 toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP 
 devices in the lab environment. This connector will then allow you to drive a 
@@ -82,7 +82,7 @@ requests contained in the ``Lab 3.1 - iWorkflow Onboarding`` folder.
 
 Perform the following steps to build the cluster:
 
-#. Click the :guilabel:`Runner` button at the top right of your Postman window:
+#. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
    |image97|
 
