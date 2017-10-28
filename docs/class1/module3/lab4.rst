@@ -85,4 +85,4 @@ Perform the following steps to complete this task:
    ``Lab 2.5 - iWorkflow REST Proxy`` collection. Examine each request
    carefully so you understand what is happening.
 
-.. |image65| image:: /_static/class1/image066.png
+.. |image65| image:: images/lab-4-066.png

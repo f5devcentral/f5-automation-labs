@@ -212,8 +212,8 @@ Perform the following steps to change the **admin** user password:
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
-.. |image25| image:: /_static/class1/image025.png
-.. |image26| image:: /_static/class1/image026.png
-.. |image27| image:: /_static/class1/image027.png
-.. |image109| image:: /_static/class1/image109.png
-.. |image110| image:: /_static/class1/image110.png
+.. |image25| image:: images/lab-3-025.png
+.. |image26| image:: images/lab-3-026.png
+.. |image27| image:: images/lab-3-027.png
+.. |image109| image:: images/lab-3-109.png
+.. |image110| image:: images/lab-3-110.png

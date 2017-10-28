@@ -95,13 +95,13 @@ all the correct attributes already populated.
    the **Demystifying iControl REST** article series at
    https://devcentral.f5.com/wiki/icontrolrest.homepage.ashx
 
-.. |image1| image:: /_static/class1/image001.png
+.. |image1| image:: images/lab-1-001.png
    :scale: 75%
-.. |image2| image:: /_static/class1/image002.png
-.. |image3| image:: /_static/class1/image003.png
-.. |image4| image:: /_static/class1/image004.png
-.. |image5| image:: /_static/class1/image005.png
-.. |image1_7| image:: /_static/class1/image1_7.png
-.. |image6| image:: /_static/class1/image006.png
-.. |image7| image:: /_static/class1/image007.png
-.. |image108| image:: /_static/class1/image108.png
+.. |image2| image:: images/lab-1-002.png
+.. |image3| image:: images/lab-1-003.png
+.. |image4| image:: images/lab-1-004.png
+.. |image5| image:: images/lab-1-005.png
+.. |image1_7| image:: images/lab-1-1_7.png
+.. |image6| image:: images/lab-1-006.png
+.. |image7| image:: images/lab-1-007.png
+.. |image108| image:: images/lab-1-108.png

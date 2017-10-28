@@ -346,13 +346,13 @@ Task 3 - Execute the second f5-newman-wrapper file
 
    |image94|
 
-.. |image90| image:: /_static/class2/image090.png
+.. |image90| image:: images/lab-2-090.png
    :scale: 70%
-.. |image91| image:: /_static/class2/image091.png
+.. |image91| image:: images/lab-2-091.png
    :scale: 70%
-.. |image92| image:: /_static/class2/image092.png
+.. |image92| image:: images/lab-2-092.png
    :scale: 70%
-.. |image93| image:: /_static/class2/image093.png
+.. |image93| image:: images/module-3-001.png
    :scale: 70%
-.. |image94| image:: /_static/class2/image094.png
+.. |image94| image:: images/module-3-002.png
    :scale: 70%

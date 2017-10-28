@@ -43,7 +43,7 @@ Task 1 - Import the Postman Collection & Environment
 In this task you will Import a Postman Collection & Environment for this lab.
 Perform the following steps to complete this task:
 
-#. Open the Postman tool by clicking the |image8| icon of the desktop of
+#. Open the Postman tool by clicking the |postman-icon| icon of the desktop of
    your Linux Jumphost.  **The initial window may take a few moments to appear.**
 
    .. NOTE:: The Postman client receives very frequent updates.  If you are
@@ -307,31 +307,31 @@ Perform the following steps:
 
    |image24|
 
-.. |image8| image:: /_static/class1/image008.png
+.. |postman-icon| image:: /images/postman-icon.png
    :scale: 70%
-.. |image9| image:: /_static/class1/image009.png
-.. |image10| image:: /_static/class1/image010.png
-.. |image11| image:: /_static/class1/image011.png
+.. |image9| image:: images/lab-2-009.png
+.. |image10| image:: images/lab-2-010.png
+.. |image11| image:: images/lab-2-011.png
    :scale: 80%
-.. |image12| image:: /_static/class1/image012.png
+.. |image12| image:: images/lab-2-012.png
    :scale: 80%
-.. |image13| image:: /_static/class1/image013.png
-.. |image14| image:: /_static/class1/image014.png
-.. |image15| image:: /_static/class1/image015.png
-.. |image16| image:: /_static/class1/image016.png
-.. |image17| image:: /_static/class1/image017.png
-.. |image18| image:: /_static/class1/image018.png
-.. |image19| image:: /_static/class1/image019.png
-.. |image20| image:: /_static/class1/image020.png
-.. |image21| image:: /_static/class1/image021.png
-.. |image22| image:: /_static/class1/image022.png
-.. |image23| image:: /_static/class1/image023.png
-.. |image24| image:: /_static/class1/image024.png
-.. |image87| image:: /_static/class1/image087.png
-.. |image88| image:: /_static/class1/image088.png
-.. |image89| image:: /_static/class1/image089.png
-.. |image90| image:: /_static/class1/image090.png
-.. |image91| image:: /_static/class1/image091.png
-.. |image105| image:: /_static/class1/image105.png
-.. |image106| image:: /_static/class1/image106.png
-.. |image107| image:: /_static/class1/image107.png
+.. |image13| image:: images/lab-2-013.png
+.. |image14| image:: images/lab-2-014.png
+.. |image15| image:: images/lab-2-015.png
+.. |image16| image:: images/lab-2-016.png
+.. |image17| image:: images/lab-2-017.png
+.. |image18| image:: images/lab-2-018.png
+.. |image19| image:: images/lab-2-019.png
+.. |image20| image:: images/lab-2-020.png
+.. |image21| image:: images/lab-2-021.png
+.. |image22| image:: images/lab-2-022.png
+.. |image23| image:: images/lab-2-023.png
+.. |image24| image:: images/lab-2-024.png
+.. |image87| image:: images/lab-2-087.png
+.. |image88| image:: images/lab-2-088.png
+.. |image89| image:: images/lab-2-089.png
+.. |image90| image:: images/lab-2-090.png
+.. |image91| image:: images/lab-2-091.png
+.. |image105| image:: images/lab-2-105.png
+.. |image106| image:: images/lab-2-106.png
+.. |image107| image:: images/lab-2-107.png

@@ -6,8 +6,8 @@ Lab 3.1: iWorkflow Onboarding
    digraph breadcrumb {
       rankdir="LR"
       ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1] 
-      fontname = "arial-bold" 
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {
@@ -23,9 +23,9 @@ Lab 3.1: iWorkflow Onboarding
       }
    }
 
-In this lab we will use the :guilabel:`Runner`, introduced in previous labs to 
+In this lab we will use the :guilabel:`Runner`, introduced in previous labs to
 complete the onboarding of the F5 iWorkflow device.  The onboarding process
-creates the initial configuration required to start creation of Service 
+creates the initial configuration required to start creation of Service
 Catalog Templates.
 
 iWorkflow Overview
@@ -48,25 +48,25 @@ Tenants & Connectors
 ^^^^^^^^^^^^^^^^^^^^
 
 iWorkflow implements a Tenant/Provider interface to enable abstracted deployments
-of L4-7 Services into various environments.  In conjunction, iWorkflow Connectors 
+of L4-7 Services into various environments.  In conjunction, iWorkflow Connectors
 serve as the L1-3 Network and Device Onboarding automation component in the automation
-toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP 
-devices in the lab environment. This connector will then allow you to drive a 
+toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP
+devices in the lab environment. This connector will then allow you to drive a
 fully automated deployment from the iWorkflow Service Catalog.
 
 iApp Templates
 ^^^^^^^^^^^^^^
 
-iWorkflow serves as an iApp Template Source-of-Truth for discovered BIG-IP 
+iWorkflow serves as an iApp Template Source-of-Truth for discovered BIG-IP
 devices.  This allows an F5 administrator to manage iApp templates in a single
-place with iWorkflow installing required templates on BIG-IP devices as 
-required **during** service deployment. 
+place with iWorkflow installing required templates on BIG-IP devices as
+required **during** service deployment.
 
 Onboarding Process Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The process implemented in the ``Lab 3.1 - iWorkflow Onboarding`` folder of 
-the Postman collection is diagrammed below.  
+The process implemented in the ``Lab 3.1 - iWorkflow Onboarding`` folder of
+the Postman collection is diagrammed below.
 
 .. NOTE:: The diagram below represents environment variables in blue.  You can
    follow the lines on each variable to understand which request populates the
@@ -78,13 +78,13 @@ Task 1 - Onboard iWorkflow using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will use the :guilabel:`Runner` to execute a series of
-requests contained in the ``Lab 3.1 - iWorkflow Onboarding`` folder.  
+requests contained in the ``Lab 3.1 - iWorkflow Onboarding`` folder.
 
 Perform the following steps to build the cluster:
 
 #. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
-   |image97|
+   |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 3.1 - iWorkflow Onboarding`` folder.  Next, be sure the
@@ -105,8 +105,8 @@ Perform the following steps to build the cluster:
 
    |image42|
 
-#. At this point you can log into iWorkflow using Chrome at 
-   ``https://10.1.1.12`` and ``admin/admin`` credentials.  Click 
+#. At this point you can log into iWorkflow using Chrome at
+   ``https://10.1.1.12`` and ``admin/admin`` credentials.  Click
    :guilabel:`Clouds and Services` at the top of the window:
 
    |image43|
@@ -115,12 +115,12 @@ Perform the following steps to build the cluster:
 
    |image44|
 
-.. |image97| image:: /_static/class1/image097.png
-.. |image41| image:: /_static/class1/image041.png
-.. |image42| image:: /_static/class1/image042.png
+.. |postman-runner-button| image:: /images/postman-runner-button.png
+.. |image41| image:: images/lab-1-041.png
+.. |image42| image:: images/lab-1-042.png
    :scale: 80%
-.. |image43| image:: /_static/class1/image043.png
-.. |image44| image:: /_static/class1/image044.png
+.. |image43| image:: images/lab-1-043.png
+.. |image44| image:: images/lab-1-044.png
    :scale: 70%
 
 

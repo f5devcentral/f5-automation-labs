@@ -64,7 +64,7 @@ Task 1 - Open and Run a Collection
 
 #. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
-   |image97|
+   |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
@@ -115,12 +115,12 @@ Module 2 you will see the importance of leveraging **Abstraction**
 and **Declarative Interfaces** to minimize the amount of time spent on building
 Imperative Workflows.
 
-.. |image97| image:: /_static/class1/image097.png
-.. |image98| image:: /_static/class1/image098.png
-.. |image99| image:: /_static/class1/image099.png
-.. |image100| image:: /_static/class1/image100.png
-.. |image101| image:: /_static/class1/image101.png
-.. |image102| image:: /_static/class1/image102.png
-.. |image103| image:: /_static/class1/image103.png
+.. |postman-runner-button| image:: /images/postman-runner-button.png
+.. |image98| image:: images/lab-5-098.png
+.. |image99| image:: images/lab-5-099.png
+.. |image100| image:: images/lab-5-100.png
+.. |image101| image:: images/lab-5-101.png
+.. |image102| image:: images/lab-5-102.png
+.. |image103| image:: images/lab-5-103.png
    :scale: 65%
-.. |image104| image:: /_static/class1/image104.png
+.. |image104| image:: images/lab-5-104.png

@@ -58,6 +58,6 @@ Task 2 - Run read\_pool.py
    note of the value of the ``loadBalancingMode`` attribute for the next
    lab
 
-.. |image70| image:: /_static/appendix_a/image070.png
+.. |image70| image:: images/lab-2-070.png
    :width: 6.33450in
    :height: 4.50574in

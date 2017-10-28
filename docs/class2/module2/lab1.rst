@@ -20,7 +20,7 @@ from the f5-postman-workflows GitHub repository.
 
 Perform the following steps to complete this task:
 
-#. Open the Postman Client on your jumphost by clicking the |image8| icon
+#. Open the Postman Client on your jumphost by clicking the |postman-icon| icon
 #. Click the 'Import' button in the top left of the Postman window
 #. Click the 'Import from Link' tab.  Paste the following URL into the
    text box and click 'Import'
@@ -66,15 +66,12 @@ To install the framework complete the following tasks:
 
 The f5-postman-workflows framework is now installed in your Postman client.
 
-.. |image8| image:: /_static/class1/image008.png
+.. |postman-icon| image:: /images/postman-icon.png
    :width: 0.46171in
    :height: 0.43269in
-
-.. |image79| image:: /_static/class1/image079.png
+.. |image79| image:: images/lab-1-079.png
    :scale: 100%
-
-.. |image80| image:: /_static/class1/image080.png
+.. |image80| image:: images/lab-1-080.png
    :scale: 100%
-
-.. |image81| image:: /_static/class1/image081.png
+.. |image81| image:: images/lab-1-081.png
    :scale: 100%

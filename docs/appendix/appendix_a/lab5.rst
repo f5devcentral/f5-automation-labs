@@ -41,6 +41,6 @@ Task 2 - Run delete\_pool.py
 2. If desired verify the pool was deleted using TMUI or the
    ``read_pool.py`` script (it should return an error)
 
-.. |image72| image:: /_static/appendix_a/image072.png
+.. |image72| image:: images/lab-5-072.png
    :width: 6.41944in
    :height: 0.42326in

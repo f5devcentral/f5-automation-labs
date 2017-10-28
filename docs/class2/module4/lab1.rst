@@ -138,15 +138,15 @@ to notify all of us when an action happens, collaborative teamwork.
    |image97|
 
 
-.. |image97| image:: /_static/class2/image097.png
+.. |image97| image:: images/lab-1-097.png
    :scale: 100%
-.. |image98| image:: /_static/class2/image098.png
+.. |image98| image:: images/lab-1-098.png
    :scale: 70%
-.. |image99| image:: /_static/class2/image099.png
+.. |image99| image:: images/lab-1-099.png
    :scale: 70%
-.. |image100| image:: /_static/class2/image100.png
+.. |image100| image:: images/lab-1-100.png
    :scale: 70%
-.. |image101| image:: /_static/class2/image101.png
+.. |image101| image:: images/lab-1-101.png
    :scale: 70%
-.. |image102| image:: /_static/class2/image102.png
+.. |image102| image:: images/lab-1-102.png
    :scale: 70%

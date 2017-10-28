@@ -229,7 +229,7 @@ Task 2 - Execute f5-newman-build-4
 
    |image95|
 
-.. |image95| image:: /_static/class2/image095.png
+.. |image95| image:: images/lab-3-095.png
    :scale: 70%
-.. |image96| image:: /_static/class2/image096.png
+.. |image96| image:: images/lab-3-096.png
    :scale: 70%

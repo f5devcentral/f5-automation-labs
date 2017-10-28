@@ -151,11 +151,11 @@ Task 3 - Commit a Transaction
 #. Verify that the virtual server works by opening ``http://10.1.20.120`` in
    Chrome web browser
 
-.. |image35| image:: /_static/class1/image035.png
-.. |image36| image:: /_static/class1/image036.png
-.. |image37| image:: /_static/class1/image037.png
-.. |image38| image:: /_static/class1/image038.png
-.. |image39| image:: /_static/class1/image039.png
-.. |image40| image:: /_static/class1/image040.png
-.. |image76| image:: /_static/class1/image076.png
-.. |image77| image:: /_static/class1/image077.png
+.. |image35| image:: images/lab-7-035.png
+.. |image36| image:: images/lab-7-036.png
+.. |image37| image:: images/lab-7-037.png
+.. |image38| image:: images/lab-7-038.png
+.. |image39| image:: images/lab-7-039.png
+.. |image40| image:: images/lab-7-040.png
+.. |image76| image:: images/lab-7-076.png
+.. |image77| image:: images/lab-7-077.png

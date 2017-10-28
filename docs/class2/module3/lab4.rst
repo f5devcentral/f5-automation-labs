@@ -126,7 +126,7 @@ Task 1 - Execute f5-newman-build-5
 
 #. On BIG-IP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
 
-.. |image93| image:: /_static/class2/image093.png
+.. |image93| image:: images/module-3-001.png
    :scale: 70%
-.. |image94| image:: /_static/class2/image094.png
+.. |image94| image:: images/module-3-002.png
    :scale: 70%

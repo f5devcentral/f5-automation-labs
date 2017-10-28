@@ -155,9 +155,9 @@ You should see a page like this:
 
 |image89|
 
-.. |image78| image:: /_static/class1/image078.png
+.. |image78| image:: images/lab-3-078.png
    :align: middle
    :scale: 50%
-.. |image89| image:: /_static/class2/image089.png
+.. |image89| image:: images/lab-3-089.png
    :align: middle
    :scale: 95%

@@ -136,15 +136,15 @@ Task 2 - Run create\_pool.py
 #. Using Chrome open a tab to BIGIP-A (https://10.1.1.4). Examine the
    pool that was created.
 
-.. |image66| image:: /_static/appendix_a/image066.png
+.. |image66| image:: images/lab-1-066.png
    :width: 0.28045in
    :height: 0.24306in
-.. |image67| image:: /_static/appendix_a/image067.png
+.. |image67| image:: images/lab-1-067.png
    :width: 0.35694in
    :height: 0.30286in
-.. |image68| image:: /_static/appendix_a/image068.png
+.. |image68| image:: images/lab-1-068.png
    :width: 6.33450in
    :height: 0.81372in
-.. |image69| image:: /_static/appendix_a/image069.png
+.. |image69| image:: images/lab-1-069.png
    :width: 6.25116in
    :height: 0.51099in

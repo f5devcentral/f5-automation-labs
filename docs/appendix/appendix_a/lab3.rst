@@ -85,6 +85,6 @@ Task 2 - Run update\_pool.py
 
 #. Experiment with changing other pool attributes
 
-.. |image71| image:: /_static/appendix_a/image071.png
+.. |image71| image:: images/lab-3-071.png
    :width: 6.41783in
    :height: 0.45024in

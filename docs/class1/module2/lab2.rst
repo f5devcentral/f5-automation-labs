@@ -47,7 +47,7 @@ Perform the following steps to complete this task:
 
    |image2_3|
 
-#. Review the JSON response :guilabel:`Body`.  The JSON payload shows 
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows
    iApp templates that are installed on the BIG-IP device:
 
    |image2_4|
@@ -74,9 +74,9 @@ Perform the following steps to complete this task:
 
    |image2_38|
 
-.. |image2_3| image:: /_static/class1/image2_3.png
-.. |image2_4| image:: /_static/class1/image2_4.png
-.. |image2_5| image:: /_static/class1/image2_5.png
-.. |image2_6| image:: /_static/class1/image2_6.png
-.. |image2_7| image:: /_static/class1/image2_7.png
-.. |image2_38| image:: /_static/class1/image2_38.png
+.. |image2_3| image:: images/lab-2-2_3.png
+.. |image2_4| image:: images/lab-2-2_4.png
+.. |image2_5| image:: images/lab-2-2_5.png
+.. |image2_6| image:: images/lab-2-2_6.png
+.. |image2_7| image:: images/lab-2-2_7.png
+.. |image2_38| image:: images/lab-2-2_38.png

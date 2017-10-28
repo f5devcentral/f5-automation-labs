@@ -208,11 +208,12 @@ Perform the following steps to configure the Route object/resource:
    ``Send`` button to ``GET`` the routes collection. Examine the response to
    make sure the route has been created.
 
-.. |image92| image:: /_static/class1/image092.png
-.. |image93| image:: /_static/class1/image093.png
-.. |image94| image:: /_static/class1/image094.png
-.. |image95| image:: /_static/class1/image095.png
-.. |image96| image:: /_static/class1/image096.png
-.. |image111| image:: /_static/class1/image111.png
-.. |labtopology| image:: /_static/class1/labtopology.png
+.. |image92| image:: images/lab-4-092.png
+.. |image93| image:: images/lab-4-093.png
+.. |image94| image:: images/lab-4-094.png
+.. |image95| image:: images/lab-4-095.png
+.. |image96| image:: images/lab-4-096.png
+.. |image111| image:: images/lab-4-111.png
+.. |labtopology| image:: /class1/images/labtopology.png
    :scale: 65%
+

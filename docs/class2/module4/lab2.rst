@@ -188,33 +188,33 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
 #. Verify on the BIG-IP that the pool ``module_3_pool`` has an up node
 
-.. |image103| image:: /_static/class2/image103.png
+.. |image103| image:: images/lab-2-103.png
    :scale: 70%
-.. |image104| image:: /_static/class2/image104.png
+.. |image104| image:: images/lab-2-104.png
    :scale: 70%
-.. |image105| image:: /_static/class2/image105.png
+.. |image105| image:: images/lab-2-105.png
    :scale: 70%
-.. |image106| image:: /_static/class2/image106.png
+.. |image106| image:: images/lab-2-106.png
    :scale: 70%
-.. |image107| image:: /_static/class2/image107.png
+.. |image107| image:: images/lab-2-107.png
    :scale: 70%
-.. |image108| image:: /_static/class2/image108.png
+.. |image108| image:: images/lab-2-108.png
    :scale: 70%
-.. |image109| image:: /_static/class2/image109.png
+.. |image109| image:: images/lab-2-109.png
    :scale: 70%
-.. |image110| image:: /_static/class2/image110.png
+.. |image110| image:: images/lab-2-110.png
    :scale: 100%
-.. |image111| image:: /_static/class2/image111.png
+.. |image111| image:: images/lab-2-111.png
    :scale: 100%
-.. |image112| image:: /_static/class2/image109.png
+.. |image112| image:: images/lab-2-109.png
    :scale: 100%
-.. |image113| image:: /_static/class2/image113.png
+.. |image113| image:: images/lab-2-113.png
    :scale: 70%
-.. |image114| image:: /_static/class2/image114.png
+.. |image114| image:: images/lab-2-114.png
    :scale: 70%
-.. |image115| image:: /_static/class2/image115.png
+.. |image115| image:: images/lab-2-115.png
    :scale: 100%
-.. |image116| image:: /_static/class2/image116.png
+.. |image116| image:: images/module-4-001.png
    :scale: 70%
-.. |image117| image:: /_static/class2/image117.png
+.. |image117| image:: images/lab-2-117.png
    :scale: 70%

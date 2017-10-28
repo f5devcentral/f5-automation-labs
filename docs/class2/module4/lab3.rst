@@ -69,7 +69,7 @@ Task 1 - Teardown the Application via Jenkins
 
 
 #. Verify the on the BIG-IP the service has been Deleted
-#. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK 
+#. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK
 
-.. |image116| image:: /_static/class2/image116.png
+.. |image116| image:: images/module-4-001.png
    :scale: 70%

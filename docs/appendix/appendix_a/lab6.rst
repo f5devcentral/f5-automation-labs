@@ -79,12 +79,12 @@ Perform the following steps:
 
 #. Run the script and verify the config was created.
 
-.. |image73| image:: /_static/appendix_a/image073.png
+.. |image73| image:: images/lab-6-073.png
    :width: 5.53944in
    :height: 2.76389in
-.. |image74| image:: /_static/appendix_a/image074.png
+.. |image74| image:: images/lab-6-074.png
    :width: 4.66783in
    :height: 3.98787in
-.. |image75| image:: /_static/appendix_a/image075.png
+.. |image75| image:: images/lab-6-075.png
    :width: 6.58611in
    :height: 1.36241in

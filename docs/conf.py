@@ -103,14 +103,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'F5 Programmability Training'
-copyright = u'2017, F5 Networks, Inc.'
-author = u'https://github.com/f5devcentral/f5-automation-labs/graphs/contributors'
+copyright = u'F5 Networks, Inc.'
+author = u'https://f5.com/supernetops'
 
 classname = project
 cleanname = re.sub('\W+','',project)
 year = time.strftime("%Y")
-eventname = "Agility %s Hands-on Lab Guide" % (year)
-
+#eventname = "Agility %s Hands-on Lab Guide" % (year)
+eventname = "F5 Super-NetOps Program"
 rst_prolog = """
 .. |classname| replace:: %s
 .. |classbold| replace:: **%s**
@@ -310,7 +310,7 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #
-html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #

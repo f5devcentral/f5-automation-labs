@@ -82,7 +82,7 @@ Perform the following steps to build the cluster:
 
 #. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
-   |image97|
+   |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
@@ -106,11 +106,11 @@ Perform the following steps to build the cluster:
    list should be named ``Cleanup Environment``
 
    |image30|
-   
+
 .. NOTE::
-   If you are have an issue with your authentication token issue please return to 
+   If you are have an issue with your authentication token issue please return to
    Lab 1.3, Step 8 in Postman to set your admin password to ``admin``.
-   
+
 Task 2 - Verify the Built Cluster in BIG-IP GUI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -121,10 +121,10 @@ Task 2 - Verify the Built Cluster in BIG-IP GUI
 
    |image31|
 
-.. |image28| image:: /_static/class1/image028.png
-.. |image29| image:: /_static/class1/image029.png
-.. |image30| image:: /_static/class1/image030.png
+.. |image28| image:: images/lab-6-028.png
+.. |image29| image:: images/lab-6-029.png
+.. |image30| image:: images/lab-6-030.png
    :scale: 80%
-.. |image31| image:: /_static/class1/image031.png
+.. |image31| image:: images/lab-6-031.png
    :scale: 80%
-.. |image97| image:: /_static/class1/image097.png
+.. |postman-runner-button| image:: /images/postman-runner-button.png

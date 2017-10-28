@@ -27,23 +27,23 @@ iApp Templates & Deployments
 
 There are multiple ways to install an iApp on BIG-IP. These includes using
 TMOS Shell (TMSH through SSH), the GUI (TMUI), and the REST Interface. All
-of these mechanisms are supported and, if required, can be used in 
+of these mechanisms are supported and, if required, can be used in
 conjunction with each other.
 
 For instance, you can install an iApp template from BIG-IP GUI and then deploy
 a new service via iControl REST using tools such as cURL, Postman and Ansible.
 
 .. NOTE:: Redeployment of iApp templates is facilitated/protected by a mechanism in
-   BIG-IP platform to ensure safe changes to the configurations without disrupting 
+   BIG-IP platform to ensure safe changes to the configurations without disrupting
    existing user traffic.
 
 F5 iApps was introduced in TMOS (BIG-IP operating system) Version 11.
-They can interact within and across different F5 modules to provide 
-full Layer 4-7 Application Services capabilities. 
+They can interact within and across different F5 modules to provide
+full Layer 4-7 Application Services capabilities.
 The **iApp Template** is used to execute an **iApp Deployment**
-that generates a series of configuration object grouped under an 
+that generates a series of configuration object grouped under an
 **Application Service Object (ASO)**.  The ASO model houses objects belonging
-to the iApp service deployment.  Upon deletion of a specific iApp service deployment, 
+to the iApp service deployment.  Upon deletion of a specific iApp service deployment,
 all the associated objects will be recursively deleted.
 
 Below are some of the modules that can be configured using iApp templates:
@@ -95,5 +95,5 @@ configured on BIG-IP will alter the integrity of iApp deployment input values
 that automation tools are interacting with, causing failures. It is therefore
 important to keep **Strict Updates** enabled at all times for automated deployments.
 
-.. |image2_1| image:: /_static/class1/image2_1.png
-.. |image2_2| image:: /_static/class1/image2_2.png
+.. |image2_1| image:: images/lab-1-2_1.png
+.. |image2_2| image:: images/lab-1-2_2.png

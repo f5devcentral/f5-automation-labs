@@ -5,19 +5,19 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-.. |postman-icon| image:: /_static/class3/postman-icon.png
-.. |primer-1.2| image:: /_static/class3/primer-1.2.png
-.. |primer-1.3| image:: /_static/class3/primer-1.3.png
-.. |primer-1.4| image:: /_static/class3/primer-1.4.png
-.. |primer-1.5| image:: /_static/class3/primer-1.5.png
-.. |primer-2.5-good| image:: /_static/class3/primer-2.5-good.png
-.. |primer-2.5-bad| image:: /_static/class3/primer-2.5-bad.png
-.. |primer-2.6| image:: /_static/class3/primer-2.6.png
-.. |primer-2.7| image:: /_static/class3/primer-2.7.png
-.. |primer-2.9| image:: /_static/class3/primer-2.9.png
-.. |primer-2.10| image:: /_static/class3/primer-2.10.png
-.. |primer-2.12| image:: /_static/class3/primer-2.12.png
-.. |primer-2.13| image:: /_static/class3/primer-2.13.png
+.. |postman-icon| image:: /images/postman-icon.png
+.. |primer-1.2| image:: images/primer-1.2.png
+.. |primer-1.3| image:: images/primer-1.3.png
+.. |primer-1.4| image:: images/primer-1.4.png
+.. |primer-1.5| image:: images/primer-1.5.png
+.. |primer-2.5-good| image:: images/primer-2.5-good.png
+.. |primer-2.5-bad| image:: images/primer-2.5-bad.png
+.. |primer-2.6| image:: images/primer-2.6.png
+.. |primer-2.7| image:: images/primer-2.7.png
+.. |primer-2.9| image:: images/primer-2.9.png
+.. |primer-2.10| image:: images/primer-2.10.png
+.. |primer-2.12| image:: images/primer-2.12.png
+.. |primer-2.13| image:: images/primer-2.13.png
 
 Lab |labmodule|\.\ |labnum|\: API Authentication
 ================================================
@@ -51,7 +51,7 @@ Perform the following steps to complete this task:
 2. To assist in multi-step procedures we make heavy use of the ‘Environments’ capability in Postman. This capability allows us to set various global variables that are then substituted into a request before it’s sent. When you open Postman please verify that your environment is set the **F5 SecDevOps** environment:
 
 |primer-1.2|
-    
+
 3. Click the ‘Collections’ tab on the left side of the screen, expand the ‘F5 SecDevOps’ collection on the left side of the screen, expand the **Lab 1.2 - API Authentication** folder:
 
 (Ignore the # of requests on the screen below versus what you might see, the # of requests will grow and change as this lab grows)
