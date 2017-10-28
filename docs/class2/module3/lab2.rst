@@ -242,7 +242,7 @@ Task 2 - Execute the first f5-newman-wrapper file
       └───────────────────────────────────────────────┘
       [f5-newman-build-1-2017-07-26-08-23-00] run completed in 6s, 90.207 ms
 
-   .. NOTE:: Notice the 200 OK responses, the number of requests ect, we're building in testing and logging, look back at ``BIGIP-A`` for the newly created Application Service Framework
+   .. NOTE:: Notice the 200 OK responses, the number of requests etc., we're building in testing and logging, look back at ``BIGIP-A`` for the newly created Application Service Framework
 
 #. On BIG-IP A, examine Virtual Server ``module_3_vs``:
 

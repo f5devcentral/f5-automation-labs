@@ -28,7 +28,7 @@ Perform the following steps to complete this task:
    ``https://raw.githubusercontent.com/0xHiteshPatel/f5-postman-workflows/master/F5_Postman_Workflows.postman_collection.json``
 
 #. You should now see a collection named ``F5_Postman_Workflows`` in your
-   Postman Collections sidebar, in some cases the Collections dont appear until Postman
+   Postman Collections sidebar, in some cases the Collections don't appear until Postman
    has been closed an relaunched.
 
 Task 2 - Install f5-postman-workflows into your Postman Client

@@ -48,7 +48,7 @@ Tenants & Connectors
 ^^^^^^^^^^^^^^^^^^^^
 
 iWorkflow implements a Tenant/Provider interface to enable abstracted deployment
-of L4-7 into various environment.  In conjuction iWorkflow Connectors serve as
+of L4-7 into various environment.  In conjunction iWorkflow Connectors serve as
 the L1-3 Network and Device Onboarding automation component in the automation
 toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP 
 devices in the lab environment. This connector will then allow you to drive a 

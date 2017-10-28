@@ -91,7 +91,7 @@ Using HiDPI Displays (RDP & Windows)
 If you are using Hi Resolution Display on Windows, we recommend that you either:
 
 - **RECOMMENDED:** Resize your display to 1080p (1920 x 1080) or
-- Use your RDP clients "Zoom" funcitonality to increase the size
+- Use your RDP clients "Zoom" functionality to increase the size
 
 Resize your display (Windows 10) - RECOMMENDED
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

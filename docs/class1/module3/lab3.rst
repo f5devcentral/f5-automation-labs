@@ -134,7 +134,7 @@ Perform the following steps to complete this task:
    - A URI Reference to the Connector to use for deployment.  This specifies
      which BIG-IP devices will be used for this deployment
 
-   The data in the list above is higlighted below:
+   The data in the list above is highlighted below:
    
    |image57|
 

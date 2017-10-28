@@ -66,8 +66,24 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
-    'sphinx.ext.graphviz'
+    'sphinx.ext.graphviz',
+    'sphinxcontrib.spelling',
+    'sphinxcontrib.addmetahtml'
 ]
+
+spelling_word_list_filename = "../wordlist"
+
+#googleanalytics_id = 'UA-85156643-6'
+#googleanalytics_enabled = True
+addmetahtml_content = """<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85156643-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-85156643-6');
+</script>
+"""
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -241,7 +257,7 @@ extlinks = {
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = '_static/logo.svg'
+#html_logo = '_static/logo.svg'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs. This file should be a Windows icon file (.ico) being 16x16 or 32x32

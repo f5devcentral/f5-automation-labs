@@ -3,7 +3,7 @@
 Self-Built Environment
 ----------------------
 
-.. NOTE:: Due to the variability of self-built environments we cannot gurantee
+.. NOTE:: Due to the variability of self-built environments we cannot guarantee
    that you will be able to complete the class successfully.
 
 If you are building your own lab environment please complete the following

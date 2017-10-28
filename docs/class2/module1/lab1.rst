@@ -14,7 +14,7 @@ Community Edition on your system.
 .. NOTE:: If you are using an F5 provided lab environment, RDP to the
           **Windows Jumphost** from there you can access the already
           installed Docker CE service on the host named 'Docker Server'.
-          SSH to the Docker Sercer via Putty to that host a execute
+          SSH to the Docker Server via Putty to that host a execute
           all ``docker`` commands there.
 
 Task 1 - Install Docker CE

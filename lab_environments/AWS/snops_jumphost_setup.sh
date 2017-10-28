@@ -272,7 +272,15 @@ EOF
 
 chmod +x /home/ubuntu/Desktop/Postman.desktop
 
+# Set background image
+wget https://github.com/f5devcentral/f5-automation-labs/raw/master/files/misc/supernetops.png -O /usr/share/backgrounds/mate/desktop/supernetops.png
+cat << 'EOF' >> /home/ubuntu/.profile
+gsettings set org.mate.background picture-filename '/usr/share/backgrounds/mate/desktop/supernetops.png'
+gsettings set org.mate.background primary-color '#000000000000'
+gsettings set org.mate.background picture-options 'centered'
+gsettings set org.mate.background color-shading-type 'solid'
+EOF
+
 # Things are created as root, need to transfer ownership
 chown -R ubuntu:ubuntu /home/ubuntu/Desktop
 chown -R ubuntu:ubuntu /home/ubuntu/f5-automation-labs
-

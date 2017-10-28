@@ -106,6 +106,13 @@ Perform the following steps to build the cluster:
    list should be named ``Cleanup Environment``
 
    |image30|
+   
+.. NOTE::
+   If you are have an issue with your authentication token issue please return to 
+   Lab 1.3, Step 8 in Postman to set your admin password to ``admin``.
+   
+Task 2 - Verify the Built Cluster in BIG-IP GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. At this point you can log into BIG-IP A using Chrome at ``https://10.1.1.10``.
    Verify that the cluster was built by navigating to

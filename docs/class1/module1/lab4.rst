@@ -138,7 +138,7 @@ Perform the following steps to configure the Self IP objects/resources:
 
    .. NOTE:: Postman has the ability to check the responses for specific values
       to verify if the result of a request is what it is expected to be. The
-      :guilabel:``Test Results`` for this request will show a failure for the
+      :guilabel:`Test Results` for this request will show a failure for the
       ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
       and you should continue to the next section.
 
