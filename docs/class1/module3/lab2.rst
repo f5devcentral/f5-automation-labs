@@ -40,7 +40,7 @@ The templates used in this lab all have a version number appended to the name
 in your environment.  Explicitly versioning the templates allows for migration
 between template versions in a stable manner.  Without versioning any changes
 to the template could result in *every* deployment associated with the template
-being modified at the same time.  With versioning the application owner or F5
+being modified at the same time.  With versioning, the application owner or F5
 administrator can choose to either migrate all deployments at the same time OR
 perform the migration on a per deployment manner.
 
@@ -51,7 +51,7 @@ In this task we will use the Runner to quickly create our sample Service
 Templates.
 Perform the following steps to complete this task:
 
-#. Click the :guilabel:`Runner` button at the top right of your Postman window.
+#. Click the :guilabel:`Runner` button at the top left of your Postman window.
 
 #. Select :menuselection:`F5 Programmability: Class 1 --> 
    Lab 3.2 - Create a Declarative Service Catalog` folder.
@@ -120,7 +120,7 @@ Perform the following steps to complete this task:
 
    |image50|
 
-   In the case of the fields shown in the example:
+   In the case of the fields shown in the above example:
 
    - ``pool__DefaultPoolIndex``: A value of ``0`` will be sent during a 
      deployment
@@ -182,7 +182,7 @@ Perform the following steps to complete this task:
 
 #. Finally, to assist in designing a Tenant interface, iWorkflow allows you to
    preview what the Tenant UI would look like for a Service Template.  To view
-   preview for click the :guilabel:`Tenant Preview` button:
+   preview, click the :guilabel:`Tenant Preview` button:
 
    |image52|
 
@@ -191,7 +191,7 @@ Perform the following steps to complete this task:
    :guilabel:`Tenant Editable` fields are shown.  Because the true deployment
    details are filtered from the Tenant, the Service Deployment requires much 
    less **Domain Specific Knowledge**.  Keep in mind that while the Tenant
-   interface may be simple, you can leverage advanced functionality in the 
+   interface may be simple, you can still leverage advanced functionality in the 
    Service Template.
 
    |image53|
@@ -217,7 +217,7 @@ appropriate Monitors, Profiles and Options for the use case.
       - HTTPS Offload and Load Balancing to a Single Pool
     * - ``f5-fasthttp-lb-v1.0``
       - Performance-enhanced HTTP Load Balancing to a Single Pool
-    * - ``f5-fastl4-udp-lb-v1.0``
+    * - ``f5-fastl4-tcp-lb-v1.0``
       - Generic L4 TCP Load Balancing to a Single Pool
     * - ``f5-fastl4-udp-lb-v1.0``
       - Generic L4 UDP Load Balancing to a Single Pool
