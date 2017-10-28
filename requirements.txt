@@ -1,5 +1,5 @@
 Sphinx==1.6.2
 git+git://github.com/f5devcentral/f5-sphinx-theme@master#egg=f5_sphinx_theme
-git+git://github.com/0xHiteshPatel/sphinxcontrib-addmetahtml@master#egg=sphinxcontrib-addmetahtml
+sphinxcontrib-addmetahtml
 GitPython
 sphinxcontrib-spelling
