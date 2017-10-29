@@ -20,11 +20,8 @@ traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
 -  2 x F5 BIG-IP VE (v12.1.x)
-
 -  1 x F5 iWorkflow VE (v2.3)
-
--  1 x Linux Webserver
-
+-  1 x Linux Server
 -  1 x Linux Jumphost
 
 .. nwdiag:: labtopology.diag
@@ -37,57 +34,57 @@ The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
 .. list-table::
-    :widths: 15 30 30 30
-    :header-rows: 1
-    :stub-columns: 1
+   :widths: 15 30 30 30
+   :header-rows: 1
+   :stub-columns: 1
 
 
-    * - **Component**
-      - **Management IP**
-      - **VLAN/IP Address(es)**
-      - **Credentials**
-    * - Linux Jumphost
-      - 10.1.1.20
-      - **Internal:** 10.1.10.20
+   * - **Component**
+     - **Management IP**
+     - **VLAN/IP Address(es)**
+     - **Credentials**
+   * - Linux Jumphost
+     - 10.1.1.20
+     - **Internal:** 10.1.10.20
 
-        **External:** 10.1.20.20
-      - ubuntu/supernetops
-    * - BIG-IP A
-      - 10.1.1.10
-      - **Internal:** 10.1.10.10
+       **External:** 10.1.20.20
+     - ubuntu/supernetops
+   * - BIG-IP A
+     - 10.1.1.10
+     - **Internal:** 10.1.10.10
 
-        **Internal (Float):** 10.1.10.13
+       **Internal (Float):** 10.1.10.13
 
-        **External:** 10.1.20.10
+       **External:** 10.1.20.10
 
-        **External (VIPs):** 10.1.20.120-130
+       **External (VIPs):** 10.1.20.120-130
 
-      - admin/admin
+     - admin/admin
 
-        root/default
-    * - BIG-IP B
-      - 10.1.1.11
-      - **Internal:** 10.1.10.11
+       root/default
+   * - BIG-IP B
+     - 10.1.1.11
+     - **Internal:** 10.1.10.11
 
-        **Internal (Float):** 10.1.10.13
+       **Internal (Float):** 10.1.10.13
 
-        **External:** 10.1.20.11
+       **External:** 10.1.20.11
 
-        **External (VIPs):** 10.1.20.120-130
+       **External (VIPs):** 10.1.20.120-130
 
-      - admin/admin
+     - admin/admin
 
-        root/default
-    * - iWorkflow
-      - 10.1.1.12
-      - N/A
-      - admin/admin
+       root/default
+   * - iWorkflow
+     - 10.1.1.12
+     - N/A
+     - admin/admin
 
-        root/default
-    * - Linux Server
-      - 10.1.1.15
-      - **Internal:** 10.1.10.100-103
-      - root/default
+       root/default
+   * - Linux Server
+     - 10.1.1.15
+     - **Internal:** 10.1.10.100-103
+     - root/default
 
 Lab Environments
 ----------------
