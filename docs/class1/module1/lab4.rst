@@ -78,7 +78,11 @@ configure connectivity for BIG-IP A:
 
        **GW:** 10.1.20.1
 
-|labtopology|
+.. nwdiag:: ../labinfo/labtopology.diag
+   :width: 800
+   :caption: Lab Topology
+   :name: lab-topology-diagram
+   :scale: 110%
 
 Task 1 - Create VLANs
 ~~~~~~~~~~~~~~~~~~~~~
@@ -214,6 +218,3 @@ Perform the following steps to configure the Route object/resource:
 .. |lab-4-4| image:: images/lab-4-4.png
 .. |lab-4-5| image:: images/lab-4-5.png
 .. |lab-4-6| image:: images/lab-4-6.png
-.. |labtopology| image:: /class1/images/labtopology.png
-   :scale: 65%
-

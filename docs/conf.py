@@ -68,7 +68,8 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.graphviz',
     'sphinxcontrib.spelling',
-    'sphinxcontrib.addmetahtml'
+    'sphinxcontrib.addmetahtml',
+    'sphinxcontrib.nwdiag'
 ]
 
 spelling_word_list_filename = "../wordlist"
@@ -85,6 +86,10 @@ addmetahtml_content = """<script async src="https://www.googletagmanager.com/gta
 </script>
 """
 
+nwdiag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+nwdiag_html_image_format = 'SVG'
+nwdiag_latex_image_format = "PNG"
+nwdiag_antialias = False
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

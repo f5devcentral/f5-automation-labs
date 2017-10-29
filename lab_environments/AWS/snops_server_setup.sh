@@ -27,8 +27,8 @@ service ssh restart
 # Install dnsmasq
 apt-get install -y dnsmasq
 cat << 'EOF' > /etc/dnsmasq.d/supernetops
-listen-address=10.1.10.100,10.1.10.101,10.1.10.102,10.1.10.103
-no-dhcp-interface=eth1,eth1:1,eth1:2,eth1:3
+listen-address=127.0.0.1,10.1.10.100,10.1.10.101,10.1.10.102,10.1.10.103
+no-dhcp-interface=lo0,eth1,eth1:1,eth1:2,eth1:3
 EOF
 systemctl enable dnsmasq.service
 service dnsmasq start

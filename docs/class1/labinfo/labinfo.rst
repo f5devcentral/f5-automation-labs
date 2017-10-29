@@ -27,7 +27,11 @@ components have been included in your lab environment:
 
 -  1 x Linux Jumphost
 
-|labtopology|
+.. nwdiag:: labtopology.diag
+   :width: 800
+   :caption: Lab Topology
+   :name: lab-topology-diagram
+   :scale: 110%
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -36,6 +40,7 @@ components:
     :widths: 15 30 30 30
     :header-rows: 1
     :stub-columns: 1
+
 
     * - **Component**
       - **Management IP**
@@ -121,6 +126,3 @@ Select the Environment from the list below to get started:
    udf
    self_built
 
-
-.. |labtopology| image:: /class1/images/labtopology.png
-   :scale: 65%
