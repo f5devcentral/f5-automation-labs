@@ -33,7 +33,7 @@ Profiles, Certificates, and an ASM Policy.
    ``Lab 2.3 - Create iApp Deployments using the REST API`` folder in the
    Postman Collection
 
-|image2_8|
+|lab-3-1|
 
 Task 1 - View Deployed Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,12 +43,12 @@ Perform the following steps to complete this task:
 #. :guilabel:`Send` the ``Step 1: Get Deployed iApp Services``
    request to view current iApp deployments on the BIG-IP device:
 
-   |image2_9|
+   |lab-3-2|
 
 #. Review the JSON Response :guilabel:`Body`.  The BIG-IP device does not have
    any iApp deployments.  As a result the ``items`` array is empty (``[]``):
 
-   |image2_10|
+   |lab-3-3|
 
 Task 2 - Deploy Basic HTTP Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,16 +59,16 @@ Perform the following steps to complete this task:
    :guilabel:`Body`. The JSON body of the POST contains the input for the iApp
    template to execute the deployment of the service.
 
-   |image2_12|
+   |lab-3-5|
 
 #. Click the :guilabel:`Send` button to **Create** a Basic HTTP Service:
 
-   |image2_11|
+   |lab-3-4|
 
    In this task, we will deploy our first service. Review the **Response**
    JSON :guilabel:`Body` to verify if the Service has been deployed.
 
-   |image2_40|
+   |lab-3-32|
 
    .. NOTE:: We've just progressed into a **Declarative** instantiation, by
       defining the end state and relying on the iApp templates to handle the
@@ -85,11 +85,11 @@ Perform the following steps to complete this task:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
-     |image2_14|
+     |lab-3-7|
 
    - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
-     |image2_13|
+     |lab-3-6|
 
 
 #. From the TMUI GUI, examine the Virtual Server that was created from
@@ -98,12 +98,12 @@ Perform the following steps to complete this task:
    does contain the key components for an HTTP service (Listener, HTTP Profile,
    Monitor, Pool, and Pool Members):
 
-   |image2_15|
+   |lab-3-8|
 
 #. The service is available and active, you can connect to the Virtual Server
    using Chrome web browser at ``http://10.1.20.121`` and examine its responses:
 
-   |image2_31|
+   |lab-3-24|
 
    .. NOTE:: The colors of the text, images, and borders may vary depending on the
       back-end server selected during the load balancing process.
@@ -123,12 +123,12 @@ Perform the following steps to complete this task:
    ``PUT`` request method.  We set the state of the pool members to ``disabled``
    which forces the service to go offline.
 
-   |image2_17|
+   |lab-3-10|
 
 #. Click the :guilabel:`Send` button to **Modify** the previously deployed
    Basic HTTP Service:
 
-   |image2_16|
+   |lab-3-9|
 
 #. In the BIG-IP GUI click :menuselection:`Local Traffic --> Network Map` to view the
    new state of the Pool Members (Black indicators reflect the disabled state).
@@ -136,7 +136,7 @@ Perform the following steps to complete this task:
    The Virtual Server is no longer passing traffic at ``http://10.1.20.121``
    because all the Members in the Pool have been disabled:
 
-   |image2_18|
+   |lab-3-11|
 
 Task 4 - Delete our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,7 +149,7 @@ Perform the following steps to complete this task:
 #. :guilabel:`Send` the ``Step 4: Delete Service - HTTP`` request to
    **Delete** the previously deployed Basic HTTP Service:
 
-   |image2_19|
+   |lab-3-12|
 
 #. Similar to modification process, the deletion of a service is performed on
    the **Resource** URL. When we created the service, we defined a Declarative
@@ -169,11 +169,11 @@ Perform the following steps to complete this task:
 
    - **REST**: :guilabel:`Send` ``Step 1: Get Deployed iApp Services`` request:
 
-     |image2_10|
+     |lab-3-3|
 
    - **TMUI GUI**: :menuselection:`iApps --> Application Services --> Applications`
 
-     |image2_20|
+     |lab-3-13|
 
 Task 5 - Deploy an HTTP Service with Custom created Profile and a referenced iRule
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,7 +184,7 @@ Perform the following steps to complete this task:
    Custom Profiles`` request to deploy an HTTP Service with Custom Profiles
    and an iRule:
 
-   |image2_21|
+   |lab-3-14|
 
 #. The App Services iApp can *Create* or *Reference* various objects.  In this
    deployment we perform two actions:
@@ -208,21 +208,21 @@ Perform the following steps to complete this task:
 
    - **Custom Profiles:**
 
-     |image2_22|
+     |lab-3-15|
 
    - **URL Referenced iRule:**
 
-     |image2_23|
+     |lab-3-16|
 
    - **iRule linked to Virtual Server:** (:menuselection:`Local Traffic --> Network Map`)
 
-     |image2_24|
+     |lab-3-17|
 
 #. Open Chrome and connect to the Virtual Server at ``http://10.1.20.121``. The
    iRule that was attached to the service contains an ``HTTP_RESPOND`` event,
    which responds with a simple Maintenance Page.
 
-   |image2_25|
+   |lab-3-18|
 
 Task 6 - Deploy an HTTPS Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -233,7 +233,7 @@ Perform the following steps to complete this task:
    an HTTPS Service using **URL Resources** for the SSL/TLS Key, Certificate and
    Certificate Bundle.
 
-   |image2_26|
+   |lab-3-19|
 
 #. iApps are a Declarative interface, allowing us to modify deployment without
    the need to delete it (this also means we can re-name objects **if**
@@ -255,19 +255,19 @@ Perform the following steps to complete this task:
 #. Review the **Request** JSON :guilabel:`Body` to see how the desired outcomes
    above were declared:
 
-   |image2_27|
+   |lab-3-20|
 
 #. Review the configured Virtual Servers in the TMUI GUI.  The App Services iApp
    created a new Virtual Server to redirect ``TCP/80`` traffic to ``TCP/443``
    and reconfigured the Virtual Server to listen on ``TCP/443``
 
-   |image2_28|
+   |lab-3-21|
 
 #. The configuration of the Virtual Server now uses an SSL Client profile
    containing our imported SSL Resources.  The deployment is now providing
    SSL Offload for the backend compute nodes.
 
-   |image2_29|
+   |lab-3-22|
 
 #. Open Chrome and access the service with ``http://10.1.20.121``. It should
    redirect you to ``https://10.1.20.121``.
@@ -295,7 +295,7 @@ Perform the following steps to complete this task:
       was still using the version of the configuration with the iRule attached
       to the Virtual Service resulting in the maintenance page being shown.
 
-   |image2_30|
+   |lab-3-23|
 
 Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -312,7 +312,7 @@ Perform the following steps to complete this task:
    Firewall policy that will be used with the Application Security Manager
    (ASM) module.
 
-   |image2_32|
+   |lab-3-25|
 
 #. This final iApp deployment will build upon our service by having the iApp
    load a WAF policy Resource from our repository.  The App Services iApp will
@@ -332,15 +332,15 @@ Perform the following steps to complete this task:
 
    - **Layer 7 Policy Rules:**
 
-     |image2_35|
+     |lab-3-28|
 
    - **Layer 7 Policy Actions:**
 
-     |image2_33|
+     |lab-3-26|
 
    - **ASM Policy URL:**
 
-     |image2_34|
+     |lab-3-27|
 
 #. In the TMUI GUI, you will notice a Layer 7 policy has been applied to the Virtual
    Server. In :guilabel:`Application Security`, we will be able to observe that the
@@ -348,45 +348,45 @@ Perform the following steps to complete this task:
 
    - **Layer 7 Policy:**
 
-     |image2_39|
+     |lab-3-31|
 
    - **Layer 7 Policy attached to Virtual Server:**
 
-     |image2_36|
+     |lab-3-29|
 
    - **ASM WAF Policy:**
 
-     |image2_37|
+     |lab-3-30|
 
-.. |image2_8| image:: images/lab-3-2_8.png
-.. |image2_9| image:: images/lab-3-2_9.png
-.. |image2_10| image:: images/lab-3-2_10.png
-.. |image2_11| image:: images/lab-3-2_11.png
-.. |image2_12| image:: images/lab-3-2_12.png
-.. |image2_13| image:: images/lab-3-2_13.png
-.. |image2_14| image:: images/lab-3-2_14.png
-.. |image2_15| image:: images/lab-3-2_15.png
-.. |image2_16| image:: images/lab-3-2_16.png
-.. |image2_17| image:: images/lab-3-2_17.png
-.. |image2_18| image:: images/lab-3-2_18.png
-.. |image2_19| image:: images/lab-3-2_19.png
-.. |image2_20| image:: images/lab-3-2_20.png
-.. |image2_21| image:: images/lab-3-2_21.png
-.. |image2_22| image:: images/lab-3-2_22.png
-.. |image2_23| image:: images/lab-3-2_23.png
-.. |image2_24| image:: images/lab-3-2_24.png
-.. |image2_25| image:: images/lab-3-2_25.png
-.. |image2_26| image:: images/lab-3-2_26.png
-.. |image2_27| image:: images/lab-3-2_27.png
-.. |image2_28| image:: images/lab-3-2_28.png
-.. |image2_29| image:: images/lab-3-2_29.png
-.. |image2_30| image:: images/lab-3-2_30.png
-.. |image2_31| image:: images/lab-3-2_31.png
-.. |image2_32| image:: images/lab-3-2_32.png
-.. |image2_33| image:: images/lab-3-2_33.png
-.. |image2_34| image:: images/lab-3-2_34.png
-.. |image2_35| image:: images/lab-3-2_35.png
-.. |image2_36| image:: images/lab-3-2_36.png
-.. |image2_37| image:: images/lab-3-2_37.png
-.. |image2_39| image:: images/lab-3-2_39.png
-.. |image2_40| image:: images/lab-3-2_40.png
+.. |lab-3-1| image:: images/lab-3-1.png
+.. |lab-3-2| image:: images/lab-3-2.png
+.. |lab-3-3| image:: images/lab-3-3.png
+.. |lab-3-4| image:: images/lab-3-4.png
+.. |lab-3-5| image:: images/lab-3-5.png
+.. |lab-3-6| image:: images/lab-3-6.png
+.. |lab-3-7| image:: images/lab-3-7.png
+.. |lab-3-8| image:: images/lab-3-8.png
+.. |lab-3-9| image:: images/lab-3-9.png
+.. |lab-3-10| image:: images/lab-3-10.png
+.. |lab-3-11| image:: images/lab-3-11.png
+.. |lab-3-12| image:: images/lab-3-12.png
+.. |lab-3-13| image:: images/lab-3-13.png
+.. |lab-3-14| image:: images/lab-3-14.png
+.. |lab-3-15| image:: images/lab-3-15.png
+.. |lab-3-16| image:: images/lab-3-16.png
+.. |lab-3-17| image:: images/lab-3-17.png
+.. |lab-3-18| image:: images/lab-3-18.png
+.. |lab-3-19| image:: images/lab-3-19.png
+.. |lab-3-20| image:: images/lab-3-20.png
+.. |lab-3-21| image:: images/lab-3-21.png
+.. |lab-3-22| image:: images/lab-3-22.png
+.. |lab-3-23| image:: images/lab-3-23.png
+.. |lab-3-24| image:: images/lab-3-24.png
+.. |lab-3-25| image:: images/lab-3-25.png
+.. |lab-3-26| image:: images/lab-3-26.png
+.. |lab-3-27| image:: images/lab-3-27.png
+.. |lab-3-28| image:: images/lab-3-28.png
+.. |lab-3-29| image:: images/lab-3-29.png
+.. |lab-3-30| image:: images/lab-3-30.png
+.. |lab-3-31| image:: images/lab-3-31.png
+.. |lab-3-32| image:: images/lab-3-32.png

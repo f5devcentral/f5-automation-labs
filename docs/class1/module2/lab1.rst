@@ -63,11 +63,11 @@ under :guilabel:`iApps`. iApp deployments are located under
 
 - :guilabel:`Application Services` (iApp deployments)
 
-  |image2_1|
+  |lab-1-1|
 
 - :guilabel:`Templates` (iApp templates)
 
-  |image2_2|
+  |lab-1-2|
 
 The associated REST API endpoints are:
 
@@ -95,5 +95,5 @@ configured on BIG-IP will alter the integrity of iApp deployment input values
 that automation tools are interacting with, causing failures. It is therefore
 important to keep **Strict Updates** enabled at all times for automated deployments.
 
-.. |image2_1| image:: images/lab-1-2_1.png
-.. |image2_2| image:: images/lab-1-2_2.png
+.. |lab-1-1| image:: images/lab-1-1.png
+.. |lab-1-2| image:: images/lab-1-2.png

@@ -88,11 +88,11 @@ Perform the following steps to build the cluster:
    ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
-   |image28|
+   |lab-6-1|
 
    Your Runner window should look like:
 
-   |image29|
+   |lab-6-2|
 
 #. Click the :guilabel:`Run Lab 1.6 - Buil...` button
 
@@ -105,7 +105,7 @@ Perform the following steps to build the cluster:
    running.  You should have 0 failures and the last item in the request
    list should be named ``Cleanup Environment``
 
-   |image30|
+   |lab-6-3|
 
 .. NOTE::
    If you are have an issue with your authentication token issue please return to
@@ -119,12 +119,12 @@ Task 2 - Verify the Built Cluster in BIG-IP GUI
    :menuselection:`Device Management --> Overview` using the menu in the BIG-IP
    TMUI GUI. Verify that the cluster and failover status indicators are all green.
 
-   |image31|
+   |lab-6-4|
 
-.. |image28| image:: images/lab-6-028.png
-.. |image29| image:: images/lab-6-029.png
-.. |image30| image:: images/lab-6-030.png
+.. |lab-6-1| image:: images/lab-6-1.png
+.. |lab-6-2| image:: images/lab-6-2.png
+.. |lab-6-3| image:: images/lab-6-3.png
    :scale: 80%
-.. |image31| image:: images/lab-6-031.png
+.. |lab-6-4| image:: images/lab-6-4.png
    :scale: 80%
 .. |postman-runner-button| image:: /images/postman-runner-button.png

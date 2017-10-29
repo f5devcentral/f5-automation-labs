@@ -107,46 +107,46 @@ bots. slackbots are used to interact with services, they might query for somethi
 give you information when they notice something. In our case our Jenkins Pipeline file will use Slack
 to notify all of us when an action happens, collaborative teamwork.
 
-   .. NOTE:: In the Jenkins Files, the ``message`` piece is sent to the Slack channel, if you would like to modify your messages for our lab **change the text!**
+.. NOTE:: In the Jenkins Files, the ``message`` piece is sent to the Slack channel, if you would like to modify your messages for our lab **change the text!**
 
 #. Access Jenkins via Chrome, there is already a bookmark ``Jenkins`` created on your behalf , the user credentials are ``admin\default``.
 
-   |image97|
+   |lab-1-1|
 
 #. Once you are logged into Jenkins it should look like below
 
-   |image98|
+   |lab-1-2|
 
 #. Click on Manage Jenkins
 
-   |image99|
+   |lab-1-3|
 
 #. On the Manage Jenkins tab Select ``Available`` then filter on ``slack``, once the filter is complete choose ``Slack Notification Plugin`` and execute ``Install without Restart``
 
-   |image100|
+   |lab-1-4|
 
 #. Once the Slack Notification Plugin has changed to ``Success``, tick the radio button for ``Restart Jenkins when installation is complete and no jobs are running``
 
-   |image101|
+   |lab-1-5|
 
 #. Slack can take a few minutes to install in the background (give it 30 seconds), once the ``Restarting Jenkins`` globe is grey and the status is ``Running`` go back to Jenkins Home
 
-   |image102|
+   |lab-1-6|
 
 #. Executing a restart of Jenkins will stop your session, you will need to log back into the system
 
-   |image97|
+   |lab-1-1|
 
 
-.. |image97| image:: images/lab-1-097.png
+.. |lab-1-1| image:: images/lab-1-1.png
    :scale: 100%
-.. |image98| image:: images/lab-1-098.png
+.. |lab-1-2| image:: images/lab-1-2.png
    :scale: 70%
-.. |image99| image:: images/lab-1-099.png
+.. |lab-1-3| image:: images/lab-1-3.png
    :scale: 70%
-.. |image100| image:: images/lab-1-100.png
+.. |lab-1-4| image:: images/lab-1-4.png
    :scale: 70%
-.. |image101| image:: images/lab-1-101.png
+.. |lab-1-5| image:: images/lab-1-5.png
    :scale: 70%
-.. |image102| image:: images/lab-1-102.png
+.. |lab-1-6| image:: images/lab-1-6.png
    :scale: 70%

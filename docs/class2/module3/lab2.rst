@@ -19,7 +19,7 @@ the pieces required for this demo service.
 
 For a visual reference of what f5-programmability-class-2.postman_collection.json looks like:
 
-|image90|
+|lab-2-1|
 
 .. NOTE:: You do not need to have all these operations individually broken out, it is shown this way to educate that Workflows can be as small (update a pool member) or as large (deploy a whole service) as needed
 
@@ -246,11 +246,11 @@ Task 2 - Execute the first f5-newman-wrapper file
 
 #. On BIG-IP A, examine Virtual Server ``module_3_vs``:
 
-   |image91|
+   |lab-2-2|
 
 #. On BIG-IP A, examine Pool ``module_3_pool``:
 
-   |image92|
+   |lab-2-3|
 
 Task 3 - Execute the second f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -340,19 +340,19 @@ Task 3 - Execute the second f5-newman-wrapper file
 
 #. On BIG-IP A examine Virtual Server ``module_3_vs``, the Virtual Server should be healthy and Green:
 
-   |image93|
+   |module-3-1|
 
 #. On BIG-IP A examine Pool ``module_3_pool``:
 
-   |image94|
+   |module-3-2|
 
-.. |image90| image:: images/lab-2-090.png
+.. |lab-2-1| image:: images/lab-2-1.png
    :scale: 70%
-.. |image91| image:: images/lab-2-091.png
+.. |lab-2-2| image:: images/lab-2-2.png
    :scale: 70%
-.. |image92| image:: images/lab-2-092.png
+.. |lab-2-3| image:: images/lab-2-3.png
    :scale: 70%
-.. |image93| image:: images/module-3-001.png
+.. |module-3-1| image:: images/module-3-1.png
    :scale: 70%
-.. |image94| image:: images/module-3-002.png
+.. |module-3-2| image:: images/module-3-2.png
    :scale: 70%

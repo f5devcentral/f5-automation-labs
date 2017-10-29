@@ -77,7 +77,7 @@ Task 2 - Run update\_pool.py
    ``python update_pool.py 10.1.1.4 test_pool loadBalancingMode least-connections-member``
    and examine the output:
 
-   |image71|
+   |lab-3-1|
 
 #. You can manually verify the load balancing method was changed via
    TMUI or by re-running ``read_pool.py`` (it’s not required since the line
@@ -85,6 +85,6 @@ Task 2 - Run update\_pool.py
 
 #. Experiment with changing other pool attributes
 
-.. |image71| image:: images/lab-3-071.png
+.. |lab-3-1| image:: images/lab-3-1.png
    :width: 6.41783in
    :height: 0.45024in

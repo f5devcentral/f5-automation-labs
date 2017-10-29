@@ -52,12 +52,12 @@ Task 2 - Run read\_pool.py
 #. In the command prompt type ``python read_pool.py 10.1.1.4 test_pool``
    and examine the output:
 
-   |image70|
+   |lab-2-1|
 
 #. Notice the various attributes that are associated with the pool. Take
    note of the value of the ``loadBalancingMode`` attribute for the next
    lab
 
-.. |image70| image:: images/lab-2-070.png
+.. |lab-2-1| image:: images/lab-2-1.png
    :width: 6.33450in
    :height: 4.50574in

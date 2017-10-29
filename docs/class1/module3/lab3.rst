@@ -48,7 +48,7 @@ During our iWorkflow Onboarding process in Lab 3.1 we created a
 with a username of ``tenant``.  Additionally we gave ``MyTenant`` access to
 the :guilabel:`BIG-IP Connector` named ``BIG-IP A&B Connector``:
 
-|image54|
+|lab-3-1|
 
 This gives the ``tenant`` user the ability to perform CRUD operations on
 Service Deployments.
@@ -78,7 +78,7 @@ Perform the following steps to complete this task:
    available :guilabel:`Service Templates` and :guilabel:`Clouds` with their
    associated Connectors:
 
-   |image55|
+   |lab-3-2|
 
 Task 2 - Authenticate to the iWorkflow Tenant API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ Perform the following steps to complete this task:
    specify the Tenant we are performing the operation on.  In this case
    ``iwf_tenant_name`` is set to ``MyTenant`` in the Postman environment:
 
-   |image56|
+   |lab-3-3|
 
 #. Examine the JSON Request :guilabel:`Body`; it contains the following data:
 
@@ -136,7 +136,7 @@ Perform the following steps to complete this task:
 
    The data in the list above is highlighted below:
 
-   |image57|
+   |lab-3-4|
 
 #. Click the :guilabel:`Send` button to **Create** the Service Deployment
 
@@ -145,7 +145,7 @@ Perform the following steps to complete this task:
    click the Service and examine its properties.  You can compare the
    values in the UI to the JSON Request :guilabel:`Body` from the step above.
 
-   |image58|
+   |lab-3-5|
 
 #. Open a Chrome window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and
    login with ``admin/admin`` credentials. Navigate to
@@ -153,7 +153,7 @@ Perform the following steps to complete this task:
    ``example-f5-http-lb`` from the list of deployed services and examine the
    :guilabel:`Components` of the deployed service:
 
-   |image59|
+   |lab-3-6|
 
 Update
 ^^^^^^
@@ -166,18 +166,18 @@ Perform the following steps to complete this task:
    deployment and add a Pool Member as shown in the JSON Request
    :guilabel:`Body`:
 
-   |image60|
+   |lab-3-7|
 
 #. Click the :guilabel:`Send` button to **Update** the Service Deployment.
 
 #. Update the iWorkflow Tenant UI and notice that the Service has been updated:
 
-   |image61|
+   |lab-3-8|
 
 #. Update the BIG-IP GUI and notice that the :guilabel:`Components` tree has
    been updated:
 
-   |image62|
+   |lab-3-9|
 
 Read
 ^^^^
@@ -194,7 +194,7 @@ Perform the following steps to complete this task:
 #. Examine the JSON Response :guilabel:`Body` to see the state of the current
    Service Deployment:
 
-   |image63|
+   |lab-3-10|
 
 Delete
 ^^^^^^
@@ -210,13 +210,13 @@ Perform the following steps to complete this task:
 
 #. Update the iWorkflow Tenant UI and verify that the Service has been deleted:
 
-   |image64|
+   |lab-3-11|
 
 #. In the BIG-IP GUI navigate to
    :menuselection:`iApps --> Application Services` and verify the service was
    deleted.
 
-   |image65|
+   |lab-3-12|
 
 Task 3 - Deploy Additional Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -250,18 +250,18 @@ modifying the requests as needed.
       - HTTPS Offload, Web Application Firewall Protection and Load Balancing
         to a Single Pool
 
-.. |image54| image:: images/lab-3-054.png
-.. |image55| image:: images/lab-3-055.png
+.. |lab-3-1| image:: images/lab-3-1.png
+.. |lab-3-2| image:: images/lab-3-2.png
    :scale: 80%
-.. |image56| image:: images/lab-3-056.png
+.. |lab-3-3| image:: images/lab-3-3.png
    :scale: 80%
-.. |image57| image:: images/lab-3-057.png
-.. |image58| image:: images/lab-3-058.png
+.. |lab-3-4| image:: images/lab-3-4.png
+.. |lab-3-5| image:: images/lab-3-5.png
    :scale: 80%
-.. |image59| image:: images/lab-3-059.png
-.. |image60| image:: images/lab-3-060.png
-.. |image61| image:: images/lab-3-061.png
-.. |image62| image:: images/lab-3-062.png
-.. |image63| image:: images/lab-3-063.png
-.. |image64| image:: images/lab-3-064.png
-.. |image65| image:: images/lab-3-065.png
+.. |lab-3-6| image:: images/lab-3-6.png
+.. |lab-3-7| image:: images/lab-3-7.png
+.. |lab-3-8| image:: images/lab-3-8.png
+.. |lab-3-9| image:: images/lab-3-9.png
+.. |lab-3-10| image:: images/lab-3-10.png
+.. |lab-3-11| image:: images/lab-3-11.png
+.. |lab-3-12| image:: images/lab-3-12.png

@@ -26,11 +26,11 @@ Perform the following steps to complete this task:
 
 #. Click the ‘Code’ link in the Postman window:
 
-   |image73|
+   |lab-6-1|
 
 #. Select Python -> Requests from the menu on the top right of the window:
 
-   |image74|
+   |lab-6-2|
 
 #. Examine the Python code that was generated. Click the ‘Copy to
    Clipboard’ button
@@ -55,7 +55,7 @@ Perform the following steps to complete this task:
 #. Open a command prompt and run the script by typing
    ``python lab5_6.py``:
 
-   |image75|
+   |lab-6-3|
 
 #. Verify the monitor was created on BIG-IP
 
@@ -79,12 +79,12 @@ Perform the following steps:
 
 #. Run the script and verify the config was created.
 
-.. |image73| image:: images/lab-6-073.png
+.. |lab-6-1| image:: images/lab-6-1.png
    :width: 5.53944in
    :height: 2.76389in
-.. |image74| image:: images/lab-6-074.png
+.. |lab-6-2| image:: images/lab-6-2.png
    :width: 4.66783in
    :height: 3.98787in
-.. |image75| image:: images/lab-6-075.png
+.. |lab-6-3| image:: images/lab-6-3.png
    :width: 6.58611in
    :height: 1.36241in

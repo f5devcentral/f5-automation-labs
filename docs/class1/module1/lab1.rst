@@ -54,7 +54,7 @@ all the correct attributes already populated.
       so would make it possible for an attacker to do a man-in-the-middle
       attack and allow him the ability to steal passwords and tokens.
 
-   |image1|
+   |lab-1-1|
 
 #. Navigate to the URL ``https://10.1.1.10/mgmt/toc`` (or click the BIG-IP A
    REST TOC bookmark). The ``/mgmt/toc`` path in the URL is available on
@@ -64,19 +64,19 @@ all the correct attributes already populated.
 
 #. You will now be presented with a top-level list of various REST
    resources. At the top of the page there is a search box
-   |image2|\ that can be used to find items on the page. Type ``net`` in
+   |lab-1-2|\ that can be used to find items on the page. Type ``net`` in
    the search box and then click on the ‘net’ link under iControl REST
    Resources:
 
-   |image3|
+   |lab-1-3|
 
 #. Find the ``/mgmt/tm/net/route-domain`` **Collection** and click it.
 
 #. You will now see a listing of the **Resources** that are part of the
    route-domain(s) collection. As you can see the default route domain
    of ``0`` is listed. You can also create new objects by clicking the
-   |image4| button. Additionally, resources can be deleted using the
-   |image5| button or edited using the |image6| button. The |image1_7|
+   |lab-1-4| button. Additionally, resources can be deleted using the
+   |lab-1-5| button or edited using the |lab-1-7| button. The |lab-1-6|
    is used to copy JSON formatted resource with Ctrl+C. This can be
    useful when you want to slightly change an existing resource.
 
@@ -84,24 +84,24 @@ all the correct attributes already populated.
 #. Click the ``0`` resource to view the attributes of route-domain 0 on
    the device:
 
-   |image108|
+   |lab-1-9|
 
 #. You can now see the properties of the route-domain 0 Resource.  The
    components of the URI have been labeled in the screenshot below:
 
-   |image7|
+   |lab-1-8|
 
 .. NOTE:: If you would like to learn more about the |icr| be sure to read
    the **Demystifying iControl REST** article series at
    https://devcentral.f5.com/wiki/icontrolrest.homepage.ashx
 
-.. |image1| image:: images/lab-1-001.png
+.. |lab-1-1| image:: images/lab-1-1.png
    :scale: 75%
-.. |image2| image:: images/lab-1-002.png
-.. |image3| image:: images/lab-1-003.png
-.. |image4| image:: images/lab-1-004.png
-.. |image5| image:: images/lab-1-005.png
-.. |image1_7| image:: images/lab-1-1_7.png
-.. |image6| image:: images/lab-1-006.png
-.. |image7| image:: images/lab-1-007.png
-.. |image108| image:: images/lab-1-108.png
+.. |lab-1-2| image:: images/lab-1-2.png
+.. |lab-1-3| image:: images/lab-1-3.png
+.. |lab-1-4| image:: images/lab-1-4.png
+.. |lab-1-5| image:: images/lab-1-5.png
+.. |lab-1-6| image:: images/lab-1-6.png
+.. |lab-1-7| image:: images/lab-1-7.png
+.. |lab-1-8| image:: images/lab-1-8.png
+.. |lab-1-9| image:: images/lab-1-9.png

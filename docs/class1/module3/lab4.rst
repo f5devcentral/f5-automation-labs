@@ -77,7 +77,7 @@ Perform the following steps to complete this task:
    notice that we are still using our iWorkflow Token to Authenticate,
    not the BIG-IP one in the :guilabel:`Headers` tab.
 
-   |image65|
+   |lab-4-1|
 
 #. Click the :guilabel:`Send` button and examine the response.
 
@@ -85,4 +85,4 @@ Perform the following steps to complete this task:
    ``Lab 2.5 - iWorkflow REST Proxy`` collection. Examine each request
    carefully so you understand what is happening.
 
-.. |image65| image:: images/lab-4-066.png
+.. |lab-4-1| image:: images/lab-4-1.png

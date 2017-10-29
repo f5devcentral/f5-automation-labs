@@ -101,7 +101,7 @@ Perform the following steps to complete this task:
    - Also notice that we are disabling the GUI Setup Wizard as part of
      the same request:
 
-     |image25|
+     |lab-3-1|
 
 #. Click the :guilabel:`Send` button and review the response :guilabel:`Body`.
    You should see that the attributes modified above have been updated by
@@ -145,7 +145,7 @@ Perform the following steps to complete this task:
    ``4.2.2.2`` and ``8.8.8.8`` are listed. Additionally, add a search domain of
    ``f5.local``. You will modify a JSON array to add a search domain:
 
-   |image109|
+   |lab-3-4|
 
 #. Click the :guilabel:`Send` button and verify the requested changes were
    successfully implemented by looking at the response or by sending the
@@ -186,14 +186,14 @@ Perform the following steps to change the ``root`` user password:
    :guilabel:`Body`.  Modify the JSON body to update the password to the
    value ``newdefault`` and click the :guilabel:`Send` button.
 
-   |image26|
+   |lab-3-2|
 
 #. You can verify the password has been changed by opening an SSH session
    to BIG-IP A.  A shortcut to a terminal is included on the desktop of
    the Linux jumphost.  Open a Terminal window and then open an SSH connection
    to BIG-IP A using the command ``ssh root@10.1.1.10``:
 
-   |image110|
+   |lab-3-5|
 
 #. **Repeat the procedure above to change the password back to** ``default``
 
@@ -205,15 +205,15 @@ Perform the following steps to change the **admin** user password:
    Resource. Click :guilabel:`Body` and modify the JSON body to update the
    password to the value ``newadmin`` and click the :guilabel:`Send` button.
 
-   |image27|
+   |lab-3-3|
 
 #. You can verify the password has been changed by opening an SSH session
     OR by logging into TMUI (HTTP GUI) to BIG-IP A in a Chrome browser tab.
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
-.. |image25| image:: images/lab-3-025.png
-.. |image26| image:: images/lab-3-026.png
-.. |image27| image:: images/lab-3-027.png
-.. |image109| image:: images/lab-3-109.png
-.. |image110| image:: images/lab-3-110.png
+.. |lab-3-1| image:: images/lab-3-1.png
+.. |lab-3-2| image:: images/lab-3-2.png
+.. |lab-3-3| image:: images/lab-3-3.png
+.. |lab-3-4| image:: images/lab-3-4.png
+.. |lab-3-5| image:: images/lab-3-5.png

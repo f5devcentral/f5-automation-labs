@@ -52,26 +52,26 @@ To install the framework complete the following tasks:
 #. Select the ``Check f5-postman-workflows Version`` item and click 'Send'
 #. Examine the 'Tests' portion of the **RESPONSE**:
 
-   |image79|
+   |lab-1-1|
 
 #. Select the ``Install/Upgrade f5-postman-workflows`` item and click 'Send'
 #. Examine the 'Tests' again and ensure that Installation was successful:
 
-   |image80|
+   |lab-1-2|
 
 #. Click the 'Eye' button in the top right of the Postman window and examine
    the Global variables that have been populated
 
-   |image81|
+   |lab-1-3|
 
 The f5-postman-workflows framework is now installed in your Postman client.
 
 .. |postman-icon| image:: /images/postman-icon.png
    :width: 0.46171in
    :height: 0.43269in
-.. |image79| image:: images/lab-1-079.png
+.. |lab-1-1| image:: images/lab-1-1.png
    :scale: 100%
-.. |image80| image:: images/lab-1-080.png
+.. |lab-1-2| image:: images/lab-1-2.png
    :scale: 100%
-.. |image81| image:: images/lab-1-081.png
+.. |lab-1-3| image:: images/lab-1-3.png
    :scale: 100%

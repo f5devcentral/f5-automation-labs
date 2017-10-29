@@ -24,15 +24,15 @@ logging, which we will also review.
 
 #. From the Jenkins Dashboard click on ``create new jobs``
 
-   |image103|
+   |lab-2-1|
 
 #. We are going to create our first Pipeline Job. Name the item ``module_4_jenkinsfile1-2``, choose the ``Pipeline`` project style and select ``OK``
 
-   |image104|
+   |lab-2-2|
 
 #. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but **please look at the other options** which can deploy a Pipeline. The different options in here are for an SCM (like GitHub), the ``Polling`` or ``Commit`` methods enable Continuous Deployment, as Jenkins will deploy the change on an event basis. Tie this with automatic testing to make sure you're not breaking the build!
 
-   |image105|
+   |lab-2-3|
 
 #. We need to enter the contents of the ``Jenkinsfile1-2`` into the ``Script`` section under Pipeline. After the contents are added click the ``Save`` Option.
 
@@ -85,41 +85,41 @@ logging, which we will also review.
 
 Contents in Pipeline:
 
-|image106|
+|lab-2-4|
 
 #. Once the Job is saved, you will be taken to the stage view page, from here we are going to execute our Pipeline build, choose the ``Build Now`` option.
 
-   |image107|
+   |lab-2-5|
 
 #. The Build is now running, and the stages are being executed in order. However, on our third stage we have a **pause** and an approval **needed**. Also at the same time Slack has began to notify us that a new service is being deployed, and someone needs to approve it.
 
-   |image108|
+   |lab-2-6|
    Highlight over the third Stage to prompt for the Approval
-   |image109|
+   |lab-2-7|
 
-   |image110|
+   |lab-2-8|
 
 #. Approve the change in Jenkins to allow the build to finish. Once this is done, the approval and finished Slack notification will be sent.
 
-   |image111|
+   |lab-2-9|
 
-   |image112|
+   |lab-2-10|
 
 #. At the end of the Build event (success or failure) there is a console output from Jenkins. Select the blue globe on the left to see the outputs
 
-   |image113|
+   |lab-2-11|
 
 #. The Console Output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
 
-   |image114|
+   |lab-2-12|
 
 #. Check Slack for the completion of everything!
 
-   |image115|
+   |lab-2-13|
 
 #. Verify on the BIG-IP that the pool ``module_3_vs`` has been created and the services are Green
 
-   |image117|
+   |lab-2-15|
 
 Task 2 - Jenkinsfile3 and Jenkinsfile4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,7 +128,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
 #. Return to the Jenkins Dashboard and select ``New Item``
 
-   |image116|
+   |module-4-1|
 
 #. Repeat steps 2 & 3 of the last module, creating 2 new Jenkins jobs, one for each desired node state.
 
@@ -188,33 +188,33 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
 #. Verify on the BIG-IP that the pool ``module_3_pool`` has an up node
 
-.. |image103| image:: images/lab-2-103.png
+.. |lab-2-1| image:: images/lab-2-1.png
    :scale: 70%
-.. |image104| image:: images/lab-2-104.png
+.. |lab-2-2| image:: images/lab-2-2.png
    :scale: 70%
-.. |image105| image:: images/lab-2-105.png
+.. |lab-2-3| image:: images/lab-2-3.png
    :scale: 70%
-.. |image106| image:: images/lab-2-106.png
+.. |lab-2-4| image:: images/lab-2-4.png
    :scale: 70%
-.. |image107| image:: images/lab-2-107.png
+.. |lab-2-5| image:: images/lab-2-5.png
    :scale: 70%
-.. |image108| image:: images/lab-2-108.png
+.. |lab-2-6| image:: images/lab-2-6.png
    :scale: 70%
-.. |image109| image:: images/lab-2-109.png
+.. |lab-2-7| image:: images/lab-2-7.png
    :scale: 70%
-.. |image110| image:: images/lab-2-110.png
+.. |lab-2-8| image:: images/lab-2-8.png
    :scale: 100%
-.. |image111| image:: images/lab-2-111.png
+.. |lab-2-9| image:: images/lab-2-9.png
    :scale: 100%
-.. |image112| image:: images/lab-2-109.png
+.. |lab-2-10| image:: images/lab-2-10.png
    :scale: 100%
-.. |image113| image:: images/lab-2-113.png
+.. |lab-2-11| image:: images/lab-2-11.png
    :scale: 70%
-.. |image114| image:: images/lab-2-114.png
+.. |lab-2-12| image:: images/lab-2-12.png
    :scale: 70%
-.. |image115| image:: images/lab-2-115.png
+.. |lab-2-13| image:: images/lab-2-13.png
    :scale: 100%
-.. |image116| image:: images/module-4-001.png
+.. |module-4-1| image:: images/module-4-1.png
    :scale: 70%
-.. |image117| image:: images/lab-2-117.png
+.. |lab-2-15| image:: images/lab-2-15.png
    :scale: 70%

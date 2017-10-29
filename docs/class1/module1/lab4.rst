@@ -107,7 +107,7 @@ Perform the following steps to configure the VLAN objects/resources:
    - ``tag``: ``10`` --> ``20``
    - ``interfaces[] --> name``: ``1.1`` --> ``1.2``
 
-   |image111|
+   |lab-4-6|
 
 #. Click the ``Step 2: Get VLANs`` request in the folder. Click the
    :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response
@@ -142,7 +142,7 @@ Perform the following steps to configure the Self IP objects/resources:
       ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
       and you should continue to the next section.
 
-   |image92|
+   |lab-4-1|
 
 Task 3 - Modify Existing Self IP Resource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -164,24 +164,24 @@ Resource URI.
    change the request method from ``GET`` to ``PATCH``.  The ``PATCH`` method
    is used to modify the attributes of an existing Resource.
 
-   |image96|
+   |lab-4-5|
 
 #. Copy ``(Ctrl+c)`` the entire JSON **RESPONSE** from the previous ``GET``
    request.
 
-   |image93|
+   |lab-4-2|
 
 #. Paste ``(Ctrl+v)`` the text into JSON Request body:
 
    .. NOTE:: Be sure to highlight any existing text and replace it while
       pasting.
 
-   |image94|
+   |lab-4-3|
 
 #. In the JSON body change the ``vlan`` attribute to ``/Common/Internal``
    and click ``Send``:
 
-   |image95|
+   |lab-4-4|
 
 #. Click the ``Step 6: Get Self IPs`` item in the collection. Click the
    ``Send`` button to GET the Self IP collection. Examine the response to
@@ -208,12 +208,12 @@ Perform the following steps to configure the Route object/resource:
    ``Send`` button to ``GET`` the routes collection. Examine the response to
    make sure the route has been created.
 
-.. |image92| image:: images/lab-4-092.png
-.. |image93| image:: images/lab-4-093.png
-.. |image94| image:: images/lab-4-094.png
-.. |image95| image:: images/lab-4-095.png
-.. |image96| image:: images/lab-4-096.png
-.. |image111| image:: images/lab-4-111.png
+.. |lab-4-1| image:: images/lab-4-1.png
+.. |lab-4-2| image:: images/lab-4-2.png
+.. |lab-4-3| image:: images/lab-4-3.png
+.. |lab-4-4| image:: images/lab-4-4.png
+.. |lab-4-5| image:: images/lab-4-5.png
+.. |lab-4-6| image:: images/lab-4-6.png
 .. |labtopology| image:: /class1/images/labtopology.png
    :scale: 65%
 

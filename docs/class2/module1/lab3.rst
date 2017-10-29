@@ -129,7 +129,7 @@ To connect outside of the F5 Lab environment via HTTP, open a web browser and en
 
 You should see a page like this:
 
-|image78|
+|lab-3-1|
 
 Task 3 - Connect via Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,11 +153,11 @@ To connect via HTTP open a web browser and enter the URL:
 
 You should see a page like this:
 
-|image89|
+|lab-3-2|
 
-.. |image78| image:: images/lab-3-078.png
+.. |lab-3-1| image:: images/lab-3-1.png
    :align: middle
    :scale: 50%
-.. |image89| image:: images/lab-3-089.png
+.. |lab-3-2| image:: images/lab-3-2.png
    :align: middle
    :scale: 95%

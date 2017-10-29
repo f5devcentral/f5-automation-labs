@@ -22,7 +22,7 @@ Task 1 - Teardown the Application via Jenkins
 
 #. Return to the Jenkins Dashboard and select ``New Item``
 
-   |image116|
+   |module-4-1|
 
 #. Repeat steps 2 & 3 of the first module, creating the final Jenkins job
 
@@ -71,5 +71,5 @@ Task 1 - Teardown the Application via Jenkins
 #. Verify the on the BIG-IP the service has been Deleted
 #. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK
 
-.. |image116| image:: images/module-4-001.png
+.. |module-4-1| image:: images/module-4-1.png
    :scale: 70%

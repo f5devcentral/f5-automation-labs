@@ -66,7 +66,7 @@ Perform the following steps to complete this task:
 #. Expand the :guilabel:`Service Templates` panel and verify all the templates
    have been created:
 
-   |image45|
+   |lab-2-1|
 
 Task 2 - Explore the f5-http-lb-v1.0 Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,13 +77,13 @@ Perform the following steps to complete this task:
 
 #. Open the ``f5-http-lb-v1.0`` Template by double clicking it:
 
-   |image46|
+   |lab-2-2|
 
 #. Let's examine the :guilabel:`Properties` pane.
 
 #. Select :guilabel:`All` in the :guilabel:`Displayed Parameters` section:
 
-   |image47|
+   |lab-2-3|
 
 #. This pane shows detailed information about the Template such as:
 
@@ -92,13 +92,13 @@ Perform the following steps to complete this task:
    - A control that toggles which Parameters are displayed in the pane
    - The input Sections and Fields (collapsed in screenshot) for the iApp Template
 
-   |image48|
+   |lab-2-4|
 
 #. In the :guilabel:`Sections` portion of the pane, find the
    :guilabel:`Virtual Server Listener & Pool Configuration` section.  Click the
    triangle to expand the section:
 
-   |image49|
+   |lab-2-5|
 
 #. You can now see all the input fields associated with this section of the
    iApp template.  These fields are defined by the iApp Template itself.  In
@@ -118,7 +118,7 @@ Perform the following steps to complete this task:
      - If the field is ``Tenant Editable`` the default value is populated
        for the Tenant and the Tenant may edit it during a Service Deployment
 
-   |image50|
+   |lab-2-6|
 
    In the case of the fields shown in the above example:
 
@@ -151,7 +151,7 @@ Perform the following steps to complete this task:
    .. NOTE:: To accomodate screen size this screenshot does not show all the
       columns in the table.
 
-   |image51|
+   |lab-2-7|
 
    The highlighted sections in the image above correspond to the capabilities
    in the list below:
@@ -184,7 +184,7 @@ Perform the following steps to complete this task:
    preview what the Tenant UI would look like for a Service Template.  To view
    the preview, click the :guilabel:`Tenant Preview` button:
 
-   |image52|
+   |lab-2-8|
 
 #. The preview window shows how the Tenant UI would present the Service
    Template.  As you can see the interface is vastly simplified and only
@@ -194,7 +194,7 @@ Perform the following steps to complete this task:
    interface may be simple, you can still leverage advanced functionality in the
    Service Template.
 
-   |image53|
+   |lab-2-9|
 
 Task 3 - Explore the Remaining Service Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,14 +227,14 @@ appropriate Monitors, Profiles and Options for the use case.
       - HTTPS Offload, Web Application Firewall Protection and Load Balancing
         to a Single Pool
 
-.. |image45| image:: images/lab-2-045.png
-.. |image46| image:: images/lab-2-046.png
+.. |lab-2-1| image:: images/lab-2-1.png
+.. |lab-2-2| image:: images/lab-2-2.png
    :scale: 80%
-.. |image47| image:: images/lab-2-047.png
-.. |image48| image:: images/lab-2-048.png
-.. |image49| image:: images/lab-2-049.png
-.. |image50| image:: images/lab-2-050.png
-.. |image51| image:: images/lab-2-051.png
+.. |lab-2-3| image:: images/lab-2-3.png
+.. |lab-2-4| image:: images/lab-2-4.png
+.. |lab-2-5| image:: images/lab-2-5.png
+.. |lab-2-6| image:: images/lab-2-6.png
+.. |lab-2-7| image:: images/lab-2-7.png
    :scale: 80%
-.. |image52| image:: images/lab-2-052.png
-.. |image53| image:: images/lab-2-053.png
+.. |lab-2-8| image:: images/lab-2-8.png
+.. |lab-2-9| image:: images/lab-2-9.png

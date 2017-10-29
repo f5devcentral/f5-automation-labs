@@ -35,7 +35,7 @@ whole ``.tmpl`` file can be uploaded, removing the need for encoding.
    ``Lab 2.2 - Deploying iApp Templates on BIG-IP`` folder in the Postman
    Collection
 
-|image2_7|
+|lab-2-5|
 
 Task 1 - View Installed iApp Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,12 +45,12 @@ Perform the following steps to complete this task:
 #. :guilabel:`Send` the ``Step 1: Get Installed iApp Templates`` request to view
    iApp templates installed on the BIG-IP device:
 
-   |image2_3|
+   |lab-2-1|
 
 #. Review the JSON response :guilabel:`Body`.  The JSON payload shows
    iApp templates that are installed on the BIG-IP device:
 
-   |image2_4|
+   |lab-2-2|
 
 Task 2 - Install the App Services iApp Template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,7 +60,7 @@ Perform the following steps to complete this task:
 #. :guilabel:`Send` the ``Step 2: Install App Svcs v2.0.004 iApp Template``
    request to install the App Services iApp template:
 
-   |image2_5|
+   |lab-2-3|
 
 #. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON
    :guilabel:`Body`.  In this task we installed the App Services iApp Template
@@ -72,11 +72,11 @@ Perform the following steps to complete this task:
       in the Postman Collection was copied from a pre-built collection that
       ships with releases of the App Services iApp template.
 
-   |image2_38|
+   |lab-2-6|
 
-.. |image2_3| image:: images/lab-2-2_3.png
-.. |image2_4| image:: images/lab-2-2_4.png
-.. |image2_5| image:: images/lab-2-2_5.png
-.. |image2_6| image:: images/lab-2-2_6.png
-.. |image2_7| image:: images/lab-2-2_7.png
-.. |image2_38| image:: images/lab-2-2_38.png
+.. |lab-2-1| image:: images/lab-2-1.png
+.. |lab-2-2| image:: images/lab-2-2.png
+.. |lab-2-3| image:: images/lab-2-3.png
+.. |lab-2-4| image:: images/lab-2-4.png
+.. |lab-2-5| image:: images/lab-2-5.png
+.. |lab-2-6| image:: images/lab-2-6.png

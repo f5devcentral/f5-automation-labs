@@ -90,7 +90,7 @@ Perform the following steps to build the cluster:
    ``Lab 3.1 - iWorkflow Onboarding`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
-   |image41|
+   |lab-1-1|
 
 #. Click the :guilabel:`Run Lab 3.1 - iWor...` button
 
@@ -103,24 +103,24 @@ Perform the following steps to build the cluster:
    running.  You should have 0 failures and the last item in the request
    list should be named ``Install App Services Template on iWorkflow``
 
-   |image42|
+   |lab-1-2|
 
 #. At this point you can log into iWorkflow using Chrome at
    ``https://10.1.1.12`` and ``admin/admin`` credentials.  Click
    :guilabel:`Clouds and Services` at the top of the window:
 
-   |image43|
+   |lab-1-3|
 
 #. Browse the various panes to see what was created:
 
-   |image44|
+   |lab-1-4|
 
 .. |postman-runner-button| image:: /images/postman-runner-button.png
-.. |image41| image:: images/lab-1-041.png
-.. |image42| image:: images/lab-1-042.png
+.. |lab-1-1| image:: images/lab-1-1.png
+.. |lab-1-2| image:: images/lab-1-2.png
    :scale: 80%
-.. |image43| image:: images/lab-1-043.png
-.. |image44| image:: images/lab-1-044.png
+.. |lab-1-3| image:: images/lab-1-3.png
+.. |lab-1-4| image:: images/lab-1-4.png
    :scale: 70%
 
 

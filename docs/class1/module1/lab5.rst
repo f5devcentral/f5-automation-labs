@@ -46,18 +46,18 @@ Task 1 - Open and Run a Collection
 
 #. The collection we will run in this task will populate some environment
    variables with various data about the BIG-IP system.  First, let's examine
-   the Environment Variables that are currently set.  Click the |image99|\ icon
+   the Environment Variables that are currently set.  Click the |lab-5-2|\ icon
    in the top right of the Postman window.  Notice that there are no variables
    starting with the name ``lab1.5_``:
 
-   |image98|
+   |lab-5-1|
 
 #. Click the ``Lab 1.5 - Building Imperative Workflows`` folder to expand it
 
 #. Click the ``Step 1: Get BIG-IP Software Version`` request.  Click the
    :guilabel:`Tests` tab and examine the Javascript code and comments:
 
-   |image100|
+   |lab-5-3|
 
    The Javascript code in the Test script will populate an environment variable
    based on the response from the BIG-IP system.
@@ -70,11 +70,11 @@ Task 1 - Open and Run a Collection
    ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
-   |image101|
+   |lab-5-4|
 
    Your Runner window should look like:
 
-   |image102|
+   |lab-5-5|
 
    As you can see from the screenshot or your own Collection Runner screen, we
    will be sending 3 requests (Steps 1-3 in Lab 1.5).  Each request has a
@@ -89,14 +89,14 @@ Task 1 - Open and Run a Collection
    The last request in the folder includes some Javascript code to dump the
    results to the screen:
 
-   |image103|
+   |lab-5-6|
 
-#. Next, switch back to the main Postman window.  Click the |image99|\ button
+#. Next, switch back to the main Postman window.  Click the |lab-5-2|\ button
    again and examine the environment variables.  Notice that three new variables
    starting with the name ``lab1.5_`` have been populated. You may need to scroll
    down to see these variables:
 
-   |image104|
+   |lab-5-7|
 
 .. NOTE:: It is normal for the values of Software Version, CPU Count and Base
    MAC Address to be different from the screenshot(s).
@@ -116,11 +116,11 @@ and **Declarative Interfaces** to minimize the amount of time spent on building
 Imperative Workflows.
 
 .. |postman-runner-button| image:: /images/postman-runner-button.png
-.. |image98| image:: images/lab-5-098.png
-.. |image99| image:: images/lab-5-099.png
-.. |image100| image:: images/lab-5-100.png
-.. |image101| image:: images/lab-5-101.png
-.. |image102| image:: images/lab-5-102.png
-.. |image103| image:: images/lab-5-103.png
+.. |lab-5-1| image:: images/lab-5-1.png
+.. |lab-5-2| image:: images/lab-5-2.png
+.. |lab-5-3| image:: images/lab-5-3.png
+.. |lab-5-4| image:: images/lab-5-4.png
+.. |lab-5-5| image:: images/lab-5-5.png
+.. |lab-5-6| image:: images/lab-5-6.png
    :scale: 65%
-.. |image104| image:: images/lab-5-104.png
+.. |lab-5-7| image:: images/lab-5-7.png

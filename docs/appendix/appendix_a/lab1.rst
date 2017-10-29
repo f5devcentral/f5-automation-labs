@@ -15,7 +15,7 @@ from the command line.
 Task 1 - Review create\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open Notepad++ using the |image66| located in the Windows Taskbar.
+#. Open Notepad++ using the |lab-1-1| located in the Windows Taskbar.
 
 #. Double click the file ``create_pool.py`` in the menu on the left side
    of the Notepad++ screen
@@ -116,7 +116,7 @@ creates a new member in the pool.
 Task 2 - Run create\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open Console2 using the |image67| icon on the Windows Taskbar
+#. Open Console2 using the |lab-1-2| icon on the Windows Taskbar
 
 #. The console window automatically opens in the Desktop\\Module 5 -
    Python SDK directory
@@ -126,25 +126,25 @@ Task 2 - Run create\_pool.py
 
 #. Type ``python create_pool.py`` and examine the help output:
 
-   |image68|
+   |lab-1-3|
 
 #. Type ``python create_pool.py 10.1.1.4 test_pool 10.1.10.10:80,10.1.10.11:80``
    to create a new pool:
 
-   |image69|
+   |lab-1-4|
 
 #. Using Chrome open a tab to BIGIP-A (https://10.1.1.4). Examine the
    pool that was created.
 
-.. |image66| image:: images/lab-1-066.png
+.. |lab-1-1| image:: images/lab-1-1.png
    :width: 0.28045in
    :height: 0.24306in
-.. |image67| image:: images/lab-1-067.png
+.. |lab-1-2| image:: images/lab-1-2.png
    :width: 0.35694in
    :height: 0.30286in
-.. |image68| image:: images/lab-1-068.png
+.. |lab-1-3| image:: images/lab-1-3.png
    :width: 6.33450in
    :height: 0.81372in
-.. |image69| image:: images/lab-1-069.png
+.. |lab-1-4| image:: images/lab-1-4.png
    :width: 6.25116in
    :height: 0.51099in

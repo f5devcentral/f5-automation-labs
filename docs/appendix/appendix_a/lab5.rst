@@ -36,11 +36,11 @@ Task 2 - Run delete\_pool.py
    ``python delete_pool.py 10.1.1.4 test_pool``
    and examine the output:
 
-   |image72|
+   |lab-5-1|
 
 2. If desired verify the pool was deleted using TMUI or the
    ``read_pool.py`` script (it should return an error)
 
-.. |image72| image:: images/lab-5-072.png
+.. |lab-5-1| image:: images/lab-5-1.png
    :width: 6.41944in
    :height: 0.42326in

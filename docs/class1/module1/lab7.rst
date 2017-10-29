@@ -53,14 +53,14 @@ Perform the following steps to complete this task:
 #. Expand the ``Lab 1.7 - Build a Basic LTM Config using Transactions`` folder in the Postman
    collection:
 
-   |image35|
+   |lab-7-1|
 
 #. Click the ``Step 1: Create a Transaction`` request. Examine the URL and
    JSON :guilabel:`Body`. We will send a ``POST`` to the
    ``/mgmt/tm/transaction`` endpoint with an empty JSON body to create a new
    transaction.
 
-   |image36|
+   |lab-7-2|
 
 #. Click the :guilabel:`Send` button to send the request. Examine the response
    and find the ``transId`` attribute.  Additionally, notice that there are
@@ -68,12 +68,12 @@ Perform the following steps to complete this task:
    take to execute. Please be aware that upon exceeding the ``timeoutSeconds``
    period, the ``transId`` will be silently removed:
 
-   |image37|
+   |lab-7-3|
 
    The ``transId`` value has been automatically populated for you in the
    ``bigip_transaction_id`` environment variable:
 
-   |image38|
+   |lab-7-4|
 
 #. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` request in the
    folder. This request is similar to a non-transaction enabled request  in terms
@@ -81,7 +81,7 @@ Perform the following steps to complete this task:
    header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId``
    attribute is added to the transaction:
 
-   |image39|
+   |lab-7-5|
 
 #. Click the :guilabel:`Send` button and examine the response.
 
@@ -98,14 +98,14 @@ Task 2 - Modify a Transaction
    folder. Examine the request method and URI. We will ``GET`` command number
    **4** from the transaction queue.
 
-   |image76|
+   |lab-7-7|
 
 #. Click the ``Step 9: Change Eval Order 4 -> 1`` request in the folder.
    Examine the request method, URI, JSON body, then click :guilabel:`Send`.
    We will PATCH our transaction resource and change the value of the ``evalOrder``
    attribute from ``4`` to ``1`` to move to the first position of the transaction queue:
 
-   |image77|
+   |lab-7-8|
 
    .. NOTE:: Requests in the ordered transaction queue must obey the order of
       operations present in the underlying BIG-IP system.
@@ -135,7 +135,7 @@ Task 3 - Commit a Transaction
    transaction resource and change the value of the ``state`` attribute
    to submit the transaction:
 
-   |image40|
+   |lab-7-6|
 
 #. Click the :guilabel:`Send` button and examine the response.  The ``state``
    may already be ``COMPLETED``, however, it's a good practice to explicitly
@@ -151,11 +151,11 @@ Task 3 - Commit a Transaction
 #. Verify that the virtual server works by opening ``http://10.1.20.120`` in
    Chrome web browser
 
-.. |image35| image:: images/lab-7-035.png
-.. |image36| image:: images/lab-7-036.png
-.. |image37| image:: images/lab-7-037.png
-.. |image38| image:: images/lab-7-038.png
-.. |image39| image:: images/lab-7-039.png
-.. |image40| image:: images/lab-7-040.png
-.. |image76| image:: images/lab-7-076.png
-.. |image77| image:: images/lab-7-077.png
+.. |lab-7-1| image:: images/lab-7-1.png
+.. |lab-7-2| image:: images/lab-7-2.png
+.. |lab-7-3| image:: images/lab-7-3.png
+.. |lab-7-4| image:: images/lab-7-4.png
+.. |lab-7-5| image:: images/lab-7-5.png
+.. |lab-7-6| image:: images/lab-7-6.png
+.. |lab-7-7| image:: images/lab-7-7.png
+.. |lab-7-8| image:: images/lab-7-8.png
