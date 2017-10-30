@@ -84,11 +84,11 @@ Layer 4-7 Application Service Delivery
 
 L4-7 Application Service Delivery is accomplished by:
 
--  **Declarative:** Consuming F5 iApp templates on BIG-IP devices and
-   creating a Service Catalog.
+-  Consuming F5 iApp templates on BIG-IP devices and
+   creating a Service Catalog (**Declarative**).
 
--  **Imperative:** Consuming the iWorkflow REST Proxy to drive API calls to
-   BIG-IP devices.
+-  Consuming the iWorkflow REST Proxy to drive API calls to
+   BIG-IP devices (**Imperative**).
 
 The labs in the module will focus on the high level features in place to
 achieve full L4-7 automation. As mentioned above, iApp Templates are a key
