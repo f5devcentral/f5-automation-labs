@@ -41,7 +41,7 @@ simplify **Imperative** Automation by:
    -  Strong authentication can be implemented at iWorkflow rather than
       on each BIG-IP
 
--  Simplified RBAC
+-  Simplified Role Based Access Control (RBAC)
 
    -  RBAC can be implemented at iWorkflow for all devices rather than on
       individual devices in the environment
@@ -82,7 +82,7 @@ Perform the following steps to complete this task:
 #. Click the :guilabel:`Send` button and examine the response.
 
 #. Complete Steps 2-5 for the remaining items in the
-   ``Lab 2.5 - iWorkflow REST Proxy`` collection. Examine each request
+   ``Lab 3.4 - iWorkflow REST Proxy`` collection. Examine each request
    carefully so you understand what is happening.
 
 .. |lab-4-1| image:: images/lab-4-1.png
