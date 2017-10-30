@@ -1,12 +1,13 @@
 Amazon AWS Lab Environment Guide
 --------------------------------
 
+.. ERROR:: The AWS CFT is currently in testing and not complete.  This notice
+   will be updated as progress is made.  This functionality should be available
+   by Dec 1st 2017.
+
 .. WARNING:: The AWS CFT will run in your account.  The template includes
    components and instances that will incur a charge.  This charge will be
    billed to your account.
-
-.. WARNING:: The AWS CFT is currently in testing.  You can complete Modules 1
-   & 2 of this class using the template at this time.
 
 You can use an Amazon CloudFormation Template (CFT) to launch your own lab
 environment in AWS.  This guide assumes the following:
