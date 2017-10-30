@@ -14,7 +14,7 @@ tools properly we will connect via SSH and/or HTTP.
 
 .. _lab1_3_1:
 
-Task 1 – Connect via SSH
+Task 1 - Connect via SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via SSH we must use the published port specified in the
@@ -106,7 +106,7 @@ Example output of connecting to the container:
    Go forth and automate!
    [snops@f5-super-netops] [~] $
 
-Task 2 – Connect via HTTP
+Task 2 - Connect via HTTP
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via HTTP we use the published port specified in the
@@ -121,7 +121,7 @@ Docker host.  In the case of the HTTP service the following mapping applies:
 ``localhost:8080 -> f5-super-netops-container:80``
 
 .. NOTE:: If you are using an F5 provided lab environment please use the browser
-   and click the 'Super Netops Container' bookmark.
+   and click the 'Super-NetOps Container' bookmark.
 
 To connect outside of the F5 Lab environment via HTTP, open a web browser and enter the URL:
 
@@ -129,9 +129,9 @@ To connect outside of the F5 Lab environment via HTTP, open a web browser and en
 
 You should see a page like this:
 
-|image78|
+|lab-3-1|
 
-Task 3 – Connect via Jenkins
+Task 3 - Connect via Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To connect to the image via Jenkins we use the published port specified in the
@@ -153,11 +153,11 @@ To connect via HTTP open a web browser and enter the URL:
 
 You should see a page like this:
 
-|image89|
+|lab-3-2|
 
-.. |image78| image:: /_static/image078.png
+.. |lab-3-1| image:: images/lab-3-1.png
    :align: middle
    :scale: 50%
-.. |image89| image:: /_static/class2/image089.png
+.. |lab-3-2| image:: images/lab-3-2.png
    :align: middle
    :scale: 95%

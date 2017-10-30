@@ -1,127 +1,99 @@
-.. |labmodule| replace:: 2
-.. |labnum| replace:: 1
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 2.1: Exploring iApps
+------------------------
 
-Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
-------------------------------------------------------
+.. graphviz::
 
-iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
-BASIC, Token Based Auth). In this lab we will quickly review TBA on
-iWorkflow.
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontname = "arial-bold"
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "iApp Templates & Deployments"
+         basics [label="iApp Basics",color="steelblue1"]
+         templates [label="iApp Templates"]
+         deployments [label="iApp Deployments"]
+         basics -> templates -> deployments
+      }
+   }
 
-Task 1 – Token Based Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iApp Templates & Deployments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will demonstrate TBA using the local authentication
-database, however, authentication to external providers is fully
-supported.
+There are multiple ways to install an iApp on BIG-IP. These includes using
+TMOS Shell (TMSH through SSH), the GUI (TMUI), and the REST Interface. All
+of these mechanisms are supported and, if required, can be used in
+conjunction with each other.
 
-For more information about external authentication providers see the
-section titled “\ **About external authentication providers with
-iControl REST**\ ” in the iControl REST API User Guide available at
-https://devcentral.f5.com
+For instance, you can install an iApp template from BIG-IP GUI and then deploy
+a new service via iControl REST using tools such as cURL, Postman and Ansible.
 
-Perform the following steps to complete this task:
+.. NOTE:: Redeployment of iApp templates is facilitated/protected by a mechanism in
+   BIG-IP platform to ensure safe changes to the configurations without disrupting
+   existing user traffic.
 
-#. Click the ‘Step 1: Get Authentication Token’ item in the Lab 2.1
-   Postman Collection
+F5 iApps was introduced in TMOS (BIG-IP operating system) Version 11.
+They can interact within and across different F5 modules to provide
+full Layer 4-7 Application Services capabilities.
+The **iApp Template** is used to execute an **iApp Deployment**
+that generates a series of configuration object grouped under an
+**Application Service Object (ASO)**.  The ASO model houses objects belonging
+to the iApp service deployment.  Upon deletion of a specific iApp service deployment,
+all the associated objects will be recursively deleted.
 
-#. Notice that we are sending a POST request to the
-   ``/mgmt/shared/authn/login`` endpoint.
+Below are some of the modules that can be configured using iApp templates:
 
-   |image41|
+- Local Traffic Manager
+- Advanced Firewall Manager
+- Application Security Manager
+- Access Policy Manager
 
-#. Click the ‘Body’ tab and examine the JSON that we will send to
-   iWorkflow to provide credentials:
+.. NOTE:: The term ``Application Service`` in the GUI and ``service`` in the REST
+   API are the same objects.  The name is abbreviated in the API.
 
-   |image42|
+You can find the GUI representation of iApps on the left-hand side of the UI
+under :guilabel:`iApps`. iApp deployments are located under
+:guilabel:`Application Services`, while iApp templates are located under
+:guilabel:`Templates` on the system.
 
-#. Modify the JSON body and add the required credentials (admin/admin).
-   Then click the ‘Send’ button.
+- :guilabel:`Application Services` (iApp deployments)
 
-#. Examine the response status code. If authentication succeeded and a
-   token was generated the response will have a 200 OK status code. If
-   the status code is 401 then check your credentials:
+  |lab-1-1|
 
-   **Successful:**
+- :guilabel:`Templates` (iApp templates)
 
-   - |image43|
+  |lab-1-2|
 
-   **Unsuccessful:**
+The associated REST API endpoints are:
 
-   - |image44|
+- **iApp Deployments**: ``/mgmt/tm/cloud/services/iapp``
+- **iApp Templates**: ``/mgmt/tm/sys/application/template``
 
-#. Once you receive a 200 OK status code examine the response body. The
-   various attributes show the parameters assigned to the particular
-   token. Find the ‘token’ attribute and copy it into your clipboard
-   (Ctrl+c) for use in the next step:
+iApp Deployments and Source-of-Truth
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   |image45|
+By default, iApp implements a strict source-of-truth preservation
+mechanism called **Strict Updates**.  The App Services iApp does allow granular
+configuration of underlying TMOS objects **without** disabling the Strict
+Updates mechanism. However, not all iApp templates supports this functionality.
 
-#. Click the ‘Step 2: Verify Authentication Works’ item in the Lab
-   2.1 Postman collection. Click the ‘Headers’ tab and paste the
-   token value copied above as the VALUE for the ``X-F5-Auth-Token``
-   header. This header is required to be sent on all requests when
-   using token based authentication.
+In an automated environment, we **must** always ensure that the
+**iApp template inputs** are being used as the Source-of-Truth for an
+underlying deployment.  Therefore, **Strict Updates should not be disabled** in
+order to preserve the integrity of service deployments using iApp templates.
 
-   |image46|
+For instance, after an iApp service is deployed, modifying the underlying
+configuration **with Strict Updates disabled** will result in Source-of-Truth
+violation. Changes made directly to the configuration will cause iApp
+configuration objects to be overwritten. The direct modification of objects
+configured on BIG-IP will alter the integrity of iApp deployment input values
+that automation tools are interacting with, causing failures. It is therefore
+important to keep **Strict Updates** enabled at all times for automated deployments.
 
-#. Click the ‘Send’ button. If your request is successful you should
-   see a ‘200 OK’ status and a listing of the ‘ltm’ Organizing
-   Collection.
-
-#. We will now update your Postman environment to use this auth token
-   for the remainder of the lab. Click the Environment menu in the top
-   right of the Postman window and click ‘Manage Environments’:
-
-   |image47|
-
-#. Click the ‘INTRO – Automation & Orchestration Lab’ item:
-
-   |image48|
-
-#. Update the value for ‘iwf\_auth\_token’ by Pasting (Ctrl-v)
-   in your auth token:
-
-   |image49|
-
-#. Click the ‘Update’ button and then close the ‘Manage Environments’
-   window. Your subsequent requests will now automatically include
-   the token.
-
-#. Click the ‘Step 3: Set Authentication Token Timeout’ item in the
-   Lab 1.2 Postman collection. This request will PATCH your token
-   Resource (check the URI) and update the timeout attribute so we
-   can complete the lab easily. Examine the request type and JSON
-   Body and then click the ‘Send’ button. Verify that the timeout has
-   been changed to ‘36000’ in the response:
-
-   |image50|
-
-.. |image41| image:: /_static/image041.png
-   :scale: 40%
-.. |image42| image:: /_static/image042.png
-   :scale: 40%
-.. |image43| image:: /_static/image043.png
-   :width: 6.21017in
-   :height: 0.79167in
-.. |image44| image:: /_static/image044.png
-   :width: 6.25278in
-   :height: 0.79268in
-.. |image45| image:: /_static/image045.png
-   :width: 5.16635in
-   :height: 2.88907in
-.. |image46| image:: /_static/image046.png
-   :scale: 40%
-.. |image47| image:: /_static/image047.png
-   :scale: 40%
-.. |image48| image:: /_static/image048.png
-   :width: 4.67051in
-   :height: 1.23217in
-.. |image49| image:: /_static/image049.png
-   :scale: 40%
-.. |image50| image:: /_static/image050.png
-   :scale: 40%
+.. |lab-1-1| image:: images/lab-1-1.png
+.. |lab-1-2| image:: images/lab-1-2.png

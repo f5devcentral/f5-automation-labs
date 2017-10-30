@@ -1,0 +1,113 @@
+digraph iwf_onboarding {
+   rankdir = TB
+   fontname = "arial-bold"
+   ranksep = .2
+   splines = ortho
+   node [fontsize=10,style="rounded,filled",shape=box,color=navajowhite,margin="0.05,0.05",height=0.1]  
+   edge [arrowsize=0.5,fontsize=8] 
+
+   {
+      rank=min 
+      start [label="Start iWorkflow Onboarding",color="chartreuse3"]
+   }
+   
+   subgraph cluster1 {
+      style = "rounded,filled"
+      color = lightgrey
+
+      auth_start [label="Token-Based Authentication",color="navajowhite3"]
+      {
+         rank=same
+         iwf_auth_token [color=cadetblue3]
+         auth_gettoken [label="Retrieve Authentication Token"]
+      }
+      auth_verify [label="Verify Authentication Works"]
+      auth_settimeout [label="Set Auth Token Timeout"]
+   }         
+   
+   subgraph cluster2 {
+      style = "rounded,filled"
+      color = lightgrey
+
+      discover_start [label="Discover BIG-IP Devices",color="navajowhite3"]
+      {
+         rank=same
+         discover_bip_a [label="Discover BIG-IP A"]
+         iwf_bigip_a_uuid [color=cadetblue3]
+      }
+      {
+         rank=same
+         discover_bip_b [label="Discover BIG-IP B"]
+         iwf_bigip_b_uuid [color=cadetblue3]
+      }
+      discover_get [label="Get Discovered Devices"]
+      discover_check_state [label="state=ACTIVE",color=orange2]
+   }  
+   
+   subgraph cluster3 {
+      style = "rounded,filled"
+      color = lightgrey
+
+      create_start [label="Create iWorkflow Tenant",color="navajowhite3"]
+      { 
+         create_tenant [label="Create iWorkflow Tenant &&#92;nBIG-IP Connector"]
+         create_tenant_user [label="Create Tenant User"] 
+         create_role [label="Assign User to Tenant Admin Role"]
+      }
+      {
+         rank=same
+         create_connector [label="Create a BIG-IP Connector"]
+         iwf_connector_uuid [color=cadetblue3]
+      }
+      create_assign [label="Assign Connector to Tenant"]
+   }    
+   
+   subgraph cluster4 {
+      style = "rounded,filled"
+      color = lightgrey
+      
+      iapp_start [label="Install App Services&#92;niApp Template",color="navajowhite3"]
+      {
+         rank=same
+         iapp_install [label="Install App Services&#92;nTemplate on iWorkflow"]
+         iwf_appsvcs_name [color=cadetblue3]
+      }
+   }                    
+
+   {
+      rank=max 
+      end [label="End iWorkflow Onboarding",color=indianred1]
+   }
+   
+   /* Imperative Process Flow */
+   { 
+      edge[style=solid]
+      start -> auth_start 
+      auth_start -> auth_gettoken -> auth_verify -> auth_settimeout -> discover_start
+      discover_start -> discover_bip_a -> discover_bip_b -> discover_get -> discover_check_state
+      discover_check_state -> create_start [taillabel="Yes "]
+      discover_check_state -> discover_get [taillabel="No "] 
+      create_start -> create_tenant -> create_tenant_user -> create_role -> create_connector -> create_assign -> iapp_start
+      iapp_start -> iapp_install -> end
+   }
+
+   /* Conditionals */
+
+
+   /* Variable Read/Writes */
+   {  
+      constraint=false 
+      edge[style=dashed]
+      auth_gettoken -> iwf_auth_token
+      iwf_auth_token -> {auth_verify auth_settimeout}
+      iwf_auth_token -> {discover_bip_a discover_bip_b discover_get}
+      iwf_auth_token -> {create_tenant create_tenant_user create_role create_connector create_assign}
+      iwf_auth_token -> {iapp_install}         
+      discover_bip_a -> iwf_bigip_a_uuid
+      iwf_bigip_a_uuid -> create_connector
+      discover_bip_b -> iwf_bigip_b_uuid
+      iwf_bigip_b_uuid -> create_connector
+      create_connector -> iwf_connector_uuid -> create_assign         
+      iapp_install -> iwf_appsvcs_name
+   }
+}

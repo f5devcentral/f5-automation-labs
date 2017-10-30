@@ -114,7 +114,7 @@ Follow the below steps in order found in the Postman collection to complete this
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
-.. NOTE:: Performing a provision/deprovion operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
+.. NOTE:: Performing a provision/deprovision operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
 
 .. code-block:: rest
 
