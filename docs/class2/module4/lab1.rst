@@ -5,25 +5,25 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – File Locations and Jenkins setup
+Lab |labmodule|\.\ |labnum| - File Locations and Jenkins setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We've been executing commands locally from Automated scripts. At this point we are
-now going to take the toolkits and tie them together to form a Pipeline.
+We've been executing all our commands locally from Automated scripts; we are
+now going to take the different toolkits and tie them together to form a **Pipeline**.
 Pipelines will vary in deployments and even within solutions. Our lab
-will show you just one way it could be utilized.
+will show you just one way one could be utilized.
 
 
 Task 1 - Locating the Jenkins files and how they are setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Open Putty and connect to the ``super-netops-container``, user credentials are ``snops`` and ``default``
+#. Return to or open a new session to the ``super-netops-container``, user credentials are ``snops`` and ``default``
 
-#. During the installation of the super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory.
+#. During the installation of the f5-super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory. Lets make sure the Jekins files were mapped correctly.
 
    Execute: ``cd ~/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
 
-#. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs (setup this way was for ease of learning). You may place tools in different structures in your environment.
+#. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs, setup this way was for ease of learning. You may place tools in different structures in your environment.
 
    File Locations:
 
@@ -38,7 +38,7 @@ Task 1 - Locating the Jenkins files and how they are setup
           |  |      Jenkinsfile3
           |  |      Jenkinsfile4
 
-#. Lets review the first Jenkins file, from the correct structure execute ``cat Jenkinsfile1-2``
+#. Lets review the first Jenkins file, from the current folder structure execute ``cat Jenkinsfile1-2``
 
    File output:
 
@@ -48,8 +48,8 @@ Task 1 - Locating the Jenkins files and how they are setup
        node {
           stage('Testing') {
              //Run the tests
-             //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-             //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+             //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+             //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
           }
           stage('Frameword-Deployment') {
               //Run SNOPS Container Newman Package Virtual and Pool
@@ -102,49 +102,51 @@ Our installation also has some Slack calls. Which we will setup next.
 Task 2 - Accessing Jenkins and Installing the Slack-Notifier Plug-in
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Slack is a ChatOps tool, think of Skype, Messenger or IIRC! Except Slack also has the ability to take in
-bots. slackbots are used to interact with services, they might query something for you when asked, or
+Slack is a ChatOps toolkit, think of Skype, Teams, Messenger, or IIRC! Except Slack also has the ability to take in
+bots. slackbots are used to interact with services, they might query for something when asked, or
 give you information when they notice something. In our case our Jenkins Pipeline file will use Slack
 to notify all of us when an action happens, collaborative teamwork.
 
-#. Access Jenkins via Chrome, if you didn't set a bookmark to the mapped port you can access the service via ``http://10.1.1.8:10000``, the user credentials are ``admin\default``.
+.. NOTE:: In the Jenkins Files, the ``message`` piece is sent to the Slack channel, if you would like to modify your messages for our lab **change the text!**
 
-   |image97|
+#. Access Jenkins via Chrome, there is already a bookmark ``Jenkins`` created on your behalf , the user credentials are ``admin\default``.
+
+   |lab-1-1|
 
 #. Once you are logged into Jenkins it should look like below
 
-   |image98|
+   |lab-1-2|
 
 #. Click on Manage Jenkins
 
-   |image99|
+   |lab-1-3|
 
 #. On the Manage Jenkins tab Select ``Available`` then filter on ``slack``, once the filter is complete choose ``Slack Notification Plugin`` and execute ``Install without Restart``
 
-   |image100|
+   |lab-1-4|
 
 #. Once the Slack Notification Plugin has changed to ``Success``, tick the radio button for ``Restart Jenkins when installation is complete and no jobs are running``
 
-   |image101|
+   |lab-1-5|
 
 #. Slack can take a few minutes to install in the background (give it 30 seconds), once the ``Restarting Jenkins`` globe is grey and the status is ``Running`` go back to Jenkins Home
 
-   |image102|
+   |lab-1-6|
 
-#. Executing a restart of Jenkins your session will be ended and you will need to log back into the system
+#. Executing a restart of Jenkins will stop your session, you will need to log back into the system
 
-   |image97|
+   |lab-1-1|
 
 
-.. |image97| image:: /_static/class2/image097.png
+.. |lab-1-1| image:: images/lab-1-1.png
+   :scale: 100%
+.. |lab-1-2| image:: images/lab-1-2.png
    :scale: 70%
-.. |image98| image:: /_static/class2/image098.png
+.. |lab-1-3| image:: images/lab-1-3.png
    :scale: 70%
-.. |image99| image:: /_static/class2/image099.png
+.. |lab-1-4| image:: images/lab-1-4.png
    :scale: 70%
-.. |image100| image:: /_static/class2/image100.png
+.. |lab-1-5| image:: images/lab-1-5.png
    :scale: 70%
-.. |image101| image:: /_static/class2/image101.png
-   :scale: 70%
-.. |image102| image:: /_static/class2/image102.png
+.. |lab-1-6| image:: images/lab-1-6.png
    :scale: 70%

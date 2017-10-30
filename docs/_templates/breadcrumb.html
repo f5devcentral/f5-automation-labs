@@ -1,0 +1,10 @@
+        <!-- custom breadcrumb -->
+        <h5>
+          <a href="{{ pathto(master_doc) }}">{{ project|striptags|e }}</a>
+          {%- if parents|length > 0 %}
+            {%- for parent in parents %}
+              &gt; <a href="{{ parents[loop.index0].link }}">{{ parents[loop.index0].title|striptags|e }}</a>
+            {%- endfor %}
+          {%- endif %}
+        </h5>
+        <!-- end custom breadcrumb -->

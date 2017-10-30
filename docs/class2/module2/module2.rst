@@ -1,9 +1,9 @@
-Module 2: f5-postman-workflows & f5-newman-wrapper
-==================================================
+Module 2: F5 f5-postman-workflows & f5-newman-wrapper
+=====================================================
 
-In the previous modules you may have found the tasks associated with checking
-various response values and populating environment variables very tedious. In
-addition to being tedious these tasks are not fundamentally automatable due
+In the previous Class you may have found the tasks associated with checking
+various response values and populating environment variables **very** tedious.
+In addition to being tedious, these tasks are not fundamentally automatable due
 to the requirement for human interaction.
 
 In order to assist users with automating the F5 BIG-IP platform we have
@@ -21,7 +21,7 @@ developed a set of tools that can be used with the Postman REST Client
   - Allow users to easily assemble Postman collections into workflows
   - Enabled integration with third-party tools such as Ansible, Chef & Puppet
 
-The framework allows collection developers to create automatable collections that
+This framework allows collection developers to create automatable collections that
 include full testing of response values, population of environment variables to
 establish chains of requests and time-based polling to allow long-lived API
 processes time to complete.

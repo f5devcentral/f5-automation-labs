@@ -5,32 +5,34 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Executing Jenkins Jobs for Creation or Modify
+Lab |labmodule|\.\ |labnum| - Executing Jenkins Jobs for Creation or Modify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have Jenkins running and the dependent Slack Plugin installed
-we can utilize our Jenkins Pipeline Scripts to execute successfully.
+Now that we have Jenkins running, and the dependent Slack Plugin installed
+we can utilize our Jenkins Pipeline Scripts successfully.
 
-Task 1 - Building the Framework via Jenkins
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Task 1 - Building the Application Service Framework via Jenkins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step is executing the f5-newman-wrapper files. Instead of having to run the two different
-builds (Framework and Pool member add) individually, Jenkins has a pause function looking for approval.
-After approving, this will allow the node to be added, still using 2 f5-newman-wrapper files but in conjunction
-with a single solution (Jenkins). Jenkins will continue to update the class via Slack as people
-are progressing. Jenkins will also keep a running console for logging, which we will also review.
+builds (Application Service Framework and Pool member add) individually we'll us a pause.
+Jenkins has a pause functionality which pausing the deployment looking for an approval to
+continue. After the approving step, the node to be added, still using 2 f5-newman-wrapper
+files but in conjunction with a single solution (Jenkins). Jenkins will continue to update
+the class via Slack as people are progressing. Jenkins does also keep a running console for
+logging, which we will also review.
 
 #. From the Jenkins Dashboard click on ``create new jobs``
 
-   |image103|
+   |lab-2-1|
 
 #. We are going to create our first Pipeline Job. Name the item ``module_4_jenkinsfile1-2``, choose the ``Pipeline`` project style and select ``OK``
 
-   |image104|
+   |lab-2-2|
 
-#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but please look at the other options to deploy a Pipeline. There are options in here such as Polling an SCM for the same file we are working with. The ``Polling`` method enables full Continuous Deployment, as Jenkins will deploy the change on a polled basis and we have an automatic testing phase for syntax in the Pipeline.
+#. We are going to be using the raw ``Jenkinsfile1-2`` right in the ``Pipeline Script`` option at the end of the config page. Scroll to the bottom of the page but **please look at the other options** which can deploy a Pipeline. The different options in here are for an SCM (like GitHub), the ``Polling`` or ``Commit`` methods enable Continuous Deployment, as Jenkins will deploy the change on an event basis. Tie this with automatic testing to make sure you're not breaking the build!
 
-   |image105|
+   |lab-2-3|
 
 #. We need to enter the contents of the ``Jenkinsfile1-2`` into the ``Script`` section under Pipeline. After the contents are added click the ``Save`` Option.
 
@@ -40,8 +42,8 @@ are progressing. Jenkins will also keep a running console for logging, which we 
     node {
        stage('Testing') {
           //Run the tests
-          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-          //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
        }
        stage('Frameword-Deployment') {
            //Run SNOPS Container Newman Package Virtual and Pool
@@ -81,41 +83,43 @@ are progressing. Jenkins will also keep a running console for logging, which we 
        }
     }
 
-   |image106|
+Contents in Pipeline:
+
+|lab-2-4|
 
 #. Once the Job is saved, you will be taken to the stage view page, from here we are going to execute our Pipeline build, choose the ``Build Now`` option.
 
-   |image107|
+   |lab-2-5|
 
-#. The Build is now running, and the stages are being executed in order. However, on our third stage we have a pause and an approval needed. Also at the same time Slack has notified us that a new service is being deployed and someone needs to approve it.
+#. The Build is now running, and the stages are being executed in order. However, on our third stage we have a **pause** and an approval **needed**. Also at the same time Slack has began to notify us that a new service is being deployed, and someone needs to approve it.
 
-   |image108|
+   |lab-2-6|
+   Highlight over the third Stage to prompt for the Approval
+   |lab-2-7|
 
-   |image109|
-
-   |image110|
+   |lab-2-8|
 
 #. Approve the change in Jenkins to allow the build to finish. Once this is done, the approval and finished Slack notification will be sent.
 
-   |image111|
+   |lab-2-9|
 
-   |image112|
+   |lab-2-10|
 
 #. At the end of the Build event (success or failure) there is a console output from Jenkins. Select the blue globe on the left to see the outputs
 
-   |image113|
+   |lab-2-11|
 
-#. The output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
+#. The Console Output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
 
-   |image114|
+   |lab-2-12|
 
-#. Check Slack visual for completion of everything!
+#. Check Slack for the completion of everything!
 
-   |image115|
+   |lab-2-13|
 
 #. Verify on the BIG-IP that the pool ``module_3_vs`` has been created and the services are Green
 
-   |image117|
+   |lab-2-15|
 
 Task 2 - Jenkinsfile3 and Jenkinsfile4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,9 +128,11 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
 #. Return to the Jenkins Dashboard and select ``New Item``
 
-   |image116|
+   |module-4-1|
 
-#. Follow steps 2 & 3 of the last module creating 2 new Jenkins jobs, one for each desired user state.
+#. Repeat steps 2 & 3 of the last module, creating 2 new Jenkins jobs, one for each desired node state.
+
+#. Create and Execute ``module_4_jenkinsfile_3`` for a down node
 
    **Pipeline Job Name:** ``module_4_jenkinsfile_3``
 
@@ -136,7 +142,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
       node {
         stage('Testing') {
            //Run the tests
-           //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
+           //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-3"
         }
         stage('Disable-Node') {
             //Run SNOPS Container Newman Package Virtual and Pool
@@ -152,7 +158,9 @@ These two Jenkins files were completed to show the ability of creating smaller d
         }
       }
 
-#. Verify on the BIG-IP that the pool ``module_3_pool`` has a user down node
+#. Verify on the BIG-IP that the pool ``module_3_pool`` has a down node
+
+#. Create and Execute ``module_4_jenkinsfile_4`` for an up node
 
    **Pipeline Job Name:** ``module_4_jenkinsfile_4``
 
@@ -162,7 +170,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
       node {
         stage('Testing') {
            //Run the tests
-           //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
+           //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-operation/f5-newman-build-4"
         }
         stage('Enable-Node') {
             //Run SNOPS Container Newman Package Virtual and Pool
@@ -178,35 +186,35 @@ These two Jenkins files were completed to show the ability of creating smaller d
         }
       }
 
-#. Verify on the BIG-IP that the pool ``module_3_pool`` has a user up node
+#. Verify on the BIG-IP that the pool ``module_3_pool`` has an up node
 
-.. |image103| image:: /_static/class2/image103.png
+.. |lab-2-1| image:: images/lab-2-1.png
    :scale: 70%
-.. |image104| image:: /_static/class2/image104.png
+.. |lab-2-2| image:: images/lab-2-2.png
    :scale: 70%
-.. |image105| image:: /_static/class2/image105.png
+.. |lab-2-3| image:: images/lab-2-3.png
    :scale: 70%
-.. |image106| image:: /_static/class2/image106.png
+.. |lab-2-4| image:: images/lab-2-4.png
    :scale: 70%
-.. |image107| image:: /_static/class2/image107.png
+.. |lab-2-5| image:: images/lab-2-5.png
    :scale: 70%
-.. |image108| image:: /_static/class2/image108.png
+.. |lab-2-6| image:: images/lab-2-6.png
    :scale: 70%
-.. |image109| image:: /_static/class2/image109.png
+.. |lab-2-7| image:: images/lab-2-7.png
    :scale: 70%
-.. |image110| image:: /_static/class2/image110.png
+.. |lab-2-8| image:: images/lab-2-8.png
+   :scale: 100%
+.. |lab-2-9| image:: images/lab-2-9.png
+   :scale: 100%
+.. |lab-2-10| image:: images/lab-2-10.png
+   :scale: 100%
+.. |lab-2-11| image:: images/lab-2-11.png
    :scale: 70%
-.. |image111| image:: /_static/class2/image110.png
+.. |lab-2-12| image:: images/lab-2-12.png
    :scale: 70%
-.. |image112| image:: /_static/class2/image110.png
+.. |lab-2-13| image:: images/lab-2-13.png
+   :scale: 100%
+.. |module-4-1| image:: images/module-4-1.png
    :scale: 70%
-.. |image113| image:: /_static/class2/image113.png
-   :scale: 70%
-.. |image114| image:: /_static/class2/image114.png
-   :scale: 70%
-.. |image115| image:: /_static/class2/image115.png
-   :scale: 70%
-.. |image116| image:: /_static/class2/image116.png
-   :scale: 70%
-.. |image117| image:: /_static/class2/image117.png
+.. |lab-2-15| image:: images/lab-2-15.png
    :scale: 70%

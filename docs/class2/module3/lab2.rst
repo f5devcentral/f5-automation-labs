@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Build**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lab |labmodule|\.\ |labnum| - Execute f5-newman-wrapper for a **Build** Workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Your environment has already been seeded with 5 ``f5-newman-wrapper`` files, these
 files will execute against the collections noted in the previous lab. This lab
@@ -14,12 +14,12 @@ will cover the **Build** aspect, creating a Virtual Server Framework containing 
 the pieces required for this demo service.
 
 
-..NOTE:: This is a Postman Collection, and can be imported into the client for viewing
+.. NOTE:: This is a Postman Collection, and can also be imported into the Postman GUI client for viewing
 
 
 For a visual reference of what f5-programmability-class-2.postman_collection.json looks like:
 
-|image90|
+|lab-2-1|
 
 .. NOTE:: You do not need to have all these operations individually broken out, it is shown this way to educate that Workflows can be as small (update a pool member) or as large (deploy a whole service) as needed
 
@@ -28,11 +28,11 @@ Task 1 - Examine f5-newman-build-1
 
 .. NOTE:: The contents of this folder contain files for this lab and upcoming labs in this class
 
-#. Open Putty and connect to the ``super-netops-container`` user credentials are ``snops`` and ``default``
+#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
-   .. code-block:: json
+   .. code-block:: console
      :linenos:
 
      {
@@ -63,7 +63,7 @@ Task 1 - Examine f5-newman-build-1
                     {
                             "name":"Authenticate to BIG-IP",
                             "options": {
-                                    "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.   postman_collection.json",
+                                    "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
                                     "folder":"1_Authenticate"
                             }
                     }, (REMOVE THIS TEXT AND ADD YOUR CODE BELOW)
@@ -73,7 +73,9 @@ Task 1 - Examine f5-newman-build-1
       }
 
 
-#. The above f5-newman-wrapper file only has the ``Authenticate to BIG-IP`` Collection/Folder referenced, we will now add in another collection. You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources.
+#. The above f5-newman-wrapper file only has the ``Authenticate to BIG-IP`` Collection/Folder referenced, **we will need to add in another collection**.
+You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources, shown in a previous lab.
+For editing files VIM/VI is installed on the container, if you **do not know** how to use VIM/VI please let the instructor know.
 
   .. code-block:: json
    :linenos:
@@ -82,14 +84,61 @@ Task 1 - Examine f5-newman-build-1
         "name":"1 - Build a Basic LTM Config",
         "skip":false,
         "options": {
-                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.   postman_collection.json",
+                "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json",
                 "folder":"1 - Build a Basic LTM Config"
-        }
+      }
 
 
+#. Now that you have the full file you can see what it will look like with ``cat f5-newman-build-1``. The environment variables will float into both Collections, and the returned Global Variables will persist during the whole run.
 
+Example of a complete file:
 
-.. NOTE:: Now that you have the full file you can see what it will look like. The environment variables will float into both Collections, and the returned Global Variables will persist during the whole run.
+.. code-block:: json
+  :linenos:
+
+  {
+         "name":"f5-newman-build-1",
+         "description":"Execute a chained workflow that authenticates to a BIG-IP and builds configuration",
+         "globalEnvVars":"/home/snops/f5-postman-workflows/framework/f5-postman-workflows.postman_globals.json",
+         "globalOptions": {
+                 "insecure":true,
+                 "reporters":["cli"]
+         },
+         "globalVars": {
+                 "bigip_mgmt": "10.1.1.4",
+                 "bigip_username":"admin",
+                 "bigip_password":"admin",
+                 "bigip_partition":"Common",
+                 "bigip_pool_name":"module_3_pool",
+                 "bigip_pool_member":"75.67.228.133:80",
+                 "bigip_object_state":"user-up",
+                 "bigip_object_session":"user-enabled",
+                 "bigip_vs_name":"module_3_vs",
+                 "bigip_vs_destination":"10.1.20.129:80",
+                 "bigip_node_name":"75.67.228.133",
+                 "bigip_http_monitor":"module_3_http_monitor",
+                 "bigip_http_profile":"module_3_http",
+                 "bigip_tcp_profile":"module_3_tcp_clientside"
+         },
+         "workflow": [
+                 {
+                         "name":"Authenticate to BIG-IP",
+                         "options": {
+                                 "collection":"/home/snops/f5-postman-workflows/collections/BIG_IP/BIGIP_API_Authentication.postman_collection.json",
+                                 "folder":"1_Authenticate"
+                         }
+                 },
+                 {
+                      "name":"1 - Build a Basic LTM Config",
+                      "skip":false,
+                      "options": {
+                              "collection":"/home/snops/f5-automation-labs/postman_collections/f5-programmability-class-2.postman_collection.json",
+                              "folder":"1 - Build a Basic LTM Config"
+                    }
+             }
+         ]
+   }
+
 
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,7 +147,7 @@ Task 2 - Execute the first f5-newman-wrapper file
 
    .. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIG-IP has a self-signed cert which violates Chrome's security). BIG-IP A Login credentials are ``admin\admin``
 
-#. ``f5-newman-build-1`` now contains the needed calls to build the Framework of an Application Service (Virtual Server, Pool and needed Profiles), it doesn't however include any pool members.
+#. ``f5-newman-build-1`` now contains the needed calls to build the Framework of an Application Service (Virtual Server, Pool and needed Profiles), **it doesn't however include any pool members**.
 
    Execute: ``f5-newman-wrapper f5-newman-build-1``
 
@@ -193,20 +242,20 @@ Task 2 - Execute the first f5-newman-wrapper file
       └───────────────────────────────────────────────┘
       [f5-newman-build-1-2017-07-26-08-23-00] run completed in 6s, 90.207 ms
 
-   .. NOTE:: Notice the 200 OK responses, the number of requests ect, we're building in testing and logging, at this point look back at ``BIGIP-A`` for the newly created framework
+   .. NOTE:: Notice the 200 OK responses, the number of requests etc., we're building in testing and logging, look back at ``BIGIP-A`` for the newly created Application Service Framework
 
 #. On BIG-IP A, examine Virtual Server ``module_3_vs``:
 
-   |image91|
+   |lab-2-2|
 
 #. On BIG-IP A, examine Pool ``module_3_pool``:
 
-   |image92|
+   |lab-2-3|
 
 Task 3 - Execute the second f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. ``f5-newman-build-2`` contains calls to add pool members to the Framework of the Application Service created above; this is done independently of the build, to show staging as a possible use case.
+#. ``f5-newman-build-2`` contains calls to add pool members to the Application Service Framework created above; this is done independently of the build, to show Service staging as a possible use case.
 
    Execute: ``f5-newman-wrapper f5-newman-build-2``
 
@@ -291,19 +340,19 @@ Task 3 - Execute the second f5-newman-wrapper file
 
 #. On BIG-IP A examine Virtual Server ``module_3_vs``, the Virtual Server should be healthy and Green:
 
-   |image93|
+   |module-3-1|
 
 #. On BIG-IP A examine Pool ``module_3_pool``:
 
-   |image94|
+   |module-3-2|
 
-.. |image90| image:: /_static/class2/image090.png
+.. |lab-2-1| image:: images/lab-2-1.png
    :scale: 70%
-.. |image91| image:: /_static/class2/image091.png
+.. |lab-2-2| image:: images/lab-2-2.png
    :scale: 70%
-.. |image92| image:: /_static/class2/image092.png
+.. |lab-2-3| image:: images/lab-2-3.png
    :scale: 70%
-.. |image93| image:: /_static/class2/image093.png
+.. |module-3-1| image:: images/module-3-1.png
    :scale: 70%
-.. |image94| image:: /_static/class2/image094.png
+.. |module-3-2| image:: images/module-3-2.png
    :scale: 70%

@@ -15,7 +15,7 @@ that enable many use cases. Rather than creating a script that just
 updates a specific attribute we created one that updates ANY pool
 attribute, greatly expanding it’s potential use cases.
 
-Task 1 – Review update\_pool.py
+Task 1 - Review update\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open ``update_pool.py`` in Notepad++
@@ -49,7 +49,7 @@ This line creates a new python dictionary with one entry specifying
 a key-value pair using the command line arguments. For example if
 you were updated the loadBalancingMode attribute to
 ‘least-connections-member’ the dictionary would look like
-{“loadBalancingMode”:”least-connections-member”}
+{"loadBalancingMode":"least-connections-member"}
 
 .. code:: python
 
@@ -70,14 +70,14 @@ The first line refreshes the data in the object from the BIG-IP
 device. The second line prints this refreshed information to the
 console so the user can verify the update completed successfully.
 
-Task 2 – Run update\_pool.py
+Task 2 - Run update\_pool.py
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In the command prompt type
    ``python update_pool.py 10.1.1.4 test_pool loadBalancingMode least-connections-member``
    and examine the output:
 
-   |image71|
+   |lab-3-1|
 
 #. You can manually verify the load balancing method was changed via
    TMUI or by re-running ``read_pool.py`` (it’s not required since the line
@@ -85,6 +85,6 @@ Task 2 – Run update\_pool.py
 
 #. Experiment with changing other pool attributes
 
-.. |image71| image:: /_static/image071.png
+.. |lab-3-1| image:: images/lab-3-1.png
    :width: 6.41783in
    :height: 0.45024in
