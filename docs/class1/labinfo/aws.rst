@@ -30,7 +30,7 @@ Task 1 - Determine your Source IP Address
 The AWS lab environment restricts access based on your Source IP Address.  We
 will use a website to determine your Source IP for use in the next Task.
 
-.. NOTE:: If you Source IP address changes you will lose access to your
+.. NOTE:: If your Source IP address changes you will lose access to your
    environment.
 
 Perform the following steps to complete this task:
@@ -109,11 +109,11 @@ Perform the following steps to complete this task:
 #. The CFT used performs a nested deployment, leveraging other CFT's.  The
    :guilabel:`Events` will notify you when new status messages are available.
    Total deployment time varies.  As the Stack is being deployed you will see
-   periodic ``CREATE_COMPLETED`` messages:
+   periodic ``CREATE_COMPLETE`` messages:
 
    |aws_image7|
 
-#. You can also go back to the page listing Stacks and monitor the progress of
+#. You can also go back to the page listing 'Stacks' and monitor the progress of
    the nested templates from there:
 
    |aws_image8|
@@ -121,7 +121,7 @@ Perform the following steps to complete this task:
    |aws_image9|
 
 #. Once the :guilabel:`Status` of the ``Super-NetOps-Lab`` **root** stack shows
-   ``CREATE_COMPLETED`` click the :guilabel:`Outputs` tab.  You will see a
+   ``CREATE_COMPLETE`` click the :guilabel:`Outputs` tab.  You will see a
    :guilabel:`Key` named ``JumpHostPublicIP``.  The :guilabel:`Value` is the
    IP Address you can use to connect to the Lab Jumphost using RDP, HTTPS or
    SSH (diagnostics only).
