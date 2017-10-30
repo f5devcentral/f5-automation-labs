@@ -7,7 +7,7 @@ Self-Built Environment
    that you will be able to complete the class successfully.
 
 If you are building your own lab environment please complete the following
-step and pre-requisites first:
+steps and pre-requisites first:
 
 #. Your network configuration matches the topology in the :ref:`lab-topology`
 
