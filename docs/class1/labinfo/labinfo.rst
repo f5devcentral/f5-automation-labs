@@ -1,4 +1,4 @@
-Lab Environments & Topology
+Lab Topology & Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. WARNING:: All work for this lab will be performed exclusively from the Linux
