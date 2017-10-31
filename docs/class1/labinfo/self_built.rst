@@ -17,18 +17,23 @@ steps and pre-requisites first:
    - LTM
    - ASM
 
-#. Your server instance should have the following services installed
-   and running:
+#. Your server instance can be built two ways:
 
-   - HTTP Server - TCP/80
-   - DNS Server - UDP/53
+   #. Build or reuse your own instance.  If should have the following services
+      installed and running:
 
-   .. NOTE:: You can also use our server image build script located at the
-      url below to configure an Ubuntu 16.04 base installation
+      - HTTP Server - TCP/80
+      - DNS Server - UDP/53
 
-	  :raw_github_url:`/lab_environments/AWS/snops_server_setup.sh`
+   #. Use our server image build script located at the url below to configure
+      an Ubuntu 16.04 base installation automatically.
 
-#. Your host should have the following programs installed:
+      .. NOTE:: Please ensure that HTTP & DNS services are not installed on the
+         base image
+
+	   :raw_github_url:`/lab_environments/AWS/snops_server_setup.sh`
+
+#. Your host should have the following applications installed:
 
    - Postman v5.3.0 - https://getpostman.com
    - Google Chrome - https://google.com/chrome

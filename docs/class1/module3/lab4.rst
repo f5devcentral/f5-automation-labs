@@ -49,7 +49,7 @@ simplify **Imperative** Automation by:
 The REST proxy works by passing data sent to a specific URL through to
 the BIG-IP device. The root URL for a particular devices REST proxy is:
 
-``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/<device\_uuid>/rest-proxy/``
+``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/<device_uuid>/rest-proxy/``
 
 Any URL segments included after ``.../rest-proxy/`` are forwarded unaltered
 to the BIG-IP device. Query parameters (e.g. ``?expandSubcollections=true``)

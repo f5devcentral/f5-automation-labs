@@ -30,6 +30,8 @@ on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
 print "on_rtd = %s" % on_rtd
 print "on_snops = %s" % on_snops
 
+github_url = "https://github.com/f5devcentral/f5-automation-labs/"
+
 branch_map = {
     "stable":"master",
     "latest":"master"
@@ -85,6 +87,10 @@ addmetahtml_content = """<script async src="https://www.googletagmanager.com/gta
   gtag('config', 'UA-85156643-6');
 </script>
 """
+
+html_context = {
+  "github_url":github_url
+}
 
 nwdiag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 nwdiag_html_image_format = 'SVG'
@@ -315,7 +321,7 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
