@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Execute an f5-newman-wrapper for **Teardown**
+Lab |labmodule|\.\ |labnum| - Execute an f5-newman-wrapper for **Teardown**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get ready for the next module, we're going to execute one last f5-newman-wrapper
@@ -20,11 +20,11 @@ Task 1 - Execute f5-newman-build-5
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. On BIG-IP A examine the virtual server ``module_3_vs``, it should be active and Green:
 
-   |image93|
+   |module-3-1|
 
 #. On BIGIP-A examine the pool ``module_3_pool``, you should show 2 active members Green:
 
-   |image94|
+   |module-3-2|
 
 #. ``f5-newman-build-5`` contains calls to delete all items we've created in the last few modules
 
@@ -126,7 +126,7 @@ Task 1 - Execute f5-newman-build-5
 
 #. On BIG-IP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
 
-.. |image93| image:: /_static/class2/image093.png
+.. |module-3-1| image:: images/module-3-1.png
    :scale: 70%
-.. |image94| image:: /_static/class2/image094.png
+.. |module-3-2| image:: images/module-3-2.png
    :scale: 70%

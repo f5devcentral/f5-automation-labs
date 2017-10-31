@@ -25,13 +25,13 @@ do
 	   -e "LOCAL_USER_ID=$(id -u)" \
 	   ${DOC_IMG} make latexpdf
 
-	PDFPATH=`ls _build/latex/*.pdf`
+	PDFPATH=`ls _build/latex/[!graphviz]*.pdf`
 	PDFNAME=${PDFPATH##*/}
 	NAME=${PDFNAME%.pdf}
 	cp $PDFPATH $WD/pdf/$NAME-$CLASS.pdf
 	cd ..
 	rm -Rf $WD/tmp/$CLASS
-done 
+done
 cd ..
 rm -Rf $WD/tmp
 

@@ -1,0 +1,23 @@
+        <!-- custom breadcrumb -->
+        <h5>
+          {%- if master_doc == pagename %}
+            <a href="/training/community/index.html">F5 Community Training &amp; Labs</a>
+          {%- else %}
+            <a href="{{ pathto(master_doc) }}">{{ project|striptags|e }}</a>
+          {%- endif %}
+          {%- if parents|length > 0 %}
+            {%- for parent in parents %}
+              &gt; <a href="{{ parents[loop.index0].link }}">{{ parents[loop.index0].title|striptags|e }}</a>
+            {%- endfor %}
+          {%- endif %}
+
+          <span class="right">
+          {%- if show_source and has_source and sourcename %}
+             <a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow">Source</a> |
+          {%- endif %}
+          {%- if github_url is defined %}
+             <a href="{{ github_url }}">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          {%- endif %}
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->

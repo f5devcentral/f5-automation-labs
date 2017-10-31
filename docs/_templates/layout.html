@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% extends "classic/layout.html" %}
+
+{% set css_files = css_files + ["_static/css/f5.css", "_static/css/custom.css"] %}
+{# set script_files = script_files + ["https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", "_static/js/bootstrap.min.js"] #}
+
+{%- block extrahead %}
+<!--
+# Copyright 2017 F5 Networks
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+{%- endblock %}
+
+{# Do not create the standard relbars and sidebars #}
+{%- block relbar1 %}{% endblock %}
+{%- block relbar2 %}{% endblock %}
+{%- block sidebar1 %}{% endblock %}
+{%- block sidebar2 %}{% endblock %}
+
+{%- block header %}
+  {% include "header.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 sidebartoc">
+         <h4><a href="{{ url_root }}">{{ project }} {{ release }}</a></h4>
+        {%- if sidebars != None %}
+          {%- for sidebartemplate in sidebars %}
+            {%- include sidebartemplate %}
+          {%- endfor %}
+        {% endif %}
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <!-- custom breadcrumb -->
+        <h5>
+          {%- if master_doc == pagename %}
+            <a href="/training/community/index.html">F5 Community Training &amp; Labs</a>
+          {%- else %}
+            <a href="{{ pathto(master_doc) }}">{{ project|striptags|e }}</a>
+          {%- endif %}
+          {%- if parents|length > 0 %}
+            {%- for parent in parents %}
+              &gt; <a href="{{ parents[loop.index0].link }}">{{ parents[loop.index0].title|striptags|e }}</a>
+            {%- endfor %}
+          {%- endif %}
+
+          <span class="right">
+          {%- if show_source and has_source and sourcename %}
+             <a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow">Source</a> |
+          {%- endif %}
+          {%- if github_url is defined %}
+             <a href="{{ github_url }}">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          {%- endif %}
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+        {% block body %}{% endblock %}
+        {% if (next or prev) and theme_next_prev_link%}
+		     <div class="row next-prev-btn-row">
+           <div class="col-lg-12">
+           {% if prev %}
+		        <a href="{{ prev.link|e }}" title="{{ prev.title|striptags|e }}" accesskey="p" class="btn btn-primary pull-left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+           {% endif %}
+           {% if next %}
+              <a href="{{ next.link|e }}" title="{{ next.title|striptags|e }}" accesskey="n" class="btn btn-primary pull-right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+           {% endif %}
+		     </div>
+         </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{%- block footer %}
+  {% include "footer.html" %}
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+{%- endblock %}

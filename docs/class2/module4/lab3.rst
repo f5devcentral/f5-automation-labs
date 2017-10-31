@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum| – Destroying a Service with Jenkins
+Lab |labmodule|\.\ |labnum| - Destroying a Service with Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the last module we will teardown the Application Service we've been working with today.
@@ -22,7 +22,7 @@ Task 1 - Teardown the Application via Jenkins
 
 #. Return to the Jenkins Dashboard and select ``New Item``
 
-   |image116|
+   |module-4-1|
 
 #. Repeat steps 2 & 3 of the first module, creating the final Jenkins job
 
@@ -36,7 +36,7 @@ Task 1 - Teardown the Application via Jenkins
       node {
          stage('Testing') {
             //Run the tests
-            //sh "python –m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
+            //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-5"
          }
          stage('Removal-Notification') {
             //Run SNOPS Container Newman Package Delete Service
@@ -69,7 +69,7 @@ Task 1 - Teardown the Application via Jenkins
 
 
 #. Verify the on the BIG-IP the service has been Deleted
-#. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK 
+#. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK
 
-.. |image116| image:: /_static/class2/image116.png
+.. |module-4-1| image:: images/module-4-1.png
    :scale: 70%
