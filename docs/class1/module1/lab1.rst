@@ -63,7 +63,7 @@ all the correct attributes already populated.
 
 #. You will now be presented with a top-level list of various REST
    resources. At the top of the page there is a search box
-   |lab-1-2|\ that can be used to find items on the page. Type ``net`` in
+   |lab-1-2| that can be used to find items on the page. Type ``net`` in
    the search box and then click on the ‘net’ link under iControl REST
    Resources:
 
