@@ -23,12 +23,15 @@ import re
 import string
 sys.path.insert(0, os.path.abspath('.'))
 import f5_sphinx_theme
+import pkgutil
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 on_snops = os.environ.get('SNOPS_ISALIVE', None) == 'True'
 
 print "on_rtd = %s" % on_rtd
 print "on_snops = %s" % on_snops
+
+github_url = "https://github.com/f5devcentral/f5-automation-labs"
 
 branch_map = {
     "stable":"master",
@@ -67,15 +70,19 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
     'sphinx.ext.graphviz',
-    'sphinxcontrib.spelling',
     'sphinxcontrib.addmetahtml',
-    'sphinxcontrib.nwdiag'
+    'sphinxcontrib.nwdiag',
+    'sphinxcontrib.blockdiag'
 ]
 
-spelling_word_list_filename = "../wordlist"
+graphviz_output_format = 'svg'
+graphviz_font = 'DejaVu Sans:style=Book'
+graphviz_dot_args = [
+     "-Gfontname='%s'" % graphviz_font,
+     "-Nfontname='%s'" % graphviz_font,
+     "-Efontname='%s'" % graphviz_font
+]
 
-#googleanalytics_id = 'UA-85156643-6'
-#googleanalytics_enabled = True
 addmetahtml_content = """<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85156643-6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -86,10 +93,36 @@ addmetahtml_content = """<script async src="https://www.googletagmanager.com/gta
 </script>
 """
 
-nwdiag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-nwdiag_html_image_format = 'SVG'
-nwdiag_latex_image_format = "PNG"
-nwdiag_antialias = False
+html_context = {
+  "github_url":github_url,
+  "github_branch":git_branch_name
+}
+
+diag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+diag_html_image_format = 'SVG'
+diag_latex_image_format = 'PNG'
+diag_antialias = False
+
+blockdiag_fontpath = nwdiag_fontpath = diag_fontpath
+blockdiag_html_image_format = nwdiag_html_image_format = diag_html_image_format
+blockdiag_latex_image_format = nwdiag_latex_image_format = diag_latex_image_format
+blockdiag_antialias = nwdiag_antialias = diag_antialias
+
+eggs_loader = pkgutil.find_loader('sphinxcontrib.spelling')
+found = eggs_loader is not None
+
+if found:
+  extensions += ['sphinxcontrib.spelling']
+  spelling_lang='en_US'
+  spelling_word_list_filename='../wordlist'
+  spelling_show_suggestions=True
+  spelling_ignore_pypi_package_names=False
+  spelling_ignore_wiki_words=True
+  spelling_ignore_acronyms=True
+  spelling_ignore_python_builtins=True
+  spelling_ignore_importable_modules=True
+  spelling_filters=[]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -315,7 +348,7 @@ html_static_path = ['_static']
 
 # If true, links to the reST sources are added to the pages.
 #
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #

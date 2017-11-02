@@ -16,15 +16,24 @@ Determine how to start your deployment:
 Connecting to the Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The lab environment provides two access methods to the Jumphost:
+To connect to the lab environment we will use a Remote Desktop Protocol
+client to connect to the Jumphost.
 
-- RDP Connection using an RDP Client
-- HTML5 Browser-based VNC Connection using noVNC
+.. NOTE:: We recommend that students open this lab guide on their Jumphost
+   using the Chrome web browser.  The browser is configured to open the lab
+   guide as it's start page.
 
-  - Chrome
-  - Firefox
-  - Safari
-  - EDGE
+.. preserving for future use
+
+  The lab environment provides two access methods to the Jumphost:
+
+  - RDP Connection using an RDP Client
+  - HTML5 Browser-based VNC Connection using noVNC
+
+    - Chrome
+    - Firefox
+    - Safari
+    - EDGE
 
 Connect using RDP
 ^^^^^^^^^^^^^^^^^
@@ -35,13 +44,18 @@ Connect using RDP
 
 #. Click the :guilabel:`Components` tab
 
-#. Find the ``Linux Jumphost`` Component and click the the :guilabel:`Access`
-   button.  Then, click the :guilabel:`RDP` option.  An RDP file will be
-   downloaded to your system.
+#. Find the ``Linux Jumphost`` Component and click the the :guilabel:`Details`
+   button.
 
-   .. NOTE:: The RDP file opens the session in Full Screen mode by default.
-      You may want to open the file in an RDP client and adjust these settings
-      as needed to match your preference.
+#. Download the RDP file by completed *one* of the following:
+
+   - **Full Screen**: Click the |udf-rdp-button| button to download an RDP 
+     file that will start the RDP session in full screen mode
+
+   - **Specify Resolution**: Click the |udf-down-arrow| button and select a 
+     screen resolution to use for the connection:
+
+     |udf-rdp-resolution|
 
 #. If you do not have the official Microsoft Remote Desktop Client, please
    install it using the instructions at
@@ -58,27 +72,29 @@ Connect using RDP
    - Review: :ref:`bigipbasics`
    - Start: :ref:`module1`
 
-Connect using an HTML5 Browser
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. preserving for future use
 
-#. In the UDF navigate to your :guilabel:`Deployments`
+  Connect using an HTML5 Browser
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Click the :guilabel:`Details` button for your Deployment
+  #. In the UDF navigate to your :guilabel:`Deployments`
 
-#. Click the :guilabel:`Components` tab
+  #. Click the :guilabel:`Details` button for your Deployment
 
-#. Find the ``Linux Jumphost`` Component and click the the :guilabel:`Access`
-   button.  Then click the :guilabel:`NOVNC` option.  A new browser window/tab
-   will be opened.
+  #. Click the :guilabel:`Components` tab
 
-#. In the new browser window/tab click the :guilabel:`Connect` button followed
-   by the :guilabel:`Send Password` button.  You should now be connected.  If
-   you have any problems please ask your instructor for help
+  #. Find the ``Linux Jumphost`` Component and click the the :guilabel:`Access`
+     button.  Then click the :guilabel:`NOVNC` option.  A new browser window/tab
+     will be opened.
 
-#. Select how you would like to continue:
+  #. In the new browser window/tab click the :guilabel:`Connect` button followed
+     by the :guilabel:`Send Password` button.  You should now be connected.  If
+     you have any problems please ask your instructor for help
 
-   - Review: :ref:`bigipbasics`
-   - Start: :ref:`module1`
+  #. Select how you would like to continue:
+
+     - Review: :ref:`bigipbasics`
+     - Start: :ref:`module1`
 
 .. _lab-udf-hidpi:
 
@@ -138,6 +154,11 @@ Use RDP Zoom
    - Review: :ref:`bigipbasics`
    - Start: :ref:`module1`
 
+.. |udf-rdp-button| image:: images/udf-rdp-button.png
+   :scale: 50%
+.. |udf-down-arrow| image:: images/udf-down-arrow.png
+   :scale: 50%%
+.. |udf-rdp-resolution| image:: images/udf-rdp-resolution.png
 .. |display-settings| image:: images/rdp-display-settings.png
    :scale: 75%
 .. |advanced-display-settings| image:: images/rdp-advanced-display-settings.png
@@ -150,3 +171,4 @@ Use RDP Zoom
    :scale: 75%
 .. |rdp-zoom| image:: images/rdp-zoom.png
    :scale: 75%
+

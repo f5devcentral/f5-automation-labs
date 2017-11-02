@@ -7,7 +7,6 @@ Lab 1.4: Basic Network Connectivity
       rankdir="LR"
       ranksep=.4
       node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontname = "arial-bold"
       fontsize = 10
       labeljust="l"
       subgraph cluster_provider {

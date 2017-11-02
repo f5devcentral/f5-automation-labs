@@ -48,7 +48,7 @@ components:
      - **Internal:** 10.1.10.20
 
        **External:** 10.1.20.20
-     - ubuntu/supernetops
+     - ``ubuntu/supernetops``
    * - BIG-IP A
      - 10.1.1.10
      - **Internal:** 10.1.10.10
@@ -59,9 +59,9 @@ components:
 
        **External (VIPs):** 10.1.20.120-130
 
-     - admin/admin
+     - ``admin/admin``
 
-       root/default
+       ``root/default``
    * - BIG-IP B
      - 10.1.1.11
      - **Internal:** 10.1.10.11
@@ -72,19 +72,19 @@ components:
 
        **External (VIPs):** 10.1.20.120-130
 
-     - admin/admin
+     - ``admin/admin``
 
-       root/default
+       ``root/default``
    * - iWorkflow
      - 10.1.1.12
      - N/A
-     - admin/admin
+     - ``admin/admin``
 
-       root/default
+       ``root/default``
    * - Linux Server
      - 10.1.1.15
      - **Internal:** 10.1.10.100-103
-     - root/default
+     - ``root/default``
 
 Lab Environments
 ----------------
