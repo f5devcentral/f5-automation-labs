@@ -311,7 +311,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"guiSetup\": \"disabled\",\n  \"hostname\": \"\"\n}"
+							"raw": "{\n  \"guiSetup\": \"disabled\",\n  \"hostname\": \"bigip-a.f5.local\"\n}"
 						},
 						"url": "https://{{bigip_a_mgmt}}/mgmt/tm/sys/global-settings"
 					},
