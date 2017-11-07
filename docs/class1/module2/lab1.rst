@@ -8,6 +8,8 @@
 Lab |labmodule|\.\ |labnum|\: iWorkflow Authentication
 ------------------------------------------------------
 
+THIS IS A DEMO
+
 iWorkflow supports the same authentication mechanisms as BIG-IP (HTTP
 BASIC, Token Based Auth). In this lab we will quickly review TBA on
 iWorkflow.
