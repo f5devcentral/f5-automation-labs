@@ -7,13 +7,7 @@ This repository contains the source for F5 Programmability Training docs.
 
 To view the documentation please visit:
 
-http://f5-automation-labs.readthedocs.io/en/latest
-
-.. |docs| image:: https://readthedocs.org/projects/f5-automation-labs/badge/?version=latest
-    :alt: Documentation Status
-    :scale: 100%
-    :target: http://f5-automation-labs.readthedocs.io/en/latest
-
+http://clouddocs.f5.com/training/community/programmability/html/index.html
 
 Class 1: Introduction to Automation & Orchestration
 ===================================================
@@ -50,9 +44,12 @@ Class 3: Introduction to SecDevOps
 
 This class covers the following topics:
 
-- How to secure applications programmatically using a BIG-IP's iControl based REST API
-- Leverage programmability to deploy security policies and/or adhere to best practices during Application Lifecycle Management
-- Reduce the operational (e.g. time and money) cost of a defense in depth strategy
+- How to secure applications programmatically using a BIG-IP's iControl based
+  REST API
+- Leverage programmability to deploy security policies and/or adhere to best
+  practices during Application Lifecycle Management
+- Reduce the operational (e.g. time and money) cost of a defense in depth
+  strategy
 - Integrate into the SDLC process
 
 This course will feature the following topics.
