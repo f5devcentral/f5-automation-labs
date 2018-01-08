@@ -20,7 +20,7 @@ labs from f5.com/supernetops.
 
 .. NOTE:: If you are running this lab independent from Class 1 you will want
           to restore BIGIP-A from UCS ``bigip-a-module3.ucs`` located in the
-          **in_case_of_emergency folder. Not restoring BIGIP-A will result
+          ``in_case_of_emergency folder``. Not restoring BIGIP-A will result
           in services unable to be accessed and nodes/pool members offline.
           This restore **MUST** be done via TMSH with a ``no-license`` flag.
 
