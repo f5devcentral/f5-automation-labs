@@ -11,12 +11,13 @@ Lab |labmodule|\.\ |labnum| - Execute an f5-newman-wrapper for **Teardown**
 To get ready for the next module, we're going to execute one last f5-newman-wrapper
 directly. This file is designed to delete the framework and service we created in the
 last few labs. We used 2 f5-newman-wrapper files to create our service, but for the deletion
-we will only use 1.
+we will only use 1. This is important because we can seperate the service nodes
+availability into Infrastructure as Code concepts loosely coupled from the service 
+and calls needed.
 
 Task 1 - Execute f5-newman-build-5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. On BIG-IP A examine the virtual server ``module_3_vs``, it should be active and Green:
 

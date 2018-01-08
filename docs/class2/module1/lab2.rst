@@ -16,10 +16,7 @@ Task 1 - Obtain and verify the container image
 
 Perform the following steps to complete this task:
 
-#. Open a Command Prompt
-
-.. NOTE:: If you are using an F5 provided lab environment please SSH to the
-      'Docker Server' host and execute the following commands.
+#. Return to your open **Root Terminal**
 
 #. Execute ``docker pull f5devcentral/f5-super-netops-container:jenkins``
 
@@ -71,7 +68,7 @@ Perform the following steps to complete this task:
 Task 2 - Start the container image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To start using the container we will execute the command:
+To start the container we will execute the command:
 
 #. Execute ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=master f5devcentral/f5-super-netops-container:jenkins``
 
@@ -194,8 +191,8 @@ To start using the container we will execute the command:
 Task 3 - Detach/Re-attach the Container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When running containers it's important to understand that it will exit if the
-foreground process (in this case the shell) exits.  For example, if you typed
+When running containers it's important to understand how you launched it, ours
+was launched as a **foreground process**, if you typed
 the ``exit`` command in the running container it will shutdown.  In order to
 avoid this you should detach from the container once it has completed booting.
 You can still perform functions by using SSH to access the container as
@@ -219,7 +216,7 @@ Detach the Container
       [root@f5-super-netops] [/] # <enter Ctrl+p+q>
       hostname:~ user$
 
-#. Verify the container is still running by entering ``docker ps``
+#. Verify our container is still running by entering ``docker ps``
 
    Example output:
 

@@ -26,9 +26,8 @@ For a visual reference of what f5-programmability-class-2.postman_collection.jso
 Task 1 - Examine f5-newman-build-1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. NOTE:: The contents of this folder contain files for this lab and upcoming labs in this class
+.. NOTE:: The contents of this folder contain files for this lab, and upcoming labs in this class
 
-#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 

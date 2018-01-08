@@ -8,28 +8,11 @@
 Lab |labmodule|\.\ |labnum|\: Install Docker Community Edition (CE)
 -------------------------------------------------------------------
 
-To use the f5-super-netops-container you first need to install Docker
-Community Edition on your system.
-
-.. NOTE:: If you are using an F5 provided lab environment, RDP to the
-          **Windows Jumphost** from there you can access the already
-          installed Docker CE service on the host named 'Docker Server'.
-          SSH to the Docker Server via Putty to that host a execute
-          all ``docker`` commands there.
-
-Task 1 - Install Docker CE
+Task 1 - Test Docker CE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Note:: User Credentials to Docker Server: User ``root`` and Password ``default``
-
-Please follow the instructions at https://docs.docker.com/engine/installation/
-to install Docker CE.
-
-Once you have completely installed, and successfully run the ``hello-world``
-test you can continue to the next lab.
-
-To test your setup with the ``hello-world`` container, you just need to run the
-following command
+Open **Root Terminal** from your desktop and test your Docker CE setup is
+functional with the ``hello-world`` container; run the following command
 
 ``docker run --rm hello-world``
 

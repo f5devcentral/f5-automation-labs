@@ -2,17 +2,17 @@ Module 1: f5-super-netops-container Toolkit
 ===========================================
 
 In this module, we will explore how to use the **f5-super-netops-container**
-toolkit to easily integrate various F5 Automation, Orchestration, Super-NetOps and
-DevOps tools, along with framework technologies.
+toolkit to easily integrate various F5 Automation, Orchestration, Super-NetOps
+and DevOps tools, along with framework technologies.
 
-The f5-super-netops-container is meant to provide a simple way for users to
-quickly duplicate a standard automation and orchestration environment in your
-local machine/lab environment.  The container is **continuously updated** to include
-the latest tools and documentation.
+The f5-super-netops-container is meant to be provided as a technical leave
+behind, a functional solution that contains tools (which we will use in this
+Class) and documentation around F5 Cloud Solutions. The container is
+**continuously updated** to always include our latest information.
 
 The labs in this module will show you how to install the
-f5-super-netops-container image, start it in your local environment and access
-various tools and documentation.
+f5-super-netops-container image; you can also start it in your local
+environment and access the same various tools and documentation.
 
 To install the f5-super-netops-container, your system must
 support running Docker Community Edition (CE).  Please refer to
