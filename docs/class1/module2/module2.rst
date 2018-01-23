@@ -74,7 +74,11 @@ at:
 
    You can learn more about clustering features in this video:
 
-   https://www.youtube.com/watch?v=RAQ1qaYnjZo
+   .. raw:: html
+
+      <p>  <iframe width="600" height="315" src="https://www.youtube.com/embed/RAQ1qaYnjZo" frameborder="0" gesture="media" allowfullscreen></iframe> </p>
+
+   *Source: https://devcentral.f5.com/articles/lightboard-lessons-device-services-clustering-25575*
 
 .. toctree::
    :maxdepth: 1
