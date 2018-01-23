@@ -11,7 +11,7 @@ What is BIG-IP
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/D6J_j7HdkV8?rel=0" frameborder="0" gesture="media" allowfullscreen></iframe>
+    <iframe width="600" height="315" src="http://www.youtube.com/embed/D6J_j7HdkV8?rel=0" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 *Source: https://devcentral.f5.com/articles/lightboard-lessons-what-is-big-ip-26793*
 
