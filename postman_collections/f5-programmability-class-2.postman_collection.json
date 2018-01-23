@@ -161,7 +161,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"216.16.74.15:80\"]\n}"
+							"raw": "{\n    \"name\":\"{{bigip_pool_name}}\",\n    \"members\": [\"{{bigip_pool_member}}\",\"10.1.10.100:8001\"]\n}"
 						},
 						"description": ""
 					},

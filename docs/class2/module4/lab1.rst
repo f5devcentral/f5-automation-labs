@@ -17,9 +17,8 @@ will show you just one way one could be utilized.
 Task 1 - Locating the Jenkins files and how they are setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Return to or open a new session to the ``super-netops-container``, user credentials are ``snops`` and ``default``
 
-#. During the installation of the f5-super-netops-container there were several github repositories cloned, all of which are mapped to the ``/home/snops/`` directory. Lets make sure the Jekins files were mapped correctly.
+#. Lets make sure the Jekins files were mapped correctly.
 
    Execute: ``cd ~/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
 
@@ -109,7 +108,7 @@ to notify all of us when an action happens, collaborative teamwork.
 
 .. NOTE:: In the Jenkins Files, the ``message`` piece is sent to the Slack channel, if you would like to modify your messages for our lab **change the text!**
 
-#. Access Jenkins via Chrome, there is already a bookmark ``Jenkins`` created on your behalf , the user credentials are ``admin\default``.
+#. Access Jenkins via Chrome, open a new tab to  ``http://localhost:10000``, the user credentials are ``admin\default``.
 
    |lab-1-1|
 

@@ -17,13 +17,12 @@ as a single commands.
 Task 1 - Execute f5-newman-build-3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-operation``
 #. On BIGIP-A, examine the pool ``module_3_pool``, you should see 2 active (Green) pool members:
 
    |lab-3-1|
 
-#. ``f5-newman-build-3`` contains calls to change the node state to ``user-down`` for ``"bigip_pool_member":"75.67.228.133:80"``, both of these are specified as variables in the f5-newman-wrapper files.
+#. ``f5-newman-build-3`` contains calls to change the node state to **user-down** for ``"bigip_pool_member":"10.1.10.101:8002"``, both of these are specified as variables in the f5-newman-wrapper files.
 
    Execute: ``f5-newman-wrapper f5-newman-build-3``
 
@@ -87,11 +86,11 @@ Task 1 - Execute f5-newman-build-3
         ✓  [GET Response Code]=200
 
       ↳ Step 2: Check Pool Member Exists
-        GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~75.67.228.133:80 [200 OK, 1.25KB, 33ms]
+        GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 33ms]
         ✓  [GET Response Code]=200
 
       ↳ Step 3: Change Pool Member State
-        PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~75.67.228.133:80 [200 OK, 1.25KB, 298ms]
+        PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 298ms]
         ✓  [PUT Response Code]=200
 
       ┌─────────────────────────┬──────────┬──────────┐
@@ -118,20 +117,19 @@ Task 1 - Execute f5-newman-build-3
 
    .. NOTE:: Notice the 200 OK responses, as it completed successfully
 
-#. Log back into BIG-IP A examine the pool ``module_3_pool`` status page:
+#. Log back into BIG-IP A examine the pool ``module_3_pool`` status page you should see on black diamond node and another node green and online:
 
    |lab-3-2|
 
 Task 2 - Execute f5-newman-build-4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Return to or open a new session to the ``super-netops-container`` user credentials are ``snops`` and ``default``
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-operation``
 #. On BIG-IP A examine the pool ``module_3_pool``, you should show only 1 Active and Green:
 
    |lab-3-2|
 
-#. ``f5-newman-build-3`` contains calls to user-up variable node ``"bigip_pool_member":"75.67.228.133:80"``
+#. ``f5-newman-build-3`` contains calls to **user-up** variable node ``"bigip_pool_member":"10.1.10.101:8002"``
 
    Execute: ``f5-newman-wrapper f5-newman-build-4``
 
@@ -195,11 +193,11 @@ Task 2 - Execute f5-newman-build-4
          ✓  [GET Response Code]=200
 
        ↳ Step 2: Check Pool Member Exists
-         GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~75.67.228.133:80 [200 OK, 1.25KB, 28ms]
+         GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 28ms]
          ✓  [GET Response Code]=200
 
        ↳ Step 3: Change Pool Member State
-         PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~75.67.228.133:80 [200 OK, 1.25KB, 62ms]
+         PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 62ms]
          ✓  [PUT Response Code]=200
 
        ┌─────────────────────────┬──────────┬──────────┐

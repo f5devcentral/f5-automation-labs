@@ -8,7 +8,7 @@
 Lab |labmodule|\.\ |labnum|\: Connect to f5-super-netops-container
 ------------------------------------------------------------------
 
-In the previous lab we started the container image and were presented with a
+In the previous lab we started the container image and were presented in a
 root user terminal.  In order to use the container and its associated
 tools properly we will connect via SSH and/or HTTP.
 
@@ -23,17 +23,13 @@ To connect to the image via SSH we must use the published port specified in the
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=master
 f5devcentral/f5-super-netops-container:jenkins``
 
-This will publish the standard SSH service on ``TCP/22`` to ``TCP/2222`` on the
-Docker host.  In the case of the SSH service the following mapping applies:
+This will publish the standard SSH service from ``TCP/22`` to ``TCP/2222``.
+In the case of the SSH service the following mapping applies:
 
 ``localhost:2222 -> f5-super-netops-container:22``
 
-.. NOTE:: If you are using an F5 provided lab environment please use the SSH
-   client and connect to the 'f5-super-netops-container SSH' item
-
 The container includes the ``snops`` user with a password of
-``default``.  If you are not using the F5 Lab environment connect to the container
-execute the following command or it's OS-specific equivalent:
+``default``.
 
 ``ssh -p 2222 snops@localhost``
 
@@ -115,17 +111,14 @@ To connect to the image via HTTP we use the published port specified in the
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=master
 f5devcentral/f5-super-netops-container:jenkins``
 
-This will publish the standard HTTP service on ``TCP/80`` to ``TCP/8080`` on the
-Docker host.  In the case of the HTTP service the following mapping applies:
+This will publish the standard HTTP service from ``TCP/80`` to ``TCP/8080``.
+In the case of the HTTP service the following mapping applies:
 
 ``localhost:8080 -> f5-super-netops-container:80``
 
-.. NOTE:: If you are using an F5 provided lab environment please use the browser
-   and click the 'Super-NetOps Container' bookmark.
+Open Chrome on your Linux Jumphost and enter the URL:
 
-To connect outside of the F5 Lab environment via HTTP, open a web browser and enter the URL:
-
-``http://(YourDockerSever):8080/start``
+``http://localhost:8080/start``
 
 You should see a page like this:
 
@@ -140,16 +133,14 @@ To connect to the image via Jenkins we use the published port specified in the
 ``docker run -p 8080:80 -p 2222:22 -p 10000:8080 --rm -it -e SNOPS_GH_BRANCH=master
 f5devcentral/f5-super-netops-container:jenkins``
 
-This will publish the standard Jenkins service on ``TCP/8080`` to ``TCP/10000`` on the
-Docker host.  In the case of the Jenkins service the following mapping applies:
+This will publish the standard Jenkins service from ``TCP/8080`` to ``TCP/10000``.
+In the case of the Jenkins service the following mapping applies:
 
 ``10.1.1.8:10000 -> f5-super-netops-container:8080``
 
-.. NOTE:: If you are using an F5 provided lab environment please use the browser and click the ‘Jenkins’ bookmark.
+To connect to Jenkins open a web browser and enter the URL:
 
-To connect via HTTP open a web browser and enter the URL:
-
-``http://(YourDockerSever):10000``
+``http://localhost:10000``
 
 You should see a page like this:
 

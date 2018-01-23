@@ -15,11 +15,11 @@ Task 1 - Building the Application Service Framework via Jenkins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step is executing the f5-newman-wrapper files. Instead of having to run the two different
-builds (Application Service Framework and Pool member add) individually we'll us a pause.
-Jenkins has a pause functionality which pausing the deployment looking for an approval to
-continue. After the approving step, the node to be added, still using 2 f5-newman-wrapper
-files but in conjunction with a single solution (Jenkins). Jenkins will continue to update
-the class via Slack as people are progressing. Jenkins does also keep a running console for
+builds (Application Service Framework and Pool member add) individually we'll use a **pause**.
+Jenkins has a pause functionality which pauses a deployment looking for an approval to
+continue. After the approving step the node will be added; using the 2 f5-newman-wrapper
+files, but in conjunction with a single solution (Jenkins). Jenkins will continue to update
+the class via Slack as people are progressing. Jenkins also keeps a running console for
 logging, which we will also review.
 
 #. From the Jenkins Dashboard click on ``create new jobs``
