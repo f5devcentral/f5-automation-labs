@@ -8,7 +8,9 @@ to the requirement for human interaction.
 
 In order to assist users with automating the F5 BIG-IP platform we have
 developed a set of tools that can be used with the Postman REST Client
-(http://getpostman.com).  The purpose of the tools are:
+(http://getpostman.com).
+
+The tools are:
 
 - f5-postman-workflows
 

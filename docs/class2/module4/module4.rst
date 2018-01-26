@@ -24,7 +24,7 @@ Tools we will be using:
 
 - Jenkins
 
-  - Jenkins is installed on the f5-super-netops-container, accessed via ``http://10.1.1.8:10000`` (Web) user credentials are ``admin/default``
+  - Jenkins is installed on the f5-super-netops-container, accessed via ``http://localhost:10000`` (Web) user credentials are ``admin/default``
 
 From the previous labs you should already have your Super-NetOps-Container already
 running, if it's not please refer to Class 2 Module 2 on starting the service.
