@@ -13,6 +13,13 @@ This also allows BIG-IP to be Orchestrated from upper level orchestration toolki
 Using this structure allows you to build your own solutions, to manage BIG-IP
 quickly as native REST calls are used.
 
+.. NOTE:: If you are running this lab independent from Class 1 you will want
+          to restore BIGIP-A from UCS ``bigip-a-module3.ucs``. Not restoring
+          BIGIP-A will result in services unable to be accessed 
+          and nodes/pool members unavailable. The steps for a UCS restore can
+          be found under the **HOWTos: Index** in the content tree on the left
+          side of the Lab Guide
+
 
 .. toctree::
    :maxdepth: 1

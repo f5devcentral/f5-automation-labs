@@ -19,13 +19,13 @@ Task 1 - Run a f5-newman-wrapper Workflow
 #. Return to, or open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_1.json .``
-#. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.4`` for
+#. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.10`` for
    the value of the ``bigip_mgmt`` variable
 
    .. code:: json
 
         "globalVars": {
-                "bigip_mgmt": "10.1.1.4",
+                "bigip_mgmt": "10.1.1.10",
                 "bigip_username":"admin",
                 "bigip_password":"admin"
         },
@@ -49,18 +49,18 @@ Task 1 - Run a f5-newman-wrapper Workflow
 
         ❏ 1_Authenticate
         ↳ Authenticate and Obtain Token
-          POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 108ms]
+          POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 108ms]
           ✓  [POST Response Code]=200
           ✓  [Populate Variable] bigip_token=WYKIVPHCNASNVEC55ZDVNH5OO2
 
         ↳ Verify Authentication Works
-          GET https://10.1.1.4/mgmt/shared/authz/tokens/WYKIVPHCNASNVEC55ZDVNH5OO2 [200 OK, 1.23KB, 8ms]
+          GET https://10.1.1.10/mgmt/shared/authz/tokens/WYKIVPHCNASNVEC55ZDVNH5OO2 [200 OK, 1.23KB, 8ms]
           ✓  [GET Response Code]=200
           ✓  [Current Value] token=WYKIVPHCNASNVEC55ZDVNH5OO2
           ✓  [Check Value] token == WYKIVPHCNASNVEC55ZDVNH5OO2
 
         ↳ Set Authentication Token Timeout
-          PATCH https://10.1.1.4/mgmt/shared/authz/tokens/WYKIVPHCNASNVEC55ZDVNH5OO2 [200 OK, 1.23KB, 14ms]
+          PATCH https://10.1.1.10/mgmt/shared/authz/tokens/WYKIVPHCNASNVEC55ZDVNH5OO2 [200 OK, 1.23KB, 14ms]
           ✓  [PATCH Response Code]=200
           ✓  [Current Value] timeout=1200
           ✓  [Check Value] timeout == 1200
@@ -91,7 +91,7 @@ Task 1 - Run a f5-newman-wrapper Workflow
 
         ❏ 4A_Get_BIGIP_Version
         ↳ Get Software Version
-          GET https://10.1.1.4/mgmt/tm/sys/software/volume [200 OK, 1.32KB, 16ms]
+          GET https://10.1.1.10/mgmt/tm/sys/software/volume [200 OK, 1.32KB, 16ms]
           ✓  [GET Response Code]=200
           ✓  [Populate Variable] bigip_version=12.1.1
           ✓  [Populate Variable] bigip_build=1.0.196
@@ -130,7 +130,7 @@ Task 1 - Run a f5-newman-wrapper Workflow
         "values": [
           {
             "type": "any",
-            "value": "10.1.1.4",
+            "value": "10.1.1.10",
             "key": "bigip_mgmt"
           },
           {
