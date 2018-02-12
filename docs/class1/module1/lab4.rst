@@ -211,6 +211,26 @@ Perform the following steps to configure the Route object/resource:
    ``Send`` button to ``GET`` the routes collection. Examine the response to
    make sure the route has been created.
 
+Task 5 – [Service Provider] Route Domain and Partition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will perform basic Route Domain and Partition configuration.
+
+Perform following steps to complete this task:
+
+#. Expand the ``Lab 1.4A - Route Domain & Partition`` in the Postman Collection
+
+#. Send the requests in Steps 1-10 and verify the expected result occured on
+   BIG-IP A.  For requests using the ``GET`` method you can review the response
+   JSON body rather than using the BIG-IP GUI.
+
+#. Send the requests in Steps 11-18 to clean up the previously created Route
+   Domain, VLANS and Partitions
+
+All route domain and partitions should now be deleted.  Please confirm this on
+BIG-IP A.  Any configuration that remains from this task will interfere with
+cluster setup in the subsequent labs.
+
 .. |lab-4-1| image:: images/lab-4-1.png
 .. |lab-4-2| image:: images/lab-4-2.png
 .. |lab-4-3| image:: images/lab-4-3.png

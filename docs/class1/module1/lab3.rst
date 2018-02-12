@@ -211,6 +211,21 @@ Perform the following steps to change the **admin** user password:
 
 #. **Repeat the procedure above to change the password back to** ``admin``
 
+
+Task 4 – [Service Provider] SNMP & Syslog
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will do basic SNMP and syslog configuration using POST,
+PUT, DELETE commands.
+
+Perform following steps to complete this task:
+
+#. Expand the ``Lab 1.3A - SNMP & Syslog`` folder in the Postman Collection
+
+#. Send the requests in Steps 1-14 and verify the expected result occured on
+   BIG-IP A.  For requests using the ``GET`` method you can review the response
+   JSON body rather than using the BIG-IP GUI.
+
 .. |lab-3-1| image:: images/lab-3-1.png
 .. |lab-3-2| image:: images/lab-3-2.png
 .. |lab-3-3| image:: images/lab-3-3.png

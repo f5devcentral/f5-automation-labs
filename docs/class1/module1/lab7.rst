@@ -150,6 +150,102 @@ Task 3 - Commit a Transaction
 #. Verify that the virtual server works by opening ``http://10.1.20.120`` in
    Chrome web browser
 
+Task 4 - [Service Provider] AFM and CGNAT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will do basic AFM logging setup, CGNAT LSN Pool setup,
+AFM basic policy and setup of VS and associated AFM policies.
+
+Perform following steps to complete this task:
+
+#. Step 1: Verify AFM Security report settings using GET. Validate
+   response in postman.
+
+   .. NOTE:: The response shows the the default settings for AFM. Notice that
+      there are some settings that are disabled, some are enabled.
+
+#. Step 2: Update AFM Security report settings using PATCH. We are
+   setting all settings to disabled.
+
+   |lab-7-9|
+
+   Verify in the BIG-IP A GUI
+
+   |lab-7-10|
+
+#. Step 3: Update AFM Security report settings using PATCH. We are
+   setting all settings to enabled.
+
+   |lab-7-11|
+
+#. Step 4: Verify AFM Event Logging settings using GET. Validate
+   response in postman.
+
+#. Step 5: Create AFM Event Logging settings using POST. Validate
+   response in postman, and F5.
+
+   |lab-7-12|
+
+#. Step 6: Verify AFM Source address translation using GET. There should
+   be no Pools configured.
+
+   .. NOTE:: Source Address translation in AFM is used for LSN pools in old
+      CGNAT configuration.
+
+#. Step 7: Create AFM Source address translation using POST. Validate
+   successful creation in F5.
+
+   |lab-7-13|
+
+#. Step 8: Create AFM CGNAT Policy using POST. Validate successful
+   creation in F5.
+
+   |lab-7-14|
+
+   .. NOTE:: There are no Rules in this Policy (these will be created in the
+      next step).
+
+   |lab-7-15|
+
+#. Step 9: Create AFM CGNAT NAT within the above created Policy using
+   POST. Validate successful creation in F5.
+
+   |lab-7-16|
+
+#. Step 10: Create AFM Firewall Policy using POST. Validate successful
+   creation in F5.
+
+   |lab-7-17|
+
+    .. NOTE:: There are no rules in this policy (these will be created in the
+       next step).
+
+   |lab-7-18|
+
+#. Step 11: Create AFM rules and add to Policy using POST. Validate
+   successful creation in F5.
+
+   .. NOTE:: The use of the ``placeAfter`` attribute in rules is required
+      otherwise rule placement will not occur.
+
+   |lab-7-19|
+
+#. Step 12: Create FastL4 forwarding Virtual Server using a ``POST``. Validate
+   successful creation in the BIG-IP A GUI.
+
+   |lab-7-20|
+
+   .. NOTE:: There are no security policies, network translation, or firewall
+      rules present in the Virtual Server. These items with be associated using
+      a ``PATCH`` the next step.
+
+   |lab-7-21|
+
+#. Step 13: Add Network Firewall, NAT and Rules to the Virtual Server using a
+   ``PATCH``.  Validate successful creation in using the BIG-IP A GUI
+
+   |lab-7-22|
+
 .. |lab-7-1| image:: images/lab-7-1.png
 .. |lab-7-2| image:: images/lab-7-2.png
 .. |lab-7-3| image:: images/lab-7-3.png
@@ -158,3 +254,45 @@ Task 3 - Commit a Transaction
 .. |lab-7-6| image:: images/lab-7-6.png
 .. |lab-7-7| image:: images/lab-7-7.png
 .. |lab-7-8| image:: images/lab-7-8.png
+.. |lab-7-9| image:: images/lab-7-9.png
+   :width: 6.50000in
+   :height: 5.81875in
+.. |lab-7-10| image:: images/lab-7-10.png
+   :width: 6.50000in
+   :height: 5.45556in
+.. |lab-7-11| image:: images/lab-7-11.png
+   :width: 6.50000in
+   :height: 6.05764in
+.. |lab-7-12| image:: images/lab-7-12.png
+   :width: 6.50000in
+   :height: 2.91181in
+.. |lab-7-13| image:: images/lab-7-13.png
+   :width: 6.50000in
+   :height: 6.64931in
+.. |lab-7-14| image:: images/lab-7-14.png
+   :width: 6.50000in
+   :height: 2.52361in
+.. |lab-7-15| image:: images/lab-7-15.png
+   :width: 6.50000in
+   :height: 2.84028in
+.. |lab-7-16| image:: images/lab-7-16.png
+   :width: 6.50000in
+   :height: 1.60347in
+.. |lab-7-17| image:: images/lab-7-17.png
+   :width: 6.50000in
+   :height: 1.87431in
+.. |lab-7-18| image:: images/lab-7-18.png
+   :width: 6.50000in
+   :height: 4.27778in
+.. |lab-7-19| image:: images/lab-7-19.png
+   :width: 6.50000in
+   :height: 5.40313in
+.. |lab-7-20| image:: images/lab-7-20.png
+   :width: 6.50000in
+   :height: 2.65417in
+.. |lab-7-21| image:: images/lab-7-21.png
+   :width: 6.50000in
+   :height: 5.79167in
+.. |lab-7-22| image:: images/lab-7-22.png
+   :width: 6.50000in
+   :height: 6.30486in

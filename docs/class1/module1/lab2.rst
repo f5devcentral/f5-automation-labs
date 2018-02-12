@@ -78,7 +78,7 @@ Perform the following steps to complete this task:
 
    .. parsed-literal::
 
-      :raw_github_url:`/postman_collections/Class_1.postman_collection.json`
+      :raw_github_url:`/postman_collections/Class_1_Service_Provider.postman_collection.json`
 
    |lab-2-18|
 
