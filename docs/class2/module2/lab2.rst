@@ -94,7 +94,7 @@ Execute the following steps to complete this task:
 #. Name the environment ``Lab 2.2`` and populate the following key/value
    pairs:
 
-   - **bigip_mgmt**: 10.1.1.4
+   - **bigip_mgmt**: 10.1.1.10
    - **bigip_username**: admin
    - **bigip_password**: admin
 
