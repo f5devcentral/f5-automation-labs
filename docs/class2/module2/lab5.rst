@@ -61,7 +61,7 @@ have different values for ``bigip_mgmt`` because we are trying to communicate
 with two BIG-IP devices.  To address this issue, we could define our input
 variables as follows:
 
-- ``bigip_a_mgmt = 10.1.1.4``
+- ``bigip_a_mgmt = 10.1.1.10``
 - ``bigip_b_mgmt = 10.1.1.5``
 - ``bigip_username = admin``
 - ``bigip_password = admin``
@@ -78,7 +78,7 @@ device.  To illustrate this, we will add more information to our diagram:
    Start
      |
      |- Define globalVars
-     |  |- bigip_a_mgmt = 10.1.1.4
+     |  |- bigip_a_mgmt = 10.1.1.10
      |  |- bigip_b_mgmt = 10.1.1.5
      |  |- bigip_username = admin
      |  |- bigip_password = admin
@@ -113,7 +113,7 @@ can modify our diagram to handle this issue like this:
    Start
      |
      |- Define globalVars
-     |  |- bigip_a_mgmt = 10.1.1.4
+     |  |- bigip_a_mgmt = 10.1.1.10
      |  |- bigip_b_mgmt = 10.1.1.5
      |  |- bigip_username = admin
      |  |- bigip_password = admin
@@ -145,7 +145,7 @@ variables for each device:
    Start
      |
      |- Define globalVars
-     |  |- bigip_a_mgmt = 10.1.1.4
+     |  |- bigip_a_mgmt = 10.1.1.10
      |  |- bigip_b_mgmt = 10.1.1.5
      |  |- bigip_username = admin
      |  |- bigip_password = admin
@@ -210,7 +210,7 @@ Define Global Settings & Variables:
        "reporters":["cli"]
      },
      "globalVars": {
-       "bigip_a_mgmt": "10.1.1.4",
+       "bigip_a_mgmt": "10.1.1.10",
        "bigip_b_mgmt": "10.1.1.5",
        "bigip_username":"admin",
        "bigip_password":"admin"
@@ -462,7 +462,7 @@ Task 3 - Run the Workflow
 
       {
         "globalVars": {
-                "bigip_a_mgmt": "10.1.1.4",
+                "bigip_a_mgmt": "10.1.1.10",
                 "bigip_b_mgmt": "10.1.1.5",
                 "bigip_username":"admin",
                 "bigip_password":"admin"
@@ -487,18 +487,18 @@ Task 3 - Run the Workflow
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-        POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 570ms]
+        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 570ms]
         ✓  [POST Response Code]=200
         ✓  [Populate Variable] bigip_token=UE7W5CXWM5SJ6SZEV5A7KTAI5Q
 
       ↳ Verify Authentication Works
-        GET https://10.1.1.4/mgmt/shared/authz/tokens/UE7W5CXWM5SJ6SZEV5A7KTAI5Q [200 OK, 1.23KB, 9ms]
+        GET https://10.1.1.10/mgmt/shared/authz/tokens/UE7W5CXWM5SJ6SZEV5A7KTAI5Q [200 OK, 1.23KB, 9ms]
         ✓  [GET Response Code]=200
         ✓  [Current Value] token=UE7W5CXWM5SJ6SZEV5A7KTAI5Q
         ✓  [Check Value] token == UE7W5CXWM5SJ6SZEV5A7KTAI5Q
 
       ↳ Set Authentication Token Timeout
-        PATCH https://10.1.1.4/mgmt/shared/authz/tokens/UE7W5CXWM5SJ6SZEV5A7KTAI5Q [200 OK, 1.23KB, 13ms]
+        PATCH https://10.1.1.10/mgmt/shared/authz/tokens/UE7W5CXWM5SJ6SZEV5A7KTAI5Q [200 OK, 1.23KB, 13ms]
         ✓  [PATCH Response Code]=200
         ✓  [Current Value] timeout=1200
         ✓  [Check Value] timeout == 1200
@@ -571,7 +571,7 @@ Task 3 - Run the Workflow
 
       ❏ 4A_Get_BIGIP_Version
       ↳ Get Software Version
-        GET https://10.1.1.4/mgmt/tm/sys/software/volume [200 OK, 1.32KB, 207ms]
+        GET https://10.1.1.10/mgmt/tm/sys/software/volume [200 OK, 1.32KB, 207ms]
         ✓  [GET Response Code]=200
         ✓  [Populate Variable] bigip_version=12.1.1
         ✓  [Populate Variable] bigip_build=1.0.196
@@ -643,7 +643,7 @@ Task 3 - Run the Workflow
         "values": [
           {
             "type": "any",
-            "value": "10.1.1.4",
+            "value": "10.1.1.10",
             "key": "bigip_a_mgmt"
           },
           {

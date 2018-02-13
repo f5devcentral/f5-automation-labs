@@ -103,7 +103,7 @@ precedence.
 
     {
         "globalVars": {
-            "bigip_mgmt": "10.1.1.4",
+            "bigip_mgmt": "10.1.1.10",
             "bigip_username":"admin",
             "bigip_password":"admin"
         }
@@ -178,7 +178,7 @@ Final Workflow JSON
                    "reporters":["cli"]
            },
            "globalVars": {
-                   "bigip_mgmt": "10.1.1.4",
+                   "bigip_mgmt": "10.1.1.10",
                    "bigip_username":"admin",
                    "bigip_password":"admin"
            },
