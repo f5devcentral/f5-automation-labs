@@ -36,5 +36,5 @@ Complete the following steps:
 #. Open **Root Terminal** from the Desktop
 #. SSH in the BIGIP needing the UCS restore, example ``ssh root@10.1.1.10``
 #. Issue the ``tmsh`` command to switch shells
-#. To restore the specific UCS file issue the
-``load sys ucs (name_of_ucs) no-license``
+#. To restore the specific UCS file issue the following command:
+   ``load sys ucs (name_of_ucs) no-license``
