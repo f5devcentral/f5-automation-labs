@@ -43,7 +43,7 @@ Task 1 - Examine f5-newman-build-1
                     "reporters":["cli"]
             },
             "globalVars": {
-                    "bigip_mgmt": "10.1.1.4",
+                    "bigip_mgmt": "10.1.1.10",
                     "bigip_username":"admin",
                     "bigip_password":"admin",
                     "bigip_partition":"Common",
@@ -104,7 +104,7 @@ Example of a complete file:
                  "reporters":["cli"]
          },
          "globalVars": {
-                 "bigip_mgmt": "10.1.1.4",
+                 "bigip_mgmt": "10.1.1.10",
                  "bigip_username":"admin",
                  "bigip_password":"admin",
                  "bigip_partition":"Common",
@@ -164,18 +164,18 @@ Task 2 - Execute the first f5-newman-wrapper file
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-        POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 505ms]
+        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 505ms]
         ✓  [POST Response Code]=200
         ✓  [Populate Variable] bigip_token=MB4YMPICV3XEZ3B47LJRQKGHTJ
 
       ↳ Verify Authentication Works
-       GET https://10.1.1.4/mgmt/shared/authz/tokens/MB4YMPICV3XEZ3B47LJRQKGHTJ [200   OK, 1.23KB, 17ms]
+       GET https://10.1.1.10/mgmt/shared/authz/tokens/MB4YMPICV3XEZ3B47LJRQKGHTJ [200   OK, 1.23KB, 17ms]
        ✓  [GET Response Code]=200
        ✓  [Current Value] token=MB4YMPICV3XEZ3B47LJRQKGHTJ
        ✓  [Check Value] token == MB4YMPICV3XEZ3B47LJRQKGHTJ
 
       ↳ Set Authentication Token Timeout
-       PATCH https://10.1.1.4/mgmt/shared/authz/tokens/MB4YMPICV3XEZ3B47LJRQKGHTJ [  200 OK, 1.23KB, 50ms]
+       PATCH https://10.1.1.10/mgmt/shared/authz/tokens/MB4YMPICV3XEZ3B47LJRQKGHTJ [  200 OK, 1.23KB, 50ms]
        ✓  [PATCH Response Code]=200
        ✓  [Current Value] timeout=1200
        ✓  [Check Value] timeout == 1200
@@ -206,19 +206,19 @@ Task 2 - Execute the first f5-newman-wrapper file
 
       ❏ 1 - Build a Basic LTM Config
       ↳ Step 1: Create a HTTP Monitor
-       POST https://10.1.1.4/mgmt/tm/ltm/monitor/http [200 OK, 1.32KB, 625ms]
+       POST https://10.1.1.10/mgmt/tm/ltm/monitor/http [200 OK, 1.32KB, 625ms]
 
       ↳ Step 2: Create a Pool
-       POST https://10.1.1.4/mgmt/tm/ltm/pool [200 OK, 1.56KB, 157ms]
+       POST https://10.1.1.10/mgmt/tm/ltm/pool [200 OK, 1.56KB, 157ms]
 
       ↳ Step 3: Create a HTTP Profile
-       POST https://10.1.1.4/mgmt/tm/ltm/profile/http [200 OK, 1.96KB, 183ms]
+       POST https://10.1.1.10/mgmt/tm/ltm/profile/http [200 OK, 1.96KB, 183ms]
 
       ↳ Step 4: Create a TCP Profile
-       POST https://10.1.1.4/mgmt/tm/ltm/profile/tcp [200 OK, 2.68KB, 64ms]
+       POST https://10.1.1.10/mgmt/tm/ltm/profile/tcp [200 OK, 2.68KB, 64ms]
 
       ↳ Step 5: Create a Virtual Server
-       POST https://10.1.1.4/mgmt/tm/ltm/virtual [200 OK, 1.9KB, 230ms]
+       POST https://10.1.1.10/mgmt/tm/ltm/virtual [200 OK, 1.9KB, 230ms]
 
       ┌─────────────────────────┬──────────┬──────────┐
       │                         │ executed │   failed │
@@ -272,18 +272,18 @@ Task 3 - Execute the second f5-newman-wrapper file
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-       POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 272ms]
+       POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 272ms]
        ✓  [POST Response Code]=200
        ✓  [Populate Variable] bigip_token=WSNAXWTCWNZGJG7MDBVF6CRXTB
 
       ↳ Verify Authentication Works
-       GET https://10.1.1.4/mgmt/shared/authz/tokens/WSNAXWTCWNZGJG7MDBVF6CRXTB [200 OK, 1.23KB, 15ms]
+       GET https://10.1.1.10/mgmt/shared/authz/tokens/WSNAXWTCWNZGJG7MDBVF6CRXTB [200 OK, 1.23KB, 15ms]
        ✓  [GET Response Code]=200
        ✓  [Current Value] token=WSNAXWTCWNZGJG7MDBVF6CRXTB
        ✓  [Check Value] token == WSNAXWTCWNZGJG7MDBVF6CRXTB
 
       ↳ Set Authentication Token Timeout
-       PATCH https://10.1.1.4/mgmt/shared/authz/tokens/WSNAXWTCWNZGJG7MDBVF6CRXTB [200 OK, 1.23KB, 61ms]
+       PATCH https://10.1.1.10/mgmt/shared/authz/tokens/WSNAXWTCWNZGJG7MDBVF6CRXTB [200 OK, 1.23KB, 61ms]
        ✓  [PATCH Response Code]=200
        ✓  [Current Value] timeout=1200
        ✓  [Check Value] timeout == 1200
@@ -314,7 +314,7 @@ Task 3 - Execute the second f5-newman-wrapper file
 
       ❏ 2 - Add Members to LTM Config
       ↳ Step 1: Add Members to  Pool
-       PATCH https://10.1.1.4/mgmt/tm/ltm/pool/module_3_pool [200 OK, 1.52KB, 143ms]
+       PATCH https://10.1.1.10/mgmt/tm/ltm/pool/module_3_pool [200 OK, 1.52KB, 143ms]
 
       ┌─────────────────────────┬──────────┬──────────┐
       │                         │ executed │   failed │
