@@ -420,7 +420,7 @@
                         },
                         "PrivateIpAddresses": [
                             {
-                                "PrivateIpAddress": "10.1.1.4",
+                                "PrivateIpAddress": "10.1.1.10",
                                 "Primary": "true"
                             }
                         ],
@@ -460,7 +460,7 @@
                         },
                         "PrivateIpAddresses": [
                             {
-                                "PrivateIpAddress": "10.1.1.5",
+                                "PrivateIpAddress": "10.1.1.11",
                                 "Primary": "true"
                             }
                         ],

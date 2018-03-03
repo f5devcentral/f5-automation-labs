@@ -40,18 +40,18 @@ Task 1 - Execute f5-newman-build-3
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-        POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 267ms]
+        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 267ms]
         ✓  [POST Response Code]=200
         ✓  [Populate Variable] bigip_token=JFN6TNIRAWEKNR5QPM26VT4QFE
 
       ↳ Verify Authentication Works
-        GET https://10.1.1.4/mgmt/shared/authz/tokens/JFN6TNIRAWEKNR5QPM26VT4QFE [200 OK, 1.23KB, 22ms]
+        GET https://10.1.1.10/mgmt/shared/authz/tokens/JFN6TNIRAWEKNR5QPM26VT4QFE [200 OK, 1.23KB, 22ms]
         ✓  [GET Response Code]=200
         ✓  [Current Value] token=JFN6TNIRAWEKNR5QPM26VT4QFE
         ✓  [Check Value] token == JFN6TNIRAWEKNR5QPM26VT4QFE
 
       ↳ Set Authentication Token Timeout
-        PATCH https://10.1.1.4/mgmt/shared/authz/tokens/JFN6TNIRAWEKNR5QPM26VT4QFE [200 OK, 1.23KB, 26ms]
+        PATCH https://10.1.1.10/mgmt/shared/authz/tokens/JFN6TNIRAWEKNR5QPM26VT4QFE [200 OK, 1.23KB, 26ms]
         ✓  [PATCH Response Code]=200
         ✓  [Current Value] timeout=1200
         ✓  [Check Value] timeout == 1200
@@ -82,15 +82,15 @@ Task 1 - Execute f5-newman-build-3
 
       ❏ 3 - Disable Node
       ↳ Step 1: Check Pool Exists
-        GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool [200 OK, 1.56KB, 39ms]
+        GET https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool [200 OK, 1.56KB, 39ms]
         ✓  [GET Response Code]=200
 
       ↳ Step 2: Check Pool Member Exists
-        GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 33ms]
+        GET https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 33ms]
         ✓  [GET Response Code]=200
 
       ↳ Step 3: Change Pool Member State
-        PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 298ms]
+        PUT https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 298ms]
         ✓  [PUT Response Code]=200
 
       ┌─────────────────────────┬──────────┬──────────┐
@@ -147,18 +147,18 @@ Task 2 - Execute f5-newman-build-4
 
        ❏ 1_Authenticate
        ↳ Authenticate and Obtain Token
-         POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 240ms]
+         POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 240ms]
          ✓  [POST Response Code]=200
          ✓  [Populate Variable] bigip_token=LN5IEBCKW5TTNXZLX5VYRUTOW5
 
        ↳ Verify Authentication Works
-         GET https://10.1.1.4/mgmt/shared/authz/tokens/LN5IEBCKW5TTNXZLX5VYRUTOW5 [200 OK, 1.23KB, 15ms]
+         GET https://10.1.1.10/mgmt/shared/authz/tokens/LN5IEBCKW5TTNXZLX5VYRUTOW5 [200 OK, 1.23KB, 15ms]
          ✓  [GET Response Code]=200
          ✓  [Current Value] token=LN5IEBCKW5TTNXZLX5VYRUTOW5
          ✓  [Check Value] token == LN5IEBCKW5TTNXZLX5VYRUTOW5
 
        ↳ Set Authentication Token Timeout
-         PATCH https://10.1.1.4/mgmt/shared/authz/tokens/LN5IEBCKW5TTNXZLX5VYRUTOW5 [200 OK, 1.23KB, 27ms]
+         PATCH https://10.1.1.10/mgmt/shared/authz/tokens/LN5IEBCKW5TTNXZLX5VYRUTOW5 [200 OK, 1.23KB, 27ms]
          ✓  [PATCH Response Code]=200
          ✓  [Current Value] timeout=1200
          ✓  [Check Value] timeout == 1200
@@ -189,15 +189,15 @@ Task 2 - Execute f5-newman-build-4
 
        ❏ 4 - Enable Node
        ↳ Step 1: Check Pool Exists
-         GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool [200 OK, 1.56KB, 31ms]
+         GET https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool [200 OK, 1.56KB, 31ms]
          ✓  [GET Response Code]=200
 
        ↳ Step 2: Check Pool Member Exists
-         GET https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 28ms]
+         GET https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 28ms]
          ✓  [GET Response Code]=200
 
        ↳ Step 3: Change Pool Member State
-         PUT https://10.1.1.4/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 62ms]
+         PUT https://10.1.1.10/mgmt/tm/ltm/pool/~Common~module_3_pool/members/~Common~10.1.10.101:8002 [200 OK, 1.25KB, 62ms]
          ✓  [PUT Response Code]=200
 
        ┌─────────────────────────┬──────────┬──────────┐
