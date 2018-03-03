@@ -45,18 +45,18 @@ Task 1 - Execute f5-newman-build-5
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-        POST https://10.1.1.4/mgmt/shared/authn/login [200 OK, 1.41KB, 194ms]
+        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 194ms]
         ✓  [POST Response Code]=200
         ✓  [Populate Variable] bigip_token=NGEHHD6ZDJFD2MNF2UL3UXTGVH
 
       ↳ Verify Authentication Works
-        GET https://10.1.1.4/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 16ms]
+        GET https://10.1.1.10/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 16ms]
         ✓  [GET Response Code]=200
         ✓  [Current Value] token=NGEHHD6ZDJFD2MNF2UL3UXTGVH
         ✓  [Check Value] token == NGEHHD6ZDJFD2MNF2UL3UXTGVH
 
       ↳ Set Authentication Token Timeout
-        PATCH https://10.1.1.4/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 17ms]
+        PATCH https://10.1.1.10/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 17ms]
         ✓  [PATCH Response Code]=200
         ✓  [Current Value] timeout=1200
         ✓  [Check Value] timeout == 1200
@@ -87,19 +87,19 @@ Task 1 - Execute f5-newman-build-5
 
       ❏ 5 - Clean Up Service
       ↳ Step 1: Delete a Virtual Server
-        DELETE https://10.1.1.4/mgmt/tm/ltm/virtual/module_3_vs [200 OK, 740B, 57ms]
+        DELETE https://10.1.1.10/mgmt/tm/ltm/virtual/module_3_vs [200 OK, 740B, 57ms]
 
       ↳ Step 2: Delete a TCP Profile
-        DELETE https://10.1.1.4/mgmt/tm/ltm/profile/tcp/module_3_tcp_clientside [200 OK, 740B, 88ms]
+        DELETE https://10.1.1.10/mgmt/tm/ltm/profile/tcp/module_3_tcp_clientside [200 OK, 740B, 88ms]
 
       ↳ Step 3: Delete a HTTP Profile
-        DELETE https://10.1.1.4/mgmt/tm/ltm/profile/http/module_3_http [200 OK, 740B, 56ms]
+        DELETE https://10.1.1.10/mgmt/tm/ltm/profile/http/module_3_http [200 OK, 740B, 56ms]
 
       ↳ Step 4: Delete a Pool
-        DELETE https://10.1.1.4/mgmt/tm/ltm/pool/module_3_pool [200 OK, 740B, 47ms]
+        DELETE https://10.1.1.10/mgmt/tm/ltm/pool/module_3_pool [200 OK, 740B, 47ms]
 
       ↳ Step 5: Delete a HTTP Monitor
-        DELETE https://10.1.1.4/mgmt/tm/ltm/monitor/http/module_3_http_monitor [200 OK, 740B, 59ms]
+        DELETE https://10.1.1.10/mgmt/tm/ltm/monitor/http/module_3_http_monitor [200 OK, 740B, 59ms]
 
       ┌─────────────────────────┬──────────┬──────────┐
       │                         │ executed │   failed │
