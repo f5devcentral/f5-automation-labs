@@ -25,7 +25,7 @@ Now that the App Services iApp template is installed, we can deploy a new
 Layer 4 to 7 Service. We will start with **Creating** a Basic HTTP Service,
 demonstrate **Modifying/Mutate** the service by changing the node state,
 and finally **Delete** the whole service. Once we've demonstrated with these
-tasks, we'll introduce more complex deployments options with iRules, Custom
+tasks, we'll introduce more complex deployment options with iRules, Custom
 Profiles, Certificates, and an ASM Policy.
 
 .. NOTE:: This lab work will be performed from
@@ -236,7 +236,7 @@ Perform the following steps to complete this task:
 
 #. iApps are a Declarative interface, allowing us to modify deployment without
    the need to delete it (this also means we can re-name objects **if**
-   we needed too).  For this service we will:
+   we needed to).  For this service we will:
 
    - Use the same custom profiles
    - Remove the iRule

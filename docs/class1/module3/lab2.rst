@@ -24,7 +24,7 @@ Lab 3.2: Create a Declarative Service Catalog
 
 In the introduction to this module we discussed the importance of using
 **Service Templates** to build a **Declarative Service Catalog**.  This
-lab will show to create a few examples of **Service Templates**
+lab will show how to create a few examples of **Service Templates**
 (Templates).  It's important to understand that while the packaged examples
 used in this lab are great starting points, you should use them as a starting
 point for creating your own **Service Catalog** that meets the requirements of
