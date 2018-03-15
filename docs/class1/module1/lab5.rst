@@ -114,6 +114,13 @@ Module 2 you will see the importance of leveraging **Abstraction**
 and **Declarative Interfaces** to minimize the amount of time spent on building
 Imperative Workflows.
 
+.. raw:: html
+
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/WxAirVNyo6I" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+*Source: https://youtu.be/WxAirVNyo6I*
+
+
 .. |postman-runner-button| image:: /images/postman-runner-button.png
 .. |lab-5-1| image:: images/lab-5-1.png
 .. |lab-5-2| image:: images/lab-5-2.png

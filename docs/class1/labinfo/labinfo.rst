@@ -90,7 +90,16 @@ Lab Environments
 ----------------
 
 In order to complete this class you will need to utilize a specific
-**Lab Environment**.  You can consume this training in a couple of
+**Lab Environment**.
+
+.. raw:: html
+
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/DljGxqQzeAs" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+*Source: https://youtu.be/DljGxqQzeAs*
+
+
+You can consume this training in a couple of
 ways:
 
 - Pre-built Environment using a Ravello Blueprint
