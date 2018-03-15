@@ -40,7 +40,7 @@ focus on demonstrating an **Imperative** approach to automation.
 .. NOTE:: The Lab Deployment for this lab includes two BIG-IP devices.
    For most of the labs, we will only be configuring the BIG-IP A
    device (management IP configuration and licensing has been completed).
-   BIG-IP B will have some minimal configuration pre-loaded. In real-world
+   BIG-IP B will have some minimal configuration pre-loaded. In a real-world
    scenario, it would be necessary to perform Device Onboarding functions
    on ALL BIG-IP devices. In this lab exercise, we chose to perform it only
    on a single device due to lab time allocation constraints.
