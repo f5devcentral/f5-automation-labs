@@ -23,6 +23,8 @@ labs from f5.com/supernetops.
           ``in_case_of_emergency folder``. Not restoring BIGIP-A will result
           in services unable to be accessed and nodes/pool members offline.
           This restore **MUST** be done via TMSH with a ``no-license`` flag.
+          Location>ubuntu@LinuxJumphost:~/Desktop/in_case_of_emergency/bigip
+          -a-module3.ucs
 
 Expected time to complete: **3 hours**
 
