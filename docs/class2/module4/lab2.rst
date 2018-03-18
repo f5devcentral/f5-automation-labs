@@ -83,9 +83,9 @@ logging, which we will also review.
             }
          }
 
-  Contents in Pipeline:
+    Contents in Pipeline:
 
-  |lab-2-4|
+    |lab-2-4|
 
 #. Once the Job is saved, you will be taken to the stage view page, from here we are going to execute our Pipeline build, choose the ``Build Now`` option.
 
