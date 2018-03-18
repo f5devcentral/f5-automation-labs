@@ -36,56 +36,56 @@ logging, which we will also review.
 
 #. We need to enter the contents of the ``Jenkinsfile1-2`` into the ``Script`` section under Pipeline. After the contents are added click the ``Save`` Option.
 
-.. code-block:: groovy
-   :linenos:
+     .. code-block:: groovy
+        :linenos:
 
-    node {
-       stage('Testing') {
-          //Run the tests
-          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-          //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
-       }
-       stage('Frameword-Deployment') {
-           //Run SNOPS Container Newman Package Virtual and Pool
-          sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
-          //chatops slack message that run has completed
-          slackSend(
-             channel: '#jenkins_builds',
-             color: 'good',
-             message: 'Super-NetOps Engineer is about to deploy an F5 Service Framework, Approval Needed!',
-             teamDomain: 'f5agilitydevops',
-             token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
-             )
-       }
-       stage('Approval') {
-          //Gate the process and require approval
-          input 'Proceed?'
-          //chatops slack message that run has completed
-          slackSend(
-              channel: '#jenkins_builds',
-              color: 'good',
-              message: 'Super-NetOps Engineer just approved a new F5 Service Framework, thats some serious Continuous Delivery!',
-              teamDomain: 'f5agilitydevops',
-              token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
-              )
-       }
-       stage('Add-Sevice-Node') {
-           //Run SNOPS Container Newman Package add Node to Pool
-          sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
-          //chatops slack message that run has completed
-          slackSend(
-             channel: '#jenkins_builds',
-             color: 'good',
-             message: 'Super-NetOps Engineer just added a Node to a Service, Production is Online!',
-             teamDomain: 'f5agilitydevops',
-             token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
-             )
-       }
-    }
+         node {
+            stage('Testing') {
+               //Run the tests
+               //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+               //sh "python -m /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+            }
+            stage('Frameword-Deployment') {
+                //Run SNOPS Container Newman Package Virtual and Pool
+               sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-1"
+               //chatops slack message that run has completed
+               slackSend(
+                  channel: '#jenkins_builds',
+                  color: 'good',
+                  message: 'Super-NetOps Engineer is about to deploy an F5 Service Framework, Approval Needed!',
+                  teamDomain: 'f5agilitydevops',
+                  token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
+                  )
+            }
+            stage('Approval') {
+               //Gate the process and require approval
+               input 'Proceed?'
+               //chatops slack message that run has completed
+               slackSend(
+                   channel: '#jenkins_builds',
+                   color: 'good',
+                   message: 'Super-NetOps Engineer just approved a new F5 Service Framework, thats some serious Continuous Delivery!',
+                   teamDomain: 'f5agilitydevops',
+                   token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
+                   )
+            }
+            stage('Add-Sevice-Node') {
+                //Run SNOPS Container Newman Package add Node to Pool
+               sh "f5-newman-wrapper /home/snops/f5-automation-labs/jenkins/f5-newman-build/f5-newman-build-2"
+               //chatops slack message that run has completed
+               slackSend(
+                  channel: '#jenkins_builds',
+                  color: 'good',
+                  message: 'Super-NetOps Engineer just added a Node to a Service, Production is Online!',
+                  teamDomain: 'f5agilitydevops',
+                  token: 'vLMQmBq2tiyiCcZoNlbmAi0Z'
+                  )
+            }
+         }
 
-Contents in Pipeline:
+  Contents in Pipeline:
 
-|lab-2-4|
+  |lab-2-4|
 
 #. Once the Job is saved, you will be taken to the stage view page, from here we are going to execute our Pipeline build, choose the ``Build Now`` option.
 
@@ -94,7 +94,9 @@ Contents in Pipeline:
 #. The Build is now running, and the stages are being executed in order. However, on our third stage we have a **pause** and an approval **needed**. Also at the same time Slack has began to notify us that a new service is being deployed, and someone needs to approve it.
 
    |lab-2-6|
+   
    Highlight over the third Stage to prompt for the Approval
+
    |lab-2-7|
 
    |lab-2-8|
@@ -130,7 +132,7 @@ These two Jenkins files were completed to show the ability of creating smaller d
 
    |module-4-1|
 
-#. Repeat steps 2 & 3 of the last module, creating 2 new Jenkins jobs, one for each desired node state.
+#. Repeats steps 2 & 3 of the previous task to create 2 new Jenkins jobs, one for each desired node state.
 
 #. Create and Execute ``module_4_jenkinsfile_3`` for a down node
 

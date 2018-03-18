@@ -15,7 +15,7 @@ Task 1 - Import the f5-postman-workflows Postman Collection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task you will Import a Postman Collection that contains Installation
-helpers, Examples and a automated Test Framework.  The collection is installed
+helpers, Examples and an automated Test Framework.  The collection is installed
 from the f5-postman-workflows GitHub repository.
 
 Perform the following steps to complete this task:
@@ -29,12 +29,12 @@ Perform the following steps to complete this task:
 
 #. You should now see a collection named ``F5_Postman_Workflows`` in your
    Postman Collections sidebar, in some cases the Collections don't appear until Postman
-   has been closed an relaunched.
+   has been closed and relaunched.
 
 Task 2 - Install f5-postman-workflows into your Postman Client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To utilize the helper functions the framework includes, we must install those
+To utilize the helper functions included in the framework, we must install those
 functions into the Postman Client.  The installation helpers perform the
 following tasks:
 

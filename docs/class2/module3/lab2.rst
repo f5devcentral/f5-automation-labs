@@ -31,7 +31,7 @@ Task 1 - Examine f5-newman-build-1
 #. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
 #. Let's examine the contents of the first f5-newman-wrapper file ``cat f5-newman-build-1``
 
-   .. code-block:: console
+.. code-block:: console
      :linenos:
 
      {
@@ -76,7 +76,7 @@ Task 1 - Examine f5-newman-build-1
 You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources, shown in a previous lab.
 For editing files VIM/VI is installed on the container, if you **do not know** how to use VIM/VI please let the instructor know.
 
-  .. code-block:: json
+.. code-block:: json
    :linenos:
 
    {
@@ -142,7 +142,7 @@ Example of a complete file:
 Task 2 - Execute the first f5-newman-wrapper file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers or Pools
+#. Login to your BIG-IP lab machine and verify you do not have any Virtual Servers or Pools. Delete any virtual servers or Pools that appear in the GUI. 
 
    .. NOTE:: If you are using the F5 lab systems there are already shortcuts in your Chrome browser called ``BIG-IP A GUI``, if you receive a certificate warning accept and add exception (the BIG-IP has a self-signed cert which violates Chrome's security). BIG-IP A Login credentials are ``admin\admin``
 
