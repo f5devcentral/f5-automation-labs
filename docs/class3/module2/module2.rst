@@ -1,5 +1,5 @@
-Module 2: Programmatic Control of Firewall Services
-===================================================
+Module 2: Programmatic WAF (ASM) Configuration
+==============================================
 
 * Provision AFM module on BIG-IP 
 * Interact with AFM related REST endpoints on a BIG-IP
