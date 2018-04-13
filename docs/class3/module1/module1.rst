@@ -1,5 +1,5 @@
-Module 1: |icr| Refresher
-=========================
+Module 1: Programmatic Firewall (AFM) Configuration
+===================================================
 
 * Explore the iControl REST API on a BIG-IP
 * Use Postman to interact with the |icr|
