@@ -1,0 +1,48 @@
+ {
+    "class": "AS3",
+    "action": "deploy",
+    "updateMode": "selective",
+    "persist": false,
+    "declaration": {
+        "class": "ADC",
+        "schemaVersion": "3.0.0",
+        "id": "HTTP_Example_Service",
+        "label": "HTTP_Example_Service",
+        "remark": "HTTP Virtual Service w/ Single Pool and HTTP Profile",
+        "Tenant1": {
+            "class": "Tenant",
+            "HTTP_Service": {
+                "class": "Application",
+                "template": "http",
+                "serviceMain": {
+                    "class": "Service_HTTP",
+                    "virtualAddresses": [
+                        "10.1.20.121"
+                    ],
+                    "pool": "Pool1"
+                },
+                "Pool1": {
+                    "class": "Pool",
+                    "monitors": [
+                        "http"
+                    ],
+                    "members": [
+                    	{
+                            "servicePort": 8001,
+                            "serverAddresses": [
+                            	"10.1.10.100"
+                            ]
+                        },
+                        {
+                            "servicePort": 8002,
+                            "serverAddresses": [
+                                "10.1.10.101"
+                            ]
+                        }
+
+                    ]
+                }
+            }            
+        }
+    }
+ }
