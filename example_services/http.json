@@ -19,6 +19,7 @@
                     "virtualAddresses": [
                         "10.1.20.121"
                     ],
+                    "snat": "auto",
                     "pool": "Pool1"
                 },
                 "Pool1": {
