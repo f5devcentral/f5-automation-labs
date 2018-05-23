@@ -1,5 +1,5 @@
-Lab 2.2: Deploying iApp Templates on BIG-IP
--------------------------------------------
+Lab 2.2: Install the AS3 Extension
+----------------------------------
 
 .. graphviz::
 
@@ -13,65 +13,90 @@ Lab 2.2: Deploying iApp Templates on BIG-IP
          style = "rounded,filled"
          color = lightgrey
          height = .75
-         label = "iApp Templates & Deployments"
-         basics [label="iApp Basics",color="palegreen"]
-         templates [label="iApp Templates",color="steelblue1"]
-         deployments [label="iApp Deployments"]
+         label = "AS3 Installation & Deployments"
+         basics [label="AS3 Basics",color="palegreen"]
+         templates [label="AS3 Installation",color="steelblue1"]
+         deployments [label="AS3 Deployments"]
          basics -> templates -> deployments
       }
    }
 
-iApps typically come in the form of a ``.tmpl`` file, which contains the content
-needed for the BIG-IP to utilize it as a Service framework.
-Different toolkits will install iApps in different ways.  We'll be using the
-REST API in a raw form, so the content of the file is what
-we need. As a result, we need to ensure that the content of the iApp is URL
-encoded to make sure the BIG-IP reads the payload correctly. This is specific
-for the iApp deployment over REST API. When using other tools like Ansible, the
-whole ``.tmpl`` file can be uploaded, removing the need for encoding.
+As mentioned previously, iConrol LX Extensions are packaged using an RPM
+format.  We will use the REST API to install AS3 onto our BIG-IP device.
 
 .. NOTE:: This lab work will be performed from
-   ``Lab 2.2 - Deploying iApp Templates on BIG-IP`` folder in the Postman
+   ``Lab 2.2 - Install AS3 onto BIG-IP`` folder in the Postman
    Collection
-
-|lab-2-5|
-
-Task 1 - View Installed iApp Templates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Perform the following steps to complete this task:
-
-#. :guilabel:`Send` the ``Step 1: Get Installed iApp Templates`` request to view
-   iApp templates installed on the BIG-IP device:
 
    |lab-2-1|
 
-#. Review the JSON response :guilabel:`Body`.  The JSON payload shows
-   iApp templates that are installed on the BIG-IP device:
-
-   |lab-2-2|
-
-Task 2 - Install the App Services iApp Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - View Installed iControl LX Extensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 2: Install App Svcs v2.0.004 iApp Template``
-   request to install the App Services iApp template:
+#. :guilabel:`Send` the ``Step 1: Get Installed iControl LX Extensions`` 
+   request to view extensions installed on the BIG-IP device:
+
+   |lab-2-2|
+
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows
+   extensions that are installed on the BIG-IP device in the ``items`` array.
+   In this case we have no extensions installed so the ``items`` array is empty.
 
    |lab-2-3|
 
-#. Review the **Request** JSON :guilabel:`Body`, and the **Response** JSON
-   :guilabel:`Body`.  In this task we installed the App Services iApp Template
-   and the BIG-IP sent back a response that the iApp was installed with its
-   object name.
+Task 2 - Install the AS3 Extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. NOTE:: The JSON body in the **Request** portion is automatically generated
-      as part of the build process for the App Services iApp and the request
-      in the Postman Collection was copied from a pre-built collection that
-      ships with releases of the App Services iApp template.
+Perform the following steps to complete this task:
+
+#. Using the Chrome web browser open a new tab and click the 
+   ``AS 3.1.0 Release`` bookmark.
+
+   .. TODO:: Need to add bookmark to lab blueprint to https://github.com/F5Networks/f5-appsvcs-extension/releases/tag/3.1.0
+
+#. Click the file with the ``.rpm`` extension to download it.  The file will be
+   located in the ``Downloads`` folder on your jumphost.
+
+   .. TODO:: Verify downloaded file location
+
+#. Click the ``Step 2: Upload AS3 Extension RPM`` request.
+
+#. Click the :guilabel:`Body` tab, then click the :guilabel:`Choose Files` 
+   button:
+
+   |lab-2-4|
+
+#. Select the previously downloaded RPM file located in the ``Downloads`` 
+   folder on your jumphost.  Then click the :guilabel:`Send` button to upload 
+   the RPM file to the BIG-IP system:
+
+   |lab-2-5|
+
+#. Review the :guilabel:`Test Results` to ensure the file upload was successful:
 
    |lab-2-6|
+
+#. Click the ``Step 3: Create AS3 Extension Install Task`` request and click 
+   :guilabel:`Send`.  This request will command the iControl LX framework to 
+   install the RPM uploaded in the previous step.  Because the installation 
+   task is an asynchronous operation we need to check the status of the task
+   in the next step.
+
+#. Click the ``Step 4: Get AS3 Install Task Status`` request and click
+   :guilabel:`Send`.
+
+#. Check the **Response** :guilabel:`Body` and ensure the task ``status`` is
+   ``FINISHED``:
+
+   |lab-2-7|
+
+#. Click the ``Step 5: Get AS3 Version Info`` request and click 
+   :guilabel:`Send`.  Review the **Response** :guilabel:`Body` to ensure
+   the AS3 is installed and has started:
+
+   |lab-2-8|
 
 .. |lab-2-1| image:: images/lab-2-1.png
 .. |lab-2-2| image:: images/lab-2-2.png
@@ -79,3 +104,6 @@ Perform the following steps to complete this task:
 .. |lab-2-4| image:: images/lab-2-4.png
 .. |lab-2-5| image:: images/lab-2-5.png
 .. |lab-2-6| image:: images/lab-2-6.png
+.. |lab-2-7| image:: images/lab-2-7.png
+.. |lab-2-8| image:: images/lab-2-8.png
+
