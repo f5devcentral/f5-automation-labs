@@ -1,5 +1,5 @@
-Lab 2.1: Exploring iApps
-------------------------
+Lab 2.1: Exploring AS3
+----------------------
 
 .. graphviz::
 
@@ -13,86 +13,85 @@ Lab 2.1: Exploring iApps
          style = "rounded,filled"
          color = lightgrey
          height = .75
-         label = "iApp Templates & Deployments"
-         basics [label="iApp Basics",color="steelblue1"]
-         templates [label="iApp Templates"]
-         deployments [label="iApp Deployments"]
+         label = "AS3 Installation & Deployments"
+         basics [label="AS3 Basics",color="steelblue1"]
+         templates [label="AS3 Installation"]
+         deployments [label="AS3 Deployments"]
          basics -> templates -> deployments
       }
    }
 
-iApp Templates & Deployments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation
+~~~~~~~~~~~~
 
-There are multiple ways to install an iApp on BIG-IP. These includes using
-TMOS Shell (TMSH through SSH), the GUI (TMUI), and the REST Interface. All
-of these mechanisms are supported and, if required, can be used in
+iControl LX Extensions use the common Redhat Package Manager (RPM) distribution
+format.  To install an extension you need to first obtain the RPM file 
+associated with the extension.
+
+AS3 RPMs are available at https://github.com/f5networks/f5-appsvcs-extension/releases
+
+AS3 can be installed in a few ways:
+
+- using the iControl REST API
+- using the BIG-IP GUI (TMUI)
+- using a command prompt
+
+All of these mechanisms are supported and, if required, can be used in
 conjunction with each other.
 
-For instance, you can install an iApp template from BIG-IP GUI and then deploy
-a new service via iControl REST using tools such as cURL, Postman and Ansible.
+For instance, you can install AS3 from BIG-IP GUI and then deploy
+a new service via iControl REST using tools such as cURL, Postman 
+and Ansible.
 
-.. NOTE:: Redeployment of iApp templates is facilitated/protected by a mechanism in
-   BIG-IP platform to ensure safe changes to the configurations without disrupting
-   existing user traffic.
+To view installed iControl LX Extensions in the BIG-IP GUI you must first
+enable this functionality.  To do this log into the system with an ``admin``
+account and execute ``touch /var/config/rest/iapps/enable``.  This will enable
+the :menuselection:`iApps --> Package Management LX` menu:
 
-F5 iApps was introduced in TMOS (BIG-IP operating system) Version 11.
-They can interact within and across different F5 modules to provide
-full Layer 4-7 Application Services capabilities.
-The **iApp Template** is used to execute an **iApp Deployment**
-that generates a series of configuration object grouped under an
-**Application Service Object (ASO)**.  The ASO model houses objects belonging
-to the iApp service deployment.  Upon deletion of a specific iApp service deployment,
-all the associated objects will be recursively deleted.
+|lab-1-1|
 
-Below are some of the modules that can be configured using iApp templates:
+Clicking :guilabel:`Package Management LX` will show a table of installed
+iControl LX Extensions:
 
-- Local Traffic Manager
-- Advanced Firewall Manager
-- Application Security Manager
-- Access Policy Manager
+|lab-1-2|
 
-.. NOTE:: The term ``Application Service`` in the GUI and ``service`` in the REST
-   API are the same objects.  The name is abbreviated in the API.
+Deployments
+~~~~~~~~~~~
 
-You can find the GUI representation of iApps on the left-hand side of the UI
-under :guilabel:`iApps`. iApp deployments are located under
-:guilabel:`Application Services`, while iApp templates are located under
-:guilabel:`Templates` on the system.
+.. NOTE:: Redeployment of AS3 services is facilitated/protected by a mechanism 
+   in BIG-IP platform to ensure safe changes to the configurations without 
+   disrupting existing user traffic.
 
-- :guilabel:`Application Services` (iApp deployments)
+iControl LX allows Extensions to register new REST API endpoints with the 
+iControl REST API.  In the case of AS3 the following endpoints are exposed:
 
-  |lab-1-1|
+- **Version Info:** ``/mgmt/shared/appsvcs/info``
+- **Declarations:** ``/mgmt/shared/appsvcs/declare``
+- **Self-Test:** ``/mgmt/shared/appsvcs/selftest``
 
-- :guilabel:`Templates` (iApp templates)
+Deployments use the `/mgmt/shared/appsvcs/declare` endpoint.  This endpoint 
+accepts the Create, Read, Update and Delete (CRUD) operations using the HTTP 
+``POST``, ``GET``, ``PATCH`` and ``DELETE`` methods.
 
-  |lab-1-2|
+Additionally various query parameters are also supported.  Full documentation
+is available in the `AS3 Reference <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/as3-api.html>`_
 
-The associated REST API endpoints are:
+Source-of-Truth
+~~~~~~~~~~~~~~~
 
-- **iApp Deployments**: ``/mgmt/tm/cloud/services/iapp``
-- **iApp Templates**: ``/mgmt/tm/sys/application/template``
+In an automated environment, we **must** always ensure that the 
+**AS3 declarations** are being used as the Source-of-Truth for an underlying 
+deployment.  Therefore, you should **NOT** perform out-of-band modifications 
+to the configuration using the BIG-IP GUI or REST API.
 
-iApp Deployments and Source-of-Truth
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-By default, iApp implements a strict source-of-truth preservation
-mechanism called **Strict Updates**.  The App Services iApp does allow granular
-configuration of underlying TMOS objects **without** disabling the Strict
-Updates mechanism. However, not all iApp templates supports this functionality.
-
-In an automated environment, we **must** always ensure that the
-**iApp template inputs** are being used as the Source-of-Truth for an
-underlying deployment.  Therefore, **Strict Updates should not be disabled** in
-order to preserve the integrity of service deployments using iApp templates.
-
-For instance, after an iApp service is deployed, modifying the underlying
-configuration **with Strict Updates disabled** will result in Source-of-Truth
-violation. Changes made directly to the configuration will cause iApp
-configuration objects to be overwritten. The direct modification of objects
-configured on BIG-IP will alter the integrity of iApp deployment input values
-that automation tools are interacting with, causing failures. It is therefore
-important to keep **Strict Updates** enabled at all times for automated deployments.
+For instance, after an AS3 declaration is deployed, modifying the underlying
+configuration will result in a Source-of-Truth violation.  AS3 **does not** 
+prevent out-of-band changes from occuring.  This allows administrators to ensure 
+total control over the system in emergency situations, however, the direct 
+modification of objects configured on BIG-IP will effect the integrity of 
+AS3 declaration that automation tools are interacting with, causing failures. 
+It is therefore important to prevent out-of-band changes at all times for 
+automated deployments in normal production circumstances.
 
 .. |lab-1-1| image:: images/lab-1-1.png
 .. |lab-1-2| image:: images/lab-1-2.png
