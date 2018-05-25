@@ -54,12 +54,8 @@ Perform the following steps to complete this task:
 #. Using the Chrome web browser open a new tab and click the 
    ``AS 3.1.0 Release`` bookmark.
 
-   .. TODO:: Need to add bookmark to lab blueprint to https://github.com/F5Networks/f5-appsvcs-extension/releases/tag/3.1.0
-
 #. Click the file with the ``.rpm`` extension to download it.  The file will be
-   located in the ``Downloads`` folder on your jumphost.
-
-   .. TODO:: Verify downloaded file location
+   located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
 #. Click the ``Step 2: Upload AS3 Extension RPM`` request.
 
