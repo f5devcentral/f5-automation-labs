@@ -4,7 +4,7 @@ Class 1: Introduction to Automation & Orchestration
 This introductory class covers the following topics:
 
 - Imperative Automation using the F5 BIG-IP iControl REST API
-- Service Abstraction and Automation using F5 iApp templates
+- Service Abstraction and Automation using F5 App Services 3 Extension (AS3)
 - Building Declarative Interfaces with the F5 iWorkflow product
 
 Expected time to complete: **4 hours**
