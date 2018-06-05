@@ -96,7 +96,7 @@ The ``AS3`` class defines various parameters that control how AS3 executes.
    `AS3 Class <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/schema-reference.html#as3>`__
    section of the schema reference.
 
-In the example above the ``declaration`` attribute is highlighted.  Since the
+In the example above, the ``declaration`` attribute is highlighted.  Since the
 ``AS3`` class is the top-level class this attribute is special; it is a
 container used to specify our next class, ``ADC``:
 
@@ -132,7 +132,7 @@ the **Release Version** of AS3.  This allows you to use the latest released
 versions of AS3 while still ensuring that existing declarations continue to 
 function.  Schema changes and additions are always implemented in a new 
 ``schemaVersion`` and can be migrated to in a controlled manner.  To highlight 
-this notice that the ``schemaVersion`` is ``3.0.0`` while the installed release 
+this, notice that the ``schemaVersion`` is ``3.0.0`` while the installed release 
 of AS3 is ``3.1.0``.
 
 .. NOTE:: The available attributes for the ``ADC`` class are documented in the 
@@ -183,7 +183,7 @@ Next, lets populate our tenant ``Tenant1`` with a our next class,
 As you can see we've defined three applications, ``App1``, ``App2`` and ``AppN``.
 Inside each ``Application`` container we will populate more objects that define
 the specific configuration for an Application Service.  Adding new applications
-is a simple as adding a new object with a ``Application`` class.  This pattern 
+is as simple as adding a new object with a ``Application`` class.  This pattern 
 can be repeated for as many applications as required.
 
 .. NOTE:: The available attributes for the ``Application`` class are documented in the 
@@ -191,7 +191,7 @@ can be repeated for as many applications as required.
    section of the schema reference.
 
 Now that we see how our declaration is structured lets show an example that 
-defines a simple HTTP Application Server that implements Load Balancing:
+defines a simple HTTP Application Service that implements Load Balancing:
 
 .. code-block:: json
    :linenos:
@@ -236,7 +236,7 @@ defines a simple HTTP Application Server that implements Load Balancing:
 
 The highlighted lines implement a Virtual Server listening on ``10.1.20.121:80``
 with a single pool that contains two pool members.  It is important note the
-use of the ``template`` attribute.  In this case we are using the ``http``
+use of the ``template`` attribute.  In this case, we are using the ``http``
 template provided by AS3 to set various defaults for this service.  Some of 
 those defaults include:
 
@@ -305,7 +305,7 @@ Perform the following steps to complete this task:
       this concept with **Abstraction** to further simplify the interface the
       service consumer has to interact with.
 
-#. To demonstrate **Idempotency** lets repeat this operation.  Click the 
+#. To demonstrate **Idempotency**, lets repeat this operation.  Click the 
    :guilabel:`Send` button again to **Create** HTTP_Service.  Review the 
    **Response** JSON :guilabel:`Body` and notice that this time the ``message``
    attribute has a value of ``no change``.  Because the input declaration did 
@@ -315,7 +315,7 @@ Perform the following steps to complete this task:
    |lab-3-7|
 
 #. Now that the service has been deployed, let's review the BIG-IP configuration.
-   You can validate by sending the ``Step 1: Get Deployed iApp Services``
+   You can validate by sending the ``Step 1: Get Deployed AS3 Services``
    request again. 
 
    |lab-3-8|
@@ -365,13 +365,13 @@ for each tenant.  Updates to deployments can be acheived in two ways:
 .. WARNING:: Using the ``PATCH`` mechanism can result in a source-of-truth 
    violation if upstream orchestration systems are not updating their stored
    version of the declaration document.  The implications of this should be 
-   fully understood and accounting for if using ``PATCH`` as part of a larger
+   fully understood and accounted for if using ``PATCH`` as part of a larger
    orchestrated workflow.
 
 First, lets use the ``POST`` method to update our service:
 
 #. Click on ``Step 3: POST to Modify HTTP_Service``. Review the **Request** URL 
-   and JSON :guilabel:`Body`.  Notice that we sending a ``POST`` to the 
+   and JSON :guilabel:`Body`.  Notice that we are sending a ``POST`` to the 
    ``/mgmt/shared/appsvcs/declare`` endpoint.  We will send the **Full**
    declaration document with the pool members updated to so they are **NOT** 
    enabled:
@@ -536,8 +536,8 @@ Perform the following steps to complete this task:
 
    |lab-3-28|
 
-Task 7 - Deploy an HTTPS Service with an Web Application Firewall Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 7 - Deploy an HTTPS Service with a Web Application Firewall Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Another advantage of Service Deployment using AS3 is that they can
 deploy advanced Layer 4-7 services using policies from various F5 modules.  
