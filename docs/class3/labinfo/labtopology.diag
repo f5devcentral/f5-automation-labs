@@ -1,0 +1,41 @@
+nwdiag {
+  default_fontsize = 12;
+  span_width=65;
+  network Management {
+      address = "10.1.1.0/24";
+      group bigip {
+            // label = "BIG-IP";
+            // color = "#CB222F";
+            color = "#E66675";
+            "BIG-IP A" [address = "10.1.1.10"];
+            "BIG-IP B" [address = "10.1.1.11"];
+      }
+      group compute {
+            // label = "Compute";
+            // color = "#2370B2";
+            color = "#5FA5CC";
+            "Linux\nServer" [address = "10.1.1.15"];
+      }
+      group mgmt {
+            // label = "Management";
+            // color = "#27B331";
+            color = "#6CDB7A";
+            "iWorkflow" [address = "10.1.1.12"];
+            "Linux\nJumphost" [address = "10.1.1.20"];
+      }
+
+  }
+  network Internal {
+      address = "10.1.10.0/24";
+      "BIG-IP A" [address = "10.1.10.10, 10.1.10.13 (Float)"];
+      "BIG-IP B" [address = "10.1.10.11, 10.1.10.13 (Float)"];
+      "Linux\nServer" [address = "\n10.1.10.100-103"];
+      "Linux\nJumphost" [address = "10.1.10.20"];
+  }
+  network External {
+      address = "10.1.20.0/24";
+      "BIG-IP A" [address = "10.1.20.10, 10.1.20.120-130 (VIPs)"];
+      "BIG-IP B" [address = "10.1.20.11, 10.1.20.120-130 (VIPs)"];
+      "Linux\nJumphost" [address = "10.1.20.20"];
+  }
+}
