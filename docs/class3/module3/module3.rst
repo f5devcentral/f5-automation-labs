@@ -1,5 +1,5 @@
-Module 3: Continuous Integration / Continuous Delivery for Security
-===================================================================
+Module 4: Real world use cases for SecDevOps (time permitting)
+==============================================================
 
 * Provision ASM module on BIG-IP 
 * Interact with ASM related REST endpoints on a BIG-IP
