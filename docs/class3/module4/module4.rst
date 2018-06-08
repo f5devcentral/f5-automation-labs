@@ -1,14 +1,17 @@
-Module 4: Real world use cases for SecDevOps (time permitting)
-==============================================================
+.. _module1:
 
-* Provision ASM module on BIG-IP 
-* Interact with ASM related REST endpoints on a BIG-IP
-* Create and modify an ASM policy
-* Apply the ASM policy to a virtual server
+Module 1: Shifting WAF policy left, closer to DEV. 
+====================================================
+
+In this module you will review the lab environment, practice some of the concepts discussed in class: 
+* break down the silos, enable dev to deploy securely with minimum friction. 
+* introduce security as early on in the dev chain as possible 
+* automated security tests
+* roles of secops and dev in our lab model and deploy an app to prod with WAF protection. 
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
    lab*
-   
+

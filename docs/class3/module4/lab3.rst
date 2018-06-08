@@ -1,335 +1,72 @@
-.. |labmodule| replace:: 4
-.. |labnum| replace:: 3
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab 3: Deploy with new waf policy 
+----------------------------
 
-Lab |labmodule|\.\ |labnum|\: Create ASM Policy
-===============================================
+Background: 
+~~~~~~~~~~~~~
 
-Overview
---------
+secops found a false positive on the waf policy, they fixed it and created a new version for that policy. 
+ 
+ 
+Task 1 (Dave) - Update the policy you are using in 'DEV' 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this lab, the iControl REST based API will be used to create both an ASM parent and child policy.
+deploy to dev again:
+~~~~~~~~~~~~~~~~~~~
 
-Specific Instructions
----------------------
+ssh into the contianer, make sure you are connected as user 'jenkins' 
+go to the application git folder. check which branches are there and what is the active branch. (git branch) 
+you should be on the 'dev' branch. the files you see belong to the dev branch. 
 
-Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+.. code-block:: terminal
 
-.. ATTENTION:: Some response content has been removed for brevity.
+   cd /home/snops/f5-rs-app2
+   git branch
+   
+Configure your information in git, this information is used by git (in this lab we use local git so it only has local meaning) 
 
-1. Retrieve ASM policy
--------------------------
+.. code-block:: terminal
 
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-::
-
-    {
-        "kind": "tm:asm:policies:policycollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/asm/policies?ver=13.0.0",
-        "totalItems": 1,
-        "items": [
-            {
-            "plainTextProfileReference": {
-                "link": "https://localhost/mgmt/tm/asm/policies/8JuF2s3Lb26BYwLXpaHLIg/plain-text-profiles?ver=13.0.0",
-                "isSubCollection": true
-            },
-            "dataGuardReference": {
-                "link": "https://localhost/mgmt/tm/asm/policies/8JuF2s3Lb26BYwLXpaHLIg/data-guard?ver=13.0.0"
-            }
-        ]
-    }
-
-2.0. Create ASM parent policy
------------------------------
-
-An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"type":"parent"`` will create a new ASM parent policy which can then be used for inheritance when a child policy is created.
-
-**Request**
-
-::
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"API_ASM_POLICY_TEST",
-        "description":"Test ASM policy",
-        "applicationLanguage":"utf-8",
-        "type":"parent",
-        "enforcementMode":"transparent",
-        "protocolIndependent":"true",
-        "learningMode":"disabled",
-        "serverTechnologyName": "Unix/Linux"
-    }
-
-**Example Response**
-
-.. NOTE:: Copy the ASM policy hash for the newly created policy and populate the {{asm_policy_hash}} Postman environment variable.
-   The hash in the example below is JEQPVWeJcdso_rEC7Xxo6Q
-
-::
-
-    {
-        "historyRevisionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/history-revisions?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "childPolicyCount": 0,
-        "responsePageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/response-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "policyBuilderReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/policy-builder?ver=13.0.0"
-        },
-        "serverTechnologyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/server-technologies?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "blockingSettingReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/blocking-settings?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "hostNameReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/host-names?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/data-guard?ver=13.0.0"
-        },
-        "selfLink": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q?ver=13.0.0",
-        "signatureReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/signatures?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "filetypeReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/filetypes?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "createdDatetime": "2017-05-30T15:02:11Z",
-        "modifierName": "",
-        "id": "JEQPVWeJcdso_rEC7Xxo6Q",
-        "subPath": "/Common",
-        "name": "API_ASM_POLICY_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/header-settings?ver=13.0.0"
-        }
-    }
-
-2.1. Retrieve ASM parent policy
---------------------------------
-
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-::
-
-    {
-        "historyRevisionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/history-revisions?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "childPolicyCount": 0,
-        "responsePageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/response-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "policyBuilderReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/policy-builder?ver=13.0.0"
-        },
-        "serverTechnologyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q/server-technologies?ver=13.0.0",
-            "isSubCollection": true
-        }
-    }
-
-3.0. Create ASM child policy
------------------------------
-
-An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"parentPolicyName": "/Common/API_ASM_POLICY_TEST"`` will create a new child policy which inherits a base configuration from the specified parent.
-
-**Request**
-
-::
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"API_ASM_POLICY_CHILD_TEST",
-        "description":"Test ASM policy",
-        "applicationLanguage":"utf-8",
-        "parentPolicyName": "/Common/API_ASM_POLICY_TEST",
-        "enforcementMode":"transparent",
-        "protocolIndependent":"true",
-        "learningMode":"automatic",
-        "learningSpeed":"slow",
-        "serverTechnologyName": "Apache Tomcat"
-    }
-
-**Example Response**
-
-.. NOTE:: Take note of the ASM policy hash for the newly created policy.  
-   Copy this value into your Postman's collection environmental variable 
-   for {{asm_policy_hash}}
-
-The hash in the example below is ``zD8sehzULw6Ni7GJG2XwJQ``
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        },
-        "sectionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/sections?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "loginPageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/login-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "description": "Test ASM policy",
-        "fullPath": "/Common/API_ASM_POLICY_CHILD_TEST",
-        "policyBuilderParameterReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/policy-builder-parameter?ver=13.0.0"
-        },
-        "hasParent": true,
-        "partition": "Common",
-        "parentPolicyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q?ver=13.0.0"
-        }
-    }
-
-3.1. Retrieve ASM child policy
--------------------------------
-
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "versionLastChange": " Security Policy /Common/API_ASM_POLICY_CHILD_TEST [add]: Parent Policy was set to /Common/API_ASM_POLICY_TEST.\nType was set to Security.\nEncoding Selected was set to true.\nApplication Language was set to utf-8.\nCase Sensitivity was set to Case Sensitive.\nSecurity Policy Description was set to Fundamental Policy.\nLearning Mode was set to Automatic.\nActive was set to false.\nDifferentiate between HTTP and HTTPS URLs was set to Protocol Specific.\nPolicy Name was set to /Common/API_ASM_POLICY_CHILD_TEST.\nEnforcement Mode was set to Blocking. { audit: policy = /Common/API_ASM_POLICY_CHILD_TEST, username = admin, client IP = 192.168.2.112 }",
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        },
-        "sectionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/sections?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "loginPageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/login-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "description": "Test ASM policy",
-        "fullPath": "/Common/API_ASM_POLICY_CHILD_TEST",
-        "policyBuilderParameterReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/policy-builder-parameter?ver=13.0.0"
-        },
-        "hasParent": true,
-        "partition": "Common",
-        "parentPolicyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q?ver=13.0.0"
-        },
-        "webScrapingReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/web-scraping?ver=13.0.0"
-        },
-        "csrfProtectionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/csrf-protection?ver=13.0.0"
-        },
-        "policyAntivirusReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/antivirus?ver=13.0.0"
-        },
-        "kind": "tm:asm:policies:policystate",
-        "virtualServers": [],
-        "policyBuilderCookieReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/policy-builder-cookie?ver=13.0.0"
-        }
-    }
+   git config --global user.email "you@example.com"
+   git config --global user.name "Your Name"
+   
+ 
+edit the iac_parameters.yaml file to point the deployment to the new ASM policy (linux-high-v01). then add the file to git and commit 
+
+.. code-block:: terminal
+
+   vi iac_parameters.yaml 
+   git add iac_parameters.yaml
+   git commit -m "changed asm policy"
+
+	|dev-cmd-010|
+   
+   
+go back to jenkins and open the 'f5-rs-app2-dev ' folder. choose the 'waf policy' tab , jenkins is set up to monitor the application repo. when a 'commit' is identified jenkins will start an automatic pipeline to deploy the service. it takes up to a minute for jenkins to start the pipeline. 
+
+jenkins takes the parametes from the git repo and uses them to deploy/update the service. 
+
+log on to the bigip again, check which ASM policies are there and which policy is attached to the 'App2 VIP. 
+check the 'traffic learning' for the security policy and verify you no longer see the 'high ascii charachters' 
+
+this concludes the tests in the 'dev' environment. 
+we are now ready to push the changes to production. 
+
+
+
+we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy. 
+on the /home/snops/f5-rs-app2 folder:
+
+.. code-block:: terminal
+ 
+   git checkout master
+   git merge -m "changed asm policy"
+
+* the merge will trigger a job in jenkins that's configured to monitor this repo - 'Push waf policy', since the environment isn't deployed yet it will fail, either cancel the job or let it fail. 
+
+
+
+
+
+   
+.. |dev-cmd-010| image:: images/dev-cmd-010.PNG
 
