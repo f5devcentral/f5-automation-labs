@@ -9,4 +9,3 @@ F5 Programmability Training - Index
    intro
    class*/class*
    howtos/howtos.rst
-   
