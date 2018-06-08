@@ -1,11 +1,10 @@
-Module 1: Programmatic Firewall (AFM) Configuration
+Module 2: Programmatic Firewall (AFM) Configuration
 ===================================================
 
-* Explore the iControl REST API on a BIG-IP
-* Use Postman to interact with the |icr|
-* Authenticate to the BIG-IP using a username/password and token
-* Modify the authentication token timeout
-* Build a basic LTM configuration
+* Provision AFM module on BIG-IP 
+* Interact with AFM related REST endpoints on a BIG-IP
+* Create and modify an AFM address list
+* Create and modify an AFM policy
 
 .. toctree::
    :maxdepth: 1
