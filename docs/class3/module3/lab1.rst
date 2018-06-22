@@ -1,199 +1,282 @@
-.. |labmodule| replace:: 4
-.. |labnum| replace:: 1
-.. |labdot| replace:: |labmodule|\ .\ |labnum|
-.. |labund| replace:: |labmodule|\ _\ |labnum|
-.. |labname| replace:: Lab\ |labdot|
-.. |labnameund| replace:: Lab\ |labund|
+Lab |labmodule|\.\ |labnum|\: Deploy app to DEV environment (Dave)
+==================================================================
 
-Lab |labmodule|\.\ |labnum|\: Provisioning ASM
-==============================================
+Background:
+~~~~~~~~~~~
 
-Overview
---------
+Security team has created some security policies templates, those were built based on the F5 templates with some modifications to the specific enterprise. 
+in this lab we don't cover the 'how to' of the security templates. we focus on the operational side and the workflows. 
 
-Setting up the demo framework (follow steps up to 'run your first solution'):
-------------------------------------------------------------------------------------
+The Tasks are split between the two roles:
+ - secops
+ - Dave - the person who's responsible of changing code for the app and the infrastructure of the app (dev team)
+ 
+Lab scenario:
+~~~~~~~~~~~~~
 
-https://gitswarm.f5net.com/f5-reference-solutions/f5-rs-docs/blob/master/README.rst
+New app - App2 is being developed. the app is an e-commerce site. 
+code is ready to go into 'DEV' environment. for lab simplicity there are only two environments - DEV and PROD. 
+Dave should deploy their new code into a DEV environment that is exactly the same as the production environment. 
+run their application tests and security tests.
 
-waf and dosl7 canary deployments:
-------------------------------------------------------------------------------------
+.. Note:: Pipeline is broken to DEV and PROD for lab simplicity. 
+   from a workflow perspective the pipelines are the same. 
+   it is broken up to two for a better lab flow. 
 
-.. image:: images/waf_canary_images/waf_dosl7_canary_diagram.jpg
-   :align: center
+   
+.. Note:: OUT OF SCOPE - a major part of the app build process is out of scope for this lab, 
+   Building the app code and publish it as a container to the registry. this process is done using DOCKERHUB.  
 
-on jenkins main page, click on the folder - "advanced brute force and bot protection canary deployment"
+Task 1.1 - review Dave's repo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins01.jpg
-   :align: center
+1.1.1 view git branches in the application repo:
+****************************************************
 
-Click on the "aws waf stack 01" tab
+on the container CLI type the following command to view git branches:
 
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins02.jpg
-   :align: center
+.. code-block:: terminal
 
-click on "run" to start the solution pipeline:
+   cd /home/snops/f5-rs-app2
+   git branch
+   
+the app repo has two branches, dev and master. we are now working on the dev branch. 
 
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins03.jpg
-   :align: center
+1.1.2 view files in the application repo:
+****************************************************
 
-choose the region in which you want to deploy the stack and click "build":
+on the container CLI type the following commands to view the files in the repo:
 
-Wait until the stack is ready (takes about 10-15 minutes). you should see all of the jobs in green. 
+.. code-block:: terminal
 
-if one of the jobs failed, try to run in again, if it still deosn't work send me a note yossi@f5.com. 
+   cd /home/snops/f5-rs-app2
+   ls
 
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins04.jpg
-   :align: center
+- application code under the 'all-in-one-hackazon' folder. 
+- infrastructure code maintained in the 'iac_parameters.yaml' file. 
+ 
+1.1.3 explore the infrastructure as code parameters file:
+*****************************************************************
+
+.. code-block:: terminal
+
+   more iac_parameters.yaml
+   
+the infrastructure of the environments is deployed using ansible playbooks that were built by devops/netops. 
+those playbooks are being controlled by jenkins which takes the iac_parameters.yaml file and uses it as parameters for the playbooks. 
+
+- that enables dave to choose the aws region in which to deploy, the name of the app and more.  
+- dave can also control the deployment of the security policies from his repo as we will see. 
+ 
+Task 1.2 - Deploy dev environment 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. Note:: Jenkins can be configured to run the dev pipeline based on code change in dave's app repo. 
+   in this lab we are manually starting the Full stack pipeline in Jenkins to visualize the process. 
+
+1.2.1 Open Jenkins:
+**************************
+
+go to UDF, on the :guilabel:`jumphost` click on :guilabel:`access` and :guilabel:`jenkins`
+
+:guilabel:`username:` ``snops`` , :guilabel:`password:` ``default``
+
+
+.. Note:: when you open jenkins you should see some jobs that have started running automatically, jobs that contain: 'Push a WAF policy',
+          this happens because jenkins monitors the repo and start the jobs.
+		  *you can cancel the jobs or let them fail*. 
+
+
+1.2.2 start the 'Full stack pipeline':
+**************************		  
+in jenkins open the :guilabel:`DevSecOps - Lab - App2` folder, the lab jobs are all in this folder 
+we will start by deploying a DEV environment, you will start a pipeline that creates a full environment in AWS. 
+
+
+   |jenkins010|
+   
+click on the 'f5-rs-app2-dev' folder.
+here you can see all of the relevant jenkins jobs for the dev environment.
+
+   |jenkins020|
+
+click on 'Full stack deployment' , that's the pipeline view for the same folder. 
+
+   |jenkins030|
+   
+click on 'run' to start the dev environment pipeline. 
+
+   |jenkins040|
+
+
+   
+Task 1.3 - Review the deployed environment 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.3.1 review jobs output:
+**************************	
+
+you can review the output of each job while its running, click on the small :guilabel:`console output` icon as shown in the screenshot:
+
+   |jenkins050|
+   
+1.3.2 let the jobs run until the pipeline finishes:
+**************************	
+   
+wait until all of the jobs have finished (turned green and the app-test one is red ). 
+
+   |jenkins055|
+
+1.3.3 open slack and extract bigip and application info:
+**************************	
+   
+ - open slack - https://f5-rs.slack.com/messages/C9WLUB89F/ (if you don't already have an account you can set it up with an F5 email)
+ - go to the :guilabel:`builds` channel. 
+ - use the search box on the upper right corner and filter by your username (student#). 
+ - jenkins will send to this channel the bigip and the application address. 
+
+
+   |slack040|
+
+1.3.4 login to the bigip:
+**************************	
+
+- use the address from the slack notification (look for your username in the :guilabel:`builds` channel)
+- username: admin
+- password: the personal password you defined in the global parameters file in the vault_dac_password parameter.
+
+explore the objects that were created: 
+
+1.3.5 Access the App:
+**************************	
+
+try to access the app using the ip provided in the slack channel - that's the Elastic ip address that's tied to the VIP on the bigip.
+after ignoring the ssl error (because the certificate isn't valid for the domain) you should get to the Hackazone mainpage
+
+   |hackazone010|
+   
+
+1.3.6 Summary - Jobs roles:
+**************************	
+
+A1 - aws-net:
++++++++++++++
+- Builds an AWS VPC with subnets and security groups. 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo. (like which region) 
+- Ansible playbook takes the parameters and use them to deploy a cloud formation template 
+- cloud formation template deploys all resources in AWS subscription
+
+A2 - aws_app:
++++++++++++++
+- Deploys an AWS autoscale group with a containerized app
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo. (like container name)
+- Jenkins uses the VPC / subnets  information from previews job 
+- Ansible playbook takes the parameters and use them to deploy a cloud formation template 
+- cloud formation template deploys all resources in AWS subscription
+
+
+A3 - aws-bigip:
++++++++++++++
+- Deploys a BIGIP to AWS 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo. (like which region) 
+- Jenkins uses the VPC / subnets  information from previews job 
+- Ansible playbook takes the parameters and use them to deploy a cloud formation template 
+- cloud formation template deploys all resources in AWS subscription
+
+A4 - aws bigip onboard (rest_user):
++++++++++++++
+- Connects to the BIGIP over SSH with private key (only way to connect to an AWS instance).
+- configures rest user and password for future use 
+
+A5 - bigip rs onboard:
++++++++++++++
+- deploys the 'enterprise' default profiles, for example: HTTP, analytics, AVR, DOSL7, iapps etc.  
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo.  
+- Ansible playbook takes the parameters and uses them to deploy a configuration to the BIGIP using the F5 supported ansible modules and API's.
+
+B1 - push a WAF policy:
++++++++++++++
+- deploys the 'application specific' profiles, for example: DOSL7, waf policy 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo. (which waf policy to use, dosl7 parameters)
+- Ansible playbook takes the parameters and uses them to deploy a configuration to the BIGIP using the F5 supported ansible modules and API's.
+
+B2 - rs-iapp service:
++++++++++++++
+- deploys the 'service definition' uses AS2 API 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo.
+- Jenkins uses the application autoscale group name from previous jobs
+- Ansible playbook takes the parameters and uses them to deploy a configuration to the BIGIP using the F5 supported ansible modules and API's.
+- AS2 turns the service definition into objects on the BIGIP 
+
+B3 - app-test:
++++++++++++++
+- Send HTTP requests to the application to test it 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters
+- Ansible playbook takes the parameters and uses them to run HTTP requests to our APP.
+
+B4  - rs-attacks:
++++++++++++++
+- Test app vulnerabilities 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters
+- Ansible playbook takes the parameters and uses them to run HTTP requests to our APP.
+
+SEC export waf policy:
++++++++++++++
+- Pulls a policy from a bigip and stores in a git repo 
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters
+- Ansible playbook takes the parameters and uses them to run F5 modules (Created by Fouad Chmainy <F.Chmainy@F5.com> ) to pull the waf policy from the BIGIP 
+
+Z - destroy:
++++++++++++++
+- Destroy the environment 
+
+
+
+Task 1.4 - Go over the test results 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.4.1 view the test results:
+**************************	
+
+the deployment process failed because not all of the application tests completed successfully. 
+review the app-test job :guilabel:`console output`
+
+   |jenkins053|
+   
+
+1.4.2 identify the WAF blocked page response:
+**************************	
+   
+scroll to the bottom of the page, you should see the response with :guilabel:`request rejected`, and the failure reason as :guilabel:`unexpected response returned`
+
+this is an indication that ASM has blocked the request. in our case it is a false positive. 
+
+
+
+
+   |jenkins056|
+   
+.. Note:: in this lab secops uses the same WAF policy template for many apps.
+   we don't want to create a 'snowflake' waf policy. so with this failure dave will escalete to secops. 
+   that ensures that the setting will be reviewd and if needed the policy template will get updated. 
    
    
-BIGIP access:
-~~~~~~~~~~~~~~
-
-click on "console output" in the "aws tag master" job 
-
-.. image:: images/jenkins3.PNG
-   :align: center
-
-look for "bigip management" in the output
-
-user: admin , password: Verysupersecurepassword1$
-
-.. image:: images/jenkins4.PNG
-   :align: center
-
-Application access:
-~~~~~~~~~~~~~~~~~~~
-
-click on "console output" in the "rs attacks" job , look for the https link to the app and verify that the attack was rejected by ASM 
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins06.jpg
-   :align: center
-
-App securirty lifecycle -Canary deployment of waf and DOSL7 :
-~~~~~~~~~~~~~~~~~~~
-
-Here you will change the application security policy using jenkins, this ilustrates a process in which the sec admin creates some templates for the app teams to consume
-
-The deployment team uses their tools to create a canary deployment. meaning, they will start with a small percentage of the traffic that represens the customer base pretty well
-
-In our case we are deploying a security policy that enables proactive bot defense and advanced bruteforce (13.1) to the app, both of those features are using JS injections, 
-
-it is hard to test those features in a 'test' environment because you require a lot of different devices / browsers / scenarios. 
-
-using this deployment method enables rapid adoption of advanced security features without the fear of impacting production. the concept is similar to the release of a new feature 
-
-in the app itself. 
-
-the security policy actually becomes a 'feature' in the application stack and follows the same deployment model. 
-
-Go back to the "advanced brute force and bot protection canary deployment" folder, click on the "waf policy" tab:
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins022.jpg
-   :align: center
-
-Click on "run":
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins07.jpg
-   :align: center
-
-Change the settings for the 'canary' deployment:
-
-asm_policy_name_canary: linux-high-bf
-
-dosl7_profile_name_canary: rs_dosl7_profile_canary
-
-proactive_bot_canary: always
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_jenkins09.jpg
-   :align: center
-
-wait until the deployment is finished and start test the new configuration:
-
-Test proactive bot defense and advanced bruteforce (normal traffic) :
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-first we'll verify that the current policy doesn't protect from bruteforce and doesn't use proactive bot defense, 
-
-we will use a couple of chrome extentions to help with that:
-
-* geoiphdr 
-* User-Agent Switcher for Chrome
-* Clear Cookie and Reload
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_chrome01.jpg
-   :align: center
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_chrome011.jpg
-   :align: center
-
-* Open Chrome browser and open the app (take the link from the console output of 'rs_attacks' job) 
-* refresh the page 10 times using the 'clear cookie and reload'button in chrome 
-* try to enter fake credentials 6 times in app-url/user/login 
-* verify you aren't getting blocked 
-* click on the 'user agent spoofer' button in chrome, choose 'internet explorer 9' and hit 'clear cookie and reload'
-* verify you aren'y presented with a captcha
-
-Test proactive bot defense and advanced bruteforce (canary traffic - only from canada) :
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-we will use a couple of chrome extentions to help with that:
-
-* in chrome set the x-forwarder-for header to a canada location 
-
-.. image:: images/waf_canary_images/waf_dosl7_canary_chrome02.jpg
-   :align: center
+.. |jenkins010| image:: images/jenkins010.PNG 
    
-* Open Chrome browser and open the app (take the link from the console output of 'rs_attacks' job) 
-* refresh the page 10 times using the 'clear cookie and reload'button in chrome 
-* try to enter fake credentials 6 times in app-url/user/login 
-* verify you are presented with a captcha after 5 failures 
-* keep entering fake credentials, after the 3rd time entering fake credentials and solving the captcha you should be presented with a 'honeypot' page. 
+.. |jenkins020| image:: images/jenkins020.PNG 
+   
+.. |jenkins030| image:: images/jenkins030.PNG
+   
+.. |jenkins040| image:: images/jenkins040.PNG
+   
+.. |jenkins050| image:: images/jenkins050.PNG
+   
+.. |jenkins055| image:: images/jenkins055.PNG
 
-.. image:: images/waf_canary_images/honeypot01.jpg
-   :align: center
+.. |jenkins053| image:: images/jenkins053.PNG
 
-* click on the 'user agent spoofer' button in chrome, choose 'internet explorer 9' and hit 'clear cookie and reload'
-* verify you are being presented with a captcha 
-
-* check bigip logs and stuff.. 
-
-logs and analytics:
-~~~~~~~~~~~~~~~~~~~
-
-logs and analytic are sent to splunk.
-
-http://34.218.14.105:8000 
-
-user:admin password: Zxcde3sw2
-
-.. image:: images/splunk1.PNG
-   :align: center
-
-Get updates on slack:
-------------------------------------------------------------------------------------
-
-updates from the builds are getting sent to slack, you can view them in the followin workspace/channel:
-https://f5-rs.slack.com/messages/C9WLUB89F/
-
-.. image:: images/slack1.PNG
-   :align: center
-
-Don't forget to destory when finished:
-
-build	"Z - destroy-aws-app-waf"
-
-.. image:: images/jenkinsz.PNG
-   :align: center
-
-.. |run_rs_container| raw:: html
-
-   <a href="https://hub.docker.com/r/yossiros/f5-rs-container/" target="_blank">Docker hub page</a>
-
-.. |install_ansible| raw:: html
-
-   <a href="http://docs.ansible.com/ansible/latest/intro_installation.html" target="_blank">http://docs.ansible.com/ansible/latest/intro_installation.html</a>
-
-.. |rs_video| raw:: html
-
-   <a href="https://gitswarm.f5net.com/f5-reference-solutions/f5-rs-docs/blob/master/images/rs-video.mp4" target="_blank">quickstart video</a>
+.. |jenkins056| image:: images/jenkins056.PNG
+   
+.. |slack040| image:: images/Slack-040.PNG
+   
+.. |hackazone010| image:: images/hackazone010.PNG
