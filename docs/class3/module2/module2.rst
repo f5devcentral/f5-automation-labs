@@ -1,4 +1,4 @@
-Module 3: Continuous Integration / Continuous Delivery for Security
+Module 2: Continuous Integration / Continuous Delivery for Security
 ===================================================================
 
 * Provision ASM module on BIG-IP 

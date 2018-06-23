@@ -1,3 +1,10 @@
+.. |labmodule| replace:: 3
+.. |labnum| replace:: 1
+.. |labdot| replace:: |labmodule|\ .\ |labnum|
+.. |labund| replace:: |labmodule|\ _\ |labnum|
+.. |labname| replace:: Lab\ |labdot|
+.. |labnameund| replace:: Lab\ |labund|
+
 Lab |labmodule|\.\ |labnum|\: Deploy app to DEV environment (Dave)
 ==================================================================
 
@@ -5,7 +12,7 @@ Background:
 ~~~~~~~~~~~
 
 Security team has created some security policies templates, those were built based on the F5 templates with some modifications to the specific enterprise. 
-in this lab we don't cover the 'how to' of the security templates. we focus on the operational side and the workflows. 
+in this lab we don't cover the 'how to' of the security templates. we focus on the operational side and the workflows.
 
 The Tasks are split between the two roles:
  - secops
