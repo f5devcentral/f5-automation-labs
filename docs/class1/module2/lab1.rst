@@ -44,7 +44,7 @@ a new service via iControl REST using tools such as cURL, Postman
 and Ansible.
 
 To view installed iControl LX Extensions in the BIG-IP GUI you must first
-enable this functionality.  To do this, log via SSH into the system with an ``admin``
+enable this functionality.  To do this, log in via SSH into the system with an ``admin``
 account and execute ``touch /var/config/rest/iapps/enable``. No reboot is required. 
 This will enable the :menuselection:`iApps --> Package Management LX` menu: 
 

@@ -345,8 +345,8 @@ Perform the following steps to complete this task:
 Task 3 - Modify our Deployed Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task, we will show the two way that deployments can be modified with
-AS3.  It is important to understand that AS3 acts on the **Full** declaration
+In this task, we will show how deployments can be modified with AS3.
+It is important to understand that AS3 acts on the **Full** declaration
 for each tenant.  Updates to deployments can be acheived in two ways:
 
 #. Update the full declaration document and ``POST`` the entire declaration to 

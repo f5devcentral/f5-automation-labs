@@ -67,7 +67,8 @@ Task 1 - Open and Run a Collection
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
-   environment is set to ``F5 Programmability: Class 1``:
+   environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
+   is selected:
 
    |lab-5-4|
 

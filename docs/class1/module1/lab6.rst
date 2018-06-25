@@ -85,7 +85,8 @@ Perform the following steps to build the cluster:
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
-   environment is set to ``F5 Programmability: Class 1``:
+   environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
+   is selected:
 
    |lab-6-1|
 
