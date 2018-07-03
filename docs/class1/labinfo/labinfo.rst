@@ -75,7 +75,7 @@ components:
      - ``admin/admin``
 
        ``root/default``
-   * - iWorkflow
+   * - Ansible Tower
      - 10.1.1.12
      - N/A
      - ``admin/admin``

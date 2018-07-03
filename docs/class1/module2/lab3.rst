@@ -359,8 +359,8 @@ for each tenant.  Updates to deployments can be acheived in two ways:
    resulting full declaration is processed using the same *diff* operation
    as above
 
-  .. NOTE:: For more information on RFC6902 JSON Patching see 
-     http://jsonpatch.com
+   .. NOTE:: For more information on RFC6902 JSON Patching see 
+      http://jsonpatch.com
 
 .. WARNING:: Using the ``PATCH`` mechanism can result in a source-of-truth 
    violation if upstream orchestration systems are not updating their stored
