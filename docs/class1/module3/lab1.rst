@@ -1,5 +1,5 @@
-Lab 3.1: iWorkflow Onboarding
------------------------------
+Lab 3.1: Ansible Tower Onboarding
+---------------------------------
 
 .. graphviz::
 
@@ -23,55 +23,95 @@ Lab 3.1: iWorkflow Onboarding
    }
 
 In this lab we will use the :guilabel:`Runner`, introduced in previous labs to
-complete the onboarding of the F5 iWorkflow device.  The onboarding process
-creates the initial configuration required to start creation of Service
-Catalog Templates.
+complete the onboarding of the Ansible Tower device.  The onboarding process
+creates the initial configuration required to start utilizing Ansible Tower with BIG-IP.
 
-iWorkflow Overview
-~~~~~~~~~~~~~~~~~~
+Ansible Tower Overview
+~~~~~~~~~~~~~~~~~~~~~~
 
 Before looking at the details of the onboarding process, lets discuss the new
-components iWorkflow introduces to our toolchain.
+components Ansible Tower introduces to our toolchain. Some of the components are general Ansible terms and
+not specific to Tower. As mentioned earlier we will be focusing primarily on the concepts within Tower itself.
 
-Device Discovery
-^^^^^^^^^^^^^^^^
+Ansible Tower Term Reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order for iWorkflow to interact with a BIG-IP device it must be
-discovered by iWorkflow. The device discovery process leverages the
-existing CMI Device Trust infrastructure on BIG-IP. Currently there is a
-limitation that a single BIG-IP device can only be ‘discovered’ by ONE
-of iWorkflow or BIG-IQ CM at a time. In this lab will we discover the
-existing BIG-IP devices from your lab environment.
+- **Inventory:** Device(s) to perform action against. In this lab we will be using bigip_a_mgmt as the inventory object.
+- **Playbook:** A group of plays/tasks to be performed against devices within the **Inventory**.
+- **Project:** A collection of Ansible **Playbooks** within tower. In this lab were are using a **GITHUB Repo** to store the playbooks.
+- **Templates:** A template provides the ability supply parameters to a playbook. Templates are what will provide the **Abstraction** to
+  AS3.
+- **Credentials:** Used to authenticate Tower to the destination device within the **Inventory**.
 
-Tenants & Connectors
-^^^^^^^^^^^^^^^^^^^^
+Roll Based Access Control (RBAC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-iWorkflow implements a Tenant/Provider interface to enable abstracted deployments
-of L4-7 Services into various environments.  In conjunction, iWorkflow Connectors
-serve as the L1-3 Network and Device Onboarding automation component in the automation
-toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP
-devices in the lab environment. This connector will then allow you to drive a
-fully automated deployment from the iWorkflow Service Catalog.
+Ansible Tower provides a control hierarchy with the terms below:
 
-iApp Templates
-^^^^^^^^^^^^^^
+- **Orginization (AS3 Tenant):** An organization is a logical collection
+  of **Users, Teams, Projects, and Inventories**. It is the highest level in the Tower object hierarchy.
+- **Team:** A subdivision of an organization with associated **Users, Projects, Credentials, and Permissions**.
+- **User:** A Users is usually associated with a **Team** to allow for group based RBAC control.
 
-iWorkflow serves as an iApp Template Source-of-Truth for discovered BIG-IP
-devices.  This allows an F5 administrator to manage iApp templates in a single
-place with iWorkflow installing required templates on BIG-IP devices as
-required **during** service deployment.
+Example of the RBAC structure being used in this lab:
+
+
+-  Tenant1 (Orginization)
+
+   -  T1-Admins (Team)
+
+      -  T1-admin-user (User)
+
+   -  T1-Ops (Team)
+
+      -  T1-ops-user (User)
+
+
+Source-of-Truth
+^^^^^^^^^^^^^^^
+
+As discussed in Module 2, it is key to keep source-of-truth in mind as Tower will be making changing through
+F5's declarative AS3 interface. For this lab we have created an AS3 declaration (source-of-truth) file for each of the primary
+**Service Examples** from the previous Module. The intent here is to demonstrate the ability of Tower to manage and push source-of-truth
+declarations from within its **Project (GIT SCM)**.
 
 Onboarding Process Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The process implemented in the ``Lab 3.1 - iWorkflow Onboarding`` folder of
-the Postman collection is diagrammed below.
+The process implemented in the ``Lab 3.1 - Ansible Tower Onboarding`` folder of
+the Postman collection is outlined below. The items will be done **automatically** for you udinrg **Task1**.
 
-.. NOTE:: The diagram below represents environment variables in blue.  You can
-   follow the lines on each variable to understand which request populates the
-   variable and how they are subsequently used.
+#. Token Authentication
+#. Setup RBAC
 
-.. graphviz:: iwf_onboarding.dot
+   -  Create Orginization **Tenant1**
+
+   -  Create Teams ( **T1-Admin / T1-Ops** )
+
+   -  Create Users ( **T1-admin-user / T1-ops-user** )
+
+   -  Associate Users to their respective Teams
+
+#. Create Tower Project SCM
+#. Create Tower Inventory
+
+   -  Create Tower Inventory group
+
+   -  Create Inventory Host (The BIG-IP we will be manipulating)
+
+   -  Associate the Host to the Inventory group
+
+#. Create Tower Credentials to Authenticate to the BIG-IP
+#. Create Job Templates
+
+   -  Deploy Config (POSTS AS3 Declaration to BIG-IP)
+
+      -  Create Survey for "Deploy Config"
+
+   -  Deploy Config (POSTS AS3 Declaration to BIG-IP)
+
+      -  Create Survey for "Deploy Config"
+
 
 Task 1 - Onboard iWorkflow using Runner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

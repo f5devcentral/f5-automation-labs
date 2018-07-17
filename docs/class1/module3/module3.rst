@@ -1,4 +1,4 @@
-Module 3: Creating Declarative Service Interfaces with iWorkflow
+Module 3: Deploying AS3 Declarations with Ansible Tower
 ================================================================
 
 .. graphviz::
@@ -15,31 +15,36 @@ Module 3: Creating Declarative Service Interfaces with iWorkflow
          height = .75
          label = "Provider"
          bigip [label="BIG-IP",color="palegreen"]
-         iapps [label="iApp Templates&#92;n& Deployments",color="palegreen"]
-         iwf_templates [label="Service&#92;nTemplates",color="steelblue1"]
+         AS3 [label="App Services&#92;n3 Extension",color="palegreen"]
+         Ansible_Tower [label="Ansible&#92;nTower",color="steelblue1"]
       }
       subgraph cluster_tenant {
          style = "rounded,filled"
          color = lightgrey
          height = .75
          label = "Tenant"
-         iwf_catalog [label="Service&#92;nCatalog",color="steelblue1"]
-         iwf_deploy [label="Service&#92;nDeployment",color="steelblue1"]
+         tower_catalog [label="Service&#92;nCatalog",color="steelblue1"]
+         tower_deploy [label="Service&#92;nDeployment",color="steelblue1"]
       }
-      iwf_deploy -> iwf_catalog -> iwf_templates -> iapps -> bigip
+      tower_deploy -> tower_catalog -> Ansible_Tower -> AS3 -> bigip
    }
 
 Overview
 --------
 
-In this module we will explore how to use F5’s iWorkflow platform to
-further abstract Application Services and deliver those services, with
-a **Declarative** interface to Consumers.
+In this module we will explore how to use utilize F5s **AS3** extension 
+with an orchestration platform such as **Ansible Tower**. Tower is a workflow 
+orechestration tool which provides an enterprise solution on top of Ansible including 
+an API, GUI, RBAC, and many more features. While we will cover some core concepts of
+Ansible, the primary focus of this module is Tower.
 
-When moving to an iWorkflow based toolchain it’s important to understand
-that automation in L1-3 (Device Onboarding, Networking, etc) and L4-7
-(Deployment of Virtual Servers, Pools, etc) is separated and delivered
-by different features.
+.. NOTE:: Previous version of this class utilized iWorkflow as a service catalog.
+   Ansible Tower will cover deploying applications in a similar service catalog manner while demonstrating
+   source-of-truth within an SCM such as github.
+
+While working through this module we will be focusing on L4-L7 deployments (Virtual Servers, Pools, etc).
+Ansible and Towe have the ability to perform full L1-L3 configurations (Device Onboarding, Networking, etc)
+as well but that will not be covered in this section.
 
 Layer 1-3 Networking and Device Onboarding
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,12 +65,11 @@ documentation and guidance for each of these environments:
 
   - **VMware:** https://f5.com/solutions/technology-alliances/vmware
 
-iWorkflow enables generic functionality in all of these environments by using
-a **BIG-IP Cloud Connector**.  This connector allows iWorkflow to utilize
-BIG-IP devices running on any of these environments.
+Ansible Tower may be integrated within any of these environments to add fuctionality
+and reliablity of workflows.
 
 .. NOTE:: F5 BIG-IP also supports integration with Container Ecosystems.
-   However, in these environments iWorkflow may not be required.  For more
+   However, in these environments Ansible Tower may not be required.  For more
    information you can refer to:
 
    - Container Ecosystems:
@@ -83,41 +87,26 @@ Layer 4-7 Application Service Delivery
 
 L4-7 Application Service Delivery is accomplished by:
 
--  Consuming F5 iApp templates on BIG-IP devices and
-   creating a Service Catalog (**Declarative**).
+-  Providing **templates** within Ansible Tower as a Service Catalog to interact with **AS3**.
 
--  Consuming the iWorkflow REST Proxy to drive API calls to
-   BIG-IP devices (**Imperative**).
+-  Utilizing Ansible Tower's **Roll Based Access Control (RBAC)** to divide workloads based on user functions.
 
 The labs in the module will focus on the high level features in place to
-achieve full L4-7 automation. As mentioned above, iApp Templates are a key
-component of the chain of linked tools (toolchain) we are building.
+achieve full L4-7 automation.
 
-In this Module we will focus on building a **Service Catalog** using the App
-Services iApp template you learned about in Module 2.  The focus in Module 2
-was to show how to deploy advanced configurations. However, a large amount of F5
-**Domain Specific Knowledge** was still required to build each deployment.
-From a conceptual point of view, iApp templates alone do not fully satisfy the requirement
-for a fully **Declarative** interface because while the iApp template simplifies
-the underlying **Imperative** actions, it does not allow the administrator to
-build an **Interface** that minimizes or eliminates the need for **Domain
-Specific Knowledge**.
+In this Module we will provision Ansible Tower to deploy and modify the AS3 declarations
+you learned about in Module 2. The focus of Module 2 was to demonstrate application deployment
+directly on to the BIG-IP. Tower will allow the administrator to build an interface and API for users
+based on their current role within the orginization.
 
-For example, we deployed a service that enabled HTTP Traffic Management with
-an iRule attached and Profile Customizations.  To the F5 administrator these
-are all very familiar terms, however, to a consumer, such as an Application
-Owner, the terms *Virtual Server*, *iRule*, *Profile*, etc. are foreign
-concepts.
+For example, in Module 2 we pushed AS3 declarations, updated pool members, and provided the user access
+to modify the full AS3 declaration. This approach would provide each user the same administrative priviledges and may not
+scale within orginizations with seperate user functions.
 
-To solve this problem iWorkflow allows the administrator to create a
-**Service Template** that is an **Abstraction** of the iApp templates
-input fields.  By doing this the F5 administrator can **create an interface
-tailored to the use case and knowledge level of the CONSUMER rather than the
-ADMINSTRATOR**, enabling full featured and complex Layer 4-7 Application
-and Security services that are tailored to business need and use case rather
-than the technical implementation.  Additionally, the **Service Abstraction**
-achieved when creating the **Service Catalog** enables the easy integration of
-F5 services with third-party tools and methodologies such as DevOps.
+To solve this problem Ansible Tower allows the administrator to create **Templates** which can provide further **Abstraction** of the
+AS3 declarations. The administrator can enforce specific Tenants or parameters to be used
+based on the user running the Template. This abstraction allows the templates to integrated directly in the business based
+CI/CD toolchains and workflows.
 
 .. toctree::
    :maxdepth: 1
