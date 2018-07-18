@@ -16,7 +16,7 @@
                 "http"
             ],
             "members": [{
-                "servicePort": 80,
+                "servicePort": 8001,
                 "serverAddresses": [
                     "10.1.10.100",
                     "10.1.10.101"

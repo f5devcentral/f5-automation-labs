@@ -7514,6 +7514,150 @@
 					"_postman_isSubFolder": true
 				}
 			]
+		},
+		{
+			"name": "Lab 3.4 - Ansible Tower and REST",
+			"description": "",
+			"item": [
+				{
+					"name": "Step1: Retrieve Authentication Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f63439f-dd58-4f75-be6a-5910cacc1934",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"TowerToken\", jsonData.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"{{tower_username}}\",\r\n  \"password\": \"{{tower_password}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{tower_mgmt}}/api/v2/authtoken/",
+							"protocol": "https",
+							"host": [
+								"{{tower_mgmt}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"authtoken",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Get Tenant1_Pool_Add_Member ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5bd1af4a-4280-4f36-b336-d807852c9035",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"tower_pm_add_patch_id\", jsonData.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{TowerToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"extra_vars\": {\n        \"pool\": \"web_pool\",\n        \"application\": \"A2\",\n        \"cur_action\": \"add\",\n        \"tenant\": \"Tenant1\",\n        \"new_member\": \"10.1.10.105\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{tower_mgmt}}/api/v2/job_templates/Tenant1_Pool_Add_Member",
+							"protocol": "https",
+							"host": [
+								"{{tower_mgmt}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"job_templates",
+								"Tenant1_Pool_Add_Member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Run Tenant1_Pool_Add_Member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0665ece2-0045-48c8-86b0-3282f09bda79",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{TowerToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"extra_vars\": {\n        \"pool\": \"web_pool\",\n        \"application\": \"A2\",\n        \"cur_action\": \"add\",\n        \"tenant\": \"Tenant1\",\n        \"new_member\": \"10.1.10.105\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{tower_mgmt}}/api/v2/job_templates/{{tower_pm_add_patch_id}}/launch/",
+							"protocol": "https",
+							"host": [
+								"{{tower_mgmt}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"job_templates",
+								"{{tower_pm_add_patch_id}}",
+								"launch",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
