@@ -24,24 +24,32 @@ Lab 3.1: Ansible Tower Onboarding
 
 In this lab we will use the :guilabel:`Runner`, introduced in previous labs to
 complete the onboarding of the Ansible Tower device.  The onboarding process
-creates the initial configuration required to start utilizing Ansible Tower with BIG-IP.
+creates the initial configuration required to start utilizing Ansible Tower with
+BIG-IP.
 
 Ansible Tower Overview
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Before looking at the details of the onboarding process, lets discuss the new
-components Ansible Tower introduces to our toolchain. Some of the components are general Ansible terms and
-not specific to Tower. As mentioned earlier we will be focusing primarily on the concepts within Tower itself.
+components Ansible Tower introduces to our toolchain. Some of the components are
+general Ansible terms and
+not specific to Tower. As mentioned earlier we will be focusing primarily on the
+concepts within Tower itself.
 
 Ansible Tower Term Reference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Inventory:** Device(s) to perform action against. In this lab we will be using bigip_a_mgmt as the inventory object.
-- **Playbook:** A group of plays/tasks to be performed against devices within the **Inventory**.
-- **Project:** A collection of Ansible **Playbooks** within tower. In this lab were are using a **GITHUB Repo** to store the playbooks.
-- **Templates:** A template provides the ability supply parameters to a playbook. Templates are what will provide the **Abstraction** to
+- **Inventory:** Device(s) to perform action against. In this lab we will be 
+  using bigip_a_mgmt as the inventory object.
+- **Playbook:** A group of plays/tasks to be performed against devices within
+  the **Inventory**.
+- **Project:** A collection of Ansible **Playbooks** within tower. In this lab
+  were are using a **GIT Repo** to store the playbooks.
+- **Templates:** A template provides the ability supply parameters to a playbook.
+  Templates are what will provide the **Abstraction** to
   AS3.
-- **Credentials:** Used to authenticate Tower to the destination device within the **Inventory**.
+- **Credentials:** Used to authenticate Tower to the destination device within
+  the **Inventory**.
 
 Roll Based Access Control (RBAC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,9 +57,12 @@ Roll Based Access Control (RBAC)
 Ansible Tower provides a control hierarchy with the terms below:
 
 - **Orginization (AS3 Tenant):** An organization is a logical collection
-  of **Users, Teams, Projects, and Inventories**. It is the highest level in the Tower object hierarchy.
-- **Team:** A subdivision of an organization with associated **Users, Projects, Credentials, and Permissions**.
-- **User:** A Users is usually associated with a **Team** to allow for group based RBAC control.
+  of **Users, Teams, Projects, and Inventories**. It is the highest level in the
+  Tower object hierarchy.
+- **Team:** A subdivision of an organization with associated **Users, Projects,
+  Credentials, and Permissions**.
+- **User:** A Users is usually associated with a **Team** to allow for group
+  based RBAC control.
 
 Example of the RBAC structure being used in this lab:
 
@@ -70,16 +81,19 @@ Example of the RBAC structure being used in this lab:
 Source-of-Truth
 ^^^^^^^^^^^^^^^
 
-As discussed in Module 2, it is key to keep source-of-truth in mind as Tower will be making changing through
-F5's declarative AS3 interface. For this lab we have created an AS3 declaration (source-of-truth) file for each of the primary
-**Service Examples** from the previous Module. The intent here is to demonstrate the ability of Tower to manage and push source-of-truth
+As discussed in Module 2, it is key to keep source-of-truth in mind as Tower
+will be making changes through F5's declarative AS3 interface. For this lab we
+have created an AS3 declaration (source-of-truth) file for each of the primary
+**Service Examples** from the previous Module. The intent here is to demonstrate
+the ability of Tower to manage and push source-of-truth 
 declarations from within its **Project (GIT SCM)**.
 
 Onboarding Process Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The process implemented in the ``Lab 3.1 - Ansible Tower Onboarding`` folder of
-the Postman collection is outlined below. The items will be done **automatically** for you udinrg **Task1**.
+the Postman collection is outlined below. The items will be done
+**automatically** for you during **Task1**.
 
 #. Token Authentication
 #. Setup RBAC
@@ -106,18 +120,44 @@ the Postman collection is outlined below. The items will be done **automatically
 
    -  Deploy Config (POSTS AS3 Declaration to BIG-IP)
 
-      -  Create Survey for "Deploy Config"
+   -  Add Pool Member to Pool
 
-   -  Deploy Config (POSTS AS3 Declaration to BIG-IP)
+   -  Remove Pool Member from Pool
 
-      -  Create Survey for "Deploy Config"
+   -  Replace All Members in a Pool
+
+   -  Update the SSL CRT/KEY for a Virtual
+
+   -  View Current Config on AS3 Tenant
 
 
-Task 1 - Onboard iWorkflow using Runner
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Create Tower Survey for each Template (Ability to collect Variables)
+#. Associate each Template above with the Following RBAC Team/Role
+
+   -  Admins
+
+      -  Deploy Config
+
+      -  View Current Config
+
+   -  Operations
+
+      -  Add Pool Member
+
+      -  Remove Pool Member
+
+      -  Replace Pool Members
+
+      -  Update SSL CRT/KEY
+
+      -  View Current Config
+
+
+Task 1 - Onboard Ansible Tower using Runner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will use the :guilabel:`Runner` to execute a series of
-requests contained in the ``Lab 3.1 - iWorkflow Onboarding`` folder.
+requests contained in the ``Lab 3.1 - Ansible Tower Onboarding`` folder.
 
 Perform the following steps to build the cluster:
 

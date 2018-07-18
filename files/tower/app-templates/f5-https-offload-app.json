@@ -1,0 +1,41 @@
+{
+    "class": "Tenant",
+    "A2": {
+        "class": "Application",
+        "template": "https",
+        "serviceMain": {
+            "class": "Service_HTTPS",
+            "virtualAddresses": [
+                "10.1.20.121"
+            ],
+            "pool": "web_pool",
+            "serverTLS": "webtls"
+        },
+        "web_pool": {
+            "class": "Pool",
+            "loadBalancingMode": "predictive-node",
+            "monitors": [
+                "http"
+            ],
+            "members": [{
+                "servicePort": 80,
+                "serverAddresses": [
+                    "10.1.10.100",
+                    "10.1.10.101"
+                ]
+            }]
+        },
+        "webtls": {
+            "class": "TLS_Server",
+            "certificates": [{
+                "certificate": "webcert"
+            }]
+        },
+        "webcert": {
+            "class": "Certificate",
+            "remark": "in practice we recommend using a passphrase",
+            "certificate": "-----BEGIN CERTIFICATE-----\nMIIDBTCCAe2gAwIBAgIJAIeZH9bDfnvCMA0GCSqGSIb3DQEBCwUAMBkxFzAVBgNV\nBAMMDnRlc3QubG9jYWxob3N0MB4XDTE4MDYyNTE5NDczN1oXDTE5MDYyNTE5NDcz\nN1owGTEXMBUGA1UEAwwOdGVzdC5sb2NhbGhvc3QwggEiMA0GCSqGSIb3DQEBAQUA\nA4IBDwAwggEKAoIBAQDJ7pzFDqVBMIFxLyaVdmlAXKluAFCM4552t4ZHzCmdkK3C\n8AMa2+wx8OH/CQ5YdCtbFVemIj5Ak3CsUyRM6GxFySIgFXvohpiOaqpNEoZYe9WR\n9GPV4RO8fd3ob726xHW3SpBSpXIPNVYKh0W1hG7fAY+02TGIhAUgNRFh+vHcxSVD\nBaTfs/Lw8juug5j4Em0OYovSYyuKG8NrGm82k4RzMDRrE0nHc9m4tpCG/+CdKejT\nj47+cm3x8IbGosaJjUMZEMHJXOaW24Npt2Q1LHBfBfgfUIi9TV5dcgb8gx8N0UDp\nbzJzbHoZyHHgPtYGv0lDJRIiondDpYT7L0L1+rJFAgMBAAGjUDBOMB0GA1UdDgQW\nBBQsJhZZ3nQmL7gEFBJXhx4zIUY29zAfBgNVHSMEGDAWgBQsJhZZ3nQmL7gEFBJX\nhx4zIUY29zAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQCFrjTMEmD5\n0ZFWcB55OwfT08mzJuo3keSmY9mWMNTIaTMimSmQ70Dtwd6lG/NA0XaqhcngIzou\n3I/big9v0SvHFHvLDqbICeLGlyRUWBV/GGzgTDC9CWOEMazhynv2JQhNPJPFWFTw\nCmcubA9foLtO0y7yhL826wTDY7U8njAJTuXAut4KNRMY5ijtFXuFBKbGACjqUbhK\nh5RfKQTeMzY4zOdi5wyKBl0ehJnxUD0mWq1z0omFjggWWm/G4/2pPdoP/Cxw9y0x\na0L6VuiYRf6RUNiLTIeQh5wthidfTHZtTgMGQ10dbLDSekb6bHX893bdpMg/PuyN\nZvPLluSXkkAo\n-----END CERTIFICATE-----",
+            "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJ7pzFDqVBMIFx\nLyaVdmlAXKluAFCM4552t4ZHzCmdkK3C8AMa2+wx8OH/CQ5YdCtbFVemIj5Ak3Cs\nUyRM6GxFySIgFXvohpiOaqpNEoZYe9WR9GPV4RO8fd3ob726xHW3SpBSpXIPNVYK\nh0W1hG7fAY+02TGIhAUgNRFh+vHcxSVDBaTfs/Lw8juug5j4Em0OYovSYyuKG8Nr\nGm82k4RzMDRrE0nHc9m4tpCG/+CdKejTj47+cm3x8IbGosaJjUMZEMHJXOaW24Np\nt2Q1LHBfBfgfUIi9TV5dcgb8gx8N0UDpbzJzbHoZyHHgPtYGv0lDJRIiondDpYT7\nL0L1+rJFAgMBAAECggEAFBIlfuivwEUD+K4JFb4JRB5xsL9TQk21iHNBY42FbWXd\n/4w/osHNPkGFFQZfaKdTT+BVL+wjZ+O/xUEWUJahfGY7gBjikgAe1bkAaFy5Ab59\nQd6atb2Daq7QCbRhlVjFooxEwBI1vhE9FhrP8PTS2FOdZwpXhAwrPkJIEgcRVzIM\nCGJYTXcbziKrUgbYOrbdR772GSiFzq6uhdoIeavDnELRFGhFAOVXZEX2rRpB4rkl\npF92vKWN+2oiHaf566pATQyX+SYuTZT4tqrhpziuxlnYQFAbmIIaBZzMq6ldRY+Y\nzo0NUuL/G5urgSisefzYo+pM6+qJppU5I96ovRUhGQKBgQDmWiU70OE4QSjg9e1T\nV2WgyUKrdPPHWmQFsuxuslyy/4zygg6BDnUQlxQDkmhu7MxqNLtBioanhx4UR4V9\nZopR5jMPm3tKlV6er/Tu6DZtaHr+fJV/6d6oAwz/aYWzdWJKXASpxcUCuElnfXfk\nrDlbqJg3zyCD5H64Q3pBNqQwRwKBgQDgamT7QuEkRq4F4mVLTd3EElbnCpD+gmK6\nKVd9bGOR3QYBQMME4mdkESeBH6CuF/95h8GNWag7pnmRtYB+1amTTJyTOJCYKeqv\nmzM8jCRivFrFC837C/UtDNziJHofKPHRSkwe4p4xFreWu5aKIDqGr7w3OQpqzK9+\n8HbPdB97EwKBgGOWA1TZ2BSG7xJan9CRDym0+PLBLAc6h9WC5f5xc+wa2SeanISk\n6G1Us11b9XRHQZSE2ZPbPJ2+p31i8k4lf5UqrVaJBINZEkAOmBiVIbqpGctdtxBG\n3nDKaNsfFqNgEy9MmuN+0c58N5fbQXMGFgIPYEd4b3k11qb43SjGY7NPAoGBALhm\nVEGt68feGAKXy/n7qp0BIM1J/mhTBQLJE63o0Uw63ENNTrIFw0UTX22XanWDHJZk\n+aLHKBiTq1MSW9pcgLGbgxDpqs6NqtzO32QCF6fV85P0JjYB1l1FM37S0FIoV8NM\nlI3QUoItk39U9tbaspyXbEXIJgop1I6u0kGWvoNnAoGAZDs8N0+W3a2N8HDHY+Rr\nNeimHN470MJvIBMbvKY8rjEABUbGcyQc4PFiK3IL3hIykQ2j/ckmk0y1IBYkRuQ/\nuDazSoRSXTO1rvsLv6kO00nzbKIJt4YL6o98FOZeZk3JYM3Y8eecGJP/UrPcd5MQ\nawwK1vgGSShVY+12fDT8CuY=\n-----END PRIVATE KEY-----"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+[
+    {
+        "op": "replace",
+        "path": "/{{tenant}}/{{application}}/webcert",
+        "value": {
+                "class":"Certificate",
+                "certificate": "{{new_crt}}",
+                "privateKey": "{{new_key}}"
+        }
+    }
+]
+
+
