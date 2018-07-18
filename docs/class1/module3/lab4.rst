@@ -1,5 +1,5 @@
-Lab 3.4: iWorkflow REST Proxy
------------------------------
+Lab 3.4: Ansible Tower and REST
+-------------------------------
 
 .. graphviz::
 
@@ -22,66 +22,57 @@ Lab 3.4: iWorkflow REST Proxy
       }
    }
 
-While the focus so far has been on building **Declarative Interfaces**
-with iWorkflow, it's important to note iWorkflow can also help simplify
-**Imperative** operations to BIG-IP devices when needed.
+While much of the focus on Tower has been using the GUI, this has primarily
+been to familiarize users with Ansible Tower and its object model. The Job
+Templates that are created within Tower all have the ability to be exposed with
+a REST API. In this lab we will call the same playbook template
+``Tenant1_Pool_Add_Member`` as we did in the web GUI. This method makes it much
+easier to work Tower into a CI/CD toolset.
 
-iWorkflow includes a REST proxy that allows pass-through of REST requests to
-devices discovered on iWorkflow. The REST proxy feature allows customers to
-simplify **Imperative** Automation by:
 
--  Providing a centralized API endpoint for BIG-IP infrastructure
-
-   -  No need to communicate with individual BIG-IP devices, only with
-      iWorkflow
-
--  Simplified authentication
-
-   -  Strong authentication can be implemented at iWorkflow rather than
-      on each BIG-IP
-
--  Simplified Role Based Access Control (RBAC)
-
-   -  RBAC can be implemented at iWorkflow for all devices rather than on
-      individual devices in the environment
-
-The REST proxy works by passing data sent to a specific URL through to
-the BIG-IP device. The root URL for a particular devices REST proxy is:
-
-``/mgmt/shared/resolver/device-groups/cm-cloud-managed-devices/devices/<device_uuid>/rest-proxy/``
-
-Any URL segments included after ``.../rest-proxy/`` are forwarded unaltered
-to the BIG-IP device. Query parameters (e.g. ``?expandSubcollections=true``)
-are also passed unaltered along with the request type and request body.
-
-Task 1 - Perform REST operations via the REST Proxy
+Task 1 - Call Tenant1_Pool_Add_Member with REST API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this task we will perform a sample CRUD operation utilizing the REST
-Proxy. The intent of this task is to show the basic mechanism used to
-perform these tasks. Simply changing the URL to include the iWorkflow
-REST Proxy root for that device could easily change all the **Imperative**
-operations we have completed in this lab to use the REST Proxy.
-
-Perform the following steps to complete this task:
-
-#. Expand the ``Lab 3.4 - iWorkflow REST Proxy`` folder in the Postman
-   collection.
-
-#. Click the ``Step 1: Create pool on BIG-IP A``. Examine the request
-   type, URL and JSON body. Essentially we are performing a POST to
-   the ‘/mgmt/tm/ltm/pool’ collection on BIG-IP A. The last part of the
-   URL includes this URI path (the part after ``.../rest-proxy/``). The
-   JSON body and all other parameters are passed unaltered. Also,
-   notice that we are still using our iWorkflow Token to Authenticate,
-   not the BIG-IP one in the :guilabel:`Headers` tab.
+.. NOTE:: This lab work will be performed from
+   ``Lab 3.4- Ansible Tower and REST`` folder in the
+   Postman Collection
 
    |lab-4-1|
 
-#. Click the :guilabel:`Send` button and examine the response.
+#. Select ``Step 1: Retrieve Authentication Token``. Review the **Request** JSON
+   :guilabel:`Body`. The JSON body is used to get the Auth token from Tower.
+   Press Send
 
-#. Complete Steps 2-5 for the remaining items in the
-   ``Lab 3.4 - iWorkflow REST Proxy`` collection. Examine each request
-   carefully so you understand what is happening.
+   |lab-4-2|
+
+#. Select ``Step 2: Get Tenant1_Pool_add_member ID``. This is a GET Request
+   to retrieve the ID of the Template that we want to call for adding a Member.
+   Press Send
+
+   |lab-4-3|
+
+#. Select ``Step 3: Run Tenant1_Pool_Add_Member``. Review the JSON Body of this
+   request. The variables being sent are the same ones that the ``Survey``
+   would request in the GUI. Press Send
+
+   |lab-4-4|
+
+#. Open a Chrome window/tab to the Tower GUI at ``https://10.1.1.4`` and login
+   with ``admin/admin`` credentials. Navigate to :menuselection:`Jobs` in
+   the top Menu. Select the job that completed on the top of the list. The ID
+   may vary, but the name will be ``Tenant1_Pool_Add_Member``.
+
+   |lab-4-5|
+
+#. Once the Job template is complete you should see the Status as ``Successful``.
+   At this point you have add a Pool member to the pool on the BIG-IP using the 
+   REST API in Ansible Tower.
+
+   |lab-4-6|
 
 .. |lab-4-1| image:: images/lab-4-1.png
+.. |lab-4-2| image:: images/lab-4-2.png
+.. |lab-4-3| image:: images/lab-4-3.png
+.. |lab-4-4| image:: images/lab-4-4.png
+.. |lab-4-5| image:: images/lab-4-5.png
+.. |lab-4-6| image:: images/lab-4-6.png

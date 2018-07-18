@@ -1,5 +1,5 @@
-Lab 3.3: Deploy L4-7 Services
------------------------------
+Lab 3.3: Modify AS3 Apps using Tower
+------------------------------------
 
 .. graphviz::
 
@@ -22,232 +22,147 @@ Lab 3.3: Deploy L4-7 Services
       }
    }
 
-Up to this point we have spent a lot of time building our toolchain to create
-a Declarative Service Catalog.  We are now at the point where we can perform
-a Declarative, Abstracted Service Deployment using the iWorkflow Tenant Service
-Catalog, Tenant API and optionally the built-in Tenant GUI.
+At this point we have deployed full Applications with Tower and AS3 but have not
+modified an application after it was deployed. In this Lab we will focus on
+Adding, Removing, and Replacing Pool Members using **AS3 PATCH** through Tower.
+We will also demonstrate updating SSL Certificates on an existing Virtual.
 
-As we did in the previous lab we will explore the first deployment in depth
-so you can implement a full Service Lifecycle: Create, Read, Update and Delete
-(CRUD) operations.  For the remaining deployments you can just repeat the steps
-used with the first example.
+.. NOTE:: Ensure that you ran the :guilabel:`Tenant1_Deploy_Config`
+   Template again with the ``f5-https-offload-app`` option as indicated at
+   the end of the last Lab.
 
-Tenant Overview
-^^^^^^^^^^^^^^^
 
-iWorkflow Tenants allow Consumers to perform Service Lifecycle operations in an
-isolated environment.  All actions performed prior to this lab have been in
-what's called the ``Provider`` space and, by nature, are masked from Tenants
-unless specifically exposed.  As a result of the Tenant isolation, each Tenant
-maintains its own set of Users and Roles associated with those users, allowing
-each Tenant full control of the actions Tenant Users can perform.
-
-During our iWorkflow Onboarding process in Lab 3.1 we created a
-:guilabel:`Tenant` named ``MyTenant`` and an associated :guilabel:`Tenant User`
-with a username of ``tenant``.  Additionally we gave ``MyTenant`` access to
-the :guilabel:`BIG-IP Connector` named ``BIG-IP A&B Connector``:
-
-|lab-3-1|
-
-This gives the ``tenant`` user the ability to perform CRUD operations on
-Service Deployments.
-
-.. NOTE:: Service Templates can also be assigned to specific Cloud Connectors,
-   allowing you to restrict the use of Templates to a specific Tenant and set
-   of BIG-IP resources.
-
-Task 1 - Login to the iWorkflow Tenant UI
+Task 1 - Adding a Pool Member using Tower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-iWorkflow provides a Tenant UI that can act as a simple self-service portal
-for Tenants.  In this lab we'll use the Tenant UI to monitor the results of
-various actions we take via the iWorkflow Tenant API.
+Just like our Deployment Job Templates, modification Job Templates also
+utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
 
-Perform the following steps to complete this task:
+#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.4``
+   and login using ``T1-ops-user``/``default`` credentials.
 
-#. Open a new Chrome window/tab and connect to ``https://10.1.1.12``
+#. Navigate to the :guilabel:`Templates` section in the Web UI. Notice the
+   difference in Templates available to the :guilabel:`Operations User`. This
+   is where breaking up roles to match your orginization can really add value
+   when using Tower. There can be Templates designated for Security,
+   Network Admins,App Owners, etc.
 
-#. Use the ``MyTenant`` Tenant User credentials to login:
+   |lab-3-1|
 
-   - Username: ``tenant``
-   - Password: ``tenant``
+#. Select the ``Rocket-Ship Icon`` next to the Template titled
+   ``Tenant1_Pool_Add_Member``
 
-#. You will see a user interface that looks similar to the Provider UI, however,
-   the access is limited to Tenant specific objects.  You can see a list of
-   available :guilabel:`Service Templates` and :guilabel:`Clouds` with their
-   associated Connectors:
+#. A Survey will appear asking you to specify the following fields and press
+   :guilabel:`LAUNCH`
+
+   - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
+
+   - :guilabel:`Pool Name`: Name of the App Pool: Enter ``web_pool``
+
+   - :guilabel:`New Member`: IP of new Pool Member: Enter ``10.1.10.125``
 
    |lab-3-2|
 
-Task 2 - Authenticate to the iWorkflow Tenant API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-As described above, the Tenant interfaces to iWorkflow maintain their own
-access control mechanisms.  As a result, when performing operations via the
-Tenant API you must authenticate with a Tenant User (``tenant`` in this case).
-
-Perform the following steps to complete this task:
-
-#. In Postman expand the ``Lab 3.3 - Deploy L4-7 Services`` folder in the
-   collection.
-
-#. Click the ``Authenticate and Obtain Token for Tenant User`` request and
-   examine the JSON request :guilabel:`Body`.  Notice that we are sending the
-   credentials for the Tenant User (``tenant``).  This request will
-   automatically populate the ``iwf_tenant_auth_token`` variable in the Postman
-   environment so it can be used by subsequent requests.
-
-#. Click the :guilabel:`Send` button on the
-   ``Authenticate and Obtain Token for Tenant User`` request.  Check the
-   :guilabel:`Test Results` tab to ensure the token was populated.
-
-#. Click the ``Set Tenant Authentication Token Timeout`` request and click the
-   :guilabel:`Send` button.  This request will increase the timeout value for
-   the token so we can complete the lab without having to re-authenticate.
-
-Task 3 - Perform Service Lifecycle Operations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this task we will perform CRUD operations on Service Deployments
-demonstrating a full Service Lifecycle for a Tenant Service.
-
-Create
-^^^^^^
-
-Perform the following steps to complete this task:
-
-#. Click the ``Deploy example-f5-http-lb Service`` request in the folder.
-
-#. Examine the URI.  Notice that the variable ``iwf_tenant_name`` is used to
-   specify the Tenant we are performing the operation on.  In this case
-   ``iwf_tenant_name`` is set to ``MyTenant`` in the Postman environment:
+#. Once you see the ``Status Success`` message on the Job Output open a Chrome
+   window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and login with
+   ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Pools`. Make sure to select ``Tenant1``
+   Partition in the top right hand corner to view your AS3 Tenant. You should
+   see ``web_pool`` listed with ``3`` members in the pool.
 
    |lab-3-3|
 
-#. Examine the JSON Request :guilabel:`Body`; it contains the following data:
-
-   - Deployment ``name``
-   - A URI Reference to the Service Template ``f5-http-lb-v1.0``
-   - The input ``vars`` and ``tables`` for the deployment.  These
-     fields were marked ``Tenant Editable`` in the Service Template
-   - A URI Reference to the Connector to use for deployment.  This specifies
-     which BIG-IP devices will be used for this deployment
-
-   The data in the list above is highlighted below:
+#. Click on the :guilabel:`3` pool members to see the one we just added.
 
    |lab-3-4|
 
-#. Click the :guilabel:`Send` button to **Create** the Service Deployment
 
-#. Switch to the Chrome iWorkflow Tenant UI window.  The ``example-f5-http-lb``
-   Service is now present in the :guilabel:`L4-L7 Services` pane.  Double
-   click the Service and examine its properties.  You can compare the
-   values in the UI to the JSON Request :guilabel:`Body` from the step above.
+Task 2 - Removing a Pool Member using Tower
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Navigate to the :guilabel:`Templates` section in the Web UI and Select the
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Pool_Delete_Member``
 
    |lab-3-5|
 
-#. Open a Chrome window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and
-   login with ``admin/admin`` credentials. Navigate to
-   :menuselection:`iApps --> Application Services`.  Select
-   ``example-f5-http-lb`` from the list of deployed services and examine the
-   :guilabel:`Components` of the deployed service:
+#. A Survey will appear asking you to specify the following fields and press
+   :guilabel:`LAUNCH`
+
+   - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
+
+   - :guilabel:`Pool Name`: Name of the App Pool: Enter ``web_pool``
+
+   - :guilabel:`Index of Member`: IP of new Pool Member: Enter ``2``
 
    |lab-3-6|
 
-Update
-^^^^^^
+#. Once you see the ``Status Success`` message on the Job Output open a Chrome
+   window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and login with
+   ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Pools`. Make sure to select ``Tenant1``
+   Partition in the top right hand corner to view your AS3 Tenant. You should
+   see ``web_pool`` listed with ``2`` members again in the pool.
 
-Perform the following steps to complete this task:
+#. You have now successfully Added and Removed ``10.1.10.125`` from the
+   AS3 Application using Ansible Tower.
 
-#. Click the ``Modify example-f5-http-lb Service`` request in the folder.
 
-#. We will send a ``PUT`` request to the Resource URI for the existing
-   deployment and add a Pool Member as shown in the JSON Request
-   :guilabel:`Body`:
+Task 3 - Replacoing all Pool Members
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This task is similar to the ``Replace-All-With`` tmsh feature. The template will
+take ``extra-vars`` as input and will replace all current members in the pool
+with the ones that are provided during the Template execution.
+
+#. Navigate to the :guilabel:`Templates` section in the Web UI and Select the
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Update_All_Members``
 
    |lab-3-7|
 
-#. Click the :guilabel:`Send` button to **Update** the Service Deployment.
+#. Before the Survey launches this time, Tower will ask you to fill in
+   ``extra-vars``. This ``vars`` will represent how you would like the pool to
+   be after the Template pushes. You can add or remove members from the blank
+   as long as the syntax is followed. In this example we are Replacing
+   the existing members with the same IP but now port 8001 instead of 80.
 
-#. Update the iWorkflow Tenant UI and notice that the Service has been updated:
 
    |lab-3-8|
 
-#. Update the BIG-IP GUI and notice that the :guilabel:`Components` tree has
-   been updated:
+#. Select ``NEXT`` and the Survey will appear asking you to specify the
+   following fields and then to press :guilabel:`LAUNCH`
+
+   - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
+
+   - :guilabel:`Pool Name`: Name of the App Pool: Enter ``web_pool``
 
    |lab-3-9|
 
-Read
-^^^^
-
-Perform the following steps to complete this task:
-
-#. Click the ``Get example-f5-http-lb Service`` request in the folder.
-
-#. We will send a ``GET`` request to the Resource URI for the existing
-   deployment.
-
-#. Click the :guilabel:`Send` button to **Read** the Service Deployment.
-
-#. Examine the JSON Response :guilabel:`Body` to see the state of the current
-   Service Deployment:
+#. Once you see the ``Status Success`` message on the Job Output open a Chrome
+   window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and login with
+   ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Pools`. Make sure to select ``Tenant1``
+   Partition in the top right hand corner to view your AS3 Tenant. You should
+   see ``web_pool`` listed with ``2`` members again but with the ports as 8001.
 
    |lab-3-10|
 
-Delete
-^^^^^^
 
-Perform the following steps to complete this task:
 
-#. Click the ``Delete example-f5-http-lb Service`` request in the folder.
+Task 4 - Updating the SSL CRT/KEY on a VIP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. We will send a ``DELETE`` request to the Resource URI for the existing
-   deployment.
-
-#. Click the :guilabel:`Send` button to **Delete** the Service Deployment.
-
-#. Update the iWorkflow Tenant UI and verify that the Service has been deleted:
+#. Following the same process as the last three tasks, login to Tower and run the
+   :guilabel:`Tenant1_Update_CRT_KEY` Template. For this example we have
+   prefilled the CRT and KEY into the Survey to avoid mistakes when copying the
+   files. You must still fill in the ``Application`` name as ``A2``. 
 
    |lab-3-11|
 
-#. In the BIG-IP GUI navigate to
-   :menuselection:`iApps --> Application Services` and verify the service was
-   deleted.
+#. After the State shows as ``Successful`` you can retrieve the updated AS3
+   declaration by running the ``Tenant1_View_Config``. The output will shows
+   the new certificate in the JSON output of the Job Page.
 
    |lab-3-12|
-
-Task 3 - Deploy Additional Services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Examples **Create** requests are included in the
-``Lab 3.3 - Deploy L4-7 Services`` folder.  For the remaining services
-refer to the table below to see which ones apply most to your specific use
-cases.  You can repeat the steps in Task 2 for the additional services by
-modifying the requests as needed.
-
-.. list-table::
-    :widths: 30 70
-    :header-rows: 1
-    :stub-columns: 1
-
-    * - **Service Name**
-      - **Description**
-    * - ``f5-http-lb``
-      - HTTP Load Balancing to a Single Pool
-    * - ``f5-https-offload``
-      - HTTPS Offload and Load Balancing to a Single Pool
-    * - ``f5-fasthttp-lb``
-      - Performance-enhanced HTTP Load Balancing to a Single Pool
-    * - ``f5-fastl4-tcp-lb``
-      - Generic L4 TCP Load Balancing to a Single Pool
-    * - ``f5-fastl4-udp-lb``
-      - Generic L4 UDP Load Balancing to a Single Pool
-    * - ``f5-http-url-routing-lb``
-      - HTTP Load Balancing with URL Based Content Routing to Multiple Pools
-    * - ``f5-https-waf-lb``
-      - HTTPS Offload, Web Application Firewall Protection and Load Balancing
-        to a Single Pool
 
 .. |lab-3-1| image:: images/lab-3-1.png
 .. |lab-3-2| image:: images/lab-3-2.png

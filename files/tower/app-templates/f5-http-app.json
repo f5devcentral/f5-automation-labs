@@ -1,0 +1,27 @@
+ {
+    "class": "Tenant",
+    "A1": {
+        "class": "Application",
+        "template": "http",
+        "serviceMain": {
+            "class": "Service_HTTP",
+            "virtualAddresses": [
+                "10.1.20.121"
+            ],
+            "pool": "web_pool"
+        },
+        "web_pool": {
+            "class": "Pool",
+            "monitors": [
+                "http"
+            ],
+            "members": [{
+                "servicePort": 8001,
+                "serverAddresses": [
+                    "10.1.10.100",
+                    "10.1.10.101"
+                ]
+            }]
+        }
+    }
+}

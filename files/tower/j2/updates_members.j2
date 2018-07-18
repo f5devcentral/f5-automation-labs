@@ -1,0 +1,18 @@
+[
+  {
+    "op":"add",
+    "path":"/{{tenant}}/{{application}}/{{pool}}/members",
+    "value": 
+        [
+            {% for member in members %}
+                {
+                    "enable": true,
+                    "servicePort": {{member.port}},
+                    "serverAddresses": [
+                        "{{member.ip}}"
+                    ]
+                },
+            {% endfor %}
+        ]
+    }
+]

@@ -1,0 +1,28 @@
+{
+	"class": "Tenant",
+	"A4": {
+		"class": "Application",
+		"template": "udp",
+		"serviceMain": {
+			"class": "Service_UDP",
+			"virtualPort": 53,
+			"virtualAddresses": [
+				"10.1.20.121"
+			],
+			"pool": "Pool1"
+		},
+		"Pool1": {
+			"class": "Pool",
+			"monitors": [
+				"icmp"
+			],
+			"members": [{
+				"servicePort": 1344,
+				"serverAddresses": [
+                    "10.1.10.100",
+                    "10.1.10.101"
+				]
+			}]
+		}
+	}
+}

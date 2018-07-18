@@ -1,0 +1,17 @@
+---
+- name: Update Pool Members
+  hosts: bigip
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+  - name: URI Patch
+    uri:
+       url: "https://{{ inventory_hostname }}/mgmt/shared/appsvcs/declare"
+       method: "PATCH"
+       user: "admin"
+       password: "admin"
+       validate_certs: no
+       body: "{{ lookup('template', '../j2/updates_members.j2') }}"
+       body_format: json

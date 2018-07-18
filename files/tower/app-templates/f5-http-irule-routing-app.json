@@ -1,0 +1,48 @@
+{
+	"class": "Tenant",
+	"A5": {
+		"class": "Application",
+		"template": "http",
+		"serviceMain": {
+			"class": "Service_HTTP",
+			"virtualAddresses": [
+				"10.1.20.121"
+			],
+			"pool": "dfl_pool",
+			"iRules": [
+				"choose_pool"
+			]
+		},
+		"dfl_pool": {
+			"class": "Pool",
+			"monitors": [
+				"http"
+			],
+			"members": [{
+				"servicePort": 80,
+				"serverAddresses": [
+                    "10.1.10.100",
+                    "10.1.10.101"
+				]
+			}]
+		},
+		"pvt_pool": {
+			"class": "Pool",
+			"monitors": [
+				"http"
+			],
+			"members": [{
+				"servicePort": 80,
+				"serverAddresses": [
+					"192.0.5.20",
+					"192.0.5.21"
+				]
+			}]
+		},
+		"choose_pool": {
+			"class": "iRule",
+			"remark": "choose private pool based on URI",
+			"iRule": "when HTTP_REQUEST {\nif { [HTTP::uri] starts_with \"/cgi\" } {\n pool pvt_pool\n }\n}"
+		}
+	}
+}
