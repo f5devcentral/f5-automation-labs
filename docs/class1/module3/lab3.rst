@@ -27,6 +27,10 @@ modified an application after it was deployed. In this Lab we will focus on
 Adding, Removing, and Replacing Pool Members using **AS3 PATCH** through Tower.
 We will also demonstrate updating SSL Certificates on an existing Virtual.
 
+.. NOTE:: Ensure that you ran the :guilabel:`Tenant1_Deploy_Config`
+   Template again with the ``f5-https-offload-app`` option as indicated at
+   the end of the last Lab.
+
 
 Task 1 - Adding a Pool Member using Tower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,47 +41,70 @@ utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
 #. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.4``
    and login using ``T1-ops-user``/``default`` credentials.
 
-Perform the following steps to complete this task:
+#. Navigate to the :guilabel:`Templates` section in the Web UI. Notice the
+   difference in Templates available to the :guilabel:`Operations User`. This
+   is where breaking up roles to match your orginization can really add value
+   when using Tower. There can be Templates designated for Security,
+   Network Admins,App Owners, etc.
 
-#. Open a new Chrome window/tab and connect to ``https://10.1.1.12``
+   |lab-3-1|
 
-#. Use the ``MyTenant`` Tenant User credentials to login:
+#. Select the ``Rocket-Ship Icon`` next to the Template titled
+   ``Tenant1_Pool_Add_Member``
 
-   - Username: ``tenant``
-   - Password: ``tenant``
+#. A Survey will appear asking you to specify the following fields and press
+   :guilabel:`LAUNCH`
 
-#. You will see a user interface that looks similar to the Provider UI, however,
-   the access is limited to Tenant specific objects.  You can see a list of
-   available :guilabel:`Service Templates` and :guilabel:`Clouds` with their
-   associated Connectors:
+   - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
+
+   - :guilabel:`Pool Name`: Name of the App Pool: Enter ``web_pool``
+
+   - :guilabel:`New Member`: IP of new Pool Member: Enter ``10.1.10.125``
 
    |lab-3-2|
 
-Task 2 - Authenticate to the iWorkflow Tenant API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Once you see the ``Status Success`` message on the Job Output open a Chrome
+   window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and login with
+   ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Pools`. Make sure to select ``Tenant1``
+   Partition in the top right hand corner to view your AS3 Tenant. You should
+   see ``web_pool`` listed with ``3`` members in the pool.
 
-As described above, the Tenant interfaces to iWorkflow maintain their own
-access control mechanisms.  As a result, when performing operations via the
-Tenant API you must authenticate with a Tenant User (``tenant`` in this case).
+   |lab-3-3|
 
-Perform the following steps to complete this task:
+#. Click on the :guilabel:`3` pool members to see the one we just added.
 
-#. In Postman expand the ``Lab 3.3 - Deploy L4-7 Services`` folder in the
-   collection.
+   |lab-3-4|
 
-#. Click the ``Authenticate and Obtain Token for Tenant User`` request and
-   examine the JSON request :guilabel:`Body`.  Notice that we are sending the
-   credentials for the Tenant User (``tenant``).  This request will
-   automatically populate the ``iwf_tenant_auth_token`` variable in the Postman
-   environment so it can be used by subsequent requests.
 
-#. Click the :guilabel:`Send` button on the
-   ``Authenticate and Obtain Token for Tenant User`` request.  Check the
-   :guilabel:`Test Results` tab to ensure the token was populated.
+Task 2 - Removing a Pool Member using Tower
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ``Set Tenant Authentication Token Timeout`` request and click the
-   :guilabel:`Send` button.  This request will increase the timeout value for
-   the token so we can complete the lab without having to re-authenticate.
+#. Navigate to the :guilabel:`Templates` section in the Web UI and Select the
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Pool_Delete_Member``
+
+   |lab-3-5|
+
+#. A Survey will appear asking you to specify the following fields and press
+   :guilabel:`LAUNCH`
+
+   - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
+
+   - :guilabel:`Pool Name`: Name of the App Pool: Enter ``web_pool``
+
+   - :guilabel:`Index of Member`: IP of new Pool Member: Enter ``2``
+
+   |lab-3-6|
+
+#. Once you see the ``Status Success`` message on the Job Output open a Chrome
+   window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and login with
+   ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Pools`. Make sure to select ``Tenant1``
+   Partition in the top right hand corner to view your AS3 Tenant. You should
+   see ``web_pool`` listed with ``2`` members again in the pool.
+
+#. You have now successfully Added and Removed ``10.1.10.125`` from the
+   AS3 Application using Ansible Tower.
 
 Task 3 - Perform Service Lifecycle Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

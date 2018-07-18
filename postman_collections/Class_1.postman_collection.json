@@ -7509,6 +7509,54 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Step 6: Permissions (SSL Ops)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cbc8125e-d625-4f7f-83a2-59706168fa71",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Token {{TowerToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\":{{tower_sslpatch_execute_id}}\n}"
+								},
+								"url": {
+									"raw": "https://{{tower_mgmt}}/api/v2/teams/{{tower_t1ops_id}}/roles/",
+									"protocol": "https",
+									"host": [
+										"{{tower_mgmt}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"teams",
+										"{{tower_t1ops_id}}",
+										"roles",
+										""
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
