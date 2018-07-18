@@ -1,5 +1,5 @@
-Lab 3.3: Deploy L4-7 Services
------------------------------
+Lab 3.3: Modify AS3 Apps using Tower
+------------------------------------
 
 .. graphviz::
 
@@ -22,46 +22,20 @@ Lab 3.3: Deploy L4-7 Services
       }
    }
 
-Up to this point we have spent a lot of time building our toolchain to create
-a Declarative Service Catalog.  We are now at the point where we can perform
-a Declarative, Abstracted Service Deployment using the iWorkflow Tenant Service
-Catalog, Tenant API and optionally the built-in Tenant GUI.
+At this point we have deployed full Applications with Tower and AS3 but have not
+modified an application after it was deployed. In this Lab we will focus on
+Adding, Removing, and Replacing Pool Members using **AS3 PATCH** through Tower.
+We will also demonstrate updating SSL Certificates on an existing Virtual.
 
-As we did in the previous lab we will explore the first deployment in depth
-so you can implement a full Service Lifecycle: Create, Read, Update and Delete
-(CRUD) operations.  For the remaining deployments you can just repeat the steps
-used with the first example.
 
-Tenant Overview
-^^^^^^^^^^^^^^^
-
-iWorkflow Tenants allow Consumers to perform Service Lifecycle operations in an
-isolated environment.  All actions performed prior to this lab have been in
-what's called the ``Provider`` space and, by nature, are masked from Tenants
-unless specifically exposed.  As a result of the Tenant isolation, each Tenant
-maintains its own set of Users and Roles associated with those users, allowing
-each Tenant full control of the actions Tenant Users can perform.
-
-During our iWorkflow Onboarding process in Lab 3.1 we created a
-:guilabel:`Tenant` named ``MyTenant`` and an associated :guilabel:`Tenant User`
-with a username of ``tenant``.  Additionally we gave ``MyTenant`` access to
-the :guilabel:`BIG-IP Connector` named ``BIG-IP A&B Connector``:
-
-|lab-3-1|
-
-This gives the ``tenant`` user the ability to perform CRUD operations on
-Service Deployments.
-
-.. NOTE:: Service Templates can also be assigned to specific Cloud Connectors,
-   allowing you to restrict the use of Templates to a specific Tenant and set
-   of BIG-IP resources.
-
-Task 1 - Login to the iWorkflow Tenant UI
+Task 1 - Adding a Pool Member using Tower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-iWorkflow provides a Tenant UI that can act as a simple self-service portal
-for Tenants.  In this lab we'll use the Tenant UI to monitor the results of
-various actions we take via the iWorkflow Tenant API.
+Just like our Deployment Job Templates, modification Job Templates also
+utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
+
+#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.4``
+   and login using ``T1-ops-user``/``default`` credentials.
 
 Perform the following steps to complete this task:
 

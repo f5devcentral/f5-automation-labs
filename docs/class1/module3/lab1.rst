@@ -166,31 +166,33 @@ Perform the following steps to build the cluster:
    |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
-   ``Lab 3.1 - iWorkflow Onboarding`` folder.  Next, be sure the
+   ``Lab 3.1 - Ansible Tower Onboarding`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
    |lab-1-1|
 
-#. Click the :guilabel:`Run Lab 3.1 - iWor...` button
+#. Click the :guilabel:`Run Lab 3.1 - Ansib...` button
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and it's associated test results are displayed on the screen.
-   Onboarding iWorkflow can take a few minutes.  You can follow the progress
+   Onboarding Ansible Tower about a minute.  You can follow the progress
    by scrolling down the results window.
 
 #. Once the :guilabel:`Run Summary` button appears the folder has finished
    running.  You should have 0 failures and the last item in the request
-   list should be named ``Install App Services Template on iWorkflow``
+   list should be named ``Step 6: Permissions (Pool Member Del Ops)``
 
    |lab-1-2|
 
-#. At this point you can log into iWorkflow using Chrome at
-   ``https://10.1.1.12`` and ``admin/admin`` credentials.  Click
-   :guilabel:`Clouds and Services` at the top of the window:
+#. At this point you can log into Ansible Tower using Chrome at
+   ``https://10.1.1.4`` and ``admin/admin`` credentials. Browse the main UI tabs
+   to see the different topics covered at the top of this lab
+   (Projects, Inventories, Templates, etc).
 
    |lab-1-3|
 
-#. Browse the various panes to see what was created:
+#. Select the **Settings Icon** in the top right corner to view the **RBAC**
+   items that were created such as Orginization, Teams, Users, and Credentials.
 
    |lab-1-4|
 
@@ -200,6 +202,5 @@ Perform the following steps to build the cluster:
    :scale: 80%
 .. |lab-1-3| image:: images/lab-1-3.png
 .. |lab-1-4| image:: images/lab-1-4.png
-   :scale: 70%
 
 
