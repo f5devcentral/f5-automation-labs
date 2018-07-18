@@ -37,13 +37,42 @@ Task 1 - Call Tenant1_Pool_Add_Member with REST API
    ``Lab 3.4- Ansible Tower and REST`` folder in the
    Postman Collection
 
-#. Select ``Step 1: Retrieve Authentication Token``. Review the **Request** JSON
-   :guilabel:`Body`. The JSON body of the POST contains the declaration AS3
-   uses to deploy the service.
-
-
    |lab-4-1|
 
+#. Select ``Step 1: Retrieve Authentication Token``. Review the **Request** JSON
+   :guilabel:`Body`. The JSON body is used to get the Auth token from Tower.
+   Press Send
 
+   |lab-4-2|
+
+#. Select ``Step 2: Get Tenant1_Pool_add_member ID``. This is a GET Request
+   to retrieve the ID of the Template that we want to call for adding a Member.
+   Press Send
+
+   |lab-4-3|
+
+#. Select ``Step 3: Run Tenant1_Pool_Add_Member``. Review the JSON Body of this
+   request. The variables being sent are the same ones that the ``Survey``
+   would request in the GUI. Press Send
+
+   |lab-4-4|
+
+#. Open a Chrome window/tab to the Tower GUI at ``https://10.1.1.4`` and login
+   with ``admin/admin`` credentials. Navigate to :menuselection:`Jobs` in
+   the top Menu. Select the job that completed on the top of the list. The ID
+   may vary, but the name will be ``Tenant1_Pool_Add_Member``.
+
+   |lab-4-5|
+
+#. Once the Job template is complete you should see the Status as ``Successful``.
+   At this point you have add a Pool member to the pool on the BIG-IP using the 
+   REST API in Ansible Tower.
+
+   |lab-4-6|
 
 .. |lab-4-1| image:: images/lab-4-1.png
+.. |lab-4-2| image:: images/lab-4-2.png
+.. |lab-4-3| image:: images/lab-4-3.png
+.. |lab-4-4| image:: images/lab-4-4.png
+.. |lab-4-5| image:: images/lab-4-5.png
+.. |lab-4-6| image:: images/lab-4-6.png
