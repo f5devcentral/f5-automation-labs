@@ -262,6 +262,7 @@ html_theme_options = {
                         'site_name': 'Community Training Classes & Labs',
                         'next_prev_link': True
                      }
+html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
 
 if on_rtd:
     templates_path = ['_templates']
