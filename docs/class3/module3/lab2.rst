@@ -1,80 +1,80 @@
 Lab |labmodule|\.\ |labnum|\: Tune/fix security policy (Sec0ps)
 ===============================================================
 
-Background: 
+Background:
 ~~~~~~~~~~~~~
 
-the application team tests came back and some of the tests have failed. the test result came back with the WAF blocking page.
- 
- 
-Task 2.1 - Find which requests were blocked and resolve false-positive 
+Our application tests came back and some have failed, the test result came back with the WAF blocking page.
+
+Task 2.1 - Lets find which requests were blocked and resolve false-positive
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1.1 Clear false positive:
-**************************	
-- log on to the 'DEV' bigip. 
-- go to 'traffic learning', 
-- make sure you are editing the 'linux-high' policy. 
-- check the requests that triggered suggestions. 
+**************************
+- Open Chrome and login to BIG-IP A
+- Go to "Security > Application Security > Policy Building > Traffic Learning"
+- Make sure you are editing the "owasptop10" policy
+- Click on the Traffic Learning Recommendation ``HTTP protocol compliance failed``
 
-you should see a suggestion on 'High ASCII characters in headers' , examine the request. this is a false positive. the app uses a different language in the header and it is legitimate traffic. 
-you can also see that the request comes from a trusted ip.
-accept the suggestion.
+Examine the request, this is a false positive. The app uses a different language in the header and it is legitimate traffic,
+you can also see that the request comes from a trusted ip
 
-	|Bigip-030|
+- Accept the suggestion (If you can not accept the suggestion make sure you are in the "Common" partition)
+
+|Bigip-030|
 
 2.1.2 Apply the policy :
-**************************	
-
-- apply the policy.
-
-.. Note:: you are applying the policy to DEV,
-   secops shouldn't change the policy running in production 
-   ** unless there is a true emergency 
-   
-
-Task 2.2 - Save the WAF policy to the templates repo (managed by secops) 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-secops have updated the policy with a setting that makes sense to update on the general template. 
-we will now export the policy from the bigip to the waf-policies repo (managed by secops)
-
-2.2.1 Pull WAF policy from the bigip :
 **************************
 
-go back to jenkins, under the 'f5-rs-app2-dev' there is a job that will export the policy and save it to the git repo - :guilabel:`SEC export waf policy`
+- Apply the policy
+
+.. Note:: You are applying the policy to DEV, SecOps shouldn't change the policy
+   running in production outside of the CI/CD process **unless** there is a
+   true emergency
+
+
+Task 2.2 - Save the WAF policy to the templates Source Control (managed by SecOps)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SecOps has updated the policy with a setting that makes sense to update on the general template.
+We will now export the policy from the BIGIP A to the waf-policies repo (managed by SecOps)
+
+2.2.1 Pull WAF policy from the BIG-IP A :
+**************************
+
+- Go back to jenkins, under the "f5-rs-app3-dev" there is a job that will export the policy and save it to the git repo - :guilabel:`SEC export waf policy`
 
 	|jenkins075|
-   
-click on this job and choose :guilabel:`Build with Parameters` from the left menu. 
+
+- Click on this job and choose :guilabel:`Build with Parameters` from the left menu
 
 	|jenkins080|
-	
-you can leave the defaults, it asks for two parameters. the first parameter is the name of the policy on the bigip and the other is the new policy name in the git repo.  
 
-.. Note:: why saving the template with a different version ? 
-   changes should be tracked, more than that we should allow app teams to 'control their own destiny' 
-   allowing them to choose the right time and place to update the waf policy in their environment. 
-   by versioning the policies we ensure their control over which template gets deployed. 
-   
-click on 'build' 
+- You can leave the defaults, it asks for two parameters. the first parameter is the name of the policy on the BIG-IP A and the other is the new policy to be created in the git repo
+
+.. Note:: Why are we saving the template with a different version?
+   All changes should be tracked, more than that we should allow app teams to 'control their own destiny',
+   allowing them to choose the right time and place to update the waf policy in their environment.
+   By versioning the policies we ensure Source Control and allow control over which template gets deployed
+
+- Click on 'Build'
 
 2.2.2 Check slack channel notification :
 **************************
 
-check the slack channel - you should see a message about the new security policy that's ready. 
-this illustrates how chatops can help communicate between different teams. 
+Check the shared slack channel, you should see a message specific to you about the new security policy that's ready.
+This illustrates how ChatOps can help communicate between different teams.
 
 	|Slack-030|
 
-the security admin role ends here. it's now up to Dave to run the pipeline again. 
+- The security admin role ends here, it's now up to Dave to run the pipeline again. 
 
 
-   
+
 .. |Bigip-030| image:: images/Bigip-030.PNG
-   
-.. |jenkins075| image:: images/jenkins075.PNG 
-   
+
+.. |jenkins075| image:: images/jenkins075.PNG
+
 .. |jenkins080| image:: images/jenkins080.PNG
-   
+
 .. |Slack-030| image:: images/Slack-030.PNG
