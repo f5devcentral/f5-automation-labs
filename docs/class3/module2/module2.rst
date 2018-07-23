@@ -1,4 +1,4 @@
-Module 2: Programmatic WAF (ASN) Configuration
+Module 2: Programmatic WAF (ASM) Configuration
 ==============================================
 
 * Provision ASM module on BIG-IP
