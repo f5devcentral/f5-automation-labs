@@ -1,14 +1,13 @@
-Module 3: Continuous Integration / Continuous Delivery for Security
-===================================================================
+Module 2: Programmatic WAF (ASN) Configuration
+==============================================
 
-* Provision ASM module on BIG-IP 
+* Provision ASM module on BIG-IP
 * Interact with ASM related REST endpoints on a BIG-IP
 * Create and modify an ASM policy
 * Apply the ASM policy to a virtual server
 
 .. toctree::
-   :maxdepth: 1
-   :glob:
+    :maxdepth: 1
+    :glob:
 
-   lab*
-   
+    lab*

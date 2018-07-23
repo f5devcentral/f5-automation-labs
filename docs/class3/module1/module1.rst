@@ -1,4 +1,4 @@
-Module 2: Programmatic Firewall (AFM) Configuration
+Module 1: Programmatic Firewall (AFM) Configuration
 ===================================================
 
 * Provision AFM module on BIG-IP 
