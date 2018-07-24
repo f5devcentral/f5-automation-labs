@@ -9,45 +9,45 @@ Lab |labmodule|\.\ |labnum|\: Tune/fix security policy (Sec0ps)
 ===============================================================
 
 Background:
-~~~~~~~~~~~~~
+~~~~~~~~~~~
 
-Our application tests came back and some have failed, the test result came back with the WAF blocking page.
+Our application tests came back and some have failed, the results came back with the WAF blocking page.
 
 Task 2.1 - Lets find which requests were blocked and resolve false-positive
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2.1.1 Clear false positive:
-**************************
-- Open Chrome and login to BIG-IP A
+2.1.1 Clear the false positive:
+*******************************
+- Open Chrome and login to ``BIG-IP A``
 - Go to "Security > Application Security > Policy Building > Traffic Learning"
 - Make sure you are editing the "owasptop10" policy
-- Click on the Traffic Learning Recommendation ``HTTP protocol compliance failed``
+- Click on the Traffic Learning Recommendation **HTTP protocol compliance failed**
 
 Examine the request, this is a false positive. The app uses a different language in the header and it is legitimate traffic,
-you can also see that the request comes from a trusted ip
+you can also see that the request comes from a trusted IP
 
 - Accept the suggestion (If you can not accept the suggestion make sure you are in the "Common" partition)
 
-|Bigip-030|
+  |Bigip-030|
 
 2.1.2 Apply the policy :
 **************************
 
 - Apply the policy
 
-.. Note:: You are applying the policy to DEV, SecOps shouldn't change the policy
+.. Note:: You are applying the policy to dev, SecOps shouldn't change the policy
    running in production outside of the CI/CD process **unless** there is a
    true emergency
 
 
 Task 2.2 - Save the WAF policy to the templates Source Control (managed by SecOps)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SecOps has updated the policy with a setting that makes sense to update on the general template.
 We will now export the policy from the BIGIP A to the waf-policies repo (managed by SecOps)
 
 2.2.1 Pull WAF policy from the BIG-IP A :
-**************************
+*****************************************
 
 - Go back to jenkins, under the "f5-rs-app3-dev" there is a job that will export the policy and save it to the git repo - :guilabel:`SEC export waf policy`
 
@@ -64,17 +64,17 @@ We will now export the policy from the BIGIP A to the waf-policies repo (managed
    allowing them to choose the right time and place to update the waf policy in their environment.
    By versioning the policies we ensure Source Control and allow control over which template gets deployed
 
-- Click on 'Build'
+- Click on ``Build``
 
 2.2.2 Check slack channel notification :
-**************************
+****************************************
 
-Check the shared slack channel, you should see a message specific to you about the new security policy that's ready.
-This illustrates how ChatOps can help communicate between different teams.
+- Check the shared slack channel, you should see a message specific to you about the new security policy that's ready.
+  This illustrates how ChatOps can help communicate between different teams.
 
-	|Slack-030|
+  |Slack-030|
 
-- The security admin role ends here, it's now up to Dave to run the pipeline again. 
+- The security admin role ends here, it's now up to Dave to run the pipeline again.
 
 
 
