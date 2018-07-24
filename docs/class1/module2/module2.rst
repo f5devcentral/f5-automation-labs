@@ -39,7 +39,7 @@ Layer 4-7 Application Services on BIG-IP devices.
 
 .. NOTE:: Previous versions of this class utilized an iApp Template named the
    App Services Integration iApp.  The AS3 extension is a replacement for the
-   functionality provided by this iApp Template
+   functionality provided by this iApp Template.
 
 .. NOTE:: iControl LX extensions are **not** iApp Templates.  The AS3 Extension
    does not use the TCL based iApp framework.  Additionally, AS3 does not use 
