@@ -22,15 +22,15 @@ Lab 3.1: Ansible Tower Onboarding
       }
    }
 
-In this lab we will use the :guilabel:`Runner`, introduced in previous labs to
-complete the onboarding of the Ansible Tower device.  The onboarding process
+In this lab we will use the :guilabel:`Runner`, introduced in previous labs, to
+complete the onboarding of the Ansible Tower device. The onboarding process
 creates the initial configuration required to start utilizing Ansible Tower with
 BIG-IP.
 
 Ansible Tower Overview
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Before looking at the details of the onboarding process, lets discuss the new
+Before looking at the details of the onboarding process, let's discuss the new
 components Ansible Tower introduces to our toolchain. Some of the components are
 general Ansible terms and
 not specific to Tower. As mentioned earlier we will be focusing primarily on the
@@ -45,13 +45,13 @@ Ansible Tower Term Reference
   the **Inventory**.
 - **Project:** A collection of Ansible **Playbooks** within tower. In this lab
   were are using a **GIT Repo** to store the playbooks.
-- **Templates:** A template provides the ability supply parameters to a playbook.
+- **Templates:** A template provides the ability to supply parameters to a playbook.
   Templates are what will provide the **Abstraction** to
   AS3.
 - **Credentials:** Used to authenticate Tower to the destination device within
   the **Inventory**.
 
-Roll Based Access Control (RBAC)
+Role Based Access Control (RBAC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ansible Tower provides a control hierarchy with the terms below:
@@ -61,7 +61,7 @@ Ansible Tower provides a control hierarchy with the terms below:
   Tower object hierarchy.
 - **Team:** A subdivision of an organization with associated **Users, Projects,
   Credentials, and Permissions**.
-- **User:** A Users is usually associated with a **Team** to allow for group
+- **User:** A User is usually associated with a **Team** to allow for group
   based RBAC control.
 
 Example of the RBAC structure being used in this lab:
@@ -171,7 +171,7 @@ Perform the following steps to build the cluster:
 
    |lab-1-1|
 
-#. Click the :guilabel:`Run Lab 3.1 - Ansib...` button
+#. Click the :guilabel:`Run Lab 3.1 - Ansib...` button.
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and it's associated test results are displayed on the screen.
@@ -180,7 +180,7 @@ Perform the following steps to build the cluster:
 
 #. Once the :guilabel:`Run Summary` button appears the folder has finished
    running.  You should have 0 failures and the last item in the request
-   list should be named ``Step 6: Permissions (Pool Member Del Ops)``
+   list should be named ``Step 6: Permissions (Pool Member Del Ops)``.
 
    |lab-1-2|
 
