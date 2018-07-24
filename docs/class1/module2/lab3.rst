@@ -23,7 +23,7 @@ Lab 2.3: Application Service Deployments with AS3
 
 Now that AS3 has been installed on your BIG-IP device, we can deploy new 
 Layer 4 to 7 App Services.  First we'll review the structure of an AS3 
-declaration.  Then we will **Create** a Basic HTTP Service, demonstrate 2 ways 
+declaration.  Then we will **Create** a Basic HTTP Service, demonstrate two ways 
 to **Modify/Mutate** the service by changing the pool member states and 
 adding pool members, and finally **Delete** the service.  Once we've 
 demonstrated these tasks, we'll introduce more complex deployment options 
@@ -37,7 +37,7 @@ AS3 Declaration Structure
    The complete AS3 schema is documented in the 
    `AS3 Schema Reference <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/schema-reference.html>`__
 
-The AS3 declaration is a JSON based schema document.  The schema implements
+The AS3 declaration is a JSON-based schema document.  The schema implements
 various nested ``class`` attributes that define the acceptable input attributes
 and values.  The simplest useful representation of an AS3 declaration can be
 depicted as:
@@ -151,7 +151,7 @@ deploy a single tenant.
    `Tenant Class <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/schema-reference.html#tenant>`__
    section of the schema reference.
 
-Next, lets populate our tenant ``Tenant1`` with a our next class, 
+Next, let's populate our tenant ``Tenant1`` with a our next class, 
 ``Application``:
 
 .. code-block:: json
@@ -190,7 +190,7 @@ can be repeated for as many applications as required.
    `Application Class <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/schema-reference.html#application>`__
    section of the schema reference.
 
-Now that we see how our declaration is structured lets show an example that 
+Now that we see how our declaration is structured let's show an example that 
 defines a simple HTTP Application Service that implements Load Balancing:
 
 .. code-block:: json
@@ -246,7 +246,7 @@ those defaults include:
 - See the `reference <http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/refguide/schema-reference.html#service-http>`_ 
   for full details
 
-Now that we understand how declarations are defined lets go through some 
+Now that we understand how declarations are defined let's go through some 
 examples.  While completing the following tasks be sure to review the JSON
 :guilabel:`Body` of the requests to how the declaration is defined.
 
@@ -305,7 +305,7 @@ Perform the following steps to complete this task:
       this concept with **Abstraction** to further simplify the interface the
       service consumer has to interact with.
 
-#. To demonstrate **Idempotency**, lets repeat this operation.  Click the 
+#. To demonstrate **Idempotency**, let's repeat this operation.  Click the 
    :guilabel:`Send` button again to **Create** HTTP_Service.  Review the 
    **Response** JSON :guilabel:`Body` and notice that this time the ``message``
    attribute has a value of ``no change``.  Because the input declaration did 
@@ -334,7 +334,7 @@ Perform the following steps to complete this task:
 
    |lab-3-10|
 
-#. The service is available and active, you can connect to the Virtual Server
+#. The service is available and active; you can connect to the Virtual Server
    using Chrome web browser at ``http://10.1.20.121`` and examine its responses:
 
    |lab-3-11|
@@ -351,13 +351,13 @@ for each tenant.  Updates to deployments can be acheived in two ways:
 
 #. Update the full declaration document and ``POST`` the entire declaration to 
    `/mgmt/shared/appsvcs/declare`.  AS3 will perform a *diff* operation and
-   apply delta changes to the BIG-IP system to achieve the desired state
+   apply delta changes to the BIG-IP system to achieve the desired state.
 
 #. Update an existing declaration by using the PATCH method along with 
    ``RFC6902`` JSON patch commands.  This allows you to edit the most recent
    declaration AS3 has deployed.  Once the RFC6902 ``PATCH`` is applied the 
    resulting full declaration is processed using the same *diff* operation
-   as above
+   as above.
 
    .. NOTE:: For more information on RFC6902 JSON Patching see 
       http://jsonpatch.com
@@ -368,7 +368,7 @@ for each tenant.  Updates to deployments can be acheived in two ways:
    fully understood and accounted for if using ``PATCH`` as part of a larger
    orchestrated workflow.
 
-First, lets use the ``POST`` method to update our service:
+First, let's use the ``POST`` method to update our service:
 
 #. Click on ``Step 3: POST to Modify HTTP_Service``. Review the **Request** URL 
    and JSON :guilabel:`Body`.  Notice that we are sending a ``POST`` to the 
@@ -392,12 +392,12 @@ First, lets use the ``POST`` method to update our service:
 
    |lab-3-14|
 
-Next, lets use the ``PATCH`` method to update our service:
+Next, let's use the ``PATCH`` method to update our service:
 
 #. Click on ``Step 4: PATCH to Modify Service_HTTP``.  Notice that we are using
    the ``PATCH`` method to the ``/mgmt/shared/appsvcs/declare`` endpoint.
    Review the JSON :guilabel:`Body`.  Notice that we are sending an array of 
-   3 operations using the RFC6902 JSON Patch format.  The first two operations
+   three operations using the RFC6902 JSON Patch format.  The first two operations
    in the array will update the ``enable`` state to ``true`` for our existing
    pool members.  The third operation adds a new Member to the Pool:
 
@@ -405,12 +405,12 @@ Next, lets use the ``PATCH`` method to update our service:
 
 #. Click the :guilabel:`Send` button to update HTTP_Service.  Review the 
    **Response** :guilabel:`Body` and review the ``declaration`` to see how
-   it was updated
+   it was updated.
    
    |lab-3-16|
    
 #. In the BIG-IP GUI click :menuselection:`Local Traffic --> Pools --> Pool List 
-   --> Pool1 --> Members`.  Notice that there are now 3 members listed in the 
+   --> Pool1 --> Members`.  Notice that there are now three members listed in the 
    table.  The Virtual Server is now available again at ``http://10.1.20.121`` 
    
    |lab-3-17|
@@ -511,7 +511,7 @@ Perform the following steps to complete this task:
 
 #. Click the ``Step 8: Deploy Service_HTTPS`` request and review the 
    **Request** JSON :guilabel:`Body` to see how the service was declared.
-   Notice that were are performing a ``PATCH`` to the declaration and with an
+   Notice that we are performing a ``PATCH`` to the declaration and with an
    ``add`` operation:
 
    |lab-3-25|
@@ -590,7 +590,7 @@ Perform the following steps to complete this task:
    |lab-3-32|
 
 #. Click the :guilabel:`Send` button to remove all services and the ``Tenant1``
-   partition
+   partition.
 
 #. Send the ``Step 11: Get Deployed AS3 Services`` request.  Notice you receive
    a message indicating no declaration was found.
