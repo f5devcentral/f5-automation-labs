@@ -27,7 +27,7 @@ The following example **Job Templates** are meant to act as demonstrations of
 what is possible. These are a great starting point for developing your own
 **Service Catalog** and Templates that meet the requirements of your workflow.
 
-In this first example we will show the underlying ansible objects that make the
+In this first example we will show the underlying Ansible objects that make the
 Catalog work such as **Playbooks** and **Jinja2 Templates**. These files are
 stored within the **GIT Repo** associated with the **Project** in Tower. You
 may browse the additional files used in the lab by viewing them in the link
