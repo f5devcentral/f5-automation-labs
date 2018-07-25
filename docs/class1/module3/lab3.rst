@@ -45,7 +45,7 @@ utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
    difference in Templates available to the :guilabel:`Operations User`. This
    is where breaking up roles to match your orginization can really add value
    when using Tower. There can be Templates designated for Security,
-   Network Admins,App Owners, etc.
+   Network Admins, App Owners, etc.
 
    |lab-3-1|
 

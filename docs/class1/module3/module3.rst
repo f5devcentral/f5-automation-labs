@@ -32,15 +32,16 @@ Module 3: Deploying AS3 Declarations with Ansible Tower
 Overview
 --------
 
-In this module we will explore how to use utilize F5s **AS3** extension 
+In this module we will explore how to use utilize F5's **AS3** extension 
 with an orchestration platform such as **Ansible Tower**. Tower is a workflow 
-orechestration tool which provides an enterprise solution on top of Ansible including 
+orchestration tool which provides an enterprise solution on top of Ansible including 
 an API, GUI, RBAC, and many other features. While we will cover some core concepts of
 Ansible, the primary focus of this module is Tower.
 
-.. NOTE:: Previous version of this class utilized iWorkflow as a service catalog.
+.. NOTE:: A previous version of this class utilized iWorkflow as a service catalog.
    Ansible Tower will cover deploying applications in a similar service catalog
-   manner while demonstrating source-of-truth within an SCM such as Git.
+   manner while demonstrating 
+   within an SCM such as Git.
 
 While working through this module we will be focusing on L4-L7 deployments
 (Virtual Servers, Pools, etc).
