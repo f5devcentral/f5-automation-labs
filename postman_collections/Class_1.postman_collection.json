@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0197469e-b89e-4247-9c0d-12684b352842",
+		"_postman_id": "04ffc504-5ff5-43f4-9c25-1648e6a0ac7f",
 		"name": "F5 Programmability: Class 1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -5864,7 +5864,7 @@
 			"item": [
 				{
 					"name": "Token-Based Authentication",
-					"description": "",
+					"description": null,
 					"item": [
 						{
 							"name": "Step1: Retrieve Authentication Token",
@@ -5962,7 +5962,7 @@
 				},
 				{
 					"name": "Tower RBAC Setup",
-					"description": "",
+					"description": null,
 					"item": [
 						{
 							"name": "Step1: Create Orginization (Tenant1)",
@@ -6302,7 +6302,7 @@
 				},
 				{
 					"name": "Tower Core Objects",
-					"description": "",
+					"description": null,
 					"item": [
 						{
 							"name": "Step1: Create Project for SCM",
@@ -6333,7 +6333,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"scm-project\",\r\n    \"scm_type\": \"git\",\r\n    \"scm_url\": \"https://github.com/focrensh/f5-automation-labs.git\",\r\n    \"scm_branch\": \"v4.0\",\r\n    \"scm_clean\": false,\r\n    \"scm_delete_on_update\": true,\r\n    \"credential\": null,\r\n    \"timeout\": 0,\r\n    \"organization\": 1,\r\n    \"scm_update_on_launch\": true,\r\n    \"scm_update_cache_timeout\": 0\r\n}"
+									"raw": "{\r\n    \"name\": \"scm-project\",\r\n    \"scm_type\": \"git\",\r\n    \"scm_url\": \"https://github.com/f5devcentral/f5-automation-labs.git\",\r\n    \"scm_branch\": \"{{repository_branch}}\",\r\n    \"scm_clean\": false,\r\n    \"scm_delete_on_update\": true,\r\n    \"credential\": null,\r\n    \"timeout\": 0,\r\n    \"organization\": 1,\r\n    \"scm_update_on_launch\": true,\r\n    \"scm_update_cache_timeout\": 0\r\n}"
 								},
 								"url": {
 									"raw": "https://{{tower_mgmt}}/api/v2/projects/",
@@ -6378,7 +6378,7 @@
 									"raw": "{\r\n    \"name\": \"LAB_CREDS\",\r\n    \"description\": \"BIGIP Credentials\",\r\n    \"user\": 1,\r\n    \"credential_type\": 1,\r\n    \"inputs\": {\r\n        \"username\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }\r\n}"
 								},
 								"url": {
-									"raw": "https://postman-echo.com/delay/10/",
+									"raw": "https://postman-echo.com/delay/15/",
 									"protocol": "https",
 									"host": [
 										"postman-echo",
@@ -6386,7 +6386,7 @@
 									],
 									"path": [
 										"delay",
-										"10",
+										"15",
 										""
 									]
 								}
@@ -6590,7 +6590,7 @@
 				},
 				{
 					"name": "Create Job Templates",
-					"description": "",
+					"description": null,
 					"item": [
 						{
 							"name": "Step 1: Create Tower Credentials",
@@ -7172,7 +7172,7 @@
 				},
 				{
 					"name": "Apply Permissions to Templates",
-					"description": "",
+					"description": null,
 					"item": [
 						{
 							"name": "Step 1: Permissions (View Config Ops)",
@@ -7517,7 +7517,7 @@
 		},
 		{
 			"name": "Lab 3.4 - Ansible Tower and REST",
-			"description": "",
+			"description": null,
 			"item": [
 				{
 					"name": "Step1: Retrieve Authentication Token",

@@ -175,7 +175,7 @@ Perform the following steps to build the cluster:
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and it's associated test results are displayed on the screen.
-   Onboarding Ansible Tower about a minute.  You can follow the progress
+   Onboarding Ansible Tower will take about a minute.  You can follow the progress
    by scrolling down the results window.
 
 #. Once the :guilabel:`Run Summary` button appears the folder has finished
@@ -185,7 +185,7 @@ Perform the following steps to build the cluster:
    |lab-1-2|
 
 #. At this point you can log into Ansible Tower using Chrome at
-   ``https://10.1.1.4`` and ``admin/admin`` credentials. Browse the main UI tabs
+   ``https://10.1.1.12`` and ``admin/admin`` credentials. Browse the main UI tabs
    to see the different topics covered at the top of this lab
    (Projects, Inventories, Templates, etc).
 

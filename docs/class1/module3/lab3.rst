@@ -38,7 +38,7 @@ Task 1 - Adding a Pool Member using Tower
 Just like our Deployment Job Templates, modification Job Templates also
 utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
 
-#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.4``
+#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.12``
    and login using ``T1-ops-user``/``default`` credentials.
 
 #. Navigate to the :guilabel:`Templates` section in the Web UI. Notice the
@@ -107,7 +107,7 @@ Task 2 - Removing a Pool Member using Tower
    AS3 Application using Ansible Tower.
 
 
-Task 3 - Replacoing all Pool Members
+Task 3 - Replacing all Pool Members
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This task is similar to the ``Replace-All-With`` tmsh feature. The template will
