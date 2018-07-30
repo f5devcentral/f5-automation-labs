@@ -104,35 +104,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
         }
     }
 
-3. List AFM policy rules
--------------------------
-
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-.. NOTE:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
-
-.. code-block:: rest
-    :emphasize-lines: 4
-
-    {
-        "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.0.0",
-        "items": []
-    }
-
-4. Add default deny rule to policy
+3. Add default deny rule to policy
 -----------------------------------
 
 An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.
@@ -187,6 +159,35 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
             "identity": {}
         }
     }
+
+4. List AFM policy rules
+-------------------------
+
+**Request**
+
+::
+
+    GET https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+
+**Headers**
+
+:: 
+
+    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+
+**Example Response**
+
+.. NOTE:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
+
+.. code-block:: rest
+    :emphasize-lines: 4
+
+    {
+        "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.0.0",
+        "items": []
+    }
+
 
 5. Add address list rule to policy
 -----------------------------------
