@@ -20,7 +20,7 @@ Task 1 - Locating the Jenkins files and how they are setup
 
 #. Lets make sure the Jekins files were mapped correctly.
 
-   Execute: ``cd ~/f5-automation-labs/jenkins`` to access our folder containing the Jenkins Pipeline Files
+   Execute: ``cd /home/snops/f5-automation-labs/jenkins/f5-newman-build`` to access our folder containing the Jenkins Pipeline Files
 
 #. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs, setup this way was for ease of learning. You may place tools in different structures in your environment.
 
