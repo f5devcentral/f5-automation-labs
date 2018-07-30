@@ -107,10 +107,8 @@ Follow the below steps in order found in the Postman collection to complete this
         "memoryRatio": 0
     }
 
-3.1. Provision module (OPTIONAL)
+3.1. Provision module
 --------------------------------
-
-.. WARNING:: This step is optional and should only be performed if **afm** is not provisioned.
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
