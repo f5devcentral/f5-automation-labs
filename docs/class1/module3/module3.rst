@@ -40,12 +40,11 @@ Ansible, the primary focus of this module is Tower.
 
 .. NOTE:: A previous version of this class utilized iWorkflow as a service catalog.
    Ansible Tower will cover deploying applications in a similar service catalog
-   manner while demonstrating 
-   within an SCM such as Git.
+   manner while demonstrating utilizing an SCM such as Git.
 
 While working through this module we will be focusing on L4-L7 deployments
 (Virtual Servers, Pools, etc).
-Ansible and Towe have the ability to perform full L1-L3 configurations
+Ansible and Tower have the ability to perform full L1-L3 configurations
 (Device Onboarding, Networking, etc)
 as well but that will not be covered in this section.
 
@@ -114,7 +113,7 @@ To solve this problem Ansible Tower allows the administrator to create
 **Templates** which can provide further **Abstraction** of the AS3 declarations.
 The administrator can enforce specific Tenants or parameters to be used based on
 the user running the Template. This abstraction allows the templates to
-integrated directly in the business based CI/CD toolchains and workflows.
+integrated directly in to the business based CI/CD toolchains and workflows.
 
 .. toctree::
    :maxdepth: 1

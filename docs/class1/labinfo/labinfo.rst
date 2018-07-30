@@ -20,7 +20,7 @@ traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
 -  2 x F5 BIG-IP VE (v12.1.x)
--  1 x F5 iWorkflow VE (v2.3)
+-  1 x Ansible Tower Server
 -  1 x Linux Server
 -  1 x Linux Jumphost
 
@@ -79,8 +79,6 @@ components:
      - 10.1.1.12
      - N/A
      - ``admin/admin``
-
-       ``root/default``
    * - Linux Server
      - 10.1.1.15
      - **Internal:** 10.1.10.100-103

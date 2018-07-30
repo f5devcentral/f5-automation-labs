@@ -54,7 +54,7 @@ In this task we will be running through an example Template and will come back
 in Task2 and explain the flow Tower took to get the end result.
 Perform the following steps to complete this task:
 
-#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.4``
+#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.12``
    and login using ``T1-admin-user``/``default`` credentials.
 
 #. Click :guilabel:`TEMPLATES` in the top menu bar of tower. Notice that there
@@ -201,7 +201,7 @@ the Job output.
    |lab-2-7|
 
 
-Task 4 - Explore Addition Source-of-Truth Files
+Task 4 - Explore Additional Source-of-Truth Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using the procedures above explore Deploying the other example Source-of-Truth

@@ -5,7 +5,7 @@
   connection: local
     
   vars:
-    tenant_body: "{{ lookup('url', 'https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/v4.0/files/tower/app-templates/{{ f5_template }}.json', split_lines=False) }}"
+    tenant_body: "{{ lookup('file', '../app-templates/{{ f5_template }}.json', split_lines=False) }}"
     uri_method: "POST"
 
   tasks:

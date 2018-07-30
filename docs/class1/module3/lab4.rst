@@ -39,9 +39,9 @@ Task 1 - Call Tenant1_Pool_Add_Member with REST API
 
    |lab-4-1|
 
-#. Select ``Step 1: Retrieve Authentication Token``. Review the **Request** JSON
-   :guilabel:`Body`. The JSON body is used to get the Auth token from Tower.
-   Press Send.
+#. Using Postman select ``Step 1: Retrieve Authentication Token``. Review the
+   **Request** JSON :guilabel:`Body`. The JSON body is used to get the Auth
+   token from Tower. Press Send.
 
    |lab-4-2|
 
@@ -57,7 +57,7 @@ Task 1 - Call Tenant1_Pool_Add_Member with REST API
 
    |lab-4-4|
 
-#. Open a Chrome window/tab to the Tower GUI at ``https://10.1.1.4`` and login
+#. Open a Chrome window/tab to the Tower GUI at ``https://10.1.1.12`` and login
    with ``admin/admin`` credentials. Navigate to :menuselection:`Jobs` in
    the top Menu. Select the job that completed on the top of the list. The ID
    may vary, but the name will be ``Tenant1_Pool_Add_Member``.
@@ -69,6 +69,11 @@ Task 1 - Call Tenant1_Pool_Add_Member with REST API
    REST API in Ansible Tower.
 
    |lab-4-6|
+
+.. NOTE:: For more information about ansible tower please reference the following
+   start point.
+   https://www.ansible.com/products/tower
+
 
 .. |lab-4-1| image:: images/lab-4-1.png
 .. |lab-4-2| image:: images/lab-4-2.png
