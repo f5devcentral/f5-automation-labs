@@ -683,12 +683,12 @@ Task 3 - Run the Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_a_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_a_build"
           },
           {
@@ -698,12 +698,12 @@ Task 3 - Run the Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_b_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_b_build"
           }
         ]
