@@ -23,16 +23,15 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Request**
 
-.. class:: highlight
-..
+::
 
-   | **Method**
-   |  GET
-   | **URL**
-   |  https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-   | **Headers**
-   |  X-F5-Auth-Token: {{big_ip_a_auth_token}}
-   | **Body**
+   Method
+     GET
+   URL
+     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+   Headers
+     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+   Body
 
 **Response**
 
@@ -41,7 +40,7 @@ Follow the below steps in order found in the Postman collection to complete this
      The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
-    :emphasize-lines: 13, 24
+    .. highlight:: "level"
 
     {
         "kind": "tm:sys:provision:provisioncollectionstate",
