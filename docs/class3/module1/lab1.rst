@@ -13,8 +13,6 @@ Overview
 
 In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **Module 2: Configuring AFM (Advanced Firewall Module)**.
 
-Instructions
----------------------
 
 .. Hint::  Prior to performing the below steps, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **afm**.
 
@@ -26,6 +24,7 @@ Follow the below steps in order found in the Postman collection to complete this
 **Request**
 
 .. class:: highlight
+..
 
    | **Method**
    |  GET
