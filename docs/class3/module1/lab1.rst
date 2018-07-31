@@ -20,42 +20,21 @@ Prior to performing the below steps, validate the **{{module}}** Postman environ
 
 Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. ATTENTION:: Some response content has been removed for brevity.
-
-|labmodule|\.\ |labnum|\.1. Retrieve all module provision states
+1. Retrieve all module provision states
 ---------------------------------------
 
+::
 **Request**
-
-:: 
-
     GET https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
 
 **Headers**
-
-:: 
-
     X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
 **Example Response**
 
-.. ATTENTION:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. CAUTION:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. DANGER:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. ERROR:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. HINT:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. IMPORTANT:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. NOTE:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. TIP:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. WARNING:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+.. NOTE::
+     Some response content has been removed for brevity.
+     The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 13, 24
@@ -89,7 +68,7 @@ Follow the below steps in order found in the Postman collection to complete this
         ]
     }
 
-|labmodule|\.\ |labnum|\.2. Retrieve single module provision state
+2. Retrieve single module provision state
 -----------------------------------------
 
 **Request**
@@ -123,10 +102,13 @@ Follow the below steps in order found in the Postman collection to complete this
         "memoryRatio": 0
     }
 
-|labmodule|\.\ |labnum|\.3.1. Provision module
+3.1. Provision module
 --------------------------------
 
-The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
+
+.. WARNING:: This step is optional and should only be performed if **afm** is not provisioned.
+
+The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.  Edit the body to add the provisioned level.
 
 .. NOTE:: Performing a provision/deprovision operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
 
@@ -158,7 +140,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
     :emphasize-lines: 2
 
     {
-        "level":"nominal"
+        "level":""
     }
 
 **Example Response**
@@ -180,10 +162,10 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
         "memoryRatio": 0
     }
 
-|labmodule|\.\ |labnum|\.3.2. Deprovision module
+3.2. Deprovision module
 -----------------------
 
-This request will serve as an example of how to deprovision a BIG-IP module.
+This request will serve as an example of how to deprovision a BIG-IP module.  Edit the body to change the provisioned level to "none".
 
 **Request**
 
@@ -203,7 +185,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
 ::
 
     {
-        "level":"none"
+        "level":""
     }
 
 **Example Response**
@@ -223,10 +205,10 @@ This request will serve as an example of how to deprovision a BIG-IP module.
         "memoryRatio": 0
     }
 
-|labmodule|\.\ |labnum|\.3.3. Re-provision module
+3.3. Re-provision module
 ------------------------
 
-Re-provision the **afm** module if previously deprovisioned.
+Re-provision the **afm** module to nominal if previously deprovisioned.
 
 **Request**
 
@@ -246,7 +228,7 @@ Re-provision the **afm** module if previously deprovisioned.
 ::
 
     {
-        "level":"nominal"
+        "level":""
     }
 
 **Example Response**
