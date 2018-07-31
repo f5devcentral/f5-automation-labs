@@ -110,7 +110,10 @@ Follow the below steps in order found in the Postman collection to complete this
 3.1. Provision module
 --------------------------------
 
-The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
+
+.. WARNING:: This step is optional and should only be performed if **afm** is not provisioned.
+
+The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.  Edit the body to add the provisioned level.
 
 .. NOTE:: Performing a provision/deprovision operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
 
@@ -142,7 +145,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
     :emphasize-lines: 2
 
     {
-        "level":"nominal"
+        "level":""
     }
 
 **Example Response**
@@ -167,7 +170,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
 3.2. Deprovision module
 -----------------------
 
-This request will serve as an example of how to deprovision a BIG-IP module.
+This request will serve as an example of how to deprovision a BIG-IP module.  Edit the body to change the provisioned level to "none".
 
 **Request**
 
@@ -187,7 +190,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
 ::
 
     {
-        "level":"none"
+        "level":""
     }
 
 **Example Response**
@@ -210,7 +213,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
 3.3. Re-provision module
 ------------------------
 
-Re-provision the **afm** module if previously deprovisioned.
+Re-provision the **afm** module to nominal if previously deprovisioned.
 
 **Request**
 
@@ -230,7 +233,7 @@ Re-provision the **afm** module if previously deprovisioned.
 ::
 
     {
-        "level":"nominal"
+        "level":""
     }
 
 **Example Response**
