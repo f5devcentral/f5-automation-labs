@@ -104,7 +104,7 @@ Follow the below steps in order found in the Postman collection to complete this
 3. Create an Address List
 --------------------------
 
-An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a body containing the configuration creates an address list that can be used with a firewall policy.
+An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a body containing the configuration creates an address list that can be used with a firewall policy.  Make sure you edit the body to include the name fo the address list.
 
 **Request**
 
@@ -131,10 +131,10 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
             }
         ]
     }
+.
+.. note:: Copy the **name** of the address list you created into the **afm_address_list** Postman environment variable
 
 **Example Response**
-
-.. note:: Copy the **name** of the address list, highlighted below, from the response into the **afm_address_list** Postman environment variable.
 
 .. code-block:: rest
     :emphasize-lines: 3, 8-12
@@ -217,10 +217,19 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
     {
         "addresses": [
             {
-                "name": "8.8.4.4"
+                "name": "1.1.1.1"
+            },            
+            {
+                "name": "2.2.2.2"
+            },            
+            {
+                "name": "3.3.3.3"
+            },            
+            {
+                "name": "4.4.4.4"
             },
             {
-                "name": "8.8.8.8"
+                "name": "8.8.4.4"
             }
         ]
     }
@@ -239,10 +248,19 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_lis
         "selfLink": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~google-dns_address_list?ver=13.0.0",
         "addresses": [
             {
-                "name": "8.8.4.4"
+                "name": "1.1.1.1"
+            },            
+            {
+                "name": "2.2.2.2"
+            },            
+            {
+                "name": "3.3.3.3"
+            },            
+            {
+                "name": "4.4.4.4"
             },
             {
-                "name": "8.8.8.8"
+                "name": "8.8.4.4"
             }
         ]
     }

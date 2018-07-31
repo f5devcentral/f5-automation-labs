@@ -61,7 +61,7 @@ Follow the below steps in order found in the Postman collection to complete this
 2. Create AFM policy
 ---------------------
 
-An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body containing just a policy name creates a firewall policy.
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body containing just a policy name creates a firewall policy.  Edit the body to add teh name of the policy you are creating.
 
 **Request**
 
@@ -86,7 +86,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 **Example Response**
 
-.. NOTE:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is ``~Common~global_default_deny``.
+.. NOTE:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/**~Common~global_default_deny**?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is **~Common~global_default_deny**.
 
 .. code-block:: rest
     :emphasize-lines: 3, 7
@@ -135,7 +135,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 4. Add default deny rule to policy
 -----------------------------------
 
-An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  Edit the body to set the action to drop.
 
 **Request**
 
@@ -191,7 +191,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
 5. Add address list rule to policy
 -----------------------------------
 
-An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  The status of the rule can be specified when the POST is made.
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  The status of the rule can be specified when the POST is made.  Edit the body to set the action to accept.
 
 **Request**
 
@@ -332,7 +332,7 @@ The ``"items"`` sub collection will now be populated with the all the firewall r
 7. Disable Policy rule
 -----------------------
 
-An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}`` endpoint with a body containing a name of an existing rule can set the ``"status": "disabled"`` to deactivate a single rule.
+An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}`` endpoint with a body containing a name of an existing rule can set the ``"status": "disabled"`` to deactivate a single rule.  Edit the body to set the status to disabled.
 
 **Request**
 
