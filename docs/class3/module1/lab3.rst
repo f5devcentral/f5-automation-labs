@@ -86,7 +86,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
 
 **Example Response**
 
-.. NOTE:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/**~Common~global_default_deny**?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is **~Common~global_default_deny**.
+.. NOTE:: Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/``\**~Common~global_default_deny**\``?ver=13.0.0"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is **~Common~global_default_deny**.
 
 .. code-block:: rest
     :emphasize-lines: 3, 7
