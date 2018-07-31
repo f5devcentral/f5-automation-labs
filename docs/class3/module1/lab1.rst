@@ -22,7 +22,7 @@ Follow the below steps in order found in the Postman collection to complete this
 
 .. ATTENTION:: Some response content has been removed for brevity.
 
-1. Retrieve all module provision states
+|labmodule|\.\ |labnum|\.1. Retrieve all module provision states
 ---------------------------------------
 
 **Request**
@@ -73,7 +73,7 @@ Follow the below steps in order found in the Postman collection to complete this
         ]
     }
 
-2. Retrieve single module provision state
+|labmodule|\.\ |labnum|\.2. Retrieve single module provision state
 -----------------------------------------
 
 **Request**
@@ -107,7 +107,7 @@ Follow the below steps in order found in the Postman collection to complete this
         "memoryRatio": 0
     }
 
-3.1. Provision module
+|labmodule|\.\ |labnum|\.3.1. Provision module
 --------------------------------
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
@@ -164,7 +164,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
         "memoryRatio": 0
     }
 
-3.2. Deprovision module
+|labmodule|\.\ |labnum|\.3.2. Deprovision module
 -----------------------
 
 This request will serve as an example of how to deprovision a BIG-IP module.
@@ -207,7 +207,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
         "memoryRatio": 0
     }
 
-3.3. Re-provision module
+|labmodule|\.\ |labnum|\.3.3. Re-provision module
 ------------------------
 
 Re-provision the **afm** module if previously deprovisioned.
