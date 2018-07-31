@@ -150,6 +150,8 @@ Explore the objects that were created
 - A new Virtual Server and associated objects
 - A new imported ASM policy for owasptop10
 
+.. Note:: All BIG-IP objects are created in a new partition, rs_App3, so to view you will need to change to this partition in the upper right hand corner of BIG-IP GUI.
+
 
 1.3.4 Access the App:
 **************************
