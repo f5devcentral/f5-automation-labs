@@ -35,7 +35,7 @@ Follow the below steps in order found in the Postman collection to complete this
    |  X-F5-Auth-Token: {{big_ip_a_auth_token}}
    | **Body**
 
-**Example Response**
+**Response**
 
 .. NOTE::
      Some response content has been removed for brevity.
