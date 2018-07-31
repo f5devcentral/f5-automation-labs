@@ -39,7 +39,23 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Example Response**
 
+.. ATTENTION:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. CAUTION:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. DANGER:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. ERROR:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. HINT:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. IMPORTANT:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
 .. NOTE:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. TIP:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+.. WARNING:: The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 13, 24
