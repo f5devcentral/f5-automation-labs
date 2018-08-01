@@ -7,35 +7,33 @@ nwdiag {
             // label = "BIG-IP";
             // color = "#CB222F";
             color = "#E66675";
-            "BIG-IP A" [address = "10.1.1.10"];
-            "BIG-IP B" [address = "10.1.1.11"];
+            "BIG-IP DEV" [address = "10.1.1.5"];
+            "BIG-IP PROD" [address = "10.1.1.15"];
       }
       group compute {
             // label = "Compute";
             // color = "#2370B2";
             color = "#5FA5CC";
-            "Linux\nServer" [address = "10.1.1.15"];
+            "Linux\nTool Box" [address = "10.1.1.10"];
       }
       group mgmt {
             // label = "Management";
             // color = "#27B331";
             color = "#6CDB7A";
-            "iWorkflow" [address = "10.1.1.12"];
-            "Linux\nJumphost" [address = "10.1.1.20"];
+            "Windows\nJumphost" [address = "10.1.1.250"];
       }
 
   }
   network Internal {
-      address = "10.1.10.0/24";
-      "BIG-IP A" [address = "10.1.10.10, 10.1.10.13 (Float)"];
-      "BIG-IP B" [address = "10.1.10.11, 10.1.10.13 (Float)"];
-      "Linux\nServer" [address = "\n10.1.10.100-103"];
-      "Linux\nJumphost" [address = "10.1.10.20"];
+      address = "10.1.20.0/24";
+      "BIG-IP DEV" [address = "10.1.20.5, 10.1.20.13 (Float)"];
+      "BIG-IP PROD" [address = "10.1.20.15, 10.1.20.13 (Float)"];
+      "Linux\nTool Box" [address = "10.1.20.10, 10.1.20.100-103"];
   }
   network External {
-      address = "10.1.20.0/24";
-      "BIG-IP A" [address = "10.1.20.10, 10.1.20.120-130 (VIPs)"];
-      "BIG-IP B" [address = "10.1.20.11, 10.1.20.120-130 (VIPs)"];
-      "Linux\nJumphost" [address = "10.1.20.20"];
+      address = "10.1.10.0/24";
+      "BIG-IP DEV" [address = "10.1.10.5, 10.1.10.120-130 (VIPs)"];
+      "BIG-IP PROD" [address = "10.1.10.15, 10.1.10.120-130 (VIPs)"];
+      "Windows\nJumphost" [address = "10.1.10.250"];
   }
 }
