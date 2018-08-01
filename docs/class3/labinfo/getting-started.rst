@@ -1,8 +1,8 @@
 Getting Started
-===============
+================
 
 Run the rs-container
---------------------
+----------------------
 
 The entire lab is built from code hosted in this repo, in order to launch the lab environment you will download and run a container that has the tools we are using (ansible and jenkins) as well as the depndencies and requirements to interact with the differnet services (F5, AWS, github.. ) 
 on the linux jumphost in UDF, run the following command to start the container,
@@ -15,7 +15,7 @@ the will attach a volume from the linux host to the container
 
 
 Configure credentials and personal information
-----------------------------------------------
+------------------------------------------------
 
 log in as jenkins (root password is 'default')
 
@@ -76,7 +76,7 @@ Module 01 - WAF policy deployment and tuning
 =============================================
 
 start the dev environment
--------------------------
+---------------------------
 
 in jenkins open the 'DevSecOps - Lab - App2' folder', the lab files are all in this folder 
 we will start by deploying a dev environment, you will start a pipeline that creates a full environment in AWS. 
@@ -131,17 +131,17 @@ open the bigip and login using the provided credentials.
 explore the objects that were created: 
 
 Cloud formation template:
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 this is the base deployment of the bigip, we start with the F5 supported 2nic CFT. 
 it deploys bigip with the latest cloud version, installs the necessary cloudlibs and cloud related scripts.
 
 bigip rs onboard:
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 deploys the 'enterprise' default profiles, for example: 
 HTTP, analytics, AVR, DOSL7, iapps etc. 
 
 push a waf policy:
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 pushes a waf policy from the repo to the bigip, updates DOSL7 and FPS profiles. 
 
 rs-iapp service:
@@ -205,7 +205,7 @@ this illustrates how chatops can help between different teams.
 the security admin role ends here. it's now up to the appowner to run the pipeline again. 
 
 deploy to dev again:
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ssh into the contianer, make sure you are connected as user 'jenkins' 
 go to the application git folder. check which branches are there and what is the active branch. (git branch) 
