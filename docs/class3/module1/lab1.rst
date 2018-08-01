@@ -17,18 +17,30 @@ In this lab, the iControl REST API will be used to provision a module on the BIG
 Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 |labmodule|\.\ |labnum|\.1. Retrieve all module provision states
----------------------------------------
+----------------------------------------------------------------
 
 .. Hint::  
-   - Send a **Request** with the following details.
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
 
-    **Method**
-     GET
-    **URL**
-     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-    **Headers**
-     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-    **Body**
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+     
+     | **Headers**
+     
+     ::
+     
+	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
 
 .. NOTE::
     - Some response content has been removed for brevity.
@@ -41,14 +53,14 @@ Follow the below steps in order found in the Postman collection to complete this
 
     {
         "kind": "tm:sys:provision:provisioncollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/sys/provision?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision?ver=13.1.0.8",
         "items": [
             {
                 "kind": "tm:sys:provision:provisionstate",
                 "name": "afm",
                 "fullPath": "afm",
                 "generation": 5609,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
+                "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
                 "cpuRatio": 0,
                 "diskRatio": 0,
                 "level": "none",
@@ -59,7 +71,7 @@ Follow the below steps in order found in the Postman collection to complete this
                 "name": "ltm",
                 "fullPath": "ltm",
                 "generation": 1,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/ltm?ver=13.0.0",
+                "selfLink": "https://localhost/mgmt/tm/sys/provision/ltm?ver=13.1.0.8",
                 "cpuRatio": 0,
                 "diskRatio": 0,
                 "level": "nominal",
@@ -69,19 +81,31 @@ Follow the below steps in order found in the Postman collection to complete this
     }
 
 |labmodule|\.\ |labnum|\.2. Retrieve single module provision state
------------------------------------------
+------------------------------------------------------------------
 
 .. Hint::  
-   - Prior to performing the below steps, validate the **{{module}}** Postman environment variable is set to **afm**.
-   - Send a **Request** with the following details.
+  1) Prior to performing the below steps, validate the **{{module}}** Postman environment variable is set to **afm**.
+  2) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
 
-   Method:
-     GET
-   URL:
-     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
-   Headers:
-     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-   Body:
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     
+     | **Headers**
+     
+     ::
+     
+	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
 
 
 **Example Response**
@@ -94,18 +118,16 @@ Follow the below steps in order found in the Postman collection to complete this
         "name": "afm",
         "fullPath": "afm",
         "generation": 5609,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
         "cpuRatio": 0,
         "diskRatio": 0,
         "level": "none",
         "memoryRatio": 0
     }
 
-.. NOTE:: 
-    - The **afm** module should be provisioned after performing the steps in this Lab.
 
 |labmodule|\.\ |labnum|\.3.1. Provision module
---------------------------------
+----------------------------------------------
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
@@ -123,25 +145,37 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
     }
 
 .. Hint::  
-   Send a **Request** with the following details.
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         PATCH
 
-   Method:
-     PATCH
-   URL:
-     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
-   Headers:
-     Content-Type: application/json
-     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-   Body:
-     {
-        "level":"nominal"
-     }
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+         {
+             "level":"nominal"
+         }
 
 
 **Example Response**
-
-.. NOTE:: 
-    - The **afm** module should be provisioned after performing the steps in this Lab.
 
 .. code-block:: rest
     :emphasize-lines: 9
@@ -151,32 +185,48 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
         "name": "afm",
         "fullPath": "afm",
         "generation": 10636,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
         "cpuRatio": 0,
         "diskRatio": 0,
         "level": "nominal",
         "memoryRatio": 0
     }
 
+
 |labmodule|\.\ |labnum|\.3.2. Deprovision module
------------------------
+--------------------------------------------------
 
 This request will serve as an example of how to deprovision a BIG-IP module.
 
 .. Hint::  
-   Send a **Request** with the following details.
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         PATCH
 
-   Method:
-     PATCH
-   URL:
-     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
-   Headers:
-     Content-Type: application/json
-     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-   Body:
-     {
-        "level":"none"
-     }
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+         {
+             "level":"none"
+         }
 
 **Example Response**
 
@@ -188,7 +238,7 @@ This request will serve as an example of how to deprovision a BIG-IP module.
         "name": "afm",
         "fullPath": "afm",
         "generation": 10714,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
         "cpuRatio": 0,
         "diskRatio": 0,
         "level": "none",
@@ -196,6 +246,9 @@ This request will serve as an example of how to deprovision a BIG-IP module.
     }
 
 |labmodule|\.\ |labnum|\.3.3. Re-provision module
-------------------------
+--------------------------------------------------
 
 Repeat steps |labmodule|\.\ |labnum|\.3.1 to Re-provision the **afm** module to nominal if previously deprovisioned.
+
+.. NOTE:: 
+    - The **afm** module should be provisioned to **nominal** after performing the steps in this Lab.
