@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Deploy app to dev environment (Dave)
-==================================================================
+Module |labmodule|\, Lab \ |labnum|\: Deploy app to dev environment (Dave)
+===========================================================================
 
 Background:
 ~~~~~~~~~~~
@@ -32,13 +32,13 @@ is deployed we need to run some testing; fuctional and security.
 .. Note:: OUT OF SCOPE - A major part of the app build process is out of scope for this lab,
    building the app code and publishing it as a container to the registry. this process is done using DOCKERHUB.
 
-Task 1.1 - Review Dave's repo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.1.1 - Review Dave's repo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Make sure you've completed the setup section from the beginning of this module.**
 
-1.1.1 View git branches within the application repo:
-****************************************************
+|labmodule|\.\ |labnum|\.1.1.1 View git branches within the application repo:
+******************************************************************************
 
 On the container CLI type the following command to view git branches:
 
@@ -53,8 +53,8 @@ The app repository has two branches, ``dev`` and ``master``. We are now working 
    The dev environment deploys the code on the dev branch,
    the prod environment deploys the code on the master branch.
 
-1.1.2 View files in the application repo:
-*****************************************
+|labmodule|\.\ |labnum|\.1.1.2 View files in the application repo:
+*******************************************************************
 
 On the container CLI type the following commands to view the files in the repo:
 
@@ -65,8 +65,8 @@ On the container CLI type the following commands to view the files in the repo:
 - Application code exist under the 'all-in-one-hackazon' folder.
 - Infrastructure code is maintained in the 'iac_parameters.yaml' file.
 
-1.1.3 explore the infrastructure as code parameters file:
-*********************************************************
+|labmodule|\.\ |labnum|\.1.1.3 explore the infrastructure as code parameters file:
+***********************************************************************************
 
 .. code-block:: terminal
 
@@ -78,14 +78,14 @@ Those playbooks are being controlled by jenkins which takes the iac_parameters.y
 - This enables Dave to control the deployment of the security policies from his repo, as we will see.
 
 
-Task 1.2 - Deploy dev Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.1.2 - Deploy dev Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Note:: Jenkins can be configured to run the dev pipeline based on code change in dave's app repo (git commits).
    In this lab we are manually starting the Full stack pipeline in Jenkins to visualize the process.
 
-1.2.1 Open Jenkins:
-*******************
+|labmodule|\.\ |labnum|\.1.2.1 Open Jenkins:
+********************************************
 
 - From the Window jumphost open Chrome and browse to the  ``Jenkins`` bookmark
 
@@ -96,8 +96,8 @@ Task 1.2 - Deploy dev Environment
           this happens because jenkins monitors the repo and start the jobs (Polling/git commits). *you can cancel the jobs or let them fail*.
 
 
-1.2.2 Start the "Full stack pipeline":
-**************************************
+|labmodule|\.\ |labnum|\.1.2.2 Start the "Full stack pipeline":
+*****************************************************************
 * In jenkins open the "Agility devSecOps - f5-rs-app3-dev" folder, the lab jobs are all in this folder
   we will start by deploying a dev environment, you will start a pipeline that creates a few jobs around our application service
 
@@ -118,28 +118,28 @@ Task 1.2 - Deploy dev Environment
 
 
 
-Task 1.3 - Review the deployed environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.1.3 - Review the deployed environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Note:: Jenkins doesn't automatically refresh the page, either manually refresh to see the progress, or click on the 'ENABLE AUTO REFRESH' on the upper right side.
 
-1.3.1 Review jobs output:
-*************************
+|labmodule|\.\ |labnum|\.1.3.1 Review jobs output:
+****************************************************
 
 * You can review the output of each job while its running, click on the small :guilabel:`console output` icon as shown in the screenshot:
 
   |jenkins053|
 
-1.3.2 Let the jobs run until the pipeline finishes:
-***************************************************
+|labmodule|\.\ |labnum|\.1.3.2 Let the jobs run until the pipeline finishes:
+********************************************************************************
 
 * Wait until all of the jobs have finished (turned green and the app-test one is red ).
 
   |jenkins055|
 
 
-1.3.3 Login to the BIG-IP:
-**************************
+|labmodule|\.\ |labnum|\.1.3.3 Login to the BIG-IP:
+*****************************************************
 
 - From the Windows Jumphost open the bookmark in Chrome for `BIG-IP A GUI`
 - username: :guilabel:`admin`
@@ -153,16 +153,16 @@ Explore the objects that were created
 .. Note:: All BIG-IP objects are created in a new partition, rs_App3, so to view you will need to change to this partition in the upper right hand corner of BIG-IP GUI.
 
 
-1.3.4 Access the App:
-**************************
+|labmodule|\.\ |labnum|\.1.3.4 Access the App:
+****************************************************
 
 - Open a tab in Chrome and browse to http://10.1.10.6
 
   |hackazone010|
 
 
-1.3.5 Summary - Jobs roles:
-***************************
+|labmodule|\.\ |labnum|\.1.3.5 Summary - Jobs roles:
+*******************************************************
 
 B1 - push a WAF policy:
 +++++++++++++++++++++++
@@ -190,11 +190,11 @@ B4  - rs-attacks:
 - Ansible playbook takes the parameters and uses them to run HTTP requests to our APP.
 
 
-Task 1.4 - Go over the test results
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.1.4 - Go over the test results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1.4.1 View the test results:
-****************************
+|labmodule|\.\ |labnum|\.1.4.1 View the test results:
+*********************************************************
 
 * The deployment process failed because not all of the application tests completed successfully.
   Click on the console output of ``app-test`` to review the job
@@ -202,8 +202,8 @@ Task 1.4 - Go over the test results
   |jenkins053|
 
 
-1.4.2 Identify the WAF blocked page response:
-*********************************************
+|labmodule|\.\ |labnum|\.1.4.2 Identify the WAF blocked page response:
+**************************************************************************
 
 Scroll to the bottom of the console page, you should see a response with :guilabel:`Request Rejected`, and the failure reason as :guilabel:`Unexpected response returned`
 

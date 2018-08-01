@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Deploy the prod environment (Dave)
-================================================================
+Module |labmodule|\, Lab \ |labnum|\: Deploy the prod environment (Dave)
+===========================================================================
 
 Background:
 ~~~~~~~~~~~
@@ -14,8 +14,8 @@ Background:
 We've completed our tests in dev, both functional and security tests have passed
 
 
-Task 4.1 - Merge Infrastructure as Code file from dev
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.4.1 - Merge Infrastructure as Code file from dev
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * We will now "merge" the app3 dev branch with the master branch,
   so that the production deployment will use the correct policy.
@@ -33,8 +33,8 @@ Task 4.1 - Merge Infrastructure as Code file from dev
 .. Note:: The merge will trigger a job in jenkins which is configured to monitor this repo - ``agility_devsecops/f5-rs-app3-prd/B1 - push a WAF policy``,
           since the environment isn't deployed yet it will fail, either cancel the job or let it fail.
 
-Task 4.2 Deploy prod:
-~~~~~~~~~~~~~~~~~~~~~
+Task |labmodule|\.\ |labnum|\.4.2 Deploy prod:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Note:: In this lab we manually deploy prod after the tests have completed. This is an easily automated task, a simple poll, or webhook could be initiated do to the same work
 
