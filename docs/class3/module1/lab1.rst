@@ -23,7 +23,7 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Request**
 
-.. container:: highlight
+<div class="highlight">
 
    | **Method**
    |  GET
