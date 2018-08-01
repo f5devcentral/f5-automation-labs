@@ -21,7 +21,7 @@ Follow the below steps in order found in the Postman collection to complete this
 
 .. Hint::  
    - Send a **Request** with the following details.
-
+    |
     | **Method**
     |     GET
     | **URL**
