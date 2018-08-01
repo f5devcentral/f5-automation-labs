@@ -13,9 +13,8 @@ Overview
 
 In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Advanced Firewall Manager (AFM) module will be provisioned for use in **Module 1, Lab 2: Configuring AFM (Advanced Firewall Module)**.  Before we begin, lets review how to generate an Authentication Token.
 
-Use Postman collection to complete this lab.
-
 .. NOTE::
+    - Use Postman collection to complete this lab.
     - Some response content has been removed for brevity.
 
 |labmodule|\.\ |labnum|\.0.1. Get an Authentication Token
@@ -202,10 +201,67 @@ The **Authentication Token** timeout is set using an HTTP PATCH with a body cont
 		"selfLink": "https://localhost/mgmt/shared/authz/tokens/X54G4KAQUEGFZX2J7MUMFBKBC5"
 	}
 
-|labmodule|\.\ |labnum|\.1. Retrieve all module provision states
+|labmodule|\.\ |labnum|\.1. Determine the license state
 ------------------------------------------------------------------
 
-Before a module on a BIG-IP can be configured, it must be licensed and provisioned.  Using the newly generated Authentication Token, check the provisioning state for all modules.  This is done using an HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision``.
+Before a module on a BIG-IP can be configured, it must be licensed.  Using the newly generated Authentication Token, check the license state for all modules.  This is done using an HTTP GET to the REST endpoint for ``/mgmt/tm/sys/license``.
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
+
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/license
+     
+     | **Headers**
+     
+     ::
+     
+	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+
+.. NOTE::
+    - The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 7-15 
+
+	},
+	"https://localhost/mgmt/tm/sys/license/0/active-modules/
+		%22Best%20Bundle,%20VE-10G%22": {
+		"nestedStats": {
+			"entries": {
+				"featureModules": {
+					"description": "{ \"Rate Shaping\" \"ASM, VE\" 
+						\"DNS-GTM, Base, 10Gbps\" \"SSL, VE\" \"Max 
+						Compression, VE\" \"AFM, VE\" \"DNSSEC\" 
+						\"GTM Licensed Objects, Unlimited\" \"DNS 
+						Licensed Objects, Unlimited\" \"DNS Rate 
+						Fallback, 250K\" \"GTM Rate Fallback, 250K\" 
+						\"GTM Rate, 250K\" \"DNS Rate Limit, 250K QPS\" 
+						\"CGN, BIG-IP VE, AFM ONLY\" \"Routing 
+						Bundle, VE\" \"PSM, VE\" }"
+				},
+				"key": {
+					"description": "KYQKGYX-EPPNOGV"
+				}
+
+
+|labmodule|\.\ |labnum|\.2. Retrieve all module provision states
+------------------------------------------------------------------
+
+Before a module on a BIG-IP can be configured, it also must be and provisioned.  Check the provisioning state for all modules.  This is done using an HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision``.
 
 .. Hint::  
   1) Send a **Request** with the following details.
@@ -267,7 +323,7 @@ Before a module on a BIG-IP can be configured, it must be licensed and provision
         ]
     }
 
-|labmodule|\.\ |labnum|\.2. Retrieve single module provision state
+|labmodule|\.\ |labnum|\.3. Retrieve single module provision state
 --------------------------------------------------------------------
 
 To retrieve the provisioning state for a single module, send an HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision`` and include the name of the module.  For example, ``/mgmt/tm/sys/provision/afm``
@@ -315,7 +371,7 @@ To retrieve the provisioning state for a single module, send an HTTP GET to the 
     }
 
 
-|labmodule|\.\ |labnum|\.3.1. Provision module
+|labmodule|\.\ |labnum|\.4.1. Provision module
 ----------------------------------------------
 
 The **afm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
@@ -382,16 +438,16 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
     }
 
 
-|labmodule|\.\ |labnum|\.3.2. Deprovision module
+|labmodule|\.\ |labnum|\.4.2. Deprovision module
 --------------------------------------------------
 
-To deprovision a BIG-IP module, repeat step 1.1.3.1 and set the level to "none".
+To deprovision a BIG-IP module, repeat step |labmodule|\.\ |labnum|\.4.1 and set the level to "none" for the selected module.
 
 
-|labmodule|\.\ |labnum|\.3.3. Re-provision module
+|labmodule|\.\ |labnum|\.4.3. Re-provision module
 --------------------------------------------------
 
-Repeat steps |labmodule|\.\ |labnum|\.3.1 to re-provision the **afm** module to nominal if previously deprovisioned.
+Repeat steps |labmodule|\.\ |labnum|\.4.1 to re-provision the **afm** module to nominal if previously deprovisioned.
 
 .. NOTE:: 
     - The **afm** module should be provisioned to **nominal** after performing the steps in this Lab.
