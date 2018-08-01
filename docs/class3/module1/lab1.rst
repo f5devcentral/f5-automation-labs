@@ -24,11 +24,11 @@ Follow the below steps in order found in the Postman collection to complete this
 **Request**
 
    | **Method**
-   |  GET
+   |   GET
    | **URL**
-   |  https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+   |   https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
    | **Headers**
-   |  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+   |   X-F5-Auth-Token: {{big_ip_a_auth_token}}
    | **Body**
 
 **Response**
