@@ -23,19 +23,19 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Request**
 
-   | **Method**
-   |   GET
-   | **URL**
-   |   https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-   | **Headers**
-   |   X-F5-Auth-Token: {{big_ip_a_auth_token}}
-   | **Body**
+  | **Method**
+  |    GET
+  | **URL**
+  |    https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+  | **Headers**
+  |    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+  | **Body**
 
 **Response**
 
 .. NOTE::
-     Some response content has been removed for brevity.
-     The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+    - Some response content has been removed for brevity.
+    - The **afm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 13, 24 
