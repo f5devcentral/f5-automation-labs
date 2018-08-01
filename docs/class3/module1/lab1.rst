@@ -326,7 +326,7 @@ Before a module on a BIG-IP can be configured, it also must be and provisioned. 
 |labmodule|\.\ |labnum|\.3. Retrieve single module provision state
 --------------------------------------------------------------------
 
-To retrieve the provisioning state for a single module, send an HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision`` and include the name of the module.  For example, ``/mgmt/tm/sys/provision/afm``
+To retrieve the provisioning state for a single module, send a HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision`` and include the name of the module.  For example, ``/mgmt/tm/sys/provision/afm``
 
 .. Hint::  
   1) Prior to performing the below steps, validate the **{{module}}** Postman environment variable is set to **afm**.
