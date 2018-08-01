@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Create AFM Address List
-=====================================================
+Module |labmodule|\, Lab \ |labnum|\: Create AFM Address List
+==============================================================
 
 Overview
 --------
@@ -18,7 +18,7 @@ In this lab, the iControl REST based API will be used to create an address list 
 Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
 |labmodule|\.\ |labnum|\.1. List all Firewall Policies
-------------------------------------------------------
+--------------------------------------------------------
 
 .. Hint::  
   1) Send a **Request** with the following details.

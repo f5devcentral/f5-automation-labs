@@ -5,8 +5,8 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Create AFM Policy
-===============================================
+Module |labmodule|\, Lab \ |labnum|\: Create AFM Policy
+========================================================
 
 Overview
 --------
