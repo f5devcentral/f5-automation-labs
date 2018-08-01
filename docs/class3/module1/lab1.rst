@@ -23,8 +23,6 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Request**
 
-<div class="highlight">
-
    | **Method**
    |  GET
    | **URL**
