@@ -21,14 +21,14 @@ Follow the below steps in order found in the Postman collection to complete this
 
 .. Hint::  
    - Send a **Request** with the following details.
-    |
-    | **Method**
-    |     GET
-    | **URL**
-    |     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-    | **Headers**
-    |     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-    | **Body**
+
+    **Method**
+     GET
+    **URL**
+     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+    **Headers**
+     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+    **Body**
 
 .. NOTE::
     - Some response content has been removed for brevity.
