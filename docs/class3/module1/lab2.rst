@@ -5,18 +5,18 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Module |labmodule|\, Lab \ |labnum|\: Create an AFM Address List
-=================================================================
+Module |labmodule|\, Lab \ |labnum|\: Create AFM Address List
+==============================================================
 
 Overview
 --------
 
 In this lab, the iControl REST based API will be used to create an address list that will be used with an AFM policy in a later lab.
 
-.. NOTE::
-    - Use Postman collection to complete this lab.
-    - Some response content has been removed for brevity.
- 
+
+
+Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+
 |labmodule|\.\ |labnum|\.1. List all Firewall Policies
 --------------------------------------------------------
 
@@ -46,7 +46,8 @@ In this lab, the iControl REST based API will be used to create an address list 
 **Example Response**
 
 .. NOTE:: 
-       - A test policy has already been created on the BIG-IP for demonstration purposes.
+    - Some response content has been removed for brevity.
+    - A test policy has already been created on the BIG-IP for demonstration purposes.
 
 ::
 
@@ -69,7 +70,7 @@ In this lab, the iControl REST based API will be used to create an address list 
         ]
     }
 
-|labmodule|\.\ |labnum|\.2. List all Address Lists
+|labmodule|\.\ |labnum|\.2. List all Firewall Address Lists
 -----------------------------------------------------------
 
 .. Hint::  
@@ -181,10 +182,8 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
         ]
     }
 
-|labmodule|\.\ |labnum|\.4. List a Single Address List
+|labmodule|\.\ |labnum|\.4. List a Single Firewall Address List
 ---------------------------------------------------------------
-
-To retrieve the contents of a single address list, send a HTTP GET to the ``/mgmt/tm/security/firewall/address-list/`` and include the name of the address list.  For example, ``/mgmt/tm/security/firewall/address-list/google-dns_address_list``.
 
 .. Hint::  
   1) Send a **Request** with the following details.
@@ -227,7 +226,7 @@ To retrieve the contents of a single address list, send a HTTP GET to the ``/mgm
         ]
     }
 
-|labmodule|\.\ |labnum|\.5. Update an Address List
+|labmodule|\.\ |labnum|\.5. Update Firewall Address List
 --------------------------------------------------------
 
 A HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_list}}`` endpoint with a body containing all addresses that should exist in the address list will update this collection.
