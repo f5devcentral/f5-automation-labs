@@ -23,13 +23,15 @@ Follow the below steps in order found in the Postman collection to complete this
 
 **Request**
 
-  **Method**
+::
+
+  Method
     GET
-  **URL**
+  URL
     https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-  **Headers**
+  Headers
     X-F5-Auth-Token: {{big_ip_a_auth_token}}
-  **Body**
+  Body
 
 **Response**
 
