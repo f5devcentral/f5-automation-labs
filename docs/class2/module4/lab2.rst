@@ -94,22 +94,24 @@ Contents in Pipeline:
 #. The Build is now running, and the stages are being executed in order. However, on our third stage we have a **pause** and an approval **needed**. Also at the same time Slack has began to notify us that a new service is being deployed, and someone needs to approve it.
 
    |lab-2-6|
-   Highlight over the third Stage to prompt for the Approval
+
+Hover over the third Stage to prompt for Approval
+
    |lab-2-7|
 
    |lab-2-8|
 
-#. Approve the change in Jenkins to allow the build to finish. Once this is done, the approval and finished Slack notification will be sent.
+#. To allow the build to finish, select Proceed to approve the change in Jenkins.  Once this is done, the approval and finished Slack notifications will be sent.
 
    |lab-2-9|
 
    |lab-2-10|
 
-#. At the end of the Build event (success or failure) there is a console output from Jenkins. Select the blue globe on the left to see the outputs
+#. At the end of the Build event (success or failure) there is a console output from Jenkins. Select the blue globe on the left to see the outputs.
 
    |lab-2-11|
 
-#. The Console Output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting
+#. The Console Output file not only contains the Jenkins output from the Build, but also the f5-newman-wrapper toolkit logs for easy troubleshooting.
 
    |lab-2-12|
 

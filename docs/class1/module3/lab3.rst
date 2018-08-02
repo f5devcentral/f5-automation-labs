@@ -53,7 +53,7 @@ utlilize both :guilabel:`Playbooks` and :guilabel:`Jinja2` templates.
    ``Tenant1_Pool_Add_Member``
 
 #. A Survey will appear asking you to specify the following fields and press
-   :guilabel:`LAUNCH`
+   :guilabel:`LAUNCH`:
 
    - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
 
@@ -81,12 +81,12 @@ Task 2 - Removing a Pool Member using Tower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to the :guilabel:`Templates` section in the Web UI and Select the
-   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Pool_Delete_Member``
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Pool_Delete_Member``.
 
    |lab-3-5|
 
 #. A Survey will appear asking you to specify the following fields and press
-   :guilabel:`LAUNCH`
+   :guilabel:`LAUNCH`:
 
    - :guilabel:`Application`: This is the AS3 Application Name: Enter ``A2``
 
@@ -115,7 +115,7 @@ take ``extra-vars`` as input and will replace all current members in the pool
 with the ones that are provided during the Template execution.
 
 #. Navigate to the :guilabel:`Templates` section in the Web UI and Select the
-   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Update_All_Members``
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Update_All_Members``.
 
    |lab-3-7|
 
@@ -154,7 +154,7 @@ Task 4 - Updating the SSL CRT/KEY on a VIP
 #. Following the same process as the last three tasks, login to Tower and run the
    :guilabel:`Tenant1_Update_CRT_KEY` Template. For this example we have
    prefilled the CRT and KEY into the Survey to avoid mistakes when copying the
-   files. You must still fill in the ``Application`` name as ``A2``. 
+   files. You must still fill in the ``Application`` name as ``A2``.
 
    |lab-3-11|
 
