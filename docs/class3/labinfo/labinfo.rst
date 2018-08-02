@@ -56,3 +56,9 @@ components:
      - ``root/default``
 
 
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   labinfo/postman
+   module*/module*
