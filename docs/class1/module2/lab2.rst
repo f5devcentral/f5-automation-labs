@@ -35,7 +35,7 @@ Task 1 - View Installed iControl LX Extensions
 
 Perform the following steps to complete this task:
 
-#. :guilabel:`Send` the ``Step 1: Get Installed iControl LX Extensions`` 
+#. :guilabel:`Send` the ``Step 1: Get Installed iControl LX Extensions``
    request to view extensions installed on the BIG-IP device:
 
    |lab-2-2|
@@ -51,21 +51,21 @@ Task 2 - Install the AS3 Extension
 
 Perform the following steps to complete this task:
 
-#. Using the Chrome web browser open a new tab and click the 
-   ``AS 3.1.0 Release`` bookmark.
+#. Using the Chrome web browser open a new tab and click the
+   ``AS3 Release`` bookmark.
 
 #. Click the file with the ``.rpm`` extension to download it.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
 #. Click the ``Step 2: Upload AS3 Extension RPM`` request.
 
-#. Click the :guilabel:`Body` tab, then click the :guilabel:`Choose Files` 
+#. Click the :guilabel:`Body` tab, then click the :guilabel:`Choose Files`
    button:
 
    |lab-2-4|
 
-#. Select the previously downloaded RPM file located in the ``Downloads`` 
-   folder on your jumphost.  Then click the :guilabel:`Send` button to upload 
+#. Select the previously downloaded RPM file located in the ``Downloads``
+   folder on your jumphost.  Then click the :guilabel:`Send` button to upload
    the RPM file to the BIG-IP system:
 
    |lab-2-5|
@@ -74,9 +74,9 @@ Perform the following steps to complete this task:
 
    |lab-2-6|
 
-#. Click the ``Step 3: Create AS3 Extension Install Task`` request and click 
-   :guilabel:`Send`.  This request will command the iControl LX framework to 
-   install the RPM uploaded in the previous step.  Because the installation 
+#. Click the ``Step 3: Create AS3 Extension Install Task`` request and click
+   :guilabel:`Send`.  This request will command the iControl LX framework to
+   install the RPM uploaded in the previous step.  Because the installation
    task is an asynchronous operation we need to check the status of the task
    in the next step.
 
@@ -88,7 +88,7 @@ Perform the following steps to complete this task:
 
    |lab-2-7|
 
-#. Click the ``Step 5: Get AS3 Version Info`` request and click 
+#. Click the ``Step 5: Get AS3 Version Info`` request and click
    :guilabel:`Send`.  Review the **Response** :guilabel:`Body` to ensure
    the AS3 is installed and has started:
 
@@ -102,4 +102,3 @@ Perform the following steps to complete this task:
 .. |lab-2-6| image:: images/lab-2-6.png
 .. |lab-2-7| image:: images/lab-2-7.png
 .. |lab-2-8| image:: images/lab-2-8.png
-
