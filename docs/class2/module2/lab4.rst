@@ -155,12 +155,12 @@ Task 1 - Run a f5-newman-wrapper Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_build"
           }
         ]

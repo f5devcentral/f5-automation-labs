@@ -9,25 +9,25 @@ Lab |labmodule|\.\ |labnum| - Execute an f5-newman-wrapper for **Teardown**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To get ready for the next module, we're going to execute one last f5-newman-wrapper
-directly. This file is designed to delete the framework and service we created in the
-last few labs. We used 2 f5-newman-wrapper files to create our service, but for the deletion
-we will only use 1. This is important because we can seperate the service nodes
-availability into Infrastructure as Code concepts loosely coupled from the service 
-and calls needed.
+directly. This file will delete the framework and service we created in the
+last few labs. We've used a few f5-newman-wrapper files to create our service,
+and show some mutation, but for the deletion we will only use 1. As AS3 is
+declaration engine is a single call ``can`` be used to create a service and a
+single call can be used to remove it.
 
 Task 1 - Execute f5-newman-build-5
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Navigate to the location containing the f5-newman-wrapper files ``cd ~/f5-automation-labs/jenkins/f5-newman-build``
+#. Navigate to the location containing the f5-newman-wrapper files ``cd /home/snops/f5-automation-labs/jenkins/f5-newman-build``
 #. On BIG-IP A examine the virtual server ``module_3_vs``, it should be active and Green:
 
-   |module-3-1|
+   |lab-3-1|
 
-#. On BIGIP-A examine the pool ``module_3_pool``, you should show 2 active members Green:
+#. On BIGIP-A examine the pool ``module_3_pool``, you should show 3 active members Green:
 
-   |module-3-2|
+   |lab-3-4|
 
-#. ``f5-newman-build-5`` contains calls to delete all items we've created in the last few modules
+#. ``f5-newman-build-5`` contains the call to delete all items we've created in the last few modules
 
    Execute: ``f5-newman-wrapper f5-newman-build-5``
 
@@ -36,27 +36,27 @@ Task 1 - Execute f5-newman-build-5
    .. code-block:: console
       :linenos:
 
-      $ f5-newman-wrapper f5-newman-build-5
-      [f5-newman-build-5-2017-07-26-09-28-13] starting run
-      [f5-newman-build-5-2017-07-26-09-28-13] [runCollection][Authenticate to BIG-IP] running...
+      [root@f5-super-netops] [/home/snops/f5-automation-labs/jenkins/f5-newman-build] # f5-newman-wrapper f5-newman-build-5
+      [f5-newman-build-5-2018-07-30-08-06-14] starting run
+      [f5-newman-build-5-2018-07-30-08-06-14] [runCollection][Authenticate to BIG-IP] running...
       newman
 
       BIGIP_API_Authentication
 
       ❏ 1_Authenticate
       ↳ Authenticate and Obtain Token
-        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.41KB, 194ms]
+        POST https://10.1.1.10/mgmt/shared/authn/login [200 OK, 1.62KB, 367ms]
         ✓  [POST Response Code]=200
-        ✓  [Populate Variable] bigip_token=NGEHHD6ZDJFD2MNF2UL3UXTGVH
+        ✓  [Populate Variable] bigip_token=5EKXOKALEB2E7TALKKANCK6GUD
 
       ↳ Verify Authentication Works
-        GET https://10.1.1.10/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 16ms]
+        GET https://10.1.1.10/mgmt/shared/authz/tokens/5EKXOKALEB2E7TALKKANCK6GUD [200 OK, 1.44KB, 24ms]
         ✓  [GET Response Code]=200
-        ✓  [Current Value] token=NGEHHD6ZDJFD2MNF2UL3UXTGVH
-        ✓  [Check Value] token == NGEHHD6ZDJFD2MNF2UL3UXTGVH
+        ✓  [Current Value] token=5EKXOKALEB2E7TALKKANCK6GUD
+        ✓  [Check Value] token == 5EKXOKALEB2E7TALKKANCK6GUD
 
       ↳ Set Authentication Token Timeout
-        PATCH https://10.1.1.10/mgmt/shared/authz/tokens/NGEHHD6ZDJFD2MNF2UL3UXTGVH [200 OK, 1.23KB, 17ms]
+        PATCH https://10.1.1.10/mgmt/shared/authz/tokens/5EKXOKALEB2E7TALKKANCK6GUD [200 OK, 1.44KB, 83ms]
         ✓  [PATCH Response Code]=200
         ✓  [Current Value] timeout=1200
         ✓  [Check Value] timeout == 1200
@@ -74,60 +74,50 @@ Task 1 - Execute f5-newman-build-5
       ├─────────────────────────┼──────────┼──────────┤
       │              assertions │        8 │        0 │
       ├─────────────────────────┴──────────┴──────────┤
-      │ total run duration: 835ms                     │
+      │ total run duration: 1062ms                    │
       ├───────────────────────────────────────────────┤
-      │ total data received: 1.71KB (approx)          │
+      │ total data received: 1.72KB (approx)          │
       ├───────────────────────────────────────────────┤
-      │ average response time: 75ms                   │
+      │ average response time: 158ms                  │
       └───────────────────────────────────────────────┘
-      [f5-newman-build-5-2017-07-26-09-28-13] [runCollection][5 - Clean Up Service] running...
+      [f5-newman-build-5-2018-07-30-08-06-14] [runCollection][5 - Clean Up Service] running...
       newman
 
       f5-programmability-class-2
 
       ❏ 5 - Clean Up Service
-      ↳ Step 1: Delete a Virtual Server
-        DELETE https://10.1.1.10/mgmt/tm/ltm/virtual/module_3_vs [200 OK, 740B, 57ms]
-
-      ↳ Step 2: Delete a TCP Profile
-        DELETE https://10.1.1.10/mgmt/tm/ltm/profile/tcp/module_3_tcp_clientside [200 OK, 740B, 88ms]
-
-      ↳ Step 3: Delete a HTTP Profile
-        DELETE https://10.1.1.10/mgmt/tm/ltm/profile/http/module_3_http [200 OK, 740B, 56ms]
-
-      ↳ Step 4: Delete a Pool
-        DELETE https://10.1.1.10/mgmt/tm/ltm/pool/module_3_pool [200 OK, 740B, 47ms]
-
-      ↳ Step 5: Delete a HTTP Monitor
-        DELETE https://10.1.1.10/mgmt/tm/ltm/monitor/http/module_3_http_monitor [200 OK, 740B, 59ms]
+      ↳ Step 1: Delete HTTP Application
+        DELETE https://10.1.1.10/mgmt/shared/appsvcs/declare/ [200 OK, 1.2KB, 12s]
+        ✓  [DELETE Response Code]=200
+        ✓  [Current Value] results.0.message=success
+        ✓  [Check Value] results.0.message regex /success|no change/
 
       ┌─────────────────────────┬──────────┬──────────┐
       │                         │ executed │   failed │
       ├─────────────────────────┼──────────┼──────────┤
       │              iterations │        1 │        0 │
       ├─────────────────────────┼──────────┼──────────┤
-      │                requests │        5 │        0 │
+      │                requests │        1 │        0 │
       ├─────────────────────────┼──────────┼──────────┤
-      │            test-scripts │        0 │        0 │
+      │            test-scripts │        2 │        0 │
       ├─────────────────────────┼──────────┼──────────┤
-      │      prerequest-scripts │        0 │        0 │
+      │      prerequest-scripts │        1 │        0 │
       ├─────────────────────────┼──────────┼──────────┤
-      │              assertions │        0 │        0 │
+      │              assertions │        3 │        0 │
       ├─────────────────────────┴──────────┴──────────┤
-      │ total run duration: 445ms                     │
+      │ total run duration: 12.3s                     │
       ├───────────────────────────────────────────────┤
-      │ total data received: 0B (approx)              │
+      │ total data received: 273B (approx)            │
       ├───────────────────────────────────────────────┤
-      │ average response time: 61ms                   │
+      │ average response time: 12s                    │
       └───────────────────────────────────────────────┘
-      [f5-newman-build-5-2017-07-26-09-28-13] run completed in 4s, 267.464 ms
-
+      [f5-newman-build-5-2018-07-30-08-06-14] run completed
 
    .. NOTE:: Notice the 200 OK responses, as it completed successfully
 
-#. On BIG-IP A examine Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
+#. On BIG-IP A the Partition, Virtual ``module_3_vs`` and Pool ``module_3_pool`` are deleted
 
-.. |module-3-1| image:: images/module-3-1.png
+.. |lab-3-1| image:: images/lab-3-1.png
    :scale: 70%
-.. |module-3-2| image:: images/module-3-2.png
+.. |lab-3-4| image:: images/lab-3-4.png
    :scale: 70%
