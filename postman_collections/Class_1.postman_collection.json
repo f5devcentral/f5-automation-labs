@@ -5716,7 +5716,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " [\n  {\n    \"op\":\"add\",\n    \"path\":\"/Tenant1/HTTPS_Service/serviceMain/policyWAF\",\n    \"value\": { \"bigip\":\"/Tenant1/HTTP_Service/linux_high\" }\n  }\n ]"
+							"raw": " [\n  {\n    \"op\":\"add\",\n    \"path\":\"/Tenant1/HTTPS_Service/serviceMain/policyWAF\",\n    \"value\": { \"bigip\":\"/Tenant1/HTTPS_Service/linux_high\" }\n  }\n ]"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/shared/appsvcs/declare",
