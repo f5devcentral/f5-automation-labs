@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b872642b-d416-4f8e-a205-8e3355297892",
-		"name": "F5 Programmability: Class 1",
+		"name": "F5 Programmability: Class 1-Chris",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -6352,49 +6352,7 @@
 							"response": []
 						},
 						{
-							"name": "Step2: Delay for SCM to update",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a40f78dd-0571-491a-bffa-2d17b8ad6c60",
-										"type": "text/javascript",
-										"exec": [
-											""
-										]
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"LAB_CREDS\",\r\n    \"description\": \"BIGIP Credentials\",\r\n    \"user\": 1,\r\n    \"credential_type\": 1,\r\n    \"inputs\": {\r\n        \"username\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }\r\n}"
-								},
-								"url": {
-									"raw": "https://postman-echo.com/delay/15/",
-									"protocol": "https",
-									"host": [
-										"postman-echo",
-										"com"
-									],
-									"path": [
-										"delay",
-										"15",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Step3: Create Tower Inventory",
+							"name": "Step2: Create Tower Inventory",
 							"event": [
 								{
 									"listen": "test",
@@ -6441,7 +6399,7 @@
 							"response": []
 						},
 						{
-							"name": "Step4: Create Inventory Group",
+							"name": "Step3: Create Inventory Group",
 							"event": [
 								{
 									"listen": "test",
@@ -6491,7 +6449,7 @@
 							"response": []
 						},
 						{
-							"name": "Step5: Create Inventory Host",
+							"name": "Step4: Create Inventory Host",
 							"event": [
 								{
 									"listen": "test",
@@ -6538,7 +6496,7 @@
 							"response": []
 						},
 						{
-							"name": "Step6: Add Host to Group",
+							"name": "Step5: Add Host to Group",
 							"event": [
 								{
 									"listen": "test",
@@ -6584,16 +6542,9 @@
 								}
 							},
 							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Create Job Templates",
-					"description": null,
-					"item": [
+						},
 						{
-							"name": "Step 1: Create Tower Credentials",
+							"name": "Step7: Create Tower Credentials",
 							"event": [
 								{
 									"listen": "test",
@@ -6640,7 +6591,113 @@
 							"response": []
 						},
 						{
-							"name": "Step 2: Create Template (View Config)",
+							"name": "Step8: Delay for SCM to update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a40f78dd-0571-491a-bffa-2d17b8ad6c60",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"LAB_CREDS\",\r\n    \"description\": \"BIGIP Credentials\",\r\n    \"user\": 1,\r\n    \"credential_type\": 1,\r\n    \"inputs\": {\r\n        \"username\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "https://postman-echo.com/delay/10/",
+									"protocol": "https",
+									"host": [
+										"postman-echo",
+										"com"
+									],
+									"path": [
+										"delay",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Step9: Check SCM Sync Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "df4221d9-9604-4f17-98e7-cbe89810229a",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"tower_sync_status\", jsonData.status);",
+											"",
+											"if(jsonData.status.has(\"success\")) ",
+											"{",
+											"    postman.setNextRequest('Step 1: Create Template (View Config)');",
+											"}",
+											"else",
+											"{",
+											"    postman.setNextRequest('Step8: Delay for SCM to update');",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Token {{TowerToken}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"LAB_CREDS\",\r\n    \"description\": \"BIGIP Credentials\",\r\n    \"user\": 1,\r\n    \"credential_type\": 1,\r\n    \"inputs\": {\r\n        \"username\": \"admin\",\r\n        \"password\": \"admin\"\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{tower_mgmt}}/api/v2/projects/{{tower_project_id}}/",
+									"protocol": "https",
+									"host": [
+										"{{tower_mgmt}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"projects",
+										"{{tower_project_id}}",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Job Templates",
+					"description": null,
+					"item": [
+						{
+							"name": "Step 1: Create Template (View Config)",
 							"event": [
 								{
 									"listen": "test",
@@ -6688,7 +6745,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 3: Create Template (Deploy Config)",
+							"name": "Step 2: Create Template (Deploy Config)",
 							"event": [
 								{
 									"listen": "test",
@@ -6736,7 +6793,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 4: Create Survey (Deploy Config)",
+							"name": "Step 3: Create Survey (Deploy Config)",
 							"event": [
 								{
 									"listen": "test",
@@ -6784,7 +6841,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 5: Create Template (Pool_Replace_Members) PATCH",
+							"name": "Step 4: Create Template (Pool_Replace_Members) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -6832,7 +6889,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 6: Create Survey (Pool Replace) PATCH",
+							"name": "Step 5: Create Survey (Pool Replace) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -6880,7 +6937,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 7: Create Template (Add_Member) PATCH",
+							"name": "Step 6: Create Template (Add_Member) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -6928,7 +6985,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 8: Create Survey (Add_Member) PATCH",
+							"name": "Step 7: Create Survey (Add_Member) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -6976,7 +7033,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 9: Create Template (Del_Member) PATCH",
+							"name": "Step 8: Create Template (Del_Member) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -7024,7 +7081,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 10: Create Survey (Del_Member) PATCH",
+							"name": "Step 9: Create Survey (Del_Member) PATCH",
 							"event": [
 								{
 									"listen": "test",
@@ -7072,7 +7129,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 11: Create Template (SSL PATCH)",
+							"name": "Step 10: Create Template (SSL PATCH)",
 							"event": [
 								{
 									"listen": "test",
@@ -7120,7 +7177,7 @@
 							"response": []
 						},
 						{
-							"name": "Step 12: Create Survey (SSL Update) PATCH",
+							"name": "Step 11: Create Survey (SSL Update) PATCH",
 							"event": [
 								{
 									"listen": "test",
