@@ -20,7 +20,7 @@ Task 1 - Locating the Jenkins files and how they are setup
 
 #. Lets make sure the Jekins files were mapped correctly.
 
-   Execute: ``cd /home/snops/f5-automation-labs/jenkins/f5-newman-build`` to access our folder containing the Jenkins Pipeline Files
+   Execute: ``cd /home/snops/f5-automation-labs/jenkins/`` to access our folder containing the Jenkins Pipeline Files
 
 #. The Jenkins files are located alongside the f5-newman-wrapper files we've used in the previous labs, setup this way was for ease of learning. You may place tools in different structures in your environment.
 
@@ -37,7 +37,7 @@ Task 1 - Locating the Jenkins files and how they are setup
           |  |      Jenkinsfile3
           |  |      Jenkinsfile4
 
-#. Lets review the first Jenkins file, from the current folder structure execute ``cat Jenkinsfile1-2``
+#. Lets review the first Jenkins file, from /home/snops/f5-automation-labs/jenkins/f5-newman-build, execute ``cat Jenkinsfile1-2``
 
    File output:
 
@@ -116,11 +116,11 @@ to notify all of us when an action happens, collaborative teamwork.
 
    |lab-1-2|
 
-#. Click on Manage Jenkins
+#. Click on Manage Jenkins and select ``Go to plugin manager``
 
    |lab-1-3|
 
-#. On the Manage Jenkins tab Select ``Available`` then filter on ``slack``, once the filter is complete choose ``Slack Notification Plugin`` and execute ``Install without Restart``
+#. From the Plugin Manager page, select ``Available`` then filter on ``slack``, once the filter is complete choose ``Slack Notification`` and execute ``Install without Restart``
 
    |lab-1-4|
 

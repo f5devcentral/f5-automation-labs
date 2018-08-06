@@ -32,9 +32,9 @@ Module 3: Deploying AS3 Declarations with Ansible Tower
 Overview
 --------
 
-In this module we will explore how to use utilize F5's **AS3** extension 
-with an orchestration platform such as **Ansible Tower**. Tower is a workflow 
-orchestration tool which provides an enterprise solution on top of Ansible including 
+In this module we will explore how to use utilize F5's **AS3** extension
+with an orchestration platform such as **Ansible Tower**. Tower is a workflow
+orchestration tool which provides an enterprise solution on top of Ansible including
 an API, GUI, RBAC, and many other features. While we will cover some core concepts of
 Ansible, the primary focus of this module is Tower.
 
@@ -112,8 +112,8 @@ orginizations with seperate user functions.
 To solve this problem Ansible Tower allows the administrator to create
 **Templates** which can provide further **Abstraction** of the AS3 declarations.
 The administrator can enforce specific Tenants or parameters to be used based on
-the user running the Template. This abstraction allows the templates to
-integrated directly in to the business based CI/CD toolchains and workflows.
+the user running the Template. This abstraction allows the templates to be
+integrated directly into the business based CI/CD toolchains and workflows.
 
 .. toctree::
    :maxdepth: 1

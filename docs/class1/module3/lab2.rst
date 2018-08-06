@@ -66,12 +66,12 @@ Perform the following steps to complete this task:
    |lab-2-1|
 
 #. Select the ``Rocket-Ship Icon`` next to the Template titled
-   ``Tenant1_Deploy_Config``
+   ``Tenant1_Deploy_Config``.
 
 #. The modal that comes up is the **Survey** we referred to earlier. This takes
    in the variables which will be passed to the **Ansible Playbook**. This
    example takes two parameters.
-   
+
    - Tenant: This is limited by the **RBAC** policies that were deployed
      through Postman. You are not able to change this value which reduces
      the blast radius of changes made to your Tenant (Tenant1).
@@ -127,12 +127,12 @@ Review the following data objects to finish this Task
      hosts: bigip
      gather_facts: false
      connection: local
-       
+
      vars:
        tenant_body: "{{ lookup('url', 'https://<<repo-location>>/{{ f5_template }}.json', split_lines=False) }}"
        uri_method: "POST"
      tasks:
-       ##### AS3 POST ##### 
+       ##### AS3 POST #####
      - name: URI POST Tenant
        uri:
          url: "https://{{ inventory_hostname }}/mgmt/shared/appsvcs/declare"
@@ -168,7 +168,7 @@ Review the following data objects to finish this Task
            "id": "testid",
            "label": "test-label",
            "remark": "test-remark",
-           "{{tenant}}": 
+           "{{tenant}}":
                {{tenant_body}}
        }
    }
@@ -202,7 +202,7 @@ the Job output.
 
 
 Task 4 - Explore Additional Source-of-Truth Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using the procedures above explore Deploying the other example Source-of-Truth
 files that are available within the :guilabel:`Tenant1_Deploy_Config`

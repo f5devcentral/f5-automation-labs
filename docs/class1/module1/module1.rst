@@ -46,8 +46,8 @@ focus on demonstrating an **Imperative** approach to automation.
    on a single device due to lab time allocation constraints.
 
 .. NOTE:: In order to confirm the results of REST API calls made in this lab, it's
-   recommended to keep GUI/SSH sessions to BIG-IP and iWorkflow devices open.
-   By default, BIG-IP and iWorkflow will log all the REST API related events locally
+   recommended to keep GUI/SSH sessions to the BIG-IP devices open.
+   By default, BIG-IP will log all the REST API related events locally
    to **restjavad.0.log** . These logs can also be directed to a remote syslog server
    (see https://support.f5.com/csp/article/K13080). On a side note, the **ltm**
    log files listed below contains log messages specific to  BIG-IP local
@@ -59,9 +59,6 @@ focus on demonstrating an **Imperative** approach to automation.
 
      - /var/log/restjavad.0.log
 
-   - iWorkflow:
-
-     - /var/log/restjavad.0.log
 
 .. toctree::
    :maxdepth: 1
