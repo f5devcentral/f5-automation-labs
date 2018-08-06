@@ -47,7 +47,7 @@ Perform the following steps to complete this task:
 
    .. parsed-literal::
 
-      :raw_github_url:`/postman_collections/F5 SecDevOps.postman_collection.json`
+      :raw_github_url:`/postman_collections/F5_SecDevOps.postman_collection.json`
 
    |lab-2-18|
 
@@ -68,7 +68,7 @@ Perform the following steps to complete this task:
 
    .. parsed-literal::
 
-      :raw_github_url:`/postman_collections/F5 SecDevOps.postman_environment.json`
+      :raw_github_url:`/postman_collections/F5_SecDevOps.postman_environment.json`
 
 #. Set your environment to
    **F5 SecDevOps** by using the menu at the top right
