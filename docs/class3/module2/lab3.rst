@@ -9,7 +9,7 @@ Module |labmodule|\, Lab\ |labnum|\: Create ASM Policy
 ========================================================
 
 Overview
---------
+----------
 
 In this lab, the iControl REST based API will be used to create both an ASM parent and child policy.
 
@@ -17,8 +17,8 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
     - Use Postman collection to complete this lab.
     - Some response content has been removed for brevity.
 
-|labmodule|\.\ |labnum|\.1. Retrieve ASM Policies
---------------------------------------------------
+|labmodule|\.\ |labnum|\.1.0. Retrieve ASM Policies
+-----------------------------------------------------
 
 .. Hint::  
   1) Send a **Request** with the following details.
@@ -62,9 +62,54 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
             }
         ]
     }
+|labmodule|\.\ |labnum|\.1.1. Retrieve LTM ASM Profile Web Security
+---------------------------------------------------------------------
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
+
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/web-security
+     
+     | **Headers**
+     
+     ::
+     
+	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+
+**Example Response**
+
+::
+
+	{
+		"kind": "tm:ltm:profile:web-security:web-securitycollectionstate",
+		"selfLink": "https://localhost/mgmt/tm/ltm/profile/web-security?ver=13.1.0.8",
+		"items": [
+			{
+				"kind": "tm:ltm:profile:web-security:web-securitystate",
+				"name": "websecurity",
+				"partition": "Common",
+				"fullPath": "/Common/websecurity",
+				"generation": 1,
+				"selfLink": "https://localhost/mgmt/tm/ltm/profile/web-security/~Common~websecurity?ver=13.1.0.8",
+				"defaultsFrom": "none"
+			}
+		]
+	}
 
 |labmodule|\.\ |labnum|\.2.0. Create an ASM Parent Policy
------------------------------
+------------------------------------------------------------
 
 An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"type":"parent"`` will create a new ASM parent policy which can then be used for inheritance when a child policy is created.
 
@@ -160,7 +205,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
     }
 
 |labmodule|\.\ |labnum|\.2.1. Retrieve an ASM Parent Policy
---------------------------------
+------------------------------------------------------------
 
 .. Hint::  
   1) Send a **Request** with the following details.
@@ -209,7 +254,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
     }
 
 |labmodule|\.\ |labnum|\.3.0. Create ASM child policy
------------------------------
+-------------------------------------------------------
 
 An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing basic policy configuration including ``"parentPolicyName": "/Common/API_ASM_POLICY_TEST"`` will create a new child policy which inherits a base configuration from the specified parent.
 
@@ -294,7 +339,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
     }
 
 |labmodule|\.\ |labnum|\.3.1. Retrieve ASM child policy
--------------------------------
+-----------------------------------------------------------
 
 .. Hint::  
   1) Send a **Request** with the following details.
