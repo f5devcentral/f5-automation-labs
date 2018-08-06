@@ -6,10 +6,11 @@
 	},
 	"item": [
 		{
+			"_postman_id": "841b2cae-ecaf-44b9-afb0-7694a9d7cb31",
 			"name": "Lab 1.2 - API Authentication & 'example' Templates",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "c1543e18-2403-401b-849c-68bbc7220891",
 					"name": "Step 1: HTTP BASIC Authentication",
 					"event": [
 						{
@@ -80,6 +81,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "87a24695-1e94-4637-94c6-f2ee4a25b577",
 					"name": "Step 2: Retrieve Authentication Token",
 					"event": [
 						{
@@ -131,6 +133,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "ecd4c297-85f9-4297-b26c-fbfec4db879e",
 					"name": "Step 3: Verify Authentication Works",
 					"event": [
 						{
@@ -183,6 +186,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6100d94d-2ddc-41f2-b5f3-daec2b4edb12",
 					"name": "Step 4: Set Authentication Token Timeout",
 					"event": [
 						{
@@ -239,6 +243,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "9bbb0acd-0420-45ba-bac8-9d63137e5903",
 					"name": "Step 5: Get 'example' of a Pool Resource",
 					"event": [
 						{
@@ -297,10 +302,11 @@
 			]
 		},
 		{
+			"_postman_id": "9907127a-e807-4aca-babd-9d1324f4c297",
 			"name": "Lab 1.3 - Review/Set Device Settings",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "e5250996-524b-4604-9650-0928eb41b9e4",
 					"name": " Step 1: Get System Global-Settings",
 					"event": [
 						{
@@ -356,6 +362,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e5aadd9d-0a3d-4cb1-bd6f-9ba4875ceb47",
 					"name": " Step 2: Set System Global-Settings",
 					"event": [
 						{
@@ -415,6 +422,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c11a9955-e743-44b3-8688-b4817ac18ebc",
 					"name": " Step 3: Get System DNS Settings",
 					"event": [
 						{
@@ -470,6 +478,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "ee993cff-02d7-48bb-8178-fe0de2e43d85",
 					"name": " Step 4: Set System DNS Settings",
 					"event": [
 						{
@@ -537,6 +546,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "2b2a403a-fb5c-4bbc-872f-f895374e4b81",
 					"name": " Step 5: Get System NTP Settings",
 					"event": [
 						{
@@ -592,6 +602,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "49ac37ab-32d4-4408-a73f-a6e4846177d3",
 					"name": " Step 6: Set System NTP Settings",
 					"event": [
 						{
@@ -655,6 +666,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "30744099-10b1-494c-84c1-2bd17f4ae3f4",
 					"name": " Step 7: Set root User Password",
 					"event": [
 						{
@@ -711,6 +723,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "52fcc959-47e0-4241-b31c-9804c7f0de8b",
 					"name": " Step 8: Set admin User Password",
 					"event": [
 						{
@@ -769,10 +782,11 @@
 			]
 		},
 		{
+			"_postman_id": "dad51718-de90-4522-93cd-637ed441473f",
 			"name": "Lab 1.4 - Basic Network Connectivity",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "e7ec95bf-04ca-42b3-ad27-5d2687287b06",
 					"name": " Step 1: Create a VLAN",
 					"event": [
 						{
@@ -853,6 +867,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "40f23aea-f852-407e-bc43-b52a779675ea",
 					"name": " Step 2: Get VLANs",
 					"event": [
 						{
@@ -951,6 +966,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "25762fb2-1dde-404c-8970-fd019ceb61c3",
 					"name": "Step 3: Create Internal Self IP",
 					"event": [
 						{
@@ -1016,6 +1032,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "cc0bf191-8186-4ee6-86c7-c7c4b6bb0b75",
 					"name": "Step 4: Create External Self IP",
 					"event": [
 						{
@@ -1080,6 +1097,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "667907f2-ae6b-4587-b245-7aa2e9c55dbe",
 					"name": " Step 5: Get Self-Internal Self IP Attributes",
 					"event": [
 						{
@@ -1144,6 +1162,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "ab1e9a24-9641-4501-903f-e838b1048eba",
 					"name": " Step 6: Get Self IPs",
 					"event": [
 						{
@@ -1241,6 +1260,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "52013321-fa12-453b-aa71-cef74892fa65",
 					"name": " Step 7: Get Routes",
 					"event": [
 						{
@@ -1302,6 +1322,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "35024174-cc0c-4cac-beba-8a2d02c82759",
 					"name": " Step 8: Create a Route",
 					"event": [
 						{
@@ -1361,6 +1382,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "28906c75-8cb6-4a01-a5aa-0fb755ba2fc7",
 					"name": " Step 9: Get Routes",
 					"event": [
 						{
@@ -1428,10 +1450,11 @@
 			]
 		},
 		{
+			"_postman_id": "8c816a43-0ae5-42c2-b8c6-6c92598d94c2",
 			"name": "Lab 1.5 - Building Imperative Workflows",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "b5bc7dfd-b227-4c00-8894-9bea556c1467",
 					"name": " Step 1: Get BIG-IP Software Version",
 					"event": [
 						{
@@ -1496,6 +1519,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b723f373-ee33-4fe5-9b47-c67c1a824c23",
 					"name": "Step 2: Get BIG-IP CPU Count",
 					"event": [
 						{
@@ -1558,6 +1582,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "459c30af-d104-4e37-9c3d-b4a5e48e95b5",
 					"name": "Step 3: Get BIG-IP Base MAC Address",
 					"event": [
 						{
@@ -1628,10 +1653,11 @@
 			]
 		},
 		{
+			"_postman_id": "7b02d527-5480-45d7-b11c-e0103b807564",
 			"name": "Lab 1.6 - Build a Cluster",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "e145b82a-00b1-4ed2-9701-acd215259071",
 					"name": "[BIGIP A] Retrieve Authentication Token",
 					"event": [
 						{
@@ -1680,6 +1706,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c3221cdf-9f15-42b9-bc79-1110a4e0b00d",
 					"name": "[BIGIP A] Set Authentication Token Timeout",
 					"event": [
 						{
@@ -1736,6 +1763,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "183e792a-2014-4526-a2af-d4778e257a8c",
 					"name": "[Global] Create Shared JSON Objects",
 					"event": [
 						{
@@ -1820,6 +1848,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1b59eb87-49fd-4fd6-81ad-c5bf4ab248b7",
 					"name": "[BIGIP B] Retrieve Authentication Token",
 					"event": [
 						{
@@ -1868,6 +1897,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "cad2b55b-55b3-4dec-8d5d-a337a79c30c4",
 					"name": "[BIGIP B] Set Authentication Token Timeout",
 					"event": [
 						{
@@ -1924,6 +1954,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b7bf0be1-2c31-405e-9518-91bdb3e41fc7",
 					"name": "[BIGIP A] Check License State",
 					"event": [
 						{
@@ -1993,6 +2024,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6add0e4e-9516-48a8-b4da-edcf62bdae86",
 					"name": "[BIGIP A] License Device",
 					"event": [
 						{
@@ -2056,6 +2088,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "08751a5d-5b98-4c18-b182-2fbcd430c884",
 					"name": "[BIGIP B] Check License State",
 					"event": [
 						{
@@ -2125,6 +2158,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6f6ce103-151f-4fe6-b116-78c0a15dc0fb",
 					"name": "[BIGIP B] License Device",
 					"event": [
 						{
@@ -2189,6 +2223,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "53cb5192-8426-4004-86f4-7ac3c89bf44d",
 					"name": "[BIGIP A] Check Root User Enabled",
 					"event": [
 						{
@@ -2253,6 +2288,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "32a0f4ef-5509-4728-8f33-a39a8fa37a38",
 					"name": "[BIGIP A] Set root User Password",
 					"event": [
 						{
@@ -2301,6 +2337,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "70c17434-92f5-4505-b8a5-985498bf9cb4",
 					"name": "[BIGIP A] Set admin User Password",
 					"event": [
 						{
@@ -2357,6 +2394,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "b7f14e99-bf55-45f2-bf26-344a6bf82014",
 					"name": "[BIGIP A] Set System Global-Settings",
 					"event": [
 						{
@@ -2411,6 +2449,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "373c4cc5-ac09-4d30-add3-2c2203db7c5c",
 					"name": "[BIGIP A] Set System DNS Settings",
 					"event": [
 						{
@@ -2472,6 +2511,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "3235ca43-a111-43b6-9354-246786739462",
 					"name": " [BIGIP A] Set System NTP Settings",
 					"event": [
 						{
@@ -2542,6 +2582,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "d3c15232-fa79-4779-83c3-f5426f20ca44",
 					"name": "[BIGIP B] Check Root User Enabled",
 					"event": [
 						{
@@ -2606,6 +2647,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "7ed5aa71-de22-4f28-945a-ff19a20d0c49",
 					"name": "[BIGIP B] Set root User Password",
 					"event": [
 						{
@@ -2654,6 +2696,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8e56772a-4b4e-4790-89e0-81d3678bcd39",
 					"name": "[BIGIP B] Set admin User Password",
 					"event": [
 						{
@@ -2710,6 +2753,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "67e92d83-6f46-410e-a696-0c9a7efbf373",
 					"name": "[BIGIP B] Set System Global-Settings",
 					"event": [
 						{
@@ -2764,6 +2808,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "09d38045-ec44-4a83-8202-47ef9ef2c024",
 					"name": "[BIGIP B] Set System DNS Settings",
 					"event": [
 						{
@@ -2825,6 +2870,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f77da58f-c11a-4f55-b214-c1138414c991",
 					"name": " [BIGIP B] Set System NTP Settings",
 					"event": [
 						{
@@ -2885,6 +2931,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "961776e6-e23f-42e5-9ccf-0e2db7c0dabf",
 					"name": "[BIGIP B] Create Internal VLAN",
 					"event": [
 						{
@@ -2940,6 +2987,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e1220edf-c48f-45a2-a7fc-54711b0270f8",
 					"name": "[BIGIP B] Create External VLAN",
 					"event": [
 						{
@@ -2995,6 +3043,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "709aed97-b364-41ce-85b7-8795b387cd14",
 					"name": "[BIGIP B] Create Internal Self IP",
 					"event": [
 						{
@@ -3050,6 +3099,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0a352272-64a0-48fb-8dc4-e26aeff5ad13",
 					"name": "[BIGIP B] Create External Self IP",
 					"event": [
 						{
@@ -3105,6 +3155,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "28c67af8-4806-4338-824d-77da40b170b8",
 					"name": "[BIGIP B] Create Default Route",
 					"event": [
 						{
@@ -3159,6 +3210,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "97753a5c-8ed8-41f1-8ff5-cfc808486177",
 					"name": "[BIGIP A] Set CMI Device Parameters",
 					"event": [
 						{
@@ -3214,6 +3266,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e2a4d188-aa16-4c45-9999-ceb4aaa197d5",
 					"name": "[BIGIP B] Set CMI Device Parameters",
 					"event": [
 						{
@@ -3269,6 +3322,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8659912f-4649-4561-90ae-23ceafc685f8",
 					"name": "[BIGIP A] Add BIGIP-B Device to CMI Trust",
 					"event": [
 						{
@@ -3323,6 +3377,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0638e2a5-18d3-4ea2-bd53-bd7d9f75f3f0",
 					"name": "[BIGIP A] Initial Sync of device_trust_group",
 					"event": [
 						{
@@ -3379,6 +3434,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "917e2d0c-3a11-4abc-a6ad-0023ec7e069b",
 					"name": "[BIGIP A] Initial Sync of datasync-global-dg",
 					"event": [
 						{
@@ -3434,6 +3490,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f178739e-5d48-433d-9d2a-396a7552716d",
 					"name": "[BIGIP B] Initial Sync of datasync-global-dg",
 					"event": [
 						{
@@ -3489,6 +3546,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "24674fee-f071-4f51-9033-f15bedba3666",
 					"name": "[BIGIP A] Verify Initial Sync Completed",
 					"event": [
 						{
@@ -3550,6 +3608,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "70d89428-0c77-4b65-ae39-2c5d816e73a4",
 					"name": "[BIGIP A] Create Device Group",
 					"event": [
 						{
@@ -3605,6 +3664,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "d64773b9-ebfd-452f-961e-69334807ed7e",
 					"name": "[BIGIP A] Initial Sync of DeviceGroup1",
 					"event": [
 						{
@@ -3660,6 +3720,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "90b0d355-4aaf-4fed-ae57-143d5bdae51c",
 					"name": "[BIGIP A] Check Sync Group Status",
 					"event": [
 						{
@@ -3725,6 +3786,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "28758d43-9297-428c-a98b-61422a46d57c",
 					"name": "[BIGIP A] Change Traffic Group to use HA Order Failover",
 					"event": [
 						{
@@ -3786,6 +3848,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e2e87ac1-0c67-48df-89c1-5c103b7b8b14",
 					"name": "[BIGIP A] Get Traffic Group Failover States",
 					"event": [
 						{
@@ -3864,6 +3927,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1d81317f-4cea-4e30-8f85-1531961ade5f",
 					"name": "[BIGIP B] Failover Traffic Group to BIGIP A",
 					"event": [
 						{
@@ -3919,6 +3983,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "45c84334-8cf7-4173-8344-b8512a1f8ee8",
 					"name": "[BIGIP A] Verify Traffic Group Failover States",
 					"event": [
 						{
@@ -3987,6 +4052,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "9ee32f2f-6ecd-4a50-aeb1-453cb1d0d863",
 					"name": "[BIGIP A] Create Internal Floating Self IP",
 					"event": [
 						{
@@ -4043,6 +4109,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "95984e26-d447-4f65-81b7-8e71e277f335",
 					"name": "[BIGIP A] Verify Sync Group Status",
 					"event": [
 						{
@@ -4108,6 +4175,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "8d9d8ca8-ef12-4d56-9b22-cd1ab2d42a40",
 					"name": "Cleanup Environment",
 					"event": [
 						{
@@ -4167,6 +4235,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e550ce7b-ae24-421e-a75f-7a113804c7f1",
 					"name": "_F5_POLL_DELAY",
 					"event": [
 						{
@@ -4203,10 +4272,11 @@
 			]
 		},
 		{
+			"_postman_id": "3bac9e1d-4375-458a-9c83-980719aaef08",
 			"name": "Lab 1.7 - Build a Basic LTM Config using Transactions",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "b49856c7-98cc-4be2-83d8-3398936422b2",
 					"name": "Step 1: Create a Transaction",
 					"event": [
 						{
@@ -4258,6 +4328,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1b35359d-d379-4e68-9277-cf555e1998bd",
 					"name": "Step 2: Add To Transaction: Create a HTTP Monitor",
 					"event": [
 						{
@@ -4317,6 +4388,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "94503c79-5aae-4911-ba66-06a7cdedd461",
 					"name": "Step 3: Add to Transaction: Create a Pool",
 					"event": [
 						{
@@ -4375,6 +4447,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f6af5e6c-fc24-4625-93e3-996a202da913",
 					"name": "Step 4: Add to Transaction: Create a HTTP Profile",
 					"event": [
 						{
@@ -4434,6 +4507,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e57b32be-d7ff-4e0d-9158-91fef867f54a",
 					"name": "Step 5: Add to Transaction: Create a TCP Profile",
 					"event": [
 						{
@@ -4493,6 +4567,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "dc518cd9-4fd6-47e7-a1f1-4977b2afa153",
 					"name": "Step 6: Add to Transaction: Create a Virtual Server",
 					"event": [
 						{
@@ -4551,6 +4626,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "883884d1-7a13-4948-9c74-4bc4d5c2b07d",
 					"name": "Step 7: View the Transaction Queue",
 					"event": [
 						{
@@ -4607,6 +4683,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "54af4c82-a442-48d1-8a2b-261371e3d860",
 					"name": "Step 8: View Queued Command 4 from Transaction",
 					"event": [
 						{
@@ -4663,6 +4740,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "4d9cb61e-e56b-4cef-94e3-b0752950977d",
 					"name": "Step 9: Change Eval Order 4 -> 1",
 					"event": [
 						{
@@ -4719,6 +4797,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0430cf7b-4b96-4e26-b275-e05c276b5db7",
 					"name": "Step 10: View the Transaction Queue Changes",
 					"event": [
 						{
@@ -4779,6 +4858,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "225a00f1-fe1e-420c-bd3c-1875d054409d",
 					"name": "Step 11: Commit the Transaction",
 					"event": [
 						{
@@ -4833,6 +4913,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "d2df0c5f-1ec5-43a4-854b-ab29d8f48b46",
 					"name": "Step 12: View the Transaction Status",
 					"event": [
 						{
@@ -4889,10 +4970,11 @@
 			]
 		},
 		{
+			"_postman_id": "0a0e63f5-f143-4898-ad3b-f8ef85fca5d9",
 			"name": "Lab 2.2 - Install AS3 onto BIG-IP",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "a62f4535-d34d-428a-8d7e-2e20000b59e4",
 					"name": "Step 1: Get Installed iControl LX Extensions",
 					"event": [
 						{
@@ -4949,6 +5031,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "fb48f840-2186-4c34-8607-56216ffb73f4",
 					"name": "Step 2: Upload AS3 Extension RPM",
 					"event": [
 						{
@@ -5028,6 +5111,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "44c85543-f3cd-4250-9259-8b60b1ff3f71",
 					"name": "Step 3: Create AS3 Extension Install Task",
 					"event": [
 						{
@@ -5091,6 +5175,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "1d6c9e07-2377-4d4a-88ec-ffd2953a7217",
 					"name": "Step 4: Get AS3 Install Task Status",
 					"event": [
 						{
@@ -5148,6 +5233,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "babbac86-6c8d-4dbb-b156-713f803cec6b",
 					"name": "Step 5: Get AS3 Version Info",
 					"event": [
 						{
@@ -5233,10 +5319,11 @@
 			]
 		},
 		{
+			"_postman_id": "348c39a6-f8f4-41d3-aa63-78eb1a4873a8",
 			"name": "Lab 2.3 - Application Service Deployments with AS3",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "ad610bd4-cf82-40db-b782-9aaa1261555d",
 					"name": "Step 1: Get Deployed AS3 Services",
 					"event": [
 						{
@@ -5281,6 +5368,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "64bf8815-1a9c-49e3-a0b7-c983aec81c8a",
 					"name": "Step 2: Deploy HTTP_Service",
 					"event": [
 						{
@@ -5337,6 +5425,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "26250757-bb61-46f7-b7df-92bf334cafa4",
 					"name": "Step 3: POST to Modify HTTP_Service",
 					"event": [
 						{
@@ -5393,6 +5482,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "5aacb97e-1365-430b-ba60-0c6c5634e667",
 					"name": "Step 4: PATCH to Modify Service_HTTP",
 					"event": [
 						{
@@ -5449,6 +5539,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f0f49ce1-29a9-4b26-93fb-82d64b549430",
 					"name": "Step 5: PATCH to Delete Service_HTTP",
 					"event": [
 						{
@@ -5505,6 +5596,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "0ddff327-ba44-42d9-b56a-1930f4edb61e",
 					"name": "Step 6: Test Re-deploy Service_HTTP with iRule and Custom Profiles",
 					"event": [
 						{
@@ -5565,6 +5657,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "39f3256d-c424-4a52-8076-a58cd0bd6dfe",
 					"name": "Step 7: Re-deploy Service_HTTP with iRule and Custom Profiles",
 					"event": [
 						{
@@ -5621,6 +5714,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "f6a46b33-b4a3-47e5-a78d-88d7821760fb",
 					"name": "Step 8: Deploy Service_HTTPS",
 					"event": [
 						{
@@ -5678,6 +5772,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "3b9bddd1-54b7-4996-8eed-c630d67c1389",
 					"name": "Step 9: Modify Service_HTTPS to add WAF Policy",
 					"event": [
 						{
@@ -5735,6 +5830,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "15be7e80-6636-48a6-ba51-59e856eb353f",
 					"name": "Step 10: POST to Delete All Services",
 					"event": [
 						{
@@ -5791,6 +5887,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "e12d9da1-3782-46a5-8317-72f286daf365",
 					"name": "Step 11: Get Deployed AS3 Services",
 					"event": [
 						{
@@ -5859,14 +5956,15 @@
 			]
 		},
 		{
+			"_postman_id": "55171278-414c-412a-96ad-e4918df311b7",
 			"name": "Lab 3.1 - Ansible Tower Onboarding",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "3824abaf-e0b7-4c3e-86e9-8d63addd9601",
 					"name": "Token-Based Authentication",
-					"description": null,
 					"item": [
 						{
+							"_postman_id": "b8d8e1ae-278a-4029-8a9f-f42590435a47",
 							"name": "Step1: Retrieve Authentication Token",
 							"event": [
 								{
@@ -5910,6 +6008,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "f9682740-93e1-4721-8707-1c65d2f88c48",
 							"name": "Step2: Set Auth Token Timeout",
 							"event": [
 								{
@@ -5961,10 +6060,11 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"_postman_id": "0e2c41e1-8865-4b37-872c-fcd68f742713",
 					"name": "Tower RBAC Setup",
-					"description": null,
 					"item": [
 						{
+							"_postman_id": "8e003431-661d-4fec-9901-a9477133ea4d",
 							"name": "Step1: Create Orginization (Tenant1)",
 							"event": [
 								{
@@ -6012,6 +6112,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "4f5096f2-1af3-4334-ba0f-086a30500b42",
 							"name": "Step2: Create Team (T1-Admin)",
 							"event": [
 								{
@@ -6060,6 +6161,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "1cea4a8e-9324-4e8c-8f13-099f113af24c",
 							"name": "Step3: Create Team (T1-Ops)",
 							"event": [
 								{
@@ -6108,6 +6210,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "82293488-d56a-4844-bc81-a5df557f612c",
 							"name": "Step4: Create User (T1-admin-user)",
 							"event": [
 								{
@@ -6155,6 +6258,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "bad1b064-1dd0-4ec2-8bd4-e5cf2cbbef79",
 							"name": "Step5: Create User (T1-ops-user)",
 							"event": [
 								{
@@ -6202,6 +6306,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "0b269058-d205-47dc-b0a4-622f9d187f88",
 							"name": "Step6: Add User to Team (T1-Admin)",
 							"event": [
 								{
@@ -6250,6 +6355,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "32162efb-fedf-4d82-b13d-ba7feec96501",
 							"name": "Step7: Add User to Team (T1-Ops)",
 							"event": [
 								{
@@ -6301,10 +6407,11 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"_postman_id": "5b6cece7-1eb0-426f-85bb-8f9518436e77",
 					"name": "Tower Core Objects",
-					"description": null,
 					"item": [
 						{
+							"_postman_id": "5504d4e8-a389-4919-a12c-f962d827c45e",
 							"name": "Step1: Create Project for SCM",
 							"event": [
 								{
@@ -6352,6 +6459,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "c6d497a3-befc-490c-b50e-8ad7d9ac1538",
 							"name": "Step2: Create Tower Inventory",
 							"event": [
 								{
@@ -6399,6 +6507,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "fe4f385c-8459-4e66-adef-fc46125f851f",
 							"name": "Step3: Create Inventory Group",
 							"event": [
 								{
@@ -6449,6 +6558,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "87304d0d-b931-4999-88e2-f811c5043ec5",
 							"name": "Step4: Create Inventory Host",
 							"event": [
 								{
@@ -6496,6 +6606,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "b461df04-bf79-41a8-a8ed-360d2793a597",
 							"name": "Step5: Add Host to Group",
 							"event": [
 								{
@@ -6544,6 +6655,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "751efa14-89b0-4f7b-a11f-1f6857aba201",
 							"name": "Step7: Create Tower Credentials",
 							"event": [
 								{
@@ -6591,6 +6703,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "543a431f-9185-4d8e-925a-15b8dad2078c",
 							"name": "Step8: Delay for SCM to update",
 							"event": [
 								{
@@ -6633,6 +6746,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "3f09468f-69fb-433d-b971-d6273e6a4ca0",
 							"name": "Step9: Check SCM Sync Status",
 							"event": [
 								{
@@ -6693,10 +6807,11 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"_postman_id": "2afa4ae5-05a7-4101-bb83-1f1ebc48c1a9",
 					"name": "Create Job Templates",
-					"description": null,
 					"item": [
 						{
+							"_postman_id": "97ae0899-72d4-41e2-b1c7-874bae564aad",
 							"name": "Step 1: Create Template (View Config)",
 							"event": [
 								{
@@ -6745,6 +6860,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "c07431f4-c204-4daf-a07e-eda3405fd9fc",
 							"name": "Step 2: Create Template (Deploy Config)",
 							"event": [
 								{
@@ -6793,6 +6909,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "e05197b0-d0c8-4aea-a94b-0e856f8e4367",
 							"name": "Step 3: Create Survey (Deploy Config)",
 							"event": [
 								{
@@ -6841,6 +6958,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "87cc53b6-b258-476b-a84f-c3f7328261cb",
 							"name": "Step 4: Create Template (Pool_Replace_Members) PATCH",
 							"event": [
 								{
@@ -6889,6 +7007,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "f7292b7f-d91a-4763-9ecd-9971545c2661",
 							"name": "Step 5: Create Survey (Pool Replace) PATCH",
 							"event": [
 								{
@@ -6937,6 +7056,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "28842314-6a55-49c4-a4ed-304a6812eb47",
 							"name": "Step 6: Create Template (Add_Member) PATCH",
 							"event": [
 								{
@@ -6985,6 +7105,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "10adbcec-a569-47e5-9c4c-0ab022582388",
 							"name": "Step 7: Create Survey (Add_Member) PATCH",
 							"event": [
 								{
@@ -7033,6 +7154,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "8f41ac84-6aba-412c-82a7-47fe5c840b77",
 							"name": "Step 8: Create Template (Del_Member) PATCH",
 							"event": [
 								{
@@ -7081,6 +7203,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "681bd5b5-3569-4e38-bec1-981859c8ff85",
 							"name": "Step 9: Create Survey (Del_Member) PATCH",
 							"event": [
 								{
@@ -7129,6 +7252,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "1265bba2-7a7e-46c2-82a7-6f4cdc9a6406",
 							"name": "Step 10: Create Template (SSL PATCH)",
 							"event": [
 								{
@@ -7177,6 +7301,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "a97c5f1d-bb16-43f2-92a3-d71c77d5f30c",
 							"name": "Step 11: Create Survey (SSL Update) PATCH",
 							"event": [
 								{
@@ -7228,10 +7353,11 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"_postman_id": "475842f3-df83-4cce-bd50-955328e20264",
 					"name": "Apply Permissions to Templates",
-					"description": null,
 					"item": [
 						{
+							"_postman_id": "22f7cf32-8242-4974-b0c9-a48ce10cecb3",
 							"name": "Step 1: Permissions (View Config Ops)",
 							"event": [
 								{
@@ -7280,6 +7406,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "022344f0-1562-4c93-9d94-b34a12917cd8",
 							"name": "Step 2: Permissions (View Config Admins)",
 							"event": [
 								{
@@ -7328,6 +7455,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "b5985ab8-8cd8-4477-a535-4a0c6895a229",
 							"name": "Step 3: Permissions (Deploy Config Admins)",
 							"event": [
 								{
@@ -7376,6 +7504,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "628b56c5-4497-4286-ba93-391515dc1d47",
 							"name": "Step 4: Permissions (Pool Member PATCH Ops)",
 							"event": [
 								{
@@ -7424,6 +7553,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "25394b22-1332-4d24-804e-8bd727efa99d",
 							"name": "Step 5: Permissions (Pool Member Add Ops)",
 							"event": [
 								{
@@ -7472,6 +7602,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "4a3e61a8-b60d-441f-80ce-8894dca64549",
 							"name": "Step 6: Permissions (Pool Member Del Ops)",
 							"event": [
 								{
@@ -7520,6 +7651,7 @@
 							"response": []
 						},
 						{
+							"_postman_id": "c2750c68-a740-4fe1-9b53-9a8e8e4dae2d",
 							"name": "Step 6: Permissions (SSL Ops)",
 							"event": [
 								{
@@ -7573,10 +7705,11 @@
 			]
 		},
 		{
+			"_postman_id": "6ad97f59-cfd2-4d29-a5de-5356cc5ee088",
 			"name": "Lab 3.4 - Ansible Tower and REST",
-			"description": null,
 			"item": [
 				{
+					"_postman_id": "d77869fa-6c7b-400c-b257-0217cb5f1c4a",
 					"name": "Step1: Retrieve Authentication Token",
 					"event": [
 						{
@@ -7620,6 +7753,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "c6c67d3c-3023-4943-8c76-35ad2de9cdea",
 					"name": "Step 2: Get Tenant1_Pool_Add_Member ID",
 					"event": [
 						{
@@ -7667,6 +7801,7 @@
 					"response": []
 				},
 				{
+					"_postman_id": "6fe50505-ed6a-4462-b669-b20113d02a0d",
 					"name": "Step 3: Run Tenant1_Pool_Add_Member",
 					"event": [
 						{
