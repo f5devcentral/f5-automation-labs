@@ -202,7 +202,7 @@ the Job output.
 
 
 Task 4 - Explore Additional Source-of-Truth Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using the procedures above explore Deploying the other example Source-of-Truth
 files that are available within the :guilabel:`Tenant1_Deploy_Config`
