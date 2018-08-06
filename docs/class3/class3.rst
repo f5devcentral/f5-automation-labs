@@ -4,7 +4,7 @@ Class 3: Introduction to SecDevOps
 .. _GitHub: https://github.com/f5devcentral/f5-automation-labs
 .. _Issue: https://github.com/f5devcentral/f5-automation-labs/issues
 .. _Postman: https://www.getpostman.com/
-.. _Lab Guide: ../class1/labinfo/labinfo.html
+.. _Lab Guide: ./labinfo/labinfo.html
 
 Leveraging programmability to deploy security policies and/or adhere to best practices during an application’s lifecycle reduces the operational (e.g. time and money) cost of a defense in depth strategy. Programmatic workflows can be developed and deployed for specific security use cases, and integrated into the SDLC process, allowing for the protection of an application to iterate in parallel with the development of the application.
 
