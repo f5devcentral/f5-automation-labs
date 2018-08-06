@@ -129,7 +129,7 @@ Task 2 - Execute f5-newman-build-4
 
    |lab-3-2|
 
-#. ``f5-newman-build-3`` contains calls to **user-up** variable node ``"bigip_pool_member":"10.1.10.101:8002"``
+#. ``f5-newman-build-4`` contains calls to **user-up** variable node ``"bigip_pool_member":"10.1.10.101:8002"``
 
    Execute: ``f5-newman-wrapper f5-newman-build-4``
 
