@@ -5,181 +5,105 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Provisioning ASM
-==============================================
+Module |labmodule|\, Lab \ |labnum|\: Provisioning ASM
+========================================================
 
 Overview
---------
+---------
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Module 3: Configuring ASM (Application Security Module)**.
+In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Module 2: Programmatic WAF (Application Security Module) Configuration**.
 
-Specific Instructions
----------------------
+.. NOTE::
+    - Use Postman collection to complete this lab.
+    - Some response content has been removed for brevity.
 
-Prior to performing the steps below, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **asm**.
+|labmodule|\.\ |labnum|\.1. Retrieve single module provision state
+--------------------------------------------------------------------
 
-Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+To retrieve the provisioning state for a single module, send a HTTP GET to the REST endpoint for ``/mgmt/tm/sys/provision`` and include the name of the module.  For example, ``/mgmt/tm/sys/provision/afm``
 
-.. ATTENTION:: Some response content has been removed for brevity.
+.. Hint::  
+  1) Prior to performing the below steps, validate the **{{module}}** Postman environment variable is set to **asm**.
+  2) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
 
-1. Deprovision AFM module
---------------------------
-
-This request is will serve as an example of how to deprovision a BIG-IP module.
-
-**Request**
-
-:: 
-
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/afm
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "level":"none"
-    }
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     
+     | **Headers**
+     
+     ::
+     
+	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
 
 **Example Response**
 
 .. code-block:: rest
-    :emphasize-lines: 9
-
-    {
-        "kind": "tm:sys:provision:provisionstate",
-        "name": "afm",
-        "fullPath": "afm",
-        "generation": 10714,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
-        "cpuRatio": 0,
-        "diskRatio": 0,
-        "level": "none",
-        "memoryRatio": 0
-    }
-
-
-2. Retrieve all module provision states
-----------------------------------------
-
-**Request**
-
-:: 
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-.. NOTE:: The **asm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
-
-.. code-block:: rest
-    :emphasize-lines: 13, 24
-
-    {
-        "kind": "tm:sys:provision:provisioncollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/sys/provision?ver=13.0.0",
-        "items": [
-            {
-                "kind": "tm:sys:provision:provisionstate",
-                "name": "asm",
-                "fullPath": "asm",
-                "generation": 5609,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
-                "cpuRatio": 0,
-                "diskRatio": 0,
-                "level": "none",
-                "memoryRatio": 0
-            },
-            {
-                "kind": "tm:sys:provision:provisionstate",
-                "name": "ltm",
-                "fullPath": "ltm",
-                "generation": 1,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/ltm?ver=13.0.0",
-                "cpuRatio": 0,
-                "diskRatio": 0,
-                "level": "nominal",
-                "memoryRatio": 0
-            }
-        ]
-    }
-
-3. Retrieve single module provision state
-------------------------------------------
-
-**Request**
-
-:: 
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-.. NOTE:: The **asm** module is currently not provisioned.
-
-.. code-block:: rest
-    :emphasize-lines: 9
+    :emphasize-lines: 9 
 
     {
         "kind": "tm:sys:provision:provisionstate",
         "name": "asm",
         "fullPath": "asm",
         "generation": 5609,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
         "cpuRatio": 0,
         "diskRatio": 0,
-        "level": "none",
+        "level": "nominal",
         "memoryRatio": 0
     }
 
-4. Provision ASM module
+|labmodule|\.\ |labnum|\.2. Provision ASM module
 ------------------------
 
 The **asm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
-**Request**
+.. WARNING:: 
+   - This step is optional and should only be performed if **asm** is **not** provisioned.
+   - Performing a provision/deprovision operation takes some time to complete.  If the original request is still being processed, the below error may be encountered.
 
-:: 
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         PATCH
 
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+         {
+             "level":"nominal"
+         }
 
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-.. code-block:: rest
-    :emphasize-lines: 2
-
-    {
-        "level":"nominal"
-    }
 
 **Example Response**
-
-.. NOTE:: The **asm** module has been provisioned with a **level** of **nominal**.
 
 .. code-block:: rest
     :emphasize-lines: 9
@@ -189,7 +113,7 @@ The **asm** module is provisioned using an HTTP PATCH with a body containing a p
         "name": "asm",
         "fullPath": "asm",
         "generation": 10636,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
+        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.1.0.8",
         "cpuRatio": 0,
         "diskRatio": 0,
         "level": "nominal",

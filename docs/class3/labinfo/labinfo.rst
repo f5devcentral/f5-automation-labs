@@ -62,3 +62,9 @@ components:
      - ``ubuntu/ubuntu``
 
 
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   labinfo/postman
+   module*/module*

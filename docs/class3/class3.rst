@@ -43,4 +43,6 @@ Expected time to complete: **3 hours**
    :maxdepth: 2
    :glob:
 
+   labinfo/labinfo
+   labinfo/postman
    module*/module*
