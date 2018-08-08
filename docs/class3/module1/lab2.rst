@@ -6,7 +6,7 @@
 .. |labnameund| replace:: Lab\ |labund|
 
 Module |labmodule|\, Lab \ |labnum|\: Create an AFM Address List
-==============================================================
+=================================================================
 
 Overview
 --------

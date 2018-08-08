@@ -232,7 +232,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
     }
 
 |labmodule|\.\ |labnum|\.1.4. Search for an ASM Policy
------------------------------------------------------
+--------------------------------------------------------
 
 An HTTP GET to the ``/mgmt/tm/asm/policies`` endpoint with a parameter of ``filter=name eq test``, allows ASM policies to be searched by name.
 
@@ -625,7 +625,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
     }
 
 |labmodule|\.\ |labnum|\.1.9. Retrieve ASM Signature Systems
-------------------------------------------------------------
+--------------------------------------------------------------
 
 .. Hint::  
   1) Reuse the Postman step for 2.2.1 to send a **Request** with the following details.

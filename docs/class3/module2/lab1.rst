@@ -64,7 +64,7 @@ To retrieve the provisioning state for a single module, send a HTTP GET to the R
     }
 
 |labmodule|\.\ |labnum|\.2. Provision ASM module
-------------------------
+-----------------------------------------------------
 
 The **asm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
 
