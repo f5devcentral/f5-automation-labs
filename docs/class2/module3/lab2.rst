@@ -71,8 +71,8 @@ Task 1 - Examine f5-newman-build-1
 You are going to add this code snippet after the last ``},``. This shows the method for chaining together multiple calls from multiple sources, shown in a previous lab.
 For editing files VIM/VI is installed on the container, if you **do not know** how to use VIM/VI please let the instructor know, edit the file with ``vi f5-newman-build-1``
 
-  .. code-block:: json
-   :linenos:
+     .. code-block:: json
+        :linenos:
 
    {
         "name":"1 - Build a Basic LTM Config",

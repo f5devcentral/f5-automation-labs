@@ -101,10 +101,10 @@ Our installation also has some Slack calls. Which we will setup next.
 Task 2 - Accessing Jenkins and Installing the Slack-Notifier Plug-in
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Slack is a ChatOps toolkit, think of Skype, Teams, Messenger, or IIRC! Except Slack also has the ability to take in
-bots. slackbots are used to interact with services, they might query for something when asked, or
+Slack is a ChatOps toolkit, similar to Skype, Teams, Messenger, or IIRC! Except Slack also has the ability to take in
+bots. Slackbots are used to interact with services. They might query for something when asked, or
 give you information when they notice something. In our case our Jenkins Pipeline file will use Slack
-to notify all of us when an action happens, collaborative teamwork.
+to notify all of us when an action happens, enabling collaborative teamwork.
 
 .. NOTE:: In the Jenkins Files, the ``message`` piece is sent to the Slack channel, if you would like to modify your messages for our lab **change the text!**
 
