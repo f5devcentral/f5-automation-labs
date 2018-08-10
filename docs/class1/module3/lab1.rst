@@ -56,7 +56,7 @@ Role Based Access Control (RBAC)
 
 Ansible Tower provides a control hierarchy with the terms below:
 
-- **Orginization (AS3 Tenant):** An organization is a logical collection
+- **Organization (AS3 Tenant):** An organization is a logical collection
   of **Users, Teams, Projects, and Inventories**. It is the highest level in the
   Tower object hierarchy.
 - **Team:** A subdivision of an organization with associated **Users, Projects,
@@ -67,7 +67,7 @@ Ansible Tower provides a control hierarchy with the terms below:
 Example of the RBAC structure being used in this lab:
 
 
--  Tenant1 (Orginization)
+-  Tenant1 (Organization)
 
    -  T1-Admins (Team)
 
@@ -98,7 +98,7 @@ the Postman collection is outlined below. The items will be done
 #. Token Authentication
 #. Setup RBAC
 
-   -  Create Orginization **Tenant1**
+   -  Create Organization **Tenant1**
 
    -  Create Teams ( **T1-Admin / T1-Ops** )
 
@@ -192,7 +192,7 @@ Perform the following steps to build the cluster:
    |lab-1-3|
 
 #. Select the **Settings Icon** in the top right corner to view the **RBAC**
-   items that were created such as Orginization, Teams, Users, and Credentials.
+   items that were created such as Organization, Teams, Users, and Credentials.
 
    |lab-1-4|
 
