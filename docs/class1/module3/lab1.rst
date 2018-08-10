@@ -1,5 +1,5 @@
-Lab 3.1: iWorkflow Onboarding
------------------------------
+Lab 3.1: Ansible Tower Onboarding
+---------------------------------
 
 .. graphviz::
 
@@ -22,62 +22,142 @@ Lab 3.1: iWorkflow Onboarding
       }
    }
 
-In this lab we will use the :guilabel:`Runner`, introduced in previous labs to
-complete the onboarding of the F5 iWorkflow device.  The onboarding process
-creates the initial configuration required to start creation of Service
-Catalog Templates.
+In this lab we will use the :guilabel:`Runner`, introduced in previous labs, to
+complete the onboarding of the Ansible Tower device. The onboarding process
+creates the initial configuration required to start utilizing Ansible Tower with
+BIG-IP.
 
-iWorkflow Overview
-~~~~~~~~~~~~~~~~~~
+Ansible Tower Overview
+~~~~~~~~~~~~~~~~~~~~~~
 
-Before looking at the details of the onboarding process, lets discuss the new
-components iWorkflow introduces to our toolchain.
+Before looking at the details of the onboarding process, let's discuss the new
+components Ansible Tower introduces to our toolchain. Some of the components are
+general Ansible terms and
+not specific to Tower. As mentioned earlier we will be focusing primarily on the
+concepts within Tower itself.
 
-Device Discovery
-^^^^^^^^^^^^^^^^
+Ansible Tower Term Reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order for iWorkflow to interact with a BIG-IP device it must be
-discovered by iWorkflow. The device discovery process leverages the
-existing CMI Device Trust infrastructure on BIG-IP. Currently there is a
-limitation that a single BIG-IP device can only be ‘discovered’ by ONE
-of iWorkflow or BIG-IQ CM at a time. In this lab will we discover the
-existing BIG-IP devices from your lab environment.
+- **Inventory:** Device(s) to perform action against. In this lab we will be 
+  using bigip_a_mgmt as the inventory object.
+- **Playbook:** A group of plays/tasks to be performed against devices within
+  the **Inventory**.
+- **Project:** A collection of Ansible **Playbooks** within tower. In this lab
+  were are using a **GIT Repo** to store the playbooks.
+- **Templates:** A template provides the ability to supply parameters to a playbook.
+  Templates are what will provide the **Abstraction** to
+  AS3.
+- **Credentials:** Used to authenticate Tower to the destination device within
+  the **Inventory**.
 
-Tenants & Connectors
-^^^^^^^^^^^^^^^^^^^^
+Role Based Access Control (RBAC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-iWorkflow implements a Tenant/Provider interface to enable abstracted deployments
-of L4-7 Services into various environments.  In conjunction, iWorkflow Connectors
-serve as the L1-3 Network and Device Onboarding automation component in the automation
-toolchain.  In this lab we will create a ‘BIG-IP Connector’ for the BIG-IP
-devices in the lab environment. This connector will then allow you to drive a
-fully automated deployment from the iWorkflow Service Catalog.
+Ansible Tower provides a control hierarchy with the terms below:
 
-iApp Templates
-^^^^^^^^^^^^^^
+- **Orginization (AS3 Tenant):** An organization is a logical collection
+  of **Users, Teams, Projects, and Inventories**. It is the highest level in the
+  Tower object hierarchy.
+- **Team:** A subdivision of an organization with associated **Users, Projects,
+  Credentials, and Permissions**.
+- **User:** A User is usually associated with a **Team** to allow for group
+  based RBAC control.
 
-iWorkflow serves as an iApp Template Source-of-Truth for discovered BIG-IP
-devices.  This allows an F5 administrator to manage iApp templates in a single
-place with iWorkflow installing required templates on BIG-IP devices as
-required **during** service deployment.
+Example of the RBAC structure being used in this lab:
+
+
+-  Tenant1 (Orginization)
+
+   -  T1-Admins (Team)
+
+      -  T1-admin-user (User)
+
+   -  T1-Ops (Team)
+
+      -  T1-ops-user (User)
+
+
+Source-of-Truth
+^^^^^^^^^^^^^^^
+
+As discussed in Module 2, it is key to keep source-of-truth in mind as Tower
+will be making changes through F5's declarative AS3 interface. For this lab we
+have created an AS3 declaration (source-of-truth) file for each of the primary
+**Service Examples** from the previous Module. The intent here is to demonstrate
+the ability of Tower to manage and push source-of-truth 
+declarations from within its **Project (GIT SCM)**.
 
 Onboarding Process Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The process implemented in the ``Lab 3.1 - iWorkflow Onboarding`` folder of
-the Postman collection is diagrammed below.
+The process implemented in the ``Lab 3.1 - Ansible Tower Onboarding`` folder of
+the Postman collection is outlined below. The items will be done
+**automatically** for you during **Task1**.
 
-.. NOTE:: The diagram below represents environment variables in blue.  You can
-   follow the lines on each variable to understand which request populates the
-   variable and how they are subsequently used.
+#. Token Authentication
+#. Setup RBAC
 
-.. graphviz:: iwf_onboarding.dot
+   -  Create Orginization **Tenant1**
 
-Task 1 - Onboard iWorkflow using Runner
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -  Create Teams ( **T1-Admin / T1-Ops** )
+
+   -  Create Users ( **T1-admin-user / T1-ops-user** )
+
+   -  Associate Users to their respective Teams
+
+#. Create Tower Project SCM
+#. Create Tower Inventory
+
+   -  Create Tower Inventory group
+
+   -  Create Inventory Host (The BIG-IP we will be manipulating)
+
+   -  Associate the Host to the Inventory group
+
+#. Create Tower Credentials to Authenticate to the BIG-IP
+#. Create Job Templates
+
+   -  Deploy Config (POSTS AS3 Declaration to BIG-IP)
+
+   -  Add Pool Member to Pool
+
+   -  Remove Pool Member from Pool
+
+   -  Replace All Members in a Pool
+
+   -  Update the SSL CRT/KEY for a Virtual
+
+   -  View Current Config on AS3 Tenant
+
+
+#. Create Tower Survey for each Template (Ability to collect Variables)
+#. Associate each Template above with the Following RBAC Team/Role
+
+   -  Admins
+
+      -  Deploy Config
+
+      -  View Current Config
+
+   -  Operations
+
+      -  Add Pool Member
+
+      -  Remove Pool Member
+
+      -  Replace Pool Members
+
+      -  Update SSL CRT/KEY
+
+      -  View Current Config
+
+
+Task 1 - Onboard Ansible Tower using Runner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this task we will use the :guilabel:`Runner` to execute a series of
-requests contained in the ``Lab 3.1 - iWorkflow Onboarding`` folder.
+requests contained in the ``Lab 3.1 - Ansible Tower Onboarding`` folder.
 
 Perform the following steps to build the cluster:
 
@@ -86,31 +166,33 @@ Perform the following steps to build the cluster:
    |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
-   ``Lab 3.1 - iWorkflow Onboarding`` folder.  Next, be sure the
+   ``Lab 3.1 - Ansible Tower Onboarding`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1``:
 
    |lab-1-1|
 
-#. Click the :guilabel:`Run Lab 3.1 - iWor...` button
+#. Click the :guilabel:`Run Lab 3.1 - Ansib...` button.
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and it's associated test results are displayed on the screen.
-   Onboarding iWorkflow can take a few minutes.  You can follow the progress
+   Onboarding Ansible Tower will take about a minute.  You can follow the progress
    by scrolling down the results window.
 
 #. Once the :guilabel:`Run Summary` button appears the folder has finished
    running.  You should have 0 failures and the last item in the request
-   list should be named ``Install App Services Template on iWorkflow``
+   list should be named ``Step 6: Permissions (Pool Member Del Ops)``.
 
    |lab-1-2|
 
-#. At this point you can log into iWorkflow using Chrome at
-   ``https://10.1.1.12`` and ``admin/admin`` credentials.  Click
-   :guilabel:`Clouds and Services` at the top of the window:
+#. At this point you can log into Ansible Tower using Chrome at
+   ``https://10.1.1.12`` and ``admin/admin`` credentials. Browse the main UI tabs
+   to see the different topics covered at the top of this lab
+   (Projects, Inventories, Templates, etc).
 
    |lab-1-3|
 
-#. Browse the various panes to see what was created:
+#. Select the **Settings Icon** in the top right corner to view the **RBAC**
+   items that were created such as Orginization, Teams, Users, and Credentials.
 
    |lab-1-4|
 
@@ -120,6 +202,5 @@ Perform the following steps to build the cluster:
    :scale: 80%
 .. |lab-1-3| image:: images/lab-1-3.png
 .. |lab-1-4| image:: images/lab-1-4.png
-   :scale: 70%
 
 

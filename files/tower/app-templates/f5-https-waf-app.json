@@ -1,0 +1,38 @@
+{
+  "class": "Tenant",
+  "A6": {
+    "class": "Application",
+    "template": "http",
+    "serviceMain": {
+      "class": "Service_HTTP",
+      "virtualAddresses": [
+        "10.1.20.121"
+      ],
+      "snat": "auto",
+      "pool": "web_pool",
+      "policyWAF": {
+        "use": "My_ASM_Policy"
+      }
+    },
+    "web_pool": {
+      "class": "Pool",
+      "monitors": [
+        "http"
+      ],
+      "members": [
+        {
+          "servicePort": 8001,
+          "serverAddresses": [
+            "10.1.10.100",
+            "10.1.10.101"
+          ]
+        }
+      ]
+    },
+    "My_ASM_Policy": {
+      "class": "WAF_Policy",
+      "url": "https://raw.githubusercontent.com/focrensh/f5-automation-labs/v4.0/files/asm-policies/demo-asm-policy-linux-high.xml",
+      "ignoreChanges": true
+    }
+  }
+}

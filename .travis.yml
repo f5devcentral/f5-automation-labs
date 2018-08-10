@@ -1,5 +1,7 @@
 sudo: false
 language: python
+notifications:
+    webhooks: https://outlook.office.com/webhook/99876b97-a307-42ec-b360-d754cfc63814@dd3dfd2f-6a3b-40d1-9be0-bf8327d81c50/TravisCI/65593d1ff6954fc6b380d291e5fccdb9/752b8607-8117-4f4e-84aa-a041d208eba7
 before_install:
     - sudo apt-get -qq update
     - sudo apt-get install -y graphviz enchant

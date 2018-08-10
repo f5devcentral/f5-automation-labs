@@ -1,2 +1,4 @@
 *.sublime-*
 pdf/*
+docs/.vscode/settings.json
+python*

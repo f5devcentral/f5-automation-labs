@@ -5,415 +5,374 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Building a Basic LTM Config
-=========================================================
+Module |labmodule|\, Lab \ |labnum|\: Create AFM Policy
+========================================================
 
 Overview
 --------
 
-In this lab, the iControl REST API will be used to build a basic monitor, node, pool, and virtual server configuration on the BIG-IP.
-
-Specific Instructions
----------------------
-
-Prior to performing the below steps, validate that the Hackazon web site is not accessible via the Windows jump box by clicking on the Hackazon bookmark in the Chrome toolbar.
+In this lab, the iControl REST based API will be used to create a firewall policy that will leverage the previously created address list.
 
 Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
 
-.. ATTENTION:: Some response content has been removed for brevity.
+|labmodule|\.\ |labnum|\.1. List all AFM policies
+--------------------------------------------------
 
-1. Create an HTTP Monitor
---------------------------
-
-An HTTP POST to the ``/mgmt/tm/ltm/monitor/http`` endpoint with a body containing the monitor configuration creates a monitor.
-
-**Request**
-
-:: 
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/monitor/http
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"hackazon_monitor",
-        "send":"GET /\r\n"
-    }
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
+     
+     | **Headers**
+     
+     ::
+     
+ 	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
 
 **Example Response**
 
-::
-
-    {
-        "kind": "tm:ltm:monitor:http:httpstate",
-        "name": "hackazon_monitor",
-        "partition": "Common",
-        "fullPath": "/Common/hackazon_monitor",
-        "generation": 0,
-        "selfLink": "https://localhost/mgmt/tm/ltm/monitor/http/~Common~hackazon_monitor?ver=13.0.0",
-        "adaptive": "disabled",
-        "adaptiveDivergenceType": "relative",
-        "adaptiveDivergenceValue": 25,
-        "adaptiveLimit": 200,
-        "adaptiveSamplingTimespan": 300,
-        "defaultsFrom": "/Common/http",
-        "destination": "*:*",
-        "interval": 5,
-        "ipDscp": 0,
-        "manualResume": "disabled",
-        "reverse": "disabled",
-        "send": "GET / HTTP/\r\n",
-        "timeUntilUp": 0,
-        "timeout": 16,
-        "transparent": "disabled",
-        "upInterval": 0
-    }
-
-2. Create a Pool
------------------
-
-An HTTP POST to the ``/mgmt/tm/ltm/pool`` endpoint with a body containing the configuration creates a pool with a node(s).
-
-**Request**
-
-:: 
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/pool
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
+.. NOTE::
+    - Some response content has been removed for brevity.
 
 ::
 
     {
-        "name":"hackazon_pool",
-        "monitor":"/Common/hackazon_monitor",
-        "members": ["10.1.20.10:80"]
-    }
-
-**Example Response**
-
-.. code-block:: rest
-    :emphasize-lines: 3, 20
-
-    {
-        "kind": "tm:ltm:pool:poolstate",
-        "name": "hackazon_pool",
-        "partition": "Common",
-        "fullPath": "/Common/hackazon_pool",
-        "generation": 10781,
-        "selfLink": "https://localhost/mgmt/tm/ltm/pool/~Common~hackazon_pool?ver=13.0.0",
-        "allowNat": "yes",
-        "allowSnat": "yes",
-        "ignorePersistedWeight": "disabled",
-        "ipTosToClient": "pass-through",
-        "ipTosToServer": "pass-through",
-        "linkQosToClient": "pass-through",
-        "linkQosToServer": "pass-through",
-        "loadBalancingMode": "round-robin",
-        "minActiveMembers": 0,
-        "minUpMembers": 0,
-        "minUpMembersAction": "failover",
-        "minUpMembersChecking": "disabled",
-        "monitor": "/Common/hackazon_monitor ",
-        "queueDepthLimit": 0,
-        "queueOnConnectionLimit": "disabled",
-        "queueTimeLimit": 0,
-        "reselectTries": 0,
-        "serviceDownAction": "none",
-        "slowRampTime": 10,
-        "membersReference": {
-            "link": "https://localhost/mgmt/tm/ltm/pool/~Common~hackazon_pool/members?ver=13.0.0",
-            "isSubcollection": true
-        }
-    }
-
-3. Create a HTTP Profile
--------------------------
-
-An HTTP POST to the ``/mgmt/tm/ltm/profile/http`` endpoint with a body containing the configuration creates a profile.
-
-**Request**
-
-:: 
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/http
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"hackazon_http_profile",
-        "insertXforwardedFor":"enabled",
-        "serverAgentName":"hackazon"
-    }
-
-**Example Response**
-
-.. code-block:: rest
-    :emphasize-lines: 3, 17, 18
-
-    {
-        "kind": "tm:ltm:profile:http:httpstate",
-        "name": "hackazon_http_profile",
-        "partition": "Common",
-        "fullPath": "/Common/hackazon_http_profile",
-        "generation": 10783,
-        "selfLink": "https://localhost/mgmt/tm/ltm/profile/http/~Common~hackazon_http_profile?ver=13.0.0",
-        "acceptXff": "disabled",
-        "appService": "none",
-        "basicAuthRealm": "none",
-        "defaultsFrom": "/Common/http",
-        "defaultsFromReference": {
-            "link": "https://localhost/mgmt/tm/ltm/profile/http/~Common~http?ver=13.0.0"
-        },
-        "description": "none",
-        "encryptCookies": [],
-        "insertXforwardedFor": "enabled",
-        "serverAgentName": "hackazon"
-    }
-
-4. Create a TCP profile
-------------------------
-
-An HTTP POST to the ``/mgmt/tm/ltm/profile/tcp`` endpoint with a body containing the configuration creates a TCP profile.
-
-**Request**
-
-:: 
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/tcp
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"hackazon_tcp_clientside_profile",
-        "nagle":"disabled",
-        "sendBufferSize":"16000"
-    }
-
-**Example Response**
-
-.. code-block:: rest
-    :emphasize-lines: 3, 23, 24
-
-    {
-        "kind": "tm:ltm:profile:tcp:tcpstate",
-        "name": "hackazon_tcp_clientside_profile",
-        "partition": "Common",
-        "fullPath": "/Common/hackazon_tcp_clientside_profile",
-        "generation": 10784,
-        "selfLink": "https://localhost/mgmt/tm/ltm/profile/tcp/~Common~hackazon_tcp_clientside_profile?ver=13.0.0",
-        "abc": "enabled",
-        "ackOnPush": "enabled",
-        "appService": "none",
-        "autoProxyBufferSize": "disabled",
-        "autoReceiveWindowSize": "disabled",
-        "autoSendBufferSize": "disabled",
-        "closeWaitTimeout": 5,
-        "cmetricsCache": "enabled",
-        "cmetricsCacheTimeout": 0,
-        "congestionControl": "high-speed",
-        "defaultsFrom": "/Common/tcp",
-        "defaultsFromReference": {
-            "link": "https://localhost/mgmt/tm/ltm/profile/tcp/~Common~tcp?ver=13.0.0"
-        },
-        "keepAliveInterval": 1800,
-        "nagle": "disabled",
-        "sendBufferSize": 16000
-    }
-
-5. Create a Virtual Server
----------------------------
-
-An HTTP POST to the ``/mgmt/tm/ltm/virtual`` endpoint with a body containing the configuration creates a virtual server.
-
-**Request**
-
-:: 
-
-    POST https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Body**
-
-::
-
-    {
-        "name":"hackazon_vs",
-        "destination":"10.1.10.10:80",
-        "ipProtocol":"tcp",
-        "pool":"hackazon_pool",
-        "sourceAddressTranslation": { "type":"automap" },
-        "profiles": [
-            { "name":"/Common/hackazon_tcp_clientside_profile", "context":"clientside" },
-            { "name":"/Common/tcp-wan-optimized", "context":"serverside" },
-            "/Common/hackazon_http_profile"
+        "kind": "tm:security:firewall:policy:policycollectionstate",ƒ
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy?ver=13.0.0",
+        "items": [
+            {
+                "kind": "tm:security:firewall:policy:policystate",
+                "name": "block_all",
+                "partition": "Common",
+                "fullPath": "/Common/block_all",
+                "generation": 5789,
+                "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~block_all?ver=13.0.0",
+                "rulesReference": {
+                    "link": "https://localhost/mgmt/tm/security/firewall/policy/~Common~block_all/rules?ver=13.0.0",
+                    "isSubcollection": true
+                }
+            }
         ]
     }
 
-**Example Response**
+|labmodule|\.\ |labnum|\.2. Create an AFM policy
+-------------------------------------------------
 
-.. NOTE:: The profiles for this virtual server is a subcollection.  This collection can be access by performing a GET on the profiles endpoint for this specific virtual server ``https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles``.
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body containing just a policy name creates a firewall policy.
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         POST
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+         {
+            "name": "global_default_deny"
+         }
+  2) Copy the full policy name as it appears in the ``"selfLink": "https://localhost/mgmt/tm/security/firewall/policy/``\ **~Common~global_default_deny**\ ``?ver=13.1.0.8"`` line of the response and populate the **{{afm_policy}}** Postman environment variable.  In this case, the name of the policy is **~Common~global_default_deny**.
+	 
+
+**Example Response**
 
 .. code-block:: rest
-    :emphasize-lines: 3, 15, 20, 30, 31, 32, 43, 44, 45, 46
+    :emphasize-lines: 3, 7
 
     {
-        "kind": "tm:ltm:virtual:virtualstate",
-        "name": "hackazon_vs",
+        "kind": "tm:security:firewall:policy:policystate",
+        "name": "global_default_deny",
         "partition": "Common",
-        "fullPath": "/Common/hackazon_vs",
-        "generation": 10785,
-        "selfLink": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs?ver=13.0.0",
-        "addressStatus": "yes",
-        "autoLasthop": "default",
-        "cmpEnabled": "yes",
-        "connectionLimit": 0,
-        "destination": "/Common/10.1.10.20:80",
-        "enabled": true,
-        "gtmScore": 0,
-        "ipProtocol": "tcp",
-        "mask": "255.255.255.255",
-        "mirror": "disabled",
-        "mobileAppTunnel": "disabled",
-        "nat64": "disabled",
-        "pool": "/Common/hackazon_pool",
-        "poolReference": {
-            "link": "https://localhost/mgmt/tm/ltm/pool/~Common~hackazon_pool?ver=13.0.0"
-        },
-        "rateLimit": "disabled",
-        "rateLimitDstMask": 0,
-        "rateLimitMode": "object",
-        "rateLimitSrcMask": 0,
-        "serviceDownImmediateAction": "none",
-        "source": "0.0.0.0/0",
-        "sourceAddressTranslation": {
-            "type": "automap"
-        },
-        "sourcePort": "preserve",
-        "synCookieStatus": "not-activated",
-        "translateAddress": "enabled",
-        "translatePort": "enabled",
-        "vlansDisabled": true,
-        "vsIndex": 9,
-        "policiesReference": {
-            "link": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs/policies?ver=13.0.0",
-            "isSubcollection": true
-        },
-        "profilesReference": {
-            "link": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles?ver=13.0.0",
+        "fullPath": "/Common/global_default_deny",
+        "generation": 11451,
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny?ver=13.1.0.8",
+        "rulesReference": {
+            "link": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.1.0.8",
             "isSubcollection": true
         }
     }
 
 
-6. Retrieve VS information
----------------------------
 
-**Request**
+|labmodule|\.\ |labnum|\.3. List an AFM policies rules
+------------------------------------------------------
 
-:: 
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         GET
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+     
+     | **Headers**
+     
+     ::
+     
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
 
 **Example Response**
 
-::
+.. NOTE:: There will be no rules listed in the newly created policy.  Rules are populated in the ``"items": []`` sub collection.
+
+.. code-block:: rest
+    :emphasize-lines: 4
 
     {
-        "kind": "tm:ltm:virtual:virtualstate",
-        "name": "hackazon_vs",
-        "partition": "Common",
-        "fullPath": "/Common/hackazon_vs",
-        "generation": 10785,
-        "selfLink": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs?ver=13.0.0",
-        "addressStatus": "yes",
-        "autoLasthop": "default",
-        "cmpEnabled": "yes",
-        "connectionLimit": 0,
-        "destination": "/Common/10.1.10.20:80",
-        "enabled": true,
-        "gtmScore": 0,
-        "ipProtocol": "tcp",
-        "mask": "255.255.255.255",
-        "mirror": "disabled",
-        "mobileAppTunnel": "disabled",
-        "nat64": "disabled",
-        "pool": "/Common/hackazon_pool",
-        "poolReference": {
-            "link": "https://localhost/mgmt/tm/ltm/pool/~Common~hackazon_pool?ver=13.0.0"
-        },
-        "rateLimit": "disabled",
-        "rateLimitDstMask": 0,
-        "rateLimitMode": "object",
-        "rateLimitSrcMask": 0,
-        "serviceDownImmediateAction": "none",
-        "source": "0.0.0.0/0",
-        "sourceAddressTranslation": {
-            "type": "automap"
-        },
-        "sourcePort": "preserve",
-        "synCookieStatus": "not-activated",
-        "translateAddress": "enabled",
-        "translatePort": "enabled",
-        "vlansDisabled": true,
-        "vsIndex": 9,
-        "policiesReference": {
-            "link": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs/policies?ver=13.0.0",
-            "isSubcollection": true
-        },
-        "profilesReference": {
-            "link": "https://localhost/mgmt/tm/ltm/virtual/~Common~hackazon_vs/profiles?ver=13.0.0",
-            "isSubcollection": true
+        "kind": "tm:security:firewall:policy:rules:rulescollectionstate",
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules?ver=13.1.0.8",
+        "items": []
+    }
+
+|labmodule|\.\ |labnum|\.4. Add a default deny rule to a policy
+----------------------------------------------------------------
+
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         POST
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+		{
+			"name": "default_deny",
+			"fullPath": "default_deny",
+			"action": "drop",
+			"ipProtocol": "any",
+			"iruleSampleRate": 1,
+			"log": "no",
+			"status": "enabled",
+			"destination": { }
+			"place-before": "none"
+		}
+	 
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 3-4, 7-12
+
+    {
+        "kind": "tm:security:firewall:policy:rules:rulesstate",
+        "name": "default_deny",
+        "fullPath": "default_deny",
+        "generation": 11464,
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/default_deny?ver=13.1.0.8",
+        "action": "drop",
+        "ipProtocol": "any",
+        "iruleSampleRate": 1,
+        "log": "no",
+        "status": "enabled",
+        "destination": {},
+        "source": {
+            "identity": {}
         }
     }
 
-7. Validate the virtual server
--------------------------------
+|labmodule|\.\ |labnum|\.5. Add an address list rule to a policy
+----------------------------------------------------------------
 
-Click on the Hackazon bookmark in the Chrome toolbar and validate that the Hackazon web site is now accessible.
+An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` endpoint with a body containing a new rule will add the rule to the firewall policy.  The status of the rule can be specified when the POST is made.
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         POST
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+		{
+			"name": "allow_google-dns",
+			"fullPath": "allow_google-dns",
+			"action": "accept",
+			"ipProtocol": "any",
+			"iruleSampleRate": 1,
+			"log": "no",
+			"status": "enabled",
+			"placeBefore": "default_deny",
+			"destination": {
+				"addressLists": [ 
+				"/Common/google-dns_address_list" 
+				] 
+			}
+		}
+  2) Copy the newly created rule name **allow_google-dns** and populate the **{{afm_policy_rule}}** Postman environment variable.
+
+
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 3-4, 7-21
+
+    {
+        "kind": "tm:security:firewall:policy:rules:rulesstate",
+        "name": "allow_google-dns",
+        "fullPath": "allow_google-dns",
+        "generation": 13210,
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.1.0.8",
+        "action": "accept",
+        "ipProtocol": "any",
+        "iruleSampleRate": 1,
+        "log": "no",
+        "status": "enabled",
+        "destination": {
+            "addressLists": [
+            "/Common/google-dns_address_list"
+            ],
+            "addressListsReference": [
+            {
+                "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~allow_google-dns?ver=13.0.0"
+            }
+            ]
+        },
+        "source": {
+            "identity": {}
+        }
+    }
+
+|labmodule|\.\ |labnum|\.6. Disable a Policy rule
+-------------------------------------------------
+
+An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}`` endpoint with a body containing a name of an existing rule can set the ``"status": "disabled"`` to deactivate a single rule.
+
+.. Hint::  
+  1) Send a **Request** with the following details.
+     
+     | **Method**
+     
+     ::
+     
+         PATCH
+     
+     | **URL**
+     
+     ::
+     
+         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
+     
+     | **Headers**
+     
+     ::
+     
+          Content-Type: application/json
+	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+     
+     | **Body**
+	 
+     ::
+     
+		{
+			"status": "disabled"
+		}
+
+**Example Response**
+
+.. code-block:: rest
+    :emphasize-lines: 11
+
+    {
+        "kind": "tm:security:firewall:policy:rules:rulesstate",
+        "name": "allow_google-dns",
+        "fullPath": "allow_google-dns",
+        "generation": 11470,
+        "selfLink": "https://localhost/mgmt/tm/security/firewall/policy/~Common~global_default_deny/rules/allow_google-dns?ver=13.1.0.8",
+        "action": "accept",
+        "ipProtocol": "any",
+        "iruleSampleRate": 1,
+        "log": "no",
+        "status": "disabled",
+        "destination": {
+            "addressLists": [
+                "/Common/google-dns_address_list"
+            ],
+            "addressListsReference": [
+                {
+                    "link": "https://localhost/mgmt/tm/security/firewall/address-list/~Common~google-dns_address_list?ver=13.1.0.8"
+                }
+            ]
+        },
+        "source": {
+            "identity": {}
+        }
+    }
+
+.. NOTE::
+    - Repeat step 1.3.3 to verify the rule has been disabled.

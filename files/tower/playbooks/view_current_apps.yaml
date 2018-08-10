@@ -1,0 +1,26 @@
+---
+- name: Update Tenant
+  hosts: bigip
+  gather_facts: false
+  connection: local
+
+  tasks:
+
+    ##### AS3 GET ##### 
+  - name: URI GET Tenant
+    uri:
+       url: "https://{{ inventory_hostname }}/mgmt/shared/appsvcs/declare/{{tenant}}"
+       method: "GET"
+       user: "admin"
+       password: "admin"
+       validate_certs: no
+       body_format: json
+       return_content: yes
+    register: as3state
+
+  ### Update Local File from BIGIP
+  - name: Current configuration for {{tenant}}
+    debug:
+      var: as3state.json.{{tenant}}
+
+      

@@ -16,9 +16,10 @@ and ready to use.
 Task 1 - Run a f5-newman-wrapper Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Return to, or open an SSH session as described in the :ref:`previous lab <lab1_3_1>`
-    If you need to launch the container once more, follow the instructions in this :ref:`previous lab <lab1_2_1>` 
-    and log in as snops
+#. Return to, or open an SSH session as described in the 
+   :ref:`previous lab <lab1_3_1>`.  If you need to launch the container once
+   more, follow the instructions in this :ref:`previous lab <lab1_2_1>` 
+   and log in as snops
 #. Run ``cd f5-postman-workflows/local``
 #. Run ``cp ../workflows/Wrapper_Demo_1.json .``
 #. Edit the ``Wrapper_Demo_1.json`` file with ``vim`` and enter the ``10.1.1.10`` for
@@ -157,12 +158,12 @@ Task 1 - Run a f5-newman-wrapper Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_build"
           }
         ]

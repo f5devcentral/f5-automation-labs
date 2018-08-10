@@ -5,193 +5,234 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Provisioning ASM
-==============================================
+Module |labmodule|\, Lab \ |labnum|\: Deploy app to dev environment (Dave)
+===========================================================================
 
-Overview
---------
+Background:
+~~~~~~~~~~~
 
-In this lab, the iControl REST API will be used to provision a module on the BIG-IP.  More specifically, the Application Security Manager (ASM) module will be provisioned for use in **Module 3: Configuring ASM (Application Security Module)**.
+Security team has created some security policies templates, those were built based on the F5 templates with some modifications to the specific enterprise.
+In this lab we don't cover the 'how to' of the security templates, instead we focus on the operational side and the workflows.
 
-Specific Instructions
----------------------
+The Tasks are split between the two roles:
+ - SecOps
+ - Dave - A persona from the 'end to end' team; a team that's responsible for the application code and running it in production.
 
-Prior to performing the steps below, validate the **{{module}}** Postman environment variable.  The **{{module}}** should be set to **asm**.
+Lab scenario:
+~~~~~~~~~~~~~
 
-Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+**New Application** - App3 is being developed, the app is an e-commerce site.
+Our code is ready to go into 'dev' environment, for our lab there are only two environments - dev and prod (reflected by BIG-IP's).
+Dave should deploy the new code into a dev environment that is exactly the same as the production environment. After the Application
+is deployed we need to run some testing; fuctional and security.
 
-.. ATTENTION:: Some response content has been removed for brevity.
+.. Note:: Pipeline is broken to dev and prod for lab simplicity,
+   it is broken up to two for a better lab flow.
 
-1. Deprovision AFM module
---------------------------
+.. Note:: OUT OF SCOPE - A major part of the app build process is out of scope for this lab,
+   building the app code and publishing it as a container to the registry. this process is done using DOCKERHUB.
 
-This request is will serve as an example of how to deprovision a BIG-IP module.
+Task |labmodule|\.\ |labnum|\.1.1 - Review Dave's repo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Request**
+- **Make sure you've completed the setup section from the beginning of this module.**
 
-:: 
+|labmodule|\.\ |labnum|\.1.1.1 View git branches within the application repo:
+******************************************************************************
 
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/afm
+On the container CLI type the following command to view git branches:
 
-**Headers**
+.. code-block:: bash
 
-:: 
+   cd /home/snops/f5-rs-app3
+    git branch
 
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+The app repository has two branches, ``dev`` and ``master``. We are now working on the ``dev`` branch.
 
-**Body**
+.. Note:: The lab contains two environments, dev and prod.
+   The dev environment deploys the code on the dev branch,
+   the prod environment deploys the code on the master branch.
 
-::
+|labmodule|\.\ |labnum|\.1.1.2 View files in the application repo:
+*******************************************************************
 
-    {
-        "level":"none"
-    }
+On the container CLI type the following commands to view the files in the repo:
 
-**Example Response**
+.. code-block:: bash
 
-.. code-block:: rest
-    :emphasize-lines: 9
+   ls
 
-    {
-        "kind": "tm:sys:provision:provisionstate",
-        "name": "afm",
-        "fullPath": "afm",
-        "generation": 10714,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/afm?ver=13.0.0",
-        "cpuRatio": 0,
-        "diskRatio": 0,
-        "level": "none",
-        "memoryRatio": 0
-    }
+- Application code exist under the 'all-in-one-hackazon' folder.
+- Infrastructure code is maintained in the 'iac_parameters.yaml' file.
+
+|labmodule|\.\ |labnum|\.1.1.3 explore the infrastructure as code parameters file:
+***********************************************************************************
+
+.. code-block:: bash
+
+   more iac_parameters.yaml
+
+The infrastructure environment is deployed using Ansible playbooks that were built by devops/netops.
+Those playbooks are being controlled by jenkins which takes the iac_parameters.yaml file and uses it as parameters for the playbooks.
+
+- This enables Dave to control the deployment of the security policies from his repo, as we will see.
 
 
-2. Retrieve all module provision states
-----------------------------------------
+Task |labmodule|\.\ |labnum|\.1.2 - Deploy dev Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Request**
+.. Note:: Jenkins can be configured to run the dev pipeline based on code change in dave's app repo (git commits).
+   In this lab we are manually starting the Full stack pipeline in Jenkins to visualize the process.
 
-:: 
+|labmodule|\.\ |labnum|\.1.2.1 Open Jenkins:
+********************************************
 
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision
+- From the Window jumphost open Chrome and browse to the  ``Jenkins`` bookmark
 
-**Headers**
+  :guilabel:`username:` ``snops`` , :guilabel:`password:` ``default``
 
-:: 
 
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+.. Note:: When you open jenkins you should will see some jobs that have started running automatically, jobs that contain: 'Push a WAF policy',
+          this happens because jenkins monitors the repo and start the jobs (Polling/git commits). *you can cancel the jobs or let them fail*.
 
-**Example Response**
 
-.. NOTE:: The **asm** module is currently provisioned for **none** while the **ltm** module is provisioned for **nominal**.
+|labmodule|\.\ |labnum|\.1.2.2 Start the "Full stack pipeline":
+*****************************************************************
+* In jenkins open the "Agility devSecOps - f5-rs-app3-dev" folder, the lab jobs are all in this folder
+  we will start by deploying a dev environment, you will start a pipeline that creates a few jobs around our application service
 
-.. code-block:: rest
-    :emphasize-lines: 13, 24
 
-    {
-        "kind": "tm:sys:provision:provisioncollectionstate",
-        "selfLink": "https://localhost/mgmt/tm/sys/provision?ver=13.0.0",
-        "items": [
-            {
-                "kind": "tm:sys:provision:provisionstate",
-                "name": "asm",
-                "fullPath": "asm",
-                "generation": 5609,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
-                "cpuRatio": 0,
-                "diskRatio": 0,
-                "level": "none",
-                "memoryRatio": 0
-            },
-            {
-                "kind": "tm:sys:provision:provisionstate",
-                "name": "ltm",
-                "fullPath": "ltm",
-                "generation": 1,
-                "selfLink": "https://localhost/mgmt/tm/sys/provision/ltm?ver=13.0.0",
-                "cpuRatio": 0,
-                "diskRatio": 0,
-                "level": "nominal",
-                "memoryRatio": 0
-            }
-        ]
-    }
+  |jenkins010|
 
-3. Retrieve single module provision state
-------------------------------------------
+* click on the 'f5-rs-app3-dev' folder, here you can see all of the relevant jenkins jobs for the dev environment.
 
-**Request**
+  |jenkins020|
 
-:: 
+* click on 'Service deployment pipeline' , that's the pipeline view for this same folder.
 
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+  |jenkins030|
 
-**Headers**
+* click on 'run' to start the dev environment pipeline.
 
-:: 
+  |jenkins040|
 
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
 
-**Example Response**
 
-.. NOTE:: The **asm** module is currently not provisioned.
+Task |labmodule|\.\ |labnum|\.1.3 - Review the deployed environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: rest
-    :emphasize-lines: 9
+.. Note:: Jenkins doesn't automatically refresh the page, either manually refresh to see the progress, or click on the 'ENABLE AUTO REFRESH' on the upper right side.
 
-    {
-        "kind": "tm:sys:provision:provisionstate",
-        "name": "asm",
-        "fullPath": "asm",
-        "generation": 5609,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
-        "cpuRatio": 0,
-        "diskRatio": 0,
-        "level": "none",
-        "memoryRatio": 0
-    }
+|labmodule|\.\ |labnum|\.1.3.1 Review jobs output:
+****************************************************
 
-4. Provision ASM module
-------------------------
+* You can review the output of each job while its running, click on the small :guilabel:`console output` icon as shown in the screenshot:
 
-The **asm** module is provisioned using an HTTP PATCH with a body containing a provisioning level to the REST endpoint for ``mgmt/tm/sys/provision/{{module}}``.
+  |jenkins053|
 
-**Request**
+|labmodule|\.\ |labnum|\.1.3.2 Let the jobs run until the pipeline finishes:
+********************************************************************************
 
-:: 
+* Wait until all of the jobs have finished (turned green and the app-test one is red ).
 
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+  |jenkins055|
 
-**Headers**
 
-:: 
+|labmodule|\.\ |labnum|\.1.3.3 Login to the BIG-IP:
+*****************************************************
 
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
+- From the Windows Jumphost open the bookmark in Chrome for `BIG-IP A GUI`
+- username: :guilabel:`admin`
+- password: :guilabel:`admin`
 
-**Body**
+Explore the objects that were created
 
-.. code-block:: rest
-    :emphasize-lines: 2
+- A new Virtual Server and associated objects
+- A new imported ASM policy for owasptop10
 
-    {
-        "level":"nominal"
-    }
+.. Note:: All BIG-IP objects are created in a new partition, rs_App3, so to view you will need to change to this partition in the upper right hand corner of BIG-IP GUI.
 
-**Example Response**
 
-.. NOTE:: The **asm** module has been provisioned with a **level** of **nominal**.
+|labmodule|\.\ |labnum|\.1.3.4 Access the App:
+****************************************************
 
-.. code-block:: rest
-    :emphasize-lines: 9
+- Open a tab in Chrome and browse to http://10.1.10.6
 
-    {
-        "kind": "tm:sys:provision:provisionstate",
-        "name": "asm",
-        "fullPath": "asm",
-        "generation": 10636,
-        "selfLink": "https://localhost/mgmt/tm/sys/provision/asm?ver=13.0.0",
-        "cpuRatio": 0,
-        "diskRatio": 0,
-        "level": "nominal",
-        "memoryRatio": 0
-    }
+  |hackazone010|
+
+
+|labmodule|\.\ |labnum|\.1.3.5 Summary - Jobs roles:
+*******************************************************
+
+B1 - push a WAF policy:
++++++++++++++++++++++++
+- Deploys the 'application specific' profiles, for example: DOSL7, waf policy
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo. (which waf policy to use, dosl7 parameters)
+- Ansible playbook takes the parameters and uses them to deploy a configuration to the BIG-IP using the F5 supported ansible modules and API's.
+
+B2 - RS-AS3 service:
+++++++++++++++++++++
+- Deploys the 'service definition' uses AS3 Declaration
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters from the application repo.
+- Ansible playbook takes the parameters and uses them to deploy a configuration to the BIG-IP using the F5 supported ansible modules and API's.
+- AS3 turns the service definition into objects on the BIG-IP
+
+B3 - app-test:
+++++++++++++++
+- Send HTTP requests to the application to test it
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters
+- Ansible playbook takes the parameters and uses them to run HTTP requests to our APP.
+
+B4  - rs-attacks:
++++++++++++++++++
+- Test app vulnerabilities
+- Jenkins runs a shell command that kicks off an ansible playbook with parameters
+- Ansible playbook takes the parameters and uses them to run HTTP requests to our APP.
+
+
+Task |labmodule|\.\ |labnum|\.1.4 - Go over the test results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|labmodule|\.\ |labnum|\.1.4.1 View the test results:
+*********************************************************
+
+* The deployment process failed because not all of the application tests completed successfully.
+  Click on the console output of ``app-test`` to review the job
+
+  |jenkins053|
+
+
+|labmodule|\.\ |labnum|\.1.4.2 Identify the WAF blocked page response:
+**************************************************************************
+
+Scroll to the bottom of the console page, you should see a response with :guilabel:`Request Rejected`, and the failure reason as :guilabel:`Unexpected response returned`
+
+- This is an indication that ASM has blocked the request; in our case it is a false positive.
+
+
+  |jenkins056|
+
+.. Note:: In this lab, SecOps uses the same WAF policy template for many apps.
+   We don't want to create a 'snowflake' WAF policy, so with this failure Dave will escalate to SecOps.
+   That ensures that the setting will be reviewed and if needed the policy template will get updated.
+
+
+.. |jenkins010| image:: images/jenkins010.png
+
+.. |jenkins020| image:: images/jenkins020.png
+
+.. |jenkins030| image:: images/jenkins030.png
+
+.. |jenkins040| image:: images/jenkins040.png
+
+.. |jenkins050| image:: images/jenkins050.png
+
+.. |jenkins055| image:: images/jenkins055.png
+
+.. |jenkins053| image:: images/jenkins053.png
+
+.. |jenkins056| image:: images/jenkins056.png
+
+.. |slack040| image:: images/slack-040.png
+
+.. |hackazone010| image:: images/hackazone010.png

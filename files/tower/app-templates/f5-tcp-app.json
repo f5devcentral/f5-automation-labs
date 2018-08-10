@@ -1,0 +1,35 @@
+{
+	"class": "Tenant",
+	"A3": {
+		"class": "Application",
+		"template": "tcp",
+		"serviceMain": {
+			"class": "Service_TCP",
+			"virtualAddresses": [
+				"110.1.20.121"
+			],
+			"virtualPort": 1344,
+			"pool": "svc_pool"
+		},
+		"svc_pool": {
+			"class": "Pool",
+			"monitors": [{
+				"use": "icap_monitor"
+			}],
+			"members": [{
+				"servicePort": 1344,
+				"serverAddresses": [
+                    "10.1.10.100",
+                    "10.1.10.101"
+				]
+			}]
+		},
+		"icap_monitor": {
+			"class": "Monitor",
+			"monitorType": "tcp",
+			"send": "OPTIONS icap://icap.example.net/ ICAP/1.0\r\nUser-Agent: f5-ADC\r\n\r\n",
+			"receive": "ICAP/1.0 200 OK",
+			"adaptive": false
+		}
+	}
+}

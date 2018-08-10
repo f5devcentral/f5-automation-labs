@@ -4,14 +4,14 @@ BIG-IP Basics (optional)
 ------------------------
 
 Just in case you're new to the F5 BIG-IP platform (or need a refresher) we've
-included some links and videos below that will help get you started.  
+included some links and videos below that will help get you started.
 
 What is BIG-IP
 ^^^^^^^^^^^^^^
 
 .. raw:: html
 
-    <iframe width="600" height="315" src="http://www.youtube.com/embed/D6J_j7HdkV8?rel=0" frameborder="0" gesture="media" allowfullscreen></iframe>
+    <iframe width="600" height="315" src="https://www.youtube.com/embed/D6J_j7HdkV8?rel=0" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 *Source: https://devcentral.f5.com/articles/lightboard-lessons-what-is-big-ip-26793*
 
@@ -56,7 +56,7 @@ HA Proxy to BIG-IP Quick Start
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you're already familiar with HA Proxy, learning F5 BIG-IP is straightforward
-once you learn the associated F5 terminology. 
+once you learn the associated F5 terminology.
 
 Here is a list of common HA Proxy configuration terminology and its F5 equivalent:
 
@@ -84,13 +84,13 @@ NGINX to BIG-IP Quick Start
 If you are already familiar with NGINX, learning F5 BIG-IP will be
 straightforward once you learn the F5 terminology.
 
-NGINX administrators usually use multiple files and leverage the include 
-command in their config to break down the config and make it easier to 
+NGINX administrators usually use multiple files and leverage the include
+command in their config to break down the config and make it easier to
 manage. F5 leverages *Profiles* which can be applied to a *Virtual Server*.
 
-NGINX uses in-band (passive) health monitors which can be enabled on F5 through 
-the creation of an *inband monitor*. BIG-IP also supports the use of active 
-health monitors, which will poll the pool member periodically.  Both can be 
+NGINX uses in-band (passive) health monitors which can be enabled on F5 through
+the creation of an *inband monitor*. BIG-IP also supports the use of active
+health monitors, which will poll the pool member periodically.  Both can be
 used together for better monitoring of your services.
 
 F5 BIG-IP supports control-plane and data-plane programmability with:
@@ -99,13 +99,13 @@ F5 BIG-IP supports control-plane and data-plane programmability with:
 
 - TCL through the use of iRules and iApp Templates
 
-A lot of the manual configuration and scripting steps that are required with NGINX 
+A lot of the manual configuration and scripting steps that are required with NGINX
 are supported more easily through various config parameters and profiles in BIG-IP.
 By leveraging the control-plane programmability features this class covers you can
 achieve full automation of your services with the BIG-IP platform.
 
 F5 BIG-IP is designed to be a full proxy by default.  In most cases there is no
-need to tune TCP & HTTP buffering like you would on NGINX (i.e. using 
+need to tune TCP & HTTP buffering like you would on NGINX (i.e. using
 ``proxy_buffering``).  This is because the default settings have been optimized
 and can adapt to most situations.
 
@@ -135,4 +135,4 @@ Here is a list of common NGINX configuration terminology and its F5 equivalent:
 | location & proxy_pass            | LTM HTTP Policy Option                     |
 +----------------------------------+--------------------------------------------+
 | Proxy Cache                      | Web Acceleration Policy                    |
-+----------------------------------+--------------------------------------------+ 
++----------------------------------+--------------------------------------------+
