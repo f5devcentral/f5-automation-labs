@@ -154,24 +154,24 @@ Review the following data objects to finish this Task
 
    - Together the two objects above create a complete AS3 Declaration for Tenant1.
 
-.. code-block:: json
-   :linenos:
-   :emphasize-lines: 11-12
+   .. code-block:: console
+      :linenos:
+      :emphasize-lines: 11-12
 
-   {
-       "class": "AS3",
-       "action": "deploy",
-       "persist": true,
-       "declaration": {
-           "class": "ADC",
-           "schemaVersion": "3.2.0",
-           "id": "testid",
-           "label": "test-label",
-           "remark": "test-remark",
-           "{{tenant}}":
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.2.0",
+            "id": "testid",
+            "label": "test-label",
+            "remark": "test-remark",
+            "{{tenant}}":
                {{tenant_body}}
-       }
-   }
+          }
+      }
 
 
 #. This same logic could be followed for grouping multiple applications Together
