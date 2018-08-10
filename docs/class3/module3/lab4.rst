@@ -25,7 +25,7 @@ Task |labmodule|\.\ |labnum|\.4.1 - Merge Infrastructure as Code file from dev
 
   * Execute below code:
 
-    .. code-block:: terminal
+    .. code-block:: bash
 
        git checkout master
         git merge dev -m "changed asm policy"

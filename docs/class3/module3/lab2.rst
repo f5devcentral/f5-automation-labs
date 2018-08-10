@@ -77,11 +77,7 @@ We will now export the policy from the BIGIP A to the waf-policies repo (managed
 - The security admin role ends here, it's now up to Dave to run the pipeline again.
 
 
-
 .. |Bigip-030| image:: images/Bigip-030.PNG
-
 .. |jenkins075| image:: images/jenkins075.PNG
-
 .. |jenkins080| image:: images/jenkins080.PNG
-
 .. |Slack-030| image:: images/Slack-030.PNG

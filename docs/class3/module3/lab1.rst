@@ -42,7 +42,7 @@ Task |labmodule|\.\ |labnum|\.1.1 - Review Dave's repo
 
 On the container CLI type the following command to view git branches:
 
-.. code-block:: terminal
+.. code-block:: bash
 
    cd /home/snops/f5-rs-app3
     git branch
@@ -58,7 +58,7 @@ The app repository has two branches, ``dev`` and ``master``. We are now working 
 
 On the container CLI type the following commands to view the files in the repo:
 
-.. code-block:: terminal
+.. code-block:: bash
 
    ls
 
@@ -68,7 +68,7 @@ On the container CLI type the following commands to view the files in the repo:
 |labmodule|\.\ |labnum|\.1.1.3 explore the infrastructure as code parameters file:
 ***********************************************************************************
 
-.. code-block:: terminal
+.. code-block:: bash
 
    more iac_parameters.yaml
 
