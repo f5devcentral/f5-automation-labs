@@ -29,7 +29,7 @@ arbitrary.
 
 * From the container copy and paste:
 
-.. code-block:: terminal
+.. code-block:: bash
 
    git config --global user.email "John@example.com"
     git config --global user.name "John Doe"
@@ -41,10 +41,10 @@ arbitrary.
 - Check the branches and which is the active branch (command below)
 - You should be in the 'dev' branch, the files you see belong to the dev branch
 
-.. code-block:: terminal
+.. code-block:: bash
 
    cd /home/snops/f5-rs-app3
-    git branch
+   git branch
 
 |labmodule|\.\ |labnum|\.3.1.3 Update the Infrastructure as Code parameters file:
 **********************************************************************************
@@ -58,10 +58,10 @@ Once we modify the file we then need to add the file to git and commit.
 
 * From the container copy and paste:
 
-.. code-block:: terminal
+.. code-block:: bash
 
    git add iac_parameters.yaml
-    git commit -m "changed asm policy"
+   git commit -m "changed asm policy"
 
 
 |dev-cmd-010|

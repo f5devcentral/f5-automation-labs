@@ -66,5 +66,5 @@ components:
    :maxdepth: 2
    :glob:
 
-   labinfo/postman
-   module*/module*
+   postman
+   getting-started

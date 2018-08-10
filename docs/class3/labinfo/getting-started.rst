@@ -9,7 +9,7 @@ on the linux jumphost in UDF, run the following command to start the container,
 the will attach a volume from the linux host to the container
 
 
-.. code-block:: terminal
+.. code-block:: bash
 
     sudo docker run -v config:/home/snops/host_volume -p 2222:22 -p 10000:8080 -it --rm f5usecases/f5-rs-container
 
@@ -21,7 +21,7 @@ log in as jenkins (root password is 'default')
 
 jenkins user is used so that the config changes we do are available to jenkins
 
-.. code-block:: terminal
+.. code-block:: bash
 
    su root -c "su jenkins"
    
@@ -30,7 +30,7 @@ Create the SSH keys, the SSH key will be used when creating EC2 instances.  we w
 
 Copy credentilas and paramaters files from the host folder.  
 
-.. code-block:: terminal
+.. code-block:: bash
 
    ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
    cp /home/snops/host_volume/f5-rs-global-vars-vault.yaml /home/snops/f5-rs-global-vars-vault.yaml
@@ -40,7 +40,7 @@ Copy credentilas and paramaters files from the host folder.
 configure your personal information in the global parameters file. 
 for the username use your student#, put your actual 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    echo password > ~/.vault_pass.txt
    ansible-vault edit --vault-password-file ~/.vault_pass.txt /home/snops/f5-rs-global-vars-vault.yaml
@@ -54,7 +54,7 @@ Configure jenkins and reload it
 
 the following script will configure jenkins with your information and reload it. 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    ansible-playbook --vault-password-file ~/.vault_pass.txt /home/snops/f5-rs-jenkins/playbooks/jenkins_config.yaml
 
@@ -81,40 +81,40 @@ start the dev environment
 in jenkins open the 'DevSecOps - Lab - App2' folder', the lab files are all in this folder 
 we will start by deploying a dev environment, you will start a pipeline that creates a full environment in AWS. 
 
-.. image:: /docs/solutions/devsecops/images/jenkins010.PNG
+.. image:: images/jenkins010.PNG
    :width: 800 px
    :align: center
    
 click on the 'f5-rs-app2-dev' folder.
 here you can see all of the relevant jenkins jobs for the dev environment.
 
-.. image:: /docs/solutions/devsecops/images/jenkins020.PNG
+.. image:: images/jenkins020.PNG
    :width: 800 px
    :align: center
 
 click on 'Full stack deployment' , that's the pipeline view for the same folder. 
 
-.. image:: /docs/solutions/devsecops/images/jenkins030.PNG
+.. image:: images/jenkins030.PNG
    :width: 800 px
    :align: center
    
 click on 'run' to start the dev environment pipeline. 
 
-.. image:: /docs/solutions/devsecops/images/jenkins040.PNG
+.. image:: images/jenkins040.PNG
    :width: 800 px
    :align: center
 
 
 you can review the output of each job while its running, click on the small 'console output' icon as shown in the screenshot:
 
-.. image:: /docs/solutions/devsecops/images/jenkins050.PNG
+.. image:: images/jenkins050.PNG
    :width: 800 px
    :align: center
    
    
 wait until all of the jobs have finished (turned green). 
 
-.. image:: /docs/solutions/devsecops/images/jenkins060.PNG
+.. image:: images/jenkins060.PNG
    :width: 800 px
    :align: center
 
@@ -123,7 +123,7 @@ go to the 'builds' channel.
 use the search box on the upper right corner and filter by your username (student#). 
 jenkins will send to this channel the bigip and the application address. 
 
-.. image:: /docs/solutions/devsecops/images/Slack-040.PNG
+.. image:: images/Slack-040.PNG
    :width: 800 px
    :align: center
 
@@ -157,7 +157,7 @@ try to access the app using the ip provided in the slack channel - that's the El
 after ignoring the ssl error (because the certificate isn't valid for the domain) you should get to the Hackazone mainpage
 
 
-.. image:: /docs/solutions/devsecops/images/hackazone010.PNG
+.. image:: images/hackazone010.PNG
    :width: 800 px
    :align: center
 
@@ -171,7 +171,7 @@ you should see a suggestion on 'High ASCII characters in headers' , examine the 
 accept the suggestion.
 
 
-.. image:: /docs/solutions/devsecops/images/Bigip-040.PNG
+.. image:: images/Bigip-040.PNG
    :width: 800 px
    :align: center
 
@@ -181,13 +181,13 @@ apply the policy. we will now export the policy to the git repo and start the au
 
 go back to jenkins, under the 'f5-rs-app2-dev' there is a job that will export the policy and save it to the git repo - 'SEC export waf policy'
 
-.. image:: /docs/solutions/devsecops/images/jenkins075.PNG
+.. image:: images/jenkins075.PNG
    :width: 800 px
    :align: center
    
 click on this job and choose 'Build with Parameters' from the left menu. 
 
-.. image:: /docs/solutions/devsecops/images/jenkins080.PNG
+.. image:: images/jenkins080.PNG
    :width: 800 px
    :align: center
 
@@ -198,7 +198,7 @@ click on 'build'
 check the slack channel - you should see a message about the new security policy that's ready. 
 this illustrates how chatops can help between different teams. 
 
-.. image:: /docs/solutions/devsecops/images/Slack-030.PNG
+.. image:: images/Slack-030.PNG
    :width: 800 px
    :align: center
 
@@ -211,14 +211,14 @@ ssh into the contianer, make sure you are connected as user 'jenkins'
 go to the application git folder. check which branches are there and what is the active branch. (git branch) 
 you should be on the 'dev' branch. the files you see belong to the dev branch. 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    cd /home/snops/f5-rs-app2
    git branch
    
 Configure your information in git, this information is used by git (in this lab we use local git so it only has local meaning) 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    git config --global user.email "you@example.com"
    git config --global user.name "Your Name"
@@ -226,13 +226,13 @@ Configure your information in git, this information is used by git (in this lab 
  
 edit the iac_parameters.yaml file to point the deployment to the new ASM policy (linux-high-v01). then add the file to git and commit 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    vi iac_parameters.yaml 
    git add iac_parameters.yaml
    git commit -m "changed asm policy"
 
-.. image:: /docs/solutions/devsecops/images/dev-cmd-010.PNG
+.. image:: images/dev-cmd-010.PNG
    :width: 800 px
    :align: center
    
@@ -248,7 +248,7 @@ this concludes the tests in the 'dev' environment. we are now ready to push the 
 we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy. 
 on the /home/snops/f5-rs-app2 folder:
 
-.. code-block:: terminal
+.. code-block:: bash
  
    git checkout master
    git merge -m "changed asm policy"
@@ -282,7 +282,7 @@ ssh into the contianer, make sure you are connected as user 'jenkins'
 go to the application git folder. check which branches are there and what is the active branch. (git branch) 
 you should be on the 'dev' branch. the files you see belong to the dev branch. 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    cd /home/snops/f5-rs-app2
    git checkout dev
@@ -300,7 +300,7 @@ proactive_autometed_attack_prevention: "always"
 
 add the file to git and commit 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    vi iac_parameters.yaml 
    git add iac_parameters.yaml
@@ -313,13 +313,13 @@ jenkins takes the parametes from the git repo and uses them to deploy/update the
 
 log on to the dev bigip again, check the setting on the dos profile named rs_dosl7, verify that proactive bot defense is now enabled.
 
-.. image:: /docs/solutions/devsecops/images/pbd-bigip-010.PNG
+.. image:: images/pbd-bigip-010.PNG
    :width: 800 px
    :align: center
    
 on the bigip, check the bot request log, verify that requests are being challanged
 
-.. image:: /docs/solutions/devsecops/images/pbd-bigip-020.PNG
+.. image:: images/pbd-bigip-020.PNG
    :width: 800 px
    :align: center
 
@@ -328,7 +328,7 @@ this concludes the tests in the 'dev' environment. we are now ready to push the 
 we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy. 
 on the /home/snops/f5-rs-app2 folder:
 
-.. code-block:: terminal
+.. code-block:: bash
  
    git checkout master
    git merge -m "enabled proactive bot defense"
@@ -354,7 +354,7 @@ ssh into the contianer, make sure you are connected as user 'jenkins'
 go to the application git folder. check which branches are there and what is the active branch. (git branch) 
 you should be on the 'dev' branch. the files you see belong to the dev branch. 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    cd /home/snops/f5-rs-app2
    git checkout dev
@@ -372,7 +372,7 @@ login_password_encryption: "enabled"
 
 add the file to git and commit 
 
-.. code-block:: terminal
+.. code-block:: bash
 
    vi iac_parameters.yaml 
    git add iac_parameters.yaml
@@ -385,16 +385,16 @@ jenkins takes the parametes from the git repo and uses them to deploy/update the
 
 log on to the dev bigip again, check the setting on the FPS profile.
 
-.. image:: /docs/solutions/devsecops/images/ale-bigip-010.PNG
-   :width: 800 px
-   :align: center
+.. images/pdb-bigip-010.PNG
+..   :width: 800 px
+..   :align: center
    
 
 this concludes the tests in the 'dev' environment. we are now ready to push the changes to production. 
 we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy. 
 on the /home/snops/f5-rs-app2 folder:
 
-.. code-block:: terminal
+.. code-block:: bash
  
    git checkout master
    git merge -m "enabled login password encryption"

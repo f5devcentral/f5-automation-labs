@@ -44,5 +44,6 @@ Expected time to complete: **3 hours**
    :glob:
 
    labinfo/labinfo
+   labinfo/getting-started
    labinfo/postman
    module*/module*

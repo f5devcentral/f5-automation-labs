@@ -21,7 +21,7 @@ Initial setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Once you have connected to the container, edit the encrypted global parameters file `/home/snops/host_volume/f5-rs-global-vars-vault.yaml` by copying and pasting:
 
- .. code-block:: terminal
+ .. code-block:: bash
 
     ansible-vault edit --vault-password-file /var/jenkins_home/.vault_pass.txt /home/snops/host_volume/f5-rs-global-vars-vault.yaml
 
@@ -34,7 +34,7 @@ Initial setup
 
   For example:
 
-  .. code-block:: terminal
+  .. code-block:: bash
 
    vault_dac_user: "rosenboim"
     vault_dac_email: "rosenboim@f5.com"
@@ -48,7 +48,7 @@ Initial setup
 - Run the container startup script with the following command:
 - The script will download the repos again and copy files from the host volume you just populated to the relevant directories
 
- .. code-block:: terminal
+ .. code-block:: bash
 
     /snopsboot/start
 

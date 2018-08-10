@@ -80,8 +80,6 @@ Perform the following steps to complete this task:
    :maxdepth: 2
    :glob:
 
-   module*/module*
-
 
 .. |postman-icon| image:: /images/postman-icon.png
    :scale: 70%
