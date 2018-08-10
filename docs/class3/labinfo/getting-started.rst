@@ -81,40 +81,40 @@ start the dev environment
 in jenkins open the 'DevSecOps - Lab - App2' folder', the lab files are all in this folder 
 we will start by deploying a dev environment, you will start a pipeline that creates a full environment in AWS. 
 
-.. image:: images/jenkins010.PNG
+.. image:: images/jenkins010.png
    :width: 800 px
    :align: center
    
 click on the 'f5-rs-app2-dev' folder.
 here you can see all of the relevant jenkins jobs for the dev environment.
 
-.. image:: images/jenkins020.PNG
+.. image:: images/jenkins020.png
    :width: 800 px
    :align: center
 
 click on 'Full stack deployment' , that's the pipeline view for the same folder. 
 
-.. image:: images/jenkins030.PNG
+.. image:: images/jenkins030.png
    :width: 800 px
    :align: center
    
 click on 'run' to start the dev environment pipeline. 
 
-.. image:: images/jenkins040.PNG
+.. image:: images/jenkins040.png
    :width: 800 px
    :align: center
 
 
 you can review the output of each job while its running, click on the small 'console output' icon as shown in the screenshot:
 
-.. image:: images/jenkins050.PNG
+.. image:: images/jenkins050.png
    :width: 800 px
    :align: center
    
    
 wait until all of the jobs have finished (turned green). 
 
-.. image:: images/jenkins060.PNG
+.. image:: images/jenkins060.png
    :width: 800 px
    :align: center
 
@@ -123,7 +123,7 @@ go to the 'builds' channel.
 use the search box on the upper right corner and filter by your username (student#). 
 jenkins will send to this channel the bigip and the application address. 
 
-.. image:: images/Slack-040.PNG
+.. image:: images/slack-040.png
    :width: 800 px
    :align: center
 
@@ -157,7 +157,7 @@ try to access the app using the ip provided in the slack channel - that's the El
 after ignoring the ssl error (because the certificate isn't valid for the domain) you should get to the Hackazone mainpage
 
 
-.. image:: images/hackazone010.PNG
+.. image:: images/hackazone010.png
    :width: 800 px
    :align: center
 
@@ -171,7 +171,7 @@ you should see a suggestion on 'High ASCII characters in headers' , examine the 
 accept the suggestion.
 
 
-.. image:: images/Bigip-040.PNG
+.. image:: images/bigip-040.PNG
    :width: 800 px
    :align: center
 
@@ -181,13 +181,13 @@ apply the policy. we will now export the policy to the git repo and start the au
 
 go back to jenkins, under the 'f5-rs-app2-dev' there is a job that will export the policy and save it to the git repo - 'SEC export waf policy'
 
-.. image:: images/jenkins075.PNG
+.. image:: images/jenkins075.png
    :width: 800 px
    :align: center
    
 click on this job and choose 'Build with Parameters' from the left menu. 
 
-.. image:: images/jenkins080.PNG
+.. image:: images/jenkins080.png
    :width: 800 px
    :align: center
 
@@ -198,7 +198,7 @@ click on 'build'
 check the slack channel - you should see a message about the new security policy that's ready. 
 this illustrates how chatops can help between different teams. 
 
-.. image:: images/Slack-030.PNG
+.. image:: images/slack-030.png
    :width: 800 px
    :align: center
 
@@ -232,7 +232,7 @@ edit the iac_parameters.yaml file to point the deployment to the new ASM policy 
    git add iac_parameters.yaml
    git commit -m "changed asm policy"
 
-.. image:: images/dev-cmd-010.PNG
+.. image:: images/dev-cmd-010.png
    :width: 800 px
    :align: center
    
@@ -313,13 +313,13 @@ jenkins takes the parametes from the git repo and uses them to deploy/update the
 
 log on to the dev bigip again, check the setting on the dos profile named rs_dosl7, verify that proactive bot defense is now enabled.
 
-.. image:: images/pbd-bigip-010.PNG
+.. image:: images/pbd-bigip-010.png
    :width: 800 px
    :align: center
    
 on the bigip, check the bot request log, verify that requests are being challanged
 
-.. image:: images/pbd-bigip-020.PNG
+.. image:: images/pbd-bigip-020.png
    :width: 800 px
    :align: center
 
@@ -385,7 +385,7 @@ jenkins takes the parametes from the git repo and uses them to deploy/update the
 
 log on to the dev bigip again, check the setting on the FPS profile.
 
-.. images/pdb-bigip-010.PNG
+.. images/pdb-bigip-010.png
 ..   :width: 800 px
 ..   :align: center
    

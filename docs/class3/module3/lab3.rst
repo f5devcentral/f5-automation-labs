@@ -93,4 +93,4 @@ This concludes the tests in the 'dev' environment.
 We are now ready to push the changes to production.
 
 
-.. |dev-cmd-010| image:: images/dev-cmd-010.PNG
+.. |dev-cmd-010| image:: images/dev-cmd-010.png

@@ -217,22 +217,22 @@ Scroll to the bottom of the console page, you should see a response with :guilab
    That ensures that the setting will be reviewed and if needed the policy template will get updated.
 
 
-.. |jenkins010| image:: images/jenkins010.PNG
+.. |jenkins010| image:: images/jenkins010.png
 
-.. |jenkins020| image:: images/jenkins020.PNG
+.. |jenkins020| image:: images/jenkins020.png
 
-.. |jenkins030| image:: images/jenkins030.PNG
+.. |jenkins030| image:: images/jenkins030.png
 
-.. |jenkins040| image:: images/jenkins040.PNG
+.. |jenkins040| image:: images/jenkins040.png
 
-.. |jenkins050| image:: images/jenkins050.PNG
+.. |jenkins050| image:: images/jenkins050.png
 
-.. |jenkins055| image:: images/jenkins055.PNG
+.. |jenkins055| image:: images/jenkins055.png
 
-.. |jenkins053| image:: images/jenkins053.PNG
+.. |jenkins053| image:: images/jenkins053.png
 
-.. |jenkins056| image:: images/jenkins056.PNG
+.. |jenkins056| image:: images/jenkins056.png
 
-.. |slack040| image:: images/Slack-040.PNG
+.. |slack040| image:: images/slack-040.png
 
-.. |hackazone010| image:: images/hackazone010.PNG
+.. |hackazone010| image:: images/hackazone010.png
