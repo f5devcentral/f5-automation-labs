@@ -171,7 +171,7 @@ you should see a suggestion on 'High ASCII characters in headers' , examine the 
 accept the suggestion.
 
 
-.. image:: images/bigip-040.PNG
+.. image:: images/bigip-040.png
    :width: 800 px
    :align: center
 
