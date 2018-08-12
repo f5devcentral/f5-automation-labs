@@ -8,4 +8,5 @@ F5 Programmability Training - Index
 
     intro
     class*/class*
+    miniclass/miniclass.rst
     howtos/howtos.rst
