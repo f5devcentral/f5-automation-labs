@@ -1,4 +1,4 @@
-Mini Class 1 - Getting Started with F5 Puppet
+Mini Class 3 - Getting Started with F5 Puppet
 =============================================
 
 This class covers the following topics:
