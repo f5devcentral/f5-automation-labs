@@ -271,9 +271,8 @@ extlinks = {
     'raw_github_url':( ("https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/%s%%s" % git_branch_name), None)
 }
 
-# def setup(app):
-#     if on_rtd:
-#         app.add_stylesheet( "css/my_theme.css" )
+def setup(app):
+    app.add_stylesheet( "css/f5_agility_theme.css" )
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -307,7 +306,7 @@ extlinks = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = []
+html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
