@@ -67,7 +67,8 @@ Task 1 - Open and Run a Collection
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
-   environment is set to ``F5 Programmability: Class 1``:
+   environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
+   is selected:
 
    |lab-5-4|
 
@@ -113,6 +114,13 @@ powerful, they are also time-consuming to build from scratch.  As we move into
 Module 2 you will see the importance of leveraging **Abstraction**
 and **Declarative Interfaces** to minimize the amount of time spent on building
 Imperative Workflows.
+
+.. raw:: html
+
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/WxAirVNyo6I" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+*Source: https://youtu.be/WxAirVNyo6I*
+
 
 .. |postman-runner-button| image:: /images/postman-runner-button.png
 .. |lab-5-1| image:: images/lab-5-1.png

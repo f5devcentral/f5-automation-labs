@@ -19,7 +19,7 @@ Conclusion
             label = "Class 1: Introduction to Automation & Orchestration"
             bigip [label="BIG-IP"]
             iapps [label="iApp Templates&#92;n& Deployments"]
-            iwf [label="iWorkflow Service&#92;nTemplates,&#92;nCatalog & Deployment"]
+            iwf [label="AS3 Templates & Deployment"]
             {
                 rank=same
                 rest_basics [label="REST Basics"]

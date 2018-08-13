@@ -42,7 +42,7 @@ all the correct attributes already populated.
    guide by using the **Lab Guide** bookmark in Chrome.
 
 #. Open Google Chrome and navigate to the following bookmarks: **BIG-IP
-   A GUI**, **BIG-IP B GUI** and **iWorkflow GUI**. Bypass any SSL errors that
+   A GUI**, and **BIG-IP B GUI**. Bypass any SSL errors that
    appear and ensure you see the login screen for each bookmark.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps

@@ -194,7 +194,7 @@ Perform the following steps to change the ``root`` user password:
 
    |lab-3-5|
 
-#. **Repeat the procedure above to change the password back to** ``default``
+#. **Repeat the procedure above to change the password back to** ``default``.
 
 Perform the following steps to change the **admin** user password:
 
@@ -209,7 +209,7 @@ Perform the following steps to change the **admin** user password:
 #. You can verify the password has been changed by opening an SSH session
     OR by logging into TMUI (HTTP GUI) to BIG-IP A in a Chrome browser tab.
 
-#. **Repeat the procedure above to change the password back to** ``admin``
+#. **Repeat the procedure above to change the password back to** ``admin``.
 
 .. |lab-3-1| image:: images/lab-3-1.png
 .. |lab-3-2| image:: images/lab-3-2.png

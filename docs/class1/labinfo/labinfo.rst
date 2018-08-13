@@ -20,7 +20,7 @@ traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
 -  2 x F5 BIG-IP VE (v12.1.x)
--  1 x F5 iWorkflow VE (v2.3)
+-  1 x Ansible Tower Server
 -  1 x Linux Server
 -  1 x Linux Jumphost
 
@@ -75,12 +75,10 @@ components:
      - ``admin/admin``
 
        ``root/default``
-   * - iWorkflow
+   * - Ansible Tower
      - 10.1.1.12
      - N/A
      - ``admin/admin``
-
-       ``root/default``
    * - Linux Server
      - 10.1.1.15
      - **Internal:** 10.1.10.100-103
@@ -90,7 +88,16 @@ Lab Environments
 ----------------
 
 In order to complete this class you will need to utilize a specific
-**Lab Environment**.  You can consume this training in a couple of
+**Lab Environment**.
+
+.. raw:: html
+
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/DljGxqQzeAs" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+*Source: https://youtu.be/DljGxqQzeAs*
+
+
+You can consume this training in a couple of
 ways:
 
 - Pre-built Environment using a Ravello Blueprint

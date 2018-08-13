@@ -49,7 +49,7 @@ diagram:
 
 To implement this workflow we need to consider how Input Variables are passed
 to each item in the workflow.  Previously, we saw that the following variables
-are required to the the ``1_Authenticate`` folder in the
+are required to the ``1_Authenticate`` folder in the
 ``BIGIP_API_Authentication`` collection:
 
 - ``bigip_mgmt``
@@ -683,12 +683,12 @@ Task 3 - Run the Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_a_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_a_build"
           },
           {
@@ -698,12 +698,12 @@ Task 3 - Run the Workflow
           },
           {
             "type": "any",
-            "value": "12.1.1",
+            "value": "13.1.0.8",
             "key": "bigip_b_version"
           },
           {
             "type": "any",
-            "value": "1.0.196",
+            "value": "0.0.3",
             "key": "bigip_b_build"
           }
         ]

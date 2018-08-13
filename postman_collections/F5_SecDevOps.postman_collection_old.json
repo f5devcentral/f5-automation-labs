@@ -1,0 +1,1067 @@
+{
+	"info": {
+		"_postman_id": "b53e15bf-4660-4463-9a1d-a1c74eaca6b1",
+		"name": "F5 SecDevOps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "c5c908b7-c999-4740-94b2-aed15ffacd8c",
+			"name": "Module 1, Lab 1.0 - API Authentication",
+			"item": [
+				{
+					"_postman_id": "2e02ed6b-5467-4ef3-a926-4912362bc62f",
+					"name": "1.1.0.1. Get Authentication Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"\",\n    \"password\":\"\",\n    \"loginProviderName\":\"tmos\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/shared/authn/login",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"authn",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "4c4f7893-d8f7-485f-9529-c0f26c49e75f",
+					"name": "1.1.0.2. Verify Authentication Token Works",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/ltm",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "3da12743-eda9-4f0d-bd39-378d8d196873",
+					"name": "1.1.0.3. Set Authentication Token Timeout",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timeout\":\"\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/shared/authz/tokens/{{big_ip_a_auth_token}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"authz",
+								"tokens",
+								"{{big_ip_a_auth_token}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "2b08c5ec-2a71-4659-b7ec-7eb2e1ab88e7",
+			"name": "Module 1, Lab 1.1 - Provisioning AFM",
+			"item": [
+				{
+					"_postman_id": "0cb1b412-0bb3-4e79-8602-dee1a2950b64",
+					"name": "1.1.1. Determine license state",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/license",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"license"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2212762a-b905-44ff-8a47-fb3bf4f2d0b1",
+					"name": "1.1.2. Retrieve all module provision states",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"provision"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "03695e6f-ba7e-43c5-b1c1-b64daf28a318",
+					"name": "1.1.3. Retrieve a single module provision state",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"provision",
+								"{{module}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "88d950f9-a17c-46e9-9fb7-d72ff8b81bfb",
+					"name": "1.1.4. Provision a module",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"level\":\"\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"provision",
+								"{{module}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "932931b3-af70-4491-b999-145e77be45b3",
+			"name": "Module 1, Lab 2 - Create AFM Address List",
+			"item": [
+				{
+					"_postman_id": "42174187-22ab-4fc3-9e68-06402d1f4d39",
+					"name": "1.2.1. List all AFM Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "ac8a6358-1e95-4ddd-8f2d-658d16715027",
+					"name": "1.2.2. List all Address Lists",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "70d2276d-8e46-44d5-bac2-e98cdd7c496e",
+					"name": "1.2.3. Create an Address List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"addresses\": [\n    {\n      \"name\": \"8.8.4.4\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"address-list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "c2511986-7b17-40f0-a1a6-b22d8835db65",
+					"name": "1.1.2.4. List a Single Address List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"address-list",
+								"{{afm_address_list}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "7d60ff6c-cac4-451c-af74-6aefc6da0b32",
+					"name": "1.1.2.5. Update an Address List",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"addresses\": [\n    {\n      \"name\": \"\"\n    },\n    {\n      \"name\": \"\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"address-list",
+								"{{afm_address_list}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "8a31cfb6-9056-4a8d-96ea-17eb0aebe419",
+			"name": "Module 1, Lab 3 - Create AFM Policy",
+			"item": [
+				{
+					"_postman_id": "876bfce7-26e1-4d2b-990d-3361afd62a42",
+					"name": "1.3.1. List all AFM Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "7f310f70-c526-4318-9a7a-ee27f586b7f3",
+					"name": "1.3.2. Create an AFM Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "56b19550-f933-437d-89d1-c0749a6a8b2e",
+					"name": "1.3.3. List a single AFM policies rules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy",
+								"{{afm_policy}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2666a864-0a62-4666-b37a-6a25b94a538c",
+					"name": "1.3.4. Add a default deny rule to a policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"fullPath\": \"default_deny\",\n  \"action\": \"drop\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"destination\": { },\n  \"place-before\": \"none\"\n}\n"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy",
+								"{{afm_policy}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "c7796e1b-0638-4115-9948-32742ddd920d",
+					"name": "1.3.5. Add an address list rule to a policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"\",\n  \"fullPath\": \"allow_google-dns\",\n  \"action\": \"accept\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"placeBefore\": \"default_deny\",\n  \"destination\": {\n    \"addressLists\": [\n      \"/Common/google-dns_address_list\"\n    ]\n  }\n}\n"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy",
+								"{{afm_policy}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "6e3fe4f3-8b7f-40de-be92-add2f0a773f5",
+					"name": "1.3.6. Disable a policy rule",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\":\"\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"security",
+								"firewall",
+								"policy",
+								"{{afm_policy}}",
+								"rules",
+								"{{afm_policy_rule}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "814a7ced-21d4-4e16-b087-5bb9a6afe55c",
+			"name": "Module 2, Lab 1 - Provision ASM",
+			"item": [
+				{
+					"_postman_id": "6657043e-e816-4ac5-b6dd-18a4c5cf4417",
+					"name": "2.1.1. Retrieve single module provision state",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"provision",
+								"{{module}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "1770e399-ae1e-4d41-8bb1-9d70f2959f6f",
+					"name": "2.1.2. Provision asm",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"level\":\"\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"provision",
+								"{{module}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "26c4e35a-8938-493d-82fb-c29d370f5e13",
+			"name": "Module 2, Lab 2 - Interact with ASM",
+			"item": [
+				{
+					"_postman_id": "f664cc12-9006-4502-8c28-bbdb31d60bb9",
+					"name": "2.2.1. Retrieve ASM Information",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"{{module}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "4659b7b2-0138-4c31-aef1-4561d77372a5",
+			"name": "Module 2, Lab 3 - Create ASM Policy",
+			"item": [
+				{
+					"_postman_id": "005b9802-89e9-4de6-8f34-4d09a6fd5a7f",
+					"name": "2.3.1. Retrieve ASM Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "9040f8c6-ed10-4f78-923d-b8258d37e55b",
+					"name": "2.3.2.0. Create an ASM Parent Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/javascript"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"\",\n  \"description\":\"Test ASM policy\",\n  \"applicationLanguage\":\"utf-8\",\n  \"type\":\"parent\",\n  \"enforcementMode\":\"transparent\",\n  \"protocolIndependent\":\"true\",\n  \"learningMode\":\"disabled\",\n  \"serverTechnologyName\": \"Unix/Linux\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2a53014f-a7f7-4f34-ba9d-d0e7e9a17005",
+					"name": "2.3.2.1. Retrieve an ASM Parent Policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "48422b71-ba88-44ce-98da-ec6c5508e11e",
+					"name": "3.0. Create ASM child policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/javascript"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"\",\n  \"description\":\"Test ASM policy\",\n  \"applicationLanguage\":\"utf-8\",\n  \"parentPolicyName\": \"/Common/API_ASM_POLICY_TEST\",\n  \"enforcementMode\":\"transparent\",\n  \"protocolIndependent\":\"true\",\n  \"learningMode\":\"automatic\",\n  \"learningSpeed\":\"slow\",\n  \"serverTechnologyName\": \"Apache Tomcat\"\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2efcb75d-76ed-4f70-8636-c71224a191b8",
+					"name": "3.1. Retrieve ASM child policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "d97ae55b-4fe3-47b4-8c05-c8affa7309e4",
+			"name": "Module 2, Lab 4 - Apply ASM Policy to VS",
+			"item": [
+				{
+					"_postman_id": "d4cc1116-7a10-4e28-b410-041e5faac68b",
+					"name": "1. Apply ASM Policy to VS",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"virtualServers\":[\"\"]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d3ea4fbc-541a-4c2d-af1e-be720a830bb3",
+					"name": "2. Retrieve ASM policy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "8810bb61-acd4-4bfc-b611-d34e9b5d7a74",
+					"name": "3. Remove ASM policy from VS",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"virtualServers\":[\"\"]\n}"
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "15778823-f3af-48cc-ae30-f5f7dcb6fa3a",
+					"name": "4. Delete ASM policy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-F5-Auth-Token",
+								"value": "{{big_ip_a_auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}",
+							"protocol": "https",
+							"host": [
+								"{{big_ip_a_mgmt}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"asm",
+								"policies",
+								"{{asm_policy_hash}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

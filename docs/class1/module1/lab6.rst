@@ -85,7 +85,8 @@ Perform the following steps to build the cluster:
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
    ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
-   environment is set to ``F5 Programmability: Class 1``:
+   environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
+   is selected:
 
    |lab-6-1|
 
@@ -109,6 +110,13 @@ Perform the following steps to build the cluster:
 .. NOTE::
    If you are have an issue with your authentication token issue please return to
    Lab 1.3, Step 8 in Postman to set your admin password to ``admin``.
+
+
+.. raw:: html
+
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/je1fCb1qBZE" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+*Source: https://youtu.be/je1fCb1qBZE*
 
 Task 2 - Verify the Built Cluster in BIG-IP GUI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

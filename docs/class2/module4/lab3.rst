@@ -9,7 +9,7 @@ Lab |labmodule|\.\ |labnum| - Destroying a Service with Jenkins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the last module we will teardown the Application Service we've been working with today.
-Destruction of an Application Services is an easy step often overlooked because
+Destruction of Application Services is an easy step often overlooked because
 of the perceived complexity it takes to reverse engineer a build. Utilizing Postman and the
 f5-newman-wrapper this is actually a very easy step, and will be incredibly valuable
 to teams seeking to strive for better Application Lifecycle Management. Because
@@ -24,7 +24,7 @@ Task 1 - Teardown the Application via Jenkins
 
    |module-4-1|
 
-#. Repeat steps 2 & 3 of the first module, creating the final Jenkins job
+#. Repeat steps 2 & 3 of task 1 in the previous lab to create the final Jenkins job
 
 #. Create and Execute ``module_4_jenkinsfile_5`` to destroy our Application Service
 
@@ -69,7 +69,7 @@ Task 1 - Teardown the Application via Jenkins
 
 
 #. Verify the on the BIG-IP the service has been Deleted
-#. Class 2 is Complete! if you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK
+#. Class 2 is Complete! If you have extra time, please give us feedback! https://www.surveymonkey.com/r/W2SZDYK
 
 .. |module-4-1| image:: images/module-4-1.png
    :scale: 70%

@@ -20,7 +20,7 @@ nwdiag {
             // label = "Management";
             // color = "#27B331";
             color = "#6CDB7A";
-            "iWorkflow" [address = "10.1.1.12"];
+            "Ansible Tower" [address = "10.1.1.12"];
             "Linux\nJumphost" [address = "10.1.1.20"];
       }
 

@@ -1,5 +1,5 @@
-Lab 3.2: Create a Declarative Service Catalog
----------------------------------------------
+Lab 3.2: Deploying Templates with Tower
+---------------------------------------
 
 .. graphviz::
 
@@ -22,186 +22,195 @@ Lab 3.2: Create a Declarative Service Catalog
       }
    }
 
-In the introduction to this module we discussed the importance of using
-**Service Templates** to build a **Declarative Service Catalog**.  This
-lab will show to create a few examples of **Service Templates**
-(Templates).  It's important to understand that while the packaged examples
-used in this lab are great starting points, you should use them as a starting
-point for creating your own **Service Catalog** that meets the requirements of
-your environment.
+Tower is a powerfull tool which can be tailored to your specific environment.
+The following example **Job Templates** are meant to act as demonstrations of
+what is possible. These are a great starting point for developing your own
+**Service Catalog** and Templates that meet the requirements of your workflow.
 
-We will explore the first example in depth so you can gain an understanding
-of how the templates are structured.  For the remaining templates you can
-just repeat the steps used with the first example.
+In this first example we will show the underlying Ansible objects that make the
+Catalog work such as **Playbooks** and **Jinja2 Templates**. These files are
+stored within the **GIT Repo** associated with the **Project** in Tower. You
+may browse the additional files used in the lab by viewing them in the link
+below.
 
-The templates used in this lab all have a version number appended to the name
-(Example: ``f5-http-lb-v1.0``).  It's important that this pattern is followed
-in your environment.  Explicitly versioning the templates allows for migration
-between template versions in a stable manner.  Without versioning any changes
-to the template could result in *every* deployment associated with the template
-being modified at the same time.  With versioning, the application owner or F5
-administrator can choose to either migrate all deployments at the same time OR
-perform the migration on a per deployment manner.
+   .. parsed-literal::
 
-Task 1 - Create the Service Templates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      :raw_github_url:`/files/tower/playbooks`
 
-In this task we will use the Runner to quickly create our sample Service
-Templates.
+This lab covers the example of deploying a single AS3 declaration that is stored
+within a GIT Repository. We will be treating the JSON files in this Repository
+as **Source-of-Truth**. In an enterprise environment, you would update
+these files via Orchestration and use Tower to push them to the BIG-IPs AS3
+**Declarative** interface. For simplicity a few different example files were
+pre-populated into the repository throughout this module.
+
+.. NOTE:: We will be switching user accounts throughout the Labs. Pay attention
+   to Template differences between Admin and Ops Users.
+
+Task 1 - Deploy HTTPs Tower Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will be running through an example Template and will come back
+in Task2 and explain the flow Tower took to get the end result.
 Perform the following steps to complete this task:
 
-#. Click the :guilabel:`Runner` button at the top left of your Postman window.
+#. Open the Ansible Tower GUI in Chrome by navigating to ``https://10.1.1.12``
+   and login using ``T1-admin-user``/``default`` credentials.
 
-#. Select :menuselection:`F5 Programmability: Class 1 -->
-   Lab 3.2 - Create a Declarative Service Catalog` folder.
-
-#. Select the ``F5 Programmability: Class 1`` environment
-
-#. Click the :guilabel:`Run Lab 3.2 - Crea...` button and wait for the run
-   to complete.  Verify no errors were encountered.
-
-#. Open the iWorkflow GUI in Chrome by navigating to ``https://10.1.1.12``
-
-#. Expand the :guilabel:`Service Templates` panel and verify all the templates
-   have been created:
+#. Click :guilabel:`TEMPLATES` in the top menu bar of tower. Notice that there
+   are only two templates now visible as you are no longer logged in as the
+   ``Tower`` admin but as the ``Tenant1`` admin. In this Role you are able to
+   view what is currently deployed within your Tenant and also POST a new
+   declaration to **AS3** for your Tenant.
 
    |lab-2-1|
 
-Task 2 - Explore the f5-http-lb-v1.0 Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Select the ``Rocket-Ship Icon`` next to the Template titled
+   ``Tenant1_Deploy_Config``.
 
-Now that we've created our Templates let's review one of them in depth.
+#. The modal that comes up is the **Survey** we referred to earlier. This takes
+   in the variables which will be passed to the **Ansible Playbook**. This
+   example takes two parameters.
 
-Perform the following steps to complete this task:
-
-#. Open the ``f5-http-lb-v1.0`` Template by double clicking it:
+   - Tenant: This is limited by the **RBAC** policies that were deployed
+     through Postman. You are not able to change this value which reduces
+     the blast radius of changes made to your Tenant (Tenant1).
+   - Template FIle: This is the **source-of-truth** JSON file that we will be
+     deploying. For now set this to ``f5-https-offload-app``.
 
    |lab-2-2|
 
-#. Let's examine the :guilabel:`Properties` pane.
-
-#. Select :guilabel:`All` in the :guilabel:`Displayed Parameters` section:
+#. Select the :guilabel:`LAUNCH` button to deploy this configuration.
+#. Tower will bring you to a a page to view the **Job** running. Wait for the
+   ``Status`` located in the top left to become ``Green`` and ``Successful``.
+   - At this point the JSON file was deployed to the BIG-IP.
 
    |lab-2-3|
 
-#. This pane shows detailed information about the Template such as:
-
-   - iApp Template Name & Version the Service Template is using
-   - The Connectors/Clouds that may use this template
-   - A control that toggles which Parameters are displayed in the pane
-   - The input Sections and Fields (collapsed in screenshot) for the iApp Template
+#. Open a Chrome window/tab to the BIG-IP A GUI at ``https://10.1.1.10`` and
+   login with ``admin/admin`` credentials. Navigate to
+   :menuselection:`Local Traffic --> Virtual Servers`. Make sure to select
+   ``Tenant1`` Partition in the top right hand corner to view your AS3 Tenant.
+   You should see the Application that was created with AS3.
 
    |lab-2-4|
 
-#. In the :guilabel:`Sections` portion of the pane, find the
-   :guilabel:`Virtual Server Listener & Pool Configuration` section.  Click the
-   triangle to expand the section:
+Task 2 - Review Templates/Playbooks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now that we ran our first Tower Job, lets review what actually happened and how
+Tower was able to deploy a full configuration with so little input. Keep in mind
+that the JSON file referenced within the previous Template was considered to be
+``Tenant1's`` source-of-truth. Major changes to the Tenant would be performed
+out of band from this current process and pushed to the GIT Repo. We will cover
+**PATCH** changes in upcoming Tasks and labs.
+
+Review the following data objects to finish this Task
+
+#. The template we ran called :guilabel:`Tenant1_Deploy_Config` calls an Ansible
+   :guilabel:`Playbook` called :guilabel:`tenant_template.yaml`. The key points
+   to notice are:
+
+   - :guilabel:`tenant_body`: This is where Ansible is looking up the base AS3
+     application.
+
+   - :guilabel:`body`: This object refers to a :guilabel:`Jinja2` template. This
+     allows ansible to place variables provided in the Tower **Survey** into the
+     AS3 declaration. We will review the Jinja2 template in the next step.
+
+.. code-block:: yaml
+   :linenos:
+   :emphasize-lines: 8,19
+
+   ---
+   - name: Update Tenant
+     hosts: bigip
+     gather_facts: false
+     connection: local
+
+     vars:
+       tenant_body: "{{ lookup('url', 'https://<<repo-location>>/{{ f5_template }}.json', split_lines=False) }}"
+       uri_method: "POST"
+     tasks:
+       ##### AS3 POST #####
+     - name: URI POST Tenant
+       uri:
+         url: "https://{{ inventory_hostname }}/mgmt/shared/appsvcs/declare"
+         method: "{{ uri_method }}"
+         user: "admin"
+         password: "admin"
+         validate_certs: no
+         body: "{{ lookup('template', '../j2/tenant_base.j2') }}"
+         body_format: json
+
+
+#. Lets examine the :guilabel:`Jinja2` template that is called by the playbooks
+   below.
+
+   - :guilabel:`tenant`: This is where the Tenant/Partition is inserted into
+     the AS3 playbook. This prevents the user from editing someone elses Tenant.
+
+   - :guilabel:`tenant_body`: The JSON Source-of-Truth is inserted here.
+
+   - Together the two objects above create a complete AS3 Declaration for Tenant1.
+
+   .. code-block:: console
+      :linenos:
+      :emphasize-lines: 11-12
+
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.2.0",
+            "id": "testid",
+            "label": "test-label",
+            "remark": "test-remark",
+            "{{tenant}}":
+               {{tenant_body}}
+          }
+      }
+
+
+#. This same logic could be followed for grouping multiple applications Together
+   under 1 declartion. Testing has been performed to demonstrate AS3s ability
+   to deploy hundreds of Applications through a single declaration.
+
+
+Task 3 - Viewing the state of AS3 on the BIG-IP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The other :guilabel:`Template` available to our T1-admin-user is
+``Tenant1_View_config``. This is a simple :guilabel:`Playbook` which will perform
+a ``GET``` against AS3 for the current users ''Tenant'' and display it within
+the Job output.
+
+#. Navigate to :guilabel:`Templates` in the GUI and select the
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Deploy_Config``.
 
    |lab-2-5|
 
-#. You can now see all the input fields associated with this section of the
-   iApp template.  These fields are defined by the iApp Template itself.  In
-   the previous lab, when we installed the App Services iApp Template, iWorkflow
-   created a internal representation of the input fields used in the iApp
-   template.  iWorkflow then allows you to create a template that:
-
-   - Define which fields are ``Tenant Editable``, therefore exposed to the
-     Tenant interface
-
-   - Setting a default value for the field
-
-     - If the field is NOT ``Tenant Editable`` the default value is sent
-       during a Service Deployment, however, the Tenant cannot see or modify
-       the value
-
-     - If the field is ``Tenant Editable`` the default value is populated
-       for the Tenant and the Tenant may edit it during a Service Deployment
+#. This Template does not have a survey associated with it. When the Job
+   Completes you will be able to click directly on the JSON output to review the
+   current AS3 Config.
 
    |lab-2-6|
 
-   In the case of the fields shown in the above example:
-
-   - ``pool__DefaultPoolIndex``: A value of ``0`` will be sent during a
-     deployment
-   - ``pool__MemberDefaultPort``: Nothing will be sent
-   - ``pool__addr``: Tenant will be allowed to populate the field with a value
-   - ``pool__mask``: A value of ``255.255.255.255`` will be sent
-   - ``pool__port``: Tenant will see ``80`` and can change the field
-
-   By combining different combinations of **Default Values** and
-   ``Tenant Editable`` fields you can create many different types of templates
-   to match your requirements.
-
-   .. NOTE:: The App Services iApp Template has been specifically designed to
-      integrate with iWorkflow and Automation use cases.  While any iApp
-      template that is properly versioned can be used with iWorkflow, you should
-      consider whether the template was designed for Automation use cases or
-      not.  Many iApp templates were designed for a GUI or Wizard based
-      interaction through the BIG-IP TMUI GUI.  As a result those templates may
-      not present a good API interface.
-
-#. In addition to simple text fields, iApp templates also support table based
-   input.  The App Services iApp uses this capability to allow input of more
-   complex data such as Pools, Pool Members and Layer 7 Routing Policies.
-   iWorkflow allows you to have granular control over how the Tenant can
-   interact with a table.  Let's find the ``pool__Pools`` table and click the
-   triangle to expand it:
-
-   .. NOTE:: To accomodate screen size this screenshot does not show all the
-      columns in the table.
-
    |lab-2-7|
 
-   The highlighted sections in the image above correspond to the capabilities
-   in the list below:
 
-   - [1] Definition of the :guilabel:`Min` and :guilabel:`Max` number of rows in a
-     table
+Task 4 - Explore Additional Source-of-Truth Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-     - Example: Define a fixed number or limit for the number of Pools a Tenant
-       can deploy
+Using the procedures above explore Deploying the other example Source-of-Truth
+files that are available within the :guilabel:`Tenant1_Deploy_Config`
+template. The table below represents what each template contains.
 
-   - [2] :guilabel:`Default Values` for each column in a table
-
-     - Example: Define a default Load Balancing Method for deployed Pools
-
-   - [3] :guilabel:`Tenant Editable` flag for each column in the table
-
-     - Example: Only allow the Tenant to control the Load Balancing Method and
-       Name of a Pool, while defaulting all other values.
-
-   - [4] :guilabel:`Default Rows` that auto-populate a desired input for the Tenant.
-     Each row can have a No Access, Read-Only or Write ACL applied.
-
-     - Example: Define a Service that allows URL Based Content Routing to only
-       two pools.
-
-       - Define 2 :guilabel:`Default Rows` in the Pools table
-       - Set the :guilabel:`Min` & :guilabel:`Max` value to 2
-
-#. Finally, to assist in designing a Tenant interface, iWorkflow allows you to
-   preview what the Tenant UI would look like for a Service Template.  To view
-   the preview, click the :guilabel:`Tenant Preview` button:
-
-   |lab-2-8|
-
-#. The preview window shows how the Tenant UI would present the Service
-   Template.  As you can see the interface is vastly simplified and only
-   :guilabel:`Tenant Editable` fields are shown.  Because the true deployment
-   details are filtered from the Tenant, the Service Deployment requires much
-   less **Domain Specific Knowledge**.  Keep in mind that while the Tenant
-   interface may be simple, you can still leverage advanced functionality in the
-   Service Template.
-
-   |lab-2-9|
-
-Task 3 - Explore the Remaining Service Templates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Using the pattern in the last task explore the other Service Templates that
-were created earlier.  A description of each Service Template is included in
-the table below.  In all cases the Template has been configured with the
-appropriate Monitors, Profiles and Options for the use case.
+.. NOTE:: Once done exploring please run the :guilabel:`Tenant1_Deploy_Config`
+   Template again with the ``f5-https-offload-app`` option as we will be using
+   that in the next section.
 
 .. list-table::
     :widths: 30 70
@@ -210,30 +219,26 @@ appropriate Monitors, Profiles and Options for the use case.
 
     * - **Service Template**
       - **Description**
-    * - ``f5-http-lb-v1.0``
+    * - ``f5-http-app``
       - HTTP Load Balancing to a Single Pool
-    * - ``f5-https-offload-v1.0``
+    * - ``f5-https-offload-app``
       - HTTPS Offload and Load Balancing to a Single Pool
-    * - ``f5-fasthttp-lb-v1.0``
-      - Performance-enhanced HTTP Load Balancing to a Single Pool
-    * - ``f5-fastl4-tcp-lb-v1.0``
-      - Generic L4 TCP Load Balancing to a Single Pool
-    * - ``f5-fastl4-udp-lb-v1.0``
-      - Generic L4 UDP Load Balancing to a Single Pool
-    * - ``f5-http-url-routing-lb-v1.0``
+    * - ``f5-http-irule-routing-app``
       - HTTP Load Balancing with URL Based Content Routing to Multiple Pools
-    * - ``f5-https-waf-lb-v1.0``
+    * - ``f5-tcp-app``
+      - Generic L4 TCP Load Balancing to a Single Pool
+    * - ``f5-udp-app``
+      - Generic L4 UDP Load Balancing to a Single Pool
+    * - ``f5-https-waf-app``
       - HTTPS Offload, Web Application Firewall Protection and Load Balancing
         to a Single Pool
 
 .. |lab-2-1| image:: images/lab-2-1.png
 .. |lab-2-2| image:: images/lab-2-2.png
-   :scale: 80%
 .. |lab-2-3| image:: images/lab-2-3.png
+   :scale: 80%
 .. |lab-2-4| image:: images/lab-2-4.png
 .. |lab-2-5| image:: images/lab-2-5.png
 .. |lab-2-6| image:: images/lab-2-6.png
-.. |lab-2-7| image:: images/lab-2-7.png
    :scale: 80%
-.. |lab-2-8| image:: images/lab-2-8.png
-.. |lab-2-9| image:: images/lab-2-9.png
+.. |lab-2-7| image:: images/lab-2-7.png

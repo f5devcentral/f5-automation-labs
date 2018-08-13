@@ -1,5 +1,5 @@
-Module 2: Abstracting Services using iApp Templates
-===================================================
+Module 2: Abstracting Services using the App Services 3 Extension
+=================================================================
 
 .. graphviz::
 
@@ -15,62 +15,60 @@ Module 2: Abstracting Services using iApp Templates
          height = .75
          label = "Provider"
          bigip [label="BIG-IP",color="palegreen"]
-         iapps [label="iApp Templates&#92;n& Deployments",color="steelblue1"]
-         iwf_templates [label="Service&#92;nTemplates"]
+         as3 [label="AS3 Extension",color="steelblue1"]
+         templates [label="Service&#92;nTemplates"]
       }
       subgraph cluster_tenant {
          style = "rounded,filled"
          color = lightgrey
          height = .75
          label = "Tenant"
-         iwf_catalog [label="Service&#92;nCatalog"]
-         iwf_deploy [label="Service&#92;nDeployment"]
+         catalog [label="Service&#92;nCatalog"]
+         deploy [label="Service&#92;nDeployment"]
       }
-      iwf_deploy -> iwf_catalog -> iwf_templates -> iapps -> bigip
+      deploy -> catalog -> templates -> as3 -> bigip
    }
 
 In this Module, we will continue working with the BIG-IP REST interface. However,
-we will now introduce F5 Declarative Interfaces built with F5 iApp Templates.
+we will now introduce F5 Declarative Interfaces built with the App Services 3 
+Extension (AS3).
 
-iApps is a user-customizable framework for deploying applications that enables
-you to templatize sets of functionality on your F5 devices. For example, you can
-automate the process of adding Virtual Servers or manage your iRules inventory
-through the use of a custom iApp Template.
+The AS3 Extension is built on top of the extensible, Node.js based iControl LX 
+framework and implements a declarative, application-centric schema for deploying
+Layer 4-7 Application Services on BIG-IP devices.
 
-iApps are commonly thought of as a Wizard style deployment helper, but they are
-actually a Declarative Interface.  When iApp Templates are created they can be
-written to accomodate API centric use cases.
+.. NOTE:: Previous versions of this class utilized an iApp Template named the
+   App Services Integration iApp.  The AS3 extension is a replacement for the
+   functionality provided by this iApp Template.
 
-When an iApp deploys, a **single** call - declaring the desired deployment -
-is processed on the BIG-IP with the correct order of operations.
-If the deployment were to fail the iApp would *automatically* rollback the
-transaction and leave the configuration unchanged. All created objects are
-associated with an Application Service Object (ASO). The ASO model identifies
-which objects belong to the iApp service deployment.  Upon service deletion,
-all service related objects are recursively deleted.
+.. NOTE:: iControl LX extensions are **not** iApp Templates.  The AS3 Extension
+   does not use the TCL based iApp framework.  Additionally, AS3 does not use 
+   an Application Service Object (ASO).
 
-We will be using the **F5 App Services Integration iApp**
-(App Services iApp for short).
+When deploying services using AS3 we will use a declarative interface and JSON
+based schema.  This *declaration* describes the desired end state of the device.
+AS3 contains a TMOS independent parser which fully validates declarations before
+any changes are made to the configuration of a BIG-IP device.  Additionally
+AS3 is:
 
-For further information about the App Services iApp see:
+- `Idempotent <https://whatis.techtarget.com/definition/idempotence>`_
+- `Atomic <https://www.techopedia.com/definition/3466/atomic-operation>`_
+- `Multi-Tenant <https://en.wikipedia.org/wiki/Multitenancy>`_
+- `Supported by F5 <https://f5.com/support/support-policies>`_
 
-- **GitHub Repository:** https://github.com/F5Networks/f5-application-services-integration-iApp
+For further information on the App Services 3 Extension see:
 
-- **User Guide:** https://devcentral.f5.com/wiki/iApp.AppSvcsiApp_userguide_userguide.ashx
+- **GitHub Repository:** https://github.com/F5Networks/f5-appsvcs-extension
 
-An overview of iApps and different iApp templates that available can be found
-at:
+- **Documentation:** http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/
 
-- https://devcentral.f5.com/iapps
+An overview of iControl LX can be found at 
+https://devcentral.f5.com/wiki/icontrollx.homepage.ashx
 
 .. NOTE:: This module requires the underlying network configuration that was
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**
    node in the cluster.  When viewing the BIG-IP A GUI it should say
    ``ONLINE (ACTIVE)`` in the upper left corner of the interface.
-
-.. NOTE:: This module deploys the configuration to BIG-IP A. iApp deployments
-   leverage the underlying config-sync mechanisms in the cluster.  Once deployed
-   on BIG-IP A, the configuration will be automatically synced to BIG-IP B.
 
    You can learn more about clustering features in this video:
 

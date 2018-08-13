@@ -5,233 +5,41 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Lab |labmodule|\.\ |labnum|\: Apply ASM Policy to VS
-====================================================
+Module |labmodule|\, Lab \ |labnum|\: Deploy the prod environment (Dave)
+===========================================================================
 
-Overview
---------
+Background:
+~~~~~~~~~~~
 
-In this lab, the previously created ASM policy will be applied to a virtual server using the iControl REST API.
+We've completed our tests in dev, both functional and security tests have passed
 
-Specific Instructions
----------------------
 
-Follow the below steps in order found in the Postman collection to complete this portion of the lab.  The requests and responses have been included below for reference.
+Task |labmodule|\.\ |labnum|\.4.1 - Merge Infrastructure as Code file from dev
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. ATTENTION:: Some response content has been removed for brevity.
+* We will now "merge" the app3 dev branch with the master branch,
+  so that the production deployment will use the correct policy.
 
-1. Apply ASM Policy to VS
---------------------------
+* Return to the f5-use-cases Container
+  * copy and paste ``cd  /home/snops/f5-rs-app3``
 
-An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with a body containing the name of a virtual server(s), in this case ``"virtualServers":["/Common/hackazon_vs"]``, will apply the ASM policy.
+  * Execute below code:
 
-**Request**
+    .. code-block:: bash
 
-::
+       git checkout master
+        git merge dev -m "changed asm policy"
 
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
+.. Note:: The merge will trigger a job in jenkins which is configured to monitor this repo - ``agility_devsecops/f5-rs-app3-prd/B1 - push a WAF policy``,
+          since the environment isn't deployed yet it will fail, either cancel the job or let it fail.
 
-**Headers**
+Task |labmodule|\.\ |labnum|\.4.2 Deploy prod:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:: 
+.. Note:: In this lab we manually deploy prod after the tests have completed. This is an easily automated task, a simple poll, or webhook could be initiated do to the same work
 
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-    
-**Body**
+* Go to the 'Agility devSecOps > f5-rs-app3-prd' folder, choose the 'Service deployment pipeline', view and run the pipeline.
 
-::
+* Open Chrome and login to our production BIG-IP at https://10.1.1.15 (admin/admin)
 
-    {
-        "virtualServers":["/Common/hackazon_vs"]
-    }
-
-**Example Response**
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "versionLastChange": " Security Policy /Common/API_ASM_POLICY_CHILD_TEST [add]: Parent Policy was set to /Common/API_ASM_POLICY_TEST.\nType was set to Security.\nEncoding Selected was set to true.\nApplication Language was set to utf-8.\nCase Sensitivity was set to Case Sensitive.\nSecurity Policy Description was set to Fundamental Policy.\nLearning Mode was set to Automatic.\nActive was set to false.\nDifferentiate between HTTP and HTTPS URLs was set to Protocol Specific.\nPolicy Name was set to /Common/API_ASM_POLICY_CHILD_TEST.\nEnforcement Mode was set to Blocking. { audit: policy = /Common/API_ASM_POLICY_CHILD_TEST, username = admin, client IP = 192.168.2.112 }",
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        },
-        "sectionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/sections?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "loginPageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/login-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "description": "Test ASM policy",
-        "fullPath": "/Common/API_ASM_POLICY_CHILD_TEST",
-        "policyBuilderParameterReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/policy-builder-parameter?ver=13.0.0"
-        },
-        "hasParent": true,
-        "partition": "Common",
-        "parentPolicyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q?ver=13.0.0"
-        },
-    }
-
-2. Retrieve ASM policy
------------------------
-
-**Request**
-
-::
-
-    GET https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-::
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "versionLastChange": "Policy Building Settings Policy Building Settings [update]: Internal Statistics have been updated { audit: policy = /Common/API_ASM_POLICY_CHILD_TEST, component = Policy Builder }",
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        }
-    }
-
-3. Remove ASM Policy from VS
------------------------------
-
-An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with a body removing the name of a virtual server(s), in this case ``"virtualServers":[""]``, will remove the ASM policy from the absent virtual serves.
-
-**Request**
-
-::
-
-    PATCH https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-:: 
-
-    Content-Type: application/json
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-    
-**Body**
-
-::
-
-    {
-        "virtualServers":[""]
-    }
-
-**Example Response**
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "versionLastChange": "Policy Building Settings Policy Building Settings [update]: Internal Statistics have been updated { audit: policy = /Common/API_ASM_POLICY_CHILD_TEST, component = Policy Builder }",
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        },
-        "sectionReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/sections?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "loginPageReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/login-pages?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "description": "Test ASM policy",
-        "fullPath": "/Common/API_ASM_POLICY_CHILD_TEST",
-        "policyBuilderParameterReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/policy-builder-parameter?ver=13.0.0"
-        },
-        "hasParent": true,
-        "partition": "Common",
-        "parentPolicyReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/JEQPVWeJcdso_rEC7Xxo6Q?ver=13.0.0"
-        }
-    }
-
-4. Delete ASM policy
----------------------
-
-An HTTP DELETE to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint will delete the ASM policy from the BIG-IP.
-
-**Request**
-
-::
-
-    DELETE https://{{big_ip_a_mgmt}}/mgmt/tm/asm/policies/{{asm_policy_hash}}
-
-**Headers**
-
-:: 
-
-    X-F5-Auth-Token: {{big_ip_a_auth_token}}
-
-**Example Response**
-
-::
-
-    {
-        "plainTextProfileReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/plain-text-profiles?ver=13.0.0",
-            "isSubCollection": true
-        },
-        "dataGuardReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/data-guard?ver=13.0.0"
-        },
-        "createdDatetime": "2017-05-30T15:45:59Z",
-        "cookieSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/cookie-settings?ver=13.0.0"
-        },
-        "versionLastChange": "Policy Building Settings Policy Building Settings [update]: Internal Statistics have been updated { audit: policy = /Common/API_ASM_POLICY_CHILD_TEST, component = Policy Builder }",
-        "name": "API_ASM_POLICY_CHILD_TEST",
-        "caseInsensitive": false,
-        "headerSettingsReference": {
-            "link": "https://localhost/mgmt/tm/asm/policies/zD8sehzULw6Ni7GJG2XwJQ/header-settings?ver=13.0.0"
-        }
-    }
+* Verify that the production BIG-IP now contains all the Services (serviceMain) and Security Policies we have worked on throughout this lab
