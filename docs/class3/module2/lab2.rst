@@ -33,13 +33,13 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -80,13 +80,13 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/server-technologies
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/server-technologies
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -140,13 +140,13 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -192,13 +192,13 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -249,13 +249,13 @@ An HTTP GET to the ``/mgmt/tm/asm/policies`` endpoint with a parameter of ``filt
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies?filter=name eq test
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies?filter=name eq test
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -306,13 +306,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/tasks/
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/tasks/
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -429,13 +429,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/tasks/export-policy
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/tasks/export-policy
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -467,13 +467,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policy-templates
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policy-templates
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -553,13 +553,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/signature-sets
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/signature-sets
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -640,13 +640,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/signature-system
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/signature-systems
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -691,13 +691,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{asm}}/attack-types
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/attack-types
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -744,13 +744,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/urls
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/urls
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |
@@ -901,13 +901,13 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/signature-sets
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/signature-sets
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
      |

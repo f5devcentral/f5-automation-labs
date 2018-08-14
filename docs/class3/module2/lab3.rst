@@ -33,13 +33,13 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -79,13 +79,13 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/ltm/profile/web-security
+         https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/profile/web-security
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -127,14 +127,14 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -221,13 +221,13 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -272,14 +272,14 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -355,13 +355,13 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
