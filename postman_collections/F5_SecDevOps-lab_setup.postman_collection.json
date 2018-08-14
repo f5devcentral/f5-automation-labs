@@ -1,0 +1,520 @@
+{
+	"id": "5bba25d2-31e9-4aa8-a106-bd66a65cbbea",
+	"name": "F5 SecDevOps - lab setup",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [],
+	"folders_order": [
+		"6e1178ed-5115-4f6d-850b-81fb899aa74a",
+		"f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+		"a221dd07-5920-449e-9bd7-e1dca61ebbcf"
+	],
+	"folders": [
+		{
+			"id": "6e1178ed-5115-4f6d-850b-81fb899aa74a",
+			"name": "Lab 0.1 - API Authentication",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "5bba25d2-31e9-4aa8-a106-bd66a65cbbea",
+			"folder": null,
+			"order": [
+				"0d2e1342-baae-4ee4-b19a-32a2bde4a4fe",
+				"78277f68-1f30-4a93-8e52-8d3d37fe7773",
+				"d70ab8f6-5725-4575-94c0-030abf8bc8e2",
+				"7724c173-63bf-48b7-8b19-e11b5713b73b"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"name": "Lab 0.2 - BIG-IP Module Provisioning",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "5bba25d2-31e9-4aa8-a106-bd66a65cbbea",
+			"folder": null,
+			"order": [
+				"8c15656b-c7b8-4f90-8a80-c9c2f3b89269",
+				"5d2b2a71-c390-4237-a5a9-db8113885ebd",
+				"d1433f1c-b0a6-4cd3-80b7-d0f55c74f8e0",
+				"f9c5bd23-dddc-4761-be28-4d289f7b9b40",
+				"4ae03ade-4ca8-48c9-b6fb-7c425b65e374",
+				"065bfaaa-e8c5-4ea2-a389-cdd23e3bc2aa"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"name": "Lab 0.3 - Build a Basic LTM Config",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "5bba25d2-31e9-4aa8-a106-bd66a65cbbea",
+			"folder": null,
+			"order": [
+				"a9c0a11e-5467-4b3b-8b29-79209a220ca8",
+				"a60f2906-f6d0-41a3-87e5-28759f69e2e3",
+				"001382f5-a073-4026-a720-ad14b297852e",
+				"421af8d8-6973-4b29-95be-c60b88b80784",
+				"07679385-c49f-47b8-9476-f29b2b3dd227",
+				"a5363812-a23d-48fc-88c3-2b7349816fbb"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "001382f5-a073-4026-a720-ad14b297852e",
+			"name": "3. Create a HTTP Profile",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/profile/http",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"hackazon_http_profile\",\n    \"insertXforwardedFor\":\"enabled\",\n    \"serverAgentName\":\"hackazon\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "065bfaaa-e8c5-4ea2-a389-cdd23e3bc2aa",
+			"name": "4. Determine license state",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/license",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "07679385-c49f-47b8-9476-f29b2b3dd227",
+			"name": "5. Create a Virtual Server",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/virtual",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"hackazon_vs\",\n    \"destination\":\"10.1.10.10:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"hackazon_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/hackazon_tcp_clientside_profile\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/hackazon_http_profile\"\n    ]\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0d2e1342-baae-4ee4-b19a-32a2bde4a4fe",
+			"name": "1. HTTP BASIC Authentication",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"basic": [
+					{
+						"key": "password",
+						"value": "admin"
+					},
+					{
+						"key": "username",
+						"value": "admin"
+					}
+				],
+				"type": "basic"
+			},
+			"events": null,
+			"folder": "6e1178ed-5115-4f6d-850b-81fb899aa74a",
+			"rawModeData": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\",\n    \"loginProviderName\":\"tmos\"\n}",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "421af8d8-6973-4b29-95be-c60b88b80784",
+			"name": "4. Create a TCP Profile",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/profile/tcp",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"hackazon_tcp_clientside_profile\",\n    \"nagle\":\"disabled\",\n    \"sendBufferSize\":\"16000\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4ae03ade-4ca8-48c9-b6fb-7c425b65e374",
+			"name": "3.3. Re-provision module",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": ""
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5d2b2a71-c390-4237-a5a9-db8113885ebd",
+			"name": "2. Retrieve single module provision state",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7724c173-63bf-48b7-8b19-e11b5713b73b",
+			"name": "4. Set Authentication Token Timeout",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/shared/authz/tokens/{{bigip-dev_auth_token}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6e1178ed-5115-4f6d-850b-81fb899aa74a",
+			"rawModeData": "{\n    \"timeout\":\"36000\"\n}",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "78277f68-1f30-4a93-8e52-8d3d37fe7773",
+			"name": "2. Get Authentication Token",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/shared/authn/login",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6e1178ed-5115-4f6d-850b-81fb899aa74a",
+			"rawModeData": "{\n    \"username\":\"admin\",\n    \"password\":\"admin\",\n    \"loginProviderName\":\"tmos\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "8c15656b-c7b8-4f90-8a80-c9c2f3b89269",
+			"name": "1. Retrieve all module provision states",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a5363812-a23d-48fc-88c3-2b7349816fbb",
+			"name": "6. Retrieve VS information",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/virtual/~Common~hackazon_vs/",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a60f2906-f6d0-41a3-87e5-28759f69e2e3",
+			"name": "2. Create a Pool",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/pool",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"hackazon_pool\",\n    \"monitor\":\"/Common/hackazon_monitor\",\n    \"members\": [\"10.1.20.10:80\"]\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a9c0a11e-5467-4b3b-8b29-79209a220ca8",
+			"name": "1. Create a HTTP Monitor",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/monitor/http",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "a221dd07-5920-449e-9bd7-e1dca61ebbcf",
+			"rawModeData": "{\n    \"name\":\"hackazon_monitor\",\n    \"send\":\"GET /\\r\\n\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d1433f1c-b0a6-4cd3-80b7-d0f55c74f8e0",
+			"name": "3.1. Provision module",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": ""
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"level\":\"nominal\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d70ab8f6-5725-4575-94c0-030abf8bc8e2",
+			"name": "3. Verify Authentication Token Works",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/ltm",
+			"description": "",
+			"data": [],
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": ""
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6e1178ed-5115-4f6d-850b-81fb899aa74a",
+			"headers": "X-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f9c5bd23-dddc-4761-be28-4d289f7b9b40",
+			"name": "3.2. Deprovision module",
+			"url": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "X-F5-Auth-Token",
+					"value": "{{bigip-dev_auth_token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "f4c5aa9c-bab8-4bf6-bcbe-a77c22e7ab01",
+			"rawModeData": "{\n    \"level\":\"none\"\n}",
+			"headers": "Content-Type: application/json\nX-F5-Auth-Token: {{bigip-dev_auth_token}}\n",
+			"pathVariables": {}
+		}
+	]
+}
