@@ -56,10 +56,10 @@ Task 1 - Create consolidated playbook
                 lb_method: "ratio-member"
                 state: "{{ state }}"
 
-            - name: Add nodes
+            - name: Create nodes
               bigip_node:
-                name: "{{ pmhost1 }}"
-                host: "{{ pmhost1}}"
+                name: "{{ item.name }}"
+                host: "{{ item.host }}"
                 state: "{{ state }}"
               loop:
                 - { name: "{{ pmhost1 }}", host: "{{ pmhost1 }}" }

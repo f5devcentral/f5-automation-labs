@@ -50,7 +50,7 @@ Task 1 - Create pool member forced offline playbook
 
 #. Verify if pool member 10.1.20.12 is ``forced offline``
 
-   - Select :menuselection:`Local Traffic --> Pools --> Pool Members --> app1_pl`
+   - Select :menuselection:`Local Traffic --> Pools --> app1_pl --> Pool Members`
 
 Task 2 - Create pool member enable playbook
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,7 +97,7 @@ Task 2 - Create pool member enable playbook
 
 #. Verify if pool member 10.1.20.12 is ``enabled``
 
-   - Select :menuselection:`Local Traffic --> Pools --> Pool Members --> app1_pl`
+   - Select :menuselection:`Local Traffic --> Pools --> app1_pl --> Pool Members`
 
    .. NOTE::
 
@@ -107,8 +107,8 @@ Task 2 - Create pool member enable playbook
      because the Ansible command (including the extra arguments) will show in
      the running process list of your Ansible controller.
 
-     The more common situations are when you are prompting for specific 
-     configuration related to something on your network. For example, your 
+     The more common situations are when you are prompting for specific
+     configuration related to something on your network. For example, your
      Playbook may be flexible enough to take a given ``region`` or ``cell``.
 
      Bonus playbook: - modify sstate and mstate to "" and pass the variables via
