@@ -11,6 +11,5 @@ In this module we will practice some of the below concepts:
    :maxdepth: 1
    :glob:
 
-   getting-started
    initial-setup
    lab*
