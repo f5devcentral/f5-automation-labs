@@ -36,14 +36,14 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -111,13 +111,13 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -163,14 +163,14 @@ An HTTP PATCH to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint with
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -240,13 +240,13 @@ An HTTP DELETE to the ``/mgmt/tm/asm/policies/{{asm_policy_hash}}`` endpoint wil
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 

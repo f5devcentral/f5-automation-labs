@@ -36,10 +36,10 @@ components:
    * - Windows Jumphost
      - 10.1.1.20
      - **Internal:** 10.1.10.20
-     - ``external_user/supernetops``
+     - ``external_user/password``
 
    * - BIG-IP DEV
-     - 10.1.1.10
+     - 10.1.1.5
      - **Internal:** 10.1.10.10
        **Internal (Float):** 10.1.10.13
        **External:** 10.1.20.10
