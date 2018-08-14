@@ -67,4 +67,3 @@ components:
    :glob:
 
    postman
-   getting-started

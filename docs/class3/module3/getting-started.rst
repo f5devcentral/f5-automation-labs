@@ -1,8 +1,8 @@
-Getting Started
-================
+Getting Started for Module 3
+============================
 
 Run the rs-container
-----------------------
+--------------------
 
 The entire lab is built from code hosted in this repo, in order to launch the lab environment you will download and run a container that has the tools we are using (ansible and jenkins) as well as the depndencies and requirements to interact with the differnet services (F5, AWS, github.. ) 
 on the linux jumphost in UDF, run the following command to start the container,
@@ -72,8 +72,8 @@ when you open jenkins you should see two jobs that have started running automati
 this happens because jenkins monitors the repo and start the jobs. you can cancel the jobs or let them fail. 
 
 
-Module 01 - WAF policy deployment and tuning
-=============================================
+Module 3.1 - WAF policy deployment and tuning
+---------------------------------------------
 
 start the dev environment
 ---------------------------
@@ -267,8 +267,8 @@ verify the security policy that's attached to the VIP.
 
 
 
-Module 02 - Autometed attack mitigation
-=========================================
+Module 3.2 - Automated attack mitigation
+-----------------------------------------
 
 Now that we have our app running in production, the app owner noticed some strange activity. some items are added to the cart but never get purchesed. the team also noticed abnormal activity that looks like web scraping. 
 
@@ -324,8 +324,8 @@ on the bigip, check the bot request log, verify that requests are being challang
    :align: center
 
 
-this concludes the tests in the 'dev' environment. we are now ready to push the changes to production. 
-we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy. 
+This concludes the tests in the 'dev' environment. we are now ready to push the changes to production. 
+we will 'merge' the app2 dev branch with the master branch so that the production deployment will use the correct policy.
 on the /home/snops/f5-rs-app2 folder:
 
 .. code-block:: bash
@@ -333,14 +333,14 @@ on the /home/snops/f5-rs-app2 folder:
    git checkout master
    git merge -m "enabled proactive bot defense"
 
-the merge will trigger a job in jenkins that's configured to monitor this repo - 'Push waf policy', open the f5-rs-app2-prd folder and navigate to the 'service deployment pipeline' , you should see the jobs running in up to a minute.  
+The merge will trigger a job in jenkins that's configured to monitor this repo - 'Push waf policy', open the f5-rs-app2-prd folder and navigate to the 'service deployment pipeline' , you should see the jobs running in up to a minute.  
 
 open the PRODUCTION bigip, check that the DOSL7 profile named rs_dosl7 has the 'proactive bot defense' enabled. 
 
 check that requests are getting challanged in the bot event log. 
 
-Module 03 - Application layer encryption 
-=========================================
+Module 3.3 - Application layer encryption 
+------------------------------------------
 
 Application is up and running, sales on the site have seen a big growth. our support center started getting complaints from customers 
 that their account is abused and they are charged with purcheses they never did. 
