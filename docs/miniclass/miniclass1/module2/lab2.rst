@@ -27,7 +27,7 @@ Task 1 - Create Vault for Credentials
         bigip_user: "admin"
         bigip_pass: "admin"
 
-      Type ``esc key`` then ``wq!`` to save and quit the editor, the file will
+      Type ``esc key`` then ``:wq`` to save and quit the editor, the file will
       automatically be encrypted for you.
 
    - Type ``cat creds.yaml`` to ensure file is encrypted.
@@ -50,7 +50,7 @@ Task 1 - Create Vault for Credentials
           hosts: bigips
           gather_facts: False
           connection: local
-  
+
           vars:
             validate_certs: no
             server: 10.1.1.245
