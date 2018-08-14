@@ -66,14 +66,6 @@ We will now export the policy from the BIGIP A to the waf-policies repo (managed
 
 - Click on ``Build``
 
-|labmodule|\.\ |labnum|\.2.2.2 Check slack channel notification :
-*******************************************************************
-
-- Check the shared slack channel, you should see a message specific to you about the new security policy that's ready.
-  This illustrates how ChatOps can help communicate between different teams.
-
-  |Slack-030|
-
 - The security admin role ends here, it's now up to Dave to run the pipeline again.
 
 

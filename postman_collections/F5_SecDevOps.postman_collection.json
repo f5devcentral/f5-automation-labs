@@ -116,7 +116,7 @@
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{big_ip_a_auth_token}}"
+								"value": "{{bigip-dev_auth_token}}"
 							}
 						],
 						"body": {
@@ -124,10 +124,10 @@
 							"raw": "{\n    \"name\":\"Lab1.8_vs\",\n    \"destination\":\"10.1.10.129:80\",\n    \"ipProtocol\":\"tcp\",\n    \"pool\":\"Lab1.8_pool\",\n    \"sourceAddressTranslation\": { \"type\":\"automap\" },\n    \"profiles\": [\n        { \"name\":\"/Common/Lab1.8_tcp_clientside\", \"context\":\"clientside\" },\n        { \"name\":\"/Common/tcp-wan-optimized\", \"context\":\"serverside\" },\n        \"/Common/Lab1.8_http\"\n    ]\n}"
 						},
 						"url": {
-							"raw": "https://{{big_ip_a_mgmt}}/mgmt/tm/sys/",
+							"raw": "https://{{bigip-dev_mgmt}}/mgmt/tm/sys/",
 							"protocol": "https",
 							"host": [
-								"{{big_ip_a_mgmt}}"
+								"{{bigip-dev_mgmt}}"
 							],
 							"path": [
 								"mgmt",
@@ -540,7 +540,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"\",\n  \"fullPath\": \"default_deny\",\n  \"action\": \"drop\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"destination\": { },\n  \"place-before\": \"none\"\n}\n"
+							"raw": "{\n  \"name\": \"\",\n  \"fullPath\": \"global_default_deny\",\n  \"action\": \"drop\",\n  \"ipProtocol\": \"any\",\n  \"iruleSampleRate\": 1,\n  \"log\": \"no\",\n  \"status\": \"enabled\",\n  \"destination\": { },\n  \"place-before\": \"none\"\n}\n"
 						},
 						"url": {
 							"raw": "https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules",
@@ -601,7 +601,7 @@
 				},
 				{
 					"_postman_id": "1a994e02-b93d-466c-abdf-65081417fe98",
-					"name": "7. Disable a policy rule",
+					"name": "6. Disable a policy rule",
 					"request": {
 						"method": "PATCH",
 						"header": [

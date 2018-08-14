@@ -34,13 +34,13 @@ In this lab, the iControl REST based API will be used to create an address list 
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -86,13 +86,13 @@ In this lab, the iControl REST based API will be used to create an address list 
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -135,20 +135,20 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
      
      ::
      
-         PATCH
+         POST
      
      | **URL**
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
@@ -199,13 +199,13 @@ To retrieve the contents of a single address list, send a HTTP GET to the ``/mgm
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
      
      | **Headers**
      
      ::
      
-    	 X-F5-Auth-Token: {{big_ip_a_auth_token}}
+    	 X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -247,14 +247,14 @@ A HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_list
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
