@@ -40,10 +40,9 @@ Bugs and enhancements can be made by opening an `issue`_ within the `GitHub`_ re
 Expected time to complete: **3 hours**
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
 
    labinfo/labinfo
-   labinfo/getting-started
    labinfo/postman
    module*/module*
