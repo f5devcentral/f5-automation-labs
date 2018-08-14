@@ -1,4 +1,4 @@
-.. |labmodule| replace:: 1
+﻿.. |labmodule| replace:: 1
 .. |labnum| replace:: 3
 .. |labdot| replace:: |labmodule|\ .\ |labnum|
 .. |labund| replace:: |labmodule|\ _\ |labnum|
@@ -31,13 +31,13 @@ Follow the below steps in order found in the Postman collection to complete this
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
      ::
      
- 	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+ 	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -85,14 +85,14 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
@@ -140,13 +140,13 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
      ::
      
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -181,28 +181,28 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
      ::
      
 		{
-			"name": "default_deny",
-			"fullPath": "default_deny",
+			"name": "global_default_deny",
+			"fullPath": "global_default_deny",
 			"action": "drop",
 			"ipProtocol": "any",
 			"iruleSampleRate": 1,
 			"log": "no",
 			"status": "enabled",
-			"destination": { }
+			"destination": { },
 			"place-before": "none"
 		}
 	 
@@ -246,14 +246,14 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
@@ -326,14 +326,14 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 

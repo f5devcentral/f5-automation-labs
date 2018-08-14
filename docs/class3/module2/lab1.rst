@@ -36,13 +36,13 @@ To retrieve the provisioning state for a single module, send a HTTP GET to the R
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      
      ::
      
-	     X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	     X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 
@@ -85,14 +85,14 @@ The **asm** module is provisioned using an HTTP PATCH with a body containing a p
      
      ::
      
-         https://{{big_ip_a_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      
      ::
      
           Content-Type: application/json
-	  X-F5-Auth-Token: {{big_ip_a_auth_token}}
+	  X-F5-Auth-Token: {{bigip-dev_auth_token}}
      
      | **Body**
 	 
