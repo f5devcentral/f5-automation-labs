@@ -5,7 +5,7 @@
 .. |labname| replace:: Lab\ |labdot|
 .. |labnameund| replace:: Lab\ |labund|
 
-Module |labmodule|\, Lab \ |labnum|\: Provisioning AFM
+Module |labmodule|\, Lab \ |labnum|\: Authentication
 ======================================================
 
 Overview
