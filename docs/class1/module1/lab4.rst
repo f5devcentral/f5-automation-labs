@@ -45,7 +45,6 @@ The following table and diagram lists the L2-3 network information used to
 configure connectivity for BIG-IP A:
 
 .. list-table::
-   :stub-columns: 1
    :header-rows: 1
 
    * - **Type**

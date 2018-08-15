@@ -215,7 +215,6 @@ template. The table below represents what each template contains.
 .. list-table::
     :widths: 30 70
     :header-rows: 1
-    :stub-columns: 1
 
     * - **Service Template**
       - **Description**

@@ -26,7 +26,6 @@ components:
 .. list-table::
    :widths: 15 30 30 30
    :header-rows: 1
-   :stub-columns: 1
 
    * - **Component**
      - **Management IP**
