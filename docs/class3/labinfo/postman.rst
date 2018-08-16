@@ -1,5 +1,5 @@
 PreLab Configuration Steps:
-------------------------------------------------------
+---------------------------
 
 Throughout this and other classes in the series we will make use of the Postman
 REST API Client.  You can find more information about Postman at
