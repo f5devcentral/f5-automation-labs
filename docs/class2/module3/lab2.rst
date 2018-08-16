@@ -347,7 +347,7 @@ Task 3 - Execute the second f5-newman-wrapper file
 
    |module-3-1|
 
-#. On BIG-IP A examine Pool ``module_3_pool``, these will represent our ``Green`` deployment memebers:
+#. On BIG-IP A examine Pool ``module_3_pool``, these will represent our ``Green`` deployment members:
 
    |module-3-2|
 
