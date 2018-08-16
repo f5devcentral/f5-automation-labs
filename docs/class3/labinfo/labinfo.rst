@@ -6,7 +6,10 @@ Lab Information
 Lab Topology
 ------------
 
-The network topology implemented for this lab is very simple. Since the focus of the lab is Control Plane programmability rather that Data Plane traffic flow we can keep the data plane fairly simple. The following components have been included in your lab environment:
+The network topology implemented for this lab is very simple.
+Since the focus of the lab is Control Plane programmability
+rather that Data Plane traffic flow we can keep the data plane fairly simple.
+The following components have been included in your lab environment:
 
 -  2 x BIG-IPs (v13.1.x)
 -  1 x Linux Tool Box
