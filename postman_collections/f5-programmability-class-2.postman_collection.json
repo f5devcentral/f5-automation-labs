@@ -213,7 +213,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_vs_name}}~{{bigip_pool_name}}/members/",
+							"raw": "https://{{bigip_mgmt}}/mgmt/tm/ltm/pool/~{{bigip_partition}}~{{bigip_vs_name}}~{{bigip_pool_name}}",
 							"protocol": "https",
 							"host": [
 								"{{bigip_mgmt}}"
