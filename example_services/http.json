@@ -17,7 +17,7 @@
                 "serviceMain": {
                     "class": "Service_HTTP",
                     "virtualAddresses": [
-                        "10.1.20.121"
+                        "10.1.20.100"
                     ],
                     "snat": "auto",
                     "pool": "Pool1"
