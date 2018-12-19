@@ -35,7 +35,7 @@ Before a module on a BIG-IP can be configured, it must be licensed.  Using the n
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/license
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/license
      
      | **Headers**
      
@@ -92,7 +92,7 @@ Before a module on a BIG-IP can be configured, it also must be and provisioned. 
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/provision
      
      | **Headers**
      
@@ -158,7 +158,7 @@ To retrieve the provisioning state for a single module, send a HTTP GET to the R
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      
@@ -218,7 +218,7 @@ The **afm** module is provisioned using an HTTP PATCH with a body containing a p
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      

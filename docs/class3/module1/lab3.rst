@@ -31,7 +31,7 @@ Follow the below steps in order found in the Postman collection to complete this
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
@@ -85,7 +85,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
@@ -140,7 +140,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy`` endpoint with a body c
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
@@ -181,7 +181,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
@@ -246,7 +246,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules`` e
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules
      
      | **Headers**
      
@@ -326,7 +326,7 @@ An HTTP PATCH to the ``/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy/{{afm_policy}}/rules/{{afm_policy_rule}}
      
      | **Headers**
      

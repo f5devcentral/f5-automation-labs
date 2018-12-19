@@ -26,14 +26,14 @@ nwdiag {
   }
   network Internal {
       address = "10.1.20.0/24";
-      "BIG-IP DEV" [address = "10.1.20.5, 10.1.20.13 (Float)"];
-      "BIG-IP PROD" [address = "10.1.20.15, 10.1.20.13 (Float)"];
-      "Linux\nTool Box" [address = "10.1.20.10, 10.1.20.100-103"];
+      "BIG-IP DEV" [address = "10.1.20.5"];
+      "BIG-IP PROD" [address = "10.1.20.15"];
+      "Linux\nTool Box" [address = "10.1.20.10"];
   }
   network External {
       address = "10.1.10.0/24";
-      "BIG-IP DEV" [address = "10.1.10.5, 10.1.10.120-130 (VIPs)"];
-      "BIG-IP PROD" [address = "10.1.10.15, 10.1.10.120-130 (VIPs)"];
+      "BIG-IP DEV" [address = "10.1.10.5"];
+      "BIG-IP PROD" [address = "10.1.10.15"];
       "Windows\nJumphost" [address = "10.1.10.250"];
   }
 }
