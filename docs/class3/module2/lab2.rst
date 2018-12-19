@@ -33,7 +33,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}
      
      | **Headers**
      
@@ -80,7 +80,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/server-technologies
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/server-technologies
      
      | **Headers**
      
@@ -140,7 +140,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
@@ -192,7 +192,7 @@ In this lab, the iControl REST based API will be used to explore some of the ASM
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
@@ -249,7 +249,7 @@ An HTTP GET to the ``/mgmt/tm/asm/policies`` endpoint with a parameter of ``filt
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies?filter=name eq test
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies?filter=name eq test
      
      | **Headers**
      
@@ -306,7 +306,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/tasks/
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/tasks/
      
      | **Headers**
      
@@ -429,7 +429,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/tasks/export-policy
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/tasks/export-policy
      
      | **Headers**
      
@@ -467,7 +467,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policy-templates
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policy-templates
      
      | **Headers**
      
@@ -553,7 +553,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/signature-sets
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/signature-sets
      
      | **Headers**
      
@@ -640,7 +640,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/signature-systems
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/signature-systems
      
      | **Headers**
      
@@ -691,7 +691,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/attack-types
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/attack-types
      
      | **Headers**
      
@@ -744,7 +744,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/urls
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/urls
      
      | **Headers**
      
@@ -901,7 +901,7 @@ An HTTP GET to the ``/mgmt/tm/asm/tasks/`` endpoint lists the various ASM relate
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/signature-sets
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}/signature-sets
      
      | **Headers**
      
