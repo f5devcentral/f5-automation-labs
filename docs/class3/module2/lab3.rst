@@ -33,7 +33,7 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
@@ -79,7 +79,7 @@ In this lab, the iControl REST based API will be used to create both an ASM pare
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/ltm/profile/web-security
+         https://{{big-ip-a-mgmt}}/mgmt/tm/ltm/profile/web-security
      
      | **Headers**
      
@@ -127,7 +127,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
@@ -221,7 +221,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      
@@ -272,7 +272,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies
      
      | **Headers**
      
@@ -355,7 +355,7 @@ An HTTP POST to the ``/mgmt/tm/asm/policies`` endpoint with a body containing ba
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/{{module}}/policies/{{asm_policy_hash}}
      
      | **Headers**
      

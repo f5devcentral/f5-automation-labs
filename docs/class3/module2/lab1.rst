@@ -36,7 +36,7 @@ To retrieve the provisioning state for a single module, send a HTTP GET to the R
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      
@@ -85,7 +85,7 @@ The **asm** module is provisioned using an HTTP PATCH with a body containing a p
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/sys/provision/{{module}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/sys/provision/{{module}}
      
      | **Headers**
      

@@ -34,7 +34,7 @@ In this lab, the iControl REST based API will be used to create an address list 
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/policy
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/policy
      
      | **Headers**
      
@@ -86,7 +86,7 @@ In this lab, the iControl REST based API will be used to create an address list 
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/address-list
      
      | **Headers**
      
@@ -141,7 +141,7 @@ An HTTP POST to the ``/mgmt/tm/security/firewall/address-list/`` endpoint with a
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/address-list/
      
      | **Headers**
      
@@ -199,7 +199,7 @@ To retrieve the contents of a single address list, send a HTTP GET to the ``/mgm
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
      
      | **Headers**
      
@@ -247,7 +247,7 @@ A HTTP PATCH to the ``/mgmt/tm/security/firewall/address-list/{{afm_address_list
      
      ::
      
-         https://{{bigip-dev_mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
+         https://{{big-ip-a-mgmt}}/mgmt/tm/security/firewall/address-list/{{afm_address_list}}
      
      | **Headers**
      
