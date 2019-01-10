@@ -63,7 +63,6 @@ attributes are explained in the table below.
 .. list-table::
     :header-rows: 1
     :widths: 20 80
-    :stub-columns: 1
 
     * - **Attribute**
       - **Description**

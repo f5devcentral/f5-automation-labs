@@ -35,7 +35,6 @@ Connect to lab
 .. list-table::
     :widths: 20 40 40
     :header-rows: 1
-    :stub-columns: 1
 
     * - **Component**
       - **VLAN/IP Address(es)**
