@@ -30,20 +30,6 @@ Task 1 - Create consolidated playbook
         tasks:
           - name: Adjust virtual server
             bigip_virtual_server:
-              name: "{{ vsname }}"
-              destination: "{{ vsip }}"
-              port: "{{ vsport }}"
-              description: "Web App"
-              snat: "Automap"
-              all_profiles:
-                - "tcp-lan-optimized"
-                - "clientssl"
-                - "http"
-                - "analytics"
-              state: "{{ state }}"
-
-          - name: Adjust a VS
-            bigip_virtual_server:
               name: "{{ vs_name }}"
               destination: "{{ vs_ip }}"
               port: "{{ vs_port }}"
@@ -105,6 +91,6 @@ Task 1 - Create consolidated playbook
 
 #. Verify that app3_vs, pool and nodes should be deleted in BIG-IP GUI.
 
-   .. NOTE:: This playbook leverages a config seed file in 
+   .. NOTE:: This playbook leverages a config seed file in
       ``vars/appseedinfo.yaml``.  Simply modify this file to deploy a new
       service.
