@@ -1,7 +1,35 @@
-Module 4: BIG-IQ Application Templates & Deployment with AS3 (new 6.1)
-======================================================================
+Module 4: BIG-IQ Application Templates & Deployment with AS3
+============================================================
 
-|diagram_as3_bigiq|
+.. NOTE:: This module is only available on Ravello and UDF.
+
+.. graphviz::
+
+   digraph breadcrumb {
+      rankdir="LR"
+      ranksep=.4
+      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
+      fontsize = 10
+      labeljust="l"
+      subgraph cluster_provider {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Provider"
+         bigip [label="BIG-IP",color="palegreen"]
+         AS3 [label="App Services&#92;n3 Extension",color="palegreen"]
+         BIG_IQ [label="BIG-IQ",color="steelblue1"]
+      }
+      subgraph cluster_tenant {
+         style = "rounded,filled"
+         color = lightgrey
+         height = .75
+         label = "Tenant"
+         tower_catalog [label="Service&#92;nCatalog",color="steelblue1"]
+         tower_deploy [label="Service&#92;nDeployment",color="steelblue1"]
+      }
+      tower_deploy -> tower_catalog -> BIG_IQ -> AS3 -> bigip
+   }
 
 Overview
 --------
@@ -58,6 +86,8 @@ To solve this problem, **BIG-IQ 6.1** allows the administrator to create
 The administrator can enforce specific Tenants or parameters to be used based on
 the user running the template. This abstraction allows the templates to be
 integrated directly into the relevant CI/CD toolchains and workflows.
+
+
 
 .. toctree::
    :maxdepth: 1
