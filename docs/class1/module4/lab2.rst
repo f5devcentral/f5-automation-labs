@@ -342,7 +342,6 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    |lab-2-18|
 
-
 #. Now both Advance WAF policy and Security Logging Profile are available on BIG-IP A, let's provision the WAF application service using AS3 & BIG-IQ.
 
    This declaration will create an HTTP application on BIG-IQ using an HTTP template, a WAF policy and a security Log Profile.
@@ -444,7 +443,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
       }
 
 #. Using Postman, use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
-   Copy/Paste the above AS3 declaration into the declaration body into Postman(DON T FORGET TO UPDATE THE WAF Policy):
+   Copy/Paste the above AS3 declaration into the declaration body into Postman (DON'T FORGET TO UPDATE THE WAF Policy):
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
    
@@ -557,7 +556,7 @@ Task 4 - Generic Services
 .. |lab-2-8| image:: images/lab-2-8.png
    :scale: 60%
 .. |lab-2-9| image:: images/lab-2-9.png
-   :scale: 60%
+   :scale: 70%
 .. |lab-2-10| image:: images/lab-2-10.png
    :scale: 60%
 .. |lab-2-11| image:: images/lab-2-11.png
