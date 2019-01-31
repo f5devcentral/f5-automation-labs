@@ -6,7 +6,7 @@ Using the declarative AS3 API, let's send the following BIG-IP configuration thr
 Using Postman select ``BIG-IQ Token (david)`` available in the Collections.
 Press Send. This, will save the token value as _f5_token. If your token expires, obtain a new token by resending the ``BIG-IQ Token``
 
-.. note:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+.. NOTE:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 4 - BIG-IQ and AS3`` folder in the Postman Collection
@@ -20,71 +20,71 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
 
 #. Copy below example of an AS3 Declaration into a JSON validator. The validator is your IDE.
 
-.. code-block:: yaml
-:linenos:
-:emphasize-lines: 12,33,49,50
+   .. code-block:: yaml
+      :linenos:
+      :emphasize-lines: 12,33,49,50
 
-{
-   "class": "AS3",
-   "action": "deploy",
-   "persist": true,
-   "declaration": {
-      "class": "ADC",
-      "schemaVersion": "3.7.0",
-      "id": "example-declaration-01",
-      "label": "Task1",
-      "remark": "Task 1 - HTTP Application Service",
-      "target": {
-            "hostname": "<hostname>"
-      },
-      "Task1": {
-            "class": "Tenant",
-            "MyWebApp1http": {
-               "class": "Application",
-               "template": "http",
-               "statsProfile": {
-                  "class": "Analytics_Profile",
-                  "collectedStatsInternalLogging": true,
-                  "collectedStatsExternalLogging": false,
-                  "capturedTrafficInternalLogging": false,
-                  "capturedTrafficExternalLogging": false,
-                  "collectPageLoadTime": true,
-                  "collectClientSideStatistics": true,
-                  "collectResponseCode": true,
-                  "sessionCookieSecurity": "ssl-only"
-               },
-               "serviceMain": {
-                  "class": "Service_HTTP",
-                  "virtualAddresses": [
-                        "<virtual>"
-                  ],
-                  "pool": "web_pool",
-                  "profileAnalytics": {
-                        "use": "statsProfile"
-                  }
-               },
-               "web_pool": {
-                  "class": "Pool",
-                  "monitors": [
-                        "http"
-                  ],
-                  "members": [
-                        {
-                           "servicePort": 80,
-                           "serverAddresses": [
-                              "<node1>",
-                              "<node2>"
-                           ],
-                           "shareNodes": true
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.7.0",
+            "id": "example-declaration-01",
+            "label": "Task1",
+            "remark": "Task 1 - HTTP Application Service",
+            "target": {
+                  "hostname": "<hostname>"
+            },
+            "Task1": {
+                  "class": "Tenant",
+                  "MyWebApp1http": {
+                     "class": "Application",
+                     "template": "http",
+                     "statsProfile": {
+                        "class": "Analytics_Profile",
+                        "collectedStatsInternalLogging": true,
+                        "collectedStatsExternalLogging": false,
+                        "capturedTrafficInternalLogging": false,
+                        "capturedTrafficExternalLogging": false,
+                        "collectPageLoadTime": true,
+                        "collectClientSideStatistics": true,
+                        "collectResponseCode": true,
+                        "sessionCookieSecurity": "ssl-only"
+                     },
+                     "serviceMain": {
+                        "class": "Service_HTTP",
+                        "virtualAddresses": [
+                              "<virtual>"
+                        ],
+                        "pool": "web_pool",
+                        "profileAnalytics": {
+                              "use": "statsProfile"
                         }
-                  ]
-               }
+                     },
+                     "web_pool": {
+                        "class": "Pool",
+                        "monitors": [
+                              "http"
+                        ],
+                        "members": [
+                              {
+                                 "servicePort": 80,
+                                 "serverAddresses": [
+                                    "<node1>",
+                                    "<node2>"
+                                 ],
+                                 "shareNodes": true
+                              }
+                        ]
+                     }
+                  }
             }
+         }
       }
-   }
-}
 
-    .. note:: You can use any JSON formatter/Validator available. A specific AS3 plugin to validate the JSON against AS3 schema will be available soon.
+   .. NOTE:: You can use any JSON formatter/Validator available. A specific AS3 plugin to validate the JSON against AS3 schema will be available soon.
 
 #. Make sure the Declaration is valid!
 
@@ -94,7 +94,7 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
         "hostname": "bigip-a.f5.local"
     },
 
-    .. note:: The target BIG-IP is standalone but it could be configured as an HA pair.
+    .. NOTE:: The target BIG-IP is standalone but it could be configured as an HA pair.
           If you want, configure the HA in auto-sync mode. Configure the BIG-IP cluster in BIG-IQ.
           The target in this case can be either device.
 
@@ -119,7 +119,7 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
    
-   .. note:: Notice that the app deployment may take a few minutes.
+   .. NOTE:: Notice that the app deployment may take a few minutes.
 
    Output pending::
 
@@ -181,86 +181,86 @@ Now we are going to create another service but this time, we will do some SSL of
    
    This will give you an ID which you can query using the **BIG-IQ Check AS3 Deployment Task**
 
-.. code-block:: yaml
-:linenos:
+   .. code-block:: yaml
+      :linenos:
 
-{
-   "class": "AS3",
-   "action": "deploy",
-   "persist": true,
-   "declaration": {
-      "class": "ADC",
-      "schemaVersion": "3.7.0",
-      "id": "isc-lab",
-      "label": "Task2",
-      "remark": "Task 2 - HTTPS Application Service",
-      "target": {
-            "hostname": "bigip-a.f5.local"
-      },
-      "Task2": {
-            "class": "Tenant",
-            "MyWebApp2https": {
-               "class": "Application",
-               "template": "https",
-               "statsProfile": {
-                  "class": "Analytics_Profile",
-                  "collectedStatsInternalLogging": true,
-                  "collectedStatsExternalLogging": false,
-                  "capturedTrafficInternalLogging": false,
-                  "capturedTrafficExternalLogging": false,
-                  "collectPageLoadTime": true,
-                  "collectClientSideStatistics": true,
-                  "collectResponseCode": true,
-                  "sessionCookieSecurity": "ssl-only"
-               },
-               "serviceMain": {
-                  "class": "Service_HTTPS",
-                  "virtualAddresses": [
-                        "10.1.20.129"
-                  ],
-                  "pool": "web_pool",
-                  "profileAnalytics": {
-                        "use": "statsProfile"
-                  },
-                  "serverTLS": "webtls"
-               },
-               "web_pool": {
-                  "class": "Pool",
-                  "monitors": [
-                        "http"
-                  ],
-                  "members": [
-                        {
-                           "servicePort": 80,
-                           "serverAddresses": [
-                              "10.1.10.102",
-                              "10.1.10.103"
-                           ],
-                           "shareNodes": true
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.7.0",
+            "id": "isc-lab",
+            "label": "Task2",
+            "remark": "Task 2 - HTTPS Application Service",
+            "target": {
+                  "hostname": "bigip-a.f5.local"
+            },
+            "Task2": {
+                  "class": "Tenant",
+                  "MyWebApp2https": {
+                     "class": "Application",
+                     "template": "https",
+                     "statsProfile": {
+                        "class": "Analytics_Profile",
+                        "collectedStatsInternalLogging": true,
+                        "collectedStatsExternalLogging": false,
+                        "capturedTrafficInternalLogging": false,
+                        "capturedTrafficExternalLogging": false,
+                        "collectPageLoadTime": true,
+                        "collectClientSideStatistics": true,
+                        "collectResponseCode": true,
+                        "sessionCookieSecurity": "ssl-only"
+                     },
+                     "serviceMain": {
+                        "class": "Service_HTTPS",
+                        "virtualAddresses": [
+                              "10.1.20.129"
+                        ],
+                        "pool": "web_pool",
+                        "profileAnalytics": {
+                              "use": "statsProfile"
+                        },
+                        "serverTLS": "webtls"
+                     },
+                     "web_pool": {
+                        "class": "Pool",
+                        "monitors": [
+                              "http"
+                        ],
+                        "members": [
+                              {
+                                 "servicePort": 80,
+                                 "serverAddresses": [
+                                    "10.1.10.102",
+                                    "10.1.10.103"
+                                 ],
+                                 "shareNodes": true
+                              }
+                        ]
+                     },
+                     "webtls": {
+                        "class": "TLS_Server",
+                        "certificates": [
+                              {
+                                 "certificate": "webcert"
+                              }
+                        ]
+                     },
+                     "webcert": {
+                        "class": "Certificate",
+                        "certificate": {
+                              "bigip": "/Common/default.crt"
+                        },
+                        "privateKey": {
+                              "bigip": "/Common/default.key"
                         }
-                  ]
-               },
-               "webtls": {
-                  "class": "TLS_Server",
-                  "certificates": [
-                        {
-                           "certificate": "webcert"
-                        }
-                  ]
-               },
-               "webcert": {
-                  "class": "Certificate",
-                  "certificate": {
-                        "bigip": "/Common/default.crt"
-                  },
-                  "privateKey": {
-                        "bigip": "/Common/default.key"
+                     }
                   }
-               }
             }
+         }
       }
-   }
-}
 
 #. Use the **BIG-IQ Check AS3 Deployment Task** calls to ensure that the AS3 deployment is successfull without errors: 
 
@@ -343,95 +343,95 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
           "bigip": "/Common/templates-default"
         }
 
-.. code-block:: yaml
-:linenos:
-:emphasize-lines: 41
+   .. code-block:: yaml
+      :linenos:
+      :emphasize-lines: 41
 
-{
-   "class": "AS3",
-   "action": "deploy",
-   "persist": true,
-   "declaration": {
-      "class": "ADC",
-      "schemaVersion": "3.7.0",
-      "id": "isc-lab",
-      "label": "Task3",
-      "remark": "Task 3 - HTTPS Application with WAF",
-      "target": {
-            "hostname": "bigip-a.f5.local"
-      },
-      "Task3": {
-            "class": "Tenant",
-            "MyWebApp3waf": {
-               "class": "Application",
-               "template": "https",
-               "statsProfile": {
-                  "class": "Analytics_Profile",
-                  "collectedStatsInternalLogging": true,
-                  "collectedStatsExternalLogging": false,
-                  "capturedTrafficInternalLogging": false,
-                  "capturedTrafficExternalLogging": false,
-                  "collectPageLoadTime": true,
-                  "collectClientSideStatistics": true,
-                  "collectResponseCode": true,
-                  "sessionCookieSecurity": "ssl-only"
-               },
-               "serviceMain": {
-                  "class": "Service_HTTPS",
-                  "virtualAddresses": [
-                        "10.1.20.128"
-                  ],
-                  "pool": "web_pool",
-                  "profileAnalytics": {
-                        "use": "statsProfile"
-                  },
-                  "serverTLS": "webtls",
-                  "policyWAF": {
-                        "bigip": "/Common/<WAF Policy>"
-                  },
-                  "securityLogProfiles": [
-                        {
-                           "bigip": "/Common/templates-default"
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.7.0",
+            "id": "isc-lab",
+            "label": "Task3",
+            "remark": "Task 3 - HTTPS Application with WAF",
+            "target": {
+                  "hostname": "bigip-a.f5.local"
+            },
+            "Task3": {
+                  "class": "Tenant",
+                  "MyWebApp3waf": {
+                     "class": "Application",
+                     "template": "https",
+                     "statsProfile": {
+                        "class": "Analytics_Profile",
+                        "collectedStatsInternalLogging": true,
+                        "collectedStatsExternalLogging": false,
+                        "capturedTrafficInternalLogging": false,
+                        "capturedTrafficExternalLogging": false,
+                        "collectPageLoadTime": true,
+                        "collectClientSideStatistics": true,
+                        "collectResponseCode": true,
+                        "sessionCookieSecurity": "ssl-only"
+                     },
+                     "serviceMain": {
+                        "class": "Service_HTTPS",
+                        "virtualAddresses": [
+                              "10.1.20.128"
+                        ],
+                        "pool": "web_pool",
+                        "profileAnalytics": {
+                              "use": "statsProfile"
+                        },
+                        "serverTLS": "webtls",
+                        "policyWAF": {
+                              "bigip": "/Common/<WAF Policy>"
+                        },
+                        "securityLogProfiles": [
+                              {
+                                 "bigip": "/Common/templates-default"
+                              }
+                        ]
+                     },
+                     "web_pool": {
+                        "class": "Pool",
+                        "monitors": [
+                              "http"
+                        ],
+                        "members": [
+                              {
+                                 "servicePort": 80,
+                                 "serverAddresses": [
+                                    "10.1.10.100",
+                                    "10.1.10.101"
+                                 ],
+                                 "shareNodes": true
+                              }
+                        ]
+                     },
+                     "webtls": {
+                        "class": "TLS_Server",
+                        "certificates": [
+                              {
+                                 "certificate": "webcert"
+                              }
+                        ]
+                     },
+                     "webcert": {
+                        "class": "Certificate",
+                        "certificate": {
+                              "bigip": "/Common/default.crt"
+                        },
+                        "privateKey": {
+                              "bigip": "/Common/default.key"
                         }
-                  ]
-               },
-               "web_pool": {
-                  "class": "Pool",
-                  "monitors": [
-                        "http"
-                  ],
-                  "members": [
-                        {
-                           "servicePort": 80,
-                           "serverAddresses": [
-                              "10.1.10.100",
-                              "10.1.10.101"
-                           ],
-                           "shareNodes": true
-                        }
-                  ]
-               },
-               "webtls": {
-                  "class": "TLS_Server",
-                  "certificates": [
-                        {
-                           "certificate": "webcert"
-                        }
-                  ]
-               },
-               "webcert": {
-                  "class": "Certificate",
-                  "certificate": {
-                        "bigip": "/Common/default.crt"
-                  },
-                  "privateKey": {
-                        "bigip": "/Common/default.key"
+                     }
                   }
-               }
             }
+         }
       }
-   }
-}
 
 #. Using Postman, use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
    Copy/Paste the above AS3 declaration into the declaration body into Postman(DON T FORGET TO UPDATE THE WAF Policy):
@@ -448,74 +448,74 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 Task 4 - Generic Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: Note that because this declaration uses the generic template, the service does not have to be named serviceMain
+.. NOTE:: Note that because this declaration uses the generic template, the service does not have to be named serviceMain
 
 #. Modify the Generic virtual with something other than <generic_virtual>.
 
-.. code-block:: yaml
-:linenos:
-:emphasize-lines: 30
+   .. code-block:: yaml
+      :linenos:
+      :emphasize-lines: 30
 
-{
-   "class": "AS3",
-   "action": "deploy",
-   "persist": true,
-   "declaration": {
-      "class": "ADC",
-      "schemaVersion": "3.7.0",
-      "id": "isc-lab",
-      "label": "Task4",
-      "remark": "Task 4 - Generic Services",
-      "target": {
-            "hostname": "bigip-a.f5.local"
-      },
-      "Task4": {
-            "class": "Tenant",
-            "MyWebApp4generic": {
-               "class": "Application",
-               "template": "generic",
-               "statsProfile": {
-                  "class": "Analytics_Profile",
-                  "collectedStatsInternalLogging": true,
-                  "collectedStatsExternalLogging": false,
-                  "capturedTrafficInternalLogging": false,
-                  "capturedTrafficExternalLogging": false,
-                  "collectPageLoadTime": true,
-                  "collectClientSideStatistics": true,
-                  "collectResponseCode": true,
-                  "sessionCookieSecurity": "ssl-only"
-               },
-               "<generic_virtual>": {
-                  "class": "Service_Generic",
-                  "virtualAddresses": [
-                        "10.1.20.127"
-                  ],
-                  "virtualPort": 8080,
-                  "pool": "web_pool",
-                  "profileAnalytics": {
-                        "use": "statsProfile"
-                  }
-               },
-               "web_pool": {
-                  "class": "Pool",
-                  "monitors": [
-                        "tcp"
-                  ],
-                  "members": [
-                        {
-                           "servicePort": 80,
-                           "serverAddresses": [
-                              "10.1.10.102",
-                              "10.1.10.103"
-                           ],
-                           "shareNodes": true
+      {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.7.0",
+            "id": "isc-lab",
+            "label": "Task4",
+            "remark": "Task 4 - Generic Services",
+            "target": {
+                  "hostname": "bigip-a.f5.local"
+            },
+            "Task4": {
+                  "class": "Tenant",
+                  "MyWebApp4generic": {
+                     "class": "Application",
+                     "template": "generic",
+                     "statsProfile": {
+                        "class": "Analytics_Profile",
+                        "collectedStatsInternalLogging": true,
+                        "collectedStatsExternalLogging": false,
+                        "capturedTrafficInternalLogging": false,
+                        "capturedTrafficExternalLogging": false,
+                        "collectPageLoadTime": true,
+                        "collectClientSideStatistics": true,
+                        "collectResponseCode": true,
+                        "sessionCookieSecurity": "ssl-only"
+                     },
+                     "<generic_virtual>": {
+                        "class": "Service_Generic",
+                        "virtualAddresses": [
+                              "10.1.20.127"
+                        ],
+                        "virtualPort": 8080,
+                        "pool": "web_pool",
+                        "profileAnalytics": {
+                              "use": "statsProfile"
                         }
-                  ]
-               }
+                     },
+                     "web_pool": {
+                        "class": "Pool",
+                        "monitors": [
+                              "tcp"
+                        ],
+                        "members": [
+                              {
+                                 "servicePort": 80,
+                                 "serverAddresses": [
+                                    "10.1.10.102",
+                                    "10.1.10.103"
+                                 ],
+                                 "shareNodes": true
+                              }
+                        ]
+                     }
+                  }
             }
+         }
       }
-   }
-}
 
 #. Using Postman, use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
    Copy/Paste the above AS3 declaration into the declaration body of Postman:
