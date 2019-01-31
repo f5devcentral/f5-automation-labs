@@ -20,69 +20,69 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
 
 #. Copy below example of an AS3 Declaration into a JSON validator. The validator is your IDE.
 
-    .. code-block:: yaml
-    :linenos:
-    :emphasize-lines: 12,33,49,50
+   .. code-block:: yaml
+   :linenos:
+   :emphasize-lines: 12,33,49,50
 
-    {
-        "class": "AS3",
-        "action": "deploy",
-        "persist": true,
-        "declaration": {
-            "class": "ADC",
-            "schemaVersion": "3.7.0",
-            "id": "example-declaration-01",
-            "label": "Task1",
-            "remark": "Task 1 - HTTP Application Service",
-            "target": {
-                "hostname": "<hostname>"
-            },
-            "Task1": {
-                "class": "Tenant",
-                "MyWebApp1http": {
-                    "class": "Application",
-                    "template": "http",
-                    "statsProfile": {
-                        "class": "Analytics_Profile",
-                        "collectedStatsInternalLogging": true,
-                        "collectedStatsExternalLogging": false,
-                        "capturedTrafficInternalLogging": false,
-                        "capturedTrafficExternalLogging": false,
-                        "collectPageLoadTime": true,
-                        "collectClientSideStatistics": true,
-                        "collectResponseCode": true,
-                        "sessionCookieSecurity": "ssl-only"
-                    },
-                    "serviceMain": {
-                        "class": "Service_HTTP",
-                        "virtualAddresses": [
-                            "<virtual>"
-                        ],
-                        "pool": "web_pool",
-                        "profileAnalytics": {
-                            "use": "statsProfile"
-                        }
-                    },
-                    "web_pool": {
-                        "class": "Pool",
-                        "monitors": [
-                            "http"
-                        ],
-                        "members": [
-                            {
-                                "servicePort": 80,
-                                "serverAddresses": [
-                                    "<node1>",
-                                    "<node2>"
-                                ],
-                                "shareNodes": true
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    }
+   {
+      "class": "AS3",
+      "action": "deploy",
+      "persist": true,
+      "declaration": {
+         "class": "ADC",
+         "schemaVersion": "3.7.0",
+         "id": "example-declaration-01",
+         "label": "Task1",
+         "remark": "Task 1 - HTTP Application Service",
+         "target": {
+               "hostname": "<hostname>"
+         },
+         "Task1": {
+               "class": "Tenant",
+               "MyWebApp1http": {
+                  "class": "Application",
+                  "template": "http",
+                  "statsProfile": {
+                     "class": "Analytics_Profile",
+                     "collectedStatsInternalLogging": true,
+                     "collectedStatsExternalLogging": false,
+                     "capturedTrafficInternalLogging": false,
+                     "capturedTrafficExternalLogging": false,
+                     "collectPageLoadTime": true,
+                     "collectClientSideStatistics": true,
+                     "collectResponseCode": true,
+                     "sessionCookieSecurity": "ssl-only"
+                  },
+                  "serviceMain": {
+                     "class": "Service_HTTP",
+                     "virtualAddresses": [
+                           "<virtual>"
+                     ],
+                     "pool": "web_pool",
+                     "profileAnalytics": {
+                           "use": "statsProfile"
+                     }
+                  },
+                  "web_pool": {
+                     "class": "Pool",
+                     "monitors": [
+                           "http"
+                     ],
+                     "members": [
+                           {
+                              "servicePort": 80,
+                              "serverAddresses": [
+                                 "<node1>",
+                                 "<node2>"
+                              ],
+                              "shareNodes": true
+                           }
+                     ]
+                  }
+               }
+         }
+      }
+   }
 
     .. note:: You can use any JSON formatter/Validator available. A specific AS3 plugin to validate the JSON against AS3 schema will be available soon.
 
