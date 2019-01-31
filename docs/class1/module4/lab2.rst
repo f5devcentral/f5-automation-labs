@@ -291,7 +291,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
    |lab-2-7|
 
    The deployment window opens. Type a name, select ``Deploy immediately`` for the Method, under the Target Device(s) section, click on ``Find Relevant Devices``
-   and select the **bigip-a.f5.local**. Then, click on Deploy.
+   and select the **bigip-a.f5.local** and **bigip-b.f5.local**. Then, click on Deploy.
 
    |lab-2-8|
 
@@ -325,12 +325,14 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    |lab-2-15|
 
+   Repeate previous steps for **bigip-b.f5.local** device.
+   
    Back on Logging Profiles, select the ``templates-default`` and click on Deploy.
 
    |lab-2-16|
 
    The deployment window opens. Type a name, select ``Deploy immediately`` for the Method, under the Target Device(s) section, click on ``Find Relevant Devices``
-   and select the **bigip-a.f5.local**. Then, click on Deploy.
+   and select the **bigip-a.f5.local** and **bigip-b.f5.local**. Then, click on Deploy.
 
    |lab-2-17|
 

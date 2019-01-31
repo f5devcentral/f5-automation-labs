@@ -1,7 +1,7 @@
 Lab 4.1: Exploring BIG-IQ
 -------------------------
 
-This lab will focus on adding **BIG-IQ A** (and **BIG-IQ B** if clustered) in **BIG-IQ CM**.
+This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG-IQ CM**.
 
 .. NOTE:: This guide may require you to Copy/Paste information from the
    guide to your jumphost.  To make this easier you can open a copy of the
@@ -31,19 +31,17 @@ This lab will focus on adding **BIG-IQ A** (and **BIG-IQ B** if clustered) in **
 #. The *Add Devices* window opens
 
     - Enter BIG-IP A IP management address 10.1.1.10
+    - Enter BIG-IP B IP management address 10.1.1.11
     - Enter User Name and Password (admin/admin)
     - Select LTM and ASM services
     - Under Statistic Collection, check Status Enabled
-
-   |lab-1-3|
-
-   In the case BIG-IP A is clustered with BIG-IP B, under Cluster Properties, select Create New and enter a name for the cluster (e.g. supernetops).
+    - Under Cluster Properties, select Create New and enter a name for the cluster (e.g. supernetops).
 
    |lab-1-4|
 
    Click on Save & Close.
 
-#. BIG-IP A (and BIG-IP B if clustered) are added to the Devices list. CLick on Discover & Import.
+#. BIG-IP A and BIG-IP B are added to the Devices list. CLick on Discover & Import.
 
    |lab-1-5|
 
@@ -63,8 +61,6 @@ This lab will focus on adding **BIG-IQ A** (and **BIG-IQ B** if clustered) in **
 .. |lab-1-1| image:: images/lab-1-1.png
    :scale: 60%
 .. |lab-1-2| image:: images/lab-1-2.png
-   :scale: 60%
-.. |lab-1-3| image:: images/lab-1-3.png
    :scale: 60%
 .. |lab-1-4| image:: images/lab-1-4.png
    :scale: 60%
