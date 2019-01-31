@@ -6,7 +6,7 @@ Using the declarative AS3 API, let's send the following BIG-IP configuration thr
 Using Postman select ``BIG-IQ Token (david)`` available in the Collections.
 Press Send. This, will save the token value as _f5_token. If your token expires, obtain a new token by resending the ``BIG-IQ Token``
 
-.. NOTE:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+.. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 4 - BIG-IQ and AS3`` folder in the Postman Collection
@@ -274,61 +274,71 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
 #. Deploy the default BIG-IQ WAF Policy
 
-   |lab-2-5|
+   Logon on **BIG-IQ** as **david**, go to configuration tab, SECURITY, Web Application Security, Policies. ``templates-default`` is the default WAF policy available on BIG-IQ.
 
+   |lab-2-5a|
 
+   Under Virtual Servers, click on the ``inactive`` virtual server.
+
+   |lab-2-5b|
+
+   Select the ``/Common/templates-default``, then click on Save & Close.
 
    |lab-2-6|
 
-
+   Notice the policy is now atached to the ``inactive`` virtual server. Select the ``inactive`` virtual server and click on Deploy.
 
    |lab-2-7|
 
-
+   The deployment window opens. Type a name, select ``Deploy immediately`` for the Method, under the Target Device(s) section, click on ``Find Relevant Devices``
+   and select the **bigip-a.f5.local**. Then, click on Deploy.
 
    |lab-2-8|
 
-
+   Confirm the deployment, click on Deploy.
 
    |lab-2-9|
 
-
+   Wait for the deployment to complete.
 
    |lab-2-10|
 
 #. Deploy the default BIG-IQ Security Logging Profile
 
+   Still under configuration tab, SECURITY, Shared Security, Logging Profiles. ``templates-default`` is the default Security Logging Profile available on BIG-IQ.
+
    |lab-2-11|
 
-
+   Under Pinning Policies, click on the **bigip-a.f5.local** device.
 
    |lab-2-12|
 
-
+   In the Shared Security drop down menu, select Logging Profiles.
 
    |lab-2-13|
 
-
+   Select the ``templates-default``, then click on Add Selected.
 
    |lab-2-14|
 
-
+   Confirm the logging profile has been added under Logging Profiles and click on Save & Close.
 
    |lab-2-15|
 
-
+   Back on Logging Profiles, select the ``templates-default`` and click on Deploy.
 
    |lab-2-16|
 
-
+   The deployment window opens. Type a name, select ``Deploy immediately`` for the Method, under the Target Device(s) section, click on ``Find Relevant Devices``
+   and select the **bigip-a.f5.local**. Then, click on Deploy.
 
    |lab-2-17|
 
-
+   Confirm the deployment, click on Deploy.
 
    |lab-2-9|
 
-
+   Wait for the deployment to complete.
 
    |lab-2-18|
 
@@ -536,7 +546,9 @@ Task 4 - Generic Services
    :scale: 60%
 .. |lab-2-4| image:: images/lab-2-4.png
    :scale: 60%
-.. |lab-2-5| image:: images/lab-2-5.png
+.. |lab-2-5a| image:: images/lab-2-5a.png
+   :scale: 60%
+.. |lab-2-5b| image:: images/lab-2-5b.png
    :scale: 60%
 .. |lab-2-6| image:: images/lab-2-6.png
    :scale: 60%
@@ -545,7 +557,7 @@ Task 4 - Generic Services
 .. |lab-2-8| image:: images/lab-2-8.png
    :scale: 60%
 .. |lab-2-9| image:: images/lab-2-9.png
-   :scale: 30%
+   :scale: 60%
 .. |lab-2-10| image:: images/lab-2-10.png
    :scale: 60%
 .. |lab-2-11| image:: images/lab-2-11.png
