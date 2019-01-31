@@ -71,7 +71,7 @@ This lab will focus on adding **BIG-IQ A** (and **BIG-IQ B** if clustered) in **
 .. |lab-1-5| image:: images/lab-1-5.png
    :scale: 60%
 .. |lab-1-6| image:: images/lab-1-6.png
-   :scale: 60%
+   :scale: 70%
 .. |lab-1-7| image:: images/lab-1-7.png
    :scale: 60%
 .. |lab-1-8| image:: images/lab-1-8.png

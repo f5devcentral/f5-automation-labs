@@ -34,8 +34,7 @@ Module 4: BIG-IQ Application Templates & Deployment with AS3
 Overview
 --------
 
-In this module we will explore how to use F5's **AS3** extension
-with **BIG-IQ 6.1**.
+In this module we will explore how to use F5's **AS3** extension with **BIG-IQ 6.1**.
 
 **Application Services 3 Extension** (referred to as AS3 Extension or more often simply AS3) is a flexible, 
 low-overhead mechanism for managing application-specific configurations on a BIG-IP system.
@@ -57,11 +56,8 @@ Layer 4-7 Application Service Delivery
 
 L4-7 Application Service Delivery is accomplished by:
 
--  Providing **templates** within **BIG-IQ 6.1** as a Service Catalog. With **BIG-IQ 6.1**, you will have access to 
-   the traditional templates provided with **BIG-IQ 6.0** but you'll be able to create new kind of templates to consume 
-   **AS3**. 
-
-.. note:: Moving forward, BIG-IQ will invest on AS3 Templates more than on existing BIG-IQ templates.
+-  Providing **templates** within **BIG-IQ 6.1** as a Service Catalog. With **BIG-IQ 6.1**, you'll be able to create templates to consume 
+   **AS3**.
 
 -  Utilizing BIG-IQ's **Role Based Access Control (RBAC)** to divide
    workloads based on user functions.
