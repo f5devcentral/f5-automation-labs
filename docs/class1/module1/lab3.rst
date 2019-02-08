@@ -24,11 +24,19 @@ Lab 1.3: Review-Install Declarative Onboarding
       }
    }
 
-In the following labs we will be utilizing `Declarative Onboarding (DO) <https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/>`_, part of The F5 Automation Toolchain, to onboard base configuration to the lab BIG-IPs. Declarative Onboarding is built on top of the extensible, Node.js based iControl LX framework and implements a declarative interface for onboarding BIG-IPs.
+In the following labs we will be utilizing `Declarative Onboarding (DO) <https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/>`_, part of The F5 Automation Toolchain, to 
+onboard base configuration to the lab BIG-IPs. Declarative Onboarding is built
+on top of the extensible Node.js based iControl LX framework and implements a 
+declarative interface for onboarding BIG-IPs. DO implements a declarative schema
+for deploying Layer 1-3 configuration on BIG-IP devices.
+
+.. NOTE:: iControl LX extensions are **not** iApp Templates.  The AS3 Extension
+   does not use the TCL based iApp framework.  Additionally, AS3 does not use 
+   an Application Service Object (ASO).
 
 .. NOTE:: Previous versions of this class utilized the REST API of the BIG-IPs to imperatively configure the base config objects in the list above.
 
-When onboarding devices using DO we will use a declarative interface and JSON based schema. This declaration describes the desired end state of the device. If your declaration includes parameters for all base config objects, DO will provision those settings with a single API call to its interface. Additionally DO is:
+When onboarding devices using DO we will use a declarative interface and JSON based schema. This declaration describes the desired end state of the device. If your declaration includes parameters for all base config objects (hostname, NTP, DNS, etc), DO will provision those settings with a single API call to its interface. Additionally DO is:
 
 - `Idempotent <https://whatis.techtarget.com/definition/idempotence>`_
 - `Atomic <https://www.techopedia.com/definition/3466/atomic-operation>`_
@@ -86,7 +94,7 @@ iControl REST API.  In the case of DO the following endpoint is exposed.
 This endpoint accepts the Create, Read operations using the HTTP ``POST`` and ``GET`` methods.
 
 As mentioned previously, iControl LX Extensions are packaged using an RPM
-format.  We will use the REST API to install AS3 onto our BIG-IP device.
+format.  We will use the REST API to install DO onto our BIG-IP device.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 1.3 - Install DO onto BIG-IP`` folder in the Postman
@@ -94,7 +102,7 @@ format.  We will use the REST API to install AS3 onto our BIG-IP device.
 
    |lab-3-3|
 
-Task 1 - View Installed iControl LX Extensions
+Task 2 - View Installed iControl LX Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
@@ -111,7 +119,7 @@ Perform the following steps to complete this task:
    |lab-3-5|
 
 
-Task 2 - Install the DO Extension
+Task 3 - Install the DO Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Perform the following steps to complete this task:
@@ -160,7 +168,7 @@ Perform the following steps to complete this task:
 
 .. |lab-3-1| image:: images/lab-3-1.png
 .. |lab-3-2| image:: images/lab-3-2.png
-.. |lab-3-3| image:: images/lab-3-3.png#########image of postmanfolder
+.. |lab-3-3| image:: images/lab-3-3.png
 .. |lab-3-4| image:: images/lab-3-4.png
 .. |lab-3-5| image:: images/lab-3-5.png
 .. |lab-3-6| image:: images/lab-3-6.png

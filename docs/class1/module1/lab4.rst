@@ -1,4 +1,4 @@
-Lab 1.5: Onboard BIG-IP with DO
+Lab 1.4: Onboard BIG-IP with DO
 -------------------------------
 
 .. graphviz::
@@ -17,15 +17,15 @@ Lab 1.5: Onboard BIG-IP with DO
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="palegreen"]
          extensibility [label="Extensibility",color="palegreen"]
-         onboarding [label="Onboarding",,color="steelblue1"]
+         onboarding [label="Onboarding",color="steelblue1"]
          clustering [label="Clustering"]
          transactions [label="Transactions"]
          basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
-All devices are already licensed although Declarative Onboarding has the ability
-to license the BIG-IP as well. We will focus on configuring the basic 
+All devices for this lab are already licensed although Declarative Onboarding has the ability
+to license the BIG-IP as part of its declaration. We will focus on configuring the basic 
 infrastructure related settings to complete the Device Onboarding process. 
 The remaining items include (list not exhaustive):
 
@@ -73,7 +73,7 @@ for your environment.
 Task 1 - Review and Deploy a DO Declaration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that DO has been installed on your BIG-IP we may proceed configuring the base-config objects listed above. Unlike imperative workflows, you will not need to define an API call per object (NTP, DNS, Hostname, etc). You will include each one of these attributes within a JSON payload and submit it through Declarative Onboarding. DO will handle configuring the desired end state defined within the declaration.
+Now that DO has been installed on your BIG-IP we may proceed configuring the base-config objects listed above. Unlike imperative workflows, you will not need to execute an API call per object (NTP, DNS, Hostname, etc). You will include each one of these attributes within a JSON payload and submit it through Declarative Onboarding. DO will handle configuring the desired end state defined within the declaration.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 1.4 - Onboarding with DO`` folder in the
@@ -107,13 +107,15 @@ Now that we have deployed our desired end state to DO, we need to check and see 
 
    |lab-4-6|
 
-#. Select :guilabel:`Send`. Review the JSON :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request.
+#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request.
 
+Processing
    |lab-4-7|
 
-#. In your browser, go to the BIG-IP A GUI bookmark or :guilabel:`https://10.1.1.10/`. Verify that the objects requested are now provisioned. The images below show VLANs and Self-IPs for the network section as an example.
-
+Success
    |lab-4-8|
+
+#. In your browser, go to the BIG-IP A GUI bookmark or :guilabel:`https://10.1.1.10/`. Verify that the objects requested are now provisioned. The image below show VLANs and Hostname as an example.
 
    |lab-4-9|
 

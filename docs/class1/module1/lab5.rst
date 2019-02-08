@@ -47,7 +47,7 @@ use the Postman Runner functionality introduced above.
 We will run the requests in a Collection Folder to build the cluster.
 If you examine the ``Lab 1.5 - Build a Cluster`` folder in the Collection you
 can see the value of **Declarative** proccesses. The collection is a few API calls
-to provision both BIG-IP devices and cluster them. In the past using **Imperative**
+to provision both BIG-IP devices and cluster them. In the past using an **Imperative**
 model could have taken 100's of API calls to accomplish the same end state.
 
 
@@ -93,13 +93,16 @@ Perform the following steps to build the cluster:
 #. The results window will now populate.  You will see each request in the
    folder is sent and its associated test results are displayed on the screen.
    Building the cluster can take a few minutes.  You can follow the progress
-   by scrolling down the results window.
+   by scrolling down the results window. A few expected errors may appear depending
+   on the installation status of DO from the previous labs.
 
 #. Once the :guilabel:`Run Summary` button appears, the folder has completed
    running.  You should have 0 failures and the last item in the request
-   list should be named ``xxxx``
+   list should be named ``[BIGIP B] Failover Traffic Group to BIGIP A``
 
    |lab-5-3|
+
+   |lab-5-4|
 
 .. raw:: html
 
@@ -115,7 +118,7 @@ Task 2 - Verify the Built Cluster in BIG-IP GUI
    :menuselection:`Device Management --> Overview` using the menu in the BIG-IP
    TMUI GUI. Verify that the cluster and failover status indicators are all green.
 
-   |lab-5-4|
+   |lab-5-5|
 
 .. |lab-5-1| image:: images/lab-5-1.png
 .. |lab-5-2| image:: images/lab-5-2.png
@@ -123,4 +126,5 @@ Task 2 - Verify the Built Cluster in BIG-IP GUI
    :scale: 80%
 .. |lab-5-4| image:: images/lab-5-4.png
    :scale: 80%
+.. |lab-5-5| image:: images/lab-5-5.png
 .. |postman-runner-button| image:: /images/postman-runner-button.png

@@ -21,8 +21,7 @@ Lab 2.2: Install the AS3 Extension
       }
    }
 
-As mentioned previously, iControl LX Extensions are packaged using an RPM
-format.  We will use the REST API to install AS3 onto our BIG-IP device.
+We will use the REST API to install AS3 onto our BIG-IP device.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 2.2 - Install AS3 onto BIG-IP`` folder in the Postman
