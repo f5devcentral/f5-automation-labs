@@ -1,5 +1,5 @@
-Lab 1.3: Review/Set Device Settings
------------------------------------
+Lab 1.3: Review-Install Declarative Onboarding
+----------------------------------------------
 
 .. graphviz::
 
@@ -16,203 +16,155 @@ Lab 1.3: Review/Set Device Settings
          label = "BIG-IP"
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="palegreen"]
-         globalsettings [label="Global Settings",color="steelblue1"]
-         networking [label="Networking"]
+         extensibility [label="Extensibility",color="steelblue1"]
+         onboarding [label="Onboarding"]
          clustering [label="Clustering"]
          transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
-All devices are already licensed so we can focus on
-configuring the basic infrastructure related settings to complete the
-Device Onboarding process. The remaining items include (list not
-exhaustive):
+In the following labs we will be utilizing `Declarative Onboarding (DO) <https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/>`_, part of The F5 Automation Toolchain, to onboard base configuration to the lab BIG-IPs. Declarative Onboarding is built on top of the extensible, Node.js based iControl LX framework and implements a declarative interface for onboarding BIG-IPs.
 
--  Device Settings
+.. NOTE:: Previous versions of this class utilized the REST API of the BIG-IPs to imperatively configure the base config objects in the list above.
 
-   -  **NTP/DNS Settings**
+When onboarding devices using DO we will use a declarative interface and JSON based schema. This declaration describes the desired end state of the device. If your declaration includes parameters for all base config objects, DO will provision those settings with a single API call to its interface. Additionally DO is:
 
-   -  Remote Authentication
+- `Idempotent <https://whatis.techtarget.com/definition/idempotence>`_
+- `Atomic <https://www.techopedia.com/definition/3466/atomic-operation>`_
+- `Supported by F5 <https://f5.com/support/support-policies>`_
 
-   -  **Hostname**
+For further information on the Declarative Onboarding Extension see:
 
-   -  **Admin Credentials**
+- **GitHub Repository:** https://github.com/F5Networks/f5-declarative-onboarding
 
--  L1-3 Networking
+- **Documentation:** https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/
 
-   -  Physical Interface Settings
+An overview of iControl LX can be found at 
+https://devcentral.f5.com/wiki/icontrollx.homepage.ashx
 
-   -  L2 Connectivity (**VLAN**, VXLAN, etc.)
+Task 1 - Explore Declarative Onboarding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iControl LX Extensions use the common Redhat Package Manager (RPM) distribution
+format.  To install an extension you need to first obtain the RPM file
+associated with the extension.
 
-   -  L3 Connectivity (**Self IPs, Routing**, etc.)
+DO RPMs are available at https://github.com/F5Networks/f5-declarative-onboarding/releases
 
--  HA Settings
+DO can be installed in a few ways:
 
-   -  **Global Settings**
+- using the iControl REST API
+- using the BIG-IP GUI (TMUI)
+- using a command prompt
 
-      -  **Config Sync IP**
+All of these mechanisms are supported and, if required, can be used in
+conjunction with each other.
 
-      -  **Mirroring IP**
+For instance, you can install DO from BIG-IP GUI and then deploy
+the configuration via iControl REST using tools such as cURL, Postman
+and Ansible.
 
-      -  **Failover Addresses**
+To view installed iControl LX Extensions in the BIG-IP GUI you must first
+enable this functionality.  To do this, log in via SSH into the system with an ``admin``
+account and execute ``touch /var/config/rest/iapps/enable``. No reboot is required.
+This will enable the :menuselection:`iApps --> Package Management LX` menu:
 
-   -  **CMI Device Trusts**
+|lab-3-1|
 
-   -  **Device Groups**
+Clicking :guilabel:`Package Management LX` will show a table of installed
+iControl LX Extensions:
 
-   -  **Traffic Groups**
+.. NOTE:: This will be empty until one or more iControl LX Extension packages have been imported.
 
-   -  **Floating Self IPs**
+|lab-3-2|
 
-We will specifically cover the items in **BOLD** above in the following
-labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of real-world environments. This class is
-designed to teach enough information so that you can then apply the
-knowledge learned and help articulate and/or deliver a specific solution
-for your environment.
+iControl LX allows Extensions to register new REST API endpoints with the
+iControl REST API.  In the case of DO the following endpoint is exposed.
 
-Task 1 - Set Device Hostname & Disable GUI Setup Wizard
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- **Declarations:** ``/mgmt/shared/declarative-onboarding``
 
-In this task we will modify the device hostname and disable the GUI
-Setup Wizard. The Resource that contains these settings is
-``/mgmt/tm/sys/global-settings``.
+This endpoint accepts the Create, Read operations using the HTTP ``POST`` and ``GET`` methods.
 
-Perform the following steps to complete this task:
+As mentioned previously, iControl LX Extensions are packaged using an RPM
+format.  We will use the REST API to install AS3 onto our BIG-IP device.
 
-#. Expand the ``Lab 1.3 - Review/Set Device Settings`` folder in the
-   Postman collection.
-
-#. Click the ``Step 1: Get System Global-Settings`` request. Click the
-   :guilabel:`Send` button and review the response :guilabel:`Body` to see what
-   the current settings on the device are. Examine the resulting response to
-   understand what settings are currently applied.
-
-#. Click the ``Step 2: Set System Global-Settings`` request. This item uses
-   a ``PATCH`` request to the ``global-settings`` resource to modify the
-   attributes contained within it. We will update the ``guiSetup`` and
-   ``hostname`` attribute.
-
-   - Click on :guilabel:`Body`. Review the JSON body and modify the ``hostname``
-     attribute to set the hostname to ``bigip-a.f5.local``
-
-   - Also notice that we are disabling the GUI Setup Wizard as part of
-     the same request:
-
-     |lab-3-1|
-
-#. Click the :guilabel:`Send` button and review the response :guilabel:`Body`.
-   You should see that the attributes modified above have been updated by
-   looking at the response. You can also ``GET`` the ``global-settings`` by
-   sending the ``Step 1: Get System Global-Settings`` request again to verify
-   they have been updated.
-
-Task 2 - Modify DNS/NTP Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. NOTE:: This task will make use of JSON arrays.  The syntax for defining a
-   JSON array is:
-
-   ``myArray: [ Object0, Object1 ... ObjectX ]``
-
-   To define an array consisting of Strings the syntax is:
-
-   ``myStringArray: [ "string0", "string1" ... "stringX" ]``
-
-Much like the previous task we can update system DNS and NTP settings by
-sending a PATCH request to the correct resource in the ``sys`` Organizing
-Collection. The relevant Resources for this task are:
-
-.. list-table::
-   :header-rows: 1
-
-   * - **URL**
-     - **Type**
-   * - ``/mgmt/tm/sys/dns``
-     - DNS Settings
-   * - ``/mgmt/tm/sys/ntp``
-     - NTP Settings
-
-Perform the following steps to complete this task:
-
-#. Click the ``Step 3: Get System DNS Settings`` item in the folder.
-   Click :guilabel:`Send` and review the current settings.
-
-#. Click the ``Step 4: Set System DNS Settings`` item in the folder.
-   Click :guilabel:`Body`. Review the JSON body to verify the name server IPs
-   ``4.2.2.2`` and ``8.8.8.8`` are listed. Additionally, add a search domain of
-   ``f5.local``. You will modify a JSON array to add a search domain:
-
-   |lab-3-4|
-
-#. Click the :guilabel:`Send` button and verify the requested changes were
-   successfully implemented by looking at the response or by sending the
-   ``Step 3: Get System DNS Settings`` request again.
-
-#. Click the ``Step 5: Get System NTP Settings`` item in the folder.
-   Click :guilabel:`Send` and review the current settings.
-
-#. Click the ``Step 6: Set System NTP Settings`` item in the folder.
-   Click :guilabel:`Body`. Review the JSON body to verify the NTP servers
-   with hostnames ``0.pool.ntp.org`` and ``1.pool.ntp.org`` are contained
-   in the ``servers`` attribute (another JSON array!).
-
-#. Click the :guilabel:`Send` button and verify the requested changes were
-   successfully implemented by looking at the response or sending the
-   ``Step 5: Get System NTP Settings`` again.
-
-Task 3 - Update default user account passwords
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this task we will update the passwords for the ``root`` and ``admin``
-accounts. The process for updating the root account is different than
-other system accounts because it is used by underlying Linux OS.
-
-To update the root account password we will use a ``POST`` to the
-``/mgmt/shared/authn/root`` REST endpoint.
-
-To update all other system accounts we will ``PATCH`` the
-``/mgmt/tm/auth/user/<username>`` Resource.
-
-Perform the following steps to change the ``root`` user password:
-
-#. Click the ``Step 7: Set root User Password`` item in the folder.
-
-#. We are performing a POST operation to change the root user password
-   and have to specify the ``oldPassword`` because the REST implementation
-   on the BIG-IP uses the underlying Linux mechanism.  Click
-   :guilabel:`Body`.  Modify the JSON body to update the password to the
-   value ``newdefault`` and click the :guilabel:`Send` button.
-
-   |lab-3-2|
-
-#. You can verify the password has been changed by opening an SSH session
-   to BIG-IP A.  A shortcut to a terminal is included on the desktop of
-   the Linux jumphost.  Open a Terminal window and then open an SSH connection
-   to BIG-IP A using the command ``ssh root@10.1.1.10``:
-
-   |lab-3-5|
-
-#. **Repeat the procedure above to change the password back to** ``default``.
-
-Perform the following steps to change the **admin** user password:
-
-#. Click the ``Step 8: Set admin User Password`` item in the collection.
-
-#. We are performing a ``PATCH`` operation to admin user
-   Resource. Click :guilabel:`Body` and modify the JSON body to update the
-   password to the value ``newadmin`` and click the :guilabel:`Send` button.
+.. NOTE:: This lab work will be performed from
+   ``Lab 1.3 - Install DO onto BIG-IP`` folder in the Postman
+   Collection
 
    |lab-3-3|
 
-#. You can verify the password has been changed by opening an SSH session
-    OR by logging into TMUI (HTTP GUI) to BIG-IP A in a Chrome browser tab.
+Task 1 - View Installed iControl LX Extensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. **Repeat the procedure above to change the password back to** ``admin``.
+Perform the following steps to complete this task:
+
+#. :guilabel:`Send` the ``Step 1: Get Installed iControl LX Extensions``
+   request to view extensions installed on the BIG-IP device:
+
+   |lab-3-4|
+
+#. Review the JSON response :guilabel:`Body`.  The JSON payload shows
+   extensions that are installed on the BIG-IP device in the ``items`` array.
+   In this case we have no extensions installed so the ``items`` array is empty.
+
+   |lab-3-5|
+
+
+Task 2 - Install the DO Extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Perform the following steps to complete this task:
+
+#. Using the Chrome web browser open a new tab and click the
+   ``DO Release`` bookmark.
+
+#. Click the file with the ``.rpm`` extension to download it.  The file will be
+   located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
+
+#. Click the ``Step 2: Upload DO Extension RPM`` request.
+
+#. Click the :guilabel:`Body` tab, then click the :guilabel:`Choose Files`
+   button:
+
+   |lab-3-6|
+
+#. Select the previously downloaded RPM file located in the ``Downloads``
+   folder on your jumphost.  Then click the :guilabel:`Send` button to upload
+   the RPM file to the BIG-IP system:
+
+   |lab-3-7|
+
+#. Review the :guilabel:`Test Results` to ensure the file upload was successful:
+
+   |lab-3-8|
+
+#. Click the ``Step 3: Create DO Extension Install Task`` request and click
+   :guilabel:`Send`.  This request will command the iControl LX framework to
+   install the RPM uploaded in the previous step.  Because the installation
+   task is an asynchronous operation we need to check the status of the task
+   in the next step.
+
+#. Click the ``Step 4: Get DO Install Task Status`` request and click
+   :guilabel:`Send`.
+
+#. Check the **Response** :guilabel:`Body` and ensure the task ``status`` is
+   ``FINISHED``:
+
+   |lab-3-9|
+
+#. Click the ``Step 5: Get DO State`` request and click
+   :guilabel:`Send`.  Review the **Response** :guilabel:`Body` and ensure that it shows an empty declaration like the image below. This shows that DO has not received any previous declarations.
+
+   |lab-3-10|
 
 .. |lab-3-1| image:: images/lab-3-1.png
 .. |lab-3-2| image:: images/lab-3-2.png
-.. |lab-3-3| image:: images/lab-3-3.png
+.. |lab-3-3| image:: images/lab-3-3.png#########image of postmanfolder
 .. |lab-3-4| image:: images/lab-3-4.png
 .. |lab-3-5| image:: images/lab-3-5.png
+.. |lab-3-6| image:: images/lab-3-6.png
+.. |lab-3-7| image:: images/lab-3-7.png
+.. |lab-3-8| image:: images/lab-3-8.png
+.. |lab-3-9| image:: images/lab-3-9.png
+.. |lab-3-10| image:: images/lab-3-10.png

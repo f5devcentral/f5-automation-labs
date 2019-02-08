@@ -16,11 +16,11 @@ Lab 1.2: REST API Authentication & ‘example’ Templates
          label = "BIG-IP"
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="steelblue1"]
-         globalsettings [label="Global Settings"]
-         networking [label="Networking"]
+         extensibility [label="Extensibility"]
+         onboarding [label="Onboarding"]
          clustering [label="Clustering"]
          transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 

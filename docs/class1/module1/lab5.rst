@@ -1,5 +1,5 @@
-Lab 1.5: Building Imperative Workflows with Postman Collections
----------------------------------------------------------------
+Lab 1.6: Build a BIG-IP Cluster using a Collection
+--------------------------------------------------
 
 .. graphviz::
 
@@ -16,11 +16,11 @@ Lab 1.5: Building Imperative Workflows with Postman Collections
          label = "BIG-IP"
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="palegreen"]
-         globalsettings [label="Global Settings",color="palegreen"]
-         networking [label="Networking",color="palegreen"]
-         clustering [label="Clustering"]
+         extensibility [label="Extensibility",color="palegreen"]
+         onboarding [label="Onboarding",color="palegreen"]
+         clustering [label="Clustering",color="steelblue1"]
          transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
@@ -40,94 +40,87 @@ be built from scratch or existing workflows can be modified.
 Additionally, we will use some Postman Javascript Tests to programmatically
 populate environment variables with the output of our workflow.
 
-Task 1 - Open and Run a Collection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this lab, we will build an active-standby cluster between BIG-IP A and
+BIG-IP B using Declarative Onboarding. As mentioned previously, to save time, BIG-IP B is
+already licensed and has its device-level settings configured. This lab will
+use the Postman Runner functionality introduced above.
+We will run the requests in a Collection Folder to build the cluster.
+If you examine the ``Lab 1.5 - Build a Cluster`` folder in the Collection you
+can see the value of **Declarative** proccesses. The collection is a few API calls
+to provision both BIG-IP devices and cluster them. In the past using **Imperative**
+model could have taken 100's of API calls to accomplish the same end state.
 
-#. The collection we will run in this task will populate some environment
-   variables with various data about the BIG-IP system.  First, let's examine
-   the Environment Variables that are currently set.  Click the |lab-5-2|\ icon
-   in the top right of the Postman window.  Notice that there are no variables
-   starting with the name ``lab1.5_``:
 
-   |lab-5-1|
+The high-level procedure required to create the cluster is:
 
-#. Click the ``Lab 1.5 - Building Imperative Workflows`` folder to expand it
+#. Obtain Authentication Tokens for BIG-IP A & B
 
-#. Click the ``Step 1: Get BIG-IP Software Version`` request.  Click the
-   :guilabel:`Tests` tab and examine the Javascript code and comments:
+#. Install Declarative Onboarding Extension
 
-   |lab-5-3|
+#. Send DO declaration to both devices defining desired end state
 
-   The Javascript code in the Test script will populate an environment variable
-   based on the response from the BIG-IP system.
+#. Verify declarations have completed
+
+#. Failover the Traffic Group to make BIG-IP A the Active device
+
+Task 1 - Build a Cluster using Runner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will use the :guilabel:`Runner` to execute a series of
+requests contained in the ``Lab 1.5 - Build a Cluster`` folder. Additionally, we
+will make use of a JavaScript framework called ``f5-postman-workflows`` that extends
+the Postman client to include common test and polling functions.
+
+Perform the following steps to build the cluster:
 
 #. Click the :guilabel:`Runner` button at the top left of your Postman window:
 
    |postman-runner-button|
 
 #. Select the ``F5 Programmability: Class 1`` Collection then the
-   ``Lab 1.5 - Building Imperative Workflows`` folder.  Next, be sure the
+   ``Lab 1.5 - Build a Cluster`` folder.  Next, be sure the
    environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
    is selected:
 
-   |lab-5-4|
+   |lab-5-1|
 
    Your Runner window should look like:
 
-   |lab-5-5|
-
-   As you can see from the screenshot or your own Collection Runner screen, we
-   will be sending 3 requests (Steps 1-3 in Lab 1.5).  Each request has a
-   *unit test* implemented in JavaScript to ensure it's ok to continue to the
-   next request when using the Collection Runner. The Runner will step through
-   each request unless one of the tests fails.
+   |lab-5-2|
 
 #. Click the :guilabel:`Run Lab 1.5 - Buil...` button
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and its associated test results are displayed on the screen.
-   The last request in the folder includes some Javascript code to dump the
-   results to the screen:
+   Building the cluster can take a few minutes.  You can follow the progress
+   by scrolling down the results window.
 
-   |lab-5-6|
+#. Once the :guilabel:`Run Summary` button appears, the folder has completed
+   running.  You should have 0 failures and the last item in the request
+   list should be named ``xxxx``
 
-#. Next, switch back to the main Postman window.  Click the |lab-5-2|\ button
-   again and examine the environment variables.  Notice that three new variables
-   starting with the name ``lab1.5_`` have been populated. You may need to scroll
-   down to see these variables:
-
-   |lab-5-7|
-
-.. NOTE:: It is normal for the values of Software Version, CPU Count and Base
-   MAC Address to be different from the screenshot(s).
-
-In this lab, we demonstrated running a simple Imperative Workflow using the
-Postman Collection Runner.  In subsequent labs, we will expand on this simple
-use case to perform more complex functions.  As you continue through the labs,
-be sure to take time to explore the details of the requests being sent.  The
-Postman Collection used in this class can also serve as a starting point for
-building your own collections or modifying existing ones.
-
-As we move through the rest of this module you will see the complexity involved
-in building Imperative Workflows.  While these types of workflows are incredibly
-powerful, they are also time-consuming to build from scratch.  As we move into
-Module 2 you will see the importance of leveraging **Abstraction**
-and **Declarative Interfaces** to minimize the amount of time spent on building
-Imperative Workflows.
+   |lab-5-3|
 
 .. raw:: html
 
-   <iframe width="600" height="315" src="https://www.youtube.com/embed/WxAirVNyo6I" frameborder="0" gesture="media" allowfullscreen></iframe>
+   <iframe width="600" height="315" src="https://www.youtube.com/embed/je1fCb1qBZE" frameborder="0" gesture="media" allowfullscreen></iframe>
 
-*Source: https://youtu.be/WxAirVNyo6I*
+*Source: https://youtu.be/je1fCb1qBZE*
 
+Task 2 - Verify the Built Cluster in BIG-IP GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. |postman-runner-button| image:: /images/postman-runner-button.png
+#. At this point you can log into BIG-IP A using Chrome at ``https://10.1.1.10``.
+   Verify that the cluster was built by navigating to
+   :menuselection:`Device Management --> Overview` using the menu in the BIG-IP
+   TMUI GUI. Verify that the cluster and failover status indicators are all green.
+
+   |lab-5-4|
+
 .. |lab-5-1| image:: images/lab-5-1.png
 .. |lab-5-2| image:: images/lab-5-2.png
 .. |lab-5-3| image:: images/lab-5-3.png
+   :scale: 80%
 .. |lab-5-4| image:: images/lab-5-4.png
-.. |lab-5-5| image:: images/lab-5-5.png
-.. |lab-5-6| image:: images/lab-5-6.png
-   :scale: 65%
-.. |lab-5-7| image:: images/lab-5-7.png
+   :scale: 80%
+.. |postman-runner-button| image:: /images/postman-runner-button.png
