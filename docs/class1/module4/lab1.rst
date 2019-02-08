@@ -49,7 +49,7 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
 
    |lab-1-6|
 
-#. Once completed, the BIG-IP A (and BIG-IP B if clustered) shows in the device list.
+#. Once completed, the BIG-IP A and BIG-IP B are showing in the device list.
 
    |lab-1-7|
 
