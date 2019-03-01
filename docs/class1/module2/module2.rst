@@ -30,7 +30,7 @@ Module 2: Abstracting Services using the App Services 3 Extension
    }
 
 In this Module, we will continue working with the BIG-IP REST interface. However,
-we will now introduce F5 Declarative Interfaces built with the App Services 3 
+we will now introduce another F5 Declarative Interfaces built with the App Services 3 
 Extension (AS3).
 
 The AS3 Extension is built on top of the extensible, Node.js based iControl LX 

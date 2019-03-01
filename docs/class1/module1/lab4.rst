@@ -1,5 +1,5 @@
-Lab 1.4: Basic Network Connectivity
------------------------------------
+Lab 1.4: Onboard BIG-IP with DO
+-------------------------------
 
 .. graphviz::
 
@@ -16,15 +16,26 @@ Lab 1.4: Basic Network Connectivity
          label = "BIG-IP"
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="palegreen"]
-         globalsettings [label="Global Settings",color="palegreen"]
-         networking [label="Networking",color="steelblue1"]
+         extensibility [label="Extensibility",color="palegreen"]
+         onboarding [label="Onboarding",color="steelblue1"]
          clustering [label="Clustering"]
          transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
-This lab will focus on configuration of the following items:
+All devices for this lab are already licensed although Declarative Onboarding has the ability
+to license the BIG-IP as part of its declaration. We will focus on configuring the basic 
+infrastructure related settings to complete the Device Onboarding process. 
+The remaining items include (list not exhaustive):
+
+-  Device Settings
+
+   -  **NTP/DNS Settings**
+
+   -  Remote Authentication
+
+   -  **Hostname**
 
 -  L1-3 Networking
 
@@ -34,182 +45,98 @@ This lab will focus on configuration of the following items:
 
    -  L3 Connectivity (**Self IPs, Routing**, etc.)
 
+-  HA Settings
+
+   -  **Global Settings**
+
+      -  **Config Sync IP**
+
+      -  **Mirroring IP**
+
+      -  **Failover Addresses**
+
+   -  **CMI Device Trusts**
+
+   -  **Device Groups**
+
+   -  **Traffic Groups**
+
+   -  **Floating Self IPs**
+
 We will specifically cover the items in **BOLD** above in the following
 labs. It should be noted that many permutations of the Device Onboarding
-process exist due to the nature of different organizations. This class is
+process exist due to the nature of real-world environments. This class is
 designed to teach enough information so that you can then apply the
 knowledge learned and help articulate and/or deliver a specific solution
 for your environment.
 
-The following table and diagram lists the L2-3 network information used to
-configure connectivity for BIG-IP A:
+Task 1 - Review and Deploy a DO Declaration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. list-table::
-   :stub-columns: 1
-   :header-rows: 1
+Now that DO has been installed on your BIG-IP we may proceed configuring the base-config objects listed above. Unlike imperative workflows, you will not need to execute an API call per object (NTP, DNS, Hostname, etc). You will include each one of these attributes within a JSON payload and submit it through Declarative Onboarding. DO will handle configuring the desired end state defined within the declaration.
 
-   * - **Type**
-     - **Name**
-     - **Details**
-   * - VLAN
-     - Internal
-     - **Interface**: 1.1
-
-       **Tag:** 10
-   * - VLAN
-     - External
-     - **Interface**: 1.2
-
-       **Tag:** 20
-   * - Self IP
-     - Self-Internal
-     - **Address**: 10.1.10.10/24
-
-       **VLAN:** Internal
-   * - Self IP
-     - Self-External
-     - **Address**: 10.1.20.10/24
-
-       **VLAN:** External
-   * - Route
-     - Default
-     - **Network:** 0.0.0.0/0
-
-       **GW:** 10.1.20.1
-
-.. nwdiag:: ../labinfo/labtopology.diag
-   :width: 800
-   :caption: Lab Topology
-   :name: lab-topology-diagram
-   :scale: 110%
-
-Task 1 - Create VLANs
-~~~~~~~~~~~~~~~~~~~~~
-
-.. NOTE::
-   This lab shows how to configure VLAN tags, but does not deploy tagged
-   interfaces.  To use tagged interfaces the ``tagged`` attribute needs
-   to have the value ``true``
-
-Perform the following steps to configure the VLAN objects/resources:
-
-#. Expand the ``Lab 1.4 - Basic Network Connectivity`` folder in the
-   Postman collection.
-
-#. Click the ``Step 1: Create a VLAN`` request in the folder. Click
-   :guilabel:`Body` and examine the JSON request body; the values for
-   creating the Internal VLAN have already been populated.
-
-#. Click the :guilabel:`Send` button to create the VLAN
-
-#. **Repeat Step 1**, however, this time modify the JSON body to create the
-   External VLAN using the parameters shown in the table above. In order to do
-   so you can replace the following:
-
-   - ``name``: ``Internal`` --> ``External``
-   - ``tag``: ``10`` --> ``20``
-   - ``interfaces[] --> name``: ``1.1`` --> ``1.2``
-
-   |lab-4-6|
-
-#. Click the ``Step 2: Get VLANs`` request in the folder. Click the
-   :guilabel:`Send` button to ``GET`` the VLAN collection. Examine the response
-   to make sure both VLANs have been created.
-
-Task 2 - Create Self IPs
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Perform the following steps to configure the Self IP objects/resources:
-
-#. Click the ``Step 3: Create Internal Self IP`` request in the folder. Click
-   :guilabel:`Body` and examine the JSON body; the values for creating the
-   Self-Internal Self IP have already been populated.
-
-   .. NOTE:: The JSON body sets the VLAN to ``/Common/External`` on purpose.
-      You will modify this value in the steps below.  Please do not change the
-      value.
-
-#. Click the :guilabel:`Send` button to create the Self IP.
-
-#. Click the ``Step 4: Create External Self IP`` request in the folder and
-   click :guilabel:`Send`
-
-#. Click the ``Step 5: Get Self-Internal Self IP Attributes`` request in the
-   folder and click the :guilabel:`Send` button.  Examine the VLAN settings
-   of the Resource.  As noted above the Self IP has been assigned to the **wrong**
-   VLAN (intentionally).
-
-   .. NOTE:: Postman has the ability to check the responses for specific values
-      to verify if the result of a request is what it is expected to be. The
-      :guilabel:`Test Results` for this request will show a failure for the
-      ``[Check Value] vlan == /Common/Internal`` value.  This is intentional
-      and you should continue to the next section.
+.. NOTE:: This lab work will be performed from
+   ``Lab 1.4 - Onboarding with DO`` folder in the
+   Postman Collection
 
    |lab-4-1|
 
-Task 3 - Modify Existing Self IP Resource
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In order to modify an existing object via the REST API, the URI path has to
-be changed.  In the previous examples we used a ``POST`` to create Resources under
-a Collection, therefore, the URI used was that of the Collection itself.
-If you wish to update/modify a Resource you must refer to the Resource
-directly.
-
-For example, the Collection URI for Self IPs is  ``/mgmt/tm/net/self``.
-
-The Resource URI for the ``Self-Internal`` Self IP is
-``/mgmt/tm/net/self/~Common~Self-Internal``.  Notice that the BIG-IP
-partition and object name has been added to the Collection URI to for the
-Resource URI.
-
-#. On the open ``Step 5: Get Self-Internal Self IP Attributes`` request
-   change the request method from ``GET`` to ``PATCH``.  The ``PATCH`` method
-   is used to modify the attributes of an existing Resource.
-
-   |lab-4-5|
-
-#. Copy ``(Ctrl+c)`` the entire JSON **RESPONSE** from the previous ``GET``
-   request.
+#. Select ``Step 1: Deploy DO Declaration``. Notice the destination path of ``/mgmt/shared/declarative-onboarding`` to where the declaration ``POST`` will be sent. This is the REST endpoint that you installed in the previous lab. We will review the JSON :guilabel:`Body` to see the different configuration objects being defined in the next steps.
 
    |lab-4-2|
 
-#. Paste ``(Ctrl+v)`` the text into JSON Request body:
-
-   .. NOTE:: Be sure to highlight any existing text and replace it while
-      pasting.
+#. The top of the declaration contains **Base Components** such as the schemaVersion to use and the optional `async` flag. In our example we are setting `async` to true which tells DO to respond immediatly with a 202. You can then poll DO for an updated status on the request. At the following link you can read more about `Asynchronus vs Synchronous <https://docs.apigee.com/api-baas/get-started/asynchronous-vs-synchronous-calls>`_.
 
    |lab-4-3|
 
-#. In the JSON body change the ``vlan`` attribute to ``/Common/Internal``
-   and click ``Send``:
+#. The next section is the  **Common Class**. This is where all other parameters are defined such as resources, license, hostname, dns, vlans, etc.  Near the top of the :guilabel:`Body` you will see attributes such as DNS servers, 2 NTP servers, and device hostname. Look through the rest of the :guilabel:`Body` to familiarize yourself with other options be set.
 
    |lab-4-4|
 
-#. Click the ``Step 6: Get Self IPs`` item in the collection. Click the
-   ``Send`` button to GET the Self IP collection. Examine the response to
-   make sure both Self IPs have been created and associated with the
-   appropriate vlan.
+#. Select :guilabel:`Send` to make a request to the DO endpoint. Verify that you receive a **202** response from the BIG-IP. The status will show as **processing**. 
 
-Task 4 - Create Routes
-~~~~~~~~~~~~~~~~~~~~~~
+   |lab-4-5|
 
-Perform the following steps to configure the Route object/resource:
 
-#. Before creating the route, we double check the content of the routing table.
-   Click the ``Step 7: Get Routes`` item in the collection. Click the
-   ``Send`` button to ``GET`` the routes collection. Examine the response to
-   make sure there is no route.
+Task 2 - Get DO declaration status from BIG-IP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the ``Step 8: Create a Route`` item in the collection. Click
-   :guilabel:`Body` and examine the JSON body; the values for creating the
-   default route have already been populated.
+Now that we have deployed our desired end state to DO, we need to check and see if has finished processing the request. Since we have requested that the BIG-IP enable more resource modules, **Application Security(asm) and Application Visibility(avr)**, it can take a minute or two. Follow the steps below to check the status.
 
-#. Click the ``Send`` button to create the route.
+#. Select ``Step 2: Get DO Status``. Notice that the path endpoint is the same as before but the HTTP mehhod is now **GET** instead of **POST**. This will tell DO that we are looking to receive the current configuration and status rather than define it.
 
-#. Click the ``Step 9: Get Routes`` item in the collection again. Click the
-   ``Send`` button to ``GET`` the routes collection. Examine the response to
-   make sure the route has been created.
+   |lab-4-6|
+
+#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request.
+
+Processing
+   |lab-4-7|
+
+Success
+   |lab-4-8|
+
+#. In your browser, go to the BIG-IP A GUI bookmark or :guilabel:`https://10.1.1.10/`. Verify that the objects requested are now provisioned. The image below show VLANs and Hostname as an example.
+
+   |lab-4-9|
+
+
+Task 3 - Modify our DO Declaration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this task we will go back and modify Task1's payload and redploy to DO. We will make 1 edit and allow DO's declarative nature make the appropriate changes on the back end to update the BIG-IP.
+
+#. Select ``Step 1: Deploy DO Declaration``. In the request :guilabel:`Body` go down into the **myDns** class. We are going to add a second search domain to our BIG-IP. Edit the **search** array by adding `f5.local` to the array as below.
+
+   |lab-4-10|
+
+#. Select :guilabel:`Send` to make a request to the DO endpoint again. DO will return a **202** as it did last time.
+
+   |lab-4-11|
+
+#. Select ``Step 2: Get DO Status`` and click :guilabel:`Send`. This time you will notice that DO is already finished as it only had to make 1 small change to get to the desired end state. The first time DO was run it was deploying all settings as well as enabling new features on the BIG-IP.
+
+   |lab-4-12|
+
 
 .. |lab-4-1| image:: images/lab-4-1.png
 .. |lab-4-2| image:: images/lab-4-2.png
@@ -217,3 +144,9 @@ Perform the following steps to configure the Route object/resource:
 .. |lab-4-4| image:: images/lab-4-4.png
 .. |lab-4-5| image:: images/lab-4-5.png
 .. |lab-4-6| image:: images/lab-4-6.png
+.. |lab-4-7| image:: images/lab-4-7.png
+.. |lab-4-8| image:: images/lab-4-8.png
+.. |lab-4-9| image:: images/lab-4-9.png
+.. |lab-4-10| image:: images/lab-4-10.png
+.. |lab-4-11| image:: images/lab-4-11.png
+.. |lab-4-12| image:: images/lab-4-12.png

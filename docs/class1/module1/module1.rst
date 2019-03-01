@@ -32,18 +32,16 @@ Module 1: Imperative Automation with the |bip| |icr|
    }
 
 In this module you will learn the basic concepts required to interact
-with the BIG-IP iControl REST API. Additionally, you will walk through a
-typical Device Onboarding workflow to deploy a fully functional
+with the BIG-IP iControl REST API. Additionally, you will walk through a 
+Device Onboarding workflow to deploy a fully functional
 BIG-IP Active/Standby pair. It’s important to note that this module will
-focus on demonstrating an **Imperative** approach to automation.
+focus on demonstrating a mixture of **Imperative** and **declarative** approaches 
+to automation.
 
 .. NOTE:: The Lab Deployment for this lab includes two BIG-IP devices.
    For most of the labs, we will only be configuring the BIG-IP A
    device (management IP configuration and licensing has been completed).
-   BIG-IP B will have some minimal configuration pre-loaded. In a real-world
-   scenario, it would be necessary to perform Device Onboarding functions
-   on ALL BIG-IP devices. In this lab exercise, we chose to perform it only
-   on a single device due to lab time allocation constraints.
+   BIG-IP B will be configuered during a workflow while clustering the Active/Standby pair.
 
 .. NOTE:: In order to confirm the results of REST API calls made in this lab, it's
    recommended to keep GUI/SSH sessions to the BIG-IP devices open.

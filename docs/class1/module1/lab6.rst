@@ -1,5 +1,5 @@
-Lab 1.6: Build a BIG-IP Cluster using a Collection
---------------------------------------------------
+Lab 1.6: Build a Basic LTM Config using REST Transactions
+---------------------------------------------------------
 
 .. graphviz::
 
@@ -16,122 +16,145 @@ Lab 1.6: Build a BIG-IP Cluster using a Collection
          label = "BIG-IP"
          basics [label="REST Basics",color="palegreen"]
          authentication [label="Authentication",color="palegreen"]
-         globalsettings [label="Global Settings",color="palegreen"]
-         networking [label="Networking",color="palegreen"]
-         clustering [label="Clustering",color="steelblue1"]
-         transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
+         extensibility [label="Extensibility",color="palegreen"]
+         onboarding [label="Onboarding",color="palegreen"]
+         clustering [label="Clustering",color="palegreen"]
+         transactions [label="Transactions",color="steelblue1"]
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
-In this lab, we will build an active-standby cluster between BIG-IP A and
-BIG-IP B using the REST API. As mentioned previously, to save time, BIG-IP B is
-already licensed and has its device-level settings configured. This lab will
-use the Postman Runner functionality introduced in the previous lab.
-We will run the requests in a Collection Folder to build the cluster.
-If you examine the ``Lab 1.6 - Build a Cluster`` folder in the Collection you
-can see how complex **Imperative** processes can become.
-Clustering is one of the *transition* points for most customers to move into the
-**Declarative** model (if not already done) due to the need to abstract
-device/vendor level specifics from automation consumers.
+In this lab we will build a basic LTM Config using |icr| Transactions.
 
-The high-level procedure required to create the cluster is:
+Task 1 - Create a Transaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Obtain Authentication Tokens for BIG-IP A & B
+Transactions are very useful in cases where you would like to have discrete REST
+operations to act as a batch operation. As a result, the nature of a
+transaction is that either all the operations succeed or none of them
+do (all-or-nothing). This is very useful when we are creating a configuration
+that is linked together because it allows roll back of operations in
+case one fails.  All the commands issued are queued one after the other in the
+transaction. We will also review how to change the order of a queued
+command or remove a single command from the queued list before committing.
 
-#. Check that both devices are licensed and ready to configure
+.. NOTE:: Transactions are essential to ensure that an Imperative process is
+   **Atomic** in nature.
 
-#. Configure Device Level settings on both devices
+.. WARNING:: Transactions have a default timeout of 120 seconds.  Taking
+   longer than the timeout period to execute a transaction will result in
+   automatic deletion of the transaction.  **To avoid having to redo the steps
+   in this task, please first read through the steps below and execute each of
+   them in a timely manner.**
 
-#. Configure Networking on BIG-IP B (remember this was already done in Lab 1.4
-   for BIG-IP A)
+Perform the following steps to complete this task:
 
-#. Set BIG-IP A & BIG-IP B CMI Parameters (Config Sync IP, Failover
-   IPs, Mirroring IP)
-
-#. Add BIG-IP B as a trusted peer on BIG-IP A
-
-#. Check the status of the Sync Groups
-
-#. Create a sync-failover Device Group
-
-#. Check the status of the created Device Group
-
-#. Perform initial sync of the Device Group
-
-#. Check status (again)
-
-#. Change the Traffic Group to use HA Order failover
-
-#. Create Floating Self IPs
-
-#. Failover the Traffic Group to make BIG-IP A the Active device
-
-Task 1 - Build a Cluster using Runner
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this task we will use the :guilabel:`Runner` to execute a series of
-requests contained in the ``Lab 1.6 - Build a Cluster`` folder.  As mentioned
-previously this folder contains a large number of REST requests required to
-build an Active/Standby cluster.  Additionally, we will make use of a JavaScript
-framework called ``f5-postman-workflows`` that extends the Postman client to
-include common test and polling functions.
-
-Perform the following steps to build the cluster:
-
-#. Click the :guilabel:`Runner` button at the top left of your Postman window:
-
-   |postman-runner-button|
-
-#. Select the ``F5 Programmability: Class 1`` Collection then the
-   ``Lab 1.6 - Build a Cluster`` folder.  Next, be sure the
-   environment is set to ``F5 Programmability: Class 1`` and ``Persist Variables``
-   is selected:
+#. Expand the ``Lab 1.6 - Build a Basic LTM Config using Transactions`` folder in the Postman
+   collection:
 
    |lab-6-1|
 
-   Your Runner window should look like:
+#. Click the ``Step 1: Create a Transaction`` request. Examine the URL and
+   JSON :guilabel:`Body`. We will send a ``POST`` to the
+   ``/mgmt/tm/transaction`` endpoint with an empty JSON body to create a new
+   transaction.
 
    |lab-6-2|
 
-#. Click the :guilabel:`Run Lab 1.6 - Buil...` button
-
-#. The results window will now populate.  You will see each request in the
-   folder is sent and its associated test results are displayed on the screen.
-   Building the cluster can take a few minutes.  You can follow the progress
-   by scrolling down the results window.
-
-#. Once the :guilabel:`Run Summary` button appears, the folder has completed
-   running.  You should have 0 failures and the last item in the request
-   list should be named ``Cleanup Environment``
+#. Click the :guilabel:`Send` button to send the request. Examine the response
+   and find the ``transId`` attribute.  Additionally, notice that there are
+   timeouts for both the submission of the transaction and how long it would
+   take to execute. Please be aware that upon exceeding the ``timeoutSeconds``
+   period, the ``transId`` will be silently removed:
 
    |lab-6-3|
 
-.. NOTE::
-   If you are have an issue with your authentication token issue please return to
-   Lab 1.3, Step 8 in Postman to set your admin password to ``admin``.
-
-
-.. raw:: html
-
-   <iframe width="600" height="315" src="https://www.youtube.com/embed/je1fCb1qBZE" frameborder="0" gesture="media" allowfullscreen></iframe>
-
-*Source: https://youtu.be/je1fCb1qBZE*
-
-Task 2 - Verify the Built Cluster in BIG-IP GUI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. At this point you can log into BIG-IP A using Chrome at ``https://10.1.1.10``.
-   Verify that the cluster was built by navigating to
-   :menuselection:`Device Management --> Overview` using the menu in the BIG-IP
-   TMUI GUI. Verify that the cluster and failover status indicators are all green.
+   The ``transId`` value has been automatically populated for you in the
+   ``bigip_transaction_id`` environment variable:
 
    |lab-6-4|
+
+#. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` request in the
+   folder. This request is similar to a non-transaction enabled request  in terms
+   of the ``POST`` request method, URI and JSON body. The difference is that, a
+   header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId``
+   attribute is added to the transaction:
+
+   |lab-6-5|
+
+#. Click the :guilabel:`Send` button and examine the response.
+
+#. Examine and click :guilabel:`Send` on **Steps 3-6** in the folder.
+
+#. Click ``Step 7: View the Transaction Queue``. Examine the request type and
+   URI and click :guilabel:`Send`. This request allows you to see the current
+   list of ordered commands in the transaction.
+
+Task 2 - Modify a Transaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the ``Step 8: View Queued Command 4 from Transaction`` request in the
+   folder. Examine the request method and URI. We will ``GET`` command number
+   **4** from the transaction queue.
+
+   |lab-6-7|
+
+#. Click the ``Step 9: Change Eval Order 4 -> 1`` request in the folder.
+   Examine the request method, URI, JSON body, then click :guilabel:`Send`.
+   We will PATCH our transaction resource and change the value of the ``evalOrder``
+   attribute from ``4`` to ``1`` to move to the first position of the transaction queue:
+
+   |lab-6-8|
+
+   .. NOTE:: Requests in the ordered transaction queue must obey the order of
+      operations present in the underlying BIG-IP system.
+
+   .. WARNING:: When sending the Header ``X-F5-REST-Coordination-Id``, the
+      system assumes that you want to **ADD** an entry in the transaction
+      queue. You **MUST** remove this header if you want to issue
+      any other transaction queue changes (such as deleting an entry from the
+      queue, changing the order, or committing a transaction). If you
+      fail to remove the header, the system will respond with a ``400``
+      HTTP error code with the following error text:
+
+      ``"message": "Transaction XXXXX operation .... is not allowed
+      to be added to transaction."``
+
+
+
+#. Click the ``Step 10: View the Transaction Queue Changes`` request in the
+   folder. Verify that command number ``4`` has moved into position ``1``
+   and the order of all other commands has been updated accordingly.
+
+Task 3 - Commit a Transaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the ``Step 11: Commit the Transaction`` request in the folder.
+   Examine the request type, URI and JSON body. We will ``PATCH`` our
+   transaction resource and change the value of the ``state`` attribute
+   to submit the transaction:
+
+   |lab-6-6|
+
+#. Click the :guilabel:`Send` button and examine the response.  The ``state``
+   may already be ``COMPLETED``, however, it's a good practice to explicitly
+   check for this.
+
+#. Click the ``Step 12: View the Transaction Status`` request in the folder and
+   click the :guilabel:`Send` button.  Verify that the ``state`` of the
+   transaction is ``COMPLETED``
+
+#. You can verify the configuration was created on the BIG-IP device via the
+   BIG-IP A GUI at ``https://10.1.1.10``
+
+#. Verify that the virtual server works by opening ``http://10.1.20.120`` in
+   Chrome web browser
 
 .. |lab-6-1| image:: images/lab-6-1.png
 .. |lab-6-2| image:: images/lab-6-2.png
 .. |lab-6-3| image:: images/lab-6-3.png
-   :scale: 80%
 .. |lab-6-4| image:: images/lab-6-4.png
-   :scale: 80%
-.. |postman-runner-button| image:: /images/postman-runner-button.png
+.. |lab-6-5| image:: images/lab-6-5.png
+.. |lab-6-6| image:: images/lab-6-6.png
+.. |lab-6-7| image:: images/lab-6-7.png
+.. |lab-6-8| image:: images/lab-6-8.png

@@ -16,12 +16,11 @@ Lab 1.1: Exploring the iControl REST API
          label = "BIG-IP"
          basics [label="REST Basics",color="steelblue1"]
          authentication [label="Authentication"]
-         globalsettings [label="Global Settings"]
-         networking [label="Networking"]
+         extensibility [label="Extensibility"]
+         onboarding [label="Onboarding"]
          clustering [label="Clustering"]
          transactions [label="Transactions"]
-         basics -> authentication -> globalsettings -> networking -> clustering -> transactions
-
+         basics -> authentication -> extensibility -> onboarding -> clustering -> transactions
       }
    }
 
