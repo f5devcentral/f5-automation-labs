@@ -34,13 +34,9 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
                      "statsProfile": {
                            "class": "Analytics_Profile",
                            "collectedStatsInternalLogging": true,
-                           "collectedStatsExternalLogging": false,
-                           "capturedTrafficInternalLogging": false,
-                           "capturedTrafficExternalLogging": false,
                            "collectPageLoadTime": true,
                            "collectClientSideStatistics": true,
-                           "collectResponseCode": true,
-                           "sessionCookieSecurity": "ssl-only"
+                           "collectResponseCode": true
                      },
                      "serviceMain": {
                            "class": "Service_HTTP",
@@ -77,7 +73,7 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
 
    .. note:: It is recommended to `validate your AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
 
-   .. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
+   .. _validate your AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
 
    .. NOTE:: Add a **","** at the end of the MyWebApp1 statement.
       If you want to "minimize" MyWebApp1 statement (like in the screenshot below), click on the tiny down arrow on the left of this line
@@ -94,13 +90,9 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
             "statsProfile": {
                   "class": "Analytics_Profile",
                   "collectedStatsInternalLogging": true,
-                  "collectedStatsExternalLogging": false,
-                  "capturedTrafficInternalLogging": false,
-                  "capturedTrafficExternalLogging": false,
                   "collectPageLoadTime": true,
                   "collectClientSideStatistics": true,
-                  "collectResponseCode": true,
-                  "sessionCookieSecurity": "ssl-only"
+                  "collectResponseCode": true
             },
             "serviceMain": {
                   "class": "Service_HTTPS",

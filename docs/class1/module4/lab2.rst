@@ -23,11 +23,11 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
 
    .. note:: It is recommended to `validate your AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
 
-   .. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
+   .. _validate your AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 12,33,49,50
+      :emphasize-lines: 12,33,45,46
 
       {
          "class": "AS3",
@@ -361,7 +361,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 41
+      :emphasize-lines: 37
 
       {
          "class": "AS3",
@@ -473,7 +473,7 @@ Task 4 - Generic Services
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 30
+      :emphasize-lines: 26
 
       {
          "class": "AS3",
@@ -496,13 +496,9 @@ Task 4 - Generic Services
                      "statsProfile": {
                         "class": "Analytics_Profile",
                         "collectedStatsInternalLogging": true,
-                        "collectedStatsExternalLogging": false,
-                        "capturedTrafficInternalLogging": false,
-                        "capturedTrafficExternalLogging": false,
                         "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true,
-                        "sessionCookieSecurity": "ssl-only"
+                        "collectResponseCode": true
                      },
                      "<generic_virtual>": {
                         "class": "Service_Generic",

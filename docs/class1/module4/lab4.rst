@@ -252,7 +252,7 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 34
+      :emphasize-lines: 30
 
       {
          "class": "AS3",
@@ -274,13 +274,9 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
                      "statsProfile": {
                            "class": "Analytics_Profile",
                            "collectedStatsInternalLogging": true,
-                           "collectedStatsExternalLogging": false,
-                           "capturedTrafficInternalLogging": false,
-                           "capturedTrafficExternalLogging": false,
                            "collectPageLoadTime": true,
                            "collectClientSideStatistics": true,
-                           "collectResponseCode": true,
-                           "sessionCookieSecurity": "ssl-only"
+                           "collectResponseCode": true
                      },
                      "serviceMain": {
                            "class": "Service_HTTP",
