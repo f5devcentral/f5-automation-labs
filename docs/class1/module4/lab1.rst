@@ -7,10 +7,13 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
    guide to your jumphost.  To make this easier you can open a copy of the
    guide by using the **Lab Guide** bookmark in Chrome.
 
-.. WARNING:: BIG-IP A must be fully configured and provisionned (see previous lab for BIG-IP onboarding using iControl REST API or Declarative Onboarding)
+.. WARNING:: BIG-IP A and B must be fully configured and provisionned as a cluster (see `previous lab`_)
 
-#. Open Google Chrome and navigate to the following bookmarks: **BIG-IQ
-   CM GUI** or navigate to the URL ``https://10.1.1.4``. Bypass any SSL errors that appear and ensure you see the login screen for each bookmark.
+.. _previous lab: ../module1/lab5.html#task-1-build-a-cluster-using-runner
+
+
+#. Open Google Chrome and navigate to the following bookmarks: **BIG-IQ CM ** or 
+   navigate to the URL ``https://10.1.1.4``. Bypass any SSL errors that appear and ensure you see the login screen.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
 
@@ -20,7 +23,7 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
       so would make it possible for an attacker to do a man-in-the-middle
       attack and allow him the ability to steal passwords and tokens.
 
-#. Click on the **Devices** tab, under the BIG-IP Devices section, click on **Add Devices**
+#. Click on the **Devices** tab, under the BIG-IP Devices section, click on **Add Device(s)**
 
    |lab-1-1|
 
@@ -53,7 +56,9 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
 
    |lab-1-7|
 
-#. Nativate to the **Monitoring** tab, under DASHBOARDS, Device, Health, notice the device analytics showing in the BIG-IQ UI.
+   .. NOTE:: This may take few minutes for the BIG-IQ do the initial BIG-IP discovery & import.
+
+#. Nativate to the **Monitoring** tab, under DASHBOARDS > Device > Health, notice the device analytics showing in the BIG-IQ UI.
 
    |lab-1-8|
 

@@ -10,6 +10,8 @@ Administrators will employ the BIG-IQ Service Catalog to construct and manage a 
 - Restrict specific AS3 properties and/or classes
 - Override specific AS3 default property values
 
+.. note:: BIG-IQ 7.0 will bring a User Interface to create and manage the AS3 templates.
+
 The following examples demonstrate how these goals can be met with JSON Schema.
 
 #. Enforcing Changes to AS3 Classes
@@ -115,6 +117,11 @@ The following examples demonstrate how these goals can be met with JSON Schema.
 ------------
 
 In this task, we will create a template which require a Service_HTTP object, force the service port to 8080, and prevent WAF (ASM) and IAM (APM) configuration.
+
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 #. Copy the below example of an AS3 service template into the Postman **BIG-IQ AS3 Template Creation** call.
    It will create a new template in BIG-IQ AS3 Service Catalogue:
@@ -234,7 +241,10 @@ Task 8 - Deploy the HTTP Application Service using a Custom Template
 Now, let's deploy an application as Olivia using the AS3 template previously created in Task 6. Note in the below declaration, 
 the virtualPort is set to 9090 while in the template, we force the virtualPort to a specific value and accept no other.
 
-#. Using Postman, update the user to olivia/olivia in the **BIG-IQ Token (olivia)** call (body).
+#. Using Postman, use the **BIG-IQ Token (olivia)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (olivia)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 #. Copy below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
 

@@ -73,11 +73,14 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
          }
       }
 
-#. Add the below application service to the existing AS3 declaration in the JSON validator.
+#. Add the below application service to the existing AS3 declaration in the JSON validator. The validator is your IDE (e.g. Microsoft Visual Studio Code).
+
+   .. note:: It is recommended to `validate your AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
+
+   .. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
 
    .. NOTE:: Add a **","** at the end of the MyWebApp1 statement.
       If you want to "minimize" MyWebApp1 statement (like in the screenshot below), click on the tiny down arrow on the left of this line
-
 
 
    |lab-3-1|
@@ -145,13 +148,15 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
             }
          }
 
-.. note:: It is recommended `validate an AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
-
-.. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
-
 #. Make sure the Declaration is valid!
 
-#. Using Postman, use the **BIG-IQ AS3 Declaration** Postman call in order to create the service on the BIG-IP through BIG-IQ. Copy/Past the declaration into Postman:
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+
+#. Use the **BIG-IQ AS3 Declaration** Postman call in order to create the service on the BIG-IP through BIG-IQ.
+   Copy/Past the declaration into Postman:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
    

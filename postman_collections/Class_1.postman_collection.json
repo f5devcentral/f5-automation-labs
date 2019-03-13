@@ -681,7 +681,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-A\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"bigip-a.f5.local\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n            \t\"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.10/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"none\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.10/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"none\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        }\n    }\n}\n"
+							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-A\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"bigip-a.f5.local\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"asm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n            \t\"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.10/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"none\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.10/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"none\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        }\n    }\n}\n"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/shared/declarative-onboarding",
@@ -984,16 +984,8 @@
 									"",
 									"var check_vals = [",
 									"        { ",
-									"            \"path\":\"nameServers\",",
-									"            \"value\":JSON.parse(environment._rt_dns_servers).length,",
-									"            \"op\":\"length\",",
-									"            \"optional\":true            ",
-									"        },",
-									"        { ",
-									"            \"path\":\"search\",",
-									"            \"value\":JSON.parse(environment._rt_dns_search).length,",
-									"            \"op\":\"length\"",
-									"        }        ",
+									"            \"nameServers\":\"8.8.8.8\"",
+									"        }",
 									"    ];",
 									"",
 									"f5_check_response(check_vals);"
@@ -1007,7 +999,7 @@
 						"header": [
 							{
 								"key": "X-F5-Auth-Token",
-								"value": "{{bigip_a_auth_token}}"
+								"value": "{{bigip_b_auth_token}}"
 							},
 							{
 								"key": "Content-Type",
@@ -1053,7 +1045,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/v1.2.0-3/dist/f5-declarative-onboarding-1.2.0-3.noarch.rpm\\\"\"\n}"
+							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/master/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/util/bash",
@@ -1105,7 +1097,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"operation\":\"INSTALL\",\n  \"packageFilePath\":\"/var/config/rest/downloads/f5-declarative-onboarding-1.2.0-3.noarch.rpm\"\n}"
+							"raw": "{\n  \"operation\":\"INSTALL\",\n  \"packageFilePath\":\"/var/config/rest/downloads/f5-declarative-onboarding-1.3.0-4.noarch.rpm\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/shared/iapp/package-management-tasks",
@@ -1251,7 +1243,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/v1.2.0-3/dist/f5-declarative-onboarding-1.2.0-3.noarch.rpm\\\"\"\n}"
+							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/master/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_b_mgmt}}/mgmt/tm/util/bash",
@@ -1303,7 +1295,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"operation\":\"INSTALL\",\n  \"packageFilePath\":\"/var/config/rest/downloads/f5-declarative-onboarding-1.2.0-3.noarch.rpm\"\n}"
+							"raw": "{\n  \"operation\":\"INSTALL\",\n  \"packageFilePath\":\"/var/config/rest/downloads/f5-declarative-onboarding-1.3.0-4.noarch.rpm\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_b_mgmt}}/mgmt/shared/iapp/package-management-tasks",
@@ -1471,7 +1463,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-A\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"{{bigip_a_hostname}}\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n                \"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.10/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Self-Internal-Floating\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.13/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-1\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.10/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        },\n        \"configsync\": {\n            \"class\": \"ConfigSync\",\n            \"configsyncIp\": \"/Common/Self-Internal/address\"\n        },\n        \"failoverAddress\": {\n            \"class\": \"FailoverUnicast\",\n            \"address\": \"/Common/Self-Internal/address\"\n        },\n        \"DeviceGroup1\": {\n            \"class\": \"DeviceGroup\",\n            \"type\": \"sync-failover\",\n            \"members\": [\n                \"{{bigip_a_hostname}}\",\n                \"{{bigip_b_hostname}}\"\n            ],\n            \"owner\": \"/Common/DeviceGroup1/members/0\",\n            \"autoSync\": true,\n            \"networkFailover\": true\n        },\n        \"trust\": {\n            \"class\": \"DeviceTrust\",\n            \"localUsername\": \"admin\",\n            \"localPassword\": \"admin\",\n            \"remoteHost\": \"{{bigip_a_mgmt}}\",\n            \"remoteUsername\": \"admin\",\n            \"remotePassword\": \"admin\"\n        }\n    }\n}"
+							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-A\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"{{bigip_a_hostname}}\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"asm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n                \"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.10/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Self-Internal-Floating\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.13/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-1\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.10/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        },\n        \"configsync\": {\n            \"class\": \"ConfigSync\",\n            \"configsyncIp\": \"/Common/Self-Internal/address\"\n        },\n        \"failoverAddress\": {\n            \"class\": \"FailoverUnicast\",\n            \"address\": \"/Common/Self-Internal/address\"\n        },\n        \"DeviceGroup1\": {\n            \"class\": \"DeviceGroup\",\n            \"type\": \"sync-failover\",\n            \"members\": [\n                \"{{bigip_a_hostname}}\",\n                \"{{bigip_b_hostname}}\"\n            ],\n            \"owner\": \"/Common/DeviceGroup1/members/0\",\n            \"autoSync\": true,\n            \"networkFailover\": true\n        },\n        \"trust\": {\n            \"class\": \"DeviceTrust\",\n            \"localUsername\": \"admin\",\n            \"localPassword\": \"admin\",\n            \"remoteHost\": \"{{bigip_a_mgmt}}\",\n            \"remoteUsername\": \"admin\",\n            \"remotePassword\": \"admin\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/shared/declarative-onboarding",
@@ -1626,7 +1618,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-B\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"{{bigip_b_hostname}}\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n                \"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.11/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Self-Internal-Floating\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.13/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-1\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.11/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        },\n        \"configsync\": {\n            \"class\": \"ConfigSync\",\n            \"configsyncIp\": \"/Common/Self-Internal/address\"\n        },\n        \"failoverAddress\": {\n            \"class\": \"FailoverUnicast\",\n            \"address\": \"/Common/Self-Internal/address\"\n        },\n        \"DeviceGroup1\": {\n            \"class\": \"DeviceGroup\",\n            \"type\": \"sync-failover\",\n            \"members\": [\n                \"{{bigip_a_hostname}}\",\n                \"{{bigip_b_hostname}}\"\n            ],\n            \"owner\": \"/Common/DeviceGroup1/members/0\",\n            \"autoSync\": true,\n            \"networkFailover\": true,\n            \"fullLoadOnSync\": false,\n            \"saveOnAutoSync\": false\n        },\n        \"trust\": {\n            \"class\": \"DeviceTrust\",\n            \"localUsername\": \"admin\",\n            \"localPassword\": \"admin\",\n            \"remoteHost\": \"{{bigip_a_mgmt}}\",\n            \"remoteUsername\": \"admin\",\n            \"remotePassword\": \"admin\"\n        }\n    }\n}"
+							"raw": "{\n    \"schemaVersion\": \"1.2.0\",\n    \"class\": \"Device\",\n    \"async\": \"true\",\n    \"label\": \"DO declaration for BIG-IP-B\",\n    \"Common\": {\n        \"class\": \"Tenant\",\n        \"hostname\": \"{{bigip_b_hostname}}\",\n        \"myProvisioning\": {\n            \"class\": \"Provision\",\n            \"ltm\": \"nominal\",\n            \"asm\": \"nominal\",\n            \"avr\": \"minimum\"\n        },\n        \"myDns\": {\n            \"class\": \"DNS\",\n            \"nameServers\": [\n                \"4.2.2.2\",\n                \"8.8.8.8\"\n            ],\n            \"search\": [\n                \"localhost\"\n            ]\n        },\n        \"myNtp\": {\n            \"class\": \"NTP\",\n            \"servers\": [\n                \"0.pool.ntp.org\",\n                \"1.pool.ntp.org\"\n            ],\n            \"timezone\": \"America/Los_Angeles\"\n        },\n        \"Internal\": {\n            \"class\": \"VLAN\",\n            \"tag\": 10,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.1\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-Internal\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.11/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Self-Internal-Floating\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.10.13/24\",\n            \"vlan\": \"Internal\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-1\"\n        },\n        \"External\": {\n            \"class\": \"VLAN\",\n            \"tag\": 20,\n            \"mtu\": 1500,\n            \"interfaces\": [\n                {\n                    \"name\": \"1.2\",\n                    \"tagged\": false\n                }\n            ]\n        },\n        \"Self-External\": {\n            \"class\": \"SelfIp\",\n            \"address\": \"10.1.20.11/24\",\n            \"vlan\": \"External\",\n            \"allowService\": \"all\",\n            \"trafficGroup\": \"traffic-group-local-only\"\n        },\n        \"Default\": {\n            \"class\": \"Route\",\n            \"gw\": \"10.1.20.1\",\n            \"network\": \"default\"\n        },\n        \"configsync\": {\n            \"class\": \"ConfigSync\",\n            \"configsyncIp\": \"/Common/Self-Internal/address\"\n        },\n        \"failoverAddress\": {\n            \"class\": \"FailoverUnicast\",\n            \"address\": \"/Common/Self-Internal/address\"\n        },\n        \"DeviceGroup1\": {\n            \"class\": \"DeviceGroup\",\n            \"type\": \"sync-failover\",\n            \"members\": [\n                \"{{bigip_a_hostname}}\",\n                \"{{bigip_b_hostname}}\"\n            ],\n            \"owner\": \"/Common/DeviceGroup1/members/0\",\n            \"autoSync\": true,\n            \"networkFailover\": true,\n            \"fullLoadOnSync\": false,\n            \"saveOnAutoSync\": false\n        },\n        \"trust\": {\n            \"class\": \"DeviceTrust\",\n            \"localUsername\": \"admin\",\n            \"localPassword\": \"admin\",\n            \"remoteHost\": \"{{bigip_a_mgmt}}\",\n            \"remoteUsername\": \"admin\",\n            \"remotePassword\": \"admin\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_b_mgmt}}/mgmt/shared/declarative-onboarding",
@@ -1891,7 +1883,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Lab1.7_monitor\",\n    \"send\":\"GET / HTTP/1.0\\r\\n\\r\\n\",\n    \"recv\":\"\"\n}"
+							"raw": "{\n    \"name\":\"Lab1.7_monitor\",\n    \"send\":\"GET / HTTP/1.0\",\n    \"recv\":\"\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/ltm/monitor/http",
@@ -5335,7 +5327,7 @@
 							"raw": "{\r\n  \"username\": \"david\",\r\n  \"password\": \"david\",\r\n  \"loginProviderName\": \"tmos\"\r\n}"
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/shared/authn/login",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/shared/authn/login",
 							"protocol": "https",
 							"host": [
 								"10",
@@ -5384,7 +5376,7 @@
 							"raw": "{\r\n  \"username\": \"olivia\",\r\n  \"password\": \"olivia\",\r\n  \"loginProviderName\": \"tmos\"\r\n}"
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/shared/authn/login",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/shared/authn/login",
 							"protocol": "https",
 							"host": [
 								"10",
@@ -5447,7 +5439,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/shared/appsvcs/declare?async=true",
 							"protocol": "https",
 							"host": [
 								"10",
@@ -5493,7 +5485,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/shared/appsvcs/task/{{bigiq_task_id}}",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/shared/appsvcs/task/{{bigiq_task_id}}",
 							"protocol": "https",
 							"host": [
 								"10",
@@ -5531,7 +5523,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/cm/global/appsvcs-templates",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/cm/global/appsvcs-templates",
 							"protocol": "https",
 							"host": [
 								"10",
@@ -5568,7 +5560,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://10.1.1.4/mgmt/cm/global/appsvcs-templates",
+							"raw": "https://{{bigiq_mgmt}}/mgmt/cm/global/appsvcs-templates",
 							"protocol": "https",
 							"host": [
 								"10",

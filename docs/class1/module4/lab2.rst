@@ -1,24 +1,29 @@
 Lab 4.2: Application Creation using AS3 through BIG-IQ
 ------------------------------------------------------
 
-Using the declarative AS3 API, let's send the following BIG-IP configuration through BIG-IQ:
-
-Using Postman select ``BIG-IQ Token (david)`` available in the Collections.
-Press Send. This, will save the token value as _f5_token. If your token expires, obtain a new token by resending the ``BIG-IQ Token``
-
-.. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
-
-.. NOTE:: This lab work will be performed from
-   ``Lab 4 - BIG-IQ and AS3`` folder in the Postman Collection
+.. NOTE:: This lab work will be performed using ``Lab 4 - BIG-IQ and AS3`` folder in the Postman Collection
 
 |lab-2-1|
+
+Pre-task - Uninstall existing AS3 packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As BIG-IQ 6.1 is taking care of the AS3 installation on the BIG-IP, you must first remove the previous version of AS3 on BIG-IP A and B for this lab.
+
+Login on BIG-IP A, go to iApps > Package Management LX > f5-appsvcs > Uninstall, and remove any existing AS3 packages.
+
+|lab-2-0|
 
 Task 1 - HTTP Application Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This declaration will create an HTTP application on BIG-IQ using an HTTP template. This declaration abstracts the complexity of having to configure all the HTTP defaults such as cookies, persistance, etc...
 
-#. Copy below example of an AS3 Declaration into a JSON validator. The validator is your IDE.
+#. Copy below example of an AS3 Declaration into a JSON validator. The validator is your IDE (e.g. Microsoft Visual Studio Code).
+
+   .. note:: It is recommended to `validate your AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
+
+   .. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
 
    .. code-block:: yaml
       :linenos:
@@ -45,13 +50,9 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
                      "statsProfile": {
                         "class": "Analytics_Profile",
                         "collectedStatsInternalLogging": true,
-                        "collectedStatsExternalLogging": false,
-                        "capturedTrafficInternalLogging": false,
-                        "capturedTrafficExternalLogging": false,
                         "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true,
-                        "sessionCookieSecurity": "ssl-only"
+                        "collectResponseCode": true
                      },
                      "serviceMain": {
                         "class": "Service_HTTP",
@@ -84,10 +85,6 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
          }
       }
 
-.. note:: It is recommended `validate an AS3 declaration`_ against the schema using Microsoft Visual Studio Code.
-
-.. _validate an AS3 declaration: https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/validate.html
-
 #. Make sure the Declaration is valid!
 
 #. Now that the JSON is validated, let's add the target (BIG-IP device)::
@@ -96,13 +93,18 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
         "hostname": "bigip-a.f5.local"
     },
 
-    .. NOTE:: The target BIG-IP is standalone but it could be configured as an HA pair.
+   .. NOTE:: The target BIG-IP is standalone but it could be configured as an HA pair.
           If you want, configure the HA in auto-sync mode. Configure the BIG-IP cluster in BIG-IQ.
           The target in this case can be either device.
 
-    Modify the Virtual Address to 10.1.20.130 and the serverAddresses to 10.1.10.100 and 10.1.10.101.
+   Modify the Virtual Address to 10.1.20.130 and the serverAddresses to 10.1.10.100 and 10.1.10.101.
 
-#. Using Postman, use the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ.
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+
+#. Use the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ.
    Copy/Paste the AS3 declaration from the validator to the declaration body into Postman:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
@@ -176,7 +178,12 @@ Task 2 - HTTPS Offload
 
 Now we are going to create another service but this time, we will do some SSL offloading.
 
-#. Using Postman, use the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ.
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+
+#. Use the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ.
    Copy/Paste the below AS3 declaration into the body (Postman):
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
@@ -207,13 +214,9 @@ Now we are going to create another service but this time, we will do some SSL of
                      "statsProfile": {
                         "class": "Analytics_Profile",
                         "collectedStatsInternalLogging": true,
-                        "collectedStatsExternalLogging": false,
-                        "capturedTrafficInternalLogging": false,
-                        "capturedTrafficExternalLogging": false,
                         "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true,
-                        "sessionCookieSecurity": "ssl-only"
+                        "collectResponseCode": true
                      },
                      "serviceMain": {
                         "class": "Service_HTTPS",
@@ -381,13 +384,9 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
                      "statsProfile": {
                         "class": "Analytics_Profile",
                         "collectedStatsInternalLogging": true,
-                        "collectedStatsExternalLogging": false,
-                        "capturedTrafficInternalLogging": false,
-                        "capturedTrafficExternalLogging": false,
                         "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true,
-                        "sessionCookieSecurity": "ssl-only"
+                        "collectResponseCode": true
                      },
                      "serviceMain": {
                         "class": "Service_HTTPS",
@@ -446,8 +445,15 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
          }
       }
 
-#. Using Postman, use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
-   Copy/Paste the above AS3 declaration into the declaration body into Postman (DON'T FORGET TO UPDATE THE WAF Policy):
+#. 
+
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+
+#. Use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
+   Copy/Paste the above AS3 declaration into the declaration body into Postman *(DON'T FORGET TO UPDATE THE WAF Policy)*:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
    
@@ -530,7 +536,12 @@ Task 4 - Generic Services
          }
       }
 
-#. Using Postman, use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
+#. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
+   If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
+
+   .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
+
+#. Use the **BIG-IQ AS3 Declaration** call in order to create the service on the BIG-IP through BIG-IQ.
    Copy/Paste the above AS3 declaration into the declaration body of Postman:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
@@ -541,6 +552,8 @@ Task 4 - Generic Services
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
+.. |lab-2-0| image:: images/lab-2-0.png
+   :scale: 60%
 .. |lab-2-1| image:: images/lab-2-1.png
    :scale: 60%
 .. |lab-2-2| image:: images/lab-2-2.png

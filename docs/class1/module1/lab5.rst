@@ -100,6 +100,8 @@ Perform the following steps to build the cluster:
    running.  You should have 0 failures and the last item in the request
    list should be named ``[BIGIP B] Failover Traffic Group to BIGIP A``
 
+   .. NOTE:: You may have 1 FAIL on `[BIGIP A] Check Install Status` as DO was already installed in previous lab. Please ignore.
+
    |lab-5-3|
 
    |lab-5-4|

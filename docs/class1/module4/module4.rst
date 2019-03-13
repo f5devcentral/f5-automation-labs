@@ -1,8 +1,6 @@
 Module 4: BIG-IQ Application Templates & Deployment with AS3
 ============================================================
 
-.. NOTE:: This module is only available on Ravello and UDF.
-
 .. graphviz::
 
    digraph breadcrumb {
