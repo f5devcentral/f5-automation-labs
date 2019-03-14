@@ -49,10 +49,9 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
                      "template": "http",
                      "statsProfile": {
                         "class": "Analytics_Profile",
-                        "collectedStatsInternalLogging": true,
-                        "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true
+                        "collectOsAndBrowser": false,
+                        "collectMethod": false
                      },
                      "serviceMain": {
                         "class": "Service_HTTP",
@@ -211,10 +210,9 @@ Now we are going to create another service but this time, we will do some SSL of
                      "template": "https",
                      "statsProfile": {
                         "class": "Analytics_Profile",
-                        "collectedStatsInternalLogging": true,
-                        "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true
+                        "collectOsAndBrowser": false,
+                        "collectMethod": false
                      },
                      "serviceMain": {
                         "class": "Service_HTTPS",
@@ -382,10 +380,9 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
                      "template": "https",
                      "statsProfile": {
                         "class": "Analytics_Profile",
-                        "collectedStatsInternalLogging": true,
-                        "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true
+                        "collectOsAndBrowser": false,
+                        "collectMethod": false
                      },
                      "serviceMain": {
                         "class": "Service_HTTPS",
@@ -493,10 +490,9 @@ Task 4 - Generic Services
                      "template": "generic",
                      "statsProfile": {
                         "class": "Analytics_Profile",
-                        "collectedStatsInternalLogging": true,
-                        "collectPageLoadTime": true,
                         "collectClientSideStatistics": true,
-                        "collectResponseCode": true
+                        "collectOsAndBrowser": false,
+                        "collectMethod": false
                      },
                      "<generic_virtual>": {
                         "class": "Service_Generic",

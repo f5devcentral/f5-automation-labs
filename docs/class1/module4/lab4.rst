@@ -273,10 +273,9 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
                      "template": "http",
                      "statsProfile": {
                            "class": "Analytics_Profile",
-                           "collectedStatsInternalLogging": true,
-                           "collectPageLoadTime": true,
                            "collectClientSideStatistics": true,
-                           "collectResponseCode": true
+                           "collectOsAndBrowser": false,
+                           "collectMethod": false
                      },
                      "serviceMain": {
                            "class": "Service_HTTP",

@@ -33,10 +33,9 @@ This declaration will add a HTTPS application to a existing HTTP application. In
                      "template": "http",
                      "statsProfile": {
                            "class": "Analytics_Profile",
-                           "collectedStatsInternalLogging": true,
-                           "collectPageLoadTime": true,
                            "collectClientSideStatistics": true,
-                           "collectResponseCode": true
+                           "collectOsAndBrowser": false,
+                           "collectMethod": false
                      },
                      "serviceMain": {
                            "class": "Service_HTTP",
@@ -89,10 +88,9 @@ This declaration will add a HTTPS application to a existing HTTP application. In
             "template": "https",
             "statsProfile": {
                   "class": "Analytics_Profile",
-                  "collectedStatsInternalLogging": true,
-                  "collectPageLoadTime": true,
                   "collectClientSideStatistics": true,
-                  "collectResponseCode": true
+                  "collectOsAndBrowser": false,
+                  "collectMethod": false
             },
             "serviceMain": {
                   "class": "Service_HTTPS",
