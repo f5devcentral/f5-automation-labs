@@ -6,7 +6,7 @@ Using the declarative AS3 API, let's modfiy the HTTP application created during 
 Task 5 - Add a HTTPS Application to existing HTTP AS3 Declaration (using POST)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This declaration will create add a HTTPS application to a existing HTTP application. In this task, we will re-submit the entire declaration.
+This declaration will add a HTTPS application to a existing HTTP application. In this task, we will re-submit the entire declaration.
 
 #. Start with the previous AS3 Declaration from **lab 1 - Task 1**
 
