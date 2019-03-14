@@ -85,9 +85,7 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
          }
       }
 
-#. Make sure the Declaration is valid!
-
-#. Now that the JSON is validated, let's add the target (BIG-IP device)::
+#. Now that the AS3 declation is validated, let's add the target (BIG-IP device)::
 
     "target": {
         "hostname": "bigip-a.f5.local"
@@ -271,6 +269,7 @@ Now we are going to create another service but this time, we will do some SSL of
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
+#. Logon on **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
 
 Task 3 - HTTPS Application with Web Application Firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -283,7 +282,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    |lab-2-5a|
 
-   Under Virtual Servers, click on the ``inactive`` virtual server.
+   Under Virtual Servers, click on the ``inactive`` virtual server attached to **bigip-a.f5.local**.
 
    |lab-2-5b|
 
@@ -291,7 +290,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    |lab-2-6|
 
-   Notice the policy is now atached to the ``inactive`` virtual server. Select the ``inactive`` virtual server and click on Deploy.
+   Notice the policy is now atached to the ``inactive`` virtual servers . Select the ``inactive`` virtual servers attached to **bigip-a.f5.local** and **bigip-b.f5.local**, click on Deploy.
 
    |lab-2-7|
 
@@ -351,7 +350,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
 #. Now both Advance WAF policy and Security Logging Profile are available on BIG-IP A, let's provision the WAF application service using AS3 & BIG-IQ.
 
-   This declaration will create an HTTP application on BIG-IQ using an HTTP template, a WAF policy and a security Log Profile.
+   This declaration will create an HTTPS application on BIG-IQ using an HTTPS template, a WAF policy and a security Log Profile.
 
    Update the WAF policy section below with the policy available on BIG-IP::
 
@@ -445,8 +444,6 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
          }
       }
 
-#. 
-
 #. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
    If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
 
@@ -463,11 +460,12 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
+#. Logon on **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
 
 Task 4 - Generic Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. NOTE:: Note that because this declaration uses the generic template, the service does not have to be named serviceMain
+.. NOTE:: Because this declaration uses the generic template, the service does not have to be named serviceMain
 
 #. Modify the Generic virtual with something other than <generic_virtual>.
 
@@ -548,6 +546,10 @@ Task 4 - Generic Services
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
+#. Logon on **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
+
+   |lab-2-19|
+
 .. |lab-2-0| image:: images/lab-2-0.png
    :scale: 60%
 .. |lab-2-1| image:: images/lab-2-1.png
@@ -587,4 +589,6 @@ Task 4 - Generic Services
 .. |lab-2-17| image:: images/lab-2-17.png
    :scale: 60%
 .. |lab-2-18| image:: images/lab-2-18.png
+   :scale: 60%
+.. |lab-2-19| image:: images/lab-2-19.png
    :scale: 60%

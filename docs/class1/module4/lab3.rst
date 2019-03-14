@@ -1,12 +1,12 @@
 Lab 4.3: Modify Tenant/Application using AS3
 --------------------------------------------
 
-Using the declarative AS3 API, let's modfiy the HTTP application created during the previous **Lab 1 - Task 1** through BIG-IQ using an updated AS3 declaration.
+Using the declarative AS3 API, let's modfiy the HTTP application created during the previous **Lab 1 - Task 1**..
 
 Task 5 - Add a HTTPS Application to existing HTTP AS3 Declaration (using POST)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This declaration will create add a HTTPS application to a exsisting HTTP application. In this task, we will re-submit the entire declaration.
+This declaration will create add a HTTPS application to a existing HTTP application. In this task, we will re-submit the entire declaration.
 
 #. Start with the previous AS3 Declaration from **lab 1 - Task 1**
 
@@ -140,8 +140,6 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
             }
          }
 
-#. Make sure the Declaration is valid!
-
 #. Using Postman, use the **BIG-IQ Token (david)** collections to authenticate you on the BIG-IQ and save the token.
    If your token expires, obtain a new token by resending the ``BIG-IQ Token (david)``.
 
@@ -160,7 +158,10 @@ This declaration will create add a HTTPS application to a exsisting HTTP applica
 
 #. Logon on BIG-IQ as **david**, go to Application tab and check the application is displayed and analytics are showing.
 
+|lab-3-2|
 
 .. |lab-3-1| image:: images/lab-3-1.png
    :scale: 80%
 
+.. |lab-3-2| image:: images/lab-3-2.png
+   :scale: 80%

@@ -4,7 +4,7 @@ Lab 4.5: Delete AS3 Tenant/Applications on BIG-IQ
 Task 9 - Delete Task1 with its AS3 Applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here, we empty the tenant/partition of Task1. This should remove those partitions from bigip-a.f5.local. The relevant Apps 
+Here, we empty the tenant/partition of Task1. This should remove those partitions from **bigip-a.f5.local**. The relevant Apps 
 should also disappear from BIG-IQ. 
 
 .. NOTE:: We are not using the DELETE method but a POST with a declaration containing a tenant with nothing in it.
