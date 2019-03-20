@@ -1,7 +1,7 @@
 .. _module1:
 
-Module 1: Imperative Automation with the |bip| |icr|
-====================================================
+Module 1: Declarative Automation with the |bip| |icr|
+=====================================================
 
 .. graphviz::
 
