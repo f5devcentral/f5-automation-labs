@@ -41,7 +41,7 @@ to automation.
 .. NOTE:: The Lab Deployment for this lab includes two BIG-IP devices.
    For most of the labs, we will only be configuring the BIG-IP A
    device (management IP configuration and licensing has been completed).
-   BIG-IP B will be configuered during a workflow while clustering the Active/Standby pair.
+   BIG-IP B will be configured during a workflow while clustering the Active/Standby pair.
 
 .. NOTE:: In order to confirm the results of REST API calls made in this lab, it's
    recommended to keep GUI/SSH sessions to the BIG-IP devices open.
