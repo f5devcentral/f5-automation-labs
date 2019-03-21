@@ -252,7 +252,7 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 30
+      :emphasize-lines: 29
 
       {
          "class": "AS3",

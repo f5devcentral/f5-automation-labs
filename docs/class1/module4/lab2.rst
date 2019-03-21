@@ -29,7 +29,7 @@ This declaration will create an HTTP application on BIG-IQ using an HTTP templat
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 12,33,45,46
+      :emphasize-lines: 12,28,44,45
 
       {
          "class": "AS3",
@@ -360,7 +360,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 37
+      :emphasize-lines: 36
 
       {
          "class": "AS3",
@@ -470,7 +470,7 @@ Task 4 - Generic Services
 
    .. code-block:: yaml
       :linenos:
-      :emphasize-lines: 26
+      :emphasize-lines: 25
 
       {
          "class": "AS3",
