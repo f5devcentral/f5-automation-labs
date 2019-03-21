@@ -39,6 +39,8 @@ all the correct attributes already populated.
 .. NOTE:: This guide may require you to Copy/Paste information from the
    guide to your jumphost.  To make this easier you can open a copy of the
    guide by using the **Lab Guide** bookmark in Chrome.
+   
+.. NOTE:: To save some time later in the lab. It is recommended that you open postman and continue the lab while it loads
 
 #. Open Google Chrome and navigate to the following bookmarks: **BIG-IP
    A GUI**, and **BIG-IP B GUI**. Bypass any SSL errors that
