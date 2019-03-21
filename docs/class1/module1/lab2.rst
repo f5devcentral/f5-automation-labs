@@ -146,7 +146,7 @@ Perform the following steps to complete this task:
 
    |lab-2-3|
 
-#. Click the :guilabel:`Headers` tab
+#. Click the :guilabel:`Headers` tab next to authorization
    and examine the HTTP header. Notice that the number of Headers in the Headers
    tab changed from ``1`` to ``2``. This is because Postman automatically created
    the HTTP header and updated your request to include it.

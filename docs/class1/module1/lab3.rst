@@ -59,7 +59,7 @@ associated with the extension.
 
 DO RPMs are available at https://github.com/F5Networks/f5-declarative-onboarding/releases
 
-DO can be installed in a few ways:
+DO can be installed and utilized in a few ways:
 
 - using the iControl REST API
 - using the BIG-IP GUI (TMUI)
@@ -73,8 +73,10 @@ the configuration via iControl REST using tools such as cURL, Postman
 and Ansible.
 
 To view installed iControl LX Extensions in the BIG-IP GUI you must first
-enable this functionality.  To do this, log in via SSH into the system with an ``admin``
-account and execute ``touch /var/config/rest/iapps/enable``. No reboot is required.
+enable this functionality.  To do this, log in via SSH to Big-IP A (using 
+putty on the desktop) into the system with an ``admin`` account that has 
+bash access (for example root) and execute 
+``touch /var/config/rest/iapps/enable``. No reboot is required.
 This will enable the :menuselection:`iApps --> Package Management LX` menu:
 
 |lab-3-1|

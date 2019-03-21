@@ -107,7 +107,7 @@ Now that we have deployed our desired end state to DO, we need to check and see 
 
    |lab-4-6|
 
-#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request.
+#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request. This process may take 5-10 minutes
 
 Processing
    |lab-4-7|
