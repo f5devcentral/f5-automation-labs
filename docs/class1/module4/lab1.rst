@@ -7,7 +7,7 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
    guide to your jumphost.  To make this easier you can open a copy of the
    guide by using the **Lab Guide** bookmark in Chrome.
 
-.. WARNING:: BIG-IP A and B must be fully configured and provisionned as a cluster (see `previous lab`_)
+.. WARNING:: BIG-IP A and B must be fully configured and provisioned as a cluster (see `previous lab`_)
 
 .. _previous lab: ../module1/lab5.html#task-1-build-a-cluster-using-runner
 
@@ -44,7 +44,7 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
 
    Click on Save & Close.
 
-#. BIG-IP A and BIG-IP B are added to the Devices list. CLick on Discover & Import.
+#. BIG-IP A and BIG-IP B are added to the Devices list. Click on Discover & Import.
 
    |lab-1-5|
 

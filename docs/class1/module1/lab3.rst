@@ -30,8 +30,8 @@ on top of the extensible Node.js based iControl LX framework and implements a
 declarative interface for onboarding BIG-IPs. DO implements a declarative schema
 for deploying Layer 1-3 configuration on BIG-IP devices.
 
-.. NOTE:: iControl LX extensions are **not** iApp Templates.  The AS3 Extension
-   does not use the TCL based iApp framework.  Additionally, AS3 does not use 
+.. NOTE:: iControl LX extensions are **not** iApp Templates.  The DO Extension
+   does not use the TCL based iApp framework.  Additionally, DO does not use 
    an Application Service Object (ASO).
 
 .. NOTE:: Previous versions of this class utilized the REST API of the BIG-IPs to imperatively configure the base config objects in the list above.

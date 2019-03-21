@@ -66,11 +66,11 @@ achieve full L4-7 automation.
 In this Module, we will provision **BIG-IQ 6.1** to deploy and modify the AS3
 declarations.
 
-The focus of Module 5 was to demonstrate application deployment directly to the BIG-IP. 
+The focus of Module 2 was to demonstrate application deployment directly to the BIG-IP. 
 **BIG-IQ 6.1** will allow the administrator to restrict access an interface and API for users based 
 on their current role within the organization.
 
-For example, in Module 5, we pushed AS3 declarations, updated pool members, and
+For example, in Module 2, we pushed AS3 declarations, updated pool members, and
 provided the user access to modify the full AS3 declaration. This approach would
 provide each user the same administrative priviledges and may not scale within
 organizations with separate user functions.
