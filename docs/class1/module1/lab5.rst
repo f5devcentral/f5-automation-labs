@@ -27,7 +27,7 @@ Lab 1.6: Build a BIG-IP Cluster using a Collection
 As you have seen in the previous labs, we can use the Collections and Folders
 features of the Postman client to group REST requests logically.  Additionally,
 as you've seen most of the examples so far have consisted of executing a
-sequence of REST request to achieve some outcome.
+sequence of REST requests to achieve some outcome.
 
 In this lab, we will use a feature in Postman called the **Collection Runner
 (Runner)** to execute a sequence of REST requests.  Using the Runner we can
@@ -92,7 +92,7 @@ Perform the following steps to build the cluster:
 
 #. The results window will now populate.  You will see each request in the
    folder is sent and its associated test results are displayed on the screen.
-   Building the cluster can take a few minutes.  You can follow the progress
+   Building the cluster can take a few minutes (10-15min).  You can follow the progress
    by scrolling down the results window. A few expected errors may appear depending
    on the installation status of DO from the previous labs.
 

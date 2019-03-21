@@ -103,11 +103,11 @@ Task 2 - Get DO declaration status from BIG-IP
 
 Now that we have deployed our desired end state to DO, we need to check and see if has finished processing the request. Since we have requested that the BIG-IP enable more resource modules, **Application Security(asm) and Application Visibility(avr)**, it can take a minute or two. Follow the steps below to check the status.
 
-#. Select ``Step 2: Get DO Status``. Notice that the path endpoint is the same as before but the HTTP mehhod is now **GET** instead of **POST**. This will tell DO that we are looking to receive the current configuration and status rather than define it.
+#. Select ``Step 2: Get DO Status``. Notice that the path endpoint is the same as before but the HTTP method is now **GET** instead of **POST**. This will tell DO that we are looking to receive the current configuration and status rather than define it.
 
    |lab-4-6|
 
-#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and look for if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request. This process may take 5-10 minutes
+#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and check if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request. This process may take 5-10 minutes
 
 Processing
    |lab-4-7|

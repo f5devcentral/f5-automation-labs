@@ -45,6 +45,10 @@ Perform the following steps to complete this task:
 
    |lab-2-3|
 
+.. NOTE:: Previous modules in this lab guide had you install the DO extension.
+   If you completed previous lab modules, then you will see DO extension installed
+   and listed in the JSON response.
+
 Task 2 - Install the AS3 Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

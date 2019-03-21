@@ -214,7 +214,7 @@ In this task, we will create a template which require a Service_HTTP object, for
 
    |lab-4-1|
 
-   .. note:: The AS3 Template can be created only using the AP wtih BIG-IQ 6.1. BIG-IQ 7.0 will bring a User Interface to create and manage the AS3 templates.
+   .. note:: The AS3 Template can be created only using the API with BIG-IQ 6.1. BIG-IQ 7.0 will bring a User Interface to create and manage the AS3 templates.
    
    You can see the Template in JSON format if you click on it.
 
@@ -228,7 +228,7 @@ Task 7 - Admin set RBAC for Olivia on BIG-IQ
 
 Let's update now Oliva's service catalog.
 
-Logon on BIG-IQ as **david** go to the System tab, Role Management > Roles > CUSTOM ROLES > Application Roles, select **Application Creator AS3** 
+Logon on BIG-IQ as **david** go to the System tab, Role Management > Roles > CUSTOM ROLES > Application Roles, select **Application AS3** 
 and the custom role linked to the custom HTTP template previously created. Remove the **default** template from the allowed list. 
 Click **Save & Close**.
 
