@@ -42,7 +42,7 @@ The declaration represents the configuration which AS3 is responsible for creati
 AS3 is well-defined according to the rules of JSON Schema, and declarations validate according to JSON Schema.
 AS3 accepts declaration updates via REST (push), reference (pull), or CLI (flat file editing).
 
-**BIG-IQ** is a a key component of F5 BIG-IP Cloud Edition™. This new solution
+**BIG-IQ** is a key component of F5 BIG-IP Cloud Edition™. This new solution
 provides DevOps and application teams with self-service management of F5 application
 services, along with per-app manageability and analytics. 
 

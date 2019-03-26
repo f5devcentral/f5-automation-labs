@@ -82,7 +82,7 @@ to the configuration using the BIG-IP GUI or REST API.
 
 For instance, after an AS3 declaration is deployed, modifying the underlying
 configuration will result in a Source-of-Truth violation.  AS3 **does not**
-prevent out-of-band changes from occuring.  This allows administrators to ensure
+prevent out-of-band changes from occurring.  This allows administrators to ensure
 total control over the system in emergency situations, however, the direct
 modification of objects configured on BIG-IP will effect the integrity of
 AS3 declaration that automation tools are interacting with, causing failures.

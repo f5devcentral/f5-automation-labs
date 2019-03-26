@@ -57,7 +57,7 @@ Perform the following steps to complete this task:
 #. Using the Chrome web browser open a new tab and click the
    ``AS3 Release`` bookmark.
 
-#. Click the file with the ``.rpm`` extension to download it.  The file will be
+#. Click the file with the ``.rpm`` extension then click the download button.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
 #. Click the ``Step 2: Upload AS3 Extension RPM`` request.

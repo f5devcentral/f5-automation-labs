@@ -76,7 +76,7 @@ Perform the following steps to complete this task:
 
 #. Click the ``Step 2: Add to Transaction: Create a HTTP Monitor`` request in the
    folder. This request is similar to a non-transaction enabled request  in terms
-   of the ``POST`` request method, URI and JSON body. The difference is that, a
+   of the ``POST`` request method, URI and JSON body. The difference is that a
    header named ``X-F5-REST-Coordination-Id`` with the value of the ``transId``
    attribute is added to the transaction:
 
