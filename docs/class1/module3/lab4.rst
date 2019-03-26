@@ -65,7 +65,7 @@ Task 1 - Call Tenant1_Pool_Add_Member with REST API
    |lab-4-5|
 
 #. Once the Job template is complete you should see the Status as ``Successful``.
-   At this point you have add a Pool member to the pool on the BIG-IP using the 
+   At this point you have added a Pool member to the pool on the BIG-IP using the 
    REST API in Ansible Tower.
 
    |lab-4-6|
