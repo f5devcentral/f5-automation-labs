@@ -76,7 +76,7 @@ depicted as:
      }
    }
 
-Let's start by defining out outermost ``AS3`` class:
+Let's start by defining our outermost ``AS3`` class:
 
 .. code-block:: json
    :linenos:
@@ -292,7 +292,7 @@ Perform the following steps to complete this task:
    along with various statistics.  Pay special attention to the ``message``
    attribute.  In this case the value is ``success``, indicating that the
    configuration was deployed to the BIG-IP device successfully.  Additionally
-   the implemented declaration is echoed back so it can be used to auditing
+   the implemented declaration is echoed back so it can be used for auditing
    and verification as needed:
 
    |lab-3-6|

@@ -73,7 +73,7 @@ for your environment.
 Task 1 - Review and Deploy a DO Declaration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that DO has been installed on your BIG-IP we may proceed configuring the base-config objects listed above. Unlike imperative workflows, you will not need to execute an API call per object (NTP, DNS, Hostname, etc). You will include each one of these attributes within a JSON payload and submit it through Declarative Onboarding. DO will handle configuring the desired end state defined within the declaration.
+Now that DO has been installed on your BIG-IP we may proceed with configuring the base-config objects listed above. Unlike imperative workflows, you will not need to execute an API call per object (NTP, DNS, Hostname, etc). You will include each one of these attributes within a JSON payload and submit it through Declarative Onboarding. DO will handle configuring the desired end state defined within the declaration.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 1.4 - Onboarding with DO`` folder in the
@@ -85,11 +85,11 @@ Now that DO has been installed on your BIG-IP we may proceed configuring the bas
 
    |lab-4-2|
 
-#. The top of the declaration contains **Base Components** such as the schemaVersion to use and the optional `async` flag. In our example we are setting `async` to true which tells DO to respond immediatly with a 202. You can then poll DO for an updated status on the request. At the following link you can read more about `Asynchronus vs Synchronous <https://docs.apigee.com/api-baas/get-started/asynchronous-vs-synchronous-calls>`_.
+#. The top of the declaration contains **Base Components** such as the schemaVersion to use and the optional `async` flag. In our example we are setting `async` to true which tells DO to respond immediately with a 202. You can then poll DO for an updated status on the request. At the following link you can read more about `Asynchronus vs Synchronous <https://docs.apigee.com/api-baas/get-started/asynchronous-vs-synchronous-calls>`_.
 
    |lab-4-3|
 
-#. The next section is the  **Common Class**. This is where all other parameters are defined such as resources, license, hostname, dns, vlans, etc.  Near the top of the :guilabel:`Body` you will see attributes such as DNS servers, 2 NTP servers, and device hostname. Look through the rest of the :guilabel:`Body` to familiarize yourself with other options be set.
+#. The next section is the  **Common Class**. This is where all other parameters are defined such as resources, license, hostname, dns, vlans, etc.  Near the top of the :guilabel:`Body` you will see attributes such as DNS servers, 2 NTP servers, and device hostname. Look through the rest of the :guilabel:`Body` to familiarize yourself with other configurable options.
 
    |lab-4-4|
 
@@ -101,13 +101,13 @@ Now that DO has been installed on your BIG-IP we may proceed configuring the bas
 Task 2 - Get DO declaration status from BIG-IP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have deployed our desired end state to DO, we need to check and see if has finished processing the request. Since we have requested that the BIG-IP enable more resource modules, **Application Security(asm) and Application Visibility(avr)**, it can take a minute or two. Follow the steps below to check the status.
+Now that we have deployed our desired end state to DO, we need to check and see if it has finished processing the request. Since we have requested that the BIG-IP enable more resource modules, **Application Security(asm) and Application Visibility(avr)**, it can take a minute or two. Follow the steps below to check the status.
 
 #. Select ``Step 2: Get DO Status``. Notice that the path endpoint is the same as before but the HTTP method is now **GET** instead of **POST**. This will tell DO that we are looking to receive the current configuration and status rather than define it.
 
    |lab-4-6|
 
-#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and check if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` to check the status until it has completed. You will also notice that the declaration of the box in its current state is returned with each request. This process may take 5-10 minutes
+#. Select :guilabel:`Send`. Review the JSON response :guilabel:`Body` and check if DO has finished provisioning with `"message": "success"` or if it is still in progress with `"message": "processing"`. You may click :guilabel:`Send` multiple times to check the status until it completes. You will also notice that the declaration of the BIG-IP in its current state is returned with each request. This process may take 5-10 minutes
 
 Processing
    |lab-4-7|

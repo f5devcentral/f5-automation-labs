@@ -63,7 +63,7 @@ For further information on the App Services 3 Extension see:
 - **Documentation:** http://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/
 
 An overview of iControl LX can be found at 
-https://devcentral.f5.com/wiki/icontrollx.homepage.ashx
+https://clouddocs.f5.com/products/iapp/iapp-lx/tmos-14_0/
 
 .. NOTE:: This module requires the underlying network configuration that was
    completed in Module 1.  Additionally, **BIG-IP A** must be the **Active**

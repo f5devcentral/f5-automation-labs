@@ -22,7 +22,7 @@ Lab 3.2: Deploying Templates with Tower
       }
    }
 
-Tower is a powerfull tool which can be tailored to your specific environment.
+Tower is a powerful tool which can be tailored to your specific environment.
 The following example **Job Templates** are meant to act as demonstrations of
 what is possible. These are a great starting point for developing your own
 **Service Catalog** and Templates that meet the requirements of your workflow.
@@ -81,7 +81,7 @@ Perform the following steps to complete this task:
    |lab-2-2|
 
 #. Select the :guilabel:`LAUNCH` button to deploy this configuration.
-#. Tower will bring you to a a page to view the **Job** running. Wait for the
+#. Tower will bring you to a page to view the **Job** running. Wait for the
    ``Status`` located in the top left to become ``Green`` and ``Successful``.
    - At this point the JSON file was deployed to the BIG-IP.
 
@@ -175,7 +175,7 @@ Review the following data objects to finish this Task
 
 
 #. This same logic could be followed for grouping multiple applications Together
-   under 1 declartion. Testing has been performed to demonstrate AS3s ability
+   under 1 declaration. Testing has been performed to demonstrate AS3s ability
    to deploy hundreds of Applications through a single declaration.
 
 
@@ -188,7 +188,7 @@ a ``GET``` against AS3 for the current users ''Tenant'' and display it within
 the Job output.
 
 #. Navigate to :guilabel:`Templates` in the GUI and select the
-   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_Deploy_Config``.
+   ``Rocket-Ship Icon`` next to the Template titled ``Tenant1_View_Config``.
 
    |lab-2-5|
 

@@ -1,4 +1,4 @@
-Lab 1.6: Build a BIG-IP Cluster using a Collection
+Lab 1.5: Build a BIG-IP Cluster using a Collection
 --------------------------------------------------
 
 .. graphviz::
@@ -46,7 +46,7 @@ already licensed and has its device-level settings configured. This lab will
 use the Postman Runner functionality introduced above.
 We will run the requests in a Collection Folder to build the cluster.
 If you examine the ``Lab 1.5 - Build a Cluster`` folder in the Collection you
-can see the value of **Declarative** proccesses. The collection is a few API calls
+can see the value of **Declarative** processes. The collection is a few API calls
 to provision both BIG-IP devices and cluster them. In the past using an **Imperative**
 model could have taken 100's of API calls to accomplish the same end state.
 
