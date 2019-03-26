@@ -132,6 +132,9 @@ Perform the following steps to complete this task:
 #. Click the file with the ``.rpm`` extension then click the download button.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
+   .. IMPORTANT:: if the DO version is different than **1.3.0-4**, you need to update
+   the Postman Environments ``do_filename`` and ``do_filelen`` (file size in KB) variables.
+
 #. Click the ``Step 2: Upload DO Extension RPM`` request.
 
 #. Click the :guilabel:`Body` tab, then click the :guilabel:`Choose Files`
