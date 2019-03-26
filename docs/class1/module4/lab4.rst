@@ -124,7 +124,7 @@ In this task, we will create a template which require a Service_HTTP object, for
    .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
 #. Copy the below example of an AS3 service template into the Postman **BIG-IQ AS3 Template Creation** call.
-   It will create a new template in BIG-IQ AS3 Service Catalogue:
+   It will create a new template in BIG-IQ AS3 Service Catalog:
 
    POST https://10.1.1.4/mgmt/cm/global/appsvcs-templates
 
@@ -210,7 +210,7 @@ In this task, we will create a template which require a Service_HTTP object, for
       }
 
 
-#. Logon on BIG-IQ, go to Application tab, then Application Templates. Look at the custom template created previous through the API.
+#. Logon to BIG-IQ, go to the Application tab, then Application Templates. Look at the custom template created previous through the API.
 
    |lab-4-1|
 
@@ -228,7 +228,7 @@ Task 7 - Admin set RBAC for Olivia on BIG-IQ
 
 Let's update now Oliva's service catalog.
 
-Logon on BIG-IQ as **david** go to the System tab, Role Management > Roles > CUSTOM ROLES > Application Roles, select **Application AS3** 
+Logon to BIG-IQ as **david**, go to the System tab, Role Management > Roles > CUSTOM ROLES > Application Roles, select **Application AS3** 
 and the custom role linked to the custom HTTP template previously created. Remove the **default** template from the allowed list. 
 Click **Save & Close**.
 
@@ -246,7 +246,7 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
 
    .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
-#. Copy below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
+#. Copy the below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
 
@@ -324,9 +324,9 @@ the virtualPort is set to 9090 while in the template, we force the virtualPort t
 
 #. Update the ``virtualPort`` to **8080** and re-send the declaration.
 
-#. Logon on **bigip-a.f5.local** and verify the Application is correctly deployed in partition Task8.
+#. Logon to **bigip-a.f5.local** and verify the Application is correctly deployed in partition Task8.
 
-#. Logon on **BIG-IQ** as Olivia, go to Application tab and check the application is displayed and analytics are showing.
+#. Logon to **BIG-IQ** as Olivia, go to the Application tab and check that the application is displayed and analytics are showing.
 
    |lab-4-4|
 
