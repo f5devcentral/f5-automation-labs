@@ -49,7 +49,7 @@ For further information on the Declarative Onboarding Extension see:
 - **Documentation:** https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/
 
 An overview of iControl LX can be found at 
-https://devcentral.f5.com/wiki/icontrollx.homepage.ashx
+https://clouddocs.f5.com/products/iapp/iapp-lx/tmos-14_0/ 
 
 Task 1 - Explore Declarative Onboarding
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,7 +77,7 @@ enable this functionality.  To do this, log in via SSH to Big-IP A (using
 putty on the desktop) into the system with an ``admin`` account that has 
 bash access (for example root) and execute 
 ``touch /var/config/rest/iapps/enable``. No reboot is required.
-This will enable the :menuselection:`iApps --> Package Management LX` menu:
+This will enable the :menuselection:`iApps --> Package Management LX` menu, , which you will be able to confirm at the end of the next lab:
 
 |lab-3-1|
 
@@ -129,7 +129,7 @@ Perform the following steps to complete this task:
 #. Using the Chrome web browser open a new tab and click the
    ``DO Release`` bookmark.
 
-#. Click the file with the ``.rpm`` extension to download it.  The file will be
+#. Click the file with the ``.rpm`` extension then click the download button.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
 #. Click the ``Step 2: Upload DO Extension RPM`` request.

@@ -174,7 +174,7 @@ Perform the following steps to build the cluster:
 #. Click the :guilabel:`Run Lab 3.1 - Ansib...` button.
 
 #. The results window will now populate.  You will see each request in the
-   folder is sent and it's associated test results are displayed on the screen.
+   folder is sent and its associated test results are displayed on the screen.
    Onboarding Ansible Tower will take about a minute.  You can follow the progress
    by scrolling down the results window.
 
