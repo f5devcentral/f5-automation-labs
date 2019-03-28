@@ -159,7 +159,7 @@ Task 4 - Updating the SSL CRT/KEY on a VIP
    |lab-3-11|
 
 #. After the State shows as ``Successful`` you can retrieve the updated AS3
-   declaration by running the ``Tenant1_View_Config``. The output will shows
+   declaration by running the ``Tenant1_View_Config``. The output will show
    the new certificate in the JSON output of the Job Page.
 
    |lab-3-12|

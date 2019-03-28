@@ -14,7 +14,7 @@ should also disappear from BIG-IQ.
 
    .. WARNING:: The token timeout is set to 5 min. If you get the 401 authorization error, request a new token.
 
-#. Copy below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
+#. Copy the below example of an AS3 Declaration into the body of the **BIG-IQ AS3 Declaration** collection in order to create the service on the BIG-IP through BIG-IQ:
 
    POST https://10.1.1.4/mgmt/shared/appsvcs/declare?async=true
 
@@ -41,4 +41,4 @@ should also disappear from BIG-IQ.
          }
       }
 
-#. Check the tenant/application(s) has been correctly removed from the BIG-IP and BIG-IQ.
+#. Check that the tenant/application(s) has been correctly removed from the BIG-IP and BIG-IQ.

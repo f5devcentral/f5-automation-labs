@@ -329,7 +329,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    |lab-2-15|
 
-   Repeate previous steps for **bigip-b.f5.local** device.
+   Repeat previous steps for **bigip-b.f5.local** device.
    
    Back on Logging Profiles, select the ``templates-default`` and click on Deploy.
 
@@ -459,7 +459,7 @@ Let's first deploy the default Advance WAF policy and Security Logging Profile a
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
-#. Logon on **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
+#. Logon to **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
 
 Task 4 - Generic Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -544,7 +544,7 @@ Task 4 - Generic Services
 
    GET https://10.1.1.4/mgmt/shared/appsvcs/task/<id>
 
-#. Logon on **BIG-IQ** as **david**, go to Application tab and check the application is displayed and analytics are showing.
+#. Logon to **BIG-IQ** as **david**, go to the Application tab and check that the application is displayed and analytics are showing.
 
    |lab-2-19|
 
