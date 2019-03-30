@@ -61,7 +61,7 @@ Connect using RDP
    install it using the instructions at
    https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
 
-.. WARNING:: If you have a HiDPI display please refer to the :ref:`lab-udf-hidpi`
+   ::WARNING:: If you have a HiDPI display please refer to the :ref:`lab-udf-hidpi`
       instructions below
 
 #. Open the RDP file in the Remote Desktop Client and connect.  If you have
