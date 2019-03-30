@@ -3,7 +3,7 @@ Amazon AWS Lab Environment Guide
 
 .. ERROR:: The AWS CFT is currently in testing and not complete.  This notice
    will be updated as progress is made.  This functionality should be available
-   by Dec 1st 2017.
+   by Dec 1st 2017. **<--- need to update????**
 
 .. WARNING:: The AWS CFT will run in your account.  The template includes
    components and instances that will incur a charge.  This charge will be
