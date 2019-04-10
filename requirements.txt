@@ -1,8 +1,8 @@
-Sphinx==1.6.2
+Sphinx<2.0
 git+git://github.com/f5devcentral/f5-sphinx-theme@master#egg=f5_sphinx_theme
-sphinxcontrib-addmetahtml
+recommonmark
 GitPython
-#sphinxcontrib-spelling
+sphinxcontrib-addmetahtml
 sphinxcontrib-nwdiag
 sphinxcontrib-blockdiag
 sphinxcontrib-seqdiag

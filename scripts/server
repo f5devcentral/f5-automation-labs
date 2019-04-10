@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	PORT=8000
+else 
+	PORT=$1
+fi
+
+if [ -d _build ]; then
+	echo "Starting server on TCP/$PORT..."
+	echo "Enter <Ctrl+c> to stop the server..."
+	cd _build 
+	for i in `cat ../../server-dependencies`
+	do
+		../../containthedocs-wget $i;
+	done
+	python -mSimpleHTTPServer $PORT
+else
+	echo "The _build directory doesn't exist... try running 'script/setup'"
+	exit 1
+fi

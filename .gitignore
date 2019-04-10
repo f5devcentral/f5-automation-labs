@@ -1,4 +1,6 @@
-*.sublime-*
+docs/_build/*
+media/
+.DS_Store
 pdf/*
-docs/.vscode/settings.json
-python*
+.vscode
+*.sublime-*

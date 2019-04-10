@@ -1,5 +1,7 @@
 @ECHO OFF
 
+pushd %~dp0
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (
@@ -7,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=F5AutomationOrchestration-Introduction
+set SPHINXPROJ=F5AgilityLabs
 
 if "%1" == "" goto help
 
@@ -31,3 +33,4 @@ goto end
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 
 :end
+popd
