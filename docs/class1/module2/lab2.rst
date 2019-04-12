@@ -41,13 +41,9 @@ Perform the following steps to complete this task:
 
 #. Review the JSON response :guilabel:`Body`.  The JSON payload shows
    extensions that are installed on the BIG-IP device in the ``items`` array.
-   In this case we have no extensions installed so the ``items`` array is empty.
+   In this case it should show the DO extension installed during the previous Module in the array.
 
    |lab-2-3|
-
-.. NOTE:: Previous modules in this lab guide had you install the DO extension.
-   If you completed previous lab modules, then you will see DO extension installed
-   and listed in the JSON response.
 
 Task 2 - Install the AS3 Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,9 +55,6 @@ Perform the following steps to complete this task:
 
 #. Click the file with the ``.rpm`` extension then click the download button.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
-
-   .. IMPORTANT:: if the AS3 version is different than **3.9.0-3**, you need to update
-   the Postman Environments ``as3_filename`` and ``as3_filelen`` (file size in KB) variables.
 
 #. Click the ``Step 2: Upload AS3 Extension RPM`` request.
 
