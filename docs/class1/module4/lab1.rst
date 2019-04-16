@@ -12,7 +12,7 @@ This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG
 .. _previous lab: ../module1/lab5.html#task-1-build-a-cluster-using-runner
 
 
-#. Open Google Chrome and navigate to the following bookmarks: **BIG-IQ CM ** or 
+#. Open Google Chrome and navigate to the following bookmarks: **BIG-IQ CM** or 
    navigate to the URL ``https://10.1.1.4``. Bypass any SSL errors that appear and ensure you see the login screen.
 
    .. WARNING:: Skipping this step will result in errors in subsequent steps
