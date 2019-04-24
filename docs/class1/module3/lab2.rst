@@ -35,7 +35,7 @@ below.
 
    .. parsed-literal::
 
-      :raw_github_url:`/files/tower/playbooks`
+      :github_url:`/files/tower`
 
 This lab covers the example of deploying a single AS3 declaration that is stored
 within a GIT Repository. We will be treating the JSON files in this Repository

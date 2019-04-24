@@ -1,7 +1,7 @@
 Lab 4.1: Exploring BIG-IQ
 -------------------------
 
-This lab will focus on adding **BIG-IQ A** and **BIG-IQ B** (clustered) in **BIG-IQ CM**.
+This lab will focus on adding **BIG-IP A** and **BIG-IP B** (clustered) in **BIG-IQ CM**.
 
 .. NOTE:: This guide may require you to Copy/Paste information from the
    guide to your jumphost.  To make this easier you can open a copy of the
