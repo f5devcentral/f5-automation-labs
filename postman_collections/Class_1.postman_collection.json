@@ -1045,7 +1045,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/master/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
+							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/v1.3.0/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_a_mgmt}}/mgmt/tm/util/bash",
@@ -1243,7 +1243,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/master/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
+							"raw": "{\n\t\"command\": \"run\",\n\t\"utilCmdArgs\": \"-c \\\"cd /var/config/rest/downloads/ && curl -flOs https://raw.githubusercontent.com/F5Networks/f5-declarative-onboarding/v1.3.0/dist/f5-declarative-onboarding-1.3.0-4.noarch.rpm\\\"\"\n}"
 						},
 						"url": {
 							"raw": "https://{{bigip_b_mgmt}}/mgmt/tm/util/bash",
