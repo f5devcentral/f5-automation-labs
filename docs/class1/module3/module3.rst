@@ -102,12 +102,12 @@ In this Module we will provision Ansible Tower to deploy and modify the AS3
 declarations you learned about in Module 2. The focus of Module 2 was to
 demonstrate application deployment directly on to the BIG-IP. Tower will allow
 the administrator to build an interface and API for users based on their current
-role within the orginization.
+role within the organization.
 
 For example, in Module 2 we pushed AS3 declarations, updated pool members, and
 provided the user access to modify the full AS3 declaration. This approach would
 provide each user the same administrative priviledges and may not scale within
-orginizations with seperate user functions.
+organizations with separate user functions.
 
 To solve this problem Ansible Tower allows the administrator to create
 **Templates** which can provide further **Abstraction** of the AS3 declarations.

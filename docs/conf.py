@@ -271,6 +271,10 @@ extlinks = {
     'raw_github_url':( ("https://raw.githubusercontent.com/f5devcentral/f5-automation-labs/%s%%s" % git_branch_name), None)
 }
 
+extlinks = {
+    'github_url':( ("https://github.com/f5devcentral/f5-automation-labs/tree/%s%%s" % git_branch_name), None)
+}
+
 def setup(app):
     app.add_stylesheet( "css/f5_agility_theme.css" )
 

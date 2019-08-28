@@ -24,9 +24,8 @@ Lab 2.1: Exploring AS3
 Installation
 ~~~~~~~~~~~~
 
-iControl LX Extensions use the common Redhat Package Manager (RPM) distribution
-format.  To install an extension you need to first obtain the RPM file
-associated with the extension.
+AS3 is another iControl LX Extensions that is part of the F5 Automation Toolchain. 
+To install the extension you need to first obtain the RPM file associated with the extension.
 
 AS3 RPMs are available at https://github.com/f5networks/f5-appsvcs-extension/releases
 
@@ -43,17 +42,12 @@ For instance, you can install AS3 from BIG-IP GUI and then deploy
 a new service via iControl REST using tools such as cURL, Postman
 and Ansible.
 
-To view installed iControl LX Extensions in the BIG-IP GUI you must first
-enable this functionality.  To do this, log in via SSH into the system with an ``admin``
-account and execute ``touch /var/config/rest/iapps/enable``. No reboot is required.
-This will enable the :menuselection:`iApps --> Package Management LX` menu:
-
 |lab-1-1|
 
 Clicking :guilabel:`Package Management LX` will show a table of installed
 iControl LX Extensions:
 
-.. NOTE:: This will be empty until one or more iControl LX Extension packages have been imported.
+.. NOTE:: This should show Declarative Onboarding which was installed in the last module.
 
 |lab-1-2|
 
@@ -88,7 +82,7 @@ to the configuration using the BIG-IP GUI or REST API.
 
 For instance, after an AS3 declaration is deployed, modifying the underlying
 configuration will result in a Source-of-Truth violation.  AS3 **does not**
-prevent out-of-band changes from occuring.  This allows administrators to ensure
+prevent out-of-band changes from occurring.  This allows administrators to ensure
 total control over the system in emergency situations, however, the direct
 modification of objects configured on BIG-IP will effect the integrity of
 AS3 declaration that automation tools are interacting with, causing failures.

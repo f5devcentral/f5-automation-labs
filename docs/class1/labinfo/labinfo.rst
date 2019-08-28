@@ -19,7 +19,9 @@ focus of the lab is Control Plane programmability rather than Data Plane
 traffic flow we can keep the data plane fairly simple. The following
 components have been included in your lab environment:
 
--  2 x F5 BIG-IP VE (v12.1.x)
+-  2 x F5 BIG-IP VE (v13.1.1)
+-  1 x F5 BIG-IQ CM VE (v6.1.0)
+-  1 x F5 BIG-IQ DCD VE (v6.1.0)
 -  1 x Ansible Tower Server
 -  1 x Linux Server
 -  1 x Linux Jumphost
@@ -75,6 +77,18 @@ components:
      - ``admin/admin``
 
        ``root/default``
+   * - BIG-IQ CM
+     - 10.1.1.4
+     - N/A
+     - ``admin/admin``
+     
+       ``root/default``
+   * - BIG-IQ DCD
+     - 10.1.1.6
+     - N/A
+     - ``admin/admin``
+     
+       ``root/default``
    * - Ansible Tower
      - 10.1.1.12
      - N/A
@@ -83,6 +97,9 @@ components:
      - 10.1.1.15
      - **Internal:** 10.1.10.100-103
      - ``root/default``
+
+
+.. NOTE:: The ApacheBench tool (ab) is used to send HTTP traffic from the Linux Jumphost crontab to the VIPs 10.1.20.125-130 (used for class 1 module 4)
 
 Lab Environments
 ----------------

@@ -21,8 +21,7 @@ Lab 2.2: Install the AS3 Extension
       }
    }
 
-As mentioned previously, iControl LX Extensions are packaged using an RPM
-format.  We will use the REST API to install AS3 onto our BIG-IP device.
+We will use the REST API to install AS3 onto our BIG-IP device.
 
 .. NOTE:: This lab work will be performed from
    ``Lab 2.2 - Install AS3 onto BIG-IP`` folder in the Postman
@@ -42,7 +41,7 @@ Perform the following steps to complete this task:
 
 #. Review the JSON response :guilabel:`Body`.  The JSON payload shows
    extensions that are installed on the BIG-IP device in the ``items`` array.
-   In this case we have no extensions installed so the ``items`` array is empty.
+   In this case it should show the DO extension installed during the previous Module in the array.
 
    |lab-2-3|
 
@@ -54,7 +53,7 @@ Perform the following steps to complete this task:
 #. Using the Chrome web browser open a new tab and click the
    ``AS3 Release`` bookmark.
 
-#. Click the file with the ``.rpm`` extension to download it.  The file will be
+#. Click the file with the ``.rpm`` extension then click the download button.  The file will be
    located in the ``/home/ubuntu/Downloads`` folder on your jumphost.
 
 #. Click the ``Step 2: Upload AS3 Extension RPM`` request.
