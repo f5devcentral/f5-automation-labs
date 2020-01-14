@@ -1,1 +1,1 @@
-: ${DOC_IMG:=f5devcentral/containthedocs:1.0.4_agility}
+: ${DOC_IMG:=f5devcentral/containthedocs:latest}
