@@ -93,10 +93,7 @@ addmetahtml_content = """<script async src="https://www.googletagmanager.com/gta
 </script>
 """
 
-html_context = {
-  "github_url":github_url,
-  "github_branch":git_branch_name
-}
+
 
 diag_fontpath = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 diag_html_image_format = 'SVG'
@@ -262,7 +259,9 @@ html_theme_options = {
                         'site_name': 'Community Training Classes & Labs',
                         'next_prev_link': True
                      }
+html_codeblock_linenos_style = 'table'
 html_last_updated_fmt = '%Y-%m-%d %I:%M:%S'
+html_context = {"github_url":github_url, "github_branch":git_branch_name}
 
 if on_rtd:
     templates_path = ['_templates']
